@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.Connection.Protocol do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PROTOCOL_UNSPECIFIED | :ICMP | :TCP | :UDP | :GRE | :ESP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROTOCOL_UNSPECIFIED, 0
   field :ICMP, 1
@@ -13,21 +11,7 @@ defmodule Google.Cloud.Securitycenter.V1.Connection.Protocol do
 end
 defmodule Google.Cloud.Securitycenter.V1.Connection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination_ip: String.t(),
-          destination_port: integer,
-          source_ip: String.t(),
-          source_port: integer,
-          protocol: Google.Cloud.Securitycenter.V1.Connection.Protocol.t()
-        }
-
-  defstruct destination_ip: "",
-            destination_port: 0,
-            source_ip: "",
-            source_port: 0,
-            protocol: :PROTOCOL_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :destination_ip, 1, type: :string, json_name: "destinationIp"
   field :destination_port, 2, type: :int32, json_name: "destinationPort"

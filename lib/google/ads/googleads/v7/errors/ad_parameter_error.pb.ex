@@ -1,13 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Errors.AdParameterErrorEnum.AdParameterError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :AD_GROUP_CRITERION_MUST_BE_KEYWORD
-          | :INVALID_INSERTION_TEXT_FORMAT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -16,9 +9,5 @@ defmodule Google.Ads.Googleads.V7.Errors.AdParameterErrorEnum.AdParameterError d
 end
 defmodule Google.Ads.Googleads.V7.Errors.AdParameterErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

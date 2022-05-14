@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Tasks.V2beta3.HttpMethod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :HTTP_METHOD_UNSPECIFIED
-          | :POST
-          | :GET
-          | :HEAD
-          | :PUT
-          | :DELETE
-          | :PATCH
-          | :OPTIONS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HTTP_METHOD_UNSPECIFIED, 0
   field :POST, 1
@@ -24,53 +13,21 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpMethod do
 end
 defmodule Google.Cloud.Tasks.V2beta3.PullMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload: binary,
-          tag: String.t()
-        }
-
-  defstruct payload: "",
-            tag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
 end
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authorization_header:
-            {:oauth_token, Google.Cloud.Tasks.V2beta3.OAuthToken.t() | nil}
-            | {:oidc_token, Google.Cloud.Tasks.V2beta3.OidcToken.t() | nil},
-          url: String.t(),
-          http_method: Google.Cloud.Tasks.V2beta3.HttpMethod.t(),
-          headers: %{String.t() => String.t()},
-          body: binary
-        }
-
-  defstruct authorization_header: nil,
-            url: "",
-            http_method: :HTTP_METHOD_UNSPECIFIED,
-            headers: %{},
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :authorization_header, 0
 
@@ -100,13 +57,7 @@ defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
 end
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_engine_routing_override: Google.Cloud.Tasks.V2beta3.AppEngineRouting.t() | nil
-        }
-
-  defstruct app_engine_routing_override: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :app_engine_routing_override, 1,
     type: Google.Cloud.Tasks.V2beta3.AppEngineRouting,
@@ -114,36 +65,14 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue do
 end
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          http_method: Google.Cloud.Tasks.V2beta3.HttpMethod.t(),
-          app_engine_routing: Google.Cloud.Tasks.V2beta3.AppEngineRouting.t() | nil,
-          relative_uri: String.t(),
-          headers: %{String.t() => String.t()},
-          body: binary
-        }
-
-  defstruct http_method: :HTTP_METHOD_UNSPECIFIED,
-            app_engine_routing: nil,
-            relative_uri: "",
-            headers: %{},
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :http_method, 1,
     type: Google.Cloud.Tasks.V2beta3.HttpMethod,
@@ -165,19 +94,7 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
 end
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineRouting do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: String.t(),
-          version: String.t(),
-          instance: String.t(),
-          host: String.t()
-        }
-
-  defstruct service: "",
-            version: "",
-            instance: "",
-            host: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :version, 2, type: :string
@@ -186,30 +103,14 @@ defmodule Google.Cloud.Tasks.V2beta3.AppEngineRouting do
 end
 defmodule Google.Cloud.Tasks.V2beta3.OAuthToken do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_account_email: String.t(),
-          scope: String.t()
-        }
-
-  defstruct service_account_email: "",
-            scope: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :scope, 2, type: :string
 end
 defmodule Google.Cloud.Tasks.V2beta3.OidcToken do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_account_email: String.t(),
-          audience: String.t()
-        }
-
-  defstruct service_account_email: "",
-            audience: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string

@@ -1,8 +1,6 @@
 defmodule Google.Api.BackendRule.PathTranslation do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PATH_TRANSLATION_UNSPECIFIED | :CONSTANT_ADDRESS | :APPEND_PATH_TO_ADDRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PATH_TRANSLATION_UNSPECIFIED, 0
   field :CONSTANT_ADDRESS, 1
@@ -10,39 +8,13 @@ defmodule Google.Api.BackendRule.PathTranslation do
 end
 defmodule Google.Api.Backend do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rules: [Google.Api.BackendRule.t()]
-        }
-
-  defstruct rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Api.BackendRule
 end
 defmodule Google.Api.BackendRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authentication: {:jwt_audience, String.t()} | {:disable_auth, boolean},
-          selector: String.t(),
-          address: String.t(),
-          deadline: float | :infinity | :negative_infinity | :nan,
-          min_deadline: float | :infinity | :negative_infinity | :nan,
-          operation_deadline: float | :infinity | :negative_infinity | :nan,
-          path_translation: Google.Api.BackendRule.PathTranslation.t(),
-          protocol: String.t()
-        }
-
-  defstruct authentication: nil,
-            selector: "",
-            address: "",
-            deadline: 0.0,
-            min_deadline: 0.0,
-            operation_deadline: 0.0,
-            path_translation: :PATH_TRANSLATION_UNSPECIFIED,
-            protocol: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :authentication, 0
 

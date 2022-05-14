@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED | :INCH | :CENTIMETER | :POINT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED, 0
   field :INCH, 1
@@ -11,20 +9,7 @@ defmodule Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit do
 end
 defmodule Google.Cloud.Automl.V1.Document.Layout.TextSegmentType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TEXT_SEGMENT_TYPE_UNSPECIFIED
-          | :TOKEN
-          | :PARAGRAPH
-          | :FORM_FIELD
-          | :FORM_FIELD_NAME
-          | :FORM_FIELD_CONTENTS
-          | :TABLE
-          | :TABLE_HEADER
-          | :TABLE_ROW
-          | :TABLE_CELL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TEXT_SEGMENT_TYPE_UNSPECIFIED, 0
   field :TOKEN, 1
@@ -39,15 +24,7 @@ defmodule Google.Cloud.Automl.V1.Document.Layout.TextSegmentType do
 end
 defmodule Google.Cloud.Automl.V1.Image do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data: {:image_bytes, binary},
-          thumbnail_uri: String.t()
-        }
-
-  defstruct data: nil,
-            thumbnail_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -56,17 +33,7 @@ defmodule Google.Cloud.Automl.V1.Image do
 end
 defmodule Google.Cloud.Automl.V1.TextSnippet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: String.t(),
-          mime_type: String.t(),
-          content_uri: String.t()
-        }
-
-  defstruct content: "",
-            mime_type: "",
-            content_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -74,17 +41,7 @@ defmodule Google.Cloud.Automl.V1.TextSnippet do
 end
 defmodule Google.Cloud.Automl.V1.DocumentDimensions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          unit: Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit.t(),
-          width: float | :infinity | :negative_infinity | :nan,
-          height: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct unit: :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED,
-            width: 0.0,
-            height: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :unit, 1,
     type: Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit,
@@ -95,19 +52,7 @@ defmodule Google.Cloud.Automl.V1.DocumentDimensions do
 end
 defmodule Google.Cloud.Automl.V1.Document.Layout do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text_segment: Google.Cloud.Automl.V1.TextSegment.t() | nil,
-          page_number: integer,
-          bounding_poly: Google.Cloud.Automl.V1.BoundingPoly.t() | nil,
-          text_segment_type: Google.Cloud.Automl.V1.Document.Layout.TextSegmentType.t()
-        }
-
-  defstruct text_segment: nil,
-            page_number: 0,
-            bounding_poly: nil,
-            text_segment_type: :TEXT_SEGMENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text_segment, 1, type: Google.Cloud.Automl.V1.TextSegment, json_name: "textSegment"
   field :page_number, 2, type: :int32, json_name: "pageNumber"
@@ -120,21 +65,7 @@ defmodule Google.Cloud.Automl.V1.Document.Layout do
 end
 defmodule Google.Cloud.Automl.V1.Document do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_config: Google.Cloud.Automl.V1.DocumentInputConfig.t() | nil,
-          document_text: Google.Cloud.Automl.V1.TextSnippet.t() | nil,
-          layout: [Google.Cloud.Automl.V1.Document.Layout.t()],
-          document_dimensions: Google.Cloud.Automl.V1.DocumentDimensions.t() | nil,
-          page_count: integer
-        }
-
-  defstruct input_config: nil,
-            document_text: nil,
-            layout: [],
-            document_dimensions: nil,
-            page_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1.DocumentInputConfig,
@@ -151,16 +82,7 @@ defmodule Google.Cloud.Automl.V1.Document do
 end
 defmodule Google.Cloud.Automl.V1.ExamplePayload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:image, Google.Cloud.Automl.V1.Image.t() | nil}
-            | {:text_snippet, Google.Cloud.Automl.V1.TextSnippet.t() | nil}
-            | {:document, Google.Cloud.Automl.V1.Document.t() | nil}
-        }
-
-  defstruct payload: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 

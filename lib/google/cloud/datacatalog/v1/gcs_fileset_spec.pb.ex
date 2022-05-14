@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.GcsFilesetSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_patterns: [String.t()],
-          sample_gcs_file_specs: [Google.Cloud.Datacatalog.V1.GcsFileSpec.t()]
-        }
-
-  defstruct file_patterns: [],
-            sample_gcs_file_specs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_patterns, 1,
     repeated: true,
@@ -24,17 +16,7 @@ defmodule Google.Cloud.Datacatalog.V1.GcsFilesetSpec do
 end
 defmodule Google.Cloud.Datacatalog.V1.GcsFileSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_path: String.t(),
-          gcs_timestamps: Google.Cloud.Datacatalog.V1.SystemTimestamps.t() | nil,
-          size_bytes: integer
-        }
-
-  defstruct file_path: "",
-            gcs_timestamps: nil,
-            size_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_path, 1, type: :string, json_name: "filePath", deprecated: false
 

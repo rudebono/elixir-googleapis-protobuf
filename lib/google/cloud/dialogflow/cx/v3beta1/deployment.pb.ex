@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -11,15 +9,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.State do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.Result do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployment_test_results: [String.t()],
-          experiment: String.t()
-        }
-
-  defstruct deployment_test_results: [],
-            experiment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployment_test_results, 1,
     repeated: true,
@@ -31,23 +21,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.Result do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          flow_version: String.t(),
-          state: Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.State.t(),
-          result: Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.Result.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            flow_version: "",
-            state: :STATE_UNSPECIFIED,
-            result: nil,
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :flow_version, 2, type: :string, json_name: "flowVersion", deprecated: false
@@ -58,17 +32,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployment do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListDeploymentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -76,34 +40,22 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListDeploymentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListDeploymentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployments: [Google.Cloud.Dialogflow.Cx.V3beta1.Deployment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct deployments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Deployments.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Deployments"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.cx.v3beta1.Deployments",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListDeployments,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListDeploymentsRequest,

@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Video.Livestream.V1.CreateChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          channel: Google.Cloud.Video.Livestream.V1.Channel.t() | nil,
-          channel_id: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            channel: nil,
-            channel_id: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
@@ -21,21 +9,7 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateChannelRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -45,17 +19,7 @@ defmodule Google.Cloud.Video.Livestream.V1.ListChannelsRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channels: [Google.Cloud.Video.Livestream.V1.Channel.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct channels: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channels, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Channel
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -63,29 +27,13 @@ defmodule Google.Cloud.Video.Livestream.V1.ListChannelsResponse do
 end
 defmodule Google.Cloud.Video.Livestream.V1.GetChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            request_id: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -93,17 +41,7 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          channel: Google.Cloud.Video.Livestream.V1.Channel.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct update_mask: nil,
-            channel: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
@@ -111,49 +49,21 @@ defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.StartChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Video.Livestream.V1.StopChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          input: Google.Cloud.Video.Livestream.V1.Input.t() | nil,
-          input_id: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            input: nil,
-            input_id: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
@@ -162,21 +72,7 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -186,17 +82,7 @@ defmodule Google.Cloud.Video.Livestream.V1.ListInputsRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inputs: [Google.Cloud.Video.Livestream.V1.Input.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct inputs: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inputs, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Input
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -204,44 +90,20 @@ defmodule Google.Cloud.Video.Livestream.V1.ListInputsResponse do
 end
 defmodule Google.Cloud.Video.Livestream.V1.GetInputRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Video.Livestream.V1.DeleteInputRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Video.Livestream.V1.UpdateInputRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          input: Google.Cloud.Video.Livestream.V1.Input.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct update_mask: nil,
-            input: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
@@ -249,19 +111,7 @@ defmodule Google.Cloud.Video.Livestream.V1.UpdateInputRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.CreateEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          event: Google.Cloud.Video.Livestream.V1.Event.t() | nil,
-          event_id: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            event: nil,
-            event_id: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Video.Livestream.V1.Event, deprecated: false
@@ -270,21 +120,7 @@ defmodule Google.Cloud.Video.Livestream.V1.CreateEventRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -294,17 +130,7 @@ defmodule Google.Cloud.Video.Livestream.V1.ListEventsRequest do
 end
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          events: [Google.Cloud.Video.Livestream.V1.Event.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct events: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :events, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Event
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -312,58 +138,24 @@ defmodule Google.Cloud.Video.Livestream.V1.ListEventsResponse do
 end
 defmodule Google.Cloud.Video.Livestream.V1.GetEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Video.Livestream.V1.DeleteEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Video.Livestream.V1.ChannelOperationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -383,7 +175,9 @@ defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.video.livestream.v1.LivestreamService"
+  use GRPC.Service,
+    name: "google.cloud.video.livestream.v1.LivestreamService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateChannel,
       Google.Cloud.Video.Livestream.V1.CreateChannelRequest,

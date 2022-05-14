@@ -1,22 +1,6 @@
 defmodule Google.Type.Month do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MONTH_UNSPECIFIED
-          | :JANUARY
-          | :FEBRUARY
-          | :MARCH
-          | :APRIL
-          | :MAY
-          | :JUNE
-          | :JULY
-          | :AUGUST
-          | :SEPTEMBER
-          | :OCTOBER
-          | :NOVEMBER
-          | :DECEMBER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MONTH_UNSPECIFIED, 0
   field :JANUARY, 1

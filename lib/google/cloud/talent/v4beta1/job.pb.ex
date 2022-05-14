@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Talent.V4beta1.Job.ApplicationInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          emails: [String.t()],
-          instruction: String.t(),
-          uris: [String.t()]
-        }
-
-  defstruct emails: [],
-            instruction: "",
-            uris: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :emails, 1, repeated: true, type: :string
   field :instruction, 2, type: :string
@@ -18,15 +8,7 @@ defmodule Google.Cloud.Talent.V4beta1.Job.ApplicationInfo do
 end
 defmodule Google.Cloud.Talent.V4beta1.Job.DerivedInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          locations: [Google.Cloud.Talent.V4beta1.Location.t()],
-          job_categories: [Google.Cloud.Talent.V4beta1.JobCategory.t()]
-        }
-
-  defstruct locations: [],
-            job_categories: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :locations, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Location
 
@@ -38,15 +20,7 @@ defmodule Google.Cloud.Talent.V4beta1.Job.DerivedInfo do
 end
 defmodule Google.Cloud.Talent.V4beta1.Job.ProcessingOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disable_street_address_resolution: boolean,
-          html_sanitization: Google.Cloud.Talent.V4beta1.HtmlSanitization.t()
-        }
-
-  defstruct disable_street_address_resolution: false,
-            html_sanitization: :HTML_SANITIZATION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disable_street_address_resolution, 1,
     type: :bool,
@@ -59,88 +33,14 @@ defmodule Google.Cloud.Talent.V4beta1.Job.ProcessingOptions do
 end
 defmodule Google.Cloud.Talent.V4beta1.Job.CustomAttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Talent.V4beta1.CustomAttribute.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Talent.V4beta1.CustomAttribute
 end
 defmodule Google.Cloud.Talent.V4beta1.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          company: String.t(),
-          requisition_id: String.t(),
-          title: String.t(),
-          description: String.t(),
-          addresses: [String.t()],
-          application_info: Google.Cloud.Talent.V4beta1.Job.ApplicationInfo.t() | nil,
-          job_benefits: [Google.Cloud.Talent.V4beta1.JobBenefit.t()],
-          compensation_info: Google.Cloud.Talent.V4beta1.CompensationInfo.t() | nil,
-          custom_attributes: %{
-            String.t() => Google.Cloud.Talent.V4beta1.CustomAttribute.t() | nil
-          },
-          degree_types: [Google.Cloud.Talent.V4beta1.DegreeType.t()],
-          department: String.t(),
-          employment_types: [Google.Cloud.Talent.V4beta1.EmploymentType.t()],
-          incentives: String.t(),
-          language_code: String.t(),
-          job_level: Google.Cloud.Talent.V4beta1.JobLevel.t(),
-          promotion_value: integer,
-          qualifications: String.t(),
-          responsibilities: String.t(),
-          posting_region: Google.Cloud.Talent.V4beta1.PostingRegion.t(),
-          visibility: Google.Cloud.Talent.V4beta1.Visibility.t(),
-          job_start_time: Google.Protobuf.Timestamp.t() | nil,
-          job_end_time: Google.Protobuf.Timestamp.t() | nil,
-          posting_publish_time: Google.Protobuf.Timestamp.t() | nil,
-          posting_expire_time: Google.Protobuf.Timestamp.t() | nil,
-          posting_create_time: Google.Protobuf.Timestamp.t() | nil,
-          posting_update_time: Google.Protobuf.Timestamp.t() | nil,
-          company_display_name: String.t(),
-          derived_info: Google.Cloud.Talent.V4beta1.Job.DerivedInfo.t() | nil,
-          processing_options: Google.Cloud.Talent.V4beta1.Job.ProcessingOptions.t() | nil
-        }
-
-  defstruct name: "",
-            company: "",
-            requisition_id: "",
-            title: "",
-            description: "",
-            addresses: [],
-            application_info: nil,
-            job_benefits: [],
-            compensation_info: nil,
-            custom_attributes: %{},
-            degree_types: [],
-            department: "",
-            employment_types: [],
-            incentives: "",
-            language_code: "",
-            job_level: :JOB_LEVEL_UNSPECIFIED,
-            promotion_value: 0,
-            qualifications: "",
-            responsibilities: "",
-            posting_region: :POSTING_REGION_UNSPECIFIED,
-            visibility: :VISIBILITY_UNSPECIFIED,
-            job_start_time: nil,
-            job_end_time: nil,
-            posting_publish_time: nil,
-            posting_expire_time: nil,
-            posting_create_time: nil,
-            posting_update_time: nil,
-            company_display_name: "",
-            derived_info: nil,
-            processing_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :company, 2, type: :string, deprecated: false

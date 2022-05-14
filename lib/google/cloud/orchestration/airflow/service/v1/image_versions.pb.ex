@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          include_past_releases: boolean
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            include_past_releases: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -21,15 +9,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRequest
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_versions: [Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersion.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct image_versions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_versions, 1,
     repeated: true,
@@ -40,23 +20,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRespons
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_version_id: String.t(),
-          is_default: boolean,
-          supported_python_versions: [String.t()],
-          release_date: Google.Type.Date.t() | nil,
-          creation_disabled: boolean,
-          upgrade_disabled: boolean
-        }
-
-  defstruct image_version_id: "",
-            is_default: false,
-            supported_python_versions: [],
-            release_date: nil,
-            creation_disabled: false,
-            upgrade_disabled: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_version_id, 1, type: :string, json_name: "imageVersionId"
   field :is_default, 2, type: :bool, json_name: "isDefault"
@@ -72,7 +36,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersion do
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.orchestration.airflow.service.v1.ImageVersions"
+  use GRPC.Service,
+    name: "google.cloud.orchestration.airflow.service.v1.ImageVersions",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListImageVersions,
       Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRequest,

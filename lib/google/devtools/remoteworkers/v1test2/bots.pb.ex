@@ -1,15 +1,6 @@
 defmodule Google.Devtools.Remoteworkers.V1test2.BotStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :BOT_STATUS_UNSPECIFIED
-          | :OK
-          | :UNHEALTHY
-          | :HOST_REBOOTING
-          | :BOT_TERMINATING
-          | :INITIALIZING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BOT_STATUS_UNSPECIFIED, 0
   field :OK, 1
@@ -20,9 +11,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.BotStatus do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.LeaseState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LEASE_STATE_UNSPECIFIED | :PENDING | :ACTIVE | :COMPLETED | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LEASE_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -32,9 +21,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.LeaseState do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :BOT_UPDATE | :BOT_RESTART | :BOT_TERMINATE | :HOST_RESTART
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :BOT_UPDATE, 1
@@ -44,25 +31,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          bot_id: String.t(),
-          status: Google.Devtools.Remoteworkers.V1test2.BotStatus.t(),
-          worker: Google.Devtools.Remoteworkers.V1test2.Worker.t() | nil,
-          leases: [Google.Devtools.Remoteworkers.V1test2.Lease.t()],
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          version: String.t()
-        }
-
-  defstruct name: "",
-            bot_id: "",
-            status: :BOT_STATUS_UNSPECIFIED,
-            worker: nil,
-            leases: [],
-            expire_time: nil,
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :bot_id, 2, type: :string, json_name: "botId"
@@ -74,29 +43,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          payload: Google.Protobuf.Any.t() | nil,
-          result: Google.Protobuf.Any.t() | nil,
-          state: Google.Devtools.Remoteworkers.V1test2.LeaseState.t(),
-          status: Google.Rpc.Status.t() | nil,
-          requirements: Google.Devtools.Remoteworkers.V1test2.Worker.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          assignment: String.t(),
-          inline_assignment: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct id: "",
-            payload: nil,
-            result: nil,
-            state: :LEASE_STATE_UNSPECIFIED,
-            status: nil,
-            requirements: nil,
-            expire_time: nil,
-            assignment: "",
-            inline_assignment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 7, type: :string
   field :payload, 8, type: Google.Protobuf.Any
@@ -114,30 +61,14 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          command: Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command.t(),
-          arg: String.t()
-        }
-
-  defstruct command: :UNSPECIFIED,
-            arg: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :command, 1, type: Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command, enum: true
   field :arg, 2, type: :string
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          bot_session: Google.Devtools.Remoteworkers.V1test2.BotSession.t() | nil
-        }
-
-  defstruct parent: "",
-            bot_session: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -148,17 +79,7 @@ defmodule Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          bot_session: Google.Devtools.Remoteworkers.V1test2.BotSession.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            bot_session: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -174,7 +95,9 @@ defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.remoteworkers.v1test2.Bots"
+  use GRPC.Service,
+    name: "google.devtools.remoteworkers.v1test2.Bots",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateBotSession,
       Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest,

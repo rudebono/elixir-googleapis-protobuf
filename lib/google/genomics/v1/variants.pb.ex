@@ -1,8 +1,6 @@
 defmodule Google.Genomics.V1.InfoMergeOperation do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INFO_MERGE_OPERATION_UNSPECIFIED | :IGNORE_NEW | :MOVE_TO_CALLS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INFO_MERGE_OPERATION_UNSPECIFIED, 0
   field :IGNORE_NEW, 1
@@ -10,9 +8,7 @@ defmodule Google.Genomics.V1.InfoMergeOperation do
 end
 defmodule Google.Genomics.V1.VariantSetMetadata.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :INTEGER | :FLOAT | :FLAG | :CHARACTER | :STRING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INTEGER, 1
@@ -23,9 +19,7 @@ defmodule Google.Genomics.V1.VariantSetMetadata.Type do
 end
 defmodule Google.Genomics.V1.ImportVariantsRequest.Format do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FORMAT_UNSPECIFIED | :FORMAT_VCF | :FORMAT_COMPLETE_GENOMICS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :FORMAT_VCF, 1
@@ -33,49 +27,21 @@ defmodule Google.Genomics.V1.ImportVariantsRequest.Format do
 end
 defmodule Google.Genomics.V1.ExportVariantSetRequest.Format do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FORMAT_UNSPECIFIED | :FORMAT_BIGQUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :FORMAT_BIGQUERY, 1
 end
 defmodule Google.Genomics.V1.VariantSetMetadata.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.VariantSetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t(),
-          id: String.t(),
-          type: Google.Genomics.V1.VariantSetMetadata.Type.t(),
-          number: String.t(),
-          description: String.t(),
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct key: "",
-            value: "",
-            id: "",
-            type: :TYPE_UNSPECIFIED,
-            number: "",
-            description: "",
-            info: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -87,25 +53,7 @@ defmodule Google.Genomics.V1.VariantSetMetadata do
 end
 defmodule Google.Genomics.V1.VariantSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_id: String.t(),
-          id: String.t(),
-          reference_set_id: String.t(),
-          reference_bounds: [Google.Genomics.V1.ReferenceBound.t()],
-          metadata: [Google.Genomics.V1.VariantSetMetadata.t()],
-          name: String.t(),
-          description: String.t()
-        }
-
-  defstruct dataset_id: "",
-            id: "",
-            reference_set_id: "",
-            reference_bounds: [],
-            metadata: [],
-            name: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :id, 2, type: :string
@@ -122,52 +70,14 @@ defmodule Google.Genomics.V1.VariantSet do
 end
 defmodule Google.Genomics.V1.Variant.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.Variant do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t(),
-          id: String.t(),
-          names: [String.t()],
-          created: integer,
-          reference_name: String.t(),
-          start: integer,
-          end: integer,
-          reference_bases: String.t(),
-          alternate_bases: [String.t()],
-          quality: float | :infinity | :negative_infinity | :nan,
-          filter: [String.t()],
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil},
-          calls: [Google.Genomics.V1.VariantCall.t()]
-        }
-
-  defstruct variant_set_id: "",
-            id: "",
-            names: [],
-            created: 0,
-            reference_name: "",
-            start: 0,
-            end: 0,
-            reference_bases: "",
-            alternate_bases: [],
-            quality: 0.0,
-            filter: [],
-            info: %{},
-            calls: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 15, type: :string, json_name: "variantSetId"
   field :id, 2, type: :string
@@ -185,38 +95,14 @@ defmodule Google.Genomics.V1.Variant do
 end
 defmodule Google.Genomics.V1.VariantCall.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.VariantCall do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set_id: String.t(),
-          call_set_name: String.t(),
-          genotype: [integer],
-          phaseset: String.t(),
-          genotype_likelihood: [float | :infinity | :negative_infinity | :nan],
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct call_set_id: "",
-            call_set_name: "",
-            genotype: [],
-            phaseset: "",
-            genotype_likelihood: [],
-            info: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set_id, 8, type: :string, json_name: "callSetId"
   field :call_set_name, 9, type: :string, json_name: "callSetName"
@@ -227,38 +113,14 @@ defmodule Google.Genomics.V1.VariantCall do
 end
 defmodule Google.Genomics.V1.CallSet.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.CallSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          name: String.t(),
-          sample_id: String.t(),
-          variant_set_ids: [String.t()],
-          created: integer,
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct id: "",
-            name: "",
-            sample_id: "",
-            variant_set_ids: [],
-            created: 0,
-            info: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -269,51 +131,21 @@ defmodule Google.Genomics.V1.CallSet do
 end
 defmodule Google.Genomics.V1.ReferenceBound do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_name: String.t(),
-          upper_bound: integer
-        }
-
-  defstruct reference_name: "",
-            upper_bound: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_name, 1, type: :string, json_name: "referenceName"
   field :upper_bound, 2, type: :int64, json_name: "upperBound"
 end
 defmodule Google.Genomics.V1.ImportVariantsRequest.InfoMergeConfigEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Genomics.V1.InfoMergeOperation.t()
-        }
-
-  defstruct key: "",
-            value: :INFO_MERGE_OPERATION_UNSPECIFIED
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Genomics.V1.InfoMergeOperation, enum: true
 end
 defmodule Google.Genomics.V1.ImportVariantsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t(),
-          source_uris: [String.t()],
-          format: Google.Genomics.V1.ImportVariantsRequest.Format.t(),
-          normalize_reference_names: boolean,
-          info_merge_config: %{String.t() => Google.Genomics.V1.InfoMergeOperation.t()}
-        }
-
-  defstruct variant_set_id: "",
-            source_uris: [],
-            format: :FORMAT_UNSPECIFIED,
-            normalize_reference_names: false,
-            info_merge_config: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
   field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
@@ -328,47 +160,19 @@ defmodule Google.Genomics.V1.ImportVariantsRequest do
 end
 defmodule Google.Genomics.V1.ImportVariantsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set_ids: [String.t()]
-        }
-
-  defstruct call_set_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set_ids, 1, repeated: true, type: :string, json_name: "callSetIds"
 end
 defmodule Google.Genomics.V1.CreateVariantSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set: Google.Genomics.V1.VariantSet.t() | nil
-        }
-
-  defstruct variant_set: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set, 1, type: Google.Genomics.V1.VariantSet, json_name: "variantSet"
 end
 defmodule Google.Genomics.V1.ExportVariantSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t(),
-          call_set_ids: [String.t()],
-          project_id: String.t(),
-          format: Google.Genomics.V1.ExportVariantSetRequest.Format.t(),
-          bigquery_dataset: String.t(),
-          bigquery_table: String.t()
-        }
-
-  defstruct variant_set_id: "",
-            call_set_ids: [],
-            project_id: "",
-            format: :FORMAT_UNSPECIFIED,
-            bigquery_dataset: "",
-            bigquery_table: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
   field :call_set_ids, 2, repeated: true, type: :string, json_name: "callSetIds"
@@ -379,29 +183,13 @@ defmodule Google.Genomics.V1.ExportVariantSetRequest do
 end
 defmodule Google.Genomics.V1.GetVariantSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t()
-        }
-
-  defstruct variant_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
 end
 defmodule Google.Genomics.V1.SearchVariantSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_ids: [String.t()],
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct dataset_ids: [],
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -409,15 +197,7 @@ defmodule Google.Genomics.V1.SearchVariantSetsRequest do
 end
 defmodule Google.Genomics.V1.SearchVariantSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_sets: [Google.Genomics.V1.VariantSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct variant_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_sets, 1,
     repeated: true,
@@ -428,29 +208,13 @@ defmodule Google.Genomics.V1.SearchVariantSetsResponse do
 end
 defmodule Google.Genomics.V1.DeleteVariantSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t()
-        }
-
-  defstruct variant_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
 end
 defmodule Google.Genomics.V1.UpdateVariantSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t(),
-          variant_set: Google.Genomics.V1.VariantSet.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct variant_set_id: "",
-            variant_set: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
   field :variant_set, 2, type: Google.Genomics.V1.VariantSet, json_name: "variantSet"
@@ -458,29 +222,7 @@ defmodule Google.Genomics.V1.UpdateVariantSetRequest do
 end
 defmodule Google.Genomics.V1.SearchVariantsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_ids: [String.t()],
-          variant_name: String.t(),
-          call_set_ids: [String.t()],
-          reference_name: String.t(),
-          start: integer,
-          end: integer,
-          page_token: String.t(),
-          page_size: integer,
-          max_calls: integer
-        }
-
-  defstruct variant_set_ids: [],
-            variant_name: "",
-            call_set_ids: [],
-            reference_name: "",
-            start: 0,
-            end: 0,
-            page_token: "",
-            page_size: 0,
-            max_calls: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_ids, 1, repeated: true, type: :string, json_name: "variantSetIds"
   field :variant_name, 2, type: :string, json_name: "variantName"
@@ -494,44 +236,20 @@ defmodule Google.Genomics.V1.SearchVariantsRequest do
 end
 defmodule Google.Genomics.V1.SearchVariantsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variants: [Google.Genomics.V1.Variant.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct variants: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variants, 1, repeated: true, type: Google.Genomics.V1.Variant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Genomics.V1.CreateVariantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant: Google.Genomics.V1.Variant.t() | nil
-        }
-
-  defstruct variant: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant, 1, type: Google.Genomics.V1.Variant
 end
 defmodule Google.Genomics.V1.UpdateVariantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_id: String.t(),
-          variant: Google.Genomics.V1.Variant.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct variant_id: "",
-            variant: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_id, 1, type: :string, json_name: "variantId"
   field :variant, 2, type: Google.Genomics.V1.Variant
@@ -539,56 +257,26 @@ defmodule Google.Genomics.V1.UpdateVariantRequest do
 end
 defmodule Google.Genomics.V1.DeleteVariantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_id: String.t()
-        }
-
-  defstruct variant_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_id, 1, type: :string, json_name: "variantId"
 end
 defmodule Google.Genomics.V1.GetVariantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_id: String.t()
-        }
-
-  defstruct variant_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_id, 1, type: :string, json_name: "variantId"
 end
 defmodule Google.Genomics.V1.MergeVariantsRequest.InfoMergeConfigEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Genomics.V1.InfoMergeOperation.t()
-        }
-
-  defstruct key: "",
-            value: :INFO_MERGE_OPERATION_UNSPECIFIED
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Genomics.V1.InfoMergeOperation, enum: true
 end
 defmodule Google.Genomics.V1.MergeVariantsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_id: String.t(),
-          variants: [Google.Genomics.V1.Variant.t()],
-          info_merge_config: %{String.t() => Google.Genomics.V1.InfoMergeOperation.t()}
-        }
-
-  defstruct variant_set_id: "",
-            variants: [],
-            info_merge_config: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_id, 1, type: :string, json_name: "variantSetId"
   field :variants, 2, repeated: true, type: Google.Genomics.V1.Variant
@@ -601,19 +289,7 @@ defmodule Google.Genomics.V1.MergeVariantsRequest do
 end
 defmodule Google.Genomics.V1.SearchCallSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variant_set_ids: [String.t()],
-          name: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct variant_set_ids: [],
-            name: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variant_set_ids, 1, repeated: true, type: :string, json_name: "variantSetIds"
   field :name, 2, type: :string
@@ -622,44 +298,20 @@ defmodule Google.Genomics.V1.SearchCallSetsRequest do
 end
 defmodule Google.Genomics.V1.SearchCallSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_sets: [Google.Genomics.V1.CallSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct call_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_sets, 1, repeated: true, type: Google.Genomics.V1.CallSet, json_name: "callSets"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Genomics.V1.CreateCallSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set: Google.Genomics.V1.CallSet.t() | nil
-        }
-
-  defstruct call_set: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set, 1, type: Google.Genomics.V1.CallSet, json_name: "callSet"
 end
 defmodule Google.Genomics.V1.UpdateCallSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set_id: String.t(),
-          call_set: Google.Genomics.V1.CallSet.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct call_set_id: "",
-            call_set: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set_id, 1, type: :string, json_name: "callSetId"
   field :call_set, 2, type: Google.Genomics.V1.CallSet, json_name: "callSet"
@@ -667,47 +319,19 @@ defmodule Google.Genomics.V1.UpdateCallSetRequest do
 end
 defmodule Google.Genomics.V1.DeleteCallSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set_id: String.t()
-        }
-
-  defstruct call_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set_id, 1, type: :string, json_name: "callSetId"
 end
 defmodule Google.Genomics.V1.GetCallSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          call_set_id: String.t()
-        }
-
-  defstruct call_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :call_set_id, 1, type: :string, json_name: "callSetId"
 end
 defmodule Google.Genomics.V1.StreamVariantsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          variant_set_id: String.t(),
-          call_set_ids: [String.t()],
-          reference_name: String.t(),
-          start: integer,
-          end: integer
-        }
-
-  defstruct project_id: "",
-            variant_set_id: "",
-            call_set_ids: [],
-            reference_name: "",
-            start: 0,
-            end: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :variant_set_id, 2, type: :string, json_name: "variantSetId"
@@ -718,19 +342,15 @@ defmodule Google.Genomics.V1.StreamVariantsRequest do
 end
 defmodule Google.Genomics.V1.StreamVariantsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variants: [Google.Genomics.V1.Variant.t()]
-        }
-
-  defstruct variants: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variants, 1, repeated: true, type: Google.Genomics.V1.Variant
 end
 defmodule Google.Genomics.V1.StreamingVariantService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.genomics.v1.StreamingVariantService"
+  use GRPC.Service,
+    name: "google.genomics.v1.StreamingVariantService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :StreamVariants,
       Google.Genomics.V1.StreamVariantsRequest,
@@ -743,7 +363,9 @@ defmodule Google.Genomics.V1.StreamingVariantService.Stub do
 end
 defmodule Google.Genomics.V1.VariantServiceV1.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.genomics.v1.VariantServiceV1"
+  use GRPC.Service,
+    name: "google.genomics.v1.VariantServiceV1",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ImportVariants, Google.Genomics.V1.ImportVariantsRequest, Google.Longrunning.Operation
 

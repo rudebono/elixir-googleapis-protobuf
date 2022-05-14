@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Agent.MatchMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MATCH_MODE_UNSPECIFIED | :MATCH_MODE_HYBRID | :MATCH_MODE_ML_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MATCH_MODE_UNSPECIFIED, 0
   field :MATCH_MODE_HYBRID, 1
@@ -10,14 +8,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Agent.MatchMode do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Agent.ApiVersion do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :API_VERSION_UNSPECIFIED
-          | :API_VERSION_V1
-          | :API_VERSION_V2
-          | :API_VERSION_V2_BETA_1
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :API_VERSION_UNSPECIFIED, 0
   field :API_VERSION_V1, 1
@@ -26,10 +17,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Agent.ApiVersion do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Agent.Tier do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :TIER_UNSPECIFIED | :TIER_STANDARD | :TIER_ENTERPRISE | :TIER_ENTERPRISE_PLUS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :TIER_STANDARD, 1
@@ -38,35 +26,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Agent.Tier do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Agent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          display_name: String.t(),
-          default_language_code: String.t(),
-          supported_language_codes: [String.t()],
-          time_zone: String.t(),
-          description: String.t(),
-          avatar_uri: String.t(),
-          enable_logging: boolean,
-          match_mode: Google.Cloud.Dialogflow.V2beta1.Agent.MatchMode.t(),
-          classification_threshold: float | :infinity | :negative_infinity | :nan,
-          api_version: Google.Cloud.Dialogflow.V2beta1.Agent.ApiVersion.t(),
-          tier: Google.Cloud.Dialogflow.V2beta1.Agent.Tier.t()
-        }
-
-  defstruct parent: "",
-            display_name: "",
-            default_language_code: "",
-            supported_language_codes: [],
-            time_zone: "",
-            description: "",
-            avatar_uri: "",
-            enable_logging: false,
-            match_mode: :MATCH_MODE_UNSPECIFIED,
-            classification_threshold: 0.0,
-            api_version: :API_VERSION_UNSPECIFIED,
-            tier: :TIER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -99,71 +59,33 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Agent do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SetAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent: Google.Cloud.Dialogflow.V2beta1.Agent.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct agent: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :agent, 1, type: Google.Cloud.Dialogflow.V2beta1.Agent, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SubAgent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t(),
-          environment: String.t()
-        }
-
-  defstruct project: "",
-            environment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: :string
   field :environment, 2, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchAgentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -171,55 +93,27 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchAgentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchAgentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agents: [Google.Cloud.Dialogflow.V2beta1.Agent.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct agents: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :agents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Agent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.TrainAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ExportAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          agent_uri: String.t()
-        }
-
-  defstruct parent: "",
-            agent_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :agent_uri, 2, type: :string, json_name: "agentUri"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ExportAgentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent: {:agent_uri, String.t()} | {:agent_content, binary}
-        }
-
-  defstruct agent: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :agent, 0
 
@@ -228,15 +122,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ExportAgentResponse do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ImportAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent: {:agent_uri, String.t()} | {:agent_content, binary},
-          parent: String.t()
-        }
-
-  defstruct agent: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :agent, 0
 
@@ -246,15 +132,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ImportAgentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.RestoreAgentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent: {:agent_uri, String.t()} | {:agent_content, binary},
-          parent: String.t()
-        }
-
-  defstruct agent: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :agent, 0
 
@@ -264,22 +142,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.RestoreAgentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetValidationResultRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct parent: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Agents.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Agents"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2beta1.Agents",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetAgent,
       Google.Cloud.Dialogflow.V2beta1.GetAgentRequest,

@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -24,17 +10,7 @@ defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
 end
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ekm_connections: [Google.Cloud.Kms.V1.EkmConnection.t()],
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct ekm_connections: [],
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ekm_connections, 1,
     repeated: true,
@@ -46,29 +22,13 @@ defmodule Google.Cloud.Kms.V1.ListEkmConnectionsResponse do
 end
 defmodule Google.Cloud.Kms.V1.GetEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Kms.V1.CreateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          ekm_connection_id: String.t(),
-          ekm_connection: Google.Cloud.Kms.V1.EkmConnection.t() | nil
-        }
-
-  defstruct parent: "",
-            ekm_connection_id: "",
-            ekm_connection: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :ekm_connection_id, 2, type: :string, json_name: "ekmConnectionId", deprecated: false
@@ -80,15 +40,7 @@ defmodule Google.Cloud.Kms.V1.CreateEkmConnectionRequest do
 end
 defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ekm_connection: Google.Cloud.Kms.V1.EkmConnection.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct ekm_connection: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ekm_connection, 1,
     type: Google.Cloud.Kms.V1.EkmConnection,
@@ -102,29 +54,7 @@ defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
 end
 defmodule Google.Cloud.Kms.V1.Certificate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          raw_der: binary,
-          parsed: boolean,
-          issuer: String.t(),
-          subject: String.t(),
-          subject_alternative_dns_names: [String.t()],
-          not_before_time: Google.Protobuf.Timestamp.t() | nil,
-          not_after_time: Google.Protobuf.Timestamp.t() | nil,
-          serial_number: String.t(),
-          sha256_fingerprint: String.t()
-        }
-
-  defstruct raw_der: "",
-            parsed: false,
-            issuer: "",
-            subject: "",
-            subject_alternative_dns_names: [],
-            not_before_time: nil,
-            not_after_time: nil,
-            serial_number: "",
-            sha256_fingerprint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :raw_der, 1, type: :bytes, json_name: "rawDer", deprecated: false
   field :parsed, 2, type: :bool, deprecated: false
@@ -152,19 +82,7 @@ defmodule Google.Cloud.Kms.V1.Certificate do
 end
 defmodule Google.Cloud.Kms.V1.EkmConnection.ServiceResolver do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_directory_service: String.t(),
-          endpoint_filter: String.t(),
-          hostname: String.t(),
-          server_certificates: [Google.Cloud.Kms.V1.Certificate.t()]
-        }
-
-  defstruct service_directory_service: "",
-            endpoint_filter: "",
-            hostname: "",
-            server_certificates: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_directory_service, 1,
     type: :string,
@@ -182,19 +100,7 @@ defmodule Google.Cloud.Kms.V1.EkmConnection.ServiceResolver do
 end
 defmodule Google.Cloud.Kms.V1.EkmConnection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          service_resolvers: [Google.Cloud.Kms.V1.EkmConnection.ServiceResolver.t()],
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            service_resolvers: [],
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -212,7 +118,7 @@ defmodule Google.Cloud.Kms.V1.EkmConnection do
 end
 defmodule Google.Cloud.Kms.V1.EkmService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.kms.v1.EkmService"
+  use GRPC.Service, name: "google.cloud.kms.v1.EkmService", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListEkmConnections,
       Google.Cloud.Kms.V1.ListEkmConnectionsRequest,

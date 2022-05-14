@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PROVISIONING
-          | :RUNNING
-          | :RECONCILING
-          | :STOPPING
-          | :ERROR
-          | :DEGRADED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -22,9 +12,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.State do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.VolumeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VOLUME_TYPE_UNSPECIFIED | :GP2 | :GP3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VOLUME_TYPE_UNSPECIFIED, 0
   field :GP2, 1
@@ -32,17 +20,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.VolumeType do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PROVISIONING
-          | :RUNNING
-          | :RECONCILING
-          | :STOPPING
-          | :ERROR
-          | :DEGRADED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -54,9 +32,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.State do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TENANCY_UNSPECIFIED | :DEFAULT | :DEDICATED | :HOST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TENANCY_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -65,63 +41,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          networking: Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking.t() | nil,
-          aws_region: String.t(),
-          control_plane: Google.Cloud.Gkemulticloud.V1.AwsControlPlane.t() | nil,
-          authorization: Google.Cloud.Gkemulticloud.V1.AwsAuthorization.t() | nil,
-          state: Google.Cloud.Gkemulticloud.V1.AwsCluster.State.t(),
-          endpoint: String.t(),
-          uid: String.t(),
-          reconciling: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          annotations: %{String.t() => String.t()},
-          workload_identity_config:
-            Google.Cloud.Gkemulticloud.V1.WorkloadIdentityConfig.t() | nil,
-          cluster_ca_certificate: String.t(),
-          fleet: Google.Cloud.Gkemulticloud.V1.Fleet.t() | nil,
-          logging_config: Google.Cloud.Gkemulticloud.V1.LoggingConfig.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            networking: nil,
-            aws_region: "",
-            control_plane: nil,
-            authorization: nil,
-            state: :STATE_UNSPECIFIED,
-            endpoint: "",
-            uid: "",
-            reconciling: false,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            annotations: %{},
-            workload_identity_config: nil,
-            cluster_ca_certificate: "",
-            fleet: nil,
-            logging_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string, deprecated: false
@@ -187,55 +114,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          instance_type: String.t(),
-          ssh_config: Google.Cloud.Gkemulticloud.V1.AwsSshConfig.t() | nil,
-          subnet_ids: [String.t()],
-          security_group_ids: [String.t()],
-          iam_instance_profile: String.t(),
-          root_volume: Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.t() | nil,
-          main_volume: Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.t() | nil,
-          database_encryption: Google.Cloud.Gkemulticloud.V1.AwsDatabaseEncryption.t() | nil,
-          tags: %{String.t() => String.t()},
-          aws_services_authentication:
-            Google.Cloud.Gkemulticloud.V1.AwsServicesAuthentication.t() | nil,
-          proxy_config: Google.Cloud.Gkemulticloud.V1.AwsProxyConfig.t() | nil,
-          config_encryption: Google.Cloud.Gkemulticloud.V1.AwsConfigEncryption.t() | nil,
-          instance_placement: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.t() | nil
-        }
-
-  defstruct version: "",
-            instance_type: "",
-            ssh_config: nil,
-            subnet_ids: [],
-            security_group_ids: [],
-            iam_instance_profile: "",
-            root_volume: nil,
-            main_volume: nil,
-            database_encryption: nil,
-            tags: %{},
-            aws_services_authentication: nil,
-            proxy_config: nil,
-            config_encryption: nil,
-            instance_placement: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :instance_type, 2, type: :string, json_name: "instanceType", deprecated: false
@@ -301,28 +187,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsServicesAuthentication do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          role_arn: String.t(),
-          role_session_name: String.t()
-        }
-
-  defstruct role_arn: "",
-            role_session_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :role_arn, 1, type: :string, json_name: "roleArn", deprecated: false
   field :role_session_name, 2, type: :string, json_name: "roleSessionName", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsAuthorization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          admin_users: [Google.Cloud.Gkemulticloud.V1.AwsClusterUser.t()]
-        }
-
-  defstruct admin_users: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :admin_users, 1,
     repeated: true,
@@ -332,43 +204,19 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsAuthorization do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterUser do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          username: String.t()
-        }
-
-  defstruct username: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsDatabaseEncryption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_arn: String.t()
-        }
-
-  defstruct kms_key_arn: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_arn, 1, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          size_gib: integer,
-          volume_type: Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.VolumeType.t(),
-          iops: integer,
-          kms_key_arn: String.t()
-        }
-
-  defstruct size_gib: 0,
-            volume_type: :VOLUME_TYPE_UNSPECIFIED,
-            iops: 0,
-            kms_key_arn: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :size_gib, 1, type: :int32, json_name: "sizeGib", deprecated: false
 
@@ -383,17 +231,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vpc_id: String.t(),
-          pod_address_cidr_blocks: [String.t()],
-          service_address_cidr_blocks: [String.t()]
-        }
-
-  defstruct vpc_id: "",
-            pod_address_cidr_blocks: [],
-            service_address_cidr_blocks: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vpc_id, 1, type: :string, json_name: "vpcId", deprecated: false
 
@@ -411,52 +249,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version: String.t(),
-          config: Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.t() | nil,
-          autoscaling: Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling.t() | nil,
-          subnet_id: String.t(),
-          state: Google.Cloud.Gkemulticloud.V1.AwsNodePool.State.t(),
-          uid: String.t(),
-          reconciling: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          annotations: %{String.t() => String.t()},
-          max_pods_constraint: Google.Cloud.Gkemulticloud.V1.MaxPodsConstraint.t() | nil
-        }
-
-  defstruct name: "",
-            version: "",
-            config: nil,
-            autoscaling: nil,
-            subnet_id: "",
-            state: :STATE_UNSPECIFIED,
-            uid: "",
-            reconciling: false,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            annotations: %{},
-            max_pods_constraint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 3, type: :string, deprecated: false
@@ -501,65 +301,21 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance_type: String.t(),
-          root_volume: Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.t() | nil,
-          taints: [Google.Cloud.Gkemulticloud.V1.NodeTaint.t()],
-          labels: %{String.t() => String.t()},
-          tags: %{String.t() => String.t()},
-          iam_instance_profile: String.t(),
-          image_type: String.t(),
-          ssh_config: Google.Cloud.Gkemulticloud.V1.AwsSshConfig.t() | nil,
-          security_group_ids: [String.t()],
-          proxy_config: Google.Cloud.Gkemulticloud.V1.AwsProxyConfig.t() | nil,
-          config_encryption: Google.Cloud.Gkemulticloud.V1.AwsConfigEncryption.t() | nil,
-          instance_placement: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.t() | nil
-        }
-
-  defstruct instance_type: "",
-            root_volume: nil,
-            taints: [],
-            labels: %{},
-            tags: %{},
-            iam_instance_profile: "",
-            image_type: "",
-            ssh_config: nil,
-            security_group_ids: [],
-            proxy_config: nil,
-            config_encryption: nil,
-            instance_placement: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance_type, 1, type: :string, json_name: "instanceType", deprecated: false
 
@@ -620,32 +376,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_node_count: integer,
-          max_node_count: integer
-        }
-
-  defstruct min_node_count: 0,
-            max_node_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsServerConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          valid_versions: [Google.Cloud.Gkemulticloud.V1.AwsK8sVersionInfo.t()],
-          supported_aws_regions: [String.t()]
-        }
-
-  defstruct name: "",
-            valid_versions: [],
-            supported_aws_regions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -658,64 +396,32 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsServerConfig do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsK8sVersionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t()
-        }
-
-  defstruct version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsSshConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ec2_key_pair: String.t()
-        }
-
-  defstruct ec2_key_pair: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ec2_key_pair, 1, type: :string, json_name: "ec2KeyPair", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsProxyConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          secret_arn: String.t(),
-          secret_version: String.t()
-        }
-
-  defstruct secret_arn: "",
-            secret_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :secret_arn, 1, type: :string, json_name: "secretArn"
   field :secret_version, 2, type: :string, json_name: "secretVersion"
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsConfigEncryption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_arn: String.t()
-        }
-
-  defstruct kms_key_arn: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_arn, 1, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tenancy: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy.t()
-        }
-
-  defstruct tenancy: :TENANCY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tenancy, 1,
     type: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy,

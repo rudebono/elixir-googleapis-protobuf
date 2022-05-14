@@ -1,24 +1,12 @@
 defmodule Google.Firestore.V1.DocumentMask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          field_paths: [String.t()]
-        }
-
-  defstruct field_paths: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :field_paths, 1, repeated: true, type: :string, json_name: "fieldPaths"
 end
 defmodule Google.Firestore.V1.Precondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          condition_type: {:exists, boolean} | {:update_time, Google.Protobuf.Timestamp.t() | nil}
-        }
-
-  defstruct condition_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :condition_type, 0
 
@@ -27,25 +15,13 @@ defmodule Google.Firestore.V1.Precondition do
 end
 defmodule Google.Firestore.V1.TransactionOptions.ReadWrite do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          retry_transaction: binary
-        }
-
-  defstruct retry_transaction: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :retry_transaction, 1, type: :bytes, json_name: "retryTransaction"
 end
 defmodule Google.Firestore.V1.TransactionOptions.ReadOnly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consistency_selector: {:read_time, Google.Protobuf.Timestamp.t() | nil}
-        }
-
-  defstruct consistency_selector: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :consistency_selector, 0
 
@@ -53,15 +29,7 @@ defmodule Google.Firestore.V1.TransactionOptions.ReadOnly do
 end
 defmodule Google.Firestore.V1.TransactionOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mode:
-            {:read_only, Google.Firestore.V1.TransactionOptions.ReadOnly.t() | nil}
-            | {:read_write, Google.Firestore.V1.TransactionOptions.ReadWrite.t() | nil}
-        }
-
-  defstruct mode: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mode, 0
 

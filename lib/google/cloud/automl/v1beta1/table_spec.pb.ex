@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.TableSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          time_column_spec_id: String.t(),
-          row_count: integer,
-          valid_row_count: integer,
-          column_count: integer,
-          input_configs: [Google.Cloud.Automl.V1beta1.InputConfig.t()],
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            time_column_spec_id: "",
-            row_count: 0,
-            valid_row_count: 0,
-            column_count: 0,
-            input_configs: [],
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :time_column_spec_id, 2, type: :string, json_name: "timeColumnSpecId"

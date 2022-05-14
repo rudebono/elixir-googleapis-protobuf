@@ -1,15 +1,6 @@
 defmodule Google.Apps.Script.Type.Slides.SlidesAddOnManifest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          homepage_trigger: Google.Apps.Script.Type.HomepageExtensionPoint.t() | nil,
-          on_file_scope_granted_trigger:
-            Google.Apps.Script.Type.Slides.SlidesExtensionPoint.t() | nil
-        }
-
-  defstruct homepage_trigger: nil,
-            on_file_scope_granted_trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :homepage_trigger, 1,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -21,13 +12,7 @@ defmodule Google.Apps.Script.Type.Slides.SlidesAddOnManifest do
 end
 defmodule Google.Apps.Script.Type.Slides.SlidesExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_function: String.t()
-        }
-
-  defstruct run_function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MARKUP_TYPE_UNSPECIFIED
-          | :METRIC
-          | :DIMENSION
-          | :FILTER
-          | :UNUSED
-          | :BLOCKED
-          | :ROW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MARKUP_TYPE_UNSPECIFIED, 0
   field :METRIC, 1
@@ -22,17 +12,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType do
 end
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType.t(),
-          start_char_index: integer,
-          length: integer
-        }
-
-  defstruct type: :MARKUP_TYPE_UNSPECIFIED,
-            start_char_index: 0,
-            length: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType,
@@ -43,17 +23,7 @@ defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
 end
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text_formatted: String.t(),
-          html_formatted: String.t(),
-          markups: [Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup.t()]
-        }
-
-  defstruct text_formatted: "",
-            html_formatted: "",
-            markups: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text_formatted, 1, type: :string, json_name: "textFormatted"
   field :html_formatted, 2, type: :string, json_name: "htmlFormatted"

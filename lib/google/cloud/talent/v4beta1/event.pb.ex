@@ -1,25 +1,6 @@
 defmodule Google.Cloud.Talent.V4beta1.JobEvent.JobEventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :JOB_EVENT_TYPE_UNSPECIFIED
-          | :IMPRESSION
-          | :VIEW
-          | :VIEW_REDIRECT
-          | :APPLICATION_START
-          | :APPLICATION_FINISH
-          | :APPLICATION_QUICK_SUBMISSION
-          | :APPLICATION_REDIRECT
-          | :APPLICATION_START_FROM_SEARCH
-          | :APPLICATION_REDIRECT_FROM_SEARCH
-          | :APPLICATION_COMPANY_SUBMIT
-          | :BOOKMARK
-          | :NOTIFICATION
-          | :HIRED
-          | :SENT_CV
-          | :INTERVIEW_GRANTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JOB_EVENT_TYPE_UNSPECIFIED, 0
   field :IMPRESSION, 1
@@ -40,9 +21,7 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent.JobEventType do
 end
 defmodule Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PROFILE_EVENT_TYPE_UNSPECIFIED | :IMPRESSION | :VIEW | :BOOKMARK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROFILE_EVENT_TYPE_UNSPECIFIED, 0
   field :IMPRESSION, 1
@@ -51,23 +30,7 @@ defmodule Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType do
 end
 defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event:
-            {:job_event, Google.Cloud.Talent.V4beta1.JobEvent.t() | nil}
-            | {:profile_event, Google.Cloud.Talent.V4beta1.ProfileEvent.t() | nil},
-          request_id: String.t(),
-          event_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          event_notes: String.t()
-        }
-
-  defstruct event: nil,
-            request_id: "",
-            event_id: "",
-            create_time: nil,
-            event_notes: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -90,17 +53,7 @@ defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
 end
 defmodule Google.Cloud.Talent.V4beta1.JobEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Talent.V4beta1.JobEvent.JobEventType.t(),
-          jobs: [String.t()],
-          profile: String.t()
-        }
-
-  defstruct type: :JOB_EVENT_TYPE_UNSPECIFIED,
-            jobs: [],
-            profile: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4beta1.JobEvent.JobEventType,
@@ -112,17 +65,7 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent do
 end
 defmodule Google.Cloud.Talent.V4beta1.ProfileEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType.t(),
-          profiles: [String.t()],
-          jobs: [String.t()]
-        }
-
-  defstruct type: :PROFILE_EVENT_TYPE_UNSPECIFIED,
-            profiles: [],
-            jobs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType,

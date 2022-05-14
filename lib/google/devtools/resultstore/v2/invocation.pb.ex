@@ -1,44 +1,12 @@
 defmodule Google.Devtools.Resultstore.V2.Invocation.Id do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation_id: String.t()
-        }
-
-  defstruct invocation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
 end
 defmodule Google.Devtools.Resultstore.V2.Invocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.Invocation.Id.t() | nil,
-          status_attributes: Google.Devtools.Resultstore.V2.StatusAttributes.t() | nil,
-          timing: Google.Devtools.Resultstore.V2.Timing.t() | nil,
-          invocation_attributes: Google.Devtools.Resultstore.V2.InvocationAttributes.t() | nil,
-          workspace_info: Google.Devtools.Resultstore.V2.WorkspaceInfo.t() | nil,
-          properties: [Google.Devtools.Resultstore.V2.Property.t()],
-          files: [Google.Devtools.Resultstore.V2.File.t()],
-          coverage_summaries: [Google.Devtools.Resultstore.V2.LanguageCoverageSummary.t()],
-          aggregate_coverage: Google.Devtools.Resultstore.V2.AggregateCoverage.t() | nil,
-          file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingErrors.t()]
-        }
-
-  defstruct name: "",
-            id: nil,
-            status_attributes: nil,
-            timing: nil,
-            invocation_attributes: nil,
-            workspace_info: nil,
-            properties: [],
-            files: [],
-            coverage_summaries: [],
-            aggregate_coverage: nil,
-            file_processing_errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
@@ -76,29 +44,11 @@ defmodule Google.Devtools.Resultstore.V2.Invocation do
 end
 defmodule Google.Devtools.Resultstore.V2.WorkspaceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workspace_context: Google.Devtools.Resultstore.V2.WorkspaceContext.t() | nil,
-          hostname: String.t(),
-          working_directory: String.t(),
-          tool_tag: String.t(),
-          command_lines: [Google.Devtools.Resultstore.V2.CommandLine.t()]
-        }
-
-  defstruct workspace_context: nil,
-            hostname: "",
-            working_directory: "",
-            tool_tag: "",
-            command_lines: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workspace_context, 1,
     type: Google.Devtools.Resultstore.V2.WorkspaceContext,
@@ -115,19 +65,7 @@ defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
 end
 defmodule Google.Devtools.Resultstore.V2.CommandLine do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label: String.t(),
-          tool: String.t(),
-          args: [String.t()],
-          command: String.t()
-        }
-
-  defstruct label: "",
-            tool: "",
-            args: [],
-            command: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :tool, 2, type: :string
@@ -136,23 +74,7 @@ defmodule Google.Devtools.Resultstore.V2.CommandLine do
 end
 defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          users: [String.t()],
-          labels: [String.t()],
-          description: String.t(),
-          invocation_contexts: [Google.Devtools.Resultstore.V2.InvocationContext.t()],
-          exit_code: integer
-        }
-
-  defstruct project_id: "",
-            users: [],
-            labels: [],
-            description: "",
-            invocation_contexts: [],
-            exit_code: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :users, 2, repeated: true, type: :string
@@ -168,15 +90,7 @@ defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
 end
 defmodule Google.Devtools.Resultstore.V2.InvocationContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          url: String.t()
-        }
-
-  defstruct display_name: "",
-            url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :url, 2, type: :string

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VALUE_TYPE_UNSPECIFIED | :SCALAR | :TENSOR | :BLOB_SEQUENCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :SCALAR, 1
@@ -11,17 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.ValueType do
 end
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.Metadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_step: integer,
-          max_wall_time: Google.Protobuf.Timestamp.t() | nil,
-          max_blob_sequence_length: integer
-        }
-
-  defstruct max_step: 0,
-            max_wall_time: nil,
-            max_blob_sequence_length: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_step, 1, type: :int64, json_name: "maxStep", deprecated: false
 
@@ -37,31 +25,7 @@ defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.Metadata do
 end
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          value_type: Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.ValueType.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          plugin_name: String.t(),
-          plugin_data: binary,
-          metadata: Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.Metadata.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            plugin_name: "",
-            plugin_data: "",
-            metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

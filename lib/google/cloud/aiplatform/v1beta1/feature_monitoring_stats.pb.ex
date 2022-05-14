@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score: float | :infinity | :negative_infinity | :nan,
-          stats_uri: String.t(),
-          anomaly_uri: String.t(),
-          distribution_deviation: float | :infinity | :negative_infinity | :nan,
-          anomaly_detection_threshold: float | :infinity | :negative_infinity | :nan,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct score: 0.0,
-            stats_uri: "",
-            anomaly_uri: "",
-            distribution_deviation: 0.0,
-            anomaly_detection_threshold: 0.0,
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score, 1, type: :double
   field :stats_uri, 3, type: :string, json_name: "statsUri"

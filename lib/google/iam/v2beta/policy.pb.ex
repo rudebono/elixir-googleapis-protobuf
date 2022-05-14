@@ -1,45 +1,13 @@
 defmodule Google.Iam.V2beta.Policy.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Iam.V2beta.Policy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          kind: String.t(),
-          display_name: String.t(),
-          annotations: %{String.t() => String.t()},
-          etag: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          rules: [Google.Iam.V2beta.PolicyRule.t()]
-        }
-
-  defstruct name: "",
-            uid: "",
-            kind: "",
-            display_name: "",
-            annotations: %{},
-            etag: "",
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -72,15 +40,7 @@ defmodule Google.Iam.V2beta.Policy do
 end
 defmodule Google.Iam.V2beta.PolicyRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: {:deny_rule, Google.Iam.V2beta.DenyRule.t() | nil},
-          description: String.t()
-        }
-
-  defstruct kind: nil,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -89,17 +49,7 @@ defmodule Google.Iam.V2beta.PolicyRule do
 end
 defmodule Google.Iam.V2beta.ListPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -107,44 +57,20 @@ defmodule Google.Iam.V2beta.ListPoliciesRequest do
 end
 defmodule Google.Iam.V2beta.ListPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policies: [Google.Iam.V2beta.Policy.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policies, 1, repeated: true, type: Google.Iam.V2beta.Policy
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Iam.V2beta.GetPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Iam.V2beta.CreatePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          policy: Google.Iam.V2beta.Policy.t() | nil,
-          policy_id: String.t()
-        }
-
-  defstruct parent: "",
-            policy: nil,
-            policy_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :policy, 2, type: Google.Iam.V2beta.Policy, deprecated: false
@@ -152,46 +78,26 @@ defmodule Google.Iam.V2beta.CreatePolicyRequest do
 end
 defmodule Google.Iam.V2beta.UpdatePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy: Google.Iam.V2beta.Policy.t() | nil
-        }
-
-  defstruct policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy, 1, type: Google.Iam.V2beta.Policy, deprecated: false
 end
 defmodule Google.Iam.V2beta.DeletePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
 end
 defmodule Google.Iam.V2beta.PolicyOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
 defmodule Google.Iam.V2beta.Policies.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.iam.v2beta.Policies"
+  use GRPC.Service, name: "google.iam.v2beta.Policies", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListPolicies, Google.Iam.V2beta.ListPoliciesRequest, Google.Iam.V2beta.ListPoliciesResponse
 

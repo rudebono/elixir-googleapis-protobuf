@@ -1,33 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.MediaBundleErrorEnum.MediaBundleError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :BAD_REQUEST
-          | :DOUBLECLICK_BUNDLE_NOT_ALLOWED
-          | :EXTERNAL_URL_NOT_ALLOWED
-          | :FILE_TOO_LARGE
-          | :GOOGLE_WEB_DESIGNER_ZIP_FILE_NOT_PUBLISHED
-          | :INVALID_INPUT
-          | :INVALID_MEDIA_BUNDLE
-          | :INVALID_MEDIA_BUNDLE_ENTRY
-          | :INVALID_MIME_TYPE
-          | :INVALID_PATH
-          | :INVALID_URL_REFERENCE
-          | :MEDIA_DATA_TOO_LARGE
-          | :MISSING_PRIMARY_MEDIA_BUNDLE_ENTRY
-          | :SERVER_ERROR
-          | :STORAGE_ERROR
-          | :SWIFFY_BUNDLE_NOT_ALLOWED
-          | :TOO_MANY_FILES
-          | :UNEXPECTED_SIZE
-          | :UNSUPPORTED_GOOGLE_WEB_DESIGNER_ENVIRONMENT
-          | :UNSUPPORTED_HTML5_FEATURE
-          | :URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT
-          | :CUSTOM_EXIT_NOT_ALLOWED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -56,9 +29,5 @@ defmodule Google.Ads.Googleads.V10.Errors.MediaBundleErrorEnum.MediaBundleError 
 end
 defmodule Google.Ads.Googleads.V10.Errors.MediaBundleErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

@@ -1,8 +1,6 @@
 defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :COMBINE_UNSPECIFIED | :AND | :OR | :AND_WITH_MATCHING_RESOURCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMBINE_UNSPECIFIED, 0
   field :AND, 1
@@ -11,28 +9,14 @@ defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: String.t(),
-          mime_type: String.t()
-        }
-
-  defstruct content: "",
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: {:count, integer} | {:percent, float | :infinity | :negative_infinity | :nan}
-        }
-
-  defstruct type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -41,27 +25,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t(),
-          aggregations: [Google.Monitoring.V3.Aggregation.t()],
-          denominator_filter: String.t(),
-          denominator_aggregations: [Google.Monitoring.V3.Aggregation.t()],
-          comparison: Google.Monitoring.V3.ComparisonType.t(),
-          threshold_value: float | :infinity | :negative_infinity | :nan,
-          duration: Google.Protobuf.Duration.t() | nil,
-          trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
-        }
-
-  defstruct filter: "",
-            aggregations: [],
-            denominator_filter: "",
-            denominator_aggregations: [],
-            comparison: :COMPARISON_UNSPECIFIED,
-            threshold_value: 0.0,
-            duration: nil,
-            trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 2, type: :string, deprecated: false
   field :aggregations, 8, repeated: true, type: Google.Monitoring.V3.Aggregation
@@ -79,19 +43,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t(),
-          aggregations: [Google.Monitoring.V3.Aggregation.t()],
-          duration: Google.Protobuf.Duration.t() | nil,
-          trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
-        }
-
-  defstruct filter: "",
-            aggregations: [],
-            duration: nil,
-            trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :aggregations, 5, repeated: true, type: Google.Monitoring.V3.Aggregation
@@ -100,30 +52,14 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t(),
-          label_extractors: %{String.t() => String.t()}
-        }
-
-  defstruct filter: "",
-            label_extractors: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
 
@@ -135,17 +71,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          duration: Google.Protobuf.Duration.t() | nil,
-          trigger: Google.Monitoring.V3.AlertPolicy.Condition.Trigger.t() | nil
-        }
-
-  defstruct query: "",
-            duration: nil,
-            trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :duration, 2, type: Google.Protobuf.Duration
@@ -153,26 +79,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCond
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          condition:
-            {:condition_threshold,
-             Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold.t() | nil}
-            | {:condition_absent,
-               Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence.t() | nil}
-            | {:condition_matched_log,
-               Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.t() | nil}
-            | {:condition_monitoring_query_language,
-               Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition.t()
-               | nil},
-          name: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct condition: nil,
-            name: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :condition, 0
 
@@ -201,28 +108,13 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          period: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct period: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :period, 1, type: Google.Protobuf.Duration
 end
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notification_rate_limit:
-            Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit.t() | nil,
-          auto_close: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct notification_rate_limit: nil,
-            auto_close: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notification_rate_limit, 1,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit,
@@ -232,50 +124,14 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
 end
 defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Monitoring.V3.AlertPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          documentation: Google.Monitoring.V3.AlertPolicy.Documentation.t() | nil,
-          user_labels: %{String.t() => String.t()},
-          conditions: [Google.Monitoring.V3.AlertPolicy.Condition.t()],
-          combiner: Google.Monitoring.V3.AlertPolicy.ConditionCombinerType.t(),
-          enabled: Google.Protobuf.BoolValue.t() | nil,
-          validity: Google.Rpc.Status.t() | nil,
-          notification_channels: [String.t()],
-          creation_record: Google.Monitoring.V3.MutationRecord.t() | nil,
-          mutation_record: Google.Monitoring.V3.MutationRecord.t() | nil,
-          alert_strategy: Google.Monitoring.V3.AlertPolicy.AlertStrategy.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            documentation: nil,
-            user_labels: %{},
-            conditions: [],
-            combiner: :COMBINE_UNSPECIFIED,
-            enabled: nil,
-            validity: nil,
-            notification_channels: [],
-            creation_record: nil,
-            mutation_record: nil,
-            alert_strategy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

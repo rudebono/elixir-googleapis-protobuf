@@ -1,18 +1,6 @@
 defmodule Google.Appengine.Logging.V1.LogLine do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Logging.Type.LogSeverity.t(),
-          log_message: String.t(),
-          source_location: Google.Appengine.Logging.V1.SourceLocation.t() | nil
-        }
-
-  defstruct time: nil,
-            severity: :DEFAULT,
-            log_message: "",
-            source_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :severity, 2, type: Google.Logging.Type.LogSeverity, enum: true
@@ -24,17 +12,7 @@ defmodule Google.Appengine.Logging.V1.LogLine do
 end
 defmodule Google.Appengine.Logging.V1.SourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file: String.t(),
-          line: integer,
-          function_name: String.t()
-        }
-
-  defstruct file: "",
-            line: 0,
-            function_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file, 1, type: :string
   field :line, 2, type: :int64
@@ -42,92 +20,14 @@ defmodule Google.Appengine.Logging.V1.SourceLocation do
 end
 defmodule Google.Appengine.Logging.V1.SourceReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repository: String.t(),
-          revision_id: String.t()
-        }
-
-  defstruct repository: "",
-            revision_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repository, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
 end
 defmodule Google.Appengine.Logging.V1.RequestLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_id: String.t(),
-          module_id: String.t(),
-          version_id: String.t(),
-          request_id: String.t(),
-          ip: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          latency: Google.Protobuf.Duration.t() | nil,
-          mega_cycles: integer,
-          method: String.t(),
-          resource: String.t(),
-          http_version: String.t(),
-          status: integer,
-          response_size: integer,
-          referrer: String.t(),
-          user_agent: String.t(),
-          nickname: String.t(),
-          url_map_entry: String.t(),
-          host: String.t(),
-          cost: float | :infinity | :negative_infinity | :nan,
-          task_queue_name: String.t(),
-          task_name: String.t(),
-          was_loading_request: boolean,
-          pending_time: Google.Protobuf.Duration.t() | nil,
-          instance_index: integer,
-          finished: boolean,
-          first: boolean,
-          instance_id: String.t(),
-          line: [Google.Appengine.Logging.V1.LogLine.t()],
-          app_engine_release: String.t(),
-          trace_id: String.t(),
-          trace_sampled: boolean,
-          source_reference: [Google.Appengine.Logging.V1.SourceReference.t()]
-        }
-
-  defstruct app_id: "",
-            module_id: "",
-            version_id: "",
-            request_id: "",
-            ip: "",
-            start_time: nil,
-            end_time: nil,
-            latency: nil,
-            mega_cycles: 0,
-            method: "",
-            resource: "",
-            http_version: "",
-            status: 0,
-            response_size: 0,
-            referrer: "",
-            user_agent: "",
-            nickname: "",
-            url_map_entry: "",
-            host: "",
-            cost: 0.0,
-            task_queue_name: "",
-            task_name: "",
-            was_loading_request: false,
-            pending_time: nil,
-            instance_index: 0,
-            finished: false,
-            first: false,
-            instance_id: "",
-            line: [],
-            app_engine_release: "",
-            trace_id: "",
-            trace_sampled: false,
-            source_reference: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :app_id, 1, type: :string, json_name: "appId"
   field :module_id, 37, type: :string, json_name: "moduleId"

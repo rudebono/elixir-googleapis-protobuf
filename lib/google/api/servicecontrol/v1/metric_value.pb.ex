@@ -1,38 +1,13 @@
 defmodule Google.Api.Servicecontrol.V1.MetricValue.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.Servicecontrol.V1.MetricValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:bool_value, boolean}
-            | {:int64_value, integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:string_value, String.t()}
-            | {:distribution_value, Google.Api.Servicecontrol.V1.Distribution.t() | nil},
-          labels: %{String.t() => String.t()},
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct value: nil,
-            labels: %{},
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -55,15 +30,7 @@ defmodule Google.Api.Servicecontrol.V1.MetricValue do
 end
 defmodule Google.Api.Servicecontrol.V1.MetricValueSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metric_name: String.t(),
-          metric_values: [Google.Api.Servicecontrol.V1.MetricValue.t()]
-        }
-
-  defstruct metric_name: "",
-            metric_values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 

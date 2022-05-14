@@ -1,29 +1,13 @@
 defmodule Google.Home.Enterprise.Sdm.V1.Structure do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          traits: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct name: "",
-            traits: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :traits, 2, type: Google.Protobuf.Struct
 end
 defmodule Google.Home.Enterprise.Sdm.V1.Room do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          traits: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct name: "",
-            traits: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :traits, 2, type: Google.Protobuf.Struct

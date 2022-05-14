@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project: String.t(),
-          project_display_name: String.t(),
-          parent: String.t(),
-          parent_display_name: String.t(),
-          folders: [Google.Cloud.Securitycenter.V1p1beta1.Folder.t()]
-        }
-
-  defstruct name: "",
-            project: "",
-            project_display_name: "",
-            parent: "",
-            parent_display_name: "",
-            folders: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project, 2, type: :string

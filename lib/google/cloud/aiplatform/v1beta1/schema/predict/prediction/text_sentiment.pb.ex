@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.TextSentimentPredictionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sentiment: integer
-        }
-
-  defstruct sentiment: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sentiment, 1, type: :int32
 end

@@ -1,8 +1,6 @@
 defmodule Google.Maps.Routes.V1.PolylineQuality do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :POLYLINE_QUALITY_UNSPECIFIED | :HIGH_QUALITY | :OVERVIEW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :POLYLINE_QUALITY_UNSPECIFIED, 0
   field :HIGH_QUALITY, 1
@@ -10,9 +8,7 @@ defmodule Google.Maps.Routes.V1.PolylineQuality do
 end
 defmodule Google.Maps.Routes.V1.PolylineEncoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :POLYLINE_ENCODING_UNSPECIFIED | :ENCODED_POLYLINE | :GEO_JSON_LINESTRING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :POLYLINE_ENCODING_UNSPECIFIED, 0
   field :ENCODED_POLYLINE, 1
@@ -20,15 +16,7 @@ defmodule Google.Maps.Routes.V1.PolylineEncoding do
 end
 defmodule Google.Maps.Routes.V1.Polyline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          polyline_type:
-            {:encoded_polyline, String.t()}
-            | {:geo_json_linestring, Google.Protobuf.Struct.t() | nil}
-        }
-
-  defstruct polyline_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :polyline_type, 0
 

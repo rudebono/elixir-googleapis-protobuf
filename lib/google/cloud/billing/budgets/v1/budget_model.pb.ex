@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Billing.Budgets.V1.CalendarPeriod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CALENDAR_PERIOD_UNSPECIFIED | :MONTH | :QUARTER | :YEAR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CALENDAR_PERIOD_UNSPECIFIED, 0
   field :MONTH, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.CalendarPeriod do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.ThresholdRule.Basis do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BASIS_UNSPECIFIED | :CURRENT_SPEND | :FORECASTED_SPEND
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASIS_UNSPECIFIED, 0
   field :CURRENT_SPEND, 1
@@ -21,14 +17,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.ThresholdRule.Basis do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.Filter.CreditTypesTreatment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CREDIT_TYPES_TREATMENT_UNSPECIFIED
-          | :INCLUDE_ALL_CREDITS
-          | :EXCLUDE_ALL_CREDITS
-          | :INCLUDE_SPECIFIED_CREDITS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CREDIT_TYPES_TREATMENT_UNSPECIFIED, 0
   field :INCLUDE_ALL_CREDITS, 1
@@ -37,25 +26,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.Filter.CreditTypesTreatment do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.Budget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          budget_filter: Google.Cloud.Billing.Budgets.V1.Filter.t() | nil,
-          amount: Google.Cloud.Billing.Budgets.V1.BudgetAmount.t() | nil,
-          threshold_rules: [Google.Cloud.Billing.Budgets.V1.ThresholdRule.t()],
-          notifications_rule: Google.Cloud.Billing.Budgets.V1.NotificationsRule.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            budget_filter: nil,
-            amount: nil,
-            threshold_rules: [],
-            notifications_rule: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -82,15 +53,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.Budget do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.BudgetAmount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          budget_amount:
-            {:specified_amount, Google.Type.Money.t() | nil}
-            | {:last_period_amount, Google.Cloud.Billing.Budgets.V1.LastPeriodAmount.t() | nil}
-        }
-
-  defstruct budget_amount: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :budget_amount, 0
 
@@ -103,23 +66,11 @@ defmodule Google.Cloud.Billing.Budgets.V1.BudgetAmount do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.LastPeriodAmount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Billing.Budgets.V1.ThresholdRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          threshold_percent: float | :infinity | :negative_infinity | :nan,
-          spend_basis: Google.Cloud.Billing.Budgets.V1.ThresholdRule.Basis.t()
-        }
-
-  defstruct threshold_percent: 0.0,
-            spend_basis: :BASIS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :threshold_percent, 1, type: :double, json_name: "thresholdPercent", deprecated: false
 
@@ -131,19 +82,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.ThresholdRule do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.NotificationsRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pubsub_topic: String.t(),
-          schema_version: String.t(),
-          monitoring_notification_channels: [String.t()],
-          disable_default_iam_recipients: boolean
-        }
-
-  defstruct pubsub_topic: "",
-            schema_version: "",
-            monitoring_notification_channels: [],
-            disable_default_iam_recipients: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic", deprecated: false
   field :schema_version, 2, type: :string, json_name: "schemaVersion", deprecated: false
@@ -161,42 +100,14 @@ defmodule Google.Cloud.Billing.Budgets.V1.NotificationsRule do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.Filter.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Cloud.Billing.Budgets.V1.Filter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          usage_period:
-            {:calendar_period, Google.Cloud.Billing.Budgets.V1.CalendarPeriod.t()}
-            | {:custom_period, Google.Cloud.Billing.Budgets.V1.CustomPeriod.t() | nil},
-          projects: [String.t()],
-          credit_types: [String.t()],
-          credit_types_treatment: Google.Cloud.Billing.Budgets.V1.Filter.CreditTypesTreatment.t(),
-          services: [String.t()],
-          subaccounts: [String.t()],
-          labels: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct usage_period: nil,
-            projects: [],
-            credit_types: [],
-            credit_types_treatment: :CREDIT_TYPES_TREATMENT_UNSPECIFIED,
-            services: [],
-            subaccounts: [],
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :usage_period, 0
 
@@ -238,15 +149,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.Filter do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.CustomPeriod do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_date: Google.Type.Date.t() | nil,
-          end_date: Google.Type.Date.t() | nil
-        }
-
-  defstruct start_date: nil,
-            end_date: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate", deprecated: false
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate", deprecated: false

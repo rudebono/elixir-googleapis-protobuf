@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -24,17 +10,7 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_server_clusters: [Google.Cloud.Gaming.V1beta.GameServerCluster.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct game_server_clusters: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_server_clusters, 1,
     repeated: true,
@@ -46,29 +22,13 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersResponse do
 end
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1beta.CreateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          game_server_cluster_id: String.t(),
-          game_server_cluster: Google.Cloud.Gaming.V1beta.GameServerCluster.t() | nil
-        }
-
-  defstruct parent: "",
-            game_server_cluster_id: "",
-            game_server_cluster: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -84,19 +44,7 @@ defmodule Google.Cloud.Gaming.V1beta.CreateGameServerClusterRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          game_server_cluster_id: String.t(),
-          game_server_cluster: Google.Cloud.Gaming.V1beta.GameServerCluster.t() | nil,
-          preview_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct parent: "",
-            game_server_cluster_id: "",
-            game_server_cluster: nil,
-            preview_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,42 +65,20 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          etag: String.t(),
-          target_state: Google.Cloud.Gaming.V1beta.TargetState.t() | nil
-        }
-
-  defstruct etag: "",
-            target_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
 defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          preview_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            preview_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -163,30 +89,14 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          etag: String.t(),
-          target_state: Google.Cloud.Gaming.V1beta.TargetState.t() | nil
-        }
-
-  defstruct etag: "",
-            target_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
 defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_server_cluster: Google.Cloud.Gaming.V1beta.GameServerCluster.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct game_server_cluster: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerCluster,
@@ -200,17 +110,7 @@ defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerClusterRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_server_cluster: Google.Cloud.Gaming.V1beta.GameServerCluster.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          preview_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct game_server_cluster: nil,
-            update_mask: nil,
-            preview_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerCluster,
@@ -229,31 +129,14 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterRequest do
 end
 defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          etag: String.t(),
-          target_state: Google.Cloud.Gaming.V1beta.TargetState.t() | nil
-        }
-
-  defstruct etag: "",
-            target_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
 defmodule Google.Cloud.Gaming.V1beta.GameServerClusterConnectionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_reference:
-            {:gke_cluster_reference, Google.Cloud.Gaming.V1beta.GkeClusterReference.t() | nil},
-          namespace: String.t()
-        }
-
-  defstruct cluster_reference: nil,
-            namespace: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :cluster_reference, 0
 
@@ -266,52 +149,20 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerClusterConnectionInfo do
 end
 defmodule Google.Cloud.Gaming.V1beta.GkeClusterReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster: String.t()
-        }
-
-  defstruct cluster: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 end
 defmodule Google.Cloud.Gaming.V1beta.GameServerCluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gaming.V1beta.GameServerCluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          connection_info: Google.Cloud.Gaming.V1beta.GameServerClusterConnectionInfo.t() | nil,
-          etag: String.t(),
-          description: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            connection_info: nil,
-            etag: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

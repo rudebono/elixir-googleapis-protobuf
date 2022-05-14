@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexRef do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index_endpoint: String.t(),
-          deployed_index_id: String.t()
-        }
-
-  defstruct index_endpoint: "",
-            deployed_index_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId", deprecated: false

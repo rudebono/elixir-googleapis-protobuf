@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -18,30 +8,14 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct operation_name: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_name, 1, type: :string, json_name: "operationName"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purged_events_count: integer,
-          user_events_sample: [Google.Cloud.Recommendationengine.V1beta1.UserEvent.t()]
-        }
-
-  defstruct purged_events_count: 0,
-            user_events_sample: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
 
@@ -52,15 +26,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsResponse do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          user_event: Google.Cloud.Recommendationengine.V1beta1.UserEvent.t() | nil
-        }
-
-  defstruct parent: "",
-            user_event: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -71,19 +37,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          user_event: String.t(),
-          uri: String.t(),
-          ets: integer
-        }
-
-  defstruct parent: "",
-            user_event: "",
-            uri: "",
-            ets: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :user_event, 2, type: :string, json_name: "userEvent", deprecated: false
@@ -92,19 +46,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -113,15 +55,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_events: [Google.Cloud.Recommendationengine.V1beta1.UserEvent.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct user_events: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -132,7 +66,9 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.recommendationengine.v1beta1.UserEventService"
+  use GRPC.Service,
+    name: "google.cloud.recommendationengine.v1beta1.UserEventService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :WriteUserEvent,
       Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest,

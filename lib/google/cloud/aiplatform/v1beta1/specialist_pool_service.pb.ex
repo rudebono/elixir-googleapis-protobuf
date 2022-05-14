@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          specialist_pool: Google.Cloud.Aiplatform.V1beta1.SpecialistPool.t() | nil
-        }
-
-  defstruct parent: "",
-            specialist_pool: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,13 +11,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -33,31 +19,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolOperationMetadata 
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -66,15 +34,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          specialist_pools: [Google.Cloud.Aiplatform.V1beta1.SpecialistPool.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct specialist_pools: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :specialist_pools, 1,
     repeated: true,
@@ -85,30 +45,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListSpecialistPoolsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          specialist_pool: Google.Cloud.Aiplatform.V1beta1.SpecialistPool.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct specialist_pool: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :specialist_pool, 1,
     type: Google.Cloud.Aiplatform.V1beta1.SpecialistPool,
@@ -122,15 +66,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          specialist_pool: String.t(),
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct specialist_pool: "",
-            generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :specialist_pool, 1, type: :string, json_name: "specialistPool", deprecated: false
 
@@ -140,7 +76,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSpecialistPoolOperationMetadata 
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.SpecialistPoolService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.SpecialistPoolService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.SpecialistPoolService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateSpecialistPool,
       Google.Cloud.Aiplatform.V1beta1.CreateSpecialistPoolRequest,

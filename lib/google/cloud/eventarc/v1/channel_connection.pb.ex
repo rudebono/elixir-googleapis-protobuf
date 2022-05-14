@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Eventarc.V1.ChannelConnection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          channel: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          activation_token: String.t()
-        }
-
-  defstruct name: "",
-            uid: "",
-            channel: "",
-            create_time: nil,
-            update_time: nil,
-            activation_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

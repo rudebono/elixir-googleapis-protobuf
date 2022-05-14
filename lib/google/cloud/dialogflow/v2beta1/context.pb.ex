@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Context do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          lifespan_count: integer,
-          parameters: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct name: "",
-            lifespan_count: 0,
-            parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :lifespan_count, 2, type: :int32, json_name: "lifespanCount"
@@ -18,17 +8,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Context do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListContextsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -36,57 +16,27 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListContextsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListContextsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          contexts: [Google.Cloud.Dialogflow.V2beta1.Context.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct contexts: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Context
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          context: Google.Cloud.Dialogflow.V2beta1.Context.t() | nil
-        }
-
-  defstruct parent: "",
-            context: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :context, 2, type: Google.Cloud.Dialogflow.V2beta1.Context, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: Google.Cloud.Dialogflow.V2beta1.Context.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct context: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: Google.Cloud.Dialogflow.V2beta1.Context, deprecated: false
 
@@ -97,31 +47,21 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateContextRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteAllContextsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Contexts.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Contexts"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2beta1.Contexts",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListContexts,
       Google.Cloud.Dialogflow.V2beta1.ListContextsRequest,

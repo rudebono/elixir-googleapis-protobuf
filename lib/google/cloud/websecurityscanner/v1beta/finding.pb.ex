@@ -1,43 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1beta.Finding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          finding_type: String.t(),
-          http_method: String.t(),
-          fuzzed_url: String.t(),
-          body: String.t(),
-          description: String.t(),
-          reproduction_url: String.t(),
-          frame_url: String.t(),
-          final_url: String.t(),
-          tracking_id: String.t(),
-          form: Google.Cloud.Websecurityscanner.V1beta.Form.t() | nil,
-          outdated_library: Google.Cloud.Websecurityscanner.V1beta.OutdatedLibrary.t() | nil,
-          violating_resource: Google.Cloud.Websecurityscanner.V1beta.ViolatingResource.t() | nil,
-          vulnerable_headers: Google.Cloud.Websecurityscanner.V1beta.VulnerableHeaders.t() | nil,
-          vulnerable_parameters:
-            Google.Cloud.Websecurityscanner.V1beta.VulnerableParameters.t() | nil,
-          xss: Google.Cloud.Websecurityscanner.V1beta.Xss.t() | nil
-        }
-
-  defstruct name: "",
-            finding_type: "",
-            http_method: "",
-            fuzzed_url: "",
-            body: "",
-            description: "",
-            reproduction_url: "",
-            frame_url: "",
-            final_url: "",
-            tracking_id: "",
-            form: nil,
-            outdated_library: nil,
-            violating_resource: nil,
-            vulnerable_headers: nil,
-            vulnerable_parameters: nil,
-            xss: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :finding_type, 2, type: :string, json_name: "findingType"

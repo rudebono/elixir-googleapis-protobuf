@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          instances: [Google.Protobuf.Value.t()],
-          parameters: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct endpoint: "",
-            instances: [],
-            parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -18,21 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          predictions: [Google.Protobuf.Value.t()],
-          deployed_model_id: String.t(),
-          model: String.t(),
-          model_version_id: String.t(),
-          model_display_name: String.t()
-        }
-
-  defstruct predictions: [],
-            deployed_model_id: "",
-            model: "",
-            model_version_id: "",
-            model_display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
@@ -42,37 +18,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          http_body: Google.Api.HttpBody.t() | nil
-        }
-
-  defstruct endpoint: "",
-            http_body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          instances: [Google.Protobuf.Value.t()],
-          parameters: Google.Protobuf.Value.t() | nil,
-          explanation_spec_override:
-            Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride.t() | nil,
-          deployed_model_id: String.t()
-        }
-
-  defstruct endpoint: "",
-            instances: [],
-            parameters: nil,
-            explanation_spec_override: nil,
-            deployed_model_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -86,17 +39,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          explanations: [Google.Cloud.Aiplatform.V1beta1.Explanation.t()],
-          deployed_model_id: String.t(),
-          predictions: [Google.Protobuf.Value.t()]
-        }
-
-  defstruct explanations: [],
-            deployed_model_id: "",
-            predictions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
@@ -104,7 +47,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.PredictionService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.PredictionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Predict,
       Google.Cloud.Aiplatform.V1beta1.PredictRequest,

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTION_UNSPECIFIED | :ALLOW | :DENY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -10,30 +8,14 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          principals: [String.t()],
-          ip_blocks: [String.t()]
-        }
-
-  defstruct principals: [],
-            ip_blocks: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :principals, 1, repeated: true, type: :string, deprecated: false
   field :ip_blocks, 2, repeated: true, type: :string, json_name: "ipBlocks", deprecated: false
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: {:regex_match, String.t()},
-          header_name: String.t()
-        }
-
-  defstruct type: nil,
-            header_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -42,21 +24,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hosts: [String.t()],
-          ports: [non_neg_integer],
-          methods: [String.t()],
-          http_header_match:
-            Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.HttpHeaderMatch.t()
-            | nil
-        }
-
-  defstruct hosts: [],
-            ports: [],
-            methods: [],
-            http_header_match: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hosts, 1, repeated: true, type: :string, deprecated: false
   field :ports, 2, repeated: true, type: :uint32, deprecated: false
@@ -70,17 +38,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destinat
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sources: [Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Source.t()],
-          destinations: [
-            Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.Destination.t()
-          ]
-        }
-
-  defstruct sources: [],
-            destinations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sources, 1,
     repeated: true,
@@ -94,40 +52,14 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          action: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Action.t(),
-          rules: [Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.Rule.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            action: :ACTION_UNSPECIFIED,
-            rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -160,17 +92,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -178,15 +100,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest 
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authorization_policies: [Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct authorization_policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :authorization_policies, 1,
     repeated: true,
@@ -197,29 +111,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesResponse
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.GetAuthorizationPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          authorization_policy_id: String.t(),
-          authorization_policy: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.t() | nil
-        }
-
-  defstruct parent: "",
-            authorization_policy_id: "",
-            authorization_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -235,15 +133,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateAuthorizationPolicyRequest 
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_policy: Google.Cloud.Networksecurity.V1beta1.AuthorizationPolicy.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            authorization_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -257,13 +147,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateAuthorizationPolicyRequest 
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteAuthorizationPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

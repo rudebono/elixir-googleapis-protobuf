@@ -1,23 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaTextEnum.VanityPharmaText do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :PRESCRIPTION_TREATMENT_WEBSITE_EN
-          | :PRESCRIPTION_TREATMENT_WEBSITE_ES
-          | :PRESCRIPTION_DEVICE_WEBSITE_EN
-          | :PRESCRIPTION_DEVICE_WEBSITE_ES
-          | :MEDICAL_DEVICE_WEBSITE_EN
-          | :MEDICAL_DEVICE_WEBSITE_ES
-          | :PREVENTATIVE_TREATMENT_WEBSITE_EN
-          | :PREVENTATIVE_TREATMENT_WEBSITE_ES
-          | :PRESCRIPTION_CONTRACEPTION_WEBSITE_EN
-          | :PRESCRIPTION_CONTRACEPTION_WEBSITE_ES
-          | :PRESCRIPTION_VACCINE_WEBSITE_EN
-          | :PRESCRIPTION_VACCINE_WEBSITE_ES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -36,9 +19,5 @@ defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaTextEnum.VanityPharmaText do
 end
 defmodule Google.Ads.Googleads.V7.Enums.VanityPharmaTextEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

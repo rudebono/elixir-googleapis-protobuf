@@ -1,22 +1,6 @@
 defmodule Google.Identity.Accesscontextmanager.V1.AccessPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          title: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            parent: "",
-            title: "",
-            create_time: nil,
-            update_time: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 2, type: :string

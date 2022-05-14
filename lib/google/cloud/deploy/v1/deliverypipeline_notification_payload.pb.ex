@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Deploy.V1.DeliveryPipelineNotificationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message: String.t(),
-          delivery_pipeline: String.t(),
-          type: Google.Cloud.Deploy.V1.Type.t()
-        }
-
-  defstruct message: "",
-            delivery_pipeline: "",
-            type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :delivery_pipeline, 2, type: :string, json_name: "deliveryPipeline"

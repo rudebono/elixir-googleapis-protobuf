@@ -1,32 +1,6 @@
 defmodule Google.Type.PostalAddress do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision: integer,
-          region_code: String.t(),
-          language_code: String.t(),
-          postal_code: String.t(),
-          sorting_code: String.t(),
-          administrative_area: String.t(),
-          locality: String.t(),
-          sublocality: String.t(),
-          address_lines: [String.t()],
-          recipients: [String.t()],
-          organization: String.t()
-        }
-
-  defstruct revision: 0,
-            region_code: "",
-            language_code: "",
-            postal_code: "",
-            sorting_code: "",
-            administrative_area: "",
-            locality: "",
-            sublocality: "",
-            address_lines: [],
-            recipients: [],
-            organization: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :revision, 1, type: :int32
   field :region_code, 2, type: :string, json_name: "regionCode"

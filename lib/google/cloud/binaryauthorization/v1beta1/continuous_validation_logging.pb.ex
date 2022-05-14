@@ -1,17 +1,13 @@
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.PolicyConformanceVerdict do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :POLICY_CONFORMANCE_VERDICT_UNSPECIFIED | :VIOLATES_POLICY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :POLICY_CONFORMANCE_VERDICT_UNSPECIFIED, 0
   field :VIOLATES_POLICY, 1
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.AuditResult do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :AUDIT_RESULT_UNSPECIFIED | :ALLOW | :DENY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUDIT_RESULT_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -19,18 +15,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image: String.t(),
-          result:
-            Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.AuditResult.t(),
-          description: String.t()
-        }
-
-  defstruct image: "",
-            result: :AUDIT_RESULT_UNSPECIFIED,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image, 1, type: :string
 
@@ -43,24 +28,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pod: String.t(),
-          deploy_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          verdict:
-            Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.PolicyConformanceVerdict.t(),
-          images: [
-            Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.t()
-          ]
-        }
-
-  defstruct pod: "",
-            deploy_time: nil,
-            end_time: nil,
-            verdict: :POLICY_CONFORMANCE_VERDICT_UNSPECIFIED,
-            images: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pod, 1, type: :string
   field :deploy_time, 2, type: Google.Protobuf.Timestamp, json_name: "deployTime"
@@ -78,31 +46,13 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.UnsupportedPolicyEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          description: String.t()
-        }
-
-  defstruct description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :description, 1, type: :string
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_type:
-            {:pod_event,
-             Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.t()
-             | nil}
-            | {:unsupported_policy_event,
-               Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.UnsupportedPolicyEvent.t()
-               | nil}
-        }
-
-  defstruct event_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event_type, 0
 

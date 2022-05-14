@@ -1,49 +1,6 @@
 defmodule Google.Cloud.Bigquery.Logging.V1.AuditData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:table_insert_request, Google.Cloud.Bigquery.Logging.V1.TableInsertRequest.t() | nil}
-            | {:table_update_request,
-               Google.Cloud.Bigquery.Logging.V1.TableUpdateRequest.t() | nil}
-            | {:dataset_list_request,
-               Google.Cloud.Bigquery.Logging.V1.DatasetListRequest.t() | nil}
-            | {:dataset_insert_request,
-               Google.Cloud.Bigquery.Logging.V1.DatasetInsertRequest.t() | nil}
-            | {:dataset_update_request,
-               Google.Cloud.Bigquery.Logging.V1.DatasetUpdateRequest.t() | nil}
-            | {:job_insert_request, Google.Cloud.Bigquery.Logging.V1.JobInsertRequest.t() | nil}
-            | {:job_query_request, Google.Cloud.Bigquery.Logging.V1.JobQueryRequest.t() | nil}
-            | {:job_get_query_results_request,
-               Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsRequest.t() | nil}
-            | {:table_data_list_request,
-               Google.Cloud.Bigquery.Logging.V1.TableDataListRequest.t() | nil}
-            | {:set_iam_policy_request, Google.Iam.V1.SetIamPolicyRequest.t() | nil},
-          response:
-            {:table_insert_response,
-             Google.Cloud.Bigquery.Logging.V1.TableInsertResponse.t() | nil}
-            | {:table_update_response,
-               Google.Cloud.Bigquery.Logging.V1.TableUpdateResponse.t() | nil}
-            | {:dataset_insert_response,
-               Google.Cloud.Bigquery.Logging.V1.DatasetInsertResponse.t() | nil}
-            | {:dataset_update_response,
-               Google.Cloud.Bigquery.Logging.V1.DatasetUpdateResponse.t() | nil}
-            | {:job_insert_response, Google.Cloud.Bigquery.Logging.V1.JobInsertResponse.t() | nil}
-            | {:job_query_response, Google.Cloud.Bigquery.Logging.V1.JobQueryResponse.t() | nil}
-            | {:job_get_query_results_response,
-               Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsResponse.t() | nil}
-            | {:job_query_done_response,
-               Google.Cloud.Bigquery.Logging.V1.JobQueryDoneResponse.t() | nil}
-            | {:policy_response, Google.Iam.V1.Policy.t() | nil},
-          job_completed_event: Google.Cloud.Bigquery.Logging.V1.JobCompletedEvent.t() | nil,
-          table_data_read_events: [Google.Cloud.Bigquery.Logging.V1.TableDataReadEvent.t()]
-        }
-
-  defstruct request: nil,
-            response: nil,
-            job_completed_event: nil,
-            table_data_read_events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
   oneof :response, 1
@@ -151,153 +108,73 @@ defmodule Google.Cloud.Bigquery.Logging.V1.AuditData do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Table.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableUpdateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Table.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInsertResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Table.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableUpdateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Table.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          list_all: boolean
-        }
-
-  defstruct list_all: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :list_all, 1, type: :bool, json_name: "listAll"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Dataset.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInsertResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Dataset.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetUpdateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Dataset.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetUpdateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Dataset.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobInsertResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          max_results: non_neg_integer,
-          default_dataset: Google.Cloud.Bigquery.Logging.V1.DatasetName.t() | nil,
-          project_id: String.t(),
-          dry_run: boolean
-        }
-
-  defstruct query: "",
-            max_results: 0,
-            default_dataset: nil,
-            project_id: "",
-            dry_run: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -311,131 +188,55 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryRequest do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_results: non_neg_integer,
-          job: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct total_results: 0,
-            job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_results, 1, type: :uint64, json_name: "totalResults"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_results: non_neg_integer,
-          start_row: non_neg_integer
-        }
-
-  defstruct max_results: 0,
-            start_row: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_results, 1, type: :uint32, json_name: "maxResults"
   field :start_row, 2, type: :uint64, json_name: "startRow"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_results: non_neg_integer,
-          job: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct total_results: 0,
-            job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_results, 1, type: :uint64, json_name: "totalResults"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryDoneResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobCompletedEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_name: String.t(),
-          job: Google.Cloud.Bigquery.Logging.V1.Job.t() | nil
-        }
-
-  defstruct event_name: "",
-            job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :event_name, 1, type: :string, json_name: "eventName"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDataReadEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil,
-          referenced_fields: [String.t()]
-        }
-
-  defstruct table_name: nil,
-            referenced_fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: Google.Cloud.Bigquery.Logging.V1.TableName, json_name: "tableName"
   field :referenced_fields, 2, repeated: true, type: :string, json_name: "referencedFields"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDataListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_row: non_neg_integer,
-          max_results: non_neg_integer
-        }
-
-  defstruct start_row: 0,
-            max_results: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_row, 1, type: :uint64, json_name: "startRow"
   field :max_results, 2, type: :uint32, json_name: "maxResults"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.Table do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil,
-          info: Google.Cloud.Bigquery.Logging.V1.TableInfo.t() | nil,
-          schema_json: String.t(),
-          view: Google.Cloud.Bigquery.Logging.V1.TableViewDefinition.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          truncate_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption: Google.Cloud.Bigquery.Logging.V1.EncryptionInfo.t() | nil
-        }
-
-  defstruct table_name: nil,
-            info: nil,
-            schema_json: "",
-            view: nil,
-            expire_time: nil,
-            create_time: nil,
-            truncate_time: nil,
-            update_time: nil,
-            encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: Google.Cloud.Bigquery.Logging.V1.TableName, json_name: "tableName"
   field :info, 2, type: Google.Cloud.Bigquery.Logging.V1.TableInfo
@@ -449,32 +250,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.Table do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          friendly_name: String.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct friendly_name: "",
-            description: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -486,35 +269,13 @@ defmodule Google.Cloud.Bigquery.Logging.V1.TableInfo do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableViewDefinition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t()
-        }
-
-  defstruct query: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_name: Google.Cloud.Bigquery.Logging.V1.DatasetName.t() | nil,
-          info: Google.Cloud.Bigquery.Logging.V1.DatasetInfo.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          acl: Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.t() | nil,
-          default_table_expire_duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct dataset_name: nil,
-            info: nil,
-            create_time: nil,
-            update_time: nil,
-            acl: nil,
-            default_table_expire_duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_name, 1,
     type: Google.Cloud.Bigquery.Logging.V1.DatasetName,
@@ -531,32 +292,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.Dataset do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          friendly_name: String.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct friendly_name: "",
-            description: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -568,23 +311,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInfo do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          role: String.t(),
-          group_email: String.t(),
-          user_email: String.t(),
-          domain: String.t(),
-          special_group: String.t(),
-          view_name: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil
-        }
-
-  defstruct role: "",
-            group_email: "",
-            user_email: "",
-            domain: "",
-            special_group: "",
-            view_name: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :group_email, 2, type: :string, json_name: "groupEmail"
@@ -595,31 +322,13 @@ defmodule Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.BigQueryAcl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry.t()]
-        }
-
-  defstruct entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: Google.Cloud.Bigquery.Logging.V1.JobName.t() | nil,
-          job_configuration: Google.Cloud.Bigquery.Logging.V1.JobConfiguration.t() | nil,
-          job_status: Google.Cloud.Bigquery.Logging.V1.JobStatus.t() | nil,
-          job_statistics: Google.Cloud.Bigquery.Logging.V1.JobStatistics.t() | nil
-        }
-
-  defstruct job_name: nil,
-            job_configuration: nil,
-            job_status: nil,
-            job_statistics: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: Google.Cloud.Bigquery.Logging.V1.JobName, json_name: "jobName"
 
@@ -635,29 +344,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.Job do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Query do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          destination_table: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil,
-          create_disposition: String.t(),
-          write_disposition: String.t(),
-          default_dataset: Google.Cloud.Bigquery.Logging.V1.DatasetName.t() | nil,
-          table_definitions: [Google.Cloud.Bigquery.Logging.V1.TableDefinition.t()],
-          query_priority: String.t(),
-          destination_table_encryption: Google.Cloud.Bigquery.Logging.V1.EncryptionInfo.t() | nil,
-          statement_type: String.t()
-        }
-
-  defstruct query: "",
-            destination_table: nil,
-            create_disposition: "",
-            write_disposition: "",
-            default_dataset: nil,
-            table_definitions: [],
-            query_priority: "",
-            destination_table_encryption: nil,
-            statement_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
 
@@ -687,23 +374,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Query do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Load do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_uris: [String.t()],
-          schema_json: String.t(),
-          destination_table: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil,
-          create_disposition: String.t(),
-          write_disposition: String.t(),
-          destination_table_encryption: Google.Cloud.Bigquery.Logging.V1.EncryptionInfo.t() | nil
-        }
-
-  defstruct source_uris: [],
-            schema_json: "",
-            destination_table: nil,
-            create_disposition: "",
-            write_disposition: "",
-            destination_table_encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
   field :schema_json, 6, type: :string, json_name: "schemaJson"
@@ -721,15 +392,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Load do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Extract do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination_uris: [String.t()],
-          source_table: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil
-        }
-
-  defstruct destination_uris: [],
-            source_table: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :destination_uris, 1, repeated: true, type: :string, json_name: "destinationUris"
 
@@ -739,21 +402,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Extract do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.TableCopy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_tables: [Google.Cloud.Bigquery.Logging.V1.TableName.t()],
-          destination_table: Google.Cloud.Bigquery.Logging.V1.TableName.t() | nil,
-          create_disposition: String.t(),
-          write_disposition: String.t(),
-          destination_table_encryption: Google.Cloud.Bigquery.Logging.V1.EncryptionInfo.t() | nil
-        }
-
-  defstruct source_tables: [],
-            destination_table: nil,
-            create_disposition: "",
-            write_disposition: "",
-            destination_table_encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_tables, 1,
     repeated: true,
@@ -773,36 +422,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.TableCopy do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configuration:
-            {:query, Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Query.t() | nil}
-            | {:load, Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Load.t() | nil}
-            | {:extract, Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Extract.t() | nil}
-            | {:table_copy, Google.Cloud.Bigquery.Logging.V1.JobConfiguration.TableCopy.t() | nil},
-          dry_run: boolean,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct configuration: nil,
-            dry_run: false,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :configuration, 0
 
@@ -824,32 +451,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDefinition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          source_uris: [String.t()]
-        }
-
-  defstruct name: "",
-            source_uris: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: String.t(),
-          error: Google.Rpc.Status.t() | nil,
-          additional_errors: [Google.Rpc.Status.t()]
-        }
-
-  defstruct state: "",
-            error: nil,
-            additional_errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
@@ -861,56 +470,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobStatus do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics.ReservationResourceUsage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slot_ms: integer
-        }
-
-  defstruct name: "",
-            slot_ms: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_ms, 2, type: :int64, json_name: "slotMs"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          total_processed_bytes: integer,
-          total_billed_bytes: integer,
-          billing_tier: integer,
-          total_slot_ms: integer,
-          reservation_usage: [
-            Google.Cloud.Bigquery.Logging.V1.JobStatistics.ReservationResourceUsage.t()
-          ],
-          referenced_tables: [Google.Cloud.Bigquery.Logging.V1.TableName.t()],
-          total_tables_processed: integer,
-          referenced_views: [Google.Cloud.Bigquery.Logging.V1.TableName.t()],
-          total_views_processed: integer,
-          query_output_row_count: integer,
-          total_load_output_bytes: integer
-        }
-
-  defstruct create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            total_processed_bytes: 0,
-            total_billed_bytes: 0,
-            billing_tier: 0,
-            total_slot_ms: 0,
-            reservation_usage: [],
-            referenced_tables: [],
-            total_tables_processed: 0,
-            referenced_views: [],
-            total_views_processed: 0,
-            query_output_row_count: 0,
-            total_load_output_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -943,32 +510,14 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetName do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          dataset_id: String.t()
-        }
-
-  defstruct project_id: "",
-            dataset_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.TableName do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          dataset_id: String.t(),
-          table_id: String.t()
-        }
-
-  defstruct project_id: "",
-            dataset_id: "",
-            table_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -976,17 +525,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.TableName do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.JobName do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          job_id: String.t(),
-          location: String.t()
-        }
-
-  defstruct project_id: "",
-            job_id: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -994,13 +533,7 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobName do
 end
 defmodule Google.Cloud.Bigquery.Logging.V1.EncryptionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t()
-        }
-
-  defstruct kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end

@@ -1,48 +1,13 @@
 defmodule Google.Api.Servicecontrol.V1.LogEntry.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.Servicecontrol.V1.LogEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:proto_payload, Google.Protobuf.Any.t() | nil}
-            | {:text_payload, String.t()}
-            | {:struct_payload, Google.Protobuf.Struct.t() | nil},
-          name: String.t(),
-          timestamp: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Logging.Type.LogSeverity.t(),
-          http_request: Google.Api.Servicecontrol.V1.HttpRequest.t() | nil,
-          trace: String.t(),
-          insert_id: String.t(),
-          labels: %{String.t() => String.t()},
-          operation: Google.Api.Servicecontrol.V1.LogEntryOperation.t() | nil,
-          source_location: Google.Api.Servicecontrol.V1.LogEntrySourceLocation.t() | nil
-        }
-
-  defstruct payload: nil,
-            name: "",
-            timestamp: nil,
-            severity: :DEFAULT,
-            http_request: nil,
-            trace: "",
-            insert_id: "",
-            labels: %{},
-            operation: nil,
-            source_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -73,19 +38,7 @@ defmodule Google.Api.Servicecontrol.V1.LogEntry do
 end
 defmodule Google.Api.Servicecontrol.V1.LogEntryOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          producer: String.t(),
-          first: boolean,
-          last: boolean
-        }
-
-  defstruct id: "",
-            producer: "",
-            first: false,
-            last: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :producer, 2, type: :string
@@ -94,17 +47,7 @@ defmodule Google.Api.Servicecontrol.V1.LogEntryOperation do
 end
 defmodule Google.Api.Servicecontrol.V1.LogEntrySourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file: String.t(),
-          line: integer,
-          function: String.t()
-        }
-
-  defstruct file: "",
-            line: 0,
-            function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file, 1, type: :string
   field :line, 2, type: :int64

@@ -1,8 +1,6 @@
 defmodule Grafeas.V1.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :MINIMAL | :LOW | :MEDIUM | :HIGH | :CRITICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :MINIMAL, 1

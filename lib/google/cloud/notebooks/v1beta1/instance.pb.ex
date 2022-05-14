@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ACCELERATOR_TYPE_UNSPECIFIED
-          | :NVIDIA_TESLA_K80
-          | :NVIDIA_TESLA_P100
-          | :NVIDIA_TESLA_V100
-          | :NVIDIA_TESLA_P4
-          | :NVIDIA_TESLA_T4
-          | :NVIDIA_TESLA_T4_VWS
-          | :NVIDIA_TESLA_P100_VWS
-          | :NVIDIA_TESLA_P4_VWS
-          | :TPU_V2
-          | :TPU_V3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -30,20 +16,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :STARTING
-          | :PROVISIONING
-          | :ACTIVE
-          | :STOPPING
-          | :STOPPED
-          | :DELETED
-          | :UPGRADING
-          | :INITIALIZING
-          | :REGISTERING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -58,9 +31,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DISK_TYPE_UNSPECIFIED | :PD_STANDARD | :PD_SSD | :PD_BALANCED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
@@ -69,9 +40,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DISK_ENCRYPTION_UNSPECIFIED | :GMEK | :CMEK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
@@ -79,110 +48,28 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType.t(),
-          core_count: integer
-        }
-
-  defstruct type: :ACCELERATOR_TYPE_UNSPECIFIED,
-            core_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType, enum: true
   field :core_count, 2, type: :int64, json_name: "coreCount"
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Notebooks.V1beta1.Instance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment:
-            {:vm_image, Google.Cloud.Notebooks.V1beta1.VmImage.t() | nil}
-            | {:container_image, Google.Cloud.Notebooks.V1beta1.ContainerImage.t() | nil},
-          name: String.t(),
-          post_startup_script: String.t(),
-          proxy_uri: String.t(),
-          instance_owners: [String.t()],
-          service_account: String.t(),
-          machine_type: String.t(),
-          accelerator_config: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig.t() | nil,
-          state: Google.Cloud.Notebooks.V1beta1.Instance.State.t(),
-          install_gpu_driver: boolean,
-          custom_gpu_driver_path: String.t(),
-          boot_disk_type: Google.Cloud.Notebooks.V1beta1.Instance.DiskType.t(),
-          boot_disk_size_gb: integer,
-          data_disk_type: Google.Cloud.Notebooks.V1beta1.Instance.DiskType.t(),
-          data_disk_size_gb: integer,
-          no_remove_data_disk: boolean,
-          disk_encryption: Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption.t(),
-          kms_key: String.t(),
-          no_public_ip: boolean,
-          no_proxy_access: boolean,
-          network: String.t(),
-          subnet: String.t(),
-          labels: %{String.t() => String.t()},
-          metadata: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct environment: nil,
-            name: "",
-            post_startup_script: "",
-            proxy_uri: "",
-            instance_owners: [],
-            service_account: "",
-            machine_type: "",
-            accelerator_config: nil,
-            state: :STATE_UNSPECIFIED,
-            install_gpu_driver: false,
-            custom_gpu_driver_path: "",
-            boot_disk_type: :DISK_TYPE_UNSPECIFIED,
-            boot_disk_size_gb: 0,
-            data_disk_type: :DISK_TYPE_UNSPECIFIED,
-            data_disk_size_gb: 0,
-            no_remove_data_disk: false,
-            disk_encryption: :DISK_ENCRYPTION_UNSPECIFIED,
-            kms_key: "",
-            no_public_ip: false,
-            no_proxy_access: false,
-            network: "",
-            subnet: "",
-            labels: %{},
-            metadata: %{},
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :environment, 0
 

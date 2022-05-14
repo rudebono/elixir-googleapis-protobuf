@@ -1,18 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Canvas do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          data: [Google.Protobuf.Value.t()],
-          suppress_mic: boolean,
-          enable_full_screen: boolean
-        }
-
-  defstruct url: "",
-            data: [],
-            suppress_mic: false,
-            enable_full_screen: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :data, 4, repeated: true, type: Google.Protobuf.Value

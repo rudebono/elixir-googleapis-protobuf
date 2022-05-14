@@ -1,15 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Common.CustomizerValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            Google.Ads.Googleads.V9.Enums.CustomizerAttributeTypeEnum.CustomizerAttributeType.t(),
-          string_value: String.t()
-        }
-
-  defstruct type: :UNSPECIFIED,
-            string_value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V9.Enums.CustomizerAttributeTypeEnum.CustomizerAttributeType,

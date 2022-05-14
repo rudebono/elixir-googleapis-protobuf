@@ -1,27 +1,13 @@
 defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASIC, 0
   field :FULL, 1
 end
 defmodule Google.Api.Servicemanagement.V1.ListServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          producer_project_id: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          consumer_id: String.t()
-        }
-
-  defstruct producer_project_id: "",
-            page_size: 0,
-            page_token: "",
-            consumer_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :producer_project_id, 1, type: :string, json_name: "producerProjectId"
   field :page_size, 5, type: :int32, json_name: "pageSize"
@@ -30,92 +16,44 @@ defmodule Google.Api.Servicemanagement.V1.ListServicesRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.ListServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Api.Servicemanagement.V1.ManagedService.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct services: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Api.Servicemanagement.V1.ManagedService
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Api.Servicemanagement.V1.GetServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t()
-        }
-
-  defstruct service_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Api.Servicemanagement.V1.ManagedService.t() | nil
-        }
-
-  defstruct service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService, deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t()
-        }
-
-  defstruct service_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t()
-        }
-
-  defstruct service_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.UndeleteServiceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Api.Servicemanagement.V1.ManagedService.t() | nil
-        }
-
-  defstruct service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Api.Servicemanagement.V1.ManagedService
 end
 defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          config_id: String.t(),
-          view: Google.Api.Servicemanagement.V1.GetServiceConfigRequest.ConfigView.t()
-        }
-
-  defstruct service_name: "",
-            config_id: "",
-            view: :BASIC
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :config_id, 2, type: :string, json_name: "configId", deprecated: false
@@ -126,17 +64,7 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceConfigRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct service_name: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -144,30 +72,14 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.ListServiceConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_configs: [Google.Api.Service.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct service_configs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_configs, 1, repeated: true, type: Google.Api.Service, json_name: "serviceConfigs"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          service_config: Google.Api.Service.t() | nil
-        }
-
-  defstruct service_name: "",
-            service_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 
@@ -178,17 +90,7 @@ defmodule Google.Api.Servicemanagement.V1.CreateServiceConfigRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          config_source: Google.Api.Servicemanagement.V1.ConfigSource.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct service_name: "",
-            config_source: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 
@@ -201,46 +103,20 @@ defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.SubmitConfigSourceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_config: Google.Api.Service.t() | nil
-        }
-
-  defstruct service_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_config, 1, type: Google.Api.Service, json_name: "serviceConfig"
 end
 defmodule Google.Api.Servicemanagement.V1.CreateServiceRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          rollout: Google.Api.Servicemanagement.V1.Rollout.t() | nil
-        }
-
-  defstruct service_name: "",
-            rollout: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :rollout, 2, type: Google.Api.Servicemanagement.V1.Rollout, deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          page_token: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct service_name: "",
-            page_token: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -249,64 +125,28 @@ defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsRequest do
 end
 defmodule Google.Api.Servicemanagement.V1.ListServiceRolloutsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rollouts: [Google.Api.Servicemanagement.V1.Rollout.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct rollouts: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rollouts, 1, repeated: true, type: Google.Api.Servicemanagement.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          rollout_id: String.t()
-        }
-
-  defstruct service_name: "",
-            rollout_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          new_config: Google.Protobuf.Any.t() | nil,
-          old_config: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct new_config: nil,
-            old_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :new_config, 1, type: Google.Protobuf.Any, json_name: "newConfig", deprecated: false
   field :old_config, 2, type: Google.Protobuf.Any, json_name: "oldConfig", deprecated: false
 end
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          id: String.t(),
-          change_reports: [Google.Api.Servicemanagement.V1.ChangeReport.t()],
-          diagnostics: [Google.Api.Servicemanagement.V1.Diagnostic.t()]
-        }
-
-  defstruct service_name: "",
-            id: "",
-            change_reports: [],
-            diagnostics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :id, 2, type: :string
@@ -320,7 +160,9 @@ defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportResponse do
 end
 defmodule Google.Api.Servicemanagement.V1.ServiceManager.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.api.servicemanagement.v1.ServiceManager"
+  use GRPC.Service,
+    name: "google.api.servicemanagement.v1.ServiceManager",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListServices,
       Google.Api.Servicemanagement.V1.ListServicesRequest,

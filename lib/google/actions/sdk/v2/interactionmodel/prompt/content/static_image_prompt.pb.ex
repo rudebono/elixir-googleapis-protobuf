@@ -1,8 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :GRAY | :WHITE | :CROPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :GRAY, 1
@@ -11,19 +9,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageF
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          alt: String.t(),
-          height: integer,
-          width: integer
-        }
-
-  defstruct url: "",
-            alt: "",
-            height: 0,
-            width: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
   field :alt, 2, type: :string, deprecated: false

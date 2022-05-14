@@ -1,33 +1,13 @@
 defmodule Google.Cloud.Sql.V1.SqlOperationsGetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation: String.t(),
-          project: String.t()
-        }
-
-  defstruct operation: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
 end
 defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          max_results: non_neg_integer,
-          page_token: String.t(),
-          project: String.t()
-        }
-
-  defstruct instance: "",
-            max_results: 0,
-            page_token: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -36,17 +16,7 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsListRequest do
 end
 defmodule Google.Cloud.Sql.V1.OperationsListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1.Operation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct kind: "",
-            items: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Operation
@@ -54,7 +24,9 @@ defmodule Google.Cloud.Sql.V1.OperationsListResponse do
 end
 defmodule Google.Cloud.Sql.V1.SqlOperationsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1.SqlOperationsService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1.SqlOperationsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Get, Google.Cloud.Sql.V1.SqlOperationsGetRequest, Google.Cloud.Sql.V1.Operation
 

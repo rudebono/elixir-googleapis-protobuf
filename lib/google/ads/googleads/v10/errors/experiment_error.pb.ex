@@ -1,35 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum.ExperimentError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CANNOT_SET_START_DATE_IN_PAST
-          | :END_DATE_BEFORE_START_DATE
-          | :START_DATE_TOO_FAR_IN_FUTURE
-          | :DUPLICATE_EXPERIMENT_NAME
-          | :CANNOT_MODIFY_REMOVED_EXPERIMENT
-          | :START_DATE_ALREADY_PASSED
-          | :CANNOT_SET_END_DATE_IN_PAST
-          | :CANNOT_SET_STATUS_TO_REMOVED
-          | :CANNOT_MODIFY_PAST_END_DATE
-          | :INVALID_STATUS
-          | :INVALID_CAMPAIGN_CHANNEL_TYPE
-          | :OVERLAPPING_MEMBERS_AND_DATE_RANGE
-          | :INVALID_TRIAL_ARM_TRAFFIC_SPLIT
-          | :TRAFFIC_SPLIT_OVERLAPPING
-          | :SUM_TRIAL_ARM_TRAFFIC_UNEQUALS_TO_TRIAL_TRAFFIC_SPLIT_DENOMINATOR
-          | :CANNOT_MODIFY_TRAFFIC_SPLIT_AFTER_START
-          | :EXPERIMENT_NOT_FOUND
-          | :EXPERIMENT_NOT_YET_STARTED
-          | :CANNOT_HAVE_MULTIPLE_CONTROL_ARMS
-          | :IN_DESIGN_CAMPAIGNS_NOT_SET
-          | :CANNOT_SET_STATUS_TO_GRADUATED
-          | :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_SHARED_BUDGET
-          | :CANNOT_CREATE_EXPERIMENT_CAMPAIGN_WITH_CUSTOM_BUDGET
-          | :STATUS_TRANSITION_INVALID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -60,9 +31,5 @@ defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum.ExperimentError do
 end
 defmodule Google.Ads.Googleads.V10.Errors.ExperimentErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

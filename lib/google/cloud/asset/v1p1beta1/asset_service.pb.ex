@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scope: String.t(),
-          query: String.t(),
-          asset_types: [String.t()],
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct scope: "",
-            query: "",
-            asset_types: [],
-            page_size: 0,
-            page_token: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scope, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -27,34 +11,14 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest do
 end
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct results: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scope: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct scope: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scope, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -63,22 +27,16 @@ defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest do
 end
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct results: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.asset.v1p1beta1.AssetService"
+  use GRPC.Service,
+    name: "google.cloud.asset.v1p1beta1.AssetService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SearchAllResources,
       Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest,

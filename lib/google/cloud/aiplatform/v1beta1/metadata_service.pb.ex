@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          metadata_store: Google.Cloud.Aiplatform.V1beta1.MetadataStore.t() | nil,
-          metadata_store_id: String.t()
-        }
-
-  defstruct parent: "",
-            metadata_store: nil,
-            metadata_store_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -23,13 +13,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -37,29 +21,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreOperationMetadata d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetMetadataStoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -67,15 +35,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata_stores: [Google.Cloud.Aiplatform.V1beta1.MetadataStore.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct metadata_stores: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata_stores, 1,
     repeated: true,
@@ -86,28 +46,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataStoresResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: true
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -115,17 +61,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMetadataStoreOperationMetadata d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateArtifactRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          artifact: Google.Cloud.Aiplatform.V1beta1.Artifact.t() | nil,
-          artifact_id: String.t()
-        }
-
-  defstruct parent: "",
-            artifact: nil,
-            artifact_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :artifact, 2, type: Google.Cloud.Aiplatform.V1beta1.Artifact, deprecated: false
@@ -133,31 +69,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateArtifactRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetArtifactRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListArtifactsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -166,32 +84,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListArtifactsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListArtifactsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifacts: [Google.Cloud.Aiplatform.V1beta1.Artifact.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct artifacts: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifacts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Artifact
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateArtifactRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact: Google.Cloud.Aiplatform.V1beta1.Artifact.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct artifact: nil,
-            update_mask: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact, 1, type: Google.Cloud.Aiplatform.V1beta1.Artifact, deprecated: false
 
@@ -204,32 +104,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateArtifactRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteArtifactRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -237,15 +119,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purge_count: integer,
-          purge_sample: [String.t()]
-        }
-
-  defstruct purge_count: 0,
-            purge_sample: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
 
@@ -257,13 +131,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -271,17 +139,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeArtifactsMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          context: Google.Cloud.Aiplatform.V1beta1.Context.t() | nil,
-          context_id: String.t()
-        }
-
-  defstruct parent: "",
-            context: nil,
-            context_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :context, 2, type: Google.Cloud.Aiplatform.V1beta1.Context, deprecated: false
@@ -289,31 +147,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateContextRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListContextsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -322,32 +162,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListContextsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListContextsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          contexts: [Google.Cloud.Aiplatform.V1beta1.Context.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct contexts: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Context
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: Google.Cloud.Aiplatform.V1beta1.Context.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct context: nil,
-            update_mask: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: Google.Cloud.Aiplatform.V1beta1.Context, deprecated: false
 
@@ -360,17 +182,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateContextRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteContextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            force: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -378,17 +190,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteContextRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -396,15 +198,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purge_count: integer,
-          purge_sample: [String.t()]
-        }
-
-  defstruct purge_count: 0,
-            purge_sample: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
 
@@ -416,13 +210,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -430,17 +218,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeContextsMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: String.t(),
-          artifacts: [String.t()],
-          executions: [String.t()]
-        }
-
-  defstruct context: "",
-            artifacts: [],
-            executions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: :string, deprecated: false
   field :artifacts, 2, repeated: true, type: :string, deprecated: false
@@ -448,23 +226,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsReques
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddContextArtifactsAndExecutionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddContextChildrenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: String.t(),
-          child_contexts: [String.t()]
-        }
-
-  defstruct context: "",
-            child_contexts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: :string, deprecated: false
 
@@ -476,37 +242,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AddContextChildrenRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddContextChildrenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryContextLineageSubgraphRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: String.t()
-        }
-
-  defstruct context: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          execution: Google.Cloud.Aiplatform.V1beta1.Execution.t() | nil,
-          execution_id: String.t()
-        }
-
-  defstruct parent: "",
-            execution: nil,
-            execution_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :execution, 2, type: Google.Cloud.Aiplatform.V1beta1.Execution, deprecated: false
@@ -514,31 +260,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateExecutionRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExecutionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -547,32 +275,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListExecutionsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExecutionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executions: [Google.Cloud.Aiplatform.V1beta1.Execution.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct executions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :executions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Execution
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution: Google.Cloud.Aiplatform.V1beta1.Execution.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct execution: nil,
-            update_mask: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution, 1, type: Google.Cloud.Aiplatform.V1beta1.Execution, deprecated: false
 
@@ -585,32 +295,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExecutionRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -618,15 +310,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purge_count: integer,
-          purge_sample: [String.t()]
-        }
-
-  defstruct purge_count: 0,
-            purge_sample: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
 
@@ -638,13 +322,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -652,52 +330,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PurgeExecutionsMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution: String.t(),
-          events: [Google.Cloud.Aiplatform.V1beta1.Event.t()]
-        }
-
-  defstruct execution: "",
-            events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution, 1, type: :string, deprecated: false
   field :events, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Event
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.AddExecutionEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryExecutionInputsAndOutputsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution: String.t()
-        }
-
-  defstruct execution: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataSchemaRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          metadata_schema: Google.Cloud.Aiplatform.V1beta1.MetadataSchema.t() | nil,
-          metadata_schema_id: String.t()
-        }
-
-  defstruct parent: "",
-            metadata_schema: nil,
-            metadata_schema_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -710,31 +360,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateMetadataSchemaRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetMetadataSchemaRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -743,15 +375,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata_schemas: [Google.Cloud.Aiplatform.V1beta1.MetadataSchema.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct metadata_schemas: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata_schemas, 1,
     repeated: true,
@@ -762,17 +386,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListMetadataSchemasResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryArtifactLineageSubgraphRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact: String.t(),
-          max_hops: integer,
-          filter: String.t()
-        }
-
-  defstruct artifact: "",
-            max_hops: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact, 1, type: :string, deprecated: false
   field :max_hops, 2, type: :int32, json_name: "maxHops"
@@ -780,7 +394,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QueryArtifactLineageSubgraphRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.MetadataService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.MetadataService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateMetadataStore,
       Google.Cloud.Aiplatform.V1beta1.CreateMetadataStoreRequest,

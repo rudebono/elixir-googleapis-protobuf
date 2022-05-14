@@ -1,25 +1,13 @@
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.VolumeBackupFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VOLUME_BACKUP_FORMAT_UNSPECIFIED | :GCE_PERSISTENT_DISK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VOLUME_BACKUP_FORMAT_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
 end
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :SNAPSHOTTING
-          | :UPLOADING
-          | :SUCCEEDED
-          | :FAILED
-          | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -31,19 +19,14 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
 end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.VolumeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VOLUME_TYPE_UNSPECIFIED | :GCE_PERSISTENT_DISK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VOLUME_TYPE_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
 end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :STATE_UNSPECIFIED | :CREATING | :RESTORING | :SUCCEEDED | :FAILED | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -54,37 +37,7 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.State do
 end
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          source_pvc: Google.Cloud.Gkebackup.V1.NamespacedName.t() | nil,
-          volume_backup_handle: String.t(),
-          format: Google.Cloud.Gkebackup.V1.VolumeBackup.VolumeBackupFormat.t(),
-          storage_bytes: integer,
-          disk_size_bytes: integer,
-          complete_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Gkebackup.V1.VolumeBackup.State.t(),
-          state_message: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            source_pvc: nil,
-            volume_backup_handle: "",
-            format: :VOLUME_BACKUP_FORMAT_UNSPECIFIED,
-            storage_bytes: 0,
-            disk_size_bytes: 0,
-            complete_time: nil,
-            state: :STATE_UNSPECIFIED,
-            state_message: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -132,35 +85,7 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
 end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          volume_backup: String.t(),
-          target_pvc: Google.Cloud.Gkebackup.V1.NamespacedName.t() | nil,
-          volume_handle: String.t(),
-          volume_type: Google.Cloud.Gkebackup.V1.VolumeRestore.VolumeType.t(),
-          complete_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Gkebackup.V1.VolumeRestore.State.t(),
-          state_message: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            volume_backup: "",
-            target_pvc: nil,
-            volume_handle: "",
-            volume_type: :VOLUME_TYPE_UNSPECIFIED,
-            complete_time: nil,
-            state: :STATE_UNSPECIFIED,
-            state_message: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

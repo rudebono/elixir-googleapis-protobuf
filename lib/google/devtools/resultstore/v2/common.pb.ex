@@ -1,31 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.Language do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LANGUAGE_UNSPECIFIED
-          | :NONE
-          | :ANDROID
-          | :AS
-          | :CC
-          | :CSS
-          | :DART
-          | :GO
-          | :GWT
-          | :HASKELL
-          | :JAVA
-          | :JS
-          | :LISP
-          | :OBJC
-          | :PY
-          | :SH
-          | :SWIFT
-          | :TS
-          | :WEB
-          | :SCALA
-          | :PROTO
-          | :XML
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :NONE, 1
@@ -52,24 +27,7 @@ defmodule Google.Devtools.Resultstore.V2.Language do
 end
 defmodule Google.Devtools.Resultstore.V2.Status do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATUS_UNSPECIFIED
-          | :BUILDING
-          | :BUILT
-          | :FAILED_TO_BUILD
-          | :TESTING
-          | :PASSED
-          | :FAILED
-          | :TIMED_OUT
-          | :CANCELLED
-          | :TOOL_FAILED
-          | :INCOMPLETE
-          | :FLAKY
-          | :UNKNOWN
-          | :SKIPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :BUILDING, 1
@@ -88,9 +46,7 @@ defmodule Google.Devtools.Resultstore.V2.Status do
 end
 defmodule Google.Devtools.Resultstore.V2.UploadStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UPLOAD_STATUS_UNSPECIFIED | :UPLOADING | :POST_PROCESSING | :IMMUTABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UPLOAD_STATUS_UNSPECIFIED, 0
   field :UPLOADING, 1
@@ -99,61 +55,28 @@ defmodule Google.Devtools.Resultstore.V2.UploadStatus do
 end
 defmodule Google.Devtools.Resultstore.V2.StatusAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Devtools.Resultstore.V2.Status.t(),
-          description: String.t()
-        }
-
-  defstruct status: :STATUS_UNSPECIFIED,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Devtools.Resultstore.V2.Status, enum: true
   field :description, 2, type: :string
 end
 defmodule Google.Devtools.Resultstore.V2.Property do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Resultstore.V2.Timing do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct start_time: nil,
-            duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :duration, 2, type: Google.Protobuf.Duration
 end
 defmodule Google.Devtools.Resultstore.V2.Dependency do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource:
-            {:target, String.t()} | {:configured_target, String.t()} | {:action, String.t()},
-          label: String.t()
-        }
-
-  defstruct resource: nil,
-            label: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resource, 0
 

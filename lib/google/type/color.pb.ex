@@ -1,18 +1,6 @@
 defmodule Google.Type.Color do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          red: float | :infinity | :negative_infinity | :nan,
-          green: float | :infinity | :negative_infinity | :nan,
-          blue: float | :infinity | :negative_infinity | :nan,
-          alpha: Google.Protobuf.FloatValue.t() | nil
-        }
-
-  defstruct red: 0.0,
-            green: 0.0,
-            blue: 0.0,
-            alpha: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :red, 1, type: :float
   field :green, 2, type: :float

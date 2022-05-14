@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,15 +8,7 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkView do
 end
 defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED
-          | :INVITED
-          | :ACTIVE
-          | :REVOKED
-          | :SUSPENDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED, 0
   field :INVITED, 1
@@ -28,27 +18,7 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerLinkState do
 end
 defmodule Google.Cloud.Channel.V1.ChannelPartnerLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          reseller_cloud_identity_id: String.t(),
-          link_state: Google.Cloud.Channel.V1.ChannelPartnerLinkState.t(),
-          invite_link_uri: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          public_id: String.t(),
-          channel_partner_cloud_identity_info: Google.Cloud.Channel.V1.CloudIdentityInfo.t() | nil
-        }
-
-  defstruct name: "",
-            reseller_cloud_identity_id: "",
-            link_state: :CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED,
-            invite_link_uri: "",
-            create_time: nil,
-            update_time: nil,
-            public_id: "",
-            channel_partner_cloud_identity_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

@@ -1,34 +1,6 @@
 defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          origin: Google.Maps.Routes.V1.Waypoint.t() | nil,
-          destination: Google.Maps.Routes.V1.Waypoint.t() | nil,
-          intermediates: [Google.Maps.Routes.V1.Waypoint.t()],
-          travel_mode: Google.Maps.Routes.V1.RouteTravelMode.t(),
-          routing_preference: Google.Maps.Routes.V1.RoutingPreference.t(),
-          polyline_quality: Google.Maps.Routes.V1.PolylineQuality.t(),
-          polyline_encoding: Google.Maps.Routes.V1.PolylineEncoding.t(),
-          departure_time: Google.Protobuf.Timestamp.t() | nil,
-          route_modifiers: Google.Maps.Routes.V1.RouteModifiers.t() | nil,
-          route_objective: Google.Maps.Routes.V1.RouteObjective.t() | nil,
-          language_code: String.t(),
-          units: Google.Maps.Routes.V1.Units.t()
-        }
-
-  defstruct origin: nil,
-            destination: nil,
-            intermediates: [],
-            travel_mode: :TRAVEL_MODE_UNSPECIFIED,
-            routing_preference: :ROUTING_PREFERENCE_UNSPECIFIED,
-            polyline_quality: :POLYLINE_QUALITY_UNSPECIFIED,
-            polyline_encoding: :POLYLINE_ENCODING_UNSPECIFIED,
-            departure_time: nil,
-            route_modifiers: nil,
-            route_objective: nil,
-            language_code: "",
-            units: :UNITS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
@@ -78,29 +50,13 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
 end
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct value: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cost_per_minute: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost.t() | nil,
-          cost_per_km: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost.t() | nil,
-          include_tolls: boolean
-        }
-
-  defstruct cost_per_minute: nil,
-            cost_per_km: nil,
-            include_tolls: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cost_per_minute, 2,
     type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost,
@@ -116,13 +72,7 @@ defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
 end
 defmodule Google.Maps.Routes.V1.RouteObjective do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          objective: {:rate_card, Google.Maps.Routes.V1.RouteObjective.RateCard.t() | nil}
-        }
-
-  defstruct objective: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :objective, 0
 

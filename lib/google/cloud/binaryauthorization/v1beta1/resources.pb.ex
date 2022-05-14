@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.GlobalPolicyEvaluationMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED | :ENABLE | :DISABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED, 0
   field :ENABLE, 1
@@ -10,14 +8,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.GlobalPolicyEvaluation
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EvaluationMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EVALUATION_MODE_UNSPECIFIED
-          | :ALWAYS_ALLOW
-          | :REQUIRE_ATTESTATION
-          | :ALWAYS_DENY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVALUATION_MODE_UNSPECIFIED, 0
   field :ALWAYS_ALLOW, 1
@@ -26,13 +17,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EvaluationMode 
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EnforcementMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ENFORCEMENT_MODE_UNSPECIFIED
-          | :ENFORCED_BLOCK_AND_AUDIT_LOG
-          | :DRYRUN_AUDIT_LOG_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENFORCEMENT_MODE_UNSPECIFIED, 0
   field :ENFORCED_BLOCK_AND_AUDIT_LOG, 1
@@ -40,25 +25,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EnforcementMode
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.SignatureAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SIGNATURE_ALGORITHM_UNSPECIFIED
-          | :RSA_PSS_2048_SHA256
-          | :RSA_PSS_3072_SHA256
-          | :RSA_PSS_4096_SHA256
-          | :RSA_PSS_4096_SHA512
-          | :RSA_SIGN_PKCS1_2048_SHA256
-          | :RSA_SIGN_PKCS1_3072_SHA256
-          | :RSA_SIGN_PKCS1_4096_SHA256
-          | :RSA_SIGN_PKCS1_4096_SHA512
-          | :ECDSA_P256_SHA256
-          | :EC_SIGN_P256_SHA256
-          | :ECDSA_P384_SHA384
-          | :EC_SIGN_P384_SHA384
-          | :ECDSA_P521_SHA512
-          | :EC_SIGN_P521_SHA512
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SIGNATURE_ALGORITHM_UNSPECIFIED, 0
   field :RSA_PSS_2048_SHA256, 1
@@ -78,103 +45,35 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.SignatureAlgori
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.ClusterAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesNamespaceAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.KubernetesServiceAccountAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy.IstioServiceIdentityAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          global_policy_evaluation_mode:
-            Google.Cloud.Binaryauthorization.V1beta1.Policy.GlobalPolicyEvaluationMode.t(),
-          admission_whitelist_patterns: [
-            Google.Cloud.Binaryauthorization.V1beta1.AdmissionWhitelistPattern.t()
-          ],
-          cluster_admission_rules: %{
-            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-          },
-          kubernetes_namespace_admission_rules: %{
-            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-          },
-          kubernetes_service_account_admission_rules: %{
-            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-          },
-          istio_service_identity_admission_rules: %{
-            String.t() => Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil
-          },
-          default_admission_rule:
-            Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            global_policy_evaluation_mode: :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED,
-            admission_whitelist_patterns: [],
-            cluster_admission_rules: %{},
-            kubernetes_namespace_admission_rules: %{},
-            kubernetes_service_account_admission_rules: %{},
-            istio_service_identity_admission_rules: %{},
-            default_admission_rule: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 6, type: :string, deprecated: false
@@ -232,31 +131,13 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Policy do
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionWhitelistPattern do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name_pattern: String.t()
-        }
-
-  defstruct name_pattern: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name_pattern, 1, type: :string, json_name: "namePattern"
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          evaluation_mode:
-            Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EvaluationMode.t(),
-          require_attestations_by: [String.t()],
-          enforcement_mode:
-            Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EnforcementMode.t()
-        }
-
-  defstruct evaluation_mode: :EVALUATION_MODE_UNSPECIFIED,
-            require_attestations_by: [],
-            enforcement_mode: :ENFORCEMENT_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :evaluation_mode, 1,
     type: Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule.EvaluationMode,
@@ -278,21 +159,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.AdmissionRule do
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.Attestor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attestor_type:
-            {:user_owned_drydock_note,
-             Google.Cloud.Binaryauthorization.V1beta1.UserOwnedDrydockNote.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct attestor_type: nil,
-            name: "",
-            description: "",
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :attestor_type, 0
 
@@ -311,17 +178,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.Attestor do
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.UserOwnedDrydockNote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          note_reference: String.t(),
-          public_keys: [Google.Cloud.Binaryauthorization.V1beta1.AttestorPublicKey.t()],
-          delegation_service_account_email: String.t()
-        }
-
-  defstruct note_reference: "",
-            public_keys: [],
-            delegation_service_account_email: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :note_reference, 1, type: :string, json_name: "noteReference", deprecated: false
 
@@ -338,16 +195,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.UserOwnedDrydockNote do
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          public_key_pem: String.t(),
-          signature_algorithm:
-            Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.SignatureAlgorithm.t()
-        }
-
-  defstruct public_key_pem: "",
-            signature_algorithm: :SIGNATURE_ALGORITHM_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :public_key_pem, 1, type: :string, json_name: "publicKeyPem"
 
@@ -358,19 +206,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey do
 end
 defmodule Google.Cloud.Binaryauthorization.V1beta1.AttestorPublicKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          public_key:
-            {:ascii_armored_pgp_public_key, String.t()}
-            | {:pkix_public_key, Google.Cloud.Binaryauthorization.V1beta1.PkixPublicKey.t() | nil},
-          comment: String.t(),
-          id: String.t()
-        }
-
-  defstruct public_key: nil,
-            comment: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :public_key, 0
 

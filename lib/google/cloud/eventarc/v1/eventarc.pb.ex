@@ -1,30 +1,12 @@
 defmodule Google.Cloud.Eventarc.V1.GetTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -33,17 +15,7 @@ defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          triggers: [Google.Cloud.Eventarc.V1.Trigger.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct triggers: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :triggers, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Trigger
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -51,19 +23,7 @@ defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
 end
 defmodule Google.Cloud.Eventarc.V1.CreateTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          trigger: Google.Cloud.Eventarc.V1.Trigger.t() | nil,
-          trigger_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            trigger: nil,
-            trigger_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :trigger, 2, type: Google.Cloud.Eventarc.V1.Trigger, deprecated: false
@@ -72,19 +32,7 @@ defmodule Google.Cloud.Eventarc.V1.CreateTriggerRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.UpdateTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          trigger: Google.Cloud.Eventarc.V1.Trigger.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct trigger: nil,
-            update_mask: nil,
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :trigger, 1, type: Google.Cloud.Eventarc.V1.Trigger
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -93,19 +41,7 @@ defmodule Google.Cloud.Eventarc.V1.UpdateTriggerRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.DeleteTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct name: "",
-            etag: "",
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -114,31 +50,13 @@ defmodule Google.Cloud.Eventarc.V1.DeleteTriggerRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.GetChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.ListChannelsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -147,17 +65,7 @@ defmodule Google.Cloud.Eventarc.V1.ListChannelsRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.ListChannelsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channels: [Google.Cloud.Eventarc.V1.Channel.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct channels: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channels, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Channel
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -165,19 +73,7 @@ defmodule Google.Cloud.Eventarc.V1.ListChannelsResponse do
 end
 defmodule Google.Cloud.Eventarc.V1.CreateChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          channel: Google.Cloud.Eventarc.V1.Channel.t() | nil,
-          channel_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            channel: nil,
-            channel_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :channel, 2, type: Google.Cloud.Eventarc.V1.Channel, deprecated: false
@@ -186,17 +82,7 @@ defmodule Google.Cloud.Eventarc.V1.CreateChannelRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.UpdateChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channel: Google.Cloud.Eventarc.V1.Channel.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct channel: nil,
-            update_mask: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channel, 1, type: Google.Cloud.Eventarc.V1.Channel
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -204,44 +90,20 @@ defmodule Google.Cloud.Eventarc.V1.UpdateChannelRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.DeleteChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct name: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.GetChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -249,17 +111,7 @@ defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channel_connections: [Google.Cloud.Eventarc.V1.ChannelConnection.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct channel_connections: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channel_connections, 1,
     repeated: true,
@@ -271,17 +123,7 @@ defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsResponse do
 end
 defmodule Google.Cloud.Eventarc.V1.CreateChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          channel_connection: Google.Cloud.Eventarc.V1.ChannelConnection.t() | nil,
-          channel_connection_id: String.t()
-        }
-
-  defstruct parent: "",
-            channel_connection: nil,
-            channel_connection_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -297,37 +139,13 @@ defmodule Google.Cloud.Eventarc.V1.CreateChannelConnectionRequest do
 end
 defmodule Google.Cloud.Eventarc.V1.DeleteChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -348,7 +166,7 @@ defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.eventarc.v1.Eventarc"
+  use GRPC.Service, name: "google.cloud.eventarc.v1.Eventarc", protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetTrigger, Google.Cloud.Eventarc.V1.GetTriggerRequest, Google.Cloud.Eventarc.V1.Trigger
 

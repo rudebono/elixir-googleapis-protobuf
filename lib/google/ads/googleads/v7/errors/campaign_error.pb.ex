@@ -1,54 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Errors.CampaignErrorEnum.CampaignError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CANNOT_TARGET_CONTENT_NETWORK
-          | :CANNOT_TARGET_SEARCH_NETWORK
-          | :CANNOT_TARGET_SEARCH_NETWORK_WITHOUT_GOOGLE_SEARCH
-          | :CANNOT_TARGET_GOOGLE_SEARCH_FOR_CPM_CAMPAIGN
-          | :CAMPAIGN_MUST_TARGET_AT_LEAST_ONE_NETWORK
-          | :CANNOT_TARGET_PARTNER_SEARCH_NETWORK
-          | :CANNOT_TARGET_CONTENT_NETWORK_ONLY_WITH_CRITERIA_LEVEL_BIDDING_STRATEGY
-          | :CAMPAIGN_DURATION_MUST_CONTAIN_ALL_RUNNABLE_TRIALS
-          | :CANNOT_MODIFY_FOR_TRIAL_CAMPAIGN
-          | :DUPLICATE_CAMPAIGN_NAME
-          | :INCOMPATIBLE_CAMPAIGN_FIELD
-          | :INVALID_CAMPAIGN_NAME
-          | :INVALID_AD_SERVING_OPTIMIZATION_STATUS
-          | :INVALID_TRACKING_URL
-          | :CANNOT_SET_BOTH_TRACKING_URL_TEMPLATE_AND_TRACKING_SETTING
-          | :MAX_IMPRESSIONS_NOT_IN_RANGE
-          | :TIME_UNIT_NOT_SUPPORTED
-          | :INVALID_OPERATION_IF_SERVING_STATUS_HAS_ENDED
-          | :BUDGET_CANNOT_BE_SHARED
-          | :CAMPAIGN_CANNOT_USE_SHARED_BUDGET
-          | :CANNOT_CHANGE_BUDGET_ON_CAMPAIGN_WITH_TRIALS
-          | :CAMPAIGN_LABEL_DOES_NOT_EXIST
-          | :CAMPAIGN_LABEL_ALREADY_EXISTS
-          | :MISSING_SHOPPING_SETTING
-          | :INVALID_SHOPPING_SALES_COUNTRY
-          | :ADVERTISING_CHANNEL_TYPE_NOT_AVAILABLE_FOR_ACCOUNT_TYPE
-          | :INVALID_ADVERTISING_CHANNEL_SUB_TYPE
-          | :AT_LEAST_ONE_CONVERSION_MUST_BE_SELECTED
-          | :CANNOT_SET_AD_ROTATION_MODE
-          | :CANNOT_MODIFY_START_DATE_IF_ALREADY_STARTED
-          | :CANNOT_SET_DATE_TO_PAST
-          | :MISSING_HOTEL_CUSTOMER_LINK
-          | :INVALID_HOTEL_CUSTOMER_LINK
-          | :MISSING_HOTEL_SETTING
-          | :CANNOT_USE_SHARED_CAMPAIGN_BUDGET_WHILE_PART_OF_CAMPAIGN_GROUP
-          | :APP_NOT_FOUND
-          | :SHOPPING_ENABLE_LOCAL_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE
-          | :MERCHANT_NOT_ALLOWED_FOR_COMPARISON_LISTING_ADS
-          | :INSUFFICIENT_APP_INSTALLS_COUNT
-          | :SENSITIVE_CATEGORY_APP
-          | :HEC_AGREEMENT_REQUIRED
-          | :PAYMENT_MODE_NOT_COMPATIBLE_WITH_VIEW_THROUGH_CONVERSION
-          | :INVALID_EXCLUDED_PARENT_ASSET_FIELD_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -98,9 +50,5 @@ defmodule Google.Ads.Googleads.V7.Errors.CampaignErrorEnum.CampaignError do
 end
 defmodule Google.Ads.Googleads.V7.Errors.CampaignErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

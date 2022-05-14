@@ -1,8 +1,6 @@
 defmodule Google.Appengine.V1.TrafficSplit.ShardBy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :COOKIE | :IP | :RANDOM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :COOKIE, 1
@@ -11,36 +9,14 @@ defmodule Google.Appengine.V1.TrafficSplit.ShardBy do
 end
 defmodule Google.Appengine.V1.Service.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Appengine.V1.Service do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          split: Google.Appengine.V1.TrafficSplit.t() | nil,
-          labels: %{String.t() => String.t()},
-          network_settings: Google.Appengine.V1.NetworkSettings.t() | nil
-        }
-
-  defstruct name: "",
-            id: "",
-            split: nil,
-            labels: %{},
-            network_settings: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -53,30 +29,14 @@ defmodule Google.Appengine.V1.Service do
 end
 defmodule Google.Appengine.V1.TrafficSplit.AllocationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct key: "",
-            value: 0.0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
 end
 defmodule Google.Appengine.V1.TrafficSplit do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          shard_by: Google.Appengine.V1.TrafficSplit.ShardBy.t(),
-          allocations: %{String.t() => float | :infinity | :negative_infinity | :nan}
-        }
-
-  defstruct shard_by: :UNSPECIFIED,
-            allocations: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :shard_by, 1,
     type: Google.Appengine.V1.TrafficSplit.ShardBy,

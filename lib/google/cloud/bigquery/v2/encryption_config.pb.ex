@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.EncryptionConfiguration do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: Google.Protobuf.StringValue.t() | nil
-        }
-
-  defstruct kms_key_name: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1,
     type: Google.Protobuf.StringValue,

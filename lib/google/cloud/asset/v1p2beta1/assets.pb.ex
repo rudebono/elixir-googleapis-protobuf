@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Asset.V1p2beta1.TemporalAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          window: Google.Cloud.Asset.V1p2beta1.TimeWindow.t() | nil,
-          deleted: boolean,
-          asset: Google.Cloud.Asset.V1p2beta1.Asset.t() | nil
-        }
-
-  defstruct window: nil,
-            deleted: false,
-            asset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Asset.V1p2beta1.TimeWindow
   field :deleted, 2, type: :bool
@@ -18,36 +8,14 @@ defmodule Google.Cloud.Asset.V1p2beta1.TemporalAsset do
 end
 defmodule Google.Cloud.Asset.V1p2beta1.TimeWindow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 defmodule Google.Cloud.Asset.V1p2beta1.Asset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          asset_type: String.t(),
-          resource: Google.Cloud.Asset.V1p2beta1.Resource.t() | nil,
-          iam_policy: Google.Iam.V1.Policy.t() | nil,
-          ancestors: [String.t()]
-        }
-
-  defstruct name: "",
-            asset_type: "",
-            resource: nil,
-            iam_policy: nil,
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -57,23 +25,7 @@ defmodule Google.Cloud.Asset.V1p2beta1.Asset do
 end
 defmodule Google.Cloud.Asset.V1p2beta1.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          discovery_document_uri: String.t(),
-          discovery_name: String.t(),
-          resource_url: String.t(),
-          parent: String.t(),
-          data: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct version: "",
-            discovery_document_uri: "",
-            discovery_name: "",
-            resource_url: "",
-            parent: "",
-            data: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"

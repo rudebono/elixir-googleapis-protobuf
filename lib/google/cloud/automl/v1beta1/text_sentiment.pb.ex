@@ -1,41 +1,12 @@
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sentiment: integer
-        }
-
-  defstruct sentiment: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sentiment, 1, type: :int32
 end
 defmodule Google.Cloud.Automl.V1beta1.TextSentimentEvaluationMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          precision: float | :infinity | :negative_infinity | :nan,
-          recall: float | :infinity | :negative_infinity | :nan,
-          f1_score: float | :infinity | :negative_infinity | :nan,
-          mean_absolute_error: float | :infinity | :negative_infinity | :nan,
-          mean_squared_error: float | :infinity | :negative_infinity | :nan,
-          linear_kappa: float | :infinity | :negative_infinity | :nan,
-          quadratic_kappa: float | :infinity | :negative_infinity | :nan,
-          confusion_matrix:
-            Google.Cloud.Automl.V1beta1.ClassificationEvaluationMetrics.ConfusionMatrix.t() | nil,
-          annotation_spec_id: [String.t()]
-        }
-
-  defstruct precision: 0.0,
-            recall: 0.0,
-            f1_score: 0.0,
-            mean_absolute_error: 0.0,
-            mean_squared_error: 0.0,
-            linear_kappa: 0.0,
-            quadratic_kappa: 0.0,
-            confusion_matrix: nil,
-            annotation_spec_id: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :precision, 1, type: :float
   field :recall, 2, type: :float

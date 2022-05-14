@@ -1,20 +1,6 @@
 defmodule Google.Bigtable.V2.ReadRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t(),
-          rows: Google.Bigtable.V2.RowSet.t() | nil,
-          filter: Google.Bigtable.V2.RowFilter.t() | nil,
-          rows_limit: integer
-        }
-
-  defstruct table_name: "",
-            app_profile_id: "",
-            rows: nil,
-            filter: nil,
-            rows_limit: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 5, type: :string, json_name: "appProfileId"
@@ -24,27 +10,7 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
 end
 defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_status: {:reset_row, boolean} | {:commit_row, boolean},
-          row_key: binary,
-          family_name: Google.Protobuf.StringValue.t() | nil,
-          qualifier: Google.Protobuf.BytesValue.t() | nil,
-          timestamp_micros: integer,
-          labels: [String.t()],
-          value: binary,
-          value_size: integer
-        }
-
-  defstruct row_status: nil,
-            row_key: "",
-            family_name: nil,
-            qualifier: nil,
-            timestamp_micros: 0,
-            labels: [],
-            value: "",
-            value_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :row_status, 0
 
@@ -60,64 +26,28 @@ defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
 end
 defmodule Google.Bigtable.V2.ReadRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          chunks: [Google.Bigtable.V2.ReadRowsResponse.CellChunk.t()],
-          last_scanned_row_key: binary
-        }
-
-  defstruct chunks: [],
-            last_scanned_row_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :chunks, 1, repeated: true, type: Google.Bigtable.V2.ReadRowsResponse.CellChunk
   field :last_scanned_row_key, 2, type: :bytes, json_name: "lastScannedRowKey"
 end
 defmodule Google.Bigtable.V2.SampleRowKeysRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t()
-        }
-
-  defstruct table_name: "",
-            app_profile_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
 end
 defmodule Google.Bigtable.V2.SampleRowKeysResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_key: binary,
-          offset_bytes: integer
-        }
-
-  defstruct row_key: "",
-            offset_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :offset_bytes, 2, type: :int64, json_name: "offsetBytes"
 end
 defmodule Google.Bigtable.V2.MutateRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t(),
-          row_key: binary,
-          mutations: [Google.Bigtable.V2.Mutation.t()]
-        }
-
-  defstruct table_name: "",
-            app_profile_id: "",
-            row_key: "",
-            mutations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 4, type: :string, json_name: "appProfileId"
@@ -126,40 +56,18 @@ defmodule Google.Bigtable.V2.MutateRowRequest do
 end
 defmodule Google.Bigtable.V2.MutateRowResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Bigtable.V2.MutateRowsRequest.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_key: binary,
-          mutations: [Google.Bigtable.V2.Mutation.t()]
-        }
-
-  defstruct row_key: "",
-            mutations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :mutations, 2, repeated: true, type: Google.Bigtable.V2.Mutation, deprecated: false
 end
 defmodule Google.Bigtable.V2.MutateRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t(),
-          entries: [Google.Bigtable.V2.MutateRowsRequest.Entry.t()]
-        }
-
-  defstruct table_name: "",
-            app_profile_id: "",
-            entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 3, type: :string, json_name: "appProfileId"
@@ -171,50 +79,20 @@ defmodule Google.Bigtable.V2.MutateRowsRequest do
 end
 defmodule Google.Bigtable.V2.MutateRowsResponse.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index: integer,
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct index: 0,
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index, 1, type: :int64
   field :status, 2, type: Google.Rpc.Status
 end
 defmodule Google.Bigtable.V2.MutateRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Bigtable.V2.MutateRowsResponse.Entry.t()]
-        }
-
-  defstruct entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Bigtable.V2.MutateRowsResponse.Entry
 end
 defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t(),
-          row_key: binary,
-          predicate_filter: Google.Bigtable.V2.RowFilter.t() | nil,
-          true_mutations: [Google.Bigtable.V2.Mutation.t()],
-          false_mutations: [Google.Bigtable.V2.Mutation.t()]
-        }
-
-  defstruct table_name: "",
-            app_profile_id: "",
-            row_key: "",
-            predicate_filter: nil,
-            true_mutations: [],
-            false_mutations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 7, type: :string, json_name: "appProfileId"
@@ -233,54 +111,24 @@ defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
 end
 defmodule Google.Bigtable.V2.CheckAndMutateRowResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          predicate_matched: boolean
-        }
-
-  defstruct predicate_matched: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :predicate_matched, 1, type: :bool, json_name: "predicateMatched"
 end
 defmodule Google.Bigtable.V2.PingAndWarmRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          app_profile_id: String.t()
-        }
-
-  defstruct name: "",
-            app_profile_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
 end
 defmodule Google.Bigtable.V2.PingAndWarmResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          app_profile_id: String.t(),
-          row_key: binary,
-          rules: [Google.Bigtable.V2.ReadModifyWriteRule.t()]
-        }
-
-  defstruct table_name: "",
-            app_profile_id: "",
-            row_key: "",
-            rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 4, type: :string, json_name: "appProfileId"
@@ -289,19 +137,13 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
 end
 defmodule Google.Bigtable.V2.ReadModifyWriteRowResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row: Google.Bigtable.V2.Row.t() | nil
-        }
-
-  defstruct row: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row, 1, type: Google.Bigtable.V2.Row
 end
 defmodule Google.Bigtable.V2.Bigtable.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.bigtable.v2.Bigtable"
+  use GRPC.Service, name: "google.bigtable.v2.Bigtable", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ReadRows, Google.Bigtable.V2.ReadRowsRequest, stream(Google.Bigtable.V2.ReadRowsResponse)
 

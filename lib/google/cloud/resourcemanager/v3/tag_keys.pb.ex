@@ -1,26 +1,6 @@
 defmodule Google.Cloud.Resourcemanager.V3.TagKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          short_name: String.t(),
-          namespaced_name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            parent: "",
-            short_name: "",
-            namespaced_name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string, deprecated: false
@@ -42,17 +22,7 @@ defmodule Google.Cloud.Resourcemanager.V3.TagKey do
 end
 defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -60,15 +30,7 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag_keys: [Google.Cloud.Resourcemanager.V3.TagKey.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tag_keys: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag_keys, 1,
     repeated: true,
@@ -79,27 +41,13 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
 end
 defmodule Google.Cloud.Resourcemanager.V3.GetTagKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag_key: Google.Cloud.Resourcemanager.V3.TagKey.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct tag_key: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag_key, 1,
     type: Google.Cloud.Resourcemanager.V3.TagKey,
@@ -110,25 +58,11 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagKeyMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag_key: Google.Cloud.Resourcemanager.V3.TagKey.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct tag_key: nil,
-            update_mask: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag_key, 1,
     type: Google.Cloud.Resourcemanager.V3.TagKey,
@@ -140,25 +74,11 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagKeyMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            validate_only: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -166,15 +86,13 @@ defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagKeyMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.TagKeys.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.resourcemanager.v3.TagKeys"
+  use GRPC.Service,
+    name: "google.cloud.resourcemanager.v3.TagKeys",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListTagKeys,
       Google.Cloud.Resourcemanager.V3.ListTagKeysRequest,

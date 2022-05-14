@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Build.V1.ConsoleOutputStream do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :STDOUT | :STDERR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :STDOUT, 1
@@ -10,9 +8,7 @@ defmodule Google.Devtools.Build.V1.ConsoleOutputStream do
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FINISH_TYPE_UNSPECIFIED | :FINISHED | :EXPIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FINISH_TYPE_UNSPECIFIED, 0
   field :FINISHED, 1
@@ -20,9 +16,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.Finis
 end
 defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN_COMPONENT | :CONTROLLER | :WORKER | :TOOL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_COMPONENT, 0
   field :CONTROLLER, 1
@@ -31,30 +25,14 @@ defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attempt_number: integer,
-          details: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct attempt_number: 0,
-            details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :attempt_number, 1, type: :int64, json_name: "attemptNumber"
   field :details, 2, type: Google.Protobuf.Any
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation_status: Google.Devtools.Build.V1.BuildStatus.t() | nil,
-          details: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct invocation_status: nil,
-            details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation_status, 3,
     type: Google.Devtools.Build.V1.BuildStatus,
@@ -64,42 +42,20 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :details, 1, type: Google.Protobuf.Any
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Devtools.Build.V1.BuildStatus.t() | nil,
-          details: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct status: nil,
-            details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Devtools.Build.V1.BuildStatus
   field :details, 2, type: Google.Protobuf.Any
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output: {:text_output, String.t()} | {:binary_output, binary},
-          type: Google.Devtools.Build.V1.ConsoleOutputStream.t()
-        }
-
-  defstruct output: nil,
-            type: :UNKNOWN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -109,13 +65,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
 end
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType.t()
-        }
-
-  defstruct type: :FINISH_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType,
@@ -123,27 +73,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
 end
 defmodule Google.Devtools.Build.V1.BuildEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event:
-            {:invocation_attempt_started,
-             Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted.t() | nil}
-            | {:invocation_attempt_finished,
-               Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished.t() | nil}
-            | {:build_enqueued, Google.Devtools.Build.V1.BuildEvent.BuildEnqueued.t() | nil}
-            | {:build_finished, Google.Devtools.Build.V1.BuildEvent.BuildFinished.t() | nil}
-            | {:console_output, Google.Devtools.Build.V1.BuildEvent.ConsoleOutput.t() | nil}
-            | {:component_stream_finished,
-               Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.t() | nil}
-            | {:bazel_event, Google.Protobuf.Any.t() | nil}
-            | {:build_execution_event, Google.Protobuf.Any.t() | nil}
-            | {:source_fetch_event, Google.Protobuf.Any.t() | nil},
-          event_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct event: nil,
-            event_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -193,17 +123,7 @@ defmodule Google.Devtools.Build.V1.BuildEvent do
 end
 defmodule Google.Devtools.Build.V1.StreamId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          build_id: String.t(),
-          invocation_id: String.t(),
-          component: Google.Devtools.Build.V1.StreamId.BuildComponent.t()
-        }
-
-  defstruct build_id: "",
-            invocation_id: "",
-            component: :UNKNOWN_COMPONENT
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :build_id, 1, type: :string, json_name: "buildId"
   field :invocation_id, 6, type: :string, json_name: "invocationId"

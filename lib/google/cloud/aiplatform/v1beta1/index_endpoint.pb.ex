@@ -1,45 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          deployed_indexes: [Google.Cloud.Aiplatform.V1beta1.DeployedIndex.t()],
-          etag: String.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          network: String.t(),
-          enable_private_service_connect: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            deployed_indexes: [],
-            etag: "",
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            network: "",
-            enable_private_service_connect: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -77,36 +45,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          index: String.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          private_endpoints: Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints.t() | nil,
-          index_sync_time: Google.Protobuf.Timestamp.t() | nil,
-          automatic_resources: Google.Cloud.Aiplatform.V1beta1.AutomaticResources.t() | nil,
-          dedicated_resources: Google.Cloud.Aiplatform.V1beta1.DedicatedResources.t() | nil,
-          enable_access_logging: boolean,
-          deployed_index_auth_config:
-            Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.t() | nil,
-          reserved_ip_ranges: [String.t()],
-          deployment_group: String.t()
-        }
-
-  defstruct id: "",
-            index: "",
-            display_name: "",
-            create_time: nil,
-            private_endpoints: nil,
-            index_sync_time: nil,
-            automatic_resources: nil,
-            dedicated_resources: nil,
-            enable_access_logging: false,
-            deployed_index_auth_config: nil,
-            reserved_ip_ranges: [],
-            deployment_group: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :index, 2, type: :string, deprecated: false
@@ -157,29 +96,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audiences: [String.t()],
-          allowed_issuers: [String.t()]
-        }
-
-  defstruct audiences: [],
-            allowed_issuers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audiences, 1, repeated: true, type: :string
   field :allowed_issuers, 2, repeated: true, type: :string, json_name: "allowedIssuers"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          auth_provider:
-            Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider.t() | nil
-        }
-
-  defstruct auth_provider: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :auth_provider, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider,
@@ -187,15 +111,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          match_grpc_address: String.t(),
-          service_attachment: String.t()
-        }
-
-  defstruct match_grpc_address: "",
-            service_attachment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :match_grpc_address, 1, type: :string, json_name: "matchGrpcAddress", deprecated: false
   field :service_attachment, 2, type: :string, json_name: "serviceAttachment", deprecated: false

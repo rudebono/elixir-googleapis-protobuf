@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NAMED_TARGET_UNSPECIFIED | :HEAD | :COMMITTED_CURSOR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NAMED_TARGET_UNSPECIFIED, 0
   field :HEAD, 1
@@ -10,17 +8,7 @@ defmodule Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget do
 end
 defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          partition: integer,
-          initial_location: Google.Cloud.Pubsublite.V1.SeekRequest.t() | nil
-        }
-
-  defstruct subscription: "",
-            partition: 0,
-            initial_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
@@ -32,27 +20,13 @@ defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.InitialSubscribeResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
-        }
-
-  defstruct cursor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
 end
 defmodule Google.Cloud.Pubsublite.V1.SeekRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target:
-            {:named_target, Google.Cloud.Pubsublite.V1.SeekRequest.NamedTarget.t()}
-            | {:cursor, Google.Cloud.Pubsublite.V1.Cursor.t() | nil}
-        }
-
-  defstruct target: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -66,43 +40,20 @@ defmodule Google.Cloud.Pubsublite.V1.SeekRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.SeekResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
-        }
-
-  defstruct cursor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
 end
 defmodule Google.Cloud.Pubsublite.V1.FlowControlRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_messages: integer,
-          allowed_bytes: integer
-        }
-
-  defstruct allowed_messages: 0,
-            allowed_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_messages, 1, type: :int64, json_name: "allowedMessages"
   field :allowed_bytes, 2, type: :int64, json_name: "allowedBytes"
 end
 defmodule Google.Cloud.Pubsublite.V1.SubscribeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:initial, Google.Cloud.Pubsublite.V1.InitialSubscribeRequest.t() | nil}
-            | {:seek, Google.Cloud.Pubsublite.V1.SeekRequest.t() | nil}
-            | {:flow_control, Google.Cloud.Pubsublite.V1.FlowControlRequest.t() | nil}
-        }
-
-  defstruct request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -116,28 +67,13 @@ defmodule Google.Cloud.Pubsublite.V1.SubscribeRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.MessageResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          messages: [Google.Cloud.Pubsublite.V1.SequencedMessage.t()]
-        }
-
-  defstruct messages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.SequencedMessage
 end
 defmodule Google.Cloud.Pubsublite.V1.SubscribeResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response:
-            {:initial, Google.Cloud.Pubsublite.V1.InitialSubscribeResponse.t() | nil}
-            | {:seek, Google.Cloud.Pubsublite.V1.SeekResponse.t() | nil}
-            | {:messages, Google.Cloud.Pubsublite.V1.MessageResponse.t() | nil}
-        }
-
-  defstruct response: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -147,50 +83,24 @@ defmodule Google.Cloud.Pubsublite.V1.SubscribeResponse do
 end
 defmodule Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          client_id: binary
-        }
-
-  defstruct subscription: "",
-            client_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :client_id, 2, type: :bytes, json_name: "clientId"
 end
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partitions: [integer]
-        }
-
-  defstruct partitions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partitions, 1, repeated: true, type: :int64
 end
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentAck do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:initial, Google.Cloud.Pubsublite.V1.InitialPartitionAssignmentRequest.t() | nil}
-            | {:ack, Google.Cloud.Pubsublite.V1.PartitionAssignmentAck.t() | nil}
-        }
-
-  defstruct request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -199,7 +109,9 @@ defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.SubscriberService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.pubsublite.v1.SubscriberService"
+  use GRPC.Service,
+    name: "google.cloud.pubsublite.v1.SubscriberService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Subscribe,
       stream(Google.Cloud.Pubsublite.V1.SubscribeRequest),
@@ -212,7 +124,9 @@ defmodule Google.Cloud.Pubsublite.V1.SubscriberService.Stub do
 end
 defmodule Google.Cloud.Pubsublite.V1.PartitionAssignmentService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.pubsublite.v1.PartitionAssignmentService"
+  use GRPC.Service,
+    name: "google.cloud.pubsublite.v1.PartitionAssignmentService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :AssignPartitions,
       stream(Google.Cloud.Pubsublite.V1.PartitionAssignmentRequest),

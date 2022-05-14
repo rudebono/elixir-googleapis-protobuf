@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Run.V2.TrafficTargetAllocationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED
-          | :TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST
-          | :TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED, 0
   field :TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST, 1
@@ -14,19 +8,7 @@ defmodule Google.Cloud.Run.V2.TrafficTargetAllocationType do
 end
 defmodule Google.Cloud.Run.V2.TrafficTarget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Run.V2.TrafficTargetAllocationType.t(),
-          revision: String.t(),
-          percent: integer,
-          tag: String.t()
-        }
-
-  defstruct type: :TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED,
-            revision: "",
-            percent: 0,
-            tag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Run.V2.TrafficTargetAllocationType, enum: true
   field :revision, 2, type: :string, deprecated: false
@@ -35,21 +17,7 @@ defmodule Google.Cloud.Run.V2.TrafficTarget do
 end
 defmodule Google.Cloud.Run.V2.TrafficTargetStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Run.V2.TrafficTargetAllocationType.t(),
-          revision: String.t(),
-          percent: integer,
-          tag: String.t(),
-          uri: String.t()
-        }
-
-  defstruct type: :TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED,
-            revision: "",
-            percent: 0,
-            tag: "",
-            uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Run.V2.TrafficTargetAllocationType, enum: true
   field :revision, 2, type: :string, deprecated: false

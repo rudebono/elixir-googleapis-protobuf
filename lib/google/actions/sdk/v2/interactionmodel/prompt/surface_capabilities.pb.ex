@@ -1,16 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :SPEECH
-          | :RICH_RESPONSE
-          | :LONG_FORM_AUDIO
-          | :INTERACTIVE_CANVAS
-          | :WEB_LINK
-          | :HOME_STORAGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :SPEECH, 1
@@ -22,15 +12,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capa
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          capabilities: [
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability.t()
-          ]
-        }
-
-  defstruct capabilities: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :capabilities, 1,
     repeated: true,

@@ -1,28 +1,12 @@
 defmodule Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.Authorization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          service_account_email: String.t(),
-          oauth_client_id: String.t()
-        }
-
-  defstruct name: "",
-            service_account_email: "",
-            oauth_client_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :service_account_email, 2, type: :string, json_name: "serviceAccountEmail"
@@ -30,17 +14,7 @@ defmodule Google.Cloud.Gsuiteaddons.V1.Authorization do
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          deployment_id: String.t(),
-          deployment: Google.Cloud.Gsuiteaddons.V1.Deployment.t() | nil
-        }
-
-  defstruct parent: "",
-            deployment_id: "",
-            deployment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -48,41 +22,19 @@ defmodule Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest do
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.ReplaceDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployment: Google.Cloud.Gsuiteaddons.V1.Deployment.t() | nil
-        }
-
-  defstruct deployment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployment, 2, type: Google.Cloud.Gsuiteaddons.V1.Deployment, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.GetDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -90,100 +42,46 @@ defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest do
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployments: [Google.Cloud.Gsuiteaddons.V1.Deployment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct deployments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Gsuiteaddons.V1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.DeleteDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.UninstallDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.GetInstallStatusRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          installed: Google.Protobuf.BoolValue.t() | nil
-        }
-
-  defstruct name: "",
-            installed: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :installed, 2, type: Google.Protobuf.BoolValue
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.Deployment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          oauth_scopes: [String.t()],
-          add_ons: Google.Cloud.Gsuiteaddons.V1.AddOns.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            oauth_scopes: [],
-            add_ons: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :oauth_scopes, 2, repeated: true, type: :string, json_name: "oauthScopes"
@@ -192,27 +90,7 @@ defmodule Google.Cloud.Gsuiteaddons.V1.Deployment do
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          common: Google.Apps.Script.Type.CommonAddOnManifest.t() | nil,
-          gmail: Google.Apps.Script.Type.Gmail.GmailAddOnManifest.t() | nil,
-          drive: Google.Apps.Script.Type.Drive.DriveAddOnManifest.t() | nil,
-          calendar: Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.t() | nil,
-          docs: Google.Apps.Script.Type.Docs.DocsAddOnManifest.t() | nil,
-          sheets: Google.Apps.Script.Type.Sheets.SheetsAddOnManifest.t() | nil,
-          slides: Google.Apps.Script.Type.Slides.SlidesAddOnManifest.t() | nil,
-          http_options: Google.Apps.Script.Type.HttpOptions.t() | nil
-        }
-
-  defstruct common: nil,
-            gmail: nil,
-            drive: nil,
-            calendar: nil,
-            docs: nil,
-            sheets: nil,
-            slides: nil,
-            http_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :common, 1, type: Google.Apps.Script.Type.CommonAddOnManifest
   field :gmail, 2, type: Google.Apps.Script.Type.Gmail.GmailAddOnManifest
@@ -225,7 +103,9 @@ defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
 end
 defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.gsuiteaddons.v1.GSuiteAddOns"
+  use GRPC.Service,
+    name: "google.cloud.gsuiteaddons.v1.GSuiteAddOns",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetAuthorization,
       Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest,

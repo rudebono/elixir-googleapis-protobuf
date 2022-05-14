@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Runtimeconfig.V1beta1.VariableState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VARIABLE_STATE_UNSPECIFIED | :UPDATED | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VARIABLE_STATE_UNSPECIFIED, 0
   field :UPDATED, 1
@@ -10,34 +8,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.VariableState do
 end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t()
-        }
-
-  defstruct name: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
 end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          contents: {:value, binary} | {:text, String.t()},
-          name: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Runtimeconfig.V1beta1.VariableState.t()
-        }
-
-  defstruct contents: nil,
-            name: "",
-            update_time: nil,
-            state: :VARIABLE_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :contents, 0
 
@@ -49,29 +27,14 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.Variable do
 end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          path: String.t(),
-          number: integer
-        }
-
-  defstruct path: "",
-            number: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :number, 2, type: :int32
 end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          condition:
-            {:cardinality, Google.Cloud.Runtimeconfig.V1beta1.EndCondition.Cardinality.t() | nil}
-        }
-
-  defstruct condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :condition, 0
 
@@ -81,25 +44,7 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.EndCondition do
 end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.Waiter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          timeout: Google.Protobuf.Duration.t() | nil,
-          failure: Google.Cloud.Runtimeconfig.V1beta1.EndCondition.t() | nil,
-          success: Google.Cloud.Runtimeconfig.V1beta1.EndCondition.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          done: boolean,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct name: "",
-            timeout: nil,
-            failure: nil,
-            success: nil,
-            create_time: nil,
-            done: false,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :timeout, 2, type: Google.Protobuf.Duration

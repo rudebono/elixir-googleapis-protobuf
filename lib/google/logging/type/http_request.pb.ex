@@ -1,40 +1,6 @@
 defmodule Google.Logging.Type.HttpRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_method: String.t(),
-          request_url: String.t(),
-          request_size: integer,
-          status: integer,
-          response_size: integer,
-          user_agent: String.t(),
-          remote_ip: String.t(),
-          server_ip: String.t(),
-          referer: String.t(),
-          latency: Google.Protobuf.Duration.t() | nil,
-          cache_lookup: boolean,
-          cache_hit: boolean,
-          cache_validated_with_origin_server: boolean,
-          cache_fill_bytes: integer,
-          protocol: String.t()
-        }
-
-  defstruct request_method: "",
-            request_url: "",
-            request_size: 0,
-            status: 0,
-            response_size: 0,
-            user_agent: "",
-            remote_ip: "",
-            server_ip: "",
-            referer: "",
-            latency: nil,
-            cache_lookup: false,
-            cache_hit: false,
-            cache_validated_with_origin_server: false,
-            cache_fill_bytes: 0,
-            protocol: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_method, 1, type: :string, json_name: "requestMethod"
   field :request_url, 2, type: :string, json_name: "requestUrl"

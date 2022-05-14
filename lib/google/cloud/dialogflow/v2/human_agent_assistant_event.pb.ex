@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          conversation: String.t(),
-          participant: String.t(),
-          suggestion_results: [Google.Cloud.Dialogflow.V2.SuggestionResult.t()]
-        }
-
-  defstruct conversation: "",
-            participant: "",
-            suggestion_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :conversation, 1, type: :string
   field :participant, 3, type: :string

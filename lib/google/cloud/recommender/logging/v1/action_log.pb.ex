@@ -1,33 +1,13 @@
 defmodule Google.Cloud.Recommender.Logging.V1.ActionLog.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.Logging.V1.ActionLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          actor: String.t(),
-          state: Google.Cloud.Recommender.V1.RecommendationStateInfo.State.t(),
-          state_metadata: %{String.t() => String.t()},
-          recommendation_name: String.t()
-        }
-
-  defstruct actor: "",
-            state: :STATE_UNSPECIFIED,
-            state_metadata: %{},
-            recommendation_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :actor, 1, type: :string
   field :state, 2, type: Google.Cloud.Recommender.V1.RecommendationStateInfo.State, enum: true
@@ -42,34 +22,14 @@ defmodule Google.Cloud.Recommender.Logging.V1.ActionLog do
 end
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          actor: String.t(),
-          state: Google.Cloud.Recommender.V1.InsightStateInfo.State.t(),
-          state_metadata: %{String.t() => String.t()},
-          insight: String.t()
-        }
-
-  defstruct actor: "",
-            state: :STATE_UNSPECIFIED,
-            state_metadata: %{},
-            insight: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :actor, 1, type: :string, deprecated: false
 

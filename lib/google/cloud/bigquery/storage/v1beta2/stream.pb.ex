@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :AVRO | :ARROW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.DataFormat do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.WriteStream.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :COMMITTED | :PENDING | :BUFFERED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :COMMITTED, 1
@@ -21,30 +17,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.WriteStream.Type do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableModifiers do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct snapshot_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableReadOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selected_fields: [String.t()],
-          row_restriction: String.t(),
-          arrow_serialization_options:
-            Google.Cloud.Bigquery.Storage.V1beta2.ArrowSerializationOptions.t() | nil
-        }
-
-  defstruct selected_fields: [],
-            row_restriction: "",
-            arrow_serialization_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selected_fields, 1, repeated: true, type: :string, json_name: "selectedFields"
   field :row_restriction, 2, type: :string, json_name: "rowRestriction"
@@ -56,31 +35,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableReadOptions do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema:
-            {:avro_schema, Google.Cloud.Bigquery.Storage.V1beta2.AvroSchema.t() | nil}
-            | {:arrow_schema, Google.Cloud.Bigquery.Storage.V1beta2.ArrowSchema.t() | nil},
-          name: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          data_format: Google.Cloud.Bigquery.Storage.V1beta2.DataFormat.t(),
-          table: String.t(),
-          table_modifiers:
-            Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableModifiers.t() | nil,
-          read_options:
-            Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableReadOptions.t() | nil,
-          streams: [Google.Cloud.Bigquery.Storage.V1beta2.ReadStream.t()]
-        }
-
-  defstruct schema: nil,
-            name: "",
-            expire_time: nil,
-            data_format: :DATA_FORMAT_UNSPECIFIED,
-            table: "",
-            table_modifiers: nil,
-            read_options: nil,
-            streams: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -128,33 +83,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadStream do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.WriteStream do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Bigquery.Storage.V1beta2.WriteStream.Type.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          commit_time: Google.Protobuf.Timestamp.t() | nil,
-          table_schema: Google.Cloud.Bigquery.Storage.V1beta2.TableSchema.t() | nil
-        }
-
-  defstruct name: "",
-            type: :TYPE_UNSPECIFIED,
-            create_time: nil,
-            commit_time: nil,
-            table_schema: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

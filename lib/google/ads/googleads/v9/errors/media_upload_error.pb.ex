@@ -1,45 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Errors.MediaUploadErrorEnum.MediaUploadError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :FILE_TOO_BIG
-          | :UNPARSEABLE_IMAGE
-          | :ANIMATED_IMAGE_NOT_ALLOWED
-          | :FORMAT_NOT_ALLOWED
-          | :EXTERNAL_URL_NOT_ALLOWED
-          | :INVALID_URL_REFERENCE
-          | :MISSING_PRIMARY_MEDIA_BUNDLE_ENTRY
-          | :ANIMATED_VISUAL_EFFECT
-          | :ANIMATION_TOO_LONG
-          | :ASPECT_RATIO_NOT_ALLOWED
-          | :AUDIO_NOT_ALLOWED_IN_MEDIA_BUNDLE
-          | :CMYK_JPEG_NOT_ALLOWED
-          | :FLASH_NOT_ALLOWED
-          | :FRAME_RATE_TOO_HIGH
-          | :GOOGLE_WEB_DESIGNER_ZIP_FILE_NOT_PUBLISHED
-          | :IMAGE_CONSTRAINTS_VIOLATED
-          | :INVALID_MEDIA_BUNDLE
-          | :INVALID_MEDIA_BUNDLE_ENTRY
-          | :INVALID_MIME_TYPE
-          | :INVALID_PATH
-          | :LAYOUT_PROBLEM
-          | :MALFORMED_URL
-          | :MEDIA_BUNDLE_NOT_ALLOWED
-          | :MEDIA_BUNDLE_NOT_COMPATIBLE_TO_PRODUCT_TYPE
-          | :MEDIA_BUNDLE_REJECTED_BY_MULTIPLE_ASSET_SPECS
-          | :TOO_MANY_FILES_IN_MEDIA_BUNDLE
-          | :UNSUPPORTED_GOOGLE_WEB_DESIGNER_ENVIRONMENT
-          | :UNSUPPORTED_HTML5_FEATURE
-          | :URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT
-          | :VIDEO_FILE_NAME_TOO_LONG
-          | :VIDEO_MULTIPLE_FILES_WITH_SAME_NAME
-          | :VIDEO_NOT_ALLOWED_IN_MEDIA_BUNDLE
-          | :CANNOT_UPLOAD_MEDIA_TYPE_THROUGH_API
-          | :DIMENSIONS_NOT_ALLOWED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -80,9 +41,5 @@ defmodule Google.Ads.Googleads.V9.Errors.MediaUploadErrorEnum.MediaUploadError d
 end
 defmodule Google.Ads.Googleads.V9.Errors.MediaUploadErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebEntity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_id: String.t(),
-          score: float | :infinity | :negative_infinity | :nan,
-          description: String.t()
-        }
-
-  defstruct entity_id: "",
-            score: 0.0,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :score, 2, type: :float
@@ -18,36 +8,14 @@ defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebEntity do
 end
 defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct url: "",
-            score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :score, 2, type: :float
 end
 defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebPage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          score: float | :infinity | :negative_infinity | :nan,
-          page_title: String.t(),
-          full_matching_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage.t()],
-          partial_matching_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage.t()]
-        }
-
-  defstruct url: "",
-            score: 0.0,
-            page_title: "",
-            full_matching_images: [],
-            partial_matching_images: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :score, 2, type: :float
@@ -65,38 +33,14 @@ defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebPage do
 end
 defmodule Google.Cloud.Vision.V1p4beta1.WebDetection.WebLabel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct label: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
 defmodule Google.Cloud.Vision.V1p4beta1.WebDetection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          web_entities: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebEntity.t()],
-          full_matching_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage.t()],
-          partial_matching_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage.t()],
-          pages_with_matching_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebPage.t()],
-          visually_similar_images: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebImage.t()],
-          best_guess_labels: [Google.Cloud.Vision.V1p4beta1.WebDetection.WebLabel.t()]
-        }
-
-  defstruct web_entities: [],
-            full_matching_images: [],
-            partial_matching_images: [],
-            pages_with_matching_images: [],
-            visually_similar_images: [],
-            best_guess_labels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :web_entities, 1,
     repeated: true,

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INCLUSION_MODE_UNSPECIFIED | :INCLUDE_ONLY | :EXCLUDE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INCLUSION_MODE_UNSPECIFIED, 0
   field :INCLUDE_ONLY, 1
@@ -10,18 +8,7 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscov
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_ids: [String.t()],
-          inclusion_mode:
-            Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode.t(),
-          folder_ids: [String.t()]
-        }
-
-  defstruct project_ids: [],
-            inclusion_mode: :INCLUSION_MODE_UNSPECIFIED,
-            folder_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_ids, 1, repeated: true, type: :string, json_name: "projectIds"
 
@@ -35,19 +22,7 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscov
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          enable_asset_discovery: boolean,
-          asset_discovery_config:
-            Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig.t()
-            | nil
-        }
-
-  defstruct name: "",
-            enable_asset_discovery: false,
-            asset_discovery_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :enable_asset_discovery, 2, type: :bool, json_name: "enableAssetDiscovery"

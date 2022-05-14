@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ExecutionState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EXECUTION_STATE_UNSPECIFIED | :QUEUED | :SCANNING | :FINISHED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ExecutionState do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESULT_STATE_UNSPECIFIED | :SUCCESS | :ERROR | :KILLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESULT_STATE_UNSPECIFIED, 0
   field :SUCCESS, 1
@@ -22,33 +18,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRun do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          execution_state: Google.Cloud.Websecurityscanner.V1.ScanRun.ExecutionState.t(),
-          result_state: Google.Cloud.Websecurityscanner.V1.ScanRun.ResultState.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          urls_crawled_count: integer,
-          urls_tested_count: integer,
-          has_vulnerabilities: boolean,
-          progress_percent: integer,
-          error_trace: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.t() | nil,
-          warning_traces: [Google.Cloud.Websecurityscanner.V1.ScanRunWarningTrace.t()]
-        }
-
-  defstruct name: "",
-            execution_state: :EXECUTION_STATE_UNSPECIFIED,
-            result_state: :RESULT_STATE_UNSPECIFIED,
-            start_time: nil,
-            end_time: nil,
-            urls_crawled_count: 0,
-            urls_tested_count: 0,
-            has_vulnerabilities: false,
-            progress_percent: 0,
-            error_trace: nil,
-            warning_traces: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 

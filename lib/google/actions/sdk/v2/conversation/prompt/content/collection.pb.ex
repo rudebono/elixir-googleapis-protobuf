@@ -1,30 +1,12 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Collection.CollectionItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t()
-        }
-
-  defstruct key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
 defmodule Google.Actions.Sdk.V2.Conversation.Collection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          items: [Google.Actions.Sdk.V2.Conversation.Collection.CollectionItem.t()],
-          image_fill: Google.Actions.Sdk.V2.Conversation.Image.ImageFill.t()
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            items: [],
-            image_fill: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string

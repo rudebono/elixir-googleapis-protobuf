@@ -1,14 +1,6 @@
 defmodule Google.Monitoring.V3.CreateAlertPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          alert_policy: Google.Monitoring.V3.AlertPolicy.t() | nil
-        }
-
-  defstruct name: "",
-            alert_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -19,33 +11,13 @@ defmodule Google.Monitoring.V3.CreateAlertPolicyRequest do
 end
 defmodule Google.Monitoring.V3.GetAlertPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.ListAlertPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            order_by: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :filter, 5, type: :string
@@ -55,17 +27,7 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesRequest do
 end
 defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          alert_policies: [Google.Monitoring.V3.AlertPolicy.t()],
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct alert_policies: [],
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :alert_policies, 3,
     repeated: true,
@@ -77,15 +39,7 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
 end
 defmodule Google.Monitoring.V3.UpdateAlertPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          alert_policy: Google.Monitoring.V3.AlertPolicy.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            alert_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -96,19 +50,15 @@ defmodule Google.Monitoring.V3.UpdateAlertPolicyRequest do
 end
 defmodule Google.Monitoring.V3.DeleteAlertPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.AlertPolicyService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.monitoring.v3.AlertPolicyService"
+  use GRPC.Service,
+    name: "google.monitoring.v3.AlertPolicyService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListAlertPolicies,
       Google.Monitoring.V3.ListAlertPoliciesRequest,

@@ -1,16 +1,6 @@
 defmodule Google.Spanner.V1.ResultSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata: Google.Spanner.V1.ResultSetMetadata.t() | nil,
-          rows: [Google.Protobuf.ListValue.t()],
-          stats: Google.Spanner.V1.ResultSetStats.t() | nil
-        }
-
-  defstruct metadata: nil,
-            rows: [],
-            stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Spanner.V1.ResultSetMetadata
   field :rows, 2, repeated: true, type: Google.Protobuf.ListValue
@@ -18,21 +8,7 @@ defmodule Google.Spanner.V1.ResultSet do
 end
 defmodule Google.Spanner.V1.PartialResultSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata: Google.Spanner.V1.ResultSetMetadata.t() | nil,
-          values: [Google.Protobuf.Value.t()],
-          chunked_value: boolean,
-          resume_token: binary,
-          stats: Google.Spanner.V1.ResultSetStats.t() | nil
-        }
-
-  defstruct metadata: nil,
-            values: [],
-            chunked_value: false,
-            resume_token: "",
-            stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Spanner.V1.ResultSetMetadata
   field :values, 2, repeated: true, type: Google.Protobuf.Value
@@ -42,32 +18,14 @@ defmodule Google.Spanner.V1.PartialResultSet do
 end
 defmodule Google.Spanner.V1.ResultSetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_type: Google.Spanner.V1.StructType.t() | nil,
-          transaction: Google.Spanner.V1.Transaction.t() | nil
-        }
-
-  defstruct row_type: nil,
-            transaction: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row_type, 1, type: Google.Spanner.V1.StructType, json_name: "rowType"
   field :transaction, 2, type: Google.Spanner.V1.Transaction
 end
 defmodule Google.Spanner.V1.ResultSetStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_count: {:row_count_exact, integer} | {:row_count_lower_bound, integer},
-          query_plan: Google.Spanner.V1.QueryPlan.t() | nil,
-          query_stats: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct row_count: nil,
-            query_plan: nil,
-            query_stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :row_count, 0
 

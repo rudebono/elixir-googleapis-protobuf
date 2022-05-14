@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          azure_cluster: Google.Cloud.Gkemulticloud.V1.AzureCluster.t() | nil,
-          azure_cluster_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            azure_cluster: nil,
-            azure_cluster_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -26,17 +14,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAzureClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_cluster: Google.Cloud.Gkemulticloud.V1.AzureCluster.t() | nil,
-          validate_only: boolean,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct azure_cluster: nil,
-            validate_only: false,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_cluster, 1,
     type: Google.Cloud.Gkemulticloud.V1.AzureCluster,
@@ -52,29 +30,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.UpdateAzureClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClustersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -82,15 +44,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClustersRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClustersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_clusters: [Google.Cloud.Gkemulticloud.V1.AzureCluster.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct azure_clusters: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_clusters, 1,
     repeated: true,
@@ -101,19 +55,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClustersResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            allow_missing: false,
-            validate_only: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
@@ -122,19 +64,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          azure_node_pool: Google.Cloud.Gkemulticloud.V1.AzureNodePool.t() | nil,
-          azure_node_pool_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            azure_node_pool: nil,
-            azure_node_pool_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -148,17 +78,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAzureNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_node_pool: Google.Cloud.Gkemulticloud.V1.AzureNodePool.t() | nil,
-          validate_only: boolean,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct azure_node_pool: nil,
-            validate_only: false,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_node_pool, 1,
     type: Google.Cloud.Gkemulticloud.V1.AzureNodePool,
@@ -174,29 +94,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.UpdateAzureNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureNodePoolsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -204,15 +108,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureNodePoolsRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureNodePoolsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_node_pools: [Google.Cloud.Gkemulticloud.V1.AzureNodePool.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct azure_node_pools: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_node_pools, 1,
     repeated: true,
@@ -223,19 +119,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureNodePoolsResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean,
-          allow_missing: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            validate_only: false,
-            allow_missing: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -244,31 +128,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureServerConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureClientRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          azure_client: Google.Cloud.Gkemulticloud.V1.AzureClient.t() | nil,
-          azure_client_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            azure_client: nil,
-            azure_client_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -282,29 +148,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureClientRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureClientRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClientsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -312,15 +162,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClientsRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClientsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_clients: [Google.Cloud.Gkemulticloud.V1.AzureClient.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct azure_clients: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_clients, 1,
     repeated: true,
@@ -331,17 +173,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAzureClientsResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureClientRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct name: "",
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
@@ -349,27 +181,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureClientRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          azure_cluster: String.t()
-        }
-
-  defstruct azure_cluster: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :azure_cluster, 1, type: :string, json_name: "azureCluster", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_token: String.t(),
-          expiration_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct access_token: "",
-            expiration_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken", deprecated: false
 
@@ -380,7 +198,9 @@ defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusters.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.gkemulticloud.v1.AzureClusters"
+  use GRPC.Service,
+    name: "google.cloud.gkemulticloud.v1.AzureClusters",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateAzureClient,
       Google.Cloud.Gkemulticloud.V1.CreateAzureClientRequest,

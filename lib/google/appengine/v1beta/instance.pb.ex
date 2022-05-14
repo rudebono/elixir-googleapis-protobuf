@@ -1,8 +1,6 @@
 defmodule Google.Appengine.V1beta.Instance.Availability do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :RESIDENT | :DYNAMIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :RESIDENT, 1
@@ -10,16 +8,7 @@ defmodule Google.Appengine.V1beta.Instance.Availability do
 end
 defmodule Google.Appengine.V1beta.Instance.Liveness.LivenessState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LIVENESS_STATE_UNSPECIFIED
-          | :UNKNOWN
-          | :HEALTHY
-          | :UNHEALTHY
-          | :DRAINING
-          | :TIMEOUT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LIVENESS_STATE_UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -30,53 +19,11 @@ defmodule Google.Appengine.V1beta.Instance.Liveness.LivenessState do
 end
 defmodule Google.Appengine.V1beta.Instance.Liveness do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Appengine.V1beta.Instance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          app_engine_release: String.t(),
-          availability: Google.Appengine.V1beta.Instance.Availability.t(),
-          vm_name: String.t(),
-          vm_zone_name: String.t(),
-          vm_id: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          requests: integer,
-          errors: integer,
-          qps: float | :infinity | :negative_infinity | :nan,
-          average_latency: integer,
-          memory_usage: integer,
-          vm_status: String.t(),
-          vm_debug_enabled: boolean,
-          vm_ip: String.t(),
-          vm_liveness: Google.Appengine.V1beta.Instance.Liveness.LivenessState.t()
-        }
-
-  defstruct name: "",
-            id: "",
-            app_engine_release: "",
-            availability: :UNSPECIFIED,
-            vm_name: "",
-            vm_zone_name: "",
-            vm_id: "",
-            start_time: nil,
-            requests: 0,
-            errors: 0,
-            qps: 0.0,
-            average_latency: 0,
-            memory_usage: 0,
-            vm_status: "",
-            vm_debug_enabled: false,
-            vm_ip: "",
-            vm_liveness: :LIVENESS_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false

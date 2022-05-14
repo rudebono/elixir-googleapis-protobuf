@@ -1,12 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.FreeTextType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay.t() | nil
-        }
-
-  defstruct display: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,

@@ -1,21 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FINDING_TYPE_UNSPECIFIED
-          | :MIXED_CONTENT
-          | :OUTDATED_LIBRARY
-          | :ROSETTA_FLASH
-          | :XSS_CALLBACK
-          | :XSS_ERROR
-          | :CLEAR_TEXT_PASSWORD
-          | :INVALID_CONTENT_TYPE
-          | :XSS_ANGULAR_CALLBACK
-          | :INVALID_HEADER
-          | :MISSPELLED_SECURITY_HEADER_NAME
-          | :MISMATCHING_SECURITY_HEADER_VALUES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FINDING_TYPE_UNSPECIFIED, 0
   field :MIXED_CONTENT, 1
@@ -32,42 +17,7 @@ defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType do
 end
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          finding_type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType.t(),
-          http_method: String.t(),
-          fuzzed_url: String.t(),
-          body: String.t(),
-          description: String.t(),
-          reproduction_url: String.t(),
-          frame_url: String.t(),
-          final_url: String.t(),
-          tracking_id: String.t(),
-          outdated_library: Google.Cloud.Websecurityscanner.V1alpha.OutdatedLibrary.t() | nil,
-          violating_resource: Google.Cloud.Websecurityscanner.V1alpha.ViolatingResource.t() | nil,
-          vulnerable_headers: Google.Cloud.Websecurityscanner.V1alpha.VulnerableHeaders.t() | nil,
-          vulnerable_parameters:
-            Google.Cloud.Websecurityscanner.V1alpha.VulnerableParameters.t() | nil,
-          xss: Google.Cloud.Websecurityscanner.V1alpha.Xss.t() | nil
-        }
-
-  defstruct name: "",
-            finding_type: :FINDING_TYPE_UNSPECIFIED,
-            http_method: "",
-            fuzzed_url: "",
-            body: "",
-            description: "",
-            reproduction_url: "",
-            frame_url: "",
-            final_url: "",
-            tracking_id: "",
-            outdated_library: nil,
-            violating_resource: nil,
-            vulnerable_headers: nil,
-            vulnerable_parameters: nil,
-            xss: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 

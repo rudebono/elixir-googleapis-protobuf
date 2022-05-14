@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.FileEncoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FILE_ENCODING_UNSPECIFIED
-          | :UTF_8
-          | :ISO_8859_1
-          | :US_ASCII
-          | :UTF_16
-          | :UTF_16LE
-          | :UTF_16BE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FILE_ENCODING_UNSPECIFIED, 0
   field :UTF_8, 1
@@ -22,18 +12,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.FileEnc
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.TokenType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TOKEN_TYPE_UNSPECIFIED
-          | :STRING
-          | :INT64
-          | :NUMERIC
-          | :BOOL
-          | :FLOAT64
-          | :DATE
-          | :TIMESTAMP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TOKEN_TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -46,9 +25,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.TokenTy
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierCase do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :IDENTIFIER_CASE_UNSPECIFIED | :ORIGINAL | :UPPER | :LOWER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IDENTIFIER_CASE_UNSPECIFIED, 0
   field :ORIGINAL, 1
@@ -57,9 +34,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierC
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierRewriteMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :IDENTIFIER_REWRITE_MODE_UNSPECIFIED | :NONE | :REWRITE_ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IDENTIFIER_REWRITE_MODE_UNSPECIFIED, 0
   field :NONE, 1
@@ -67,30 +42,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierR
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationFileMapping do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_path: String.t(),
-          output_path: String.t()
-        }
-
-  defstruct input_path: "",
-            output_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_path, 1, type: :string, json_name: "inputPath"
   field :output_path, 2, type: :string, json_name: "outputPath"
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.SpecialTokenMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.TokenType.t()
-        }
-
-  defstruct key: "",
-            value: :TOKEN_TYPE_UNSPECIFIED
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -100,38 +59,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.Special
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_options:
-            {:teradata_options, Google.Cloud.Bigquery.Migration.V2alpha.TeradataOptions.t() | nil}
-            | {:bteq_options, Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions.t() | nil},
-          input_path: String.t(),
-          output_path: String.t(),
-          file_paths: [Google.Cloud.Bigquery.Migration.V2alpha.TranslationFileMapping.t()],
-          schema_path: String.t(),
-          file_encoding:
-            Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.FileEncoding.t(),
-          identifier_settings:
-            Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.t() | nil,
-          special_token_map: %{
-            String.t() =>
-              Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.TokenType.t()
-          },
-          filter: Google.Cloud.Bigquery.Migration.V2alpha.Filter.t() | nil,
-          translation_exception_table: String.t()
-        }
-
-  defstruct language_options: nil,
-            input_path: "",
-            output_path: "",
-            file_paths: [],
-            schema_path: "",
-            file_encoding: :FILE_ENCODING_UNSPECIFIED,
-            identifier_settings: nil,
-            special_token_map: %{},
-            filter: nil,
-            translation_exception_table: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :language_options, 0
 
@@ -175,13 +103,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.Filter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_file_exclusion_prefixes: [String.t()]
-        }
-
-  defstruct input_file_exclusion_prefixes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_file_exclusion_prefixes, 1,
     repeated: true,
@@ -190,17 +112,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.Filter do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_identifier_case:
-            Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierCase.t(),
-          identifier_rewrite_mode:
-            Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierRewriteMode.t()
-        }
-
-  defstruct output_identifier_case: :IDENTIFIER_CASE_UNSPECIFIED,
-            identifier_rewrite_mode: :IDENTIFIER_REWRITE_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_identifier_case, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierCase,
@@ -214,40 +126,18 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TeradataOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions.FileReplacementMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_dataset: Google.Cloud.Bigquery.Migration.V2alpha.DatasetReference.t() | nil,
-          default_path_uri: String.t(),
-          file_replacement_map: %{String.t() => String.t()}
-        }
-
-  defstruct project_dataset: nil,
-            default_path_uri: "",
-            file_replacement_map: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_dataset, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.DatasetReference,
@@ -263,15 +153,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.DatasetReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_id: String.t(),
-          project_id: String.t()
-        }
-
-  defstruct dataset_id: "",
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :project_id, 2, type: :string, json_name: "projectId"

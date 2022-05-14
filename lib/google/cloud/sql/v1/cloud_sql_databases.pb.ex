@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Sql.V1.SqlDatabasesDeleteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t(),
-          instance: String.t(),
-          project: String.t()
-        }
-
-  defstruct database: "",
-            instance: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -18,17 +8,7 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesDeleteRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t(),
-          instance: String.t(),
-          project: String.t()
-        }
-
-  defstruct database: "",
-            instance: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -36,17 +16,7 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesGetRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1.Database.t() | nil
-        }
-
-  defstruct instance: "",
-            project: "",
-            body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -54,34 +24,14 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesInsertRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlDatabasesListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t()
-        }
-
-  defstruct instance: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
 end
 defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t(),
-          instance: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1.Database.t() | nil
-        }
-
-  defstruct database: "",
-            instance: "",
-            project: "",
-            body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -90,22 +40,16 @@ defmodule Google.Cloud.Sql.V1.SqlDatabasesUpdateRequest do
 end
 defmodule Google.Cloud.Sql.V1.DatabasesListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1.Database.t()]
-        }
-
-  defstruct kind: "",
-            items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Database
 end
 defmodule Google.Cloud.Sql.V1.SqlDatabasesService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1.SqlDatabasesService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1.SqlDatabasesService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlDatabasesDeleteRequest, Google.Cloud.Sql.V1.Operation
 

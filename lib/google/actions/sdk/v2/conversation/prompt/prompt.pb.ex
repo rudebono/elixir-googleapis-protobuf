@@ -1,26 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Prompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          append: boolean,
-          override: boolean,
-          first_simple: Google.Actions.Sdk.V2.Conversation.Simple.t() | nil,
-          content: Google.Actions.Sdk.V2.Conversation.Content.t() | nil,
-          last_simple: Google.Actions.Sdk.V2.Conversation.Simple.t() | nil,
-          suggestions: [Google.Actions.Sdk.V2.Conversation.Suggestion.t()],
-          link: Google.Actions.Sdk.V2.Conversation.Link.t() | nil,
-          canvas: Google.Actions.Sdk.V2.Conversation.Canvas.t() | nil
-        }
-
-  defstruct append: false,
-            override: false,
-            first_simple: nil,
-            content: nil,
-            last_simple: nil,
-            suggestions: [],
-            link: nil,
-            canvas: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :append, 1, type: :bool, deprecated: true
   field :override, 8, type: :bool

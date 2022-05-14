@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUCCEEDED | :FAILED | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -12,61 +10,26 @@ defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.State do
 end
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          argument: String.t()
-        }
-
-  defstruct argument: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :argument, 2, type: :string
 end
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: String.t()
-        }
-
-  defstruct result: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 2, type: :string
 end
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          exception: String.t(),
-          source: String.t()
-        }
-
-  defstruct exception: "",
-            source: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :exception, 1, type: :string
   field :source, 2, type: :string
 end
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:start, Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start.t() | nil}
-            | {:success, Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success.t() | nil}
-            | {:failure, Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure.t() | nil},
-          message: String.t(),
-          activity_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Workflows.Type.ExecutionsSystemLog.State.t()
-        }
-
-  defstruct details: nil,
-            message: "",
-            activity_time: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 

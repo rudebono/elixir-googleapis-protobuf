@@ -1,8 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.SparkChartType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SPARK_CHART_TYPE_UNSPECIFIED | :SPARK_LINE | :SPARK_BAR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SPARK_CHART_TYPE_UNSPECIFIED, 0
   field :SPARK_LINE, 1
@@ -10,9 +8,7 @@ defmodule Google.Monitoring.Dashboard.V1.SparkChartType do
 end
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Color do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :COLOR_UNSPECIFIED | :YELLOW | :RED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COLOR_UNSPECIFIED, 0
   field :YELLOW, 4
@@ -20,9 +16,7 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold.Color do
 end
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Direction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIRECTION_UNSPECIFIED | :ABOVE | :BELOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ABOVE, 1
@@ -30,9 +24,7 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold.Direction do
 end
 defmodule Google.Monitoring.Dashboard.V1.Threshold.TargetAxis do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TARGET_AXIS_UNSPECIFIED | :Y1 | :Y2
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TARGET_AXIS_UNSPECIFIED, 0
   field :Y1, 1
@@ -40,19 +32,7 @@ defmodule Google.Monitoring.Dashboard.V1.Threshold.TargetAxis do
 end
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:time_series_filter, Google.Monitoring.Dashboard.V1.TimeSeriesFilter.t() | nil}
-            | {:time_series_filter_ratio,
-               Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.t() | nil}
-            | {:time_series_query_language, String.t()},
-          unit_override: String.t()
-        }
-
-  defstruct source: nil,
-            unit_override: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -75,23 +55,7 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
 end
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_filter:
-            {:pick_time_series_filter,
-             Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.t() | nil}
-            | {:statistical_time_series_filter,
-               Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.t() | nil},
-          filter: String.t(),
-          aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil,
-          secondary_aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
-        }
-
-  defstruct output_filter: nil,
-            filter: "",
-            aggregation: nil,
-            secondary_aggregation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output_filter, 0
 
@@ -115,38 +79,14 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
 end
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t(),
-          aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
-        }
-
-  defstruct filter: "",
-            aggregation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :aggregation, 2, type: Google.Monitoring.Dashboard.V1.Aggregation
 end
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_filter:
-            {:pick_time_series_filter,
-             Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.t() | nil}
-            | {:statistical_time_series_filter,
-               Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.t() | nil},
-          numerator: Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart.t() | nil,
-          denominator: Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart.t() | nil,
-          secondary_aggregation: Google.Monitoring.Dashboard.V1.Aggregation.t() | nil
-        }
-
-  defstruct output_filter: nil,
-            numerator: nil,
-            denominator: nil,
-            secondary_aggregation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output_filter, 0
 
@@ -170,21 +110,7 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
 end
 defmodule Google.Monitoring.Dashboard.V1.Threshold do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label: String.t(),
-          value: float | :infinity | :negative_infinity | :nan,
-          color: Google.Monitoring.Dashboard.V1.Threshold.Color.t(),
-          direction: Google.Monitoring.Dashboard.V1.Threshold.Direction.t(),
-          target_axis: Google.Monitoring.Dashboard.V1.Threshold.TargetAxis.t()
-        }
-
-  defstruct label: "",
-            value: 0.0,
-            color: :COLOR_UNSPECIFIED,
-            direction: :DIRECTION_UNSPECIFIED,
-            target_axis: :TARGET_AXIS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :value, 2, type: :double

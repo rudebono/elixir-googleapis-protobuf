@@ -1,29 +1,13 @@
 defmodule Google.Cloud.Automl.V1.InputConfig.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Automl.V1.GcsSource.t() | nil},
-          params: %{String.t() => String.t()}
-        }
-
-  defstruct source: nil,
-            params: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -36,13 +20,7 @@ defmodule Google.Cloud.Automl.V1.InputConfig do
 end
 defmodule Google.Cloud.Automl.V1.BatchPredictInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Automl.V1.GcsSource.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -54,25 +32,13 @@ defmodule Google.Cloud.Automl.V1.BatchPredictInputConfig do
 end
 defmodule Google.Cloud.Automl.V1.DocumentInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_source: Google.Cloud.Automl.V1.GcsSource.t() | nil
-        }
-
-  defstruct gcs_source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_source, 1, type: Google.Cloud.Automl.V1.GcsSource, json_name: "gcsSource"
 end
 defmodule Google.Cloud.Automl.V1.OutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:gcs_destination, Google.Cloud.Automl.V1.GcsDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -84,13 +50,7 @@ defmodule Google.Cloud.Automl.V1.OutputConfig do
 end
 defmodule Google.Cloud.Automl.V1.BatchPredictOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:gcs_destination, Google.Cloud.Automl.V1.GcsDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -102,32 +62,14 @@ defmodule Google.Cloud.Automl.V1.BatchPredictOutputConfig do
 end
 defmodule Google.Cloud.Automl.V1.ModelExportOutputConfig.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1.ModelExportOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:gcs_destination, Google.Cloud.Automl.V1.GcsDestination.t() | nil},
-          model_format: String.t(),
-          params: %{String.t() => String.t()}
-        }
-
-  defstruct destination: nil,
-            model_format: "",
-            params: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -146,25 +88,13 @@ defmodule Google.Cloud.Automl.V1.ModelExportOutputConfig do
 end
 defmodule Google.Cloud.Automl.V1.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_uris: [String.t()]
-        }
-
-  defstruct input_uris: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
 end
 defmodule Google.Cloud.Automl.V1.GcsDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_uri_prefix: String.t()
-        }
-
-  defstruct output_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end

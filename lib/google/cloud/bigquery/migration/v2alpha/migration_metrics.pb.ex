@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metric: String.t(),
-          value_type: Google.Api.MetricDescriptor.ValueType.t(),
-          metric_kind: Google.Api.MetricDescriptor.MetricKind.t(),
-          points: [Google.Cloud.Bigquery.Migration.V2alpha.Point.t()]
-        }
-
-  defstruct metric: "",
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            metric_kind: :METRIC_KIND_UNSPECIFIED,
-            points: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metric, 1, type: :string, deprecated: false
 
@@ -35,48 +23,21 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.Point do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          interval: Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval.t() | nil,
-          value: Google.Cloud.Bigquery.Migration.V2alpha.TypedValue.t() | nil
-        }
-
-  defstruct interval: nil,
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :interval, 1, type: Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.TypedValue
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TypedValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:bool_value, boolean}
-            | {:int64_value, integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:string_value, String.t()}
-            | {:distribution_value, Google.Api.Distribution.t() | nil}
-        }
-
-  defstruct value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PRIOR_ASSET_STATE_UNSPECIFIED
-          | :PRESENT
-          | :INVALID
-          | :DOES_NOT_EXIST
-          | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIOR_ASSET_STATE_UNSPECIFIED, 0
   field :PRESENT, 1
@@ -18,9 +10,7 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState do
 end
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVALUATION_VALUE_UNSPECIFIED | :TRUE | :FALSE | :CONDITIONAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVALUATION_VALUE_UNSPECIFIED, 0
   field :TRUE, 1
@@ -29,21 +19,7 @@ defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
 end
 defmodule Google.Cloud.Asset.V1.TemporalAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          window: Google.Cloud.Asset.V1.TimeWindow.t() | nil,
-          deleted: boolean,
-          asset: Google.Cloud.Asset.V1.Asset.t() | nil,
-          prior_asset_state: Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState.t(),
-          prior_asset: Google.Cloud.Asset.V1.Asset.t() | nil
-        }
-
-  defstruct window: nil,
-            deleted: false,
-            asset: nil,
-            prior_asset_state: :PRIOR_ASSET_STATE_UNSPECIFIED,
-            prior_asset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Asset.V1.TimeWindow
   field :deleted, 2, type: :bool
@@ -58,50 +34,14 @@ defmodule Google.Cloud.Asset.V1.TemporalAsset do
 end
 defmodule Google.Cloud.Asset.V1.TimeWindow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 defmodule Google.Cloud.Asset.V1.Asset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_context_policy:
-            {:access_policy, Google.Identity.Accesscontextmanager.V1.AccessPolicy.t() | nil}
-            | {:access_level, Google.Identity.Accesscontextmanager.V1.AccessLevel.t() | nil}
-            | {:service_perimeter,
-               Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t() | nil},
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          name: String.t(),
-          asset_type: String.t(),
-          resource: Google.Cloud.Asset.V1.Resource.t() | nil,
-          iam_policy: Google.Iam.V1.Policy.t() | nil,
-          org_policy: [Google.Cloud.Orgpolicy.V1.Policy.t()],
-          os_inventory: Google.Cloud.Osconfig.V1.Inventory.t() | nil,
-          related_assets: Google.Cloud.Asset.V1.RelatedAssets.t() | nil,
-          ancestors: [String.t()]
-        }
-
-  defstruct access_context_policy: nil,
-            update_time: nil,
-            name: "",
-            asset_type: "",
-            resource: nil,
-            iam_policy: nil,
-            org_policy: [],
-            os_inventory: nil,
-            related_assets: nil,
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -137,25 +77,7 @@ defmodule Google.Cloud.Asset.V1.Asset do
 end
 defmodule Google.Cloud.Asset.V1.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          discovery_document_uri: String.t(),
-          discovery_name: String.t(),
-          resource_url: String.t(),
-          parent: String.t(),
-          data: Google.Protobuf.Struct.t() | nil,
-          location: String.t()
-        }
-
-  defstruct version: "",
-            discovery_document_uri: "",
-            discovery_name: "",
-            resource_url: "",
-            parent: "",
-            data: nil,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -167,15 +89,7 @@ defmodule Google.Cloud.Asset.V1.Resource do
 end
 defmodule Google.Cloud.Asset.V1.RelatedAssets do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          relationship_attributes: Google.Cloud.Asset.V1.RelationshipAttributes.t() | nil,
-          assets: [Google.Cloud.Asset.V1.RelatedAsset.t()]
-        }
-
-  defstruct relationship_attributes: nil,
-            assets: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1.RelationshipAttributes,
@@ -185,19 +99,7 @@ defmodule Google.Cloud.Asset.V1.RelatedAssets do
 end
 defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          source_resource_type: String.t(),
-          target_resource_type: String.t(),
-          action: String.t()
-        }
-
-  defstruct type: "",
-            source_resource_type: "",
-            target_resource_type: "",
-            action: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
@@ -206,17 +108,7 @@ defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
 end
 defmodule Google.Cloud.Asset.V1.RelatedAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          asset: String.t(),
-          asset_type: String.t(),
-          ancestors: [String.t()]
-        }
-
-  defstruct asset: "",
-            asset_type: "",
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -224,81 +116,21 @@ defmodule Google.Cloud.Asset.V1.RelatedAsset do
 end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Asset.V1.RelatedResources.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.RelatedResources
 end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          asset_type: String.t(),
-          project: String.t(),
-          folders: [String.t()],
-          organization: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          location: String.t(),
-          labels: %{String.t() => String.t()},
-          network_tags: [String.t()],
-          kms_key: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: String.t(),
-          additional_attributes: Google.Protobuf.Struct.t() | nil,
-          parent_full_resource_name: String.t(),
-          versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()],
-          attached_resources: [Google.Cloud.Asset.V1.AttachedResource.t()],
-          relationships: %{String.t() => Google.Cloud.Asset.V1.RelatedResources.t() | nil},
-          parent_asset_type: String.t()
-        }
-
-  defstruct name: "",
-            asset_type: "",
-            project: "",
-            folders: [],
-            organization: "",
-            display_name: "",
-            description: "",
-            location: "",
-            labels: %{},
-            network_tags: [],
-            kms_key: "",
-            create_time: nil,
-            update_time: nil,
-            state: "",
-            additional_attributes: nil,
-            parent_full_resource_name: "",
-            versioned_resources: [],
-            attached_resources: [],
-            relationships: %{},
-            parent_asset_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -341,30 +173,14 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
 end
 defmodule Google.Cloud.Asset.V1.VersionedResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          resource: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct version: "",
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :resource, 2, type: Google.Protobuf.Struct
 end
 defmodule Google.Cloud.Asset.V1.AttachedResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          asset_type: String.t(),
-          versioned_resources: [Google.Cloud.Asset.V1.VersionedResource.t()]
-        }
-
-  defstruct asset_type: "",
-            versioned_resources: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :asset_type, 1, type: :string, json_name: "assetType"
 
@@ -375,13 +191,7 @@ defmodule Google.Cloud.Asset.V1.AttachedResource do
 end
 defmodule Google.Cloud.Asset.V1.RelatedResources do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          related_resources: [Google.Cloud.Asset.V1.RelatedResource.t()]
-        }
-
-  defstruct related_resources: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :related_resources, 1,
     repeated: true,
@@ -390,58 +200,27 @@ defmodule Google.Cloud.Asset.V1.RelatedResources do
 end
 defmodule Google.Cloud.Asset.V1.RelatedResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          asset_type: String.t(),
-          full_resource_name: String.t()
-        }
-
-  defstruct asset_type: "",
-            full_resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :asset_type, 1, type: :string, json_name: "assetType"
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
 end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          permissions: [String.t()]
-        }
-
-  defstruct permissions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: :string
 end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions
 end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          matched_permissions: %{
-            String.t() =>
-              Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions.t() | nil
-          }
-        }
-
-  defstruct matched_permissions: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :matched_permissions, 1,
     repeated: true,
@@ -451,25 +230,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: String.t(),
-          asset_type: String.t(),
-          project: String.t(),
-          folders: [String.t()],
-          organization: String.t(),
-          policy: Google.Iam.V1.Policy.t() | nil,
-          explanation: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.t() | nil
-        }
-
-  defstruct resource: "",
-            asset_type: "",
-            project: "",
-            folders: [],
-            organization: "",
-            policy: nil,
-            explanation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :asset_type, 5, type: :string, json_name: "assetType"
@@ -481,28 +242,14 @@ defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Rpc.Code.t(),
-          cause: String.t()
-        }
-
-  defstruct code: :OK,
-            cause: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
 end
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          evaluation_value: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue.t()
-        }
-
-  defstruct evaluation_value: :EVALUATION_VALUE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :evaluation_value, 1,
     type: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue,
@@ -511,15 +258,7 @@ defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          full_resource_name: String.t(),
-          analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
-        }
-
-  defstruct full_resource_name: "",
-            analysis_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 
@@ -529,15 +268,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          oneof_access: {:role, String.t()} | {:permission, String.t()},
-          analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
-        }
-
-  defstruct oneof_access: nil,
-            analysis_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :oneof_access, 0
 
@@ -550,15 +281,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          analysis_state: Google.Cloud.Asset.V1.IamPolicyAnalysisState.t() | nil
-        }
-
-  defstruct name: "",
-            analysis_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -568,34 +291,14 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_node: String.t(),
-          target_node: String.t()
-        }
-
-  defstruct source_node: "",
-            target_node: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_node, 1, type: :string, json_name: "sourceNode"
   field :target_node, 2, type: :string, json_name: "targetNode"
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource.t()],
-          accesses: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access.t()],
-          resource_edges: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge.t()],
-          condition_evaluation: Google.Cloud.Asset.V1.ConditionEvaluation.t() | nil
-        }
-
-  defstruct resources: [],
-            accesses: [],
-            resource_edges: [],
-            condition_evaluation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1,
     repeated: true,
@@ -614,15 +317,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          identities: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity.t()],
-          group_edges: [Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge.t()]
-        }
-
-  defstruct identities: [],
-            group_edges: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :identities, 1,
     repeated: true,
@@ -635,23 +330,7 @@ defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
 end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attached_resource_full_name: String.t(),
-          iam_binding: Google.Iam.V1.Binding.t() | nil,
-          access_control_lists: [
-            Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList.t()
-          ],
-          identity_list: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList.t() | nil,
-          fully_explored: boolean
-        }
-
-  defstruct attached_resource_full_name: "",
-            iam_binding: nil,
-            access_control_lists: [],
-            identity_list: nil,
-            fully_explored: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :attached_resource_full_name, 1, type: :string, json_name: "attachedResourceFullName"
   field :iam_binding, 2, type: Google.Iam.V1.Binding, json_name: "iamBinding"

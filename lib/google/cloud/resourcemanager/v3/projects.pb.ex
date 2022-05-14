@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Resourcemanager.V3.Project.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,46 +8,14 @@ defmodule Google.Cloud.Resourcemanager.V3.Project.State do
 end
 defmodule Google.Cloud.Resourcemanager.V3.Project.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Resourcemanager.V3.Project do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          project_id: String.t(),
-          state: Google.Cloud.Resourcemanager.V3.Project.State.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            parent: "",
-            project_id: "",
-            state: :STATE_UNSPECIFIED,
-            display_name: "",
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            etag: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string, deprecated: false
@@ -87,31 +53,13 @@ defmodule Google.Cloud.Resourcemanager.V3.Project do
 end
 defmodule Google.Cloud.Resourcemanager.V3.GetProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.ListProjectsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer,
-          show_deleted: boolean
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0,
-            show_deleted: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -120,32 +68,14 @@ defmodule Google.Cloud.Resourcemanager.V3.ListProjectsRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.ListProjectsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          projects: [Google.Cloud.Resourcemanager.V3.Project.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct projects: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :projects, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Project
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct query: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -153,44 +83,20 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.SearchProjectsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          projects: [Google.Cloud.Resourcemanager.V3.Project.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct projects: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :projects, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Project
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Resourcemanager.V3.CreateProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: Google.Cloud.Resourcemanager.V3.Project.t() | nil
-        }
-
-  defstruct project: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: Google.Cloud.Resourcemanager.V3.Project, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.CreateProjectMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          gettable: boolean,
-          ready: boolean
-        }
-
-  defstruct create_time: nil,
-            gettable: false,
-            ready: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :gettable, 2, type: :bool
@@ -198,15 +104,7 @@ defmodule Google.Cloud.Resourcemanager.V3.CreateProjectMetadata do
 end
 defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: Google.Cloud.Resourcemanager.V3.Project.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct project: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: Google.Cloud.Resourcemanager.V3.Project, deprecated: false
 
@@ -217,78 +115,44 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.UpdateProjectMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.MoveProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          destination_parent: String.t()
-        }
-
-  defstruct name: "",
-            destination_parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_parent, 2, type: :string, json_name: "destinationParent", deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.MoveProjectMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteProjectMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteProjectMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.Projects.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.resourcemanager.v3.Projects"
+  use GRPC.Service,
+    name: "google.cloud.resourcemanager.v3.Projects",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetProject,
       Google.Cloud.Resourcemanager.V3.GetProjectRequest,

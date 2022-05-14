@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Deploy.V1.ReleaseNotificationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message: String.t(),
-          release: String.t(),
-          type: Google.Cloud.Deploy.V1.Type.t()
-        }
-
-  defstruct message: "",
-            release: "",
-            type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :release, 2, type: :string

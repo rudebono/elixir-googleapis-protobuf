@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1beta.CrawledUrl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          http_method: String.t(),
-          url: String.t(),
-          body: String.t()
-        }
-
-  defstruct http_method: "",
-            url: "",
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :http_method, 1, type: :string, json_name: "httpMethod"
   field :url, 2, type: :string

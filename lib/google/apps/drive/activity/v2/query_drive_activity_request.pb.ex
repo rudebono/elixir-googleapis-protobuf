@@ -1,20 +1,6 @@
 defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: {:item_name, String.t()} | {:ancestor_name, String.t()},
-          consolidation_strategy: Google.Apps.Drive.Activity.V2.ConsolidationStrategy.t() | nil,
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct key: nil,
-            consolidation_strategy: nil,
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :key, 0
 
@@ -31,31 +17,15 @@ defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityRequest do
 end
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy.NoConsolidation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy.Legacy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          strategy:
-            {:none, Google.Apps.Drive.Activity.V2.ConsolidationStrategy.NoConsolidation.t() | nil}
-            | {:legacy, Google.Apps.Drive.Activity.V2.ConsolidationStrategy.Legacy.t() | nil}
-        }
-
-  defstruct strategy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :strategy, 0
 

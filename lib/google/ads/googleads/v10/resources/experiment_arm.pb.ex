@@ -1,24 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.ExperimentArm do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          trial: String.t(),
-          name: String.t(),
-          control: boolean,
-          traffic_split: integer,
-          campaigns: [String.t()],
-          in_design_campaigns: [String.t()]
-        }
-
-  defstruct resource_name: "",
-            trial: "",
-            name: "",
-            control: false,
-            traffic_split: 0,
-            campaigns: [],
-            in_design_campaigns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :trial, 2, type: :string, deprecated: false

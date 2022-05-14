@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Channel.V1.RebillingBasis do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REBILLING_BASIS_UNSPECIFIED | :COST_AT_LIST | :DIRECT_CUSTOMER_COST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REBILLING_BASIS_UNSPECIFIED, 0
   field :COST_AT_LIST, 1
@@ -10,17 +8,7 @@ defmodule Google.Cloud.Channel.V1.RebillingBasis do
 end
 defmodule Google.Cloud.Channel.V1.CustomerRepricingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          repricing_config: Google.Cloud.Channel.V1.RepricingConfig.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            repricing_config: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -36,17 +24,7 @@ defmodule Google.Cloud.Channel.V1.CustomerRepricingConfig do
 end
 defmodule Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          repricing_config: Google.Cloud.Channel.V1.RepricingConfig.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            repricing_config: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -62,43 +40,17 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig do
 end
 defmodule Google.Cloud.Channel.V1.RepricingConfig.EntitlementGranularity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entitlement: String.t()
-        }
-
-  defstruct entitlement: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entitlement, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Channel.V1.RepricingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          granularity:
-            {:entitlement_granularity,
-             Google.Cloud.Channel.V1.RepricingConfig.EntitlementGranularity.t() | nil}
-            | {:channel_partner_granularity,
-               Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity.t() | nil},
-          effective_invoice_month: Google.Type.Date.t() | nil,
-          adjustment: Google.Cloud.Channel.V1.RepricingAdjustment.t() | nil,
-          rebilling_basis: Google.Cloud.Channel.V1.RebillingBasis.t()
-        }
-
-  defstruct granularity: nil,
-            effective_invoice_month: nil,
-            adjustment: nil,
-            rebilling_basis: :REBILLING_BASIS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :granularity, 0
 
@@ -127,14 +79,7 @@ defmodule Google.Cloud.Channel.V1.RepricingConfig do
 end
 defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          adjustment:
-            {:percentage_adjustment, Google.Cloud.Channel.V1.PercentageAdjustment.t() | nil}
-        }
-
-  defstruct adjustment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :adjustment, 0
 
@@ -145,13 +90,7 @@ defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
 end
 defmodule Google.Cloud.Channel.V1.PercentageAdjustment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          percentage: Google.Type.Decimal.t() | nil
-        }
-
-  defstruct percentage: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :percentage, 2, type: Google.Type.Decimal
 end

@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Talent.V4.Company.DerivedInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          headquarters_location: Google.Cloud.Talent.V4.Location.t() | nil
-        }
-
-  defstruct headquarters_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :headquarters_location, 1,
     type: Google.Cloud.Talent.V4.Location,
@@ -14,37 +8,7 @@ defmodule Google.Cloud.Talent.V4.Company.DerivedInfo do
 end
 defmodule Google.Cloud.Talent.V4.Company do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          external_id: String.t(),
-          size: Google.Cloud.Talent.V4.CompanySize.t(),
-          headquarters_address: String.t(),
-          hiring_agency: boolean,
-          eeo_text: String.t(),
-          website_uri: String.t(),
-          career_site_uri: String.t(),
-          image_uri: String.t(),
-          keyword_searchable_job_custom_attributes: [String.t()],
-          derived_info: Google.Cloud.Talent.V4.Company.DerivedInfo.t() | nil,
-          suspended: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            external_id: "",
-            size: :COMPANY_SIZE_UNSPECIFIED,
-            headquarters_address: "",
-            hiring_agency: false,
-            eeo_text: "",
-            website_uri: "",
-            career_site_uri: "",
-            image_uri: "",
-            keyword_searchable_job_custom_attributes: [],
-            derived_info: nil,
-            suspended: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

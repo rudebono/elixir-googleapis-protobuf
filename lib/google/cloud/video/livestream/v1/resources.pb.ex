@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Video.Livestream.V1.Input.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :RTMP_PUSH | :SRT_PUSH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :RTMP_PUSH, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Input.Type do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Input.Tier do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TIER_UNSPECIFIED | :SD | :HD | :UHD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :SD, 1
@@ -21,18 +17,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Input.Tier do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STREAMING_STATE_UNSPECIFIED
-          | :STREAMING
-          | :AWAITING_INPUT
-          | :STREAMING_ERROR
-          | :STREAMING_NO_INPUT
-          | :STOPPED
-          | :STARTING
-          | :STOPPING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STREAMING_STATE_UNSPECIFIED, 0
   field :STREAMING, 1
@@ -45,9 +30,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
 end
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LOG_SEVERITY_UNSPECIFIED | :OFF | :DEBUG | :INFO | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOG_SEVERITY_UNSPECIFIED, 0
   field :OFF, 1
@@ -58,10 +41,7 @@ defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :STATE_UNSPECIFIED | :SCHEDULED | :RUNNING | :SUCCEEDED | :FAILED | :PENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SCHEDULED, 1
@@ -72,58 +52,20 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.State do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Input.SecurityRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip_ranges: [String.t()]
-        }
-
-  defstruct ip_ranges: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip_ranges, 1, repeated: true, type: :string, json_name: "ipRanges"
 end
 defmodule Google.Cloud.Video.Livestream.V1.Input.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Livestream.V1.Input do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          type: Google.Cloud.Video.Livestream.V1.Input.Type.t(),
-          tier: Google.Cloud.Video.Livestream.V1.Input.Tier.t(),
-          uri: String.t(),
-          preprocessing_config: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.t() | nil,
-          security_rules: Google.Cloud.Video.Livestream.V1.Input.SecurityRule.t() | nil,
-          input_stream_property: Google.Cloud.Video.Livestream.V1.InputStreamProperty.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            type: :TYPE_UNSPECIFIED,
-            tier: :TIER_UNSPECIFIED,
-            uri: "",
-            preprocessing_config: nil,
-            security_rules: nil,
-            input_stream_property: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -161,66 +103,20 @@ defmodule Google.Cloud.Video.Livestream.V1.Input do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Channel.Output do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Video.Livestream.V1.Channel.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Livestream.V1.Channel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          input_attachments: [Google.Cloud.Video.Livestream.V1.InputAttachment.t()],
-          active_input: String.t(),
-          output: Google.Cloud.Video.Livestream.V1.Channel.Output.t() | nil,
-          elementary_streams: [Google.Cloud.Video.Livestream.V1.ElementaryStream.t()],
-          mux_streams: [Google.Cloud.Video.Livestream.V1.MuxStream.t()],
-          manifests: [Google.Cloud.Video.Livestream.V1.Manifest.t()],
-          sprite_sheets: [Google.Cloud.Video.Livestream.V1.SpriteSheet.t()],
-          streaming_state: Google.Cloud.Video.Livestream.V1.Channel.StreamingState.t(),
-          streaming_error: Google.Rpc.Status.t() | nil,
-          log_config: Google.Cloud.Video.Livestream.V1.LogConfig.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            input_attachments: [],
-            active_input: "",
-            output: nil,
-            elementary_streams: [],
-            mux_streams: [],
-            manifests: [],
-            sprite_sheets: [],
-            streaming_state: :STREAMING_STATE_UNSPECIFIED,
-            streaming_error: nil,
-            log_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -279,13 +175,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
 end
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_severity: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity.t()
-        }
-
-  defstruct log_severity: :LOG_SEVERITY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_severity, 1,
     type: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity,
@@ -294,17 +184,7 @@ defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
 end
 defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          last_establish_time: Google.Protobuf.Timestamp.t() | nil,
-          video_streams: [Google.Cloud.Video.Livestream.V1.VideoStreamProperty.t()],
-          audio_streams: [Google.Cloud.Video.Livestream.V1.AudioStreamProperty.t()]
-        }
-
-  defstruct last_establish_time: nil,
-            video_streams: [],
-            audio_streams: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :last_establish_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastEstablishTime"
 
@@ -320,15 +200,7 @@ defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
 end
 defmodule Google.Cloud.Video.Livestream.V1.VideoStreamProperty do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index: integer,
-          video_format: Google.Cloud.Video.Livestream.V1.VideoFormat.t() | nil
-        }
-
-  defstruct index: 0,
-            video_format: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -338,19 +210,7 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStreamProperty do
 end
 defmodule Google.Cloud.Video.Livestream.V1.VideoFormat do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          codec: String.t(),
-          width_pixels: integer,
-          height_pixels: integer,
-          frame_rate: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct codec: "",
-            width_pixels: 0,
-            height_pixels: 0,
-            frame_rate: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :width_pixels, 2, type: :int32, json_name: "widthPixels"
@@ -359,15 +219,7 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoFormat do
 end
 defmodule Google.Cloud.Video.Livestream.V1.AudioStreamProperty do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index: integer,
-          audio_format: Google.Cloud.Video.Livestream.V1.AudioFormat.t() | nil
-        }
-
-  defstruct index: 0,
-            audio_format: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -377,17 +229,7 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStreamProperty do
 end
 defmodule Google.Cloud.Video.Livestream.V1.AudioFormat do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          codec: String.t(),
-          channel_count: integer,
-          channel_layout: [String.t()]
-        }
-
-  defstruct codec: "",
-            channel_count: 0,
-            channel_layout: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :channel_count, 2, type: :int32, json_name: "channelCount"
@@ -395,30 +237,13 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioFormat do
 end
 defmodule Google.Cloud.Video.Livestream.V1.InputAttachment.AutomaticFailover do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_keys: [String.t()]
-        }
-
-  defstruct input_keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_keys, 1, repeated: true, type: :string, json_name: "inputKeys"
 end
 defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          input: String.t(),
-          automatic_failover:
-            Google.Cloud.Video.Livestream.V1.InputAttachment.AutomaticFailover.t() | nil
-        }
-
-  defstruct key: "",
-            input: "",
-            automatic_failover: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :input, 2, type: :string, deprecated: false
@@ -429,56 +254,20 @@ defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
 end
 defmodule Google.Cloud.Video.Livestream.V1.Event.AdBreakTask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 end
 defmodule Google.Cloud.Video.Livestream.V1.Event.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Livestream.V1.Event do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task: {:ad_break, Google.Cloud.Video.Livestream.V1.Event.AdBreakTask.t() | nil},
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          execute_now: boolean,
-          execution_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Video.Livestream.V1.Event.State.t(),
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct task: nil,
-            name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            execute_now: false,
-            execution_time: nil,
-            state: :STATE_UNSPECIFIED,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :task, 0
 

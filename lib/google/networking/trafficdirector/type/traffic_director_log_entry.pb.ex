@@ -1,20 +1,6 @@
 defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.ClientType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLIENT_TYPE_UNSPECIFIED
-          | :ENVOY
-          | :GRPC_JAVA
-          | :GRPC_CPP
-          | :GRPC_PYTHON
-          | :GRPC_GO
-          | :GRPC_RUBY
-          | :GRPC_PHP
-          | :GRPC_NODE
-          | :GRPC_CSHARP
-          | :UNKNOWN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLIENT_TYPE_UNSPECIFIED, 0
   field :ENVOY, 1
@@ -30,9 +16,7 @@ defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.ClientT
 end
 defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.TransportApiVersion do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TRANSPORT_API_VERSION_UNSPECIFIED | :V2 | :V3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRANSPORT_API_VERSION_UNSPECIFIED, 0
   field :V2, 1
@@ -40,25 +24,7 @@ defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.Transpo
 end
 defmodule Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          node_id: String.t(),
-          node_ip: String.t(),
-          description: String.t(),
-          client_type:
-            Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.ClientType.t(),
-          client_version: String.t(),
-          transport_api_version:
-            Google.Networking.Trafficdirector.Type.TrafficDirectorLogEntry.TransportApiVersion.t()
-        }
-
-  defstruct node_id: "",
-            node_ip: "",
-            description: "",
-            client_type: :CLIENT_TYPE_UNSPECIFIED,
-            client_version: "",
-            transport_api_version: :TRANSPORT_API_VERSION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :node_id, 1, type: :string, json_name: "nodeId"
   field :node_ip, 2, type: :string, json_name: "nodeIp"

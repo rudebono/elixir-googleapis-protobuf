@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAwsClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          aws_cluster: Google.Cloud.Gkemulticloud.V1.AwsCluster.t() | nil,
-          aws_cluster_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            aws_cluster: nil,
-            aws_cluster_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -26,17 +14,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.CreateAwsClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAwsClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aws_cluster: Google.Cloud.Gkemulticloud.V1.AwsCluster.t() | nil,
-          validate_only: boolean,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct aws_cluster: nil,
-            validate_only: false,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aws_cluster, 1,
     type: Google.Cloud.Gkemulticloud.V1.AwsCluster,
@@ -52,29 +30,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.UpdateAwsClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAwsClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAwsClustersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -82,15 +44,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAwsClustersRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAwsClustersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aws_clusters: [Google.Cloud.Gkemulticloud.V1.AwsCluster.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct aws_clusters: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aws_clusters, 1,
     repeated: true,
@@ -101,19 +55,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAwsClustersResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAwsClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean,
-          allow_missing: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            validate_only: false,
-            allow_missing: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -122,19 +64,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAwsClusterRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAwsNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          aws_node_pool: Google.Cloud.Gkemulticloud.V1.AwsNodePool.t() | nil,
-          aws_node_pool_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            aws_node_pool: nil,
-            aws_node_pool_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -148,17 +78,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.CreateAwsNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAwsNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aws_node_pool: Google.Cloud.Gkemulticloud.V1.AwsNodePool.t() | nil,
-          validate_only: boolean,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct aws_node_pool: nil,
-            validate_only: false,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aws_node_pool, 1,
     type: Google.Cloud.Gkemulticloud.V1.AwsNodePool,
@@ -174,29 +94,13 @@ defmodule Google.Cloud.Gkemulticloud.V1.UpdateAwsNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAwsNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAwsNodePoolsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -204,15 +108,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAwsNodePoolsRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ListAwsNodePoolsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aws_node_pools: [Google.Cloud.Gkemulticloud.V1.AwsNodePool.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct aws_node_pools: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aws_node_pools, 1,
     repeated: true,
@@ -223,19 +119,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.ListAwsNodePoolsResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAwsNodePoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean,
-          allow_missing: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            validate_only: false,
-            allow_missing: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -244,39 +128,19 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAwsNodePoolRequest do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GetAwsServerConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAwsAccessTokenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aws_cluster: String.t()
-        }
-
-  defstruct aws_cluster: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aws_cluster, 1, type: :string, json_name: "awsCluster", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAwsAccessTokenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_token: String.t(),
-          expiration_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct access_token: "",
-            expiration_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken", deprecated: false
 
@@ -287,7 +151,9 @@ defmodule Google.Cloud.Gkemulticloud.V1.GenerateAwsAccessTokenResponse do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusters.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.gkemulticloud.v1.AwsClusters"
+  use GRPC.Service,
+    name: "google.cloud.gkemulticloud.v1.AwsClusters",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateAwsCluster,
       Google.Cloud.Gkemulticloud.V1.CreateAwsClusterRequest,

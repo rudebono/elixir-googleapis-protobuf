@@ -1,8 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.KeywordMatchTypeEnum.KeywordMatchType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :UNKNOWN | :EXACT | :PHRASE | :BROAD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -12,9 +10,5 @@ defmodule Google.Ads.Googleads.V7.Enums.KeywordMatchTypeEnum.KeywordMatchType do
 end
 defmodule Google.Ads.Googleads.V7.Enums.KeywordMatchTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

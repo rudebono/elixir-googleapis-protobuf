@@ -1,17 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Errors.BatchJobErrorEnum.BatchJobError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CANNOT_MODIFY_JOB_AFTER_JOB_STARTS_RUNNING
-          | :EMPTY_OPERATIONS
-          | :INVALID_SEQUENCE_TOKEN
-          | :RESULTS_NOT_READY
-          | :INVALID_PAGE_SIZE
-          | :CAN_ONLY_REMOVE_PENDING_JOB
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -24,9 +13,5 @@ defmodule Google.Ads.Googleads.V7.Errors.BatchJobErrorEnum.BatchJobError do
 end
 defmodule Google.Ads.Googleads.V7.Errors.BatchJobErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

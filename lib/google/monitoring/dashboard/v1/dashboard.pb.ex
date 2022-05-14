@@ -1,41 +1,13 @@
 defmodule Google.Monitoring.Dashboard.V1.Dashboard.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Monitoring.Dashboard.V1.Dashboard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          layout:
-            {:grid_layout, Google.Monitoring.Dashboard.V1.GridLayout.t() | nil}
-            | {:mosaic_layout, Google.Monitoring.Dashboard.V1.MosaicLayout.t() | nil}
-            | {:row_layout, Google.Monitoring.Dashboard.V1.RowLayout.t() | nil}
-            | {:column_layout, Google.Monitoring.Dashboard.V1.ColumnLayout.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          etag: String.t(),
-          dashboard_filters: [Google.Monitoring.Dashboard.V1.DashboardFilter.t()],
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct layout: nil,
-            name: "",
-            display_name: "",
-            etag: "",
-            dashboard_filters: [],
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :layout, 0
 

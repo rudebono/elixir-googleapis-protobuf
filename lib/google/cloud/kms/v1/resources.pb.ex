@@ -1,9 +1,6 @@
 defmodule Google.Cloud.Kms.V1.ProtectionLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :PROTECTION_LEVEL_UNSPECIFIED | :SOFTWARE | :HSM | :EXTERNAL | :EXTERNAL_VPC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROTECTION_LEVEL_UNSPECIFIED, 0
   field :SOFTWARE, 1
@@ -13,15 +10,7 @@ defmodule Google.Cloud.Kms.V1.ProtectionLevel do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CRYPTO_KEY_PURPOSE_UNSPECIFIED
-          | :ENCRYPT_DECRYPT
-          | :ASYMMETRIC_SIGN
-          | :ASYMMETRIC_DECRYPT
-          | :MAC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CRYPTO_KEY_PURPOSE_UNSPECIFIED, 0
   field :ENCRYPT_DECRYPT, 1
@@ -31,13 +20,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
 end
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTESTATION_FORMAT_UNSPECIFIED
-          | :CAVIUM_V1_COMPRESSED
-          | :CAVIUM_V2_COMPRESSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTESTATION_FORMAT_UNSPECIFIED, 0
   field :CAVIUM_V1_COMPRESSED, 3
@@ -45,35 +28,7 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED
-          | :GOOGLE_SYMMETRIC_ENCRYPTION
-          | :RSA_SIGN_PSS_2048_SHA256
-          | :RSA_SIGN_PSS_3072_SHA256
-          | :RSA_SIGN_PSS_4096_SHA256
-          | :RSA_SIGN_PSS_4096_SHA512
-          | :RSA_SIGN_PKCS1_2048_SHA256
-          | :RSA_SIGN_PKCS1_3072_SHA256
-          | :RSA_SIGN_PKCS1_4096_SHA256
-          | :RSA_SIGN_PKCS1_4096_SHA512
-          | :RSA_SIGN_RAW_PKCS1_2048
-          | :RSA_SIGN_RAW_PKCS1_3072
-          | :RSA_SIGN_RAW_PKCS1_4096
-          | :RSA_DECRYPT_OAEP_2048_SHA256
-          | :RSA_DECRYPT_OAEP_3072_SHA256
-          | :RSA_DECRYPT_OAEP_4096_SHA256
-          | :RSA_DECRYPT_OAEP_4096_SHA512
-          | :RSA_DECRYPT_OAEP_2048_SHA1
-          | :RSA_DECRYPT_OAEP_3072_SHA1
-          | :RSA_DECRYPT_OAEP_4096_SHA1
-          | :EC_SIGN_P256_SHA256
-          | :EC_SIGN_P384_SHA384
-          | :EC_SIGN_SECP256K1_SHA256
-          | :HMAC_SHA256
-          | :EXTERNAL_SYMMETRIC_ENCRYPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED, 0
   field :GOOGLE_SYMMETRIC_ENCRYPTION, 1
@@ -103,18 +58,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CRYPTO_KEY_VERSION_STATE_UNSPECIFIED
-          | :PENDING_GENERATION
-          | :ENABLED
-          | :DISABLED
-          | :DESTROYED
-          | :DESTROY_SCHEDULED
-          | :PENDING_IMPORT
-          | :IMPORT_FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CRYPTO_KEY_VERSION_STATE_UNSPECIFIED, 0
   field :PENDING_GENERATION, 5
@@ -127,22 +71,14 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED, 0
   field :FULL, 1
 end
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :IMPORT_METHOD_UNSPECIFIED
-          | :RSA_OAEP_3072_SHA1_AES_256
-          | :RSA_OAEP_4096_SHA1_AES_256
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IMPORT_METHOD_UNSPECIFIED, 0
   field :RSA_OAEP_3072_SHA1_AES_256, 1
@@ -150,9 +86,7 @@ defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
 end
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportJobState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :IMPORT_JOB_STATE_UNSPECIFIED | :PENDING_GENERATION | :ACTIVE | :EXPIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IMPORT_JOB_STATE_UNSPECIFIED, 0
   field :PENDING_GENERATION, 1
@@ -161,15 +95,7 @@ defmodule Google.Cloud.Kms.V1.ImportJob.ImportJobState do
 end
 defmodule Google.Cloud.Kms.V1.KeyRing do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -180,48 +106,14 @@ defmodule Google.Cloud.Kms.V1.KeyRing do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKey.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Kms.V1.CryptoKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rotation_schedule: {:rotation_period, Google.Protobuf.Duration.t() | nil},
-          name: String.t(),
-          primary: Google.Cloud.Kms.V1.CryptoKeyVersion.t() | nil,
-          purpose: Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          next_rotation_time: Google.Protobuf.Timestamp.t() | nil,
-          version_template: Google.Cloud.Kms.V1.CryptoKeyVersionTemplate.t() | nil,
-          labels: %{String.t() => String.t()},
-          import_only: boolean,
-          destroy_scheduled_duration: Google.Protobuf.Duration.t() | nil,
-          crypto_key_backend: String.t()
-        }
-
-  defstruct rotation_schedule: nil,
-            name: "",
-            primary: nil,
-            purpose: :CRYPTO_KEY_PURPOSE_UNSPECIFIED,
-            create_time: nil,
-            next_rotation_time: nil,
-            version_template: nil,
-            labels: %{},
-            import_only: false,
-            destroy_scheduled_duration: nil,
-            crypto_key_backend: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :rotation_schedule, 0
 
@@ -257,15 +149,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t(),
-          algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t()
-        }
-
-  defstruct protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
-            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :protection_level, 1,
     type: Google.Cloud.Kms.V1.ProtectionLevel,
@@ -279,17 +163,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
 end
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cavium_certs: [String.t()],
-          google_card_certs: [String.t()],
-          google_partition_certs: [String.t()]
-        }
-
-  defstruct cavium_certs: [],
-            google_card_certs: [],
-            google_partition_certs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cavium_certs, 1, repeated: true, type: :string, json_name: "caviumCerts"
   field :google_card_certs, 2, repeated: true, type: :string, json_name: "googleCardCerts"
@@ -301,17 +175,7 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains do
 end
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          format: Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat.t(),
-          content: binary,
-          cert_chains: Google.Cloud.Kms.V1.KeyOperationAttestation.CertificateChains.t() | nil
-        }
-
-  defstruct format: :ATTESTATION_FORMAT_UNSPECIFIED,
-            content: "",
-            cert_chains: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :format, 4,
     type: Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat,
@@ -327,40 +191,7 @@ defmodule Google.Cloud.Kms.V1.KeyOperationAttestation do
 end
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState.t(),
-          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t(),
-          algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t(),
-          attestation: Google.Cloud.Kms.V1.KeyOperationAttestation.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          generate_time: Google.Protobuf.Timestamp.t() | nil,
-          destroy_time: Google.Protobuf.Timestamp.t() | nil,
-          destroy_event_time: Google.Protobuf.Timestamp.t() | nil,
-          import_job: String.t(),
-          import_time: Google.Protobuf.Timestamp.t() | nil,
-          import_failure_reason: String.t(),
-          external_protection_level_options:
-            Google.Cloud.Kms.V1.ExternalProtectionLevelOptions.t() | nil,
-          reimport_eligible: boolean
-        }
-
-  defstruct name: "",
-            state: :CRYPTO_KEY_VERSION_STATE_UNSPECIFIED,
-            protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
-            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED,
-            attestation: nil,
-            create_time: nil,
-            generate_time: nil,
-            destroy_time: nil,
-            destroy_event_time: nil,
-            import_job: "",
-            import_time: nil,
-            import_failure_reason: "",
-            external_protection_level_options: nil,
-            reimport_eligible: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState, enum: true
@@ -418,21 +249,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
 end
 defmodule Google.Cloud.Kms.V1.PublicKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pem: String.t(),
-          algorithm: Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm.t(),
-          pem_crc32c: Google.Protobuf.Int64Value.t() | nil,
-          name: String.t(),
-          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t()
-        }
-
-  defstruct pem: "",
-            algorithm: :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED,
-            pem_crc32c: nil,
-            name: "",
-            protection_level: :PROTECTION_LEVEL_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pem, 1, type: :string
 
@@ -450,43 +267,13 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
 end
 defmodule Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pem: String.t()
-        }
-
-  defstruct pem: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pem, 1, type: :string
 end
 defmodule Google.Cloud.Kms.V1.ImportJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          import_method: Google.Cloud.Kms.V1.ImportJob.ImportMethod.t(),
-          protection_level: Google.Cloud.Kms.V1.ProtectionLevel.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          generate_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_event_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Kms.V1.ImportJob.ImportJobState.t(),
-          public_key: Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey.t() | nil,
-          attestation: Google.Cloud.Kms.V1.KeyOperationAttestation.t() | nil
-        }
-
-  defstruct name: "",
-            import_method: :IMPORT_METHOD_UNSPECIFIED,
-            protection_level: :PROTECTION_LEVEL_UNSPECIFIED,
-            create_time: nil,
-            generate_time: nil,
-            expire_time: nil,
-            expire_event_time: nil,
-            state: :IMPORT_JOB_STATE_UNSPECIFIED,
-            public_key: nil,
-            attestation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -536,15 +323,7 @@ defmodule Google.Cloud.Kms.V1.ImportJob do
 end
 defmodule Google.Cloud.Kms.V1.ExternalProtectionLevelOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          external_key_uri: String.t(),
-          ekm_connection_key_path: String.t()
-        }
-
-  defstruct external_key_uri: "",
-            ekm_connection_key_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :external_key_uri, 1, type: :string, json_name: "externalKeyUri"
   field :ekm_connection_key_path, 2, type: :string, json_name: "ekmConnectionKeyPath"

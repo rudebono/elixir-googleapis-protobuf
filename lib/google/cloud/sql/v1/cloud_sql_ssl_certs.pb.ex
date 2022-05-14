@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Sql.V1.SqlSslCertsDeleteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t(),
-          sha1_fingerprint: String.t()
-        }
-
-  defstruct instance: "",
-            project: "",
-            sha1_fingerprint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -18,17 +8,7 @@ defmodule Google.Cloud.Sql.V1.SqlSslCertsDeleteRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlSslCertsGetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t(),
-          sha1_fingerprint: String.t()
-        }
-
-  defstruct instance: "",
-            project: "",
-            sha1_fingerprint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -36,17 +16,7 @@ defmodule Google.Cloud.Sql.V1.SqlSslCertsGetRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlSslCertsInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1.SslCertsInsertRequest.t() | nil
-        }
-
-  defstruct instance: "",
-            project: "",
-            body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -54,46 +24,20 @@ defmodule Google.Cloud.Sql.V1.SqlSslCertsInsertRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlSslCertsListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t()
-        }
-
-  defstruct instance: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
 end
 defmodule Google.Cloud.Sql.V1.SslCertsInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          common_name: String.t()
-        }
-
-  defstruct common_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
 end
 defmodule Google.Cloud.Sql.V1.SslCertsInsertResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          operation: Google.Cloud.Sql.V1.Operation.t() | nil,
-          server_ca_cert: Google.Cloud.Sql.V1.SslCert.t() | nil,
-          client_cert: Google.Cloud.Sql.V1.SslCertDetail.t() | nil
-        }
-
-  defstruct kind: "",
-            operation: nil,
-            server_ca_cert: nil,
-            client_cert: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :operation, 2, type: Google.Cloud.Sql.V1.Operation
@@ -102,22 +46,16 @@ defmodule Google.Cloud.Sql.V1.SslCertsInsertResponse do
 end
 defmodule Google.Cloud.Sql.V1.SslCertsListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1.SslCert.t()]
-        }
-
-  defstruct kind: "",
-            items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.SslCert
 end
 defmodule Google.Cloud.Sql.V1.SqlSslCertsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1.SqlSslCertsService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1.SqlSslCertsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlSslCertsDeleteRequest, Google.Cloud.Sql.V1.Operation
 

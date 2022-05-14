@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_FORMAT_UNSPECIFIED | :AVRO | :ARROW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.DataFormat do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SHARDING_STRATEGY_UNSPECIFIED | :LIQUID | :BALANCED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SHARDING_STRATEGY_UNSPECIFIED, 0
   field :LIQUID, 1
@@ -20,54 +16,20 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Stream do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil,
-          offset: integer
-        }
-
-  defstruct stream: nil,
-            offset: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
   field :offset, 2, type: :int64
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema:
-            {:avro_schema, Google.Cloud.Bigquery.Storage.V1beta1.AvroSchema.t() | nil}
-            | {:arrow_schema, Google.Cloud.Bigquery.Storage.V1beta1.ArrowSchema.t() | nil},
-          name: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          streams: [Google.Cloud.Bigquery.Storage.V1beta1.Stream.t()],
-          table_reference: Google.Cloud.Bigquery.Storage.V1beta1.TableReference.t() | nil,
-          table_modifiers: Google.Cloud.Bigquery.Storage.V1beta1.TableModifiers.t() | nil,
-          sharding_strategy: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy.t()
-        }
-
-  defstruct schema: nil,
-            name: "",
-            expire_time: nil,
-            streams: [],
-            table_reference: nil,
-            table_modifiers: nil,
-            sharding_strategy: :SHARDING_STRATEGY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -101,25 +63,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_reference: Google.Cloud.Bigquery.Storage.V1beta1.TableReference.t() | nil,
-          parent: String.t(),
-          table_modifiers: Google.Cloud.Bigquery.Storage.V1beta1.TableModifiers.t() | nil,
-          requested_streams: integer,
-          read_options: Google.Cloud.Bigquery.Storage.V1beta1.TableReadOptions.t() | nil,
-          format: Google.Cloud.Bigquery.Storage.V1beta1.DataFormat.t(),
-          sharding_strategy: Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy.t()
-        }
-
-  defstruct table_reference: nil,
-            parent: "",
-            table_modifiers: nil,
-            requested_streams: 0,
-            read_options: nil,
-            format: :DATA_FORMAT_UNSPECIFIED,
-            sharding_strategy: :SHARDING_STRATEGY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_reference, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.TableReference,
@@ -147,13 +91,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          read_position: Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition.t() | nil
-        }
-
-  defstruct read_position: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :read_position, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition,
@@ -162,19 +100,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          estimated_row_count: integer,
-          fraction_consumed: float | :infinity | :negative_infinity | :nan,
-          progress: Google.Cloud.Bigquery.Storage.V1beta1.Progress.t() | nil,
-          is_splittable: boolean
-        }
-
-  defstruct estimated_row_count: 0,
-            fraction_consumed: 0.0,
-            progress: nil,
-            is_splittable: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :estimated_row_count, 1, type: :int64, json_name: "estimatedRowCount"
   field :fraction_consumed, 2, type: :float, json_name: "fractionConsumed"
@@ -183,49 +109,20 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Progress do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          at_response_start: float | :infinity | :negative_infinity | :nan,
-          at_response_end: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct at_response_start: 0.0,
-            at_response_end: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :at_response_start, 1, type: :float, json_name: "atResponseStart"
   field :at_response_end, 2, type: :float, json_name: "atResponseEnd"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          throttle_percent: integer
-        }
-
-  defstruct throttle_percent: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :throttle_percent, 1, type: :int32, json_name: "throttlePercent"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rows:
-            {:avro_rows, Google.Cloud.Bigquery.Storage.V1beta1.AvroRows.t() | nil}
-            | {:arrow_record_batch,
-               Google.Cloud.Bigquery.Storage.V1beta1.ArrowRecordBatch.t() | nil},
-          row_count: integer,
-          status: Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus.t() | nil,
-          throttle_status: Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus.t() | nil
-        }
-
-  defstruct rows: nil,
-            row_count: 0,
-            status: nil,
-            throttle_status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :rows, 0
 
@@ -248,54 +145,26 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          session: Google.Cloud.Bigquery.Storage.V1beta1.ReadSession.t() | nil,
-          requested_streams: integer
-        }
-
-  defstruct session: nil,
-            requested_streams: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :session, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.ReadSession, deprecated: false
   field :requested_streams, 2, type: :int32, json_name: "requestedStreams", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          streams: [Google.Cloud.Bigquery.Storage.V1beta1.Stream.t()]
-        }
-
-  defstruct streams: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.FinalizeStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil
-        }
-
-  defstruct stream: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream, 2, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          original_stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil,
-          fraction: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct original_stream: nil,
-            fraction: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :original_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
@@ -306,15 +175,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary_stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil,
-          remainder_stream: Google.Cloud.Bigquery.Storage.V1beta1.Stream.t() | nil
-        }
-
-  defstruct primary_stream: nil,
-            remainder_stream: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
@@ -326,7 +187,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.storage.v1beta1.BigQueryStorage"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.storage.v1beta1.BigQueryStorage",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateReadSession,
       Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest,

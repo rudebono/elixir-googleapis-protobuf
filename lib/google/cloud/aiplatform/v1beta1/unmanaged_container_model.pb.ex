@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.UnmanagedContainerModel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact_uri: String.t(),
-          predict_schemata: Google.Cloud.Aiplatform.V1beta1.PredictSchemata.t() | nil,
-          container_spec: Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec.t() | nil
-        }
-
-  defstruct artifact_uri: "",
-            predict_schemata: nil,
-            container_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact_uri, 1, type: :string, json_name: "artifactUri"
 

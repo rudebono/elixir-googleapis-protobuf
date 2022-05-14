@@ -1,23 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.MultiplierErrorEnum.MultiplierError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :MULTIPLIER_TOO_HIGH
-          | :MULTIPLIER_TOO_LOW
-          | :TOO_MANY_FRACTIONAL_DIGITS
-          | :MULTIPLIER_NOT_ALLOWED_FOR_BIDDING_STRATEGY
-          | :MULTIPLIER_NOT_ALLOWED_WHEN_BASE_BID_IS_MISSING
-          | :NO_MULTIPLIER_SPECIFIED
-          | :MULTIPLIER_CAUSES_BID_TO_EXCEED_DAILY_BUDGET
-          | :MULTIPLIER_CAUSES_BID_TO_EXCEED_MONTHLY_BUDGET
-          | :MULTIPLIER_CAUSES_BID_TO_EXCEED_CUSTOM_BUDGET
-          | :MULTIPLIER_CAUSES_BID_TO_EXCEED_MAX_ALLOWED_BID
-          | :BID_LESS_THAN_MIN_ALLOWED_BID_WITH_MULTIPLIER
-          | :MULTIPLIER_AND_BIDDING_STRATEGY_TYPE_MISMATCH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -36,9 +19,5 @@ defmodule Google.Ads.Googleads.V8.Errors.MultiplierErrorEnum.MultiplierError do
 end
 defmodule Google.Ads.Googleads.V8.Errors.MultiplierErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

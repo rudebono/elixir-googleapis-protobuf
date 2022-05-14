@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Sql.V1.SqlFlagType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SQL_FLAG_TYPE_UNSPECIFIED
-          | :BOOLEAN
-          | :STRING
-          | :INTEGER
-          | :NONE
-          | :MYSQL_TIMEZONE_OFFSET
-          | :FLOAT
-          | :REPEATED_STRING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SQL_FLAG_TYPE_UNSPECIFIED, 0
   field :BOOLEAN, 1
@@ -24,58 +13,20 @@ defmodule Google.Cloud.Sql.V1.SqlFlagType do
 end
 defmodule Google.Cloud.Sql.V1.SqlFlagsListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database_version: String.t()
-        }
-
-  defstruct database_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database_version, 1, type: :string, json_name: "databaseVersion"
 end
 defmodule Google.Cloud.Sql.V1.FlagsListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1.Flag.t()]
-        }
-
-  defstruct kind: "",
-            items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Flag
 end
 defmodule Google.Cloud.Sql.V1.Flag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Sql.V1.SqlFlagType.t(),
-          applies_to: [Google.Cloud.Sql.V1.SqlDatabaseVersion.t()],
-          allowed_string_values: [String.t()],
-          min_value: Google.Protobuf.Int64Value.t() | nil,
-          max_value: Google.Protobuf.Int64Value.t() | nil,
-          requires_restart: Google.Protobuf.BoolValue.t() | nil,
-          kind: String.t(),
-          in_beta: Google.Protobuf.BoolValue.t() | nil,
-          allowed_int_values: [integer]
-        }
-
-  defstruct name: "",
-            type: :SQL_FLAG_TYPE_UNSPECIFIED,
-            applies_to: [],
-            allowed_string_values: [],
-            min_value: nil,
-            max_value: nil,
-            requires_restart: nil,
-            kind: "",
-            in_beta: nil,
-            allowed_int_values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Sql.V1.SqlFlagType, enum: true
@@ -96,7 +47,9 @@ defmodule Google.Cloud.Sql.V1.Flag do
 end
 defmodule Google.Cloud.Sql.V1.SqlFlagsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1.SqlFlagsService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1.SqlFlagsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :List, Google.Cloud.Sql.V1.SqlFlagsListRequest, Google.Cloud.Sql.V1.FlagsListResponse
 end

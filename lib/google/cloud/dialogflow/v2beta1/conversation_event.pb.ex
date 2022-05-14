@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :CONVERSATION_STARTED
-          | :CONVERSATION_FINISHED
-          | :HUMAN_INTERVENTION_NEEDED
-          | :NEW_MESSAGE
-          | :UNRECOVERABLE_ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CONVERSATION_STARTED, 1
@@ -20,19 +11,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload: {:new_message_payload, Google.Cloud.Dialogflow.V2beta1.Message.t() | nil},
-          conversation: String.t(),
-          type: Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type.t(),
-          error_status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct payload: nil,
-            conversation: "",
-            type: :TYPE_UNSPECIFIED,
-            error_status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 

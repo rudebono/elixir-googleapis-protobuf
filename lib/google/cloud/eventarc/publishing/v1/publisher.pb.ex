@@ -1,52 +1,30 @@
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channel_connection: String.t(),
-          events: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct channel_connection: "",
-            events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channel_connection, 1, type: :string, json_name: "channelConnection"
   field :events, 2, repeated: true, type: Google.Protobuf.Any
 end
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channel: String.t(),
-          events: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct channel: "",
-            events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channel, 1, type: :string
   field :events, 2, repeated: true, type: Google.Protobuf.Any
 end
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.eventarc.publishing.v1.Publisher"
+  use GRPC.Service,
+    name: "google.cloud.eventarc.publishing.v1.Publisher",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :PublishChannelConnectionEvents,
       Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsRequest,

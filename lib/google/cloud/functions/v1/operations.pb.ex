@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Functions.V1.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OPERATION_UNSPECIFIED
-          | :CREATE_FUNCTION
-          | :UPDATE_FUNCTION
-          | :DELETE_FUNCTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :CREATE_FUNCTION, 1
@@ -16,27 +9,7 @@ defmodule Google.Cloud.Functions.V1.OperationType do
 end
 defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: String.t(),
-          type: Google.Cloud.Functions.V1.OperationType.t(),
-          request: Google.Protobuf.Any.t() | nil,
-          version_id: integer,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          build_id: String.t(),
-          source_token: String.t(),
-          build_name: String.t()
-        }
-
-  defstruct target: "",
-            type: :OPERATION_UNSPECIFIED,
-            request: nil,
-            version_id: 0,
-            update_time: nil,
-            build_id: "",
-            source_token: "",
-            build_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 1, type: :string
   field :type, 2, type: Google.Cloud.Functions.V1.OperationType, enum: true

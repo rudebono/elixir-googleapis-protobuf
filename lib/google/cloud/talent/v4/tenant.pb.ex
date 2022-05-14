@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Talent.V4.Tenant do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          external_id: String.t()
-        }
-
-  defstruct name: "",
-            external_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :external_id, 2, type: :string, json_name: "externalId", deprecated: false

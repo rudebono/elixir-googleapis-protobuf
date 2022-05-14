@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PROVISIONING
-          | :RUNNING
-          | :RECONCILING
-          | :STOPPING
-          | :ERROR
-          | :DEGRADED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -22,17 +12,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster.State do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PROVISIONING
-          | :RUNNING
-          | :RECONCILING
-          | :STOPPING
-          | :ERROR
-          | :DEGRADED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -44,69 +24,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool.State do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          azure_region: String.t(),
-          resource_group_id: String.t(),
-          azure_client: String.t(),
-          networking: Google.Cloud.Gkemulticloud.V1.AzureClusterNetworking.t() | nil,
-          control_plane: Google.Cloud.Gkemulticloud.V1.AzureControlPlane.t() | nil,
-          authorization: Google.Cloud.Gkemulticloud.V1.AzureAuthorization.t() | nil,
-          state: Google.Cloud.Gkemulticloud.V1.AzureCluster.State.t(),
-          endpoint: String.t(),
-          uid: String.t(),
-          reconciling: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          annotations: %{String.t() => String.t()},
-          workload_identity_config:
-            Google.Cloud.Gkemulticloud.V1.WorkloadIdentityConfig.t() | nil,
-          cluster_ca_certificate: String.t(),
-          fleet: Google.Cloud.Gkemulticloud.V1.Fleet.t() | nil,
-          managed_resources: Google.Cloud.Gkemulticloud.V1.AzureClusterResources.t() | nil,
-          logging_config: Google.Cloud.Gkemulticloud.V1.LoggingConfig.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            azure_region: "",
-            resource_group_id: "",
-            azure_client: "",
-            networking: nil,
-            control_plane: nil,
-            authorization: nil,
-            state: :STATE_UNSPECIFIED,
-            endpoint: "",
-            uid: "",
-            reconciling: false,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            annotations: %{},
-            workload_identity_config: nil,
-            cluster_ca_certificate: "",
-            fleet: nil,
-            managed_resources: nil,
-            logging_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string, deprecated: false
@@ -178,19 +103,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterNetworking do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          virtual_network_id: String.t(),
-          pod_address_cidr_blocks: [String.t()],
-          service_address_cidr_blocks: [String.t()],
-          service_load_balancer_subnet_id: String.t()
-        }
-
-  defstruct virtual_network_id: "",
-            pod_address_cidr_blocks: [],
-            service_address_cidr_blocks: [],
-            service_load_balancer_subnet_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :virtual_network_id, 1, type: :string, json_name: "virtualNetworkId", deprecated: false
 
@@ -213,50 +126,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterNetworking do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureControlPlane.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureControlPlane do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          subnet_id: String.t(),
-          vm_size: String.t(),
-          ssh_config: Google.Cloud.Gkemulticloud.V1.AzureSshConfig.t() | nil,
-          root_volume: Google.Cloud.Gkemulticloud.V1.AzureDiskTemplate.t() | nil,
-          main_volume: Google.Cloud.Gkemulticloud.V1.AzureDiskTemplate.t() | nil,
-          database_encryption: Google.Cloud.Gkemulticloud.V1.AzureDatabaseEncryption.t() | nil,
-          proxy_config: Google.Cloud.Gkemulticloud.V1.AzureProxyConfig.t() | nil,
-          config_encryption: Google.Cloud.Gkemulticloud.V1.AzureConfigEncryption.t() | nil,
-          tags: %{String.t() => String.t()},
-          replica_placements: [Google.Cloud.Gkemulticloud.V1.ReplicaPlacement.t()],
-          endpoint_subnet_id: String.t()
-        }
-
-  defstruct version: "",
-            subnet_id: "",
-            vm_size: "",
-            ssh_config: nil,
-            root_volume: nil,
-            main_volume: nil,
-            database_encryption: nil,
-            proxy_config: nil,
-            config_encryption: nil,
-            tags: %{},
-            replica_placements: [],
-            endpoint_subnet_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :subnet_id, 2, type: :string, json_name: "subnetId", deprecated: false
@@ -308,15 +185,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureControlPlane do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.ReplicaPlacement do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subnet_id: String.t(),
-          azure_availability_zone: String.t()
-        }
-
-  defstruct subnet_id: "",
-            azure_availability_zone: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subnet_id, 1, type: :string, json_name: "subnetId", deprecated: false
 
@@ -327,94 +196,40 @@ defmodule Google.Cloud.Gkemulticloud.V1.ReplicaPlacement do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureProxyConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_group_id: String.t(),
-          secret_id: String.t()
-        }
-
-  defstruct resource_group_id: "",
-            secret_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_group_id, 1, type: :string, json_name: "resourceGroupId"
   field :secret_id, 2, type: :string, json_name: "secretId"
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureDatabaseEncryption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t()
-        }
-
-  defstruct key_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 3, type: :string, json_name: "keyId", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureConfigEncryption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          public_key: String.t()
-        }
-
-  defstruct key_id: "",
-            public_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 2, type: :string, json_name: "keyId", deprecated: false
   field :public_key, 3, type: :string, json_name: "publicKey", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureDiskTemplate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          size_gib: integer
-        }
-
-  defstruct size_gib: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :size_gib, 1, type: :int32, json_name: "sizeGib", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClient.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClient do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          tenant_id: String.t(),
-          application_id: String.t(),
-          annotations: %{String.t() => String.t()},
-          pem_certificate: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            tenant_id: "",
-            application_id: "",
-            annotations: %{},
-            pem_certificate: "",
-            uid: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :tenant_id, 2, type: :string, json_name: "tenantId", deprecated: false
@@ -436,13 +251,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClient do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureAuthorization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          admin_users: [Google.Cloud.Gkemulticloud.V1.AzureClusterUser.t()]
-        }
-
-  defstruct admin_users: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :admin_users, 1,
     repeated: true,
@@ -452,66 +261,20 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureAuthorization do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterUser do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          username: String.t()
-        }
-
-  defstruct username: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version: String.t(),
-          config: Google.Cloud.Gkemulticloud.V1.AzureNodeConfig.t() | nil,
-          subnet_id: String.t(),
-          autoscaling: Google.Cloud.Gkemulticloud.V1.AzureNodePoolAutoscaling.t() | nil,
-          state: Google.Cloud.Gkemulticloud.V1.AzureNodePool.State.t(),
-          uid: String.t(),
-          reconciling: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          annotations: %{String.t() => String.t()},
-          max_pods_constraint: Google.Cloud.Gkemulticloud.V1.MaxPodsConstraint.t() | nil,
-          azure_availability_zone: String.t()
-        }
-
-  defstruct name: "",
-            version: "",
-            config: nil,
-            subnet_id: "",
-            autoscaling: nil,
-            state: :STATE_UNSPECIFIED,
-            uid: "",
-            reconciling: false,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            annotations: %{},
-            max_pods_constraint: nil,
-            azure_availability_zone: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string, deprecated: false
@@ -560,59 +323,21 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vm_size: String.t(),
-          root_volume: Google.Cloud.Gkemulticloud.V1.AzureDiskTemplate.t() | nil,
-          tags: %{String.t() => String.t()},
-          image_type: String.t(),
-          ssh_config: Google.Cloud.Gkemulticloud.V1.AzureSshConfig.t() | nil,
-          proxy_config: Google.Cloud.Gkemulticloud.V1.AzureProxyConfig.t() | nil,
-          config_encryption: Google.Cloud.Gkemulticloud.V1.AzureConfigEncryption.t() | nil,
-          taints: [Google.Cloud.Gkemulticloud.V1.NodeTaint.t()],
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct vm_size: "",
-            root_volume: nil,
-            tags: %{},
-            image_type: "",
-            ssh_config: nil,
-            proxy_config: nil,
-            config_encryption: nil,
-            taints: [],
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vm_size, 1, type: :string, json_name: "vmSize", deprecated: false
 
@@ -657,32 +382,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePoolAutoscaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_node_count: integer,
-          max_node_count: integer
-        }
-
-  defstruct min_node_count: 0,
-            max_node_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureServerConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          valid_versions: [Google.Cloud.Gkemulticloud.V1.AzureK8sVersionInfo.t()],
-          supported_azure_regions: [String.t()]
-        }
-
-  defstruct name: "",
-            valid_versions: [],
-            supported_azure_regions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -698,39 +405,19 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureServerConfig do
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureK8sVersionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t()
-        }
-
-  defstruct version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureSshConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authorized_key: String.t()
-        }
-
-  defstruct authorized_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :authorized_key, 1, type: :string, json_name: "authorizedKey", deprecated: false
 end
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterResources do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network_security_group_id: String.t(),
-          control_plane_application_security_group_id: String.t()
-        }
-
-  defstruct network_security_group_id: "",
-            control_plane_application_security_group_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :network_security_group_id, 1,
     type: :string,

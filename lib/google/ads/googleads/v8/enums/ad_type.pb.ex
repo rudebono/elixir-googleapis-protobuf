@@ -1,38 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Enums.AdTypeEnum.AdType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :TEXT_AD
-          | :EXPANDED_TEXT_AD
-          | :EXPANDED_DYNAMIC_SEARCH_AD
-          | :HOTEL_AD
-          | :SHOPPING_SMART_AD
-          | :SHOPPING_PRODUCT_AD
-          | :VIDEO_AD
-          | :GMAIL_AD
-          | :IMAGE_AD
-          | :RESPONSIVE_SEARCH_AD
-          | :LEGACY_RESPONSIVE_DISPLAY_AD
-          | :APP_AD
-          | :LEGACY_APP_INSTALL_AD
-          | :RESPONSIVE_DISPLAY_AD
-          | :LOCAL_AD
-          | :HTML5_UPLOAD_AD
-          | :DYNAMIC_HTML5_AD
-          | :APP_ENGAGEMENT_AD
-          | :SHOPPING_COMPARISON_LISTING_AD
-          | :VIDEO_BUMPER_AD
-          | :VIDEO_NON_SKIPPABLE_IN_STREAM_AD
-          | :VIDEO_OUTSTREAM_AD
-          | :VIDEO_TRUEVIEW_DISCOVERY_AD
-          | :VIDEO_TRUEVIEW_IN_STREAM_AD
-          | :VIDEO_RESPONSIVE_AD
-          | :SMART_CAMPAIGN_AD
-          | :CALL_AD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -66,9 +34,5 @@ defmodule Google.Ads.Googleads.V8.Enums.AdTypeEnum.AdType do
 end
 defmodule Google.Ads.Googleads.V8.Enums.AdTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

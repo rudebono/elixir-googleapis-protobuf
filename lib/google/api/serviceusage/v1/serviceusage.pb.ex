@@ -1,8 +1,6 @@
 defmodule Google.Api.Serviceusage.V1.DisableServiceRequest.CheckIfServiceHasUsage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED | :SKIP | :CHECK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED, 0
   field :SKIP, 1
@@ -10,42 +8,19 @@ defmodule Google.Api.Serviceusage.V1.DisableServiceRequest.CheckIfServiceHasUsag
 end
 defmodule Google.Api.Serviceusage.V1.EnableServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Api.Serviceusage.V1.EnableServiceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Api.Serviceusage.V1.Service.t() | nil
-        }
-
-  defstruct service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Api.Serviceusage.V1.Service
 end
 defmodule Google.Api.Serviceusage.V1.DisableServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          disable_dependent_services: boolean,
-          check_if_service_has_usage:
-            Google.Api.Serviceusage.V1.DisableServiceRequest.CheckIfServiceHasUsage.t()
-        }
-
-  defstruct name: "",
-            disable_dependent_services: false,
-            check_if_service_has_usage: :CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :disable_dependent_services, 2, type: :bool, json_name: "disableDependentServices"
@@ -57,43 +32,19 @@ defmodule Google.Api.Serviceusage.V1.DisableServiceRequest do
 end
 defmodule Google.Api.Serviceusage.V1.DisableServiceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Api.Serviceusage.V1.Service.t() | nil
-        }
-
-  defstruct service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Api.Serviceusage.V1.Service
 end
 defmodule Google.Api.Serviceusage.V1.GetServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Api.Serviceusage.V1.ListServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -102,60 +53,28 @@ defmodule Google.Api.Serviceusage.V1.ListServicesRequest do
 end
 defmodule Google.Api.Serviceusage.V1.ListServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Api.Serviceusage.V1.Service.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct services: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          service_ids: [String.t()]
-        }
-
-  defstruct parent: "",
-            service_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :service_ids, 2, repeated: true, type: :string, json_name: "serviceIds"
 end
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse.EnableFailure do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_id: String.t(),
-          error_message: String.t()
-        }
-
-  defstruct service_id: "",
-            error_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_id, 1, type: :string, json_name: "serviceId"
   field :error_message, 2, type: :string, json_name: "errorMessage"
 end
 defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Api.Serviceusage.V1.Service.t()],
-          failures: [Google.Api.Serviceusage.V1.BatchEnableServicesResponse.EnableFailure.t()]
-        }
-
-  defstruct services: [],
-            failures: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
 
@@ -165,34 +84,22 @@ defmodule Google.Api.Serviceusage.V1.BatchEnableServicesResponse do
 end
 defmodule Google.Api.Serviceusage.V1.BatchGetServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          names: [String.t()]
-        }
-
-  defstruct parent: "",
-            names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :names, 2, repeated: true, type: :string
 end
 defmodule Google.Api.Serviceusage.V1.BatchGetServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Api.Serviceusage.V1.Service.t()]
-        }
-
-  defstruct services: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1.Service
 end
 defmodule Google.Api.Serviceusage.V1.ServiceUsage.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.api.serviceusage.v1.ServiceUsage"
+  use GRPC.Service,
+    name: "google.api.serviceusage.v1.ServiceUsage",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :EnableService,
       Google.Api.Serviceusage.V1.EnableServiceRequest,

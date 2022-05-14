@@ -1,27 +1,12 @@
 defmodule Google.Ads.Googleads.V7.Services.GetCustomerUserAccessInvitationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operation:
-            Google.Ads.Googleads.V7.Services.CustomerUserAccessInvitationOperation.t() | nil
-        }
-
-  defstruct customer_id: "",
-            operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -31,15 +16,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationReq
 end
 defmodule Google.Ads.Googleads.V7.Services.CustomerUserAccessInvitationOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V7.Resources.CustomerUserAccessInvitation.t() | nil}
-            | {:remove, String.t()}
-        }
-
-  defstruct operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -48,33 +25,22 @@ defmodule Google.Ads.Googleads.V7.Services.CustomerUserAccessInvitationOperation
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result:
-            Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationResult.t() | nil
-        }
-
-  defstruct result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationResult
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCustomerUserAccessInvitationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V7.Services.CustomerUserAccessInvitationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v7.services.CustomerUserAccessInvitationService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v7.services.CustomerUserAccessInvitationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetCustomerUserAccessInvitation,
       Google.Ads.Googleads.V7.Services.GetCustomerUserAccessInvitationRequest,

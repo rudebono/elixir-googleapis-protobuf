@@ -1,24 +1,6 @@
 defmodule Google.Api.Expr.V1alpha1.Value do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind:
-            {:null_value, Google.Protobuf.NullValue.t()}
-            | {:bool_value, boolean}
-            | {:int64_value, integer}
-            | {:uint64_value, non_neg_integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:string_value, String.t()}
-            | {:bytes_value, binary}
-            | {:enum_value, Google.Api.Expr.V1alpha1.EnumValue.t() | nil}
-            | {:object_value, Google.Protobuf.Any.t() | nil}
-            | {:map_value, Google.Api.Expr.V1alpha1.MapValue.t() | nil}
-            | {:list_value, Google.Api.Expr.V1alpha1.ListValue.t() | nil}
-            | {:type_value, String.t()}
-        }
-
-  defstruct kind: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -47,55 +29,27 @@ defmodule Google.Api.Expr.V1alpha1.Value do
 end
 defmodule Google.Api.Expr.V1alpha1.EnumValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          value: integer
-        }
-
-  defstruct type: "",
-            value: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :value, 2, type: :int32
 end
 defmodule Google.Api.Expr.V1alpha1.ListValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          values: [Google.Api.Expr.V1alpha1.Value.t()]
-        }
-
-  defstruct values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Value
 end
 defmodule Google.Api.Expr.V1alpha1.MapValue.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: Google.Api.Expr.V1alpha1.Value.t() | nil,
-          value: Google.Api.Expr.V1alpha1.Value.t() | nil
-        }
-
-  defstruct key: nil,
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: Google.Api.Expr.V1alpha1.Value
   field :value, 2, type: Google.Api.Expr.V1alpha1.Value
 end
 defmodule Google.Api.Expr.V1alpha1.MapValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Api.Expr.V1alpha1.MapValue.Entry.t()]
-        }
-
-  defstruct entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Api.Expr.V1alpha1.MapValue.Entry
 end

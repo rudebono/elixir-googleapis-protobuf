@@ -1,6 +1,8 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OsConfigZonalService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.osconfig.v1alpha.OsConfigZonalService"
+  use GRPC.Service,
+    name: "google.cloud.osconfig.v1alpha.OsConfigZonalService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateOSPolicyAssignment,
       Google.Cloud.Osconfig.V1alpha.CreateOSPolicyAssignmentRequest,

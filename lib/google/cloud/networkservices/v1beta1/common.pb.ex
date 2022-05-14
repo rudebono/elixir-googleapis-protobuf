@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED | :MATCH_ANY | :MATCH_ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED, 0
   field :MATCH_ANY, 1
@@ -10,25 +8,7 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatc
 end
 defmodule Google.Cloud.Networkservices.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -49,45 +29,20 @@ defmodule Google.Cloud.Networkservices.V1beta1.OperationMetadata do
 end
 defmodule Google.Cloud.Networkservices.V1beta1.TrafficPortSelector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ports: [String.t()]
-        }
-
-  defstruct ports: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ports, 1, repeated: true, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label_name: String.t(),
-          label_value: String.t()
-        }
-
-  defstruct label_name: "",
-            label_value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label_name, 1, type: :string, json_name: "labelName", deprecated: false
   field :label_value, 2, type: :string, json_name: "labelValue", deprecated: false
 end
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata_label_match_criteria:
-            Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.t(),
-          metadata_labels: [
-            Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.t()
-          ]
-        }
-
-  defstruct metadata_label_match_criteria: :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED,
-            metadata_labels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata_label_match_criteria, 1,
     type:
@@ -103,15 +58,7 @@ defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatc
 end
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          matcher_type:
-            {:metadata_label_matcher,
-             Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.t() | nil}
-        }
-
-  defstruct matcher_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :matcher_type, 0
 

@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UPLOAD_OPERATION_UNSPECIFIED | :CREATE | :UPDATE | :MERGE | :FINALIZE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UPLOAD_OPERATION_UNSPECIFIED, 0
   field :CREATE, 1
@@ -12,25 +10,7 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation do
 end
 defmodule Google.Devtools.Resultstore.V2.CreateInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          invocation_id: String.t(),
-          invocation: Google.Devtools.Resultstore.V2.Invocation.t() | nil,
-          authorization_token: String.t(),
-          auto_finalize_time: Google.Protobuf.Timestamp.t() | nil,
-          initial_resume_token: String.t(),
-          uploader_state: binary
-        }
-
-  defstruct request_id: "",
-            invocation_id: "",
-            invocation: nil,
-            authorization_token: "",
-            auto_finalize_time: nil,
-            initial_resume_token: "",
-            uploader_state: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :invocation_id, 2, type: :string, json_name: "invocationId"
@@ -42,17 +22,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateInvocationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation: Google.Devtools.Resultstore.V2.Invocation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct invocation: nil,
-            update_mask: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -60,19 +30,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateInvocationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.MergeInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          invocation: Google.Devtools.Resultstore.V2.Invocation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            invocation: nil,
-            update_mask: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
@@ -81,93 +39,41 @@ defmodule Google.Devtools.Resultstore.V2.MergeInvocationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          authorization_token: String.t()
-        }
-
-  defstruct name: "",
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken"
 end
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.Invocation.Id.t() | nil
-        }
-
-  defstruct name: "",
-            id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
 end
 defmodule Google.Devtools.Resultstore.V2.DeleteInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          authorization_token: String.t()
-        }
-
-  defstruct name: "",
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.Invocation.Id.t() | nil
-        }
-
-  defstruct name: "",
-            id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
 end
 defmodule Google.Devtools.Resultstore.V2.CreateTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          parent: String.t(),
-          target_id: String.t(),
-          target: Google.Devtools.Resultstore.V2.Target.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            parent: "",
-            target_id: "",
-            target: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -177,19 +83,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: Google.Devtools.Resultstore.V2.Target.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct target: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -198,21 +92,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.MergeTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          target: Google.Devtools.Resultstore.V2.Target.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct request_id: "",
-            target: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
@@ -222,51 +102,21 @@ defmodule Google.Devtools.Resultstore.V2.MergeTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          authorization_token: String.t()
-        }
-
-  defstruct name: "",
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.Target.Id.t() | nil
-        }
-
-  defstruct name: "",
-            id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
 end
 defmodule Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          parent: String.t(),
-          config_id: String.t(),
-          configured_target: Google.Devtools.Resultstore.V2.ConfiguredTarget.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            parent: "",
-            config_id: "",
-            configured_target: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -281,19 +131,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configured_target: Google.Devtools.Resultstore.V2.ConfiguredTarget.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct configured_target: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :configured_target, 3,
     type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
@@ -305,21 +143,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          configured_target: Google.Devtools.Resultstore.V2.ConfiguredTarget.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct request_id: "",
-            configured_target: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 
@@ -333,51 +157,21 @@ defmodule Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          authorization_token: String.t()
-        }
-
-  defstruct name: "",
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
 end
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.ConfiguredTarget.Id.t() | nil
-        }
-
-  defstruct name: "",
-            id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.ConfiguredTarget.Id
 end
 defmodule Google.Devtools.Resultstore.V2.CreateActionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          parent: String.t(),
-          action_id: String.t(),
-          action: Google.Devtools.Resultstore.V2.Action.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            parent: "",
-            action_id: "",
-            action: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -387,19 +181,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateActionRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateActionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action: Google.Devtools.Resultstore.V2.Action.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct action: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -408,21 +190,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateActionRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.MergeActionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          action: Google.Devtools.Resultstore.V2.Action.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct request_id: "",
-            action: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
@@ -432,21 +200,7 @@ defmodule Google.Devtools.Resultstore.V2.MergeActionRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.CreateConfigurationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          parent: String.t(),
-          config_id: String.t(),
-          configuration: Google.Devtools.Resultstore.V2.Configuration.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            parent: "",
-            config_id: "",
-            configuration: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -456,19 +210,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateConfigurationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateConfigurationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configuration: Google.Devtools.Resultstore.V2.Configuration.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct configuration: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :configuration, 3, type: Google.Devtools.Resultstore.V2.Configuration
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -477,21 +219,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateConfigurationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.CreateFileSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          parent: String.t(),
-          file_set_id: String.t(),
-          file_set: Google.Devtools.Resultstore.V2.FileSet.t() | nil,
-          authorization_token: String.t()
-        }
-
-  defstruct request_id: "",
-            parent: "",
-            file_set_id: "",
-            file_set: nil,
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -506,19 +234,7 @@ defmodule Google.Devtools.Resultstore.V2.CreateFileSetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UpdateFileSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_set: Google.Devtools.Resultstore.V2.FileSet.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct file_set: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_set, 1, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -527,21 +243,7 @@ defmodule Google.Devtools.Resultstore.V2.UpdateFileSetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.MergeFileSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_id: String.t(),
-          file_set: Google.Devtools.Resultstore.V2.FileSet.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          authorization_token: String.t(),
-          create_if_not_found: boolean
-        }
-
-  defstruct request_id: "",
-            file_set: nil,
-            update_mask: nil,
-            authorization_token: "",
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :file_set, 2, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
@@ -551,23 +253,7 @@ defmodule Google.Devtools.Resultstore.V2.MergeFileSetRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UploadBatchRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          authorization_token: String.t(),
-          next_resume_token: String.t(),
-          resume_token: String.t(),
-          uploader_state: binary,
-          upload_requests: [Google.Devtools.Resultstore.V2.UploadRequest.t()]
-        }
-
-  defstruct parent: "",
-            authorization_token: "",
-            next_resume_token: "",
-            resume_token: "",
-            uploader_state: "",
-            upload_requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken", deprecated: false
@@ -582,27 +268,11 @@ defmodule Google.Devtools.Resultstore.V2.UploadBatchRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.UploadBatchResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Resultstore.V2.UploadRequest.Id do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_id: String.t(),
-          configuration_id: String.t(),
-          action_id: String.t(),
-          file_set_id: String.t()
-        }
-
-  defstruct target_id: "",
-            configuration_id: "",
-            action_id: "",
-            file_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :configuration_id, 2, type: :string, json_name: "configurationId"
@@ -611,27 +281,7 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest.Id do
 end
 defmodule Google.Devtools.Resultstore.V2.UploadRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource:
-            {:invocation, Google.Devtools.Resultstore.V2.Invocation.t() | nil}
-            | {:target, Google.Devtools.Resultstore.V2.Target.t() | nil}
-            | {:configuration, Google.Devtools.Resultstore.V2.Configuration.t() | nil}
-            | {:configured_target, Google.Devtools.Resultstore.V2.ConfiguredTarget.t() | nil}
-            | {:action, Google.Devtools.Resultstore.V2.Action.t() | nil}
-            | {:file_set, Google.Devtools.Resultstore.V2.FileSet.t() | nil},
-          id: Google.Devtools.Resultstore.V2.UploadRequest.Id.t() | nil,
-          upload_operation: Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          create_if_not_found: boolean
-        }
-
-  defstruct resource: nil,
-            id: nil,
-            upload_operation: :UPLOAD_OPERATION_UNSPECIFIED,
-            update_mask: nil,
-            create_if_not_found: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -658,22 +308,16 @@ defmodule Google.Devtools.Resultstore.V2.UploadRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          authorization_token: String.t()
-        }
-
-  defstruct name: "",
-            authorization_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken", deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreUpload"
+  use GRPC.Service,
+    name: "google.devtools.resultstore.v2.ResultStoreUpload",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateInvocation,
       Google.Devtools.Resultstore.V2.CreateInvocationRequest,

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Resourcemanager.V3.Organization.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :DELETE_REQUESTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,27 +8,7 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization.State do
 end
 defmodule Google.Cloud.Resourcemanager.V3.Organization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          owner: {:directory_customer_id, String.t()},
-          name: String.t(),
-          display_name: String.t(),
-          state: Google.Cloud.Resourcemanager.V3.Organization.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct owner: nil,
-            name: "",
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :owner, 0
 
@@ -67,29 +45,13 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization do
 end
 defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t(),
-          query: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: "",
-            query: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -97,38 +59,24 @@ defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
 end
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          organizations: [Google.Cloud.Resourcemanager.V3.Organization.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct organizations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :organizations, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Organization
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteOrganizationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Resourcemanager.V3.Organizations.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.resourcemanager.v3.Organizations"
+  use GRPC.Service,
+    name: "google.cloud.resourcemanager.v3.Organizations",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetOrganization,
       Google.Cloud.Resourcemanager.V3.GetOrganizationRequest,

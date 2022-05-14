@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          namespace_id: String.t(),
-          namespace: Google.Cloud.Servicedirectory.V1beta1.Namespace.t() | nil
-        }
-
-  defstruct parent: "",
-            namespace_id: "",
-            namespace: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :namespace_id, 2, type: :string, json_name: "namespaceId", deprecated: false
@@ -18,21 +8,7 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -42,42 +18,20 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          namespaces: [Google.Cloud.Servicedirectory.V1beta1.Namespace.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct namespaces: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :namespaces, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Namespace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetNamespaceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateNamespaceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          namespace: Google.Cloud.Servicedirectory.V1beta1.Namespace.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct namespace: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :namespace, 1, type: Google.Cloud.Servicedirectory.V1beta1.Namespace, deprecated: false
 
@@ -88,29 +42,13 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateNamespaceRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteNamespaceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          service_id: String.t(),
-          service: Google.Cloud.Servicedirectory.V1beta1.Service.t() | nil
-        }
-
-  defstruct parent: "",
-            service_id: "",
-            service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_id, 2, type: :string, json_name: "serviceId", deprecated: false
@@ -118,21 +56,7 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateServiceRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -142,42 +66,20 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Cloud.Servicedirectory.V1beta1.Service.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct services: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Cloud.Servicedirectory.V1beta1.Service.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct service: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service, deprecated: false
 
@@ -188,29 +90,13 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateServiceRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          endpoint_id: String.t(),
-          endpoint: Google.Cloud.Servicedirectory.V1beta1.Endpoint.t() | nil
-        }
-
-  defstruct parent: "",
-            endpoint_id: "",
-            endpoint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
@@ -218,21 +104,7 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.CreateEndpointRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -242,42 +114,20 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoints: [Google.Cloud.Servicedirectory.V1beta1.Endpoint.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct endpoints: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: Google.Cloud.Servicedirectory.V1beta1.Endpoint.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct endpoint: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint, deprecated: false
 
@@ -288,19 +138,15 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateEndpointRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.RegistrationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.servicedirectory.v1beta1.RegistrationService"
+  use GRPC.Service,
+    name: "google.cloud.servicedirectory.v1beta1.RegistrationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateNamespace,
       Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest,

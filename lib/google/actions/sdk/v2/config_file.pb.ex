@@ -1,12 +1,6 @@
 defmodule Google.Actions.Sdk.V2.ConfigFiles do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config_files: [Google.Actions.Sdk.V2.ConfigFile.t()]
-        }
-
-  defstruct config_files: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :config_files, 1,
     repeated: true,
@@ -15,29 +9,7 @@ defmodule Google.Actions.Sdk.V2.ConfigFiles do
 end
 defmodule Google.Actions.Sdk.V2.ConfigFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file:
-            {:manifest, Google.Actions.Sdk.V2.Manifest.t() | nil}
-            | {:actions, Google.Actions.Sdk.V2.Actions.t() | nil}
-            | {:settings, Google.Actions.Sdk.V2.Settings.t() | nil}
-            | {:webhook, Google.Actions.Sdk.V2.Webhook.t() | nil}
-            | {:intent, Google.Actions.Sdk.V2.Interactionmodel.Intent.t() | nil}
-            | {:type, Google.Actions.Sdk.V2.Interactionmodel.Type.Type.t() | nil}
-            | {:entity_set, Google.Actions.Sdk.V2.Interactionmodel.EntitySet.t() | nil}
-            | {:global_intent_event,
-               Google.Actions.Sdk.V2.Interactionmodel.GlobalIntentEvent.t() | nil}
-            | {:scene, Google.Actions.Sdk.V2.Interactionmodel.Scene.t() | nil}
-            | {:static_prompt,
-               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.t() | nil}
-            | {:account_linking_secret, Google.Actions.Sdk.V2.AccountLinkingSecret.t() | nil}
-            | {:resource_bundle, Google.Protobuf.Struct.t() | nil},
-          file_path: String.t()
-        }
-
-  defstruct file: nil,
-            file_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :file, 0
 

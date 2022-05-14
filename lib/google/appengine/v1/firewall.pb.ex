@@ -1,8 +1,6 @@
 defmodule Google.Appengine.V1.FirewallRule.Action do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED_ACTION | :ALLOW | :DENY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED_ACTION, 0
   field :ALLOW, 1
@@ -10,19 +8,7 @@ defmodule Google.Appengine.V1.FirewallRule.Action do
 end
 defmodule Google.Appengine.V1.FirewallRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          priority: integer,
-          action: Google.Appengine.V1.FirewallRule.Action.t(),
-          source_range: String.t(),
-          description: String.t()
-        }
-
-  defstruct priority: 0,
-            action: :UNSPECIFIED_ACTION,
-            source_range: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :priority, 1, type: :int32
   field :action, 2, type: Google.Appengine.V1.FirewallRule.Action, enum: true

@@ -1,16 +1,6 @@
 defmodule Google.Apps.Script.Type.MenuItemExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_function: String.t(),
-          label: String.t(),
-          logo_url: String.t()
-        }
-
-  defstruct run_function: "",
-            label: "",
-            logo_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction"
   field :label, 2, type: :string
@@ -18,30 +8,14 @@ defmodule Google.Apps.Script.Type.MenuItemExtensionPoint do
 end
 defmodule Google.Apps.Script.Type.HomepageExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_function: String.t(),
-          enabled: Google.Protobuf.BoolValue.t() | nil
-        }
-
-  defstruct run_function: "",
-            enabled: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction"
   field :enabled, 2, type: Google.Protobuf.BoolValue
 end
 defmodule Google.Apps.Script.Type.UniversalActionExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action_type: {:open_link, String.t()} | {:run_function, String.t()},
-          label: String.t()
-        }
-
-  defstruct action_type: nil,
-            label: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :action_type, 0
 

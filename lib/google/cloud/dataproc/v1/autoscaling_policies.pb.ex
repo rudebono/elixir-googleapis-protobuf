@@ -1,39 +1,13 @@
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          algorithm:
-            {:basic_algorithm, Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm.t() | nil},
-          id: String.t(),
-          name: String.t(),
-          worker_config: Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil,
-          secondary_worker_config:
-            Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct algorithm: nil,
-            id: "",
-            name: "",
-            worker_config: nil,
-            secondary_worker_config: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :algorithm, 0
 
@@ -64,15 +38,7 @@ defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicy do
 end
 defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config: {:yarn_config, Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig.t() | nil},
-          cooldown_period: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct config: nil,
-            cooldown_period: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -89,21 +55,7 @@ defmodule Google.Cloud.Dataproc.V1.BasicAutoscalingAlgorithm do
 end
 defmodule Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          graceful_decommission_timeout: Google.Protobuf.Duration.t() | nil,
-          scale_up_factor: float | :infinity | :negative_infinity | :nan,
-          scale_down_factor: float | :infinity | :negative_infinity | :nan,
-          scale_up_min_worker_fraction: float | :infinity | :negative_infinity | :nan,
-          scale_down_min_worker_fraction: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct graceful_decommission_timeout: nil,
-            scale_up_factor: 0.0,
-            scale_down_factor: 0.0,
-            scale_up_min_worker_fraction: 0.0,
-            scale_down_min_worker_fraction: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :graceful_decommission_timeout, 5,
     type: Google.Protobuf.Duration,
@@ -125,17 +77,7 @@ defmodule Google.Cloud.Dataproc.V1.BasicYarnAutoscalingConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_instances: integer,
-          max_instances: integer,
-          weight: integer
-        }
-
-  defstruct min_instances: 0,
-            max_instances: 0,
-            weight: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_instances, 1, type: :int32, json_name: "minInstances", deprecated: false
   field :max_instances, 2, type: :int32, json_name: "maxInstances", deprecated: false
@@ -143,68 +85,32 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupAutoscalingPolicyConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.CreateAutoscalingPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          policy: Google.Cloud.Dataproc.V1.AutoscalingPolicy.t() | nil
-        }
-
-  defstruct parent: "",
-            policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :policy, 2, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy, deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.GetAutoscalingPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.UpdateAutoscalingPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy: Google.Cloud.Dataproc.V1.AutoscalingPolicy.t() | nil
-        }
-
-  defstruct policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy, 1, type: Google.Cloud.Dataproc.V1.AutoscalingPolicy, deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.DeleteAutoscalingPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -212,15 +118,7 @@ defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policies: [Google.Cloud.Dataproc.V1.AutoscalingPolicy.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policies, 1,
     repeated: true,
@@ -231,7 +129,9 @@ defmodule Google.Cloud.Dataproc.V1.ListAutoscalingPoliciesResponse do
 end
 defmodule Google.Cloud.Dataproc.V1.AutoscalingPolicyService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dataproc.v1.AutoscalingPolicyService"
+  use GRPC.Service,
+    name: "google.cloud.dataproc.v1.AutoscalingPolicyService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateAutoscalingPolicy,
       Google.Cloud.Dataproc.V1.CreateAutoscalingPolicyRequest,

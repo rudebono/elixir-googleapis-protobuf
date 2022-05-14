@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.TextExtractionPredictionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ids: [integer],
-          display_names: [String.t()],
-          text_segment_start_offsets: [integer],
-          text_segment_end_offsets: [integer],
-          confidences: [float | :infinity | :negative_infinity | :nan]
-        }
-
-  defstruct ids: [],
-            display_names: [],
-            text_segment_start_offsets: [],
-            text_segment_end_offsets: [],
-            confidences: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ids, 1, repeated: true, type: :int64
   field :display_names, 2, repeated: true, type: :string, json_name: "displayNames"

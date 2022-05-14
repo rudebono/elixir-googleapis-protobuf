@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Networkconnectivity.V1.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -11,10 +9,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.State do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :LOCATION_FEATURE_UNSPECIFIED | :SITE_TO_CLOUD_SPOKES | :SITE_TO_SITE_SPOKES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOCATION_FEATURE_UNSPECIFIED, 0
   field :SITE_TO_CLOUD_SPOKES, 1
@@ -22,42 +17,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Networkconnectivity.V1.Hub do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          description: String.t(),
-          unique_id: String.t(),
-          state: Google.Cloud.Networkconnectivity.V1.State.t(),
-          routing_vpcs: [Google.Cloud.Networkconnectivity.V1.RoutingVPC.t()]
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            description: "",
-            unique_id: "",
-            state: :STATE_UNSPECIFIED,
-            routing_vpcs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -87,15 +54,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          required_for_new_site_to_site_data_transfer_spokes: boolean
-        }
-
-  defstruct uri: "",
-            required_for_new_site_to_site_data_transfer_spokes: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -106,50 +65,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          description: String.t(),
-          hub: String.t(),
-          linked_vpn_tunnels: Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels.t() | nil,
-          linked_interconnect_attachments:
-            Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments.t() | nil,
-          linked_router_appliance_instances:
-            Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances.t() | nil,
-          unique_id: String.t(),
-          state: Google.Cloud.Networkconnectivity.V1.State.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            description: "",
-            hub: "",
-            linked_vpn_tunnels: nil,
-            linked_interconnect_attachments: nil,
-            linked_router_appliance_instances: nil,
-            unique_id: "",
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -188,21 +111,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -212,17 +121,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hubs: [Google.Cloud.Networkconnectivity.V1.Hub.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct hubs: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hubs, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1.Hub
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -230,31 +129,13 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListHubsResponse do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.GetHubRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateHubRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          hub_id: String.t(),
-          hub: Google.Cloud.Networkconnectivity.V1.Hub.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            hub_id: "",
-            hub: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :hub_id, 2, type: :string, json_name: "hubId", deprecated: false
@@ -263,17 +144,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.CreateHubRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateHubRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          hub: Google.Cloud.Networkconnectivity.V1.Hub.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct update_mask: nil,
-            hub: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -285,36 +156,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.UpdateHubRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteHubRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -324,17 +173,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          spokes: [Google.Cloud.Networkconnectivity.V1.Spoke.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct spokes: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :spokes, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1.Spoke
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -342,31 +181,13 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesResponse do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.GetSpokeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateSpokeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          spoke_id: String.t(),
-          spoke: Google.Cloud.Networkconnectivity.V1.Spoke.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            spoke_id: "",
-            spoke: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :spoke_id, 2, type: :string, json_name: "spokeId", deprecated: false
@@ -375,17 +196,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.CreateSpokeRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateSpokeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          spoke: Google.Cloud.Networkconnectivity.V1.Spoke.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct update_mask: nil,
-            spoke: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -397,60 +208,28 @@ defmodule Google.Cloud.Networkconnectivity.V1.UpdateSpokeRequest do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteSpokeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uris: [String.t()],
-          site_to_site_data_transfer: boolean
-        }
-
-  defstruct uris: [],
-            site_to_site_data_transfer: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
 end
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uris: [String.t()],
-          site_to_site_data_transfer: boolean
-        }
-
-  defstruct uris: [],
-            site_to_site_data_transfer: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
 end
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instances: [Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance.t()],
-          site_to_site_data_transfer: boolean
-        }
-
-  defstruct instances: [],
-            site_to_site_data_transfer: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instances, 1,
     repeated: true,
@@ -460,28 +239,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          virtual_machine: String.t(),
-          ip_address: String.t()
-        }
-
-  defstruct virtual_machine: "",
-            ip_address: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :virtual_machine, 1, type: :string, json_name: "virtualMachine", deprecated: false
   field :ip_address, 3, type: :string, json_name: "ipAddress"
 end
 defmodule Google.Cloud.Networkconnectivity.V1.LocationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location_features: [Google.Cloud.Networkconnectivity.V1.LocationFeature.t()]
-        }
-
-  defstruct location_features: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location_features, 1,
     repeated: true,
@@ -491,7 +256,9 @@ defmodule Google.Cloud.Networkconnectivity.V1.LocationMetadata do
 end
 defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.networkconnectivity.v1.HubService"
+  use GRPC.Service,
+    name: "google.cloud.networkconnectivity.v1.HubService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListHubs,
       Google.Cloud.Networkconnectivity.V1.ListHubsRequest,

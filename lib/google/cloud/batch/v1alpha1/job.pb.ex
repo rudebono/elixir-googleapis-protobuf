@@ -1,17 +1,13 @@
 defmodule Google.Cloud.Batch.V1alpha1.Job.SchedulingPolicy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCHEDULING_POLICY_UNSPECIFIED | :AS_SOON_AS_POSSIBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCHEDULING_POLICY_UNSPECIFIED, 0
   field :AS_SOON_AS_POSSIBLE, 1
 end
 defmodule Google.Cloud.Batch.V1alpha1.LogsPolicy.Destination do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DESTINATION_UNSPECIFIED | :CLOUD_LOGGING | :PATH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DESTINATION_UNSPECIFIED, 0
   field :CLOUD_LOGGING, 1
@@ -19,9 +15,7 @@ defmodule Google.Cloud.Batch.V1alpha1.LogsPolicy.Destination do
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobDependency.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :SUCCEEDED | :FAILED | :FINISHED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -30,17 +24,7 @@ defmodule Google.Cloud.Batch.V1alpha1.JobDependency.Type do
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :QUEUED
-          | :SCHEDULED
-          | :RUNNING
-          | :SUCCEEDED
-          | :FAILED
-          | :DELETION_IN_PROGRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -52,9 +36,7 @@ defmodule Google.Cloud.Batch.V1alpha1.JobStatus.State do
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.ProvisioningModel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PROVISIONING_MODEL_UNSPECIFIED | :STANDARD | :SPOT | :PREEMPTIBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROVISIONING_MODEL_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -63,61 +45,21 @@ defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.ProvisioningModel do
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskGroup.SchedulingPolicy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCHEDULING_POLICY_UNSPECIFIED | :AS_SOON_AS_POSSIBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCHEDULING_POLICY_UNSPECIFIED, 0
   field :AS_SOON_AS_POSSIBLE, 1
 end
 defmodule Google.Cloud.Batch.V1alpha1.Job.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          priority: integer,
-          task_groups: [Google.Cloud.Batch.V1alpha1.TaskGroup.t()],
-          scheduling_policy: Google.Cloud.Batch.V1alpha1.Job.SchedulingPolicy.t(),
-          dependencies: [Google.Cloud.Batch.V1alpha1.JobDependency.t()],
-          allocation_policy: Google.Cloud.Batch.V1alpha1.AllocationPolicy.t() | nil,
-          labels: %{String.t() => String.t()},
-          status: Google.Cloud.Batch.V1alpha1.JobStatus.t() | nil,
-          notification: Google.Cloud.Batch.V1alpha1.JobNotification.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          logs_policy: Google.Cloud.Batch.V1alpha1.LogsPolicy.t() | nil
-        }
-
-  defstruct name: "",
-            uid: "",
-            priority: 0,
-            task_groups: [],
-            scheduling_policy: :SCHEDULING_POLICY_UNSPECIFIED,
-            dependencies: [],
-            allocation_policy: nil,
-            labels: %{},
-            status: nil,
-            notification: nil,
-            create_time: nil,
-            update_time: nil,
-            logs_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :uid, 2, type: :string, deprecated: false
@@ -149,43 +91,21 @@ defmodule Google.Cloud.Batch.V1alpha1.Job do
 end
 defmodule Google.Cloud.Batch.V1alpha1.LogsPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: Google.Cloud.Batch.V1alpha1.LogsPolicy.Destination.t(),
-          logs_path: String.t()
-        }
-
-  defstruct destination: :DESTINATION_UNSPECIFIED,
-            logs_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :destination, 1, type: Google.Cloud.Batch.V1alpha1.LogsPolicy.Destination, enum: true
   field :logs_path, 2, type: :string, json_name: "logsPath"
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobDependency.ItemsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Batch.V1alpha1.JobDependency.Type.t()
-        }
-
-  defstruct key: "",
-            value: :TYPE_UNSPECIFIED
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Batch.V1alpha1.JobDependency.Type, enum: true
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobDependency do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          items: %{String.t() => Google.Cloud.Batch.V1alpha1.JobDependency.Type.t()}
-        }
-
-  defstruct items: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,
@@ -194,28 +114,14 @@ defmodule Google.Cloud.Batch.V1alpha1.JobDependency do
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus.CountsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          counts: %{String.t() => integer}
-        }
-
-  defstruct counts: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :counts, 1,
     repeated: true,
@@ -224,36 +130,14 @@ defmodule Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus do
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Batch.V1alpha1.JobStatus.State.t(),
-          status_events: [Google.Cloud.Batch.V1alpha1.StatusEvent.t()],
-          task_groups: %{
-            String.t() => Google.Cloud.Batch.V1alpha1.JobStatus.TaskGroupStatus.t() | nil
-          },
-          run_duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            status_events: [],
-            task_groups: %{},
-            run_duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Batch.V1alpha1.JobStatus.State, enum: true
 
@@ -272,52 +156,20 @@ defmodule Google.Cloud.Batch.V1alpha1.JobStatus do
 end
 defmodule Google.Cloud.Batch.V1alpha1.JobNotification do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pubsub_topic: String.t()
-        }
-
-  defstruct pubsub_topic: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic"
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.LocationPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_locations: [String.t()],
-          denied_locations: [String.t()]
-        }
-
-  defstruct allowed_locations: [],
-            denied_locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_locations, 1, repeated: true, type: :string, json_name: "allowedLocations"
   field :denied_locations, 2, repeated: true, type: :string, json_name: "deniedLocations"
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.InstancePolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_machine_types: [String.t()],
-          denied_machine_types: [String.t()],
-          allowed_cpu_platforms: [String.t()],
-          denied_cpu_platforms: [String.t()],
-          allowed_accelerator_types: [String.t()],
-          denied_accelerator_types: [String.t()],
-          accelerator_count: integer
-        }
-
-  defstruct allowed_machine_types: [],
-            denied_machine_types: [],
-            allowed_cpu_platforms: [],
-            denied_cpu_platforms: [],
-            allowed_accelerator_types: [],
-            denied_accelerator_types: [],
-            accelerator_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_machine_types, 1, repeated: true, type: :string, json_name: "allowedMachineTypes"
   field :denied_machine_types, 2, repeated: true, type: :string, json_name: "deniedMachineTypes"
@@ -338,17 +190,7 @@ defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.InstancePolicy do
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkInterface do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network: String.t(),
-          subnetwork: String.t(),
-          no_external_ip_address: boolean
-        }
-
-  defstruct network: "",
-            subnetwork: "",
-            no_external_ip_address: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
@@ -356,13 +198,7 @@ defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkInterface do
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network_interfaces: [Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkInterface.t()]
-        }
-
-  defstruct network_interfaces: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :network_interfaces, 1,
     repeated: true,
@@ -371,42 +207,14 @@ defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkPolicy do
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: Google.Cloud.Batch.V1alpha1.AllocationPolicy.LocationPolicy.t() | nil,
-          instance: Google.Cloud.Batch.V1alpha1.AllocationPolicy.InstancePolicy.t() | nil,
-          instance_templates: [String.t()],
-          provisioning_models: [
-            Google.Cloud.Batch.V1alpha1.AllocationPolicy.ProvisioningModel.t()
-          ],
-          service_account: String.t(),
-          labels: %{String.t() => String.t()},
-          network: Google.Cloud.Batch.V1alpha1.AllocationPolicy.NetworkPolicy.t() | nil
-        }
-
-  defstruct location: nil,
-            instance: nil,
-            instance_templates: [],
-            provisioning_models: [],
-            service_account: "",
-            labels: %{},
-            network: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: Google.Cloud.Batch.V1alpha1.AllocationPolicy.LocationPolicy
   field :instance, 2, type: Google.Cloud.Batch.V1alpha1.AllocationPolicy.InstancePolicy
@@ -429,28 +237,14 @@ defmodule Google.Cloud.Batch.V1alpha1.AllocationPolicy do
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskGroup.Environment.VariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskGroup.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          variables: %{String.t() => String.t()}
-        }
-
-  defstruct variables: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :variables, 1,
     repeated: true,
@@ -459,46 +253,14 @@ defmodule Google.Cloud.Batch.V1alpha1.TaskGroup.Environment do
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskGroup.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskGroup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          task_spec: Google.Cloud.Batch.V1alpha1.TaskSpec.t() | nil,
-          task_count: integer,
-          parallelism: integer,
-          scheduling_policy: Google.Cloud.Batch.V1alpha1.TaskGroup.SchedulingPolicy.t(),
-          allocation_policy: Google.Cloud.Batch.V1alpha1.AllocationPolicy.t() | nil,
-          labels: %{String.t() => String.t()},
-          task_environments: [Google.Cloud.Batch.V1alpha1.TaskGroup.Environment.t()],
-          task_count_per_node: integer,
-          require_hosts_file: boolean
-        }
-
-  defstruct name: "",
-            task_spec: nil,
-            task_count: 0,
-            parallelism: 0,
-            scheduling_policy: :SCHEDULING_POLICY_UNSPECIFIED,
-            allocation_policy: nil,
-            labels: %{},
-            task_environments: [],
-            task_count_per_node: 0,
-            require_hosts_file: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

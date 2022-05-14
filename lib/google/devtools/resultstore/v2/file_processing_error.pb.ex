@@ -1,18 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.FileProcessingErrorType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED
-          | :GENERIC_READ_ERROR
-          | :GENERIC_PARSE_ERROR
-          | :FILE_TOO_LARGE
-          | :OUTPUT_TOO_LARGE
-          | :ACCESS_DENIED
-          | :DEADLINE_EXCEEDED
-          | :NOT_FOUND
-          | :FILE_EMPTY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED, 0
   field :GENERIC_READ_ERROR, 1
@@ -26,15 +14,7 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrorType do
 end
 defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_uid: String.t(),
-          file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingError.t()]
-        }
-
-  defstruct file_uid: "",
-            file_processing_errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_uid, 1, type: :string, json_name: "fileUid"
 
@@ -45,15 +25,7 @@ defmodule Google.Devtools.Resultstore.V2.FileProcessingErrors do
 end
 defmodule Google.Devtools.Resultstore.V2.FileProcessingError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Devtools.Resultstore.V2.FileProcessingErrorType.t(),
-          message: String.t()
-        }
-
-  defstruct type: :FILE_PROCESSING_ERROR_TYPE_UNSPECIFIED,
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Resultstore.V2.FileProcessingErrorType, enum: true
   field :message, 2, type: :string

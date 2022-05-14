@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.StorageType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STORAGE_TYPE_UNSPECIFIED | :SSD | :HDD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STORAGE_TYPE_UNSPECIFIED, 0
   field :SSD, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.StorageType do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -21,14 +17,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.State do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED
-          | :DISABLED
-          | :OLDEST_FIRST
-          | :NEWEST_FIRST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -37,9 +26,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :UPDATING | :READY | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -49,18 +36,14 @@ defmodule Google.Cloud.Baremetalsolution.V2.Lun.State do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MULTIPROTOCOL_TYPE_UNSPECIFIED | :LINUX
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MULTIPROTOCOL_TYPE_UNSPECIFIED, 0
   field :LINUX, 1
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.StorageType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STORAGE_TYPE_UNSPECIFIED | :SSD | :HDD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STORAGE_TYPE_UNSPECIFIED, 0
   field :SSD, 1
@@ -68,9 +51,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Lun.StorageType do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Network.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :CLIENT | :PRIVATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CLIENT, 1
@@ -78,9 +59,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Network.Type do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Network.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PROVISIONING | :PROVISIONED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -88,9 +67,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Network.State do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.VRF.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PROVISIONING | :PROVISIONED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -98,9 +75,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.VRF.State do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PROVISIONING | :RUNNING | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -109,17 +84,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance.State do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reserved_space_gib: integer,
-          reserved_space_used_percent: integer,
-          reserved_space_remaining_gib: integer
-        }
-
-  defstruct reserved_space_gib: 0,
-            reserved_space_used_percent: 0,
-            reserved_space_remaining_gib: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reserved_space_gib, 1, type: :int64, json_name: "reservedSpaceGib"
   field :reserved_space_used_percent, 2, type: :int32, json_name: "reservedSpaceUsedPercent"
@@ -127,33 +92,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Volume do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          storage_type: Google.Cloud.Baremetalsolution.V2.Volume.StorageType.t(),
-          state: Google.Cloud.Baremetalsolution.V2.Volume.State.t(),
-          requested_size_gib: integer,
-          current_size_gib: integer,
-          auto_grown_size_gib: integer,
-          remaining_space_gib: integer,
-          snapshot_reservation_detail:
-            Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail.t() | nil,
-          snapshot_auto_delete_behavior:
-            Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior.t(),
-          snapshot_schedule_policy: String.t()
-        }
-
-  defstruct name: "",
-            storage_type: :STORAGE_TYPE_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            requested_size_gib: 0,
-            current_size_gib: 0,
-            auto_grown_size_gib: 0,
-            remaining_space_gib: 0,
-            snapshot_reservation_detail: nil,
-            snapshot_auto_delete_behavior: :SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED,
-            snapshot_schedule_policy: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -184,17 +123,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -202,17 +131,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          volumes: [Google.Cloud.Baremetalsolution.V2.Volume.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct volumes: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :volumes, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Volume
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -220,41 +139,13 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesResponse do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Lun do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Baremetalsolution.V2.Lun.State.t(),
-          size_gb: integer,
-          multiprotocol_type: Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType.t(),
-          storage_volume: String.t(),
-          shareable: boolean,
-          boot_lun: boolean,
-          storage_type: Google.Cloud.Baremetalsolution.V2.Lun.StorageType.t(),
-          wwid: String.t()
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            size_gb: 0,
-            multiprotocol_type: :MULTIPROTOCOL_TYPE_UNSPECIFIED,
-            storage_volume: "",
-            shareable: false,
-            boot_lun: false,
-            storage_type: :STORAGE_TYPE_UNSPECIFIED,
-            wwid: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Baremetalsolution.V2.Lun.State, enum: true
@@ -278,29 +169,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Lun do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Network do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          network: String.t(),
-          type: Google.Cloud.Baremetalsolution.V2.Network.Type.t(),
-          ip_address: String.t(),
-          mac_address: [String.t()],
-          state: Google.Cloud.Baremetalsolution.V2.Network.State.t(),
-          vlan_id: String.t(),
-          cidr: String.t(),
-          vrf: Google.Cloud.Baremetalsolution.V2.VRF.t() | nil
-        }
-
-  defstruct name: "",
-            network: "",
-            type: :TYPE_UNSPECIFIED,
-            ip_address: "",
-            mac_address: [],
-            state: :STATE_UNSPECIFIED,
-            vlan_id: "",
-            cidr: "",
-            vrf: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :network, 1, type: :string
@@ -314,29 +183,13 @@ defmodule Google.Cloud.Baremetalsolution.V2.Network do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.VRF.QosPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bandwidth_gbps: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct bandwidth_gbps: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bandwidth_gbps, 1, type: :double, json_name: "bandwidthGbps"
 end
 defmodule Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          peer_vlan_id: integer,
-          peer_ip: String.t(),
-          router_ip: String.t()
-        }
-
-  defstruct peer_vlan_id: 0,
-            peer_ip: "",
-            router_ip: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :peer_vlan_id, 1, type: :int64, json_name: "peerVlanId"
   field :peer_ip, 2, type: :string, json_name: "peerIp"
@@ -344,19 +197,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.VRF do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Baremetalsolution.V2.VRF.State.t(),
-          qos_policy: Google.Cloud.Baremetalsolution.V2.VRF.QosPolicy.t() | nil,
-          vlan_attachments: [Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment.t()]
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            qos_policy: nil,
-            vlan_attachments: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :state, 5, type: Google.Cloud.Baremetalsolution.V2.VRF.State, enum: true
@@ -372,17 +213,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.VRF do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -390,17 +221,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          networks: [Google.Cloud.Baremetalsolution.V2.Network.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct networks: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :networks, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Network
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -408,70 +229,26 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksResponse do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetNetworkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetSnapshotSchedulePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Baremetalsolution.V2.Instance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          machine_type: String.t(),
-          state: Google.Cloud.Baremetalsolution.V2.Instance.State.t(),
-          hyperthreading_enabled: boolean,
-          labels: %{String.t() => String.t()},
-          luns: [Google.Cloud.Baremetalsolution.V2.Lun.t()],
-          networks: [Google.Cloud.Baremetalsolution.V2.Network.t()],
-          interactive_serial_console_enabled: boolean
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            machine_type: "",
-            state: :STATE_UNSPECIFIED,
-            hyperthreading_enabled: false,
-            labels: %{},
-            luns: [],
-            networks: [],
-            interactive_serial_console_enabled: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -503,17 +280,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -521,17 +288,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instances: [Google.Cloud.Baremetalsolution.V2.Instance.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct instances: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -539,61 +296,29 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesResponse do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -601,17 +326,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          volume_snapshots: [Google.Cloud.Baremetalsolution.V2.VolumeSnapshot.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct volume_snapshots: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :volume_snapshots, 1,
     repeated: true,
@@ -623,37 +338,13 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsResponse do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.DeleteVolumeSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -674,21 +365,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeSnapshot do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          size_bytes: integer,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          storage_volume: String.t()
-        }
-
-  defstruct name: "",
-            description: "",
-            size_bytes: 0,
-            create_time: nil,
-            storage_volume: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -703,17 +380,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.VolumeSnapshot do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.Schedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          crontab_spec: String.t(),
-          retention_count: integer,
-          prefix: String.t()
-        }
-
-  defstruct crontab_spec: "",
-            retention_count: 0,
-            prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :crontab_spec, 1, type: :string, json_name: "crontabSpec"
   field :retention_count, 2, type: :int32, json_name: "retentionCount"
@@ -721,17 +388,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.Schedule do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          schedules: [Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.Schedule.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            schedules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -742,17 +399,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -760,17 +407,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesRequest 
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_schedule_policies: [
-            Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.t()
-          ],
-          next_page_token: String.t()
-        }
-
-  defstruct snapshot_schedule_policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_schedule_policies, 1,
     repeated: true,
@@ -781,18 +418,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesResponse
 end
 defmodule Google.Cloud.Baremetalsolution.V2.CreateSnapshotSchedulePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          snapshot_schedule_policy:
-            Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.t() | nil,
-          snapshot_schedule_policy_id: String.t()
-        }
-
-  defstruct parent: "",
-            snapshot_schedule_policy: nil,
-            snapshot_schedule_policy_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -808,16 +434,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.CreateSnapshotSchedulePolicyRequest 
 end
 defmodule Google.Cloud.Baremetalsolution.V2.UpdateSnapshotSchedulePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_schedule_policy:
-            Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct snapshot_schedule_policy: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_schedule_policy, 1,
     type: Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy,
@@ -831,56 +448,26 @@ defmodule Google.Cloud.Baremetalsolution.V2.UpdateSnapshotSchedulePolicyRequest 
 end
 defmodule Google.Cloud.Baremetalsolution.V2.DeleteSnapshotSchedulePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.UpdateVolumeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          volume: Google.Cloud.Baremetalsolution.V2.Volume.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct volume: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :volume, 1, type: Google.Cloud.Baremetalsolution.V2.Volume, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Baremetalsolution.V2.GetLunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListLunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -888,17 +475,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListLunsRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.ListLunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          luns: [Google.Cloud.Baremetalsolution.V2.Lun.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct luns: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :luns, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -906,15 +483,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListLunsResponse do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.CreateVolumeSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          volume_snapshot: Google.Cloud.Baremetalsolution.V2.VolumeSnapshot.t() | nil
-        }
-
-  defstruct parent: "",
-            volume_snapshot: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -925,19 +494,15 @@ defmodule Google.Cloud.Baremetalsolution.V2.CreateVolumeSnapshotRequest do
 end
 defmodule Google.Cloud.Baremetalsolution.V2.RestoreVolumeSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          volume_snapshot: String.t()
-        }
-
-  defstruct volume_snapshot: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :volume_snapshot, 1, type: :string, json_name: "volumeSnapshot", deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.baremetalsolution.v2.BareMetalSolution"
+  use GRPC.Service,
+    name: "google.cloud.baremetalsolution.v2.BareMetalSolution",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListInstances,
       Google.Cloud.Baremetalsolution.V2.ListInstancesRequest,

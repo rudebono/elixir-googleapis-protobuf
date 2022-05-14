@@ -1,45 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Dataset.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          metadata_schema_uri: String.t(),
-          metadata: Google.Protobuf.Value.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          labels: %{String.t() => String.t()},
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            metadata_schema_uri: "",
-            metadata: nil,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            labels: %{},
-            encryption_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -70,32 +38,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig.DataItemLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Aiplatform.V1beta1.GcsSource.t() | nil},
-          data_item_labels: %{String.t() => String.t()},
-          import_schema_uri: String.t()
-        }
-
-  defstruct source: nil,
-            data_item_labels: %{},
-            import_schema_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -114,16 +64,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_destination, Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil},
-          annotations_filter: String.t()
-        }
-
-  defstruct destination: nil,
-            annotations_filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 

@@ -1,16 +1,6 @@
 defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -18,15 +8,7 @@ defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsRequest do
 end
 defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          channel_descriptors: [Google.Monitoring.V3.NotificationChannelDescriptor.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct channel_descriptors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :channel_descriptors, 1,
     repeated: true,
@@ -37,27 +19,13 @@ defmodule Google.Monitoring.V3.ListNotificationChannelDescriptorsResponse do
 end
 defmodule Google.Monitoring.V3.GetNotificationChannelDescriptorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.CreateNotificationChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          notification_channel: Google.Monitoring.V3.NotificationChannel.t() | nil
-        }
-
-  defstruct name: "",
-            notification_channel: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -68,21 +36,7 @@ defmodule Google.Monitoring.V3.CreateNotificationChannelRequest do
 end
 defmodule Google.Monitoring.V3.ListNotificationChannelsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            order_by: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :filter, 6, type: :string
@@ -92,17 +46,7 @@ defmodule Google.Monitoring.V3.ListNotificationChannelsRequest do
 end
 defmodule Google.Monitoring.V3.ListNotificationChannelsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notification_channels: [Google.Monitoring.V3.NotificationChannel.t()],
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct notification_channels: [],
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notification_channels, 3,
     repeated: true,
@@ -114,27 +58,13 @@ defmodule Google.Monitoring.V3.ListNotificationChannelsResponse do
 end
 defmodule Google.Monitoring.V3.GetNotificationChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.UpdateNotificationChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          notification_channel: Google.Monitoring.V3.NotificationChannel.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            notification_channel: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -145,79 +75,43 @@ defmodule Google.Monitoring.V3.UpdateNotificationChannelRequest do
 end
 defmodule Google.Monitoring.V3.DeleteNotificationChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :force, 5, type: :bool
 end
 defmodule Google.Monitoring.V3.SendNotificationChannelVerificationCodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            expire_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
 defmodule Google.Monitoring.V3.GetNotificationChannelVerificationCodeResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct code: "",
-            expire_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: :string
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
 defmodule Google.Monitoring.V3.VerifyNotificationChannelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          code: String.t()
-        }
-
-  defstruct name: "",
-            code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :code, 2, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.NotificationChannelService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.monitoring.v3.NotificationChannelService"
+  use GRPC.Service,
+    name: "google.monitoring.v3.NotificationChannelService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListNotificationChannelDescriptors,
       Google.Monitoring.V3.ListNotificationChannelDescriptorsRequest,

@@ -1,34 +1,20 @@
 defmodule Google.Cloud.Dataplex.V1.Content.SqlScript.QueryEngine do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :QUERY_ENGINE_UNSPECIFIED | :SPARK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :QUERY_ENGINE_UNSPECIFIED, 0
   field :SPARK, 2
 end
 defmodule Google.Cloud.Dataplex.V1.Content.Notebook.KernelType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :KERNEL_TYPE_UNSPECIFIED | :PYTHON3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :KERNEL_TYPE_UNSPECIFIED, 0
   field :PYTHON3, 1
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.ComputeResources do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disk_size_gb: integer,
-          node_count: integer,
-          max_node_count: integer
-        }
-
-  defstruct disk_size_gb: 0,
-            node_count: 0,
-            max_node_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disk_size_gb, 1, type: :int32, json_name: "diskSizeGb", deprecated: false
   field :node_count, 2, type: :int32, json_name: "nodeCount", deprecated: false
@@ -36,34 +22,14 @@ defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.ComputeResourc
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_version: String.t(),
-          java_libraries: [String.t()],
-          python_packages: [String.t()],
-          properties: %{String.t() => String.t()}
-        }
-
-  defstruct image_version: "",
-            java_libraries: [],
-            python_packages: [],
-            properties: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_version, 1, type: :string, json_name: "imageVersion", deprecated: false
 
@@ -87,19 +53,7 @@ defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources:
-            {:compute,
-             Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.ComputeResources.t() | nil},
-          runtime:
-            {:os_image,
-             Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime.t() | nil}
-        }
-
-  defstruct resources: nil,
-            runtime: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resources, 0
   oneof :runtime, 1
@@ -117,15 +71,7 @@ defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec do
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.SessionSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_idle_duration: Google.Protobuf.Duration.t() | nil,
-          enable_fast_startup: boolean
-        }
-
-  defstruct max_idle_duration: nil,
-            enable_fast_startup: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_idle_duration, 1,
     type: Google.Protobuf.Duration,
@@ -136,77 +82,27 @@ defmodule Google.Cloud.Dataplex.V1.Environment.SessionSpec do
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.SessionStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          active: boolean
-        }
-
-  defstruct active: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :active, 1, type: :bool, deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.Endpoints do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notebooks: String.t(),
-          sql: String.t()
-        }
-
-  defstruct notebooks: "",
-            sql: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notebooks, 1, type: :string, deprecated: false
   field :sql, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.Environment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          description: String.t(),
-          state: Google.Cloud.Dataplex.V1.State.t(),
-          infrastructure_spec: Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.t() | nil,
-          session_spec: Google.Cloud.Dataplex.V1.Environment.SessionSpec.t() | nil,
-          session_status: Google.Cloud.Dataplex.V1.Environment.SessionStatus.t() | nil,
-          endpoints: Google.Cloud.Dataplex.V1.Environment.Endpoints.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            description: "",
-            state: :STATE_UNSPECIFIED,
-            infrastructure_spec: nil,
-            session_spec: nil,
-            session_status: nil,
-            endpoints: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -250,13 +146,7 @@ defmodule Google.Cloud.Dataplex.V1.Environment do
 end
 defmodule Google.Cloud.Dataplex.V1.Content.SqlScript do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          engine: Google.Cloud.Dataplex.V1.Content.SqlScript.QueryEngine.t()
-        }
-
-  defstruct engine: :QUERY_ENGINE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :engine, 1,
     type: Google.Cloud.Dataplex.V1.Content.SqlScript.QueryEngine,
@@ -265,13 +155,7 @@ defmodule Google.Cloud.Dataplex.V1.Content.SqlScript do
 end
 defmodule Google.Cloud.Dataplex.V1.Content.Notebook do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kernel_type: Google.Cloud.Dataplex.V1.Content.Notebook.KernelType.t()
-        }
-
-  defstruct kernel_type: :KERNEL_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kernel_type, 1,
     type: Google.Cloud.Dataplex.V1.Content.Notebook.KernelType,
@@ -281,46 +165,14 @@ defmodule Google.Cloud.Dataplex.V1.Content.Notebook do
 end
 defmodule Google.Cloud.Dataplex.V1.Content.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Content do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data: {:data_text, String.t()},
-          content:
-            {:sql_script, Google.Cloud.Dataplex.V1.Content.SqlScript.t() | nil}
-            | {:notebook, Google.Cloud.Dataplex.V1.Content.Notebook.t() | nil},
-          name: String.t(),
-          uid: String.t(),
-          path: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          description: String.t()
-        }
-
-  defstruct data: nil,
-            content: nil,
-            name: "",
-            uid: "",
-            path: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :data, 0
   oneof :content, 1
@@ -357,19 +209,7 @@ defmodule Google.Cloud.Dataplex.V1.Content do
 end
 defmodule Google.Cloud.Dataplex.V1.Session do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          user_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Dataplex.V1.State.t()
-        }
-
-  defstruct name: "",
-            user_id: "",
-            create_time: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :user_id, 2, type: :string, json_name: "userId", deprecated: false

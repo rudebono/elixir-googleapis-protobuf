@@ -1,19 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PENDING
-          | :RUNNING
-          | :SUCCEEDED
-          | :CANCEL_PENDING
-          | :CANCELLING
-          | :CANCELLED
-          | :FAILED
-          | :SKIPPED
-          | :NOT_TRIGGERED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -28,47 +15,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Aiplatform.V1beta1.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.Value
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParameterValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameters: %{String.t() => Google.Cloud.Aiplatform.V1beta1.Value.t() | nil},
-          gcs_output_directory: String.t(),
-          parameter_values: %{String.t() => Google.Protobuf.Value.t() | nil}
-        }
-
-  defstruct parameters: %{},
-            gcs_output_directory: "",
-            parameter_values: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -89,60 +50,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          pipeline_spec: Google.Protobuf.Struct.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.PipelineState.t(),
-          job_detail: Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          labels: %{String.t() => String.t()},
-          runtime_config: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
-          service_account: String.t(),
-          network: String.t(),
-          template_uri: String.t(),
-          template_metadata: Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            update_time: nil,
-            pipeline_spec: nil,
-            state: :PIPELINE_STATE_UNSPECIFIED,
-            job_detail: nil,
-            error: nil,
-            labels: %{},
-            runtime_config: nil,
-            encryption_spec: nil,
-            service_account: "",
-            network: "",
-            template_uri: "",
-            template_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -198,29 +113,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t()
-        }
-
-  defstruct version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 3, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pipeline_context: Google.Cloud.Aiplatform.V1beta1.Context.t() | nil,
-          pipeline_run_context: Google.Cloud.Aiplatform.V1beta1.Context.t() | nil,
-          task_details: [Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.t()]
-        }
-
-  defstruct pipeline_context: nil,
-            pipeline_run_context: nil,
-            task_details: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pipeline_context, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Context,
@@ -240,17 +139,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State.t(),
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct update_time: nil,
-            state: :STATE_UNSPECIFIED,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -266,13 +155,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus 
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifacts: [Google.Cloud.Aiplatform.V1beta1.Artifact.t()]
-        }
-
-  defstruct artifacts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifacts, 1,
     repeated: true,
@@ -281,75 +164,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.InputsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.OutputsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task_id: integer,
-          parent_task_id: integer,
-          task_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          executor_detail: Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State.t(),
-          execution: Google.Cloud.Aiplatform.V1beta1.Execution.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          pipeline_task_status: [
-            Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus.t()
-          ],
-          inputs: %{
-            String.t() =>
-              Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList.t() | nil
-          },
-          outputs: %{
-            String.t() =>
-              Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList.t() | nil
-          }
-        }
-
-  defstruct task_id: 0,
-            parent_task_id: 0,
-            task_name: "",
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            executor_detail: nil,
-            state: :STATE_UNSPECIFIED,
-            execution: nil,
-            error: nil,
-            pipeline_task_status: [],
-            inputs: %{},
-            outputs: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :task_id, 1, type: :int64, json_name: "taskId", deprecated: false
   field :parent_task_id, 12, type: :int64, json_name: "parentTaskId", deprecated: false
@@ -396,15 +225,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.ContainerDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          main_job: String.t(),
-          pre_caching_check_job: String.t()
-        }
-
-  defstruct main_job: "",
-            pre_caching_check_job: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :main_job, 1, type: :string, json_name: "mainJob", deprecated: false
 
@@ -415,30 +236,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.ContainerDe
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.CustomJobDetail do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job: String.t()
-        }
-
-  defstruct job: ""
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:container_detail,
-             Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.ContainerDetail.t() | nil}
-            | {:custom_job_detail,
-               Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.CustomJobDetail.t()
-               | nil}
-        }
-
-  defstruct details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 

@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.RetentionPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup_delete_lock_days: integer,
-          backup_retain_days: integer,
-          locked: boolean
-        }
-
-  defstruct backup_delete_lock_days: 0,
-            backup_retain_days: 0,
-            locked: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backup_delete_lock_days, 1, type: :int32, json_name: "backupDeleteLockDays"
   field :backup_retain_days, 2, type: :int32, json_name: "backupRetainDays"
@@ -18,38 +8,14 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.RetentionPolicy do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.Schedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cron_schedule: String.t(),
-          paused: boolean
-        }
-
-  defstruct cron_schedule: "",
-            paused: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cron_schedule, 1, type: :string, json_name: "cronSchedule"
   field :paused, 2, type: :bool
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup_scope:
-            {:all_namespaces, boolean}
-            | {:selected_namespaces, Google.Cloud.Gkebackup.Logging.V1.Namespaces.t() | nil}
-            | {:selected_applications,
-               Google.Cloud.Gkebackup.Logging.V1.NamespacedNames.t() | nil},
-          include_volume_data: boolean,
-          include_secrets: boolean,
-          encryption_key: Google.Cloud.Gkebackup.Logging.V1.EncryptionKey.t() | nil
-        }
-
-  defstruct backup_scope: nil,
-            include_volume_data: false,
-            include_secrets: false,
-            encryption_key: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :backup_scope, 0
 
@@ -74,41 +40,14 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          description: String.t(),
-          cluster: String.t(),
-          retention_policy:
-            Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.RetentionPolicy.t() | nil,
-          labels: %{String.t() => String.t()},
-          backup_schedule: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.Schedule.t() | nil,
-          deactivated: boolean,
-          backup_config: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig.t() | nil
-        }
-
-  defstruct description: "",
-            cluster: "",
-            retention_policy: nil,
-            labels: %{},
-            backup_schedule: nil,
-            deactivated: false,
-            backup_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :description, 1, type: :string
   field :cluster, 2, type: :string

@@ -1,21 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.AdGroupCustomizer do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          ad_group: String.t(),
-          customizer_attribute: String.t(),
-          status:
-            Google.Ads.Googleads.V10.Enums.CustomizerValueStatusEnum.CustomizerValueStatus.t(),
-          value: Google.Ads.Googleads.V10.Common.CustomizerValue.t() | nil
-        }
-
-  defstruct resource_name: "",
-            ad_group: "",
-            customizer_attribute: "",
-            status: :UNSPECIFIED,
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :ad_group, 2, type: :string, json_name: "adGroup", deprecated: false

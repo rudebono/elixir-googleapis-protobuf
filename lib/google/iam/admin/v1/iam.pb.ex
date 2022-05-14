@@ -1,8 +1,6 @@
 defmodule Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :KEY_ALG_UNSPECIFIED | :KEY_ALG_RSA_1024 | :KEY_ALG_RSA_2048
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :KEY_ALG_UNSPECIFIED, 0
   field :KEY_ALG_RSA_1024, 1
@@ -10,9 +8,7 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm do
 end
 defmodule Google.Iam.Admin.V1.ServiceAccountPrivateKeyType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :TYPE_PKCS12_FILE | :TYPE_GOOGLE_CREDENTIALS_FILE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TYPE_PKCS12_FILE, 1
@@ -20,9 +16,7 @@ defmodule Google.Iam.Admin.V1.ServiceAccountPrivateKeyType do
 end
 defmodule Google.Iam.Admin.V1.ServiceAccountPublicKeyType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_NONE | :TYPE_X509_PEM_FILE | :TYPE_RAW_PUBLIC_KEY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_NONE, 0
   field :TYPE_X509_PEM_FILE, 1
@@ -30,9 +24,7 @@ defmodule Google.Iam.Admin.V1.ServiceAccountPublicKeyType do
 end
 defmodule Google.Iam.Admin.V1.ServiceAccountKeyOrigin do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ORIGIN_UNSPECIFIED | :USER_PROVIDED | :GOOGLE_PROVIDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ORIGIN_UNSPECIFIED, 0
   field :USER_PROVIDED, 1
@@ -40,18 +32,14 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKeyOrigin do
 end
 defmodule Google.Iam.Admin.V1.RoleView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASIC, 0
   field :FULL, 1
 end
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :KEY_TYPE_UNSPECIFIED | :USER_MANAGED | :SYSTEM_MANAGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :KEY_TYPE_UNSPECIFIED, 0
   field :USER_MANAGED, 1
@@ -59,9 +47,7 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType do
 end
 defmodule Google.Iam.Admin.V1.Role.RoleLaunchStage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ALPHA | :BETA | :GA | :DEPRECATED | :DISABLED | :EAP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ALPHA, 0
   field :BETA, 1
@@ -72,9 +58,7 @@ defmodule Google.Iam.Admin.V1.Role.RoleLaunchStage do
 end
 defmodule Google.Iam.Admin.V1.Permission.PermissionLaunchStage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ALPHA | :BETA | :GA | :DEPRECATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ALPHA, 0
   field :BETA, 1
@@ -83,9 +67,7 @@ defmodule Google.Iam.Admin.V1.Permission.PermissionLaunchStage do
 end
 defmodule Google.Iam.Admin.V1.Permission.CustomRolesSupportLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SUPPORTED | :TESTING | :NOT_SUPPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SUPPORTED, 0
   field :TESTING, 1
@@ -93,18 +75,14 @@ defmodule Google.Iam.Admin.V1.Permission.CustomRolesSupportLevel do
 end
 defmodule Google.Iam.Admin.V1.LintResult.Level do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LEVEL_UNSPECIFIED | :CONDITION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LEVEL_UNSPECIFIED, 0
   field :CONDITION, 3
 end
 defmodule Google.Iam.Admin.V1.LintResult.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :ERROR | :WARNING | :NOTICE | :INFO | :DEPRECATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -115,29 +93,7 @@ defmodule Google.Iam.Admin.V1.LintResult.Severity do
 end
 defmodule Google.Iam.Admin.V1.ServiceAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          unique_id: String.t(),
-          email: String.t(),
-          display_name: String.t(),
-          etag: binary,
-          description: String.t(),
-          oauth2_client_id: String.t(),
-          disabled: boolean
-        }
-
-  defstruct name: "",
-            project_id: "",
-            unique_id: "",
-            email: "",
-            display_name: "",
-            etag: "",
-            description: "",
-            oauth2_client_id: "",
-            disabled: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -151,17 +107,7 @@ defmodule Google.Iam.Admin.V1.ServiceAccount do
 end
 defmodule Google.Iam.Admin.V1.CreateServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          account_id: String.t(),
-          service_account: Google.Iam.Admin.V1.ServiceAccount.t() | nil
-        }
-
-  defstruct name: "",
-            account_id: "",
-            service_account: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account_id, 2, type: :string, json_name: "accountId", deprecated: false
@@ -169,17 +115,7 @@ defmodule Google.Iam.Admin.V1.CreateServiceAccountRequest do
 end
 defmodule Google.Iam.Admin.V1.ListServiceAccountsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -187,79 +123,39 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountsRequest do
 end
 defmodule Google.Iam.Admin.V1.ListServiceAccountsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          accounts: [Google.Iam.Admin.V1.ServiceAccount.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct accounts: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :accounts, 1, repeated: true, type: Google.Iam.Admin.V1.ServiceAccount
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Iam.Admin.V1.GetServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Iam.Admin.V1.DeleteServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Iam.Admin.V1.PatchServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_account: Google.Iam.Admin.V1.ServiceAccount.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct service_account: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_account, 1, type: Google.Iam.Admin.V1.ServiceAccount, json_name: "serviceAccount"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Iam.Admin.V1.UndeleteServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Iam.Admin.V1.UndeleteServiceAccountResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          restored_account: Google.Iam.Admin.V1.ServiceAccount.t() | nil
-        }
-
-  defstruct restored_account: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :restored_account, 1,
     type: Google.Iam.Admin.V1.ServiceAccount,
@@ -267,39 +163,19 @@ defmodule Google.Iam.Admin.V1.UndeleteServiceAccountResponse do
 end
 defmodule Google.Iam.Admin.V1.EnableServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Iam.Admin.V1.DisableServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          key_types: [Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType.t()]
-        }
-
-  defstruct name: "",
-            key_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -311,27 +187,13 @@ defmodule Google.Iam.Admin.V1.ListServiceAccountKeysRequest do
 end
 defmodule Google.Iam.Admin.V1.ListServiceAccountKeysResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          keys: [Google.Iam.Admin.V1.ServiceAccountKey.t()]
-        }
-
-  defstruct keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Iam.Admin.V1.ServiceAccountKey
 end
 defmodule Google.Iam.Admin.V1.GetServiceAccountKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          public_key_type: Google.Iam.Admin.V1.ServiceAccountPublicKeyType.t()
-        }
-
-  defstruct name: "",
-            public_key_type: :TYPE_NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -342,29 +204,7 @@ defmodule Google.Iam.Admin.V1.GetServiceAccountKeyRequest do
 end
 defmodule Google.Iam.Admin.V1.ServiceAccountKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          private_key_type: Google.Iam.Admin.V1.ServiceAccountPrivateKeyType.t(),
-          key_algorithm: Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm.t(),
-          private_key_data: binary,
-          public_key_data: binary,
-          valid_after_time: Google.Protobuf.Timestamp.t() | nil,
-          valid_before_time: Google.Protobuf.Timestamp.t() | nil,
-          key_origin: Google.Iam.Admin.V1.ServiceAccountKeyOrigin.t(),
-          key_type: Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType.t()
-        }
-
-  defstruct name: "",
-            private_key_type: :TYPE_UNSPECIFIED,
-            key_algorithm: :KEY_ALG_UNSPECIFIED,
-            private_key_data: "",
-            public_key_data: "",
-            valid_after_time: nil,
-            valid_before_time: nil,
-            key_origin: :ORIGIN_UNSPECIFIED,
-            key_type: :KEY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -395,17 +235,7 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKey do
 end
 defmodule Google.Iam.Admin.V1.CreateServiceAccountKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          private_key_type: Google.Iam.Admin.V1.ServiceAccountPrivateKeyType.t(),
-          key_algorithm: Google.Iam.Admin.V1.ServiceAccountKeyAlgorithm.t()
-        }
-
-  defstruct name: "",
-            private_key_type: :TYPE_UNSPECIFIED,
-            key_algorithm: :KEY_ALG_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -421,112 +251,48 @@ defmodule Google.Iam.Admin.V1.CreateServiceAccountKeyRequest do
 end
 defmodule Google.Iam.Admin.V1.UploadServiceAccountKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          public_key_data: binary
-        }
-
-  defstruct name: "",
-            public_key_data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :public_key_data, 2, type: :bytes, json_name: "publicKeyData"
 end
 defmodule Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Iam.Admin.V1.SignBlobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          bytes_to_sign: binary
-        }
-
-  defstruct name: "",
-            bytes_to_sign: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: true
   field :bytes_to_sign, 2, type: :bytes, json_name: "bytesToSign", deprecated: true
 end
 defmodule Google.Iam.Admin.V1.SignBlobResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          signature: binary
-        }
-
-  defstruct key_id: "",
-            signature: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId", deprecated: true
   field :signature, 2, type: :bytes, deprecated: true
 end
 defmodule Google.Iam.Admin.V1.SignJwtRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          payload: String.t()
-        }
-
-  defstruct name: "",
-            payload: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: true
   field :payload, 2, type: :string, deprecated: true
 end
 defmodule Google.Iam.Admin.V1.SignJwtResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          signed_jwt: String.t()
-        }
-
-  defstruct key_id: "",
-            signed_jwt: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId", deprecated: true
   field :signed_jwt, 2, type: :string, json_name: "signedJwt", deprecated: true
 end
 defmodule Google.Iam.Admin.V1.Role do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          description: String.t(),
-          included_permissions: [String.t()],
-          stage: Google.Iam.Admin.V1.Role.RoleLaunchStage.t(),
-          etag: binary,
-          deleted: boolean
-        }
-
-  defstruct name: "",
-            title: "",
-            description: "",
-            included_permissions: [],
-            stage: :ALPHA,
-            etag: "",
-            deleted: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -538,19 +304,7 @@ defmodule Google.Iam.Admin.V1.Role do
 end
 defmodule Google.Iam.Admin.V1.QueryGrantableRolesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          full_resource_name: String.t(),
-          view: Google.Iam.Admin.V1.RoleView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct full_resource_name: "",
-            view: :BASIC,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName", deprecated: false
   field :view, 2, type: Google.Iam.Admin.V1.RoleView, enum: true
@@ -559,36 +313,14 @@ defmodule Google.Iam.Admin.V1.QueryGrantableRolesRequest do
 end
 defmodule Google.Iam.Admin.V1.QueryGrantableRolesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          roles: [Google.Iam.Admin.V1.Role.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct roles: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :roles, 1, repeated: true, type: Google.Iam.Admin.V1.Role
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Iam.Admin.V1.ListRolesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          view: Google.Iam.Admin.V1.RoleView.t(),
-          show_deleted: boolean
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            view: :BASIC,
-            show_deleted: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -598,44 +330,20 @@ defmodule Google.Iam.Admin.V1.ListRolesRequest do
 end
 defmodule Google.Iam.Admin.V1.ListRolesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          roles: [Google.Iam.Admin.V1.Role.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct roles: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :roles, 1, repeated: true, type: Google.Iam.Admin.V1.Role
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Iam.Admin.V1.GetRoleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Iam.Admin.V1.CreateRoleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          role_id: String.t(),
-          role: Google.Iam.Admin.V1.Role.t() | nil
-        }
-
-  defstruct parent: "",
-            role_id: "",
-            role: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :role_id, 2, type: :string, json_name: "roleId"
@@ -643,17 +351,7 @@ defmodule Google.Iam.Admin.V1.CreateRoleRequest do
 end
 defmodule Google.Iam.Admin.V1.UpdateRoleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          role: Google.Iam.Admin.V1.Role.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            role: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :role, 2, type: Google.Iam.Admin.V1.Role
@@ -661,57 +359,21 @@ defmodule Google.Iam.Admin.V1.UpdateRoleRequest do
 end
 defmodule Google.Iam.Admin.V1.DeleteRoleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: binary
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :bytes
 end
 defmodule Google.Iam.Admin.V1.UndeleteRoleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: binary
-        }
-
-  defstruct name: "",
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :bytes
 end
 defmodule Google.Iam.Admin.V1.Permission do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          description: String.t(),
-          only_in_predefined_roles: boolean,
-          stage: Google.Iam.Admin.V1.Permission.PermissionLaunchStage.t(),
-          custom_roles_support_level: Google.Iam.Admin.V1.Permission.CustomRolesSupportLevel.t(),
-          api_disabled: boolean,
-          primary_permission: String.t()
-        }
-
-  defstruct name: "",
-            title: "",
-            description: "",
-            only_in_predefined_roles: false,
-            stage: :ALPHA,
-            custom_roles_support_level: :SUPPORTED,
-            api_disabled: false,
-            primary_permission: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -734,17 +396,7 @@ defmodule Google.Iam.Admin.V1.Permission do
 end
 defmodule Google.Iam.Admin.V1.QueryTestablePermissionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          full_resource_name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct full_resource_name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -752,52 +404,26 @@ defmodule Google.Iam.Admin.V1.QueryTestablePermissionsRequest do
 end
 defmodule Google.Iam.Admin.V1.QueryTestablePermissionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          permissions: [Google.Iam.Admin.V1.Permission.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct permissions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: Google.Iam.Admin.V1.Permission
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          full_resource_name: String.t()
-        }
-
-  defstruct full_resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 end
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Iam.Admin.V1.QueryAuditableServicesResponse.AuditableService.t()]
-        }
-
-  defstruct services: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1,
     repeated: true,
@@ -805,15 +431,7 @@ defmodule Google.Iam.Admin.V1.QueryAuditableServicesResponse do
 end
 defmodule Google.Iam.Admin.V1.LintPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lint_object: {:condition, Google.Type.Expr.t() | nil},
-          full_resource_name: String.t()
-        }
-
-  defstruct lint_object: nil,
-            full_resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :lint_object, 0
 
@@ -822,23 +440,7 @@ defmodule Google.Iam.Admin.V1.LintPolicyRequest do
 end
 defmodule Google.Iam.Admin.V1.LintResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          level: Google.Iam.Admin.V1.LintResult.Level.t(),
-          validation_unit_name: String.t(),
-          severity: Google.Iam.Admin.V1.LintResult.Severity.t(),
-          field_name: String.t(),
-          location_offset: integer,
-          debug_message: String.t()
-        }
-
-  defstruct level: :LEVEL_UNSPECIFIED,
-            validation_unit_name: "",
-            severity: :SEVERITY_UNSPECIFIED,
-            field_name: "",
-            location_offset: 0,
-            debug_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :level, 1, type: Google.Iam.Admin.V1.LintResult.Level, enum: true
   field :validation_unit_name, 2, type: :string, json_name: "validationUnitName"
@@ -849,13 +451,7 @@ defmodule Google.Iam.Admin.V1.LintResult do
 end
 defmodule Google.Iam.Admin.V1.LintPolicyResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lint_results: [Google.Iam.Admin.V1.LintResult.t()]
-        }
-
-  defstruct lint_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :lint_results, 1,
     repeated: true,
@@ -864,7 +460,7 @@ defmodule Google.Iam.Admin.V1.LintPolicyResponse do
 end
 defmodule Google.Iam.Admin.V1.IAM.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.iam.admin.v1.IAM"
+  use GRPC.Service, name: "google.iam.admin.v1.IAM", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListServiceAccounts,
       Google.Iam.Admin.V1.ListServiceAccountsRequest,

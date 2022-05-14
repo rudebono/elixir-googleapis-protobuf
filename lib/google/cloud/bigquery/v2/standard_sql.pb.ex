@@ -1,26 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_KIND_UNSPECIFIED
-          | :INT64
-          | :BOOL
-          | :FLOAT64
-          | :STRING
-          | :BYTES
-          | :TIMESTAMP
-          | :DATE
-          | :TIME
-          | :DATETIME
-          | :INTERVAL
-          | :GEOGRAPHY
-          | :NUMERIC
-          | :BIGNUMERIC
-          | :JSON
-          | :ARRAY
-          | :STRUCT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_KIND_UNSPECIFIED, 0
   field :INT64, 2
@@ -42,17 +22,7 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
 end
 defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sub_type:
-            {:array_element_type, Google.Cloud.Bigquery.V2.StandardSqlDataType.t() | nil}
-            | {:struct_type, Google.Cloud.Bigquery.V2.StandardSqlStructType.t() | nil},
-          type_kind: Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind.t()
-        }
-
-  defstruct sub_type: nil,
-            type_kind: :TYPE_KIND_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :sub_type, 0
 
@@ -74,40 +44,20 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
 end
 defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Bigquery.V2.StandardSqlDataType.t() | nil
-        }
-
-  defstruct name: "",
-            type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
-        }
-
-  defstruct fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
 end
 defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          columns: [Google.Cloud.Bigquery.V2.StandardSqlField.t()]
-        }
-
-  defstruct columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :columns, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
 end

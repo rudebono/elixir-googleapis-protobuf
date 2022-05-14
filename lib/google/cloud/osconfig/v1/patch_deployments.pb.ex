@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1.PatchDeployment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :PAUSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Osconfig.V1.PatchDeployment.State do
 end
 defmodule Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FREQUENCY_UNSPECIFIED | :WEEKLY | :MONTHLY | :DAILY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FREQUENCY_UNSPECIFIED, 0
   field :WEEKLY, 1
@@ -21,35 +17,7 @@ defmodule Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency do
 end
 defmodule Google.Cloud.Osconfig.V1.PatchDeployment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schedule:
-            {:one_time_schedule, Google.Cloud.Osconfig.V1.OneTimeSchedule.t() | nil}
-            | {:recurring_schedule, Google.Cloud.Osconfig.V1.RecurringSchedule.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          instance_filter: Google.Cloud.Osconfig.V1.PatchInstanceFilter.t() | nil,
-          patch_config: Google.Cloud.Osconfig.V1.PatchConfig.t() | nil,
-          duration: Google.Protobuf.Duration.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          last_execute_time: Google.Protobuf.Timestamp.t() | nil,
-          rollout: Google.Cloud.Osconfig.V1.PatchRollout.t() | nil,
-          state: Google.Cloud.Osconfig.V1.PatchDeployment.State.t()
-        }
-
-  defstruct schedule: nil,
-            name: "",
-            description: "",
-            instance_filter: nil,
-            patch_config: nil,
-            duration: nil,
-            create_time: nil,
-            update_time: nil,
-            last_execute_time: nil,
-            rollout: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :schedule, 0
 
@@ -104,13 +72,7 @@ defmodule Google.Cloud.Osconfig.V1.PatchDeployment do
 end
 defmodule Google.Cloud.Osconfig.V1.OneTimeSchedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execute_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct execute_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execute_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -119,29 +81,7 @@ defmodule Google.Cloud.Osconfig.V1.OneTimeSchedule do
 end
 defmodule Google.Cloud.Osconfig.V1.RecurringSchedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schedule_config:
-            {:weekly, Google.Cloud.Osconfig.V1.WeeklySchedule.t() | nil}
-            | {:monthly, Google.Cloud.Osconfig.V1.MonthlySchedule.t() | nil},
-          time_zone: Google.Type.TimeZone.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          time_of_day: Google.Type.TimeOfDay.t() | nil,
-          frequency: Google.Cloud.Osconfig.V1.RecurringSchedule.Frequency.t(),
-          last_execute_time: Google.Protobuf.Timestamp.t() | nil,
-          next_execute_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct schedule_config: nil,
-            time_zone: nil,
-            start_time: nil,
-            end_time: nil,
-            time_of_day: nil,
-            frequency: :FREQUENCY_UNSPECIFIED,
-            last_execute_time: nil,
-            next_execute_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :schedule_config, 0
 
@@ -170,13 +110,7 @@ defmodule Google.Cloud.Osconfig.V1.RecurringSchedule do
 end
 defmodule Google.Cloud.Osconfig.V1.WeeklySchedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          day_of_week: Google.Type.DayOfWeek.t()
-        }
-
-  defstruct day_of_week: :DAY_OF_WEEK_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :day_of_week, 1,
     type: Google.Type.DayOfWeek,
@@ -186,15 +120,7 @@ defmodule Google.Cloud.Osconfig.V1.WeeklySchedule do
 end
 defmodule Google.Cloud.Osconfig.V1.MonthlySchedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          day_of_month:
-            {:week_day_of_month, Google.Cloud.Osconfig.V1.WeekDayOfMonth.t() | nil}
-            | {:month_day, integer}
-        }
-
-  defstruct day_of_month: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :day_of_month, 0
 
@@ -208,17 +134,7 @@ defmodule Google.Cloud.Osconfig.V1.MonthlySchedule do
 end
 defmodule Google.Cloud.Osconfig.V1.WeekDayOfMonth do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          week_ordinal: integer,
-          day_of_week: Google.Type.DayOfWeek.t(),
-          day_offset: integer
-        }
-
-  defstruct week_ordinal: 0,
-            day_of_week: :DAY_OF_WEEK_UNSPECIFIED,
-            day_offset: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal", deprecated: false
 
@@ -232,17 +148,7 @@ defmodule Google.Cloud.Osconfig.V1.WeekDayOfMonth do
 end
 defmodule Google.Cloud.Osconfig.V1.CreatePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          patch_deployment_id: String.t(),
-          patch_deployment: Google.Cloud.Osconfig.V1.PatchDeployment.t() | nil
-        }
-
-  defstruct parent: "",
-            patch_deployment_id: "",
-            patch_deployment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :patch_deployment_id, 2, type: :string, json_name: "patchDeploymentId", deprecated: false
@@ -254,29 +160,13 @@ defmodule Google.Cloud.Osconfig.V1.CreatePatchDeploymentRequest do
 end
 defmodule Google.Cloud.Osconfig.V1.GetPatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -284,15 +174,7 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsRequest do
 end
 defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          patch_deployments: [Google.Cloud.Osconfig.V1.PatchDeployment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct patch_deployments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :patch_deployments, 1,
     repeated: true,
@@ -303,27 +185,13 @@ defmodule Google.Cloud.Osconfig.V1.ListPatchDeploymentsResponse do
 end
 defmodule Google.Cloud.Osconfig.V1.DeletePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1.UpdatePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          patch_deployment: Google.Cloud.Osconfig.V1.PatchDeployment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct patch_deployment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :patch_deployment, 1,
     type: Google.Cloud.Osconfig.V1.PatchDeployment,
@@ -337,25 +205,13 @@ defmodule Google.Cloud.Osconfig.V1.UpdatePatchDeploymentRequest do
 end
 defmodule Google.Cloud.Osconfig.V1.PausePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1.ResumePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

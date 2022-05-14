@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult.Frame do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_offset: Google.Protobuf.Duration.t() | nil,
-          x_min: Google.Protobuf.FloatValue.t() | nil,
-          x_max: Google.Protobuf.FloatValue.t() | nil,
-          y_min: Google.Protobuf.FloatValue.t() | nil,
-          y_max: Google.Protobuf.FloatValue.t() | nil
-        }
-
-  defstruct time_offset: nil,
-            x_min: nil,
-            x_max: nil,
-            y_min: nil,
-            y_max: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :x_min, 2, type: Google.Protobuf.FloatValue, json_name: "xMin"
@@ -24,25 +10,7 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTracki
 end
 defmodule Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          display_name: String.t(),
-          time_segment_start: Google.Protobuf.Duration.t() | nil,
-          time_segment_end: Google.Protobuf.Duration.t() | nil,
-          confidence: Google.Protobuf.FloatValue.t() | nil,
-          frames: [
-            Google.Cloud.Aiplatform.V1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult.Frame.t()
-          ]
-        }
-
-  defstruct id: "",
-            display_name: "",
-            time_segment_start: nil,
-            time_segment_end: nil,
-            confidence: nil,
-            frames: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

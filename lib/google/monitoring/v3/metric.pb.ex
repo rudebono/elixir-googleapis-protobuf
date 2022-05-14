@@ -1,39 +1,13 @@
 defmodule Google.Monitoring.V3.Point do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          interval: Google.Monitoring.V3.TimeInterval.t() | nil,
-          value: Google.Monitoring.V3.TypedValue.t() | nil
-        }
-
-  defstruct interval: nil,
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :interval, 1, type: Google.Monitoring.V3.TimeInterval
   field :value, 2, type: Google.Monitoring.V3.TypedValue
 end
 defmodule Google.Monitoring.V3.TimeSeries do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metric: Google.Api.Metric.t() | nil,
-          resource: Google.Api.MonitoredResource.t() | nil,
-          metadata: Google.Api.MonitoredResourceMetadata.t() | nil,
-          metric_kind: Google.Api.MetricDescriptor.MetricKind.t(),
-          value_type: Google.Api.MetricDescriptor.ValueType.t(),
-          points: [Google.Monitoring.V3.Point.t()],
-          unit: String.t()
-        }
-
-  defstruct metric: nil,
-            resource: nil,
-            metadata: nil,
-            metric_kind: :METRIC_KIND_UNSPECIFIED,
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            points: [],
-            unit: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metric, 1, type: Google.Api.Metric
   field :resource, 2, type: Google.Api.MonitoredResource
@@ -54,19 +28,7 @@ defmodule Google.Monitoring.V3.TimeSeries do
 end
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value_type: Google.Api.MetricDescriptor.ValueType.t(),
-          metric_kind: Google.Api.MetricDescriptor.MetricKind.t(),
-          unit: String.t()
-        }
-
-  defstruct key: "",
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            metric_kind: :METRIC_KIND_UNSPECIFIED,
-            unit: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -84,15 +46,7 @@ defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
 end
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label_descriptors: [Google.Api.LabelDescriptor.t()],
-          point_descriptors: [Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor.t()]
-        }
-
-  defstruct label_descriptors: [],
-            point_descriptors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label_descriptors, 1,
     repeated: true,
@@ -106,30 +60,14 @@ defmodule Google.Monitoring.V3.TimeSeriesDescriptor do
 end
 defmodule Google.Monitoring.V3.TimeSeriesData.PointData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          values: [Google.Monitoring.V3.TypedValue.t()],
-          time_interval: Google.Monitoring.V3.TimeInterval.t() | nil
-        }
-
-  defstruct values: [],
-            time_interval: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Monitoring.V3.TypedValue
   field :time_interval, 2, type: Google.Monitoring.V3.TimeInterval, json_name: "timeInterval"
 end
 defmodule Google.Monitoring.V3.TimeSeriesData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          label_values: [Google.Monitoring.V3.LabelValue.t()],
-          point_data: [Google.Monitoring.V3.TimeSeriesData.PointData.t()]
-        }
-
-  defstruct label_values: [],
-            point_data: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :label_values, 1,
     repeated: true,
@@ -143,13 +81,7 @@ defmodule Google.Monitoring.V3.TimeSeriesData do
 end
 defmodule Google.Monitoring.V3.LabelValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: {:bool_value, boolean} | {:int64_value, integer} | {:string_value, String.t()}
-        }
-
-  defstruct value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -159,51 +91,21 @@ defmodule Google.Monitoring.V3.LabelValue do
 end
 defmodule Google.Monitoring.V3.QueryError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          locator: Google.Monitoring.V3.TextLocator.t() | nil,
-          message: String.t()
-        }
-
-  defstruct locator: nil,
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :locator, 1, type: Google.Monitoring.V3.TextLocator
   field :message, 2, type: :string
 end
 defmodule Google.Monitoring.V3.TextLocator.Position do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          line: integer,
-          column: integer
-        }
-
-  defstruct line: 0,
-            column: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :line, 1, type: :int32
   field :column, 2, type: :int32
 end
 defmodule Google.Monitoring.V3.TextLocator do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: String.t(),
-          start_position: Google.Monitoring.V3.TextLocator.Position.t() | nil,
-          end_position: Google.Monitoring.V3.TextLocator.Position.t() | nil,
-          nested_locator: Google.Monitoring.V3.TextLocator.t() | nil,
-          nesting_reason: String.t()
-        }
-
-  defstruct source: "",
-            start_position: nil,
-            end_position: nil,
-            nested_locator: nil,
-            nesting_reason: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1, type: :string
 

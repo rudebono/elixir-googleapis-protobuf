@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          total_count: integer,
-          import_count: integer
-        }
-
-  defstruct dataset: "",
-            total_count: 0,
-            import_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
@@ -18,21 +8,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationResponse do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          total_count: integer,
-          export_count: integer,
-          label_stats: Google.Cloud.Datalabeling.V1beta1.LabelStats.t() | nil,
-          output_config: Google.Cloud.Datalabeling.V1beta1.OutputConfig.t() | nil
-        }
-
-  defstruct dataset: "",
-            total_count: 0,
-            export_count: 0,
-            label_stats: nil,
-            output_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
@@ -48,17 +24,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct dataset: "",
-            partial_failures: [],
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string
 
@@ -71,17 +37,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct dataset: "",
-            partial_failures: [],
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string
 
@@ -94,49 +50,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:image_classification_details,
-             Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata.t() | nil}
-            | {:image_bounding_box_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata.t() | nil}
-            | {:image_bounding_poly_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata.t() | nil}
-            | {:image_oriented_bounding_box_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata.t()
-               | nil}
-            | {:image_polyline_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata.t() | nil}
-            | {:image_segmentation_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata.t() | nil}
-            | {:video_classification_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata.t()
-               | nil}
-            | {:video_object_detection_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata.t()
-               | nil}
-            | {:video_object_tracking_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata.t()
-               | nil}
-            | {:video_event_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata.t() | nil}
-            | {:text_classification_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata.t()
-               | nil}
-            | {:text_entity_extraction_details,
-               Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata.t()
-               | nil},
-          progress_percent: integer,
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct details: nil,
-            progress_percent: 0,
-            partial_failures: [],
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -211,13 +125,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -225,13 +133,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMet
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -239,13 +141,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetada
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -253,13 +149,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperati
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -267,13 +157,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetad
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -281,13 +165,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata 
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -295,13 +173,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetad
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -309,13 +181,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMet
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -323,13 +189,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMe
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -337,13 +197,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMet
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -351,13 +205,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -365,13 +213,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMeta
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          basic_config: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct basic_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
@@ -379,17 +221,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMe
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instruction: String.t(),
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct instruction: "",
-            partial_failures: [],
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instruction, 1, type: :string
 

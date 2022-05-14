@@ -1,18 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.Type do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sub_type:
-            {:synonym, Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.t() | nil}
-            | {:regular_expression,
-               Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.t() | nil}
-            | {:free_text, Google.Actions.Sdk.V2.Interactionmodel.Type.FreeTextType.t() | nil},
-          exclusions: [String.t()]
-        }
-
-  defstruct sub_type: nil,
-            exclusions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :sub_type, 0
 

@@ -1,22 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Resources.CustomizerAttribute do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          id: integer,
-          name: String.t(),
-          type:
-            Google.Ads.Googleads.V9.Enums.CustomizerAttributeTypeEnum.CustomizerAttributeType.t(),
-          status:
-            Google.Ads.Googleads.V9.Enums.CustomizerAttributeStatusEnum.CustomizerAttributeStatus.t()
-        }
-
-  defstruct resource_name: "",
-            id: 0,
-            name: "",
-            type: :UNSPECIFIED,
-            status: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.ImagePayload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mime_type: String.t(),
-          image_thumbnail: binary,
-          image_uri: String.t(),
-          signed_uri: String.t()
-        }
-
-  defstruct mime_type: "",
-            image_thumbnail: "",
-            image_uri: "",
-            signed_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :image_thumbnail, 2, type: :bytes, json_name: "imageThumbnail"
@@ -21,48 +9,20 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImagePayload do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.TextPayload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text_content: String.t()
-        }
-
-  defstruct text_content: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text_content, 1, type: :string, json_name: "textContent"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoThumbnail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          thumbnail: binary,
-          time_offset: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct thumbnail: "",
-            time_offset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :thumbnail, 1, type: :bytes
   field :time_offset, 2, type: Google.Protobuf.Duration, json_name: "timeOffset"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoPayload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mime_type: String.t(),
-          video_uri: String.t(),
-          video_thumbnails: [Google.Cloud.Datalabeling.V1beta1.VideoThumbnail.t()],
-          frame_rate: float | :infinity | :negative_infinity | :nan,
-          signed_uri: String.t()
-        }
-
-  defstruct mime_type: "",
-            video_uri: "",
-            video_thumbnails: [],
-            frame_rate: 0.0,
-            signed_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :video_uri, 2, type: :string, json_name: "videoUri"

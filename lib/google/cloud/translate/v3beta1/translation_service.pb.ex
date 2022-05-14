@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :RUNNING
-          | :SUCCEEDED
-          | :FAILED
-          | :CANCELLING
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -20,16 +11,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State do
 end
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :RUNNING
-          | :SUCCEEDED
-          | :FAILED
-          | :CANCELLING
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -40,16 +22,7 @@ defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State do
 end
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :RUNNING
-          | :SUCCEEDED
-          | :FAILED
-          | :CANCELLING
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -60,16 +33,7 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :RUNNING
-          | :SUCCEEDED
-          | :FAILED
-          | :CANCELLING
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -80,57 +44,21 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State 
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          glossary: String.t(),
-          ignore_case: boolean
-        }
-
-  defstruct glossary: "",
-            ignore_case: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :glossary, 1, type: :string, deprecated: false
   field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          contents: [String.t()],
-          mime_type: String.t(),
-          source_language_code: String.t(),
-          target_language_code: String.t(),
-          parent: String.t(),
-          model: String.t(),
-          glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct contents: [],
-            mime_type: "",
-            source_language_code: "",
-            target_language_code: "",
-            parent: "",
-            model: "",
-            glossary_config: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :contents, 1, repeated: true, type: :string, deprecated: false
   field :mime_type, 3, type: :string, json_name: "mimeType", deprecated: false
@@ -161,15 +89,7 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateTextResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          translations: [Google.Cloud.Translation.V3beta1.Translation.t()],
-          glossary_translations: [Google.Cloud.Translation.V3beta1.Translation.t()]
-        }
-
-  defstruct translations: [],
-            glossary_translations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :translations, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.Translation
 
@@ -180,19 +100,7 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateTextResponse do
 end
 defmodule Google.Cloud.Translation.V3beta1.Translation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          translated_text: String.t(),
-          model: String.t(),
-          detected_language_code: String.t(),
-          glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-        }
-
-  defstruct translated_text: "",
-            model: "",
-            detected_language_code: "",
-            glossary_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :translated_text, 1, type: :string, json_name: "translatedText"
   field :model, 2, type: :string
@@ -204,36 +112,14 @@ defmodule Google.Cloud.Translation.V3beta1.Translation do
 end
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:content, String.t()},
-          parent: String.t(),
-          model: String.t(),
-          mime_type: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct source: nil,
-            parent: "",
-            model: "",
-            mime_type: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -250,44 +136,20 @@ defmodule Google.Cloud.Translation.V3beta1.DetectLanguageRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.DetectedLanguage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t(),
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct language_code: "",
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
 end
 defmodule Google.Cloud.Translation.V3beta1.DetectLanguageResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          languages: [Google.Cloud.Translation.V3beta1.DetectedLanguage.t()]
-        }
-
-  defstruct languages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.DetectedLanguage
 end
 defmodule Google.Cloud.Translation.V3beta1.GetSupportedLanguagesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          display_language_code: String.t(),
-          model: String.t()
-        }
-
-  defstruct parent: "",
-            display_language_code: "",
-            model: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 3, type: :string, deprecated: false
 
@@ -300,31 +162,13 @@ defmodule Google.Cloud.Translation.V3beta1.GetSupportedLanguagesRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.SupportedLanguages do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          languages: [Google.Cloud.Translation.V3beta1.SupportedLanguage.t()]
-        }
-
-  defstruct languages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.SupportedLanguage
 end
 defmodule Google.Cloud.Translation.V3beta1.SupportedLanguage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t(),
-          display_name: String.t(),
-          support_source: boolean,
-          support_target: boolean
-        }
-
-  defstruct language_code: "",
-            display_name: "",
-            support_source: false,
-            support_target: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -333,27 +177,13 @@ defmodule Google.Cloud.Translation.V3beta1.SupportedLanguage do
 end
 defmodule Google.Cloud.Translation.V3beta1.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_uri: String.t()
-        }
-
-  defstruct input_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri", deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil},
-          mime_type: String.t()
-        }
-
-  defstruct source: nil,
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -366,26 +196,13 @@ defmodule Google.Cloud.Translation.V3beta1.InputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.GcsDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_uri_prefix: String.t()
-        }
-
-  defstruct output_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.OutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_destination, Google.Cloud.Translation.V3beta1.GcsDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -396,17 +213,7 @@ defmodule Google.Cloud.Translation.V3beta1.OutputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.DocumentInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:content, binary}
-            | {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil},
-          mime_type: String.t()
-        }
-
-  defstruct source: nil,
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -421,16 +228,7 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentInputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.DocumentOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_destination, Google.Cloud.Translation.V3beta1.GcsDestination.t() | nil},
-          mime_type: String.t()
-        }
-
-  defstruct destination: nil,
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -444,42 +242,14 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentOutputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source_language_code: String.t(),
-          target_language_code: String.t(),
-          document_input_config: Google.Cloud.Translation.V3beta1.DocumentInputConfig.t() | nil,
-          document_output_config: Google.Cloud.Translation.V3beta1.DocumentOutputConfig.t() | nil,
-          model: String.t(),
-          glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct parent: "",
-            source_language_code: "",
-            target_language_code: "",
-            document_input_config: nil,
-            document_output_config: nil,
-            model: "",
-            glossary_config: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -518,17 +288,7 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.DocumentTranslation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          byte_stream_outputs: [binary],
-          mime_type: String.t(),
-          detected_language_code: String.t()
-        }
-
-  defstruct byte_stream_outputs: [],
-            mime_type: "",
-            detected_language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :byte_stream_outputs, 1, repeated: true, type: :bytes, json_name: "byteStreamOutputs"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -536,20 +296,7 @@ defmodule Google.Cloud.Translation.V3beta1.DocumentTranslation do
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document_translation: Google.Cloud.Translation.V3beta1.DocumentTranslation.t() | nil,
-          glossary_document_translation:
-            Google.Cloud.Translation.V3beta1.DocumentTranslation.t() | nil,
-          model: String.t(),
-          glossary_config: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-        }
-
-  defstruct document_translation: nil,
-            glossary_document_translation: nil,
-            model: "",
-            glossary_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document_translation, 1,
     type: Google.Cloud.Translation.V3beta1.DocumentTranslation,
@@ -567,74 +314,28 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentResponse do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.ModelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.GlossariesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source_language_code: String.t(),
-          target_language_codes: [String.t()],
-          models: %{String.t() => String.t()},
-          input_configs: [Google.Cloud.Translation.V3beta1.InputConfig.t()],
-          output_config: Google.Cloud.Translation.V3beta1.OutputConfig.t() | nil,
-          glossaries: %{
-            String.t() => Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-          },
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct parent: "",
-            source_language_code: "",
-            target_language_codes: [],
-            models: %{},
-            input_configs: [],
-            output_config: nil,
-            glossaries: %{},
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -680,21 +381,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateTextRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State.t(),
-          translated_characters: integer,
-          failed_characters: integer,
-          total_characters: integer,
-          submit_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            translated_characters: 0,
-            failed_characters: 0,
-            total_characters: 0,
-            submit_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3beta1.BatchTranslateMetadata.State, enum: true
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
@@ -704,21 +391,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateMetadata do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_characters: integer,
-          translated_characters: integer,
-          failed_characters: integer,
-          submit_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct total_characters: 0,
-            translated_characters: 0,
-            failed_characters: 0,
-            submit_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_characters, 1, type: :int64, json_name: "totalCharacters"
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
@@ -728,13 +401,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateResponse do
 end
 defmodule Google.Cloud.Translation.V3beta1.GlossaryInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -745,53 +412,20 @@ defmodule Google.Cloud.Translation.V3beta1.GlossaryInputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodePair do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_language_code: String.t(),
-          target_language_code: String.t()
-        }
-
-  defstruct source_language_code: "",
-            target_language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_language_code, 1, type: :string, json_name: "sourceLanguageCode"
   field :target_language_code, 2, type: :string, json_name: "targetLanguageCode"
 end
 defmodule Google.Cloud.Translation.V3beta1.Glossary.LanguageCodesSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_codes: [String.t()]
-        }
-
-  defstruct language_codes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
 end
 defmodule Google.Cloud.Translation.V3beta1.Glossary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          languages:
-            {:language_pair, Google.Cloud.Translation.V3beta1.Glossary.LanguageCodePair.t() | nil}
-            | {:language_codes_set,
-               Google.Cloud.Translation.V3beta1.Glossary.LanguageCodesSet.t() | nil},
-          name: String.t(),
-          input_config: Google.Cloud.Translation.V3beta1.GlossaryInputConfig.t() | nil,
-          entry_count: integer,
-          submit_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct languages: nil,
-            name: "",
-            input_config: nil,
-            entry_count: 0,
-            submit_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :languages, 0
 
@@ -822,58 +456,26 @@ defmodule Google.Cloud.Translation.V3beta1.Glossary do
 end
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          glossary: Google.Cloud.Translation.V3beta1.Glossary.t() | nil
-        }
-
-  defstruct parent: "",
-            glossary: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :glossary, 2, type: Google.Cloud.Translation.V3beta1.Glossary, deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.GetGlossaryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Translation.V3beta1.ListGlossariesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -882,32 +484,14 @@ defmodule Google.Cloud.Translation.V3beta1.ListGlossariesRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.ListGlossariesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          glossaries: [Google.Cloud.Translation.V3beta1.Glossary.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct glossaries: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :glossaries, 1, repeated: true, type: Google.Cloud.Translation.V3beta1.Glossary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State.t(),
-          submit_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            submit_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata.State, enum: true
@@ -915,17 +499,7 @@ defmodule Google.Cloud.Translation.V3beta1.CreateGlossaryMetadata do
 end
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State.t(),
-          submit_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            submit_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata.State, enum: true
@@ -933,17 +507,7 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryMetadata do
 end
 defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          submit_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            submit_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
@@ -951,74 +515,28 @@ defmodule Google.Cloud.Translation.V3beta1.DeleteGlossaryResponse do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.ModelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.GlossariesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source_language_code: String.t(),
-          target_language_codes: [String.t()],
-          input_configs: [Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig.t()],
-          output_config: Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig.t() | nil,
-          models: %{String.t() => String.t()},
-          glossaries: %{
-            String.t() => Google.Cloud.Translation.V3beta1.TranslateTextGlossaryConfig.t() | nil
-          },
-          format_conversions: %{String.t() => String.t()}
-        }
-
-  defstruct parent: "",
-            source_language_code: "",
-            target_language_codes: [],
-            input_configs: [],
-            output_config: nil,
-            models: %{},
-            glossaries: %{},
-            format_conversions: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1065,13 +583,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:gcs_source, Google.Cloud.Translation.V3beta1.GcsSource.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1082,14 +594,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentInputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_destination, Google.Cloud.Translation.V3beta1.GcsDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -1100,31 +605,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchDocumentOutputConfig do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_pages: integer,
-          translated_pages: integer,
-          failed_pages: integer,
-          total_billable_pages: integer,
-          total_characters: integer,
-          translated_characters: integer,
-          failed_characters: integer,
-          total_billable_characters: integer,
-          submit_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct total_pages: 0,
-            translated_pages: 0,
-            failed_pages: 0,
-            total_billable_pages: 0,
-            total_characters: 0,
-            translated_characters: 0,
-            failed_characters: 0,
-            total_billable_characters: 0,
-            submit_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_pages, 1, type: :int64, json_name: "totalPages"
   field :translated_pages, 2, type: :int64, json_name: "translatedPages"
@@ -1139,31 +620,7 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentResponse do
 end
 defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State.t(),
-          total_pages: integer,
-          translated_pages: integer,
-          failed_pages: integer,
-          total_billable_pages: integer,
-          total_characters: integer,
-          translated_characters: integer,
-          failed_characters: integer,
-          total_billable_characters: integer,
-          submit_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            total_pages: 0,
-            translated_pages: 0,
-            failed_pages: 0,
-            total_billable_pages: 0,
-            total_characters: 0,
-            translated_characters: 0,
-            failed_characters: 0,
-            total_billable_characters: 0,
-            submit_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata.State,
@@ -1181,7 +638,9 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentMetadata do
 end
 defmodule Google.Cloud.Translation.V3beta1.TranslationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.translation.v3beta1.TranslationService"
+  use GRPC.Service,
+    name: "google.cloud.translation.v3beta1.TranslationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :TranslateText,
       Google.Cloud.Translation.V3beta1.TranslateTextRequest,

@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.VersionView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VERSION_VIEW_UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VERSION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,23 +8,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.VersionView do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          related_tags: [Google.Devtools.Artifactregistry.V1beta2.Tag.t()],
-          metadata: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            related_tags: [],
-            metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 3, type: :string
@@ -42,21 +24,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Version do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            view: :VERSION_VIEW_UNSPECIFIED,
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -66,45 +34,21 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          versions: [Google.Devtools.Artifactregistry.V1beta2.Version.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct versions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Devtools.Artifactregistry.V1beta2.VersionView.t()
-        }
-
-  defstruct name: "",
-            view: :VERSION_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Devtools.Artifactregistry.V1beta2.VersionView, enum: true
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :force, 2, type: :bool

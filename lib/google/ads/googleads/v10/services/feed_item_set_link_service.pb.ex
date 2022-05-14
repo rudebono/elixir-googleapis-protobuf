@@ -1,18 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V10.Services.FeedItemSetLinkOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            partial_failure: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -26,15 +14,7 @@ defmodule Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinksRequest do
 end
 defmodule Google.Ads.Googleads.V10.Services.FeedItemSetLinkOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V10.Resources.FeedItemSetLink.t() | nil}
-            | {:remove, String.t()}
-        }
-
-  defstruct operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -43,15 +23,7 @@ defmodule Google.Ads.Googleads.V10.Services.FeedItemSetLinkOperation do
 end
 defmodule Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinkResult.t()],
-          partial_failure_error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct results: [],
-            partial_failure_error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -61,19 +33,15 @@ defmodule Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinksResponse do
 end
 defmodule Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinkResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V10.Services.FeedItemSetLinkService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v10.services.FeedItemSetLinkService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v10.services.FeedItemSetLinkService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :MutateFeedItemSetLinks,
       Google.Ads.Googleads.V10.Services.MutateFeedItemSetLinksRequest,

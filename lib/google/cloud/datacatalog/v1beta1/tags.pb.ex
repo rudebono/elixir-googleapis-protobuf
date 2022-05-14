@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1beta1.FieldType.PrimitiveType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRIMITIVE_TYPE_UNSPECIFIED | :DOUBLE | :STRING | :BOOL | :TIMESTAMP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :DOUBLE, 1
@@ -12,36 +10,14 @@ defmodule Google.Cloud.Datacatalog.V1beta1.FieldType.PrimitiveType do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.Tag.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Datacatalog.V1beta1.TagField.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1beta1.TagField
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.Tag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scope: {:column, String.t()},
-          name: String.t(),
-          template: String.t(),
-          template_display_name: String.t(),
-          fields: %{String.t() => Google.Cloud.Datacatalog.V1beta1.TagField.t() | nil}
-        }
-
-  defstruct scope: nil,
-            name: "",
-            template: "",
-            template_display_name: "",
-            fields: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :scope, 0
 
@@ -63,34 +39,13 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Tag do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.TagField.EnumValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t()
-        }
-
-  defstruct display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.TagField do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind:
-            {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:string_value, String.t()}
-            | {:bool_value, boolean}
-            | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
-            | {:enum_value, Google.Cloud.Datacatalog.V1beta1.TagField.EnumValue.t() | nil},
-          display_name: String.t(),
-          order: integer
-        }
-
-  defstruct kind: nil,
-            display_name: "",
-            order: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -113,32 +68,14 @@ defmodule Google.Cloud.Datacatalog.V1beta1.TagField do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplate.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Datacatalog.V1beta1.TagTemplateField.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1beta1.TagTemplateField
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          fields: %{String.t() => Google.Cloud.Datacatalog.V1beta1.TagTemplateField.t() | nil}
-        }
-
-  defstruct name: "",
-            display_name: "",
-            fields: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -151,21 +88,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplate do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplateField do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          type: Google.Cloud.Datacatalog.V1beta1.FieldType.t() | nil,
-          is_required: boolean,
-          order: integer
-        }
-
-  defstruct name: "",
-            display_name: "",
-            type: nil,
-            is_required: false,
-            order: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
   field :display_name, 1, type: :string, json_name: "displayName"
@@ -175,25 +98,13 @@ defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplateField do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.FieldType.EnumType.EnumValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t()
-        }
-
-  defstruct display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.FieldType.EnumType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_values: [Google.Cloud.Datacatalog.V1beta1.FieldType.EnumType.EnumValue.t()]
-        }
-
-  defstruct allowed_values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_values, 1,
     repeated: true,
@@ -202,15 +113,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.FieldType.EnumType do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.FieldType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type_decl:
-            {:primitive_type, Google.Cloud.Datacatalog.V1beta1.FieldType.PrimitiveType.t()}
-            | {:enum_type, Google.Cloud.Datacatalog.V1beta1.FieldType.EnumType.t() | nil}
-        }
-
-  defstruct type_decl: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type_decl, 0
 

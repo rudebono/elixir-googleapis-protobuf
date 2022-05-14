@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.Format do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FORMAT_UNSPECIFIED | :DOCKER | :MAVEN | :NPM | :APT | :YUM | :PYTHON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :DOCKER, 1
@@ -14,9 +12,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.Format do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryConfig.VersionPolicy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VERSION_POLICY_UNSPECIFIED | :RELEASE | :SNAPSHOT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VERSION_POLICY_UNSPECIFIED, 0
   field :RELEASE, 1
@@ -24,16 +20,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryCon
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allow_snapshot_overwrites: boolean,
-          version_policy:
-            Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryConfig.VersionPolicy.t()
-        }
-
-  defstruct allow_snapshot_overwrites: false,
-            version_policy: :VERSION_POLICY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allow_snapshot_overwrites, 1, type: :bool, json_name: "allowSnapshotOverwrites"
 
@@ -44,44 +31,14 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryCon
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.Repository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          format_config:
-            {:maven_config,
-             Google.Devtools.Artifactregistry.V1beta2.Repository.MavenRepositoryConfig.t() | nil},
-          name: String.t(),
-          format: Google.Devtools.Artifactregistry.V1beta2.Repository.Format.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          kms_key_name: String.t()
-        }
-
-  defstruct format_config: nil,
-            name: "",
-            format: :FORMAT_UNSPECIFIED,
-            description: "",
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :format_config, 0
 
@@ -105,17 +62,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.Repository do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -123,15 +70,7 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repositories: [Google.Devtools.Artifactregistry.V1beta2.Repository.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct repositories: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repositories, 1,
     repeated: true,
@@ -141,29 +80,13 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListRepositoriesResponse do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetRepositoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.CreateRepositoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          repository_id: String.t(),
-          repository: Google.Devtools.Artifactregistry.V1beta2.Repository.t() | nil
-        }
-
-  defstruct parent: "",
-            repository_id: "",
-            repository: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :repository_id, 2, type: :string, json_name: "repositoryId"
@@ -171,28 +94,14 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.CreateRepositoryRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateRepositoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repository: Google.Devtools.Artifactregistry.V1beta2.Repository.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct repository: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repository, 1, type: Google.Devtools.Artifactregistry.V1beta2.Repository
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteRepositoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

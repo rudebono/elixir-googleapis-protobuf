@@ -1,46 +1,20 @@
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Property do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker.Config do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          devices: [Google.Devtools.Remoteworkers.V1test2.Device.t()],
-          properties: [Google.Devtools.Remoteworkers.V1test2.Worker.Property.t()],
-          configs: [Google.Devtools.Remoteworkers.V1test2.Worker.Config.t()]
-        }
-
-  defstruct devices: [],
-            properties: [],
-            configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :devices, 1, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Device
 
@@ -52,30 +26,14 @@ defmodule Google.Devtools.Remoteworkers.V1test2.Worker do
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Device.Property do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Remoteworkers.V1test2.Device do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          handle: String.t(),
-          properties: [Google.Devtools.Remoteworkers.V1test2.Device.Property.t()]
-        }
-
-  defstruct handle: "",
-            properties: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :handle, 1, type: :string
 

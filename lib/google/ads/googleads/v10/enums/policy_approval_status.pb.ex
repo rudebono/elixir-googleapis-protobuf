@@ -1,15 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.PolicyApprovalStatusEnum.PolicyApprovalStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :DISAPPROVED
-          | :APPROVED_LIMITED
-          | :APPROVED
-          | :AREA_OF_INTEREST_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -20,9 +11,5 @@ defmodule Google.Ads.Googleads.V10.Enums.PolicyApprovalStatusEnum.PolicyApproval
 end
 defmodule Google.Ads.Googleads.V10.Enums.PolicyApprovalStatusEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

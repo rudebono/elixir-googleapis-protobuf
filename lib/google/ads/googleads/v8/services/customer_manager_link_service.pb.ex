@@ -1,28 +1,12 @@
 defmodule Google.Ads.Googleads.V8.Services.GetCustomerManagerLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation.t()],
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -35,19 +19,7 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          previous_customer_manager_link: String.t(),
-          new_manager: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            previous_customer_manager_link: "",
-            new_manager: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -61,15 +33,7 @@ defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation: {:update, Google.Ads.Googleads.V8.Resources.CustomerManagerLink.t() | nil},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -78,13 +42,7 @@ defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkOperation do
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResult.t()]
-        }
-
-  defstruct results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -92,31 +50,21 @@ defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResponse do
 end
 defmodule Google.Ads.Googleads.V8.Services.MoveManagerLinkResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateCustomerManagerLinkResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V8.Services.CustomerManagerLinkService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v8.services.CustomerManagerLinkService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v8.services.CustomerManagerLinkService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetCustomerManagerLink,
       Google.Ads.Googleads.V8.Services.GetCustomerManagerLinkRequest,

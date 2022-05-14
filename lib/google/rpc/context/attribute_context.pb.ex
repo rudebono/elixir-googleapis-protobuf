@@ -1,35 +1,13 @@
 defmodule Google.Rpc.Context.AttributeContext.Peer.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Rpc.Context.AttributeContext.Peer do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip: String.t(),
-          port: integer,
-          labels: %{String.t() => String.t()},
-          principal: String.t(),
-          region_code: String.t()
-        }
-
-  defstruct ip: "",
-            port: 0,
-            labels: %{},
-            principal: "",
-            region_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip, 1, type: :string
   field :port, 2, type: :int64
@@ -44,19 +22,7 @@ defmodule Google.Rpc.Context.AttributeContext.Peer do
 end
 defmodule Google.Rpc.Context.AttributeContext.Api do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: String.t(),
-          operation: String.t(),
-          protocol: String.t(),
-          version: String.t()
-        }
-
-  defstruct service: "",
-            operation: "",
-            protocol: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :operation, 2, type: :string
@@ -65,21 +31,7 @@ defmodule Google.Rpc.Context.AttributeContext.Api do
 end
 defmodule Google.Rpc.Context.AttributeContext.Auth do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          principal: String.t(),
-          audiences: [String.t()],
-          presenter: String.t(),
-          claims: Google.Protobuf.Struct.t() | nil,
-          access_levels: [String.t()]
-        }
-
-  defstruct principal: "",
-            audiences: [],
-            presenter: "",
-            claims: nil,
-            access_levels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :principal, 1, type: :string
   field :audiences, 2, repeated: true, type: :string
@@ -89,50 +41,14 @@ defmodule Google.Rpc.Context.AttributeContext.Auth do
 end
 defmodule Google.Rpc.Context.AttributeContext.Request.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Rpc.Context.AttributeContext.Request do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          method: String.t(),
-          headers: %{String.t() => String.t()},
-          path: String.t(),
-          host: String.t(),
-          scheme: String.t(),
-          query: String.t(),
-          time: Google.Protobuf.Timestamp.t() | nil,
-          size: integer,
-          protocol: String.t(),
-          reason: String.t(),
-          auth: Google.Rpc.Context.AttributeContext.Auth.t() | nil
-        }
-
-  defstruct id: "",
-            method: "",
-            headers: %{},
-            path: "",
-            host: "",
-            scheme: "",
-            query: "",
-            time: nil,
-            size: 0,
-            protocol: "",
-            reason: "",
-            auth: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -154,36 +70,14 @@ defmodule Google.Rpc.Context.AttributeContext.Request do
 end
 defmodule Google.Rpc.Context.AttributeContext.Response.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Rpc.Context.AttributeContext.Response do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: integer,
-          size: integer,
-          headers: %{String.t() => String.t()},
-          time: Google.Protobuf.Timestamp.t() | nil,
-          backend_latency: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct code: 0,
-            size: 0,
-            headers: %{},
-            time: nil,
-            backend_latency: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: :int64
   field :size, 2, type: :int64
@@ -198,65 +92,21 @@ defmodule Google.Rpc.Context.AttributeContext.Response do
 end
 defmodule Google.Rpc.Context.AttributeContext.Resource.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Rpc.Context.AttributeContext.Resource.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Rpc.Context.AttributeContext.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: String.t(),
-          name: String.t(),
-          type: String.t(),
-          labels: %{String.t() => String.t()},
-          uid: String.t(),
-          annotations: %{String.t() => String.t()},
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          location: String.t()
-        }
-
-  defstruct service: "",
-            name: "",
-            type: "",
-            labels: %{},
-            uid: "",
-            annotations: %{},
-            display_name: "",
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            etag: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :name, 2, type: :string
@@ -283,27 +133,7 @@ defmodule Google.Rpc.Context.AttributeContext.Resource do
 end
 defmodule Google.Rpc.Context.AttributeContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          origin: Google.Rpc.Context.AttributeContext.Peer.t() | nil,
-          source: Google.Rpc.Context.AttributeContext.Peer.t() | nil,
-          destination: Google.Rpc.Context.AttributeContext.Peer.t() | nil,
-          request: Google.Rpc.Context.AttributeContext.Request.t() | nil,
-          response: Google.Rpc.Context.AttributeContext.Response.t() | nil,
-          resource: Google.Rpc.Context.AttributeContext.Resource.t() | nil,
-          api: Google.Rpc.Context.AttributeContext.Api.t() | nil,
-          extensions: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct origin: nil,
-            source: nil,
-            destination: nil,
-            request: nil,
-            response: nil,
-            resource: nil,
-            api: nil,
-            extensions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :origin, 7, type: Google.Rpc.Context.AttributeContext.Peer
   field :source, 1, type: Google.Rpc.Context.AttributeContext.Peer

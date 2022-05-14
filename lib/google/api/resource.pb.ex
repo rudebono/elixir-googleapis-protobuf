@@ -1,8 +1,6 @@
 defmodule Google.Api.ResourceDescriptor.History do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HISTORY_UNSPECIFIED | :ORIGINALLY_SINGLE_PATTERN | :FUTURE_MULTI_PATTERN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HISTORY_UNSPECIFIED, 0
   field :ORIGINALLY_SINGLE_PATTERN, 1
@@ -10,34 +8,14 @@ defmodule Google.Api.ResourceDescriptor.History do
 end
 defmodule Google.Api.ResourceDescriptor.Style do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STYLE_UNSPECIFIED | :DECLARATIVE_FRIENDLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STYLE_UNSPECIFIED, 0
   field :DECLARATIVE_FRIENDLY, 1
 end
 defmodule Google.Api.ResourceDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          pattern: [String.t()],
-          name_field: String.t(),
-          history: Google.Api.ResourceDescriptor.History.t(),
-          plural: String.t(),
-          singular: String.t(),
-          style: [Google.Api.ResourceDescriptor.Style.t()]
-        }
-
-  defstruct type: "",
-            pattern: [],
-            name_field: "",
-            history: :HISTORY_UNSPECIFIED,
-            plural: "",
-            singular: "",
-            style: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :pattern, 2, repeated: true, type: :string
@@ -49,22 +27,14 @@ defmodule Google.Api.ResourceDescriptor do
 end
 defmodule Google.Api.ResourceReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          child_type: String.t()
-        }
-
-  defstruct type: "",
-            child_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :child_type, 2, type: :string, json_name: "childType"
 end
 defmodule Google.Api.PbExtension do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   extend Google.Protobuf.FieldOptions, :resource_reference, 1055,
     optional: true,

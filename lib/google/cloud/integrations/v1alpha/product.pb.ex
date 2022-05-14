@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Integrations.V1alpha.Product do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRODUCT_UNSPECIFIED | :IP | :APIGEE | :SECURITY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRODUCT_UNSPECIFIED, 0
   field :IP, 1

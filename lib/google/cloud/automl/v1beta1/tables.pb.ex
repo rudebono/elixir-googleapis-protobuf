@@ -1,39 +1,13 @@
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata.TargetColumnCorrelationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Automl.V1beta1.CorrelationStats.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.CorrelationStats
 end
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary_table_spec_id: String.t(),
-          target_column_spec_id: String.t(),
-          weight_column_spec_id: String.t(),
-          ml_use_column_spec_id: String.t(),
-          target_column_correlations: %{
-            String.t() => Google.Cloud.Automl.V1beta1.CorrelationStats.t() | nil
-          },
-          stats_update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct primary_table_spec_id: "",
-            target_column_spec_id: "",
-            weight_column_spec_id: "",
-            ml_use_column_spec_id: "",
-            target_column_correlations: %{},
-            stats_update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary_table_spec_id, 1, type: :string, json_name: "primaryTableSpecId"
   field :target_column_spec_id, 2, type: :string, json_name: "targetColumnSpecId"
@@ -50,30 +24,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          additional_optimization_objective_config:
-            {:optimization_objective_recall_value, float | :infinity | :negative_infinity | :nan}
-            | {:optimization_objective_precision_value,
-               float | :infinity | :negative_infinity | :nan},
-          target_column_spec: Google.Cloud.Automl.V1beta1.ColumnSpec.t() | nil,
-          input_feature_column_specs: [Google.Cloud.Automl.V1beta1.ColumnSpec.t()],
-          optimization_objective: String.t(),
-          tables_model_column_info: [Google.Cloud.Automl.V1beta1.TablesModelColumnInfo.t()],
-          train_budget_milli_node_hours: integer,
-          train_cost_milli_node_hours: integer,
-          disable_early_stopping: boolean
-        }
-
-  defstruct additional_optimization_objective_config: nil,
-            target_column_spec: nil,
-            input_feature_column_specs: [],
-            optimization_objective: "",
-            tables_model_column_info: [],
-            train_budget_milli_node_hours: 0,
-            train_cost_milli_node_hours: 0,
-            disable_early_stopping: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :additional_optimization_objective_config, 0
 
@@ -109,21 +60,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score: float | :infinity | :negative_infinity | :nan,
-          prediction_interval: Google.Cloud.Automl.V1beta1.DoubleRange.t() | nil,
-          value: Google.Protobuf.Value.t() | nil,
-          tables_model_column_info: [Google.Cloud.Automl.V1beta1.TablesModelColumnInfo.t()],
-          baseline_score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct score: 0.0,
-            prediction_interval: nil,
-            value: nil,
-            tables_model_column_info: [],
-            baseline_score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score, 1, type: :float
 
@@ -142,17 +79,7 @@ defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
 end
 defmodule Google.Cloud.Automl.V1beta1.TablesModelColumnInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          column_spec_name: String.t(),
-          column_display_name: String.t(),
-          feature_importance: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct column_spec_name: "",
-            column_display_name: "",
-            feature_importance: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :column_spec_name, 1, type: :string, json_name: "columnSpecName"
   field :column_display_name, 2, type: :string, json_name: "columnDisplayName"

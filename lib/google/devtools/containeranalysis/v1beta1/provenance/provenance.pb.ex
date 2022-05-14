@@ -1,60 +1,20 @@
 defmodule Grafeas.V1beta1.Provenance.Hash.HashType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HASH_TYPE_UNSPECIFIED | :SHA256
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :SHA256, 1
 end
 defmodule Grafeas.V1beta1.Provenance.BuildProvenance.BuildOptionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Grafeas.V1beta1.Provenance.BuildProvenance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          project_id: String.t(),
-          commands: [Grafeas.V1beta1.Provenance.Command.t()],
-          built_artifacts: [Grafeas.V1beta1.Provenance.Artifact.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          creator: String.t(),
-          logs_uri: String.t(),
-          source_provenance: Grafeas.V1beta1.Provenance.Source.t() | nil,
-          trigger_id: String.t(),
-          build_options: %{String.t() => String.t()},
-          builder_version: String.t()
-        }
-
-  defstruct id: "",
-            project_id: "",
-            commands: [],
-            built_artifacts: [],
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            creator: "",
-            logs_uri: "",
-            source_provenance: nil,
-            trigger_id: "",
-            build_options: %{},
-            builder_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -87,34 +47,14 @@ defmodule Grafeas.V1beta1.Provenance.BuildProvenance do
 end
 defmodule Grafeas.V1beta1.Provenance.Source.FileHashesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Grafeas.V1beta1.Provenance.FileHashes.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1beta1.Provenance.FileHashes
 end
 defmodule Grafeas.V1beta1.Provenance.Source do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact_storage_source_uri: String.t(),
-          file_hashes: %{String.t() => Grafeas.V1beta1.Provenance.FileHashes.t() | nil},
-          context: Grafeas.V1beta1.Source.SourceContext.t() | nil,
-          additional_contexts: [Grafeas.V1beta1.Source.SourceContext.t()]
-        }
-
-  defstruct artifact_storage_source_uri: "",
-            file_hashes: %{},
-            context: nil,
-            additional_contexts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact_storage_source_uri, 1, type: :string, json_name: "artifactStorageSourceUri"
 
@@ -133,13 +73,7 @@ defmodule Grafeas.V1beta1.Provenance.Source do
 end
 defmodule Grafeas.V1beta1.Provenance.FileHashes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_hash: [Grafeas.V1beta1.Provenance.Hash.t()]
-        }
-
-  defstruct file_hash: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_hash, 1,
     repeated: true,
@@ -148,38 +82,14 @@ defmodule Grafeas.V1beta1.Provenance.FileHashes do
 end
 defmodule Grafeas.V1beta1.Provenance.Hash do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Grafeas.V1beta1.Provenance.Hash.HashType.t(),
-          value: binary
-        }
-
-  defstruct type: :HASH_TYPE_UNSPECIFIED,
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Grafeas.V1beta1.Provenance.Hash.HashType, enum: true
   field :value, 2, type: :bytes
 end
 defmodule Grafeas.V1beta1.Provenance.Command do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          env: [String.t()],
-          args: [String.t()],
-          dir: String.t(),
-          id: String.t(),
-          wait_for: [String.t()]
-        }
-
-  defstruct name: "",
-            env: [],
-            args: [],
-            dir: "",
-            id: "",
-            wait_for: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :env, 2, repeated: true, type: :string
@@ -190,17 +100,7 @@ defmodule Grafeas.V1beta1.Provenance.Command do
 end
 defmodule Grafeas.V1beta1.Provenance.Artifact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          checksum: String.t(),
-          id: String.t(),
-          names: [String.t()]
-        }
-
-  defstruct checksum: "",
-            id: "",
-            names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :checksum, 1, type: :string
   field :id, 2, type: :string

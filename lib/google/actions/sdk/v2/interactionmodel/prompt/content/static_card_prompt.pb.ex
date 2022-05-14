@@ -1,23 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          text: String.t(),
-          image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil,
-          image_fill:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill.t(),
-          button: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt.t() | nil
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            text: "",
-            image: nil,
-            image_fill: :UNSPECIFIED,
-            button: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false

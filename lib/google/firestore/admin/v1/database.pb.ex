@@ -1,8 +1,6 @@
 defmodule Google.Firestore.Admin.V1.Database.DatabaseType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATABASE_TYPE_UNSPECIFIED | :FIRESTORE_NATIVE | :DATASTORE_MODE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :FIRESTORE_NATIVE, 1
@@ -10,14 +8,7 @@ defmodule Google.Firestore.Admin.V1.Database.DatabaseType do
 end
 defmodule Google.Firestore.Admin.V1.Database.ConcurrencyMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CONCURRENCY_MODE_UNSPECIFIED
-          | :OPTIMISTIC
-          | :PESSIMISTIC
-          | :OPTIMISTIC_WITH_ENTITY_GROUPS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :OPTIMISTIC, 1
@@ -26,21 +17,7 @@ defmodule Google.Firestore.Admin.V1.Database.ConcurrencyMode do
 end
 defmodule Google.Firestore.Admin.V1.Database do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          location_id: String.t(),
-          type: Google.Firestore.Admin.V1.Database.DatabaseType.t(),
-          concurrency_mode: Google.Firestore.Admin.V1.Database.ConcurrencyMode.t(),
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            location_id: "",
-            type: :DATABASE_TYPE_UNSPECIFIED,
-            concurrency_mode: :CONCURRENCY_MODE_UNSPECIFIED,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :location_id, 9, type: :string, json_name: "locationId"

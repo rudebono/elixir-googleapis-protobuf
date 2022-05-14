@@ -1,33 +1,13 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.Tag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version: String.t()
-        }
-
-  defstruct name: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
@@ -36,44 +16,20 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ListTagsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tags: [Google.Devtools.Artifactregistry.V1beta2.Tag.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tags: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tags, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1beta2.Tag
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.GetTagRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.CreateTagRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tag_id: String.t(),
-          tag: Google.Devtools.Artifactregistry.V1beta2.Tag.t() | nil
-        }
-
-  defstruct parent: "",
-            tag_id: "",
-            tag: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :tag_id, 2, type: :string, json_name: "tagId"
@@ -81,28 +37,14 @@ defmodule Google.Devtools.Artifactregistry.V1beta2.CreateTagRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.UpdateTagRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag: Google.Devtools.Artifactregistry.V1beta2.Tag.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct tag: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag, 1, type: Google.Devtools.Artifactregistry.V1beta2.Tag
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.DeleteTagRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Run.V2.Condition.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CONDITION_PENDING
-          | :CONDITION_RECONCILING
-          | :CONDITION_FAILED
-          | :CONDITION_SUCCEEDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CONDITION_PENDING, 1
@@ -18,9 +10,7 @@ defmodule Google.Cloud.Run.V2.Condition.State do
 end
 defmodule Google.Cloud.Run.V2.Condition.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :ERROR | :WARNING | :INFO
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -29,25 +19,7 @@ defmodule Google.Cloud.Run.V2.Condition.Severity do
 end
 defmodule Google.Cloud.Run.V2.Condition.CommonReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :COMMON_REASON_UNDEFINED
-          | :UNKNOWN
-          | :REVISION_FAILED
-          | :PROGRESS_DEADLINE_EXCEEDED
-          | :CONTAINER_MISSING
-          | :CONTAINER_PERMISSION_DENIED
-          | :CONTAINER_IMAGE_UNAUTHORIZED
-          | :CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED
-          | :ENCRYPTION_KEY_PERMISSION_DENIED
-          | :ENCRYPTION_KEY_CHECK_FAILED
-          | :SECRETS_ACCESS_CHECK_FAILED
-          | :WAITING_FOR_OPERATION
-          | :IMMEDIATE_RETRY
-          | :POSTPONED_RETRY
-          | :INTERNAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMMON_REASON_UNDEFINED, 0
   field :UNKNOWN, 1
@@ -67,22 +39,7 @@ defmodule Google.Cloud.Run.V2.Condition.CommonReason do
 end
 defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REVISION_REASON_UNDEFINED
-          | :PENDING
-          | :RESERVE
-          | :RETIRED
-          | :RETIRING
-          | :RECREATING
-          | :HEALTH_CHECK_CONTAINER_ERROR
-          | :CUSTOMIZED_PATH_RESPONSE_PENDING
-          | :MIN_INSTANCES_NOT_PROVISIONED
-          | :ACTIVE_REVISION_LIMIT_REACHED
-          | :NO_DEPLOYMENT
-          | :HEALTH_CHECK_SKIPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REVISION_REASON_UNDEFINED, 0
   field :PENDING, 1
@@ -99,13 +56,7 @@ defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
 end
 defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EXECUTION_REASON_UNDEFINED
-          | :JOB_STATUS_SERVICE_POLLING_ERROR
-          | :NON_ZERO_EXIT_CODE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_REASON_UNDEFINED, 0
   field :JOB_STATUS_SERVICE_POLLING_ERROR, 1
@@ -113,26 +64,7 @@ defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do
 end
 defmodule Google.Cloud.Run.V2.Condition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reasons:
-            {:reason, Google.Cloud.Run.V2.Condition.CommonReason.t()}
-            | {:revision_reason, Google.Cloud.Run.V2.Condition.RevisionReason.t()}
-            | {:execution_reason, Google.Cloud.Run.V2.Condition.ExecutionReason.t()},
-          type: String.t(),
-          state: Google.Cloud.Run.V2.Condition.State.t(),
-          message: String.t(),
-          last_transition_time: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Cloud.Run.V2.Condition.Severity.t()
-        }
-
-  defstruct reasons: nil,
-            type: "",
-            state: :STATE_UNSPECIFIED,
-            message: "",
-            last_transition_time: nil,
-            severity: :SEVERITY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :reasons, 0
 

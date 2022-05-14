@@ -1,8 +1,6 @@
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATED | :RUNNING | :DONE | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -12,25 +10,13 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
 end
 defmodule Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          monitored_resource_container: String.t()
-        }
-
-  defstruct monitored_resource_container: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :monitored_resource_container, 1,
     type: :string,
@@ -39,13 +25,7 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
 end
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metrics_scopes: [Google.Monitoring.Metricsscope.V1.MetricsScope.t()]
-        }
-
-  defstruct metrics_scopes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metrics_scopes, 1,
     repeated: true,
@@ -54,15 +34,7 @@ defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectR
 end
 defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          monitored_project: Google.Monitoring.Metricsscope.V1.MonitoredProject.t() | nil
-        }
-
-  defstruct parent: "",
-            monitored_project: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -73,29 +45,13 @@ defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
 end
 defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Monitoring.Metricsscope.V1.OperationMetadata.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Monitoring.Metricsscope.V1.OperationMetadata.State, enum: true
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -103,7 +59,9 @@ defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
 end
 defmodule Google.Monitoring.Metricsscope.V1.MetricsScopes.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.monitoring.metricsscope.v1.MetricsScopes"
+  use GRPC.Service,
+    name: "google.monitoring.metricsscope.v1.MetricsScopes",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetMetricsScope,
       Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest,

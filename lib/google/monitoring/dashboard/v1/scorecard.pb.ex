@@ -1,29 +1,13 @@
 defmodule Google.Monitoring.Dashboard.V1.Scorecard.GaugeView do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lower_bound: float | :infinity | :negative_infinity | :nan,
-          upper_bound: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct lower_bound: 0.0,
-            upper_bound: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :lower_bound, 1, type: :double, json_name: "lowerBound"
   field :upper_bound, 2, type: :double, json_name: "upperBound"
 end
 defmodule Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          spark_chart_type: Google.Monitoring.Dashboard.V1.SparkChartType.t(),
-          min_alignment_period: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct spark_chart_type: :SPARK_CHART_TYPE_UNSPECIFIED,
-            min_alignment_period: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :spark_chart_type, 1,
     type: Google.Monitoring.Dashboard.V1.SparkChartType,
@@ -35,20 +19,7 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView do
 end
 defmodule Google.Monitoring.Dashboard.V1.Scorecard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_view:
-            {:gauge_view, Google.Monitoring.Dashboard.V1.Scorecard.GaugeView.t() | nil}
-            | {:spark_chart_view,
-               Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView.t() | nil},
-          time_series_query: Google.Monitoring.Dashboard.V1.TimeSeriesQuery.t() | nil,
-          thresholds: [Google.Monitoring.Dashboard.V1.Threshold.t()]
-        }
-
-  defstruct data_view: nil,
-            time_series_query: nil,
-            thresholds: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :data_view, 0
 

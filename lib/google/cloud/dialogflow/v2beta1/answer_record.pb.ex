@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.CorrectnessLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CORRECTNESS_LEVEL_UNSPECIFIED
-          | :NOT_CORRECT
-          | :PARTIALLY_CORRECT
-          | :FULLY_CORRECT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CORRECTNESS_LEVEL_UNSPECIFIED, 0
   field :NOT_CORRECT, 1
@@ -16,9 +9,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.CorrectnessLevel do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANSWER_RELEVANCE_UNSPECIFIED | :IRRELEVANT | :RELEVANT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANSWER_RELEVANCE_UNSPECIFIED, 0
   field :IRRELEVANT, 1
@@ -26,9 +17,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentCorrectness do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DOCUMENT_CORRECTNESS_UNSPECIFIED | :INCORRECT | :CORRECT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DOCUMENT_CORRECTNESS_UNSPECIFIED, 0
   field :INCORRECT, 1
@@ -36,9 +25,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentCorrect
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentEfficiency do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DOCUMENT_EFFICIENCY_UNSPECIFIED | :INEFFICIENT | :EFFICIENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DOCUMENT_EFFICIENCY_UNSPECIFIED, 0
   field :INEFFICIENT, 1
@@ -46,19 +33,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentEfficie
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          record:
-            {:agent_assistant_record,
-             Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord.t() | nil},
-          name: String.t(),
-          answer_feedback: Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.t() | nil
-        }
-
-  defstruct record: nil,
-            name: "",
-            answer_feedback: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :record, 0
 
@@ -75,15 +50,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecord do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          answer:
-            {:article_suggestion_answer, Google.Cloud.Dialogflow.V2beta1.ArticleAnswer.t() | nil}
-            | {:faq_answer, Google.Cloud.Dialogflow.V2beta1.FaqAnswer.t() | nil}
-        }
-
-  defstruct answer: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :answer, 0
 
@@ -101,25 +68,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          detail_feedback:
-            {:agent_assistant_detail_feedback,
-             Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.t() | nil},
-          correctness_level: Google.Cloud.Dialogflow.V2beta1.AnswerFeedback.CorrectnessLevel.t(),
-          clicked: boolean,
-          click_time: Google.Protobuf.Timestamp.t() | nil,
-          displayed: boolean,
-          display_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct detail_feedback: nil,
-            correctness_level: :CORRECTNESS_LEVEL_UNSPECIFIED,
-            clicked: false,
-            click_time: nil,
-            displayed: false,
-            display_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :detail_feedback, 0
 
@@ -140,17 +89,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_timestamp: Google.Protobuf.Timestamp.t() | nil,
-          submit_timestamp: Google.Protobuf.Timestamp.t() | nil,
-          summary_text: String.t()
-        }
-
-  defstruct start_timestamp: nil,
-            submit_timestamp: nil,
-            summary_text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "startTimestamp"
   field :submit_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "submitTimestamp"
@@ -158,23 +97,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFe
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          answer_relevance:
-            Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance.t(),
-          document_correctness:
-            Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentCorrectness.t(),
-          document_efficiency:
-            Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.DocumentEfficiency.t(),
-          summarization_feedback:
-            Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback.t() | nil
-        }
-
-  defstruct answer_relevance: :ANSWER_RELEVANCE_UNSPECIFIED,
-            document_correctness: :DOCUMENT_CORRECTNESS_UNSPECIFIED,
-            document_efficiency: :DOCUMENT_EFFICIENCY_UNSPECIFIED,
-            summarization_feedback: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :answer_relevance, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.AnswerRelevance,
@@ -197,29 +120,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetAnswerRecordRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
@@ -227,15 +134,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          answer_records: [Google.Cloud.Dialogflow.V2beta1.AnswerRecord.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct answer_records: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :answer_records, 1,
     repeated: true,
@@ -246,15 +145,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListAnswerRecordsResponse do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          answer_record: Google.Cloud.Dialogflow.V2beta1.AnswerRecord.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct answer_record: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :answer_record, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AnswerRecord,
@@ -265,7 +156,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateAnswerRecordRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerRecords.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.AnswerRecords"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2beta1.AnswerRecords",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetAnswerRecord,
       Google.Cloud.Dialogflow.V2beta1.GetAnswerRecordRequest,

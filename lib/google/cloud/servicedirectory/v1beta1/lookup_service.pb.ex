@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          max_endpoints: integer,
-          endpoint_filter: String.t()
-        }
-
-  defstruct name: "",
-            max_endpoints: 0,
-            endpoint_filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :max_endpoints, 2, type: :int32, json_name: "maxEndpoints", deprecated: false
@@ -18,19 +8,15 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest do
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ResolveServiceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Cloud.Servicedirectory.V1beta1.Service.t() | nil
-        }
-
-  defstruct service: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.LookupService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.servicedirectory.v1beta1.LookupService"
+  use GRPC.Service,
+    name: "google.cloud.servicedirectory.v1beta1.LookupService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ResolveService,
       Google.Cloud.Servicedirectory.V1beta1.ResolveServiceRequest,

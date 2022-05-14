@@ -1,16 +1,6 @@
 defmodule Google.Devtools.Clouddebugger.V2.StatusMessage.Reference do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :BREAKPOINT_SOURCE_LOCATION
-          | :BREAKPOINT_CONDITION
-          | :BREAKPOINT_EXPRESSION
-          | :BREAKPOINT_AGE
-          | :VARIABLE_NAME
-          | :VARIABLE_VALUE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :BREAKPOINT_SOURCE_LOCATION, 3
@@ -22,18 +12,14 @@ defmodule Google.Devtools.Clouddebugger.V2.StatusMessage.Reference do
 end
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.Action do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CAPTURE | :LOG
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CAPTURE, 0
   field :LOG, 1
 end
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LogLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INFO | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INFO, 0
   field :WARNING, 1
@@ -41,32 +27,14 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LogLevel do
 end
 defmodule Google.Devtools.Clouddebugger.V2.FormatMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          format: String.t(),
-          parameters: [String.t()]
-        }
-
-  defstruct format: "",
-            parameters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :format, 1, type: :string
   field :parameters, 2, repeated: true, type: :string
 end
 defmodule Google.Devtools.Clouddebugger.V2.StatusMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          is_error: boolean,
-          refers_to: Google.Devtools.Clouddebugger.V2.StatusMessage.Reference.t(),
-          description: Google.Devtools.Clouddebugger.V2.FormatMessage.t() | nil
-        }
-
-  defstruct is_error: false,
-            refers_to: :UNSPECIFIED,
-            description: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :is_error, 1, type: :bool, json_name: "isError"
 
@@ -79,17 +47,7 @@ defmodule Google.Devtools.Clouddebugger.V2.StatusMessage do
 end
 defmodule Google.Devtools.Clouddebugger.V2.SourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          path: String.t(),
-          line: integer,
-          column: integer
-        }
-
-  defstruct path: "",
-            line: 0,
-            column: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :line, 2, type: :int32
@@ -97,23 +55,7 @@ defmodule Google.Devtools.Clouddebugger.V2.SourceLocation do
 end
 defmodule Google.Devtools.Clouddebugger.V2.Variable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          value: String.t(),
-          type: String.t(),
-          members: [Google.Devtools.Clouddebugger.V2.Variable.t()],
-          var_table_index: Google.Protobuf.Int32Value.t() | nil,
-          status: Google.Devtools.Clouddebugger.V2.StatusMessage.t() | nil
-        }
-
-  defstruct name: "",
-            value: "",
-            type: "",
-            members: [],
-            var_table_index: nil,
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -124,19 +66,7 @@ defmodule Google.Devtools.Clouddebugger.V2.Variable do
 end
 defmodule Google.Devtools.Clouddebugger.V2.StackFrame do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          function: String.t(),
-          location: Google.Devtools.Clouddebugger.V2.SourceLocation.t() | nil,
-          arguments: [Google.Devtools.Clouddebugger.V2.Variable.t()],
-          locals: [Google.Devtools.Clouddebugger.V2.Variable.t()]
-        }
-
-  defstruct function: "",
-            location: nil,
-            arguments: [],
-            locals: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :function, 1, type: :string
   field :location, 2, type: Google.Devtools.Clouddebugger.V2.SourceLocation
@@ -145,58 +75,14 @@ defmodule Google.Devtools.Clouddebugger.V2.StackFrame do
 end
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          action: Google.Devtools.Clouddebugger.V2.Breakpoint.Action.t(),
-          location: Google.Devtools.Clouddebugger.V2.SourceLocation.t() | nil,
-          condition: String.t(),
-          expressions: [String.t()],
-          log_message_format: String.t(),
-          log_level: Google.Devtools.Clouddebugger.V2.Breakpoint.LogLevel.t(),
-          is_final_state: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          final_time: Google.Protobuf.Timestamp.t() | nil,
-          user_email: String.t(),
-          status: Google.Devtools.Clouddebugger.V2.StatusMessage.t() | nil,
-          stack_frames: [Google.Devtools.Clouddebugger.V2.StackFrame.t()],
-          evaluated_expressions: [Google.Devtools.Clouddebugger.V2.Variable.t()],
-          variable_table: [Google.Devtools.Clouddebugger.V2.Variable.t()],
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct id: "",
-            action: :CAPTURE,
-            location: nil,
-            condition: "",
-            expressions: [],
-            log_message_format: "",
-            log_level: :INFO,
-            is_final_state: false,
-            create_time: nil,
-            final_time: nil,
-            user_email: "",
-            status: nil,
-            stack_frames: [],
-            evaluated_expressions: [],
-            variable_table: [],
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :action, 13, type: Google.Devtools.Clouddebugger.V2.Breakpoint.Action, enum: true
@@ -238,48 +124,14 @@ defmodule Google.Devtools.Clouddebugger.V2.Breakpoint do
 end
 defmodule Google.Devtools.Clouddebugger.V2.Debuggee.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Clouddebugger.V2.Debuggee do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          project: String.t(),
-          uniquifier: String.t(),
-          description: String.t(),
-          is_inactive: boolean,
-          agent_version: String.t(),
-          is_disabled: boolean,
-          status: Google.Devtools.Clouddebugger.V2.StatusMessage.t() | nil,
-          source_contexts: [Google.Devtools.Source.V1.SourceContext.t()],
-          ext_source_contexts: [Google.Devtools.Source.V1.ExtendedSourceContext.t()],
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct id: "",
-            project: "",
-            uniquifier: "",
-            description: "",
-            is_inactive: false,
-            agent_version: "",
-            is_disabled: false,
-            status: nil,
-            source_contexts: [],
-            ext_source_contexts: [],
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project, 2, type: :string

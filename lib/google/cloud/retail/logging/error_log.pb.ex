@@ -1,50 +1,24 @@
 defmodule Google.Cloud.Retail.Logging.ServiceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: String.t()
-        }
-
-  defstruct service: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: :string
 end
 defmodule Google.Cloud.Retail.Logging.HttpRequestContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response_status_code: integer
-        }
-
-  defstruct response_status_code: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :response_status_code, 1, type: :int32, json_name: "responseStatusCode"
 end
 defmodule Google.Cloud.Retail.Logging.SourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          function_name: String.t()
-        }
-
-  defstruct function_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :function_name, 1, type: :string, json_name: "functionName"
 end
 defmodule Google.Cloud.Retail.Logging.ErrorContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          http_request: Google.Cloud.Retail.Logging.HttpRequestContext.t() | nil,
-          report_location: Google.Cloud.Retail.Logging.SourceLocation.t() | nil
-        }
-
-  defstruct http_request: nil,
-            report_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :http_request, 1,
     type: Google.Cloud.Retail.Logging.HttpRequestContext,
@@ -56,20 +30,7 @@ defmodule Google.Cloud.Retail.Logging.ErrorContext do
 end
 defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          line_content:
-            {:catalog_item, String.t()} | {:product, String.t()} | {:user_event, String.t()},
-          operation_name: String.t(),
-          gcs_path: String.t(),
-          line_number: String.t()
-        }
-
-  defstruct line_content: nil,
-            operation_name: "",
-            gcs_path: "",
-            line_number: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :line_content, 0
 
@@ -82,25 +43,7 @@ defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
 end
 defmodule Google.Cloud.Retail.Logging.ErrorLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_context: Google.Cloud.Retail.Logging.ServiceContext.t() | nil,
-          context: Google.Cloud.Retail.Logging.ErrorContext.t() | nil,
-          message: String.t(),
-          status: Google.Rpc.Status.t() | nil,
-          request_payload: Google.Protobuf.Struct.t() | nil,
-          response_payload: Google.Protobuf.Struct.t() | nil,
-          import_payload: Google.Cloud.Retail.Logging.ImportErrorContext.t() | nil
-        }
-
-  defstruct service_context: nil,
-            context: nil,
-            message: "",
-            status: nil,
-            request_payload: nil,
-            response_payload: nil,
-            import_payload: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_context, 1,
     type: Google.Cloud.Retail.Logging.ServiceContext,

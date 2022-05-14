@@ -1,24 +1,12 @@
 defmodule Google.Ads.Googleads.V9.Services.ListMerchantCenterLinksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t()
-        }
-
-  defstruct customer_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 end
 defmodule Google.Ads.Googleads.V9.Services.ListMerchantCenterLinksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          merchant_center_links: [Google.Ads.Googleads.V9.Resources.MerchantCenterLink.t()]
-        }
-
-  defstruct merchant_center_links: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :merchant_center_links, 1,
     repeated: true,
@@ -27,29 +15,13 @@ defmodule Google.Ads.Googleads.V9.Services.ListMerchantCenterLinksResponse do
 end
 defmodule Google.Ads.Googleads.V9.Services.GetMerchantCenterLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operation: Google.Ads.Googleads.V9.Services.MerchantCenterLinkOperation.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operation: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -61,17 +33,7 @@ defmodule Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkRequest do
 end
 defmodule Google.Ads.Googleads.V9.Services.MerchantCenterLinkOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:update, Google.Ads.Googleads.V9.Resources.MerchantCenterLink.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -81,31 +43,21 @@ defmodule Google.Ads.Googleads.V9.Services.MerchantCenterLinkOperation do
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkResult.t() | nil
-        }
-
-  defstruct result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 2, type: Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkResult
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateMerchantCenterLinkResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V9.Services.MerchantCenterLinkService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v9.services.MerchantCenterLinkService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v9.services.MerchantCenterLinkService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListMerchantCenterLinks,
       Google.Ads.Googleads.V9.Services.ListMerchantCenterLinksRequest,

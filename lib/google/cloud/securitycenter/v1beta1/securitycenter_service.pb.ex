@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :UNUSED | :ADDED | :REMOVED | :ACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :UNUSED, 1
@@ -12,17 +10,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResul
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.CreateFindingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          finding_id: String.t(),
-          finding: Google.Cloud.Securitycenter.V1beta1.Finding.t() | nil
-        }
-
-  defstruct parent: "",
-            finding_id: "",
-            finding: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :finding_id, 2, type: :string, json_name: "findingId", deprecated: false
@@ -30,64 +18,26 @@ defmodule Google.Cloud.Securitycenter.V1beta1.CreateFindingRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.CreateSourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source: Google.Cloud.Securitycenter.V1beta1.Source.t() | nil
-        }
-
-  defstruct parent: "",
-            source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :source, 2, type: Google.Cloud.Securitycenter.V1beta1.Source, deprecated: false
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GetOrganizationSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GetSourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          group_by: String.t(),
-          compare_duration: Google.Protobuf.Duration.t() | nil,
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            group_by: "",
-            compare_duration: nil,
-            read_time: nil,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -99,17 +49,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          group_by_results: [Google.Cloud.Securitycenter.V1beta1.GroupResult.t()],
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          next_page_token: String.t()
-        }
-
-  defstruct group_by_results: [],
-            read_time: nil,
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :group_by_results, 1,
     repeated: true,
@@ -121,23 +61,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupAssetsResponse do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          group_by: String.t(),
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            group_by: "",
-            read_time: nil,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -148,17 +72,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          group_by_results: [Google.Cloud.Securitycenter.V1beta1.GroupResult.t()],
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          next_page_token: String.t()
-        }
-
-  defstruct group_by_results: [],
-            read_time: nil,
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :group_by_results, 1,
     repeated: true,
@@ -170,30 +84,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupFindingsResponse do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          properties: %{String.t() => Google.Protobuf.Value.t() | nil},
-          count: integer
-        }
-
-  defstruct properties: %{},
-            count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :properties, 1,
     repeated: true,
@@ -204,17 +102,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.GroupResult do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -222,42 +110,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListSourcesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sources: [Google.Cloud.Securitycenter.V1beta1.Source.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct sources: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sources, 1, repeated: true, type: Google.Cloud.Securitycenter.V1beta1.Source
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          compare_duration: Google.Protobuf.Duration.t() | nil,
-          field_mask: Google.Protobuf.FieldMask.t() | nil,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            order_by: "",
-            read_time: nil,
-            compare_duration: nil,
-            field_mask: nil,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -270,15 +130,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          asset: Google.Cloud.Securitycenter.V1beta1.Asset.t() | nil,
-          state: Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult.State.t()
-        }
-
-  defstruct asset: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :asset, 1, type: Google.Cloud.Securitycenter.V1beta1.Asset
 
@@ -288,21 +140,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResul
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          list_assets_results: [
-            Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse.ListAssetsResult.t()
-          ],
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct list_assets_results: [],
-            read_time: nil,
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :list_assets_results, 1,
     repeated: true,
@@ -315,25 +153,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListAssetsResponse do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          field_mask: Google.Protobuf.FieldMask.t() | nil,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            order_by: "",
-            read_time: nil,
-            field_mask: nil,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -345,19 +165,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          findings: [Google.Cloud.Securitycenter.V1beta1.Finding.t()],
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct findings: [],
-            read_time: nil,
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :findings, 1, repeated: true, type: Google.Cloud.Securitycenter.V1beta1.Finding
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
@@ -366,17 +174,7 @@ defmodule Google.Cloud.Securitycenter.V1beta1.ListFindingsResponse do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.SetFindingStateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Cloud.Securitycenter.V1beta1.Finding.State.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            start_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -389,43 +187,20 @@ defmodule Google.Cloud.Securitycenter.V1beta1.SetFindingStateRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.RunAssetDiscoveryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateFindingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          finding: Google.Cloud.Securitycenter.V1beta1.Finding.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct finding: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :finding, 1, type: Google.Cloud.Securitycenter.V1beta1.Finding, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateOrganizationSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          organization_settings:
-            Google.Cloud.Securitycenter.V1beta1.OrganizationSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct organization_settings: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :organization_settings, 1,
     type: Google.Cloud.Securitycenter.V1beta1.OrganizationSettings,
@@ -436,32 +211,14 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateOrganizationSettingsRequest 
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: Google.Cloud.Securitycenter.V1beta1.Source.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct source: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Securitycenter.V1beta1.Source, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSecurityMarksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          security_marks: Google.Cloud.Securitycenter.V1beta1.SecurityMarks.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct security_marks: nil,
-            update_mask: nil,
-            start_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :security_marks, 1,
     type: Google.Cloud.Securitycenter.V1beta1.SecurityMarks,
@@ -473,7 +230,9 @@ defmodule Google.Cloud.Securitycenter.V1beta1.UpdateSecurityMarksRequest do
 end
 defmodule Google.Cloud.Securitycenter.V1beta1.SecurityCenter.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.securitycenter.v1beta1.SecurityCenter"
+  use GRPC.Service,
+    name: "google.cloud.securitycenter.v1beta1.SecurityCenter",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateSource,
       Google.Cloud.Securitycenter.V1beta1.CreateSourceRequest,

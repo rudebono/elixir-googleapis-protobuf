@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.TableReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          dataset_id: String.t(),
-          table_id: String.t(),
-          project_id_alternative: [String.t()],
-          dataset_id_alternative: [String.t()],
-          table_id_alternative: [String.t()]
-        }
-
-  defstruct project_id: "",
-            dataset_id: "",
-            table_id: "",
-            project_id_alternative: [],
-            dataset_id_alternative: [],
-            table_id_alternative: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false

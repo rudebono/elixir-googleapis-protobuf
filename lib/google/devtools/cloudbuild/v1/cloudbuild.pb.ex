@@ -1,19 +1,6 @@
 defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATUS_UNKNOWN
-          | :PENDING
-          | :QUEUED
-          | :WORKING
-          | :SUCCESS
-          | :FAILURE
-          | :INTERNAL_ERROR
-          | :TIMEOUT
-          | :CANCELLED
-          | :EXPIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATUS_UNKNOWN, 0
   field :PENDING, 10
@@ -28,9 +15,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRIORITY_UNSPECIFIED | :INFO | :WARNING | :ALERT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :INFO, 1
@@ -39,17 +24,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FAILURE_TYPE_UNSPECIFIED
-          | :PUSH_FAILED
-          | :PUSH_IMAGE_NOT_FOUND
-          | :PUSH_NOT_AUTHORIZED
-          | :LOGGING_FAILURE
-          | :USER_BUILD_STEP
-          | :FETCH_SOURCE_FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FAILURE_TYPE_UNSPECIFIED, 0
   field :PUSH_FAILED, 1
@@ -61,9 +36,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NONE | :SHA256 | :MD5
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NONE, 0
   field :SHA256, 1
@@ -71,9 +44,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :APPROVED | :REJECTED | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -83,9 +54,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DECISION_UNSPECIFIED | :APPROVED | :REJECTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DECISION_UNSPECIFIED, 0
   field :APPROVED, 1
@@ -93,15 +62,7 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :OK
-          | :SUBSCRIPTION_DELETED
-          | :TOPIC_DELETED
-          | :SUBSCRIPTION_MISCONFIGURED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OK, 1
@@ -111,9 +72,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
 end
 defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :OK | :SECRET_DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OK, 1
@@ -121,13 +80,7 @@ defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig.State do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :COMMENTS_DISABLED
-          | :COMMENTS_ENABLED
-          | :COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMMENTS_DISABLED, 0
   field :COMMENTS_ENABLED, 1
@@ -135,19 +88,14 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NOT_VERIFIED | :VERIFIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NOT_VERIFIED, 0
   field :VERIFIED, 1
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :UNSPECIFIED | :N1_HIGHCPU_8 | :N1_HIGHCPU_32 | :E2_HIGHCPU_8 | :E2_HIGHCPU_32
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :N1_HIGHCPU_8, 1
@@ -157,18 +105,14 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MUST_MATCH | :ALLOW_LOOSE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MUST_MATCH, 0
   field :ALLOW_LOOSE, 1
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STREAM_DEFAULT | :STREAM_ON | :STREAM_OFF
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STREAM_DEFAULT, 0
   field :STREAM_ON, 1
@@ -176,16 +120,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LOGGING_UNSPECIFIED
-          | :LEGACY
-          | :GCS_ONLY
-          | :STACKDRIVER_ONLY
-          | :CLOUD_LOGGING_ONLY
-          | :NONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOGGING_UNSPECIFIED, 0
   field :LEGACY, 1
@@ -196,9 +131,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
 end
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :RUNNING | :DELETING | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -208,9 +141,7 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EGRESS_OPTION_UNSPECIFIED | :NO_PUBLIC_EGRESS | :PUBLIC_EGRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EGRESS_OPTION_UNSPECIFIED, 0
   field :NO_PUBLIC_EGRESS, 1
@@ -218,17 +149,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.Egress
 end
 defmodule Google.Devtools.Cloudbuild.V1.RetryBuildRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -236,19 +157,7 @@ defmodule Google.Devtools.Cloudbuild.V1.RetryBuildRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          trigger_id: String.t(),
-          source: Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil
-        }
-
-  defstruct name: "",
-            project_id: "",
-            trigger_id: "",
-            source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -257,17 +166,7 @@ defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bucket: String.t(),
-          object: String.t(),
-          generation: integer
-        }
-
-  defstruct bucket: "",
-            object: "",
-            generation: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
@@ -275,39 +174,14 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
 end
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision:
-            {:branch_name, String.t()} | {:tag_name, String.t()} | {:commit_sha, String.t()},
-          project_id: String.t(),
-          repo_name: String.t(),
-          dir: String.t(),
-          invert_regex: boolean,
-          substitutions: %{String.t() => String.t()}
-        }
-
-  defstruct revision: nil,
-            project_id: "",
-            repo_name: "",
-            dir: "",
-            invert_regex: false,
-            substitutions: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -326,17 +200,7 @@ defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
 end
 defmodule Google.Devtools.Cloudbuild.V1.StorageSourceManifest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bucket: String.t(),
-          object: String.t(),
-          generation: integer
-        }
-
-  defstruct bucket: "",
-            object: "",
-            generation: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
@@ -344,17 +208,7 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSourceManifest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Source do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:storage_source, Google.Devtools.Cloudbuild.V1.StorageSource.t() | nil}
-            | {:repo_source, Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil}
-            | {:storage_source_manifest,
-               Google.Devtools.Cloudbuild.V1.StorageSourceManifest.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -375,17 +229,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Source do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          digest: String.t(),
-          push_timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil
-        }
-
-  defstruct name: "",
-            digest: "",
-            push_timing: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :digest, 3, type: :string
@@ -397,39 +241,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          env: [String.t()],
-          args: [String.t()],
-          dir: String.t(),
-          id: String.t(),
-          wait_for: [String.t()],
-          entrypoint: String.t(),
-          secret_env: [String.t()],
-          volumes: [Google.Devtools.Cloudbuild.V1.Volume.t()],
-          timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil,
-          pull_timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil,
-          timeout: Google.Protobuf.Duration.t() | nil,
-          status: Google.Devtools.Cloudbuild.V1.Build.Status.t(),
-          script: String.t()
-        }
-
-  defstruct name: "",
-            env: [],
-            args: [],
-            dir: "",
-            id: "",
-            wait_for: [],
-            entrypoint: "",
-            secret_env: [],
-            volumes: [],
-            timing: nil,
-            pull_timing: nil,
-            timeout: nil,
-            status: :STATUS_UNKNOWN,
-            script: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :env, 2, repeated: true, type: :string
@@ -458,38 +270,14 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Volume do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          path: String.t()
-        }
-
-  defstruct name: "",
-            path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :path, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.Results do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          images: [Google.Devtools.Cloudbuild.V1.BuiltImage.t()],
-          build_step_images: [String.t()],
-          artifact_manifest: String.t(),
-          num_artifacts: integer,
-          build_step_outputs: [binary],
-          artifact_timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil
-        }
-
-  defstruct images: [],
-            build_step_images: [],
-            artifact_manifest: "",
-            num_artifacts: 0,
-            build_step_outputs: [],
-            artifact_timing: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :images, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuiltImage
   field :build_step_images, 3, repeated: true, type: :string, json_name: "buildStepImages"
@@ -503,15 +291,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          file_hash: [Google.Devtools.Cloudbuild.V1.FileHashes.t()]
-        }
-
-  defstruct location: "",
-            file_hash: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string
 
@@ -522,129 +302,35 @@ defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          priority: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority.t()
-        }
-
-  defstruct text: "",
-            priority: :PRIORITY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :priority, 2, type: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority, enum: true
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType.t(),
-          detail: String.t()
-        }
-
-  defstruct type: :FAILURE_TYPE_UNSPECIFIED,
-            detail: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType, enum: true
   field :detail, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build.TimingEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.TimeSpan
 end
 defmodule Google.Devtools.Cloudbuild.V1.Build do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          project_id: String.t(),
-          status: Google.Devtools.Cloudbuild.V1.Build.Status.t(),
-          status_detail: String.t(),
-          source: Google.Devtools.Cloudbuild.V1.Source.t() | nil,
-          steps: [Google.Devtools.Cloudbuild.V1.BuildStep.t()],
-          results: Google.Devtools.Cloudbuild.V1.Results.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          finish_time: Google.Protobuf.Timestamp.t() | nil,
-          timeout: Google.Protobuf.Duration.t() | nil,
-          images: [String.t()],
-          queue_ttl: Google.Protobuf.Duration.t() | nil,
-          artifacts: Google.Devtools.Cloudbuild.V1.Artifacts.t() | nil,
-          logs_bucket: String.t(),
-          source_provenance: Google.Devtools.Cloudbuild.V1.SourceProvenance.t() | nil,
-          build_trigger_id: String.t(),
-          options: Google.Devtools.Cloudbuild.V1.BuildOptions.t() | nil,
-          log_url: String.t(),
-          substitutions: %{String.t() => String.t()},
-          tags: [String.t()],
-          secrets: [Google.Devtools.Cloudbuild.V1.Secret.t()],
-          timing: %{String.t() => Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil},
-          approval: Google.Devtools.Cloudbuild.V1.BuildApproval.t() | nil,
-          service_account: String.t(),
-          available_secrets: Google.Devtools.Cloudbuild.V1.Secrets.t() | nil,
-          warnings: [Google.Devtools.Cloudbuild.V1.Build.Warning.t()],
-          failure_info: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.t() | nil
-        }
-
-  defstruct name: "",
-            id: "",
-            project_id: "",
-            status: :STATUS_UNKNOWN,
-            status_detail: "",
-            source: nil,
-            steps: [],
-            results: nil,
-            create_time: nil,
-            start_time: nil,
-            finish_time: nil,
-            timeout: nil,
-            images: [],
-            queue_ttl: nil,
-            artifacts: nil,
-            logs_bucket: "",
-            source_provenance: nil,
-            build_trigger_id: "",
-            options: nil,
-            log_url: "",
-            substitutions: %{},
-            tags: [],
-            secrets: [],
-            timing: %{},
-            approval: nil,
-            service_account: "",
-            available_secrets: nil,
-            warnings: [],
-            failure_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 45, type: :string, deprecated: false
   field :id, 1, type: :string, deprecated: false
@@ -720,17 +406,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          paths: [String.t()],
-          timing: Google.Devtools.Cloudbuild.V1.TimeSpan.t() | nil
-        }
-
-  defstruct location: "",
-            paths: [],
-            timing: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :paths, 2, repeated: true, type: :string
@@ -738,77 +414,34 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          images: [String.t()],
-          objects: Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects.t() | nil
-        }
-
-  defstruct images: [],
-            objects: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :images, 1, repeated: true, type: :string
   field :objects, 2, type: Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects
 end
 defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          build: Google.Devtools.Cloudbuild.V1.Build.t() | nil
-        }
-
-  defstruct build: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :build, 1, type: Google.Devtools.Cloudbuild.V1.Build
 end
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance.FileHashesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Devtools.Cloudbuild.V1.FileHashes.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes
 end
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resolved_storage_source: Google.Devtools.Cloudbuild.V1.StorageSource.t() | nil,
-          resolved_repo_source: Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil,
-          resolved_storage_source_manifest:
-            Google.Devtools.Cloudbuild.V1.StorageSourceManifest.t() | nil,
-          file_hashes: %{String.t() => Google.Devtools.Cloudbuild.V1.FileHashes.t() | nil}
-        }
-
-  defstruct resolved_storage_source: nil,
-            resolved_repo_source: nil,
-            resolved_storage_source_manifest: nil,
-            file_hashes: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resolved_storage_source, 3,
     type: Google.Devtools.Cloudbuild.V1.StorageSource,
@@ -831,13 +464,7 @@ defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
 end
 defmodule Google.Devtools.Cloudbuild.V1.FileHashes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_hash: [Google.Devtools.Cloudbuild.V1.Hash.t()]
-        }
-
-  defstruct file_hash: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_hash, 1,
     repeated: true,
@@ -846,30 +473,14 @@ defmodule Google.Devtools.Cloudbuild.V1.FileHashes do
 end
 defmodule Google.Devtools.Cloudbuild.V1.Hash do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Devtools.Cloudbuild.V1.Hash.HashType.t(),
-          value: binary
-        }
-
-  defstruct type: :NONE,
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Hash.HashType, enum: true
   field :value, 2, type: :bytes
 end
 defmodule Google.Devtools.Cloudbuild.V1.Secrets do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          secret_manager: [Google.Devtools.Cloudbuild.V1.SecretManagerSecret.t()],
-          inline: [Google.Devtools.Cloudbuild.V1.InlineSecret.t()]
-        }
-
-  defstruct secret_manager: [],
-            inline: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :secret_manager, 1,
     repeated: true,
@@ -880,30 +491,14 @@ defmodule Google.Devtools.Cloudbuild.V1.Secrets do
 end
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret.EnvMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: binary
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
 end
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t(),
-          env_map: %{String.t() => binary}
-        }
-
-  defstruct kms_key_name: "",
-            env_map: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 
@@ -915,45 +510,21 @@ defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
 end
 defmodule Google.Devtools.Cloudbuild.V1.SecretManagerSecret do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version_name: String.t(),
-          env: String.t()
-        }
-
-  defstruct version_name: "",
-            env: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version_name, 1, type: :string, json_name: "versionName", deprecated: false
   field :env, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.Secret.SecretEnvEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: binary
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
 end
 defmodule Google.Devtools.Cloudbuild.V1.Secret do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t(),
-          secret_env: %{String.t() => binary}
-        }
-
-  defstruct kms_key_name: "",
-            secret_env: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 
@@ -965,17 +536,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Secret do
 end
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          project_id: String.t(),
-          build: Google.Devtools.Cloudbuild.V1.Build.t() | nil
-        }
-
-  defstruct parent: "",
-            project_id: "",
-            build: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -983,17 +544,7 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateBuildRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1001,21 +552,7 @@ defmodule Google.Devtools.Cloudbuild.V1.GetBuildRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          project_id: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            project_id: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 9, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1025,32 +562,14 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          builds: [Google.Devtools.Cloudbuild.V1.Build.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct builds: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :builds, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1058,15 +577,7 @@ defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          approval_result: Google.Devtools.Cloudbuild.V1.ApprovalResult.t() | nil
-        }
-
-  defstruct name: "",
-            approval_result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1076,17 +587,7 @@ defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Devtools.Cloudbuild.V1.BuildApproval.State.t(),
-          config: Google.Devtools.Cloudbuild.V1.ApprovalConfig.t() | nil,
-          result: Google.Devtools.Cloudbuild.V1.ApprovalResult.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            config: nil,
-            result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Devtools.Cloudbuild.V1.BuildApproval.State,
@@ -1098,33 +599,13 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          approval_required: boolean
-        }
-
-  defstruct approval_required: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :approval_required, 1, type: :bool, json_name: "approvalRequired"
 end
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          approver_account: String.t(),
-          approval_time: Google.Protobuf.Timestamp.t() | nil,
-          decision: Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision.t(),
-          comment: String.t(),
-          url: String.t()
-        }
-
-  defstruct approver_account: "",
-            approval_time: nil,
-            decision: :DECISION_UNSPECIFIED,
-            comment: "",
-            url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :approver_account, 2, type: :string, json_name: "approverAccount", deprecated: false
 
@@ -1143,63 +624,14 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          build_template:
-            {:autodetect, boolean}
-            | {:build, Google.Devtools.Cloudbuild.V1.Build.t() | nil}
-            | {:filename, String.t()},
-          resource_name: String.t(),
-          id: String.t(),
-          description: String.t(),
-          name: String.t(),
-          tags: [String.t()],
-          trigger_template: Google.Devtools.Cloudbuild.V1.RepoSource.t() | nil,
-          github: Google.Devtools.Cloudbuild.V1.GitHubEventsConfig.t() | nil,
-          pubsub_config: Google.Devtools.Cloudbuild.V1.PubsubConfig.t() | nil,
-          webhook_config: Google.Devtools.Cloudbuild.V1.WebhookConfig.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          disabled: boolean,
-          substitutions: %{String.t() => String.t()},
-          ignored_files: [String.t()],
-          included_files: [String.t()],
-          filter: String.t(),
-          service_account: String.t()
-        }
-
-  defstruct build_template: nil,
-            resource_name: "",
-            id: "",
-            description: "",
-            name: "",
-            tags: [],
-            trigger_template: nil,
-            github: nil,
-            pubsub_config: nil,
-            webhook_config: nil,
-            create_time: nil,
-            disabled: false,
-            substitutions: %{},
-            ignored_files: [],
-            included_files: [],
-            filter: "",
-            service_account: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :build_template, 0
 
@@ -1246,21 +678,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
 end
 defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event:
-            {:pull_request, Google.Devtools.Cloudbuild.V1.PullRequestFilter.t() | nil}
-            | {:push, Google.Devtools.Cloudbuild.V1.PushFilter.t() | nil},
-          installation_id: integer,
-          owner: String.t(),
-          name: String.t()
-        }
-
-  defstruct event: nil,
-            installation_id: 0,
-            owner: "",
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -1277,19 +695,7 @@ defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          topic: String.t(),
-          service_account_email: String.t(),
-          state: Google.Devtools.Cloudbuild.V1.PubsubConfig.State.t()
-        }
-
-  defstruct subscription: "",
-            topic: "",
-            service_account_email: "",
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
@@ -1303,15 +709,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
 end
 defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          auth_method: {:secret, String.t()},
-          state: Google.Devtools.Cloudbuild.V1.WebhookConfig.State.t()
-        }
-
-  defstruct auth_method: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :auth_method, 0
 
@@ -1320,17 +718,7 @@ defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          git_ref: {:branch, String.t()},
-          comment_control: Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl.t(),
-          invert_regex: boolean
-        }
-
-  defstruct git_ref: nil,
-            comment_control: :COMMENTS_DISABLED,
-            invert_regex: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :git_ref, 0
 
@@ -1345,15 +733,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          git_ref: {:branch, String.t()} | {:tag, String.t()},
-          invert_regex: boolean
-        }
-
-  defstruct git_ref: nil,
-            invert_regex: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :git_ref, 0
 
@@ -1363,17 +743,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
 end
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          project_id: String.t(),
-          trigger: Google.Devtools.Cloudbuild.V1.BuildTrigger.t() | nil
-        }
-
-  defstruct parent: "",
-            project_id: "",
-            trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1381,17 +751,7 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          trigger_id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: "",
-            trigger_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1399,19 +759,7 @@ defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          project_id: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            project_id: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1420,32 +768,14 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          triggers: [Google.Devtools.Cloudbuild.V1.BuildTrigger.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct triggers: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :triggers, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t(),
-          trigger_id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: "",
-            trigger_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -1453,17 +783,7 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          trigger_id: String.t(),
-          trigger: Google.Devtools.Cloudbuild.V1.BuildTrigger.t() | nil
-        }
-
-  defstruct project_id: "",
-            trigger_id: "",
-            trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
@@ -1471,49 +791,13 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_provenance_hash: [Google.Devtools.Cloudbuild.V1.Hash.HashType.t()],
-          requested_verify_option: Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption.t(),
-          machine_type: Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType.t(),
-          disk_size_gb: integer,
-          substitution_option: Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption.t(),
-          dynamic_substitutions: boolean,
-          log_streaming_option: Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption.t(),
-          worker_pool: String.t(),
-          pool: Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption.t() | nil,
-          logging: Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode.t(),
-          env: [String.t()],
-          secret_env: [String.t()],
-          volumes: [Google.Devtools.Cloudbuild.V1.Volume.t()]
-        }
-
-  defstruct source_provenance_hash: [],
-            requested_verify_option: :NOT_VERIFIED,
-            machine_type: :UNSPECIFIED,
-            disk_size_gb: 0,
-            substitution_option: :MUST_MATCH,
-            dynamic_substitutions: false,
-            log_streaming_option: :STREAM_DEFAULT,
-            worker_pool: "",
-            pool: nil,
-            logging: :LOGGING_UNSPECIFIED,
-            env: [],
-            secret_env: [],
-            volumes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_provenance_hash, 1,
     repeated: true,
@@ -1554,21 +838,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          body: Google.Api.HttpBody.t() | nil,
-          project_id: String.t(),
-          trigger: String.t(),
-          secret: String.t()
-        }
-
-  defstruct name: "",
-            body: nil,
-            project_id: "",
-            trigger: "",
-            secret: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string
   field :body, 1, type: Google.Api.HttpBody
@@ -1578,55 +848,18 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config:
-            {:private_pool_v1_config, Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          uid: String.t(),
-          annotations: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Devtools.Cloudbuild.V1.WorkerPool.State.t(),
-          etag: String.t()
-        }
-
-  defstruct config: nil,
-            name: "",
-            display_name: "",
-            uid: "",
-            annotations: %{},
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            state: :STATE_UNSPECIFIED,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -1668,31 +901,14 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          machine_type: String.t(),
-          disk_size_gb: integer
-        }
-
-  defstruct machine_type: "",
-            disk_size_gb: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType"
   field :disk_size_gb, 2, type: :int64, json_name: "diskSizeGb"
 end
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          peered_network: String.t(),
-          egress_option:
-            Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption.t()
-        }
-
-  defstruct peered_network: "",
-            egress_option: :EGRESS_OPTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :peered_network, 1, type: :string, json_name: "peeredNetwork", deprecated: false
 
@@ -1703,16 +919,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
 end
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_config: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig.t() | nil,
-          network_config:
-            Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.t() | nil
-        }
-
-  defstruct worker_config: nil,
-            network_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_config, 1,
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig,
@@ -1724,19 +931,7 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
 end
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil,
-          worker_pool_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            worker_pool: nil,
-            worker_pool_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1750,31 +945,13 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          etag: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct name: "",
-            etag: "",
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -1783,17 +960,7 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pool: Google.Devtools.Cloudbuild.V1.WorkerPool.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct worker_pool: nil,
-            update_mask: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pool, 1,
     type: Google.Devtools.Cloudbuild.V1.WorkerPool,
@@ -1805,17 +972,7 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1823,15 +980,7 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
 end
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pools: [Google.Devtools.Cloudbuild.V1.WorkerPool.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct worker_pools: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pools, 1,
     repeated: true,
@@ -1842,17 +991,7 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
 end
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pool: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          complete_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct worker_pool: "",
-            create_time: nil,
-            complete_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -1860,17 +999,7 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
 end
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pool: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          complete_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct worker_pool: "",
-            create_time: nil,
-            complete_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -1878,17 +1007,7 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
 end
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pool: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          complete_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct worker_pool: "",
-            create_time: nil,
-            complete_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -1896,7 +1015,9 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
 end
 defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.cloudbuild.v1.CloudBuild"
+  use GRPC.Service,
+    name: "google.devtools.cloudbuild.v1.CloudBuild",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateBuild, Google.Devtools.Cloudbuild.V1.CreateBuildRequest, Google.Longrunning.Operation
 

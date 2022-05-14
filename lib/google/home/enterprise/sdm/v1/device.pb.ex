@@ -1,18 +1,6 @@
 defmodule Google.Home.Enterprise.Sdm.V1.Device do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          traits: Google.Protobuf.Struct.t() | nil,
-          parent_relations: [Google.Home.Enterprise.Sdm.V1.ParentRelation.t()]
-        }
-
-  defstruct name: "",
-            type: "",
-            traits: nil,
-            parent_relations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string, deprecated: false
@@ -25,15 +13,7 @@ defmodule Google.Home.Enterprise.Sdm.V1.Device do
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ParentRelation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct parent: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

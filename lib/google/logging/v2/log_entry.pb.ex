@@ -1,58 +1,13 @@
 defmodule Google.Logging.V2.LogEntry.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Logging.V2.LogEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:proto_payload, Google.Protobuf.Any.t() | nil}
-            | {:text_payload, String.t()}
-            | {:json_payload, Google.Protobuf.Struct.t() | nil},
-          log_name: String.t(),
-          resource: Google.Api.MonitoredResource.t() | nil,
-          timestamp: Google.Protobuf.Timestamp.t() | nil,
-          receive_timestamp: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Logging.Type.LogSeverity.t(),
-          insert_id: String.t(),
-          http_request: Google.Logging.Type.HttpRequest.t() | nil,
-          labels: %{String.t() => String.t()},
-          operation: Google.Logging.V2.LogEntryOperation.t() | nil,
-          trace: String.t(),
-          span_id: String.t(),
-          trace_sampled: boolean,
-          source_location: Google.Logging.V2.LogEntrySourceLocation.t() | nil,
-          split: Google.Logging.V2.LogSplit.t() | nil
-        }
-
-  defstruct payload: nil,
-            log_name: "",
-            resource: nil,
-            timestamp: nil,
-            receive_timestamp: nil,
-            severity: :DEFAULT,
-            insert_id: "",
-            http_request: nil,
-            labels: %{},
-            operation: nil,
-            trace: "",
-            span_id: "",
-            trace_sampled: false,
-            source_location: nil,
-            split: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -96,19 +51,7 @@ defmodule Google.Logging.V2.LogEntry do
 end
 defmodule Google.Logging.V2.LogEntryOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          producer: String.t(),
-          first: boolean,
-          last: boolean
-        }
-
-  defstruct id: "",
-            producer: "",
-            first: false,
-            last: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :producer, 2, type: :string, deprecated: false
@@ -117,17 +60,7 @@ defmodule Google.Logging.V2.LogEntryOperation do
 end
 defmodule Google.Logging.V2.LogEntrySourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file: String.t(),
-          line: integer,
-          function: String.t()
-        }
-
-  defstruct file: "",
-            line: 0,
-            function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file, 1, type: :string, deprecated: false
   field :line, 2, type: :int64, deprecated: false
@@ -135,17 +68,7 @@ defmodule Google.Logging.V2.LogEntrySourceLocation do
 end
 defmodule Google.Logging.V2.LogSplit do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uid: String.t(),
-          index: integer,
-          total_splits: integer
-        }
-
-  defstruct uid: "",
-            index: 0,
-            total_splits: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uid, 1, type: :string
   field :index, 2, type: :int32

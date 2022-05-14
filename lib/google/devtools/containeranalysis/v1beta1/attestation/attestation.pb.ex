@@ -1,34 +1,20 @@
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
 end
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONTENT_TYPE_UNSPECIFIED | :SIMPLE_SIGNING_JSON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
 end
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: {:pgp_key_id, String.t()},
-          signature: String.t(),
-          content_type: Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType.t()
-        }
-
-  defstruct key_id: nil,
-            signature: "",
-            content_type: :CONTENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :key_id, 0
 
@@ -43,17 +29,7 @@ defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
 end
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content_type: Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType.t(),
-          serialized_payload: binary,
-          signatures: [Grafeas.V1beta1.Signature.t()]
-        }
-
-  defstruct content_type: :CONTENT_TYPE_UNSPECIFIED,
-            serialized_payload: "",
-            signatures: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content_type, 1,
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType,
@@ -65,52 +41,25 @@ defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
 end
 defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          human_readable_name: String.t()
-        }
-
-  defstruct human_readable_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
 end
 defmodule Grafeas.V1beta1.Attestation.Authority do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hint: Grafeas.V1beta1.Attestation.Authority.Hint.t() | nil
-        }
-
-  defstruct hint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hint, 1, type: Grafeas.V1beta1.Attestation.Authority.Hint
 end
 defmodule Grafeas.V1beta1.Attestation.Details do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attestation: Grafeas.V1beta1.Attestation.Attestation.t() | nil
-        }
-
-  defstruct attestation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :attestation, 1, type: Grafeas.V1beta1.Attestation.Attestation
 end
 defmodule Grafeas.V1beta1.Attestation.Attestation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          signature:
-            {:pgp_signed_attestation, Grafeas.V1beta1.Attestation.PgpSignedAttestation.t() | nil}
-            | {:generic_signed_attestation,
-               Grafeas.V1beta1.Attestation.GenericSignedAttestation.t() | nil}
-        }
-
-  defstruct signature: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :signature, 0
 

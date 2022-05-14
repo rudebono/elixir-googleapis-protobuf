@@ -1,34 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum.FeedError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :ATTRIBUTE_NAMES_NOT_UNIQUE
-          | :ATTRIBUTES_DO_NOT_MATCH_EXISTING_ATTRIBUTES
-          | :CANNOT_SPECIFY_USER_ORIGIN_FOR_SYSTEM_FEED
-          | :CANNOT_SPECIFY_GOOGLE_ORIGIN_FOR_NON_SYSTEM_FEED
-          | :CANNOT_SPECIFY_FEED_ATTRIBUTES_FOR_SYSTEM_FEED
-          | :CANNOT_UPDATE_FEED_ATTRIBUTES_WITH_ORIGIN_GOOGLE
-          | :FEED_REMOVED
-          | :INVALID_ORIGIN_VALUE
-          | :FEED_ORIGIN_IS_NOT_USER
-          | :INVALID_AUTH_TOKEN_FOR_EMAIL
-          | :INVALID_EMAIL
-          | :DUPLICATE_FEED_NAME
-          | :INVALID_FEED_NAME
-          | :MISSING_OAUTH_INFO
-          | :NEW_ATTRIBUTE_CANNOT_BE_PART_OF_UNIQUE_KEY
-          | :TOO_MANY_ATTRIBUTES
-          | :INVALID_BUSINESS_ACCOUNT
-          | :BUSINESS_ACCOUNT_CANNOT_ACCESS_LOCATION_ACCOUNT
-          | :INVALID_AFFILIATE_CHAIN_ID
-          | :DUPLICATE_SYSTEM_FEED
-          | :GMB_ACCESS_ERROR
-          | :CANNOT_HAVE_LOCATION_AND_AFFILIATE_LOCATION_FEEDS
-          | :LEGACY_EXTENSION_TYPE_READ_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -58,9 +30,5 @@ defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum.FeedError do
 end
 defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

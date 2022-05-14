@@ -1,25 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.Xss.AttackVector do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTACK_VECTOR_UNSPECIFIED
-          | :LOCAL_STORAGE
-          | :SESSION_STORAGE
-          | :WINDOW_NAME
-          | :REFERRER
-          | :FORM_INPUT
-          | :COOKIE
-          | :POST_MESSAGE
-          | :GET_PARAMETERS
-          | :URL_FRAGMENT
-          | :HTML_COMMENT
-          | :POST_PARAMETERS
-          | :PROTOCOL
-          | :STORED_XSS
-          | :SAME_ORIGIN
-          | :USER_CONTROLLABLE_URL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTACK_VECTOR_UNSPECIFIED, 0
   field :LOCAL_STORAGE, 1
@@ -40,32 +21,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.Xss.AttackVector do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.Form do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action_uri: String.t(),
-          fields: [String.t()]
-        }
-
-  defstruct action_uri: "",
-            fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :action_uri, 1, type: :string, json_name: "actionUri"
   field :fields, 2, repeated: true, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.OutdatedLibrary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          library_name: String.t(),
-          version: String.t(),
-          learn_more_urls: [String.t()]
-        }
-
-  defstruct library_name: "",
-            version: "",
-            learn_more_urls: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :library_name, 1, type: :string, json_name: "libraryName"
   field :version, 2, type: :string
@@ -73,57 +36,27 @@ defmodule Google.Cloud.Websecurityscanner.V1.OutdatedLibrary do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ViolatingResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content_type: String.t(),
-          resource_url: String.t()
-        }
-
-  defstruct content_type: "",
-            resource_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content_type, 1, type: :string, json_name: "contentType"
   field :resource_url, 2, type: :string, json_name: "resourceUrl"
 end
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameter_names: [String.t()]
-        }
-
-  defstruct parameter_names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameter_names, 1, repeated: true, type: :string, json_name: "parameterNames"
 end
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          value: String.t()
-        }
-
-  defstruct name: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          headers: [Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header.t()],
-          missing_headers: [Google.Cloud.Websecurityscanner.V1.VulnerableHeaders.Header.t()]
-        }
-
-  defstruct headers: [],
-            missing_headers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :headers, 1,
     repeated: true,
@@ -136,19 +69,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.VulnerableHeaders do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.Xss do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stack_traces: [String.t()],
-          error_message: String.t(),
-          attack_vector: Google.Cloud.Websecurityscanner.V1.Xss.AttackVector.t(),
-          stored_xss_seeding_url: String.t()
-        }
-
-  defstruct stack_traces: [],
-            error_message: "",
-            attack_vector: :ATTACK_VECTOR_UNSPECIFIED,
-            stored_xss_seeding_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stack_traces, 1, repeated: true, type: :string, json_name: "stackTraces"
   field :error_message, 2, type: :string, json_name: "errorMessage"

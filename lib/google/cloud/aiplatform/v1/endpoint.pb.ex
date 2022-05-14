@@ -1,69 +1,20 @@
 defmodule Google.Cloud.Aiplatform.V1.Endpoint.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
 end
 defmodule Google.Cloud.Aiplatform.V1.Endpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1.Endpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          deployed_models: [Google.Cloud.Aiplatform.V1.DeployedModel.t()],
-          traffic_split: %{String.t() => integer},
-          etag: String.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil,
-          network: String.t(),
-          enable_private_service_connect: boolean,
-          model_deployment_monitoring_job: String.t(),
-          predict_request_response_logging_config:
-            Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            deployed_models: [],
-            traffic_split: %{},
-            etag: "",
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            encryption_spec: nil,
-            network: "",
-            enable_private_service_connect: false,
-            model_deployment_monitoring_job: "",
-            predict_request_response_logging_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -120,33 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          prediction_resources:
-            {:dedicated_resources, Google.Cloud.Aiplatform.V1.DedicatedResources.t() | nil}
-            | {:automatic_resources, Google.Cloud.Aiplatform.V1.AutomaticResources.t() | nil},
-          id: String.t(),
-          model: String.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          explanation_spec: Google.Cloud.Aiplatform.V1.ExplanationSpec.t() | nil,
-          service_account: String.t(),
-          disable_container_logging: boolean,
-          enable_access_logging: boolean,
-          private_endpoints: Google.Cloud.Aiplatform.V1.PrivateEndpoints.t() | nil
-        }
-
-  defstruct prediction_resources: nil,
-            id: "",
-            model: "",
-            display_name: "",
-            create_time: nil,
-            explanation_spec: nil,
-            service_account: "",
-            disable_container_logging: false,
-            enable_access_logging: false,
-            private_endpoints: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :prediction_resources, 0
 
@@ -184,19 +109,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
 end
 defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          predict_http_uri: String.t(),
-          explain_http_uri: String.t(),
-          health_http_uri: String.t(),
-          service_attachment: String.t()
-        }
-
-  defstruct predict_http_uri: "",
-            explain_http_uri: "",
-            health_http_uri: "",
-            service_attachment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri", deprecated: false
   field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri", deprecated: false
@@ -205,17 +118,7 @@ defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
 end
 defmodule Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enabled: boolean,
-          sampling_rate: float | :infinity | :negative_infinity | :nan,
-          bigquery_destination: Google.Cloud.Aiplatform.V1.BigQueryDestination.t() | nil
-        }
-
-  defstruct enabled: false,
-            sampling_rate: 0.0,
-            bigquery_destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :sampling_rate, 2, type: :double, json_name: "samplingRate"

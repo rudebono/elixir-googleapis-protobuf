@@ -1,12 +1,6 @@
 defmodule Google.Api.Control do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: String.t()
-        }
-
-  defstruct environment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: :string
 end

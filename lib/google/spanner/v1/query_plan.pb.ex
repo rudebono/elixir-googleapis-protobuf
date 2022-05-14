@@ -1,8 +1,6 @@
 defmodule Google.Spanner.V1.PlanNode.Kind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :KIND_UNSPECIFIED | :RELATIONAL | :SCALAR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :RELATIONAL, 1
@@ -10,17 +8,7 @@ defmodule Google.Spanner.V1.PlanNode.Kind do
 end
 defmodule Google.Spanner.V1.PlanNode.ChildLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          child_index: integer,
-          type: String.t(),
-          variable: String.t()
-        }
-
-  defstruct child_index: 0,
-            type: "",
-            variable: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :child_index, 1, type: :int32, json_name: "childIndex"
   field :type, 2, type: :string
@@ -28,30 +16,14 @@ defmodule Google.Spanner.V1.PlanNode.ChildLink do
 end
 defmodule Google.Spanner.V1.PlanNode.ShortRepresentation.SubqueriesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
 end
 defmodule Google.Spanner.V1.PlanNode.ShortRepresentation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          description: String.t(),
-          subqueries: %{String.t() => integer}
-        }
-
-  defstruct description: "",
-            subqueries: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :description, 1, type: :string
 
@@ -62,25 +34,7 @@ defmodule Google.Spanner.V1.PlanNode.ShortRepresentation do
 end
 defmodule Google.Spanner.V1.PlanNode do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index: integer,
-          kind: Google.Spanner.V1.PlanNode.Kind.t(),
-          display_name: String.t(),
-          child_links: [Google.Spanner.V1.PlanNode.ChildLink.t()],
-          short_representation: Google.Spanner.V1.PlanNode.ShortRepresentation.t() | nil,
-          metadata: Google.Protobuf.Struct.t() | nil,
-          execution_stats: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct index: 0,
-            kind: :KIND_UNSPECIFIED,
-            display_name: "",
-            child_links: [],
-            short_representation: nil,
-            metadata: nil,
-            execution_stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index, 1, type: :int32
   field :kind, 2, type: Google.Spanner.V1.PlanNode.Kind, enum: true
@@ -100,13 +54,7 @@ defmodule Google.Spanner.V1.PlanNode do
 end
 defmodule Google.Spanner.V1.QueryPlan do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          plan_nodes: [Google.Spanner.V1.PlanNode.t()]
-        }
-
-  defstruct plan_nodes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :plan_nodes, 1, repeated: true, type: Google.Spanner.V1.PlanNode, json_name: "planNodes"
 end

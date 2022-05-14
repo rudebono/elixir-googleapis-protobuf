@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.ImageSegmentationPredictionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          category_mask: String.t(),
-          confidence_mask: String.t()
-        }
-
-  defstruct category_mask: "",
-            confidence_mask: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :category_mask, 1, type: :string, json_name: "categoryMask"
   field :confidence_mask, 2, type: :string, json_name: "confidenceMask"

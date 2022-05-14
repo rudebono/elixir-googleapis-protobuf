@@ -1,36 +1,6 @@
 defmodule Google.Analytics.Admin.V1alpha.IndustryCategory do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INDUSTRY_CATEGORY_UNSPECIFIED
-          | :AUTOMOTIVE
-          | :BUSINESS_AND_INDUSTRIAL_MARKETS
-          | :FINANCE
-          | :HEALTHCARE
-          | :TECHNOLOGY
-          | :TRAVEL
-          | :OTHER
-          | :ARTS_AND_ENTERTAINMENT
-          | :BEAUTY_AND_FITNESS
-          | :BOOKS_AND_LITERATURE
-          | :FOOD_AND_DRINK
-          | :GAMES
-          | :HOBBIES_AND_LEISURE
-          | :HOME_AND_GARDEN
-          | :INTERNET_AND_TELECOM
-          | :LAW_AND_GOVERNMENT
-          | :NEWS
-          | :ONLINE_COMMUNITIES
-          | :PEOPLE_AND_SOCIETY
-          | :PETS_AND_ANIMALS
-          | :REAL_ESTATE
-          | :REFERENCE
-          | :SCIENCE
-          | :SPORTS
-          | :JOBS_AND_EDUCATION
-          | :SHOPPING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INDUSTRY_CATEGORY_UNSPECIFIED, 0
   field :AUTOMOTIVE, 1
@@ -62,13 +32,7 @@ defmodule Google.Analytics.Admin.V1alpha.IndustryCategory do
 end
 defmodule Google.Analytics.Admin.V1alpha.ServiceLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SERVICE_LEVEL_UNSPECIFIED
-          | :GOOGLE_ANALYTICS_STANDARD
-          | :GOOGLE_ANALYTICS_360
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVICE_LEVEL_UNSPECIFIED, 0
   field :GOOGLE_ANALYTICS_STANDARD, 1
@@ -76,9 +40,7 @@ defmodule Google.Analytics.Admin.V1alpha.ServiceLevel do
 end
 defmodule Google.Analytics.Admin.V1alpha.ActorType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTOR_TYPE_UNSPECIFIED | :USER | :SYSTEM | :SUPPORT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTOR_TYPE_UNSPECIFIED, 0
   field :USER, 1
@@ -87,9 +49,7 @@ defmodule Google.Analytics.Admin.V1alpha.ActorType do
 end
 defmodule Google.Analytics.Admin.V1alpha.ActionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTION_TYPE_UNSPECIFIED | :CREATED | :UPDATED | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -98,24 +58,7 @@ defmodule Google.Analytics.Admin.V1alpha.ActionType do
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED
-          | :ACCOUNT
-          | :PROPERTY
-          | :FIREBASE_LINK
-          | :GOOGLE_ADS_LINK
-          | :GOOGLE_SIGNALS_SETTINGS
-          | :CONVERSION_EVENT
-          | :MEASUREMENT_PROTOCOL_SECRET
-          | :CUSTOM_DIMENSION
-          | :CUSTOM_METRIC
-          | :DATA_RETENTION_SETTINGS
-          | :DISPLAY_VIDEO_360_ADVERTISER_LINK
-          | :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL
-          | :DATA_STREAM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
   field :ACCOUNT, 1
@@ -134,13 +77,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :GOOGLE_SIGNALS_STATE_UNSPECIFIED
-          | :GOOGLE_SIGNALS_ENABLED
-          | :GOOGLE_SIGNALS_DISABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GOOGLE_SIGNALS_STATE_UNSPECIFIED, 0
   field :GOOGLE_SIGNALS_ENABLED, 1
@@ -148,13 +85,7 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED
-          | :GOOGLE_SIGNALS_CONSENT_CONSENTED
-          | :GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED, 0
   field :GOOGLE_SIGNALS_CONSENT_CONSENTED, 2
@@ -162,13 +93,7 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsConsent do
 end
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED
-          | :GOOGLE_ANALYTICS
-          | :LINKED_PRODUCT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED, 0
   field :GOOGLE_ANALYTICS, 1
@@ -176,17 +101,7 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct do
 end
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LINK_PROPOSAL_STATE_UNSPECIFIED
-          | :AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS
-          | :AWAITING_REVIEW_FROM_LINKED_PRODUCT
-          | :WITHDRAWN
-          | :DECLINED
-          | :EXPIRED
-          | :OBSOLETE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LINK_PROPOSAL_STATE_UNSPECIFIED, 0
   field :AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS, 1
@@ -198,14 +113,7 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DATA_STREAM_TYPE_UNSPECIFIED
-          | :WEB_DATA_STREAM
-          | :ANDROID_APP_DATA_STREAM
-          | :IOS_APP_DATA_STREAM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_STREAM_TYPE_UNSPECIFIED, 0
   field :WEB_DATA_STREAM, 1
@@ -214,9 +122,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIMENSION_SCOPE_UNSPECIFIED | :EVENT | :USER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIMENSION_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
@@ -224,21 +130,7 @@ defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MEASUREMENT_UNIT_UNSPECIFIED
-          | :STANDARD
-          | :CURRENCY
-          | :FEET
-          | :METERS
-          | :KILOMETERS
-          | :MILES
-          | :MILLISECONDS
-          | :SECONDS
-          | :MINUTES
-          | :HOURS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MEASUREMENT_UNIT_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -254,18 +146,14 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METRIC_SCOPE_UNSPECIFIED | :EVENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METRIC_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESTRICTED_METRIC_TYPE_UNSPECIFIED | :COST_DATA | :REVENUE_DATA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
   field :COST_DATA, 1
@@ -273,16 +161,7 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :RETENTION_DURATION_UNSPECIFIED
-          | :TWO_MONTHS
-          | :FOURTEEN_MONTHS
-          | :TWENTY_SIX_MONTHS
-          | :THIRTY_EIGHT_MONTHS
-          | :FIFTY_MONTHS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RETENTION_DURATION_UNSPECIFIED, 0
   field :TWO_MONTHS, 1
@@ -293,23 +172,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration
 end
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          display_name: String.t(),
-          region_code: String.t(),
-          deleted: boolean
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            display_name: "",
-            region_code: "",
-            deleted: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -329,35 +192,7 @@ defmodule Google.Analytics.Admin.V1alpha.Account do
 end
 defmodule Google.Analytics.Admin.V1alpha.Property do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          parent: String.t(),
-          display_name: String.t(),
-          industry_category: Google.Analytics.Admin.V1alpha.IndustryCategory.t(),
-          time_zone: String.t(),
-          currency_code: String.t(),
-          service_level: Google.Analytics.Admin.V1alpha.ServiceLevel.t(),
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          account: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            parent: "",
-            display_name: "",
-            industry_category: :INDUSTRY_CATEGORY_UNSPECIFIED,
-            time_zone: "",
-            currency_code: "",
-            service_level: :SERVICE_LEVEL_UNSPECIFIED,
-            delete_time: nil,
-            expire_time: nil,
-            account: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -402,17 +237,7 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.WebStreamData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          measurement_id: String.t(),
-          firebase_app_id: String.t(),
-          default_uri: String.t()
-        }
-
-  defstruct measurement_id: "",
-            firebase_app_id: "",
-            default_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :measurement_id, 1, type: :string, json_name: "measurementId", deprecated: false
   field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
@@ -420,58 +245,21 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream.WebStreamData do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          firebase_app_id: String.t(),
-          package_name: String.t()
-        }
-
-  defstruct firebase_app_id: "",
-            package_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
   field :package_name, 2, type: :string, json_name: "packageName", deprecated: false
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.IosAppStreamData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          firebase_app_id: String.t(),
-          bundle_id: String.t()
-        }
-
-  defstruct firebase_app_id: "",
-            bundle_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
   field :bundle_id, 2, type: :string, json_name: "bundleId", deprecated: false
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream_data:
-            {:web_stream_data, Google.Analytics.Admin.V1alpha.DataStream.WebStreamData.t() | nil}
-            | {:android_app_stream_data,
-               Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData.t() | nil}
-            | {:ios_app_stream_data,
-               Google.Analytics.Admin.V1alpha.DataStream.IosAppStreamData.t() | nil},
-          name: String.t(),
-          type: Google.Analytics.Admin.V1alpha.DataStream.DataStreamType.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct stream_data: nil,
-            name: "",
-            type: :DATA_STREAM_TYPE_UNSPECIFIED,
-            display_name: "",
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :stream_data, 0
 
@@ -511,17 +299,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream do
 end
 defmodule Google.Analytics.Admin.V1alpha.UserLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          email_address: String.t(),
-          direct_roles: [String.t()]
-        }
-
-  defstruct name: "",
-            email_address: "",
-            direct_roles: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :email_address, 2, type: :string, json_name: "emailAddress", deprecated: false
@@ -529,19 +307,7 @@ defmodule Google.Analytics.Admin.V1alpha.UserLink do
 end
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          email_address: String.t(),
-          direct_roles: [String.t()],
-          effective_roles: [String.t()]
-        }
-
-  defstruct name: "",
-            email_address: "",
-            direct_roles: [],
-            effective_roles: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :email_address, 2, type: :string, json_name: "emailAddress"
@@ -550,17 +316,7 @@ defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
 end
 defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            project: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :project, 2, type: :string, deprecated: false
@@ -572,40 +328,14 @@ defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
 end
 defmodule Google.Analytics.Admin.V1alpha.GlobalSiteTag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          snippet: String.t()
-        }
-
-  defstruct name: "",
-            snippet: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :snippet, 2, type: :string, deprecated: false
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          customer_id: String.t(),
-          can_manage_clients: boolean,
-          ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          creator_email_address: String.t()
-        }
-
-  defstruct name: "",
-            customer_id: "",
-            can_manage_clients: false,
-            ads_personalization_enabled: nil,
-            create_time: nil,
-            update_time: nil,
-            creator_email_address: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :customer_id, 3, type: :string, json_name: "customerId", deprecated: false
@@ -632,23 +362,7 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleAdsLink do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          sharing_with_google_support_enabled: boolean,
-          sharing_with_google_assigned_sales_enabled: boolean,
-          sharing_with_google_any_sales_enabled: boolean,
-          sharing_with_google_products_enabled: boolean,
-          sharing_with_others_enabled: boolean
-        }
-
-  defstruct name: "",
-            sharing_with_google_support_enabled: false,
-            sharing_with_google_assigned_sales_enabled: false,
-            sharing_with_google_any_sales_enabled: false,
-            sharing_with_google_products_enabled: false,
-            sharing_with_others_enabled: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -672,19 +386,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
 end
 defmodule Google.Analytics.Admin.V1alpha.AccountSummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          account: String.t(),
-          display_name: String.t(),
-          property_summaries: [Google.Analytics.Admin.V1alpha.PropertySummary.t()]
-        }
-
-  defstruct name: "",
-            account: "",
-            display_name: "",
-            property_summaries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :account, 2, type: :string, deprecated: false
@@ -697,32 +399,14 @@ defmodule Google.Analytics.Admin.V1alpha.AccountSummary do
 end
 defmodule Google.Analytics.Admin.V1alpha.PropertySummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct property: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
 end
 defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          secret_value: String.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            secret_value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -730,23 +414,7 @@ defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          change_time: Google.Protobuf.Timestamp.t() | nil,
-          actor_type: Google.Analytics.Admin.V1alpha.ActorType.t(),
-          user_actor_email: String.t(),
-          changes_filtered: boolean,
-          changes: [Google.Analytics.Admin.V1alpha.ChangeHistoryChange.t()]
-        }
-
-  defstruct id: "",
-            change_time: nil,
-            actor_type: :ACTOR_TYPE_UNSPECIFIED,
-            user_actor_email: "",
-            changes_filtered: false,
-            changes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :change_time, 2, type: Google.Protobuf.Timestamp, json_name: "changeTime"
@@ -762,31 +430,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource:
-            {:account, Google.Analytics.Admin.V1alpha.Account.t() | nil}
-            | {:property, Google.Analytics.Admin.V1alpha.Property.t() | nil}
-            | {:firebase_link, Google.Analytics.Admin.V1alpha.FirebaseLink.t() | nil}
-            | {:google_ads_link, Google.Analytics.Admin.V1alpha.GoogleAdsLink.t() | nil}
-            | {:google_signals_settings,
-               Google.Analytics.Admin.V1alpha.GoogleSignalsSettings.t() | nil}
-            | {:display_video_360_advertiser_link,
-               Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink.t() | nil}
-            | {:display_video_360_advertiser_link_proposal,
-               Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal.t() | nil}
-            | {:conversion_event, Google.Analytics.Admin.V1alpha.ConversionEvent.t() | nil}
-            | {:measurement_protocol_secret,
-               Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret.t() | nil}
-            | {:custom_dimension, Google.Analytics.Admin.V1alpha.CustomDimension.t() | nil}
-            | {:custom_metric, Google.Analytics.Admin.V1alpha.CustomMetric.t() | nil}
-            | {:data_retention_settings,
-               Google.Analytics.Admin.V1alpha.DataRetentionSettings.t() | nil}
-            | {:data_stream, Google.Analytics.Admin.V1alpha.DataStream.t() | nil}
-        }
-
-  defstruct resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -850,21 +494,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: String.t(),
-          action: Google.Analytics.Admin.V1alpha.ActionType.t(),
-          resource_before_change:
-            Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource.t() | nil,
-          resource_after_change:
-            Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResource.t() | nil
-        }
-
-  defstruct resource: "",
-            action: :ACTION_TYPE_UNSPECIFIED,
-            resource_before_change: nil,
-            resource_after_change: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :action, 2, type: Google.Analytics.Admin.V1alpha.ActionType, enum: true
@@ -879,23 +509,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
 end
 defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          advertiser_id: String.t(),
-          advertiser_display_name: String.t(),
-          ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
-          campaign_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil,
-          cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
-        }
-
-  defstruct name: "",
-            advertiser_id: "",
-            advertiser_display_name: "",
-            ads_personalization_enabled: nil,
-            campaign_data_sharing_enabled: nil,
-            cost_data_sharing_enabled: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :advertiser_id, 2, type: :string, json_name: "advertiserId", deprecated: false
@@ -921,28 +535,7 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink do
 end
 defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          advertiser_id: String.t(),
-          link_proposal_status_details:
-            Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails.t() | nil,
-          advertiser_display_name: String.t(),
-          validation_email: String.t(),
-          ads_personalization_enabled: Google.Protobuf.BoolValue.t() | nil,
-          campaign_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil,
-          cost_data_sharing_enabled: Google.Protobuf.BoolValue.t() | nil
-        }
-
-  defstruct name: "",
-            advertiser_id: "",
-            link_proposal_status_details: nil,
-            advertiser_display_name: "",
-            validation_email: "",
-            ads_personalization_enabled: nil,
-            campaign_data_sharing_enabled: nil,
-            cost_data_sharing_enabled: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :advertiser_id, 2, type: :string, json_name: "advertiserId", deprecated: false
@@ -976,18 +569,7 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal d
 end
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          link_proposal_initiating_product:
-            Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct.t(),
-          requestor_email: String.t(),
-          link_proposal_state: Google.Analytics.Admin.V1alpha.LinkProposalState.t()
-        }
-
-  defstruct link_proposal_initiating_product: :LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED,
-            requestor_email: "",
-            link_proposal_state: :LINK_PROPOSAL_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :link_proposal_initiating_product, 1,
     type: Google.Analytics.Admin.V1alpha.LinkProposalInitiatingProduct,
@@ -1005,21 +587,7 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
 end
 defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          event_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          deletable: boolean,
-          custom: boolean
-        }
-
-  defstruct name: "",
-            event_name: "",
-            create_time: nil,
-            deletable: false,
-            custom: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :event_name, 2, type: :string, json_name: "eventName", deprecated: false
@@ -1034,17 +602,7 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Analytics.Admin.V1alpha.GoogleSignalsState.t(),
-          consent: Google.Analytics.Admin.V1alpha.GoogleSignalsConsent.t()
-        }
-
-  defstruct name: "",
-            state: :GOOGLE_SIGNALS_STATE_UNSPECIFIED,
-            consent: :GOOGLE_SIGNALS_CONSENT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Analytics.Admin.V1alpha.GoogleSignalsState, enum: true
@@ -1056,23 +614,7 @@ defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parameter_name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          scope: Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope.t(),
-          disallow_ads_personalization: boolean
-        }
-
-  defstruct name: "",
-            parameter_name: "",
-            display_name: "",
-            description: "",
-            scope: :DIMENSION_SCOPE_UNSPECIFIED,
-            disallow_ads_personalization: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
@@ -1091,27 +633,7 @@ defmodule Google.Analytics.Admin.V1alpha.CustomDimension do
 end
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parameter_name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          measurement_unit: Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit.t(),
-          scope: Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope.t(),
-          restricted_metric_type: [
-            Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType.t()
-          ]
-        }
-
-  defstruct name: "",
-            parameter_name: "",
-            display_name: "",
-            description: "",
-            measurement_unit: :MEASUREMENT_UNIT_UNSPECIFIED,
-            scope: :METRIC_SCOPE_UNSPECIFIED,
-            restricted_metric_type: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
@@ -1138,18 +660,7 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
 end
 defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          event_data_retention:
-            Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration.t(),
-          reset_user_data_on_new_activity: boolean
-        }
-
-  defstruct name: "",
-            event_data_retention: :RETENTION_DURATION_UNSPECIFIED,
-            reset_user_data_on_new_activity: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

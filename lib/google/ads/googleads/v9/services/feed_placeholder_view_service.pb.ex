@@ -1,18 +1,14 @@
 defmodule Google.Ads.Googleads.V9.Services.GetFeedPlaceholderViewRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V9.Services.FeedPlaceholderViewService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v9.services.FeedPlaceholderViewService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v9.services.FeedPlaceholderViewService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetFeedPlaceholderView,
       Google.Ads.Googleads.V9.Services.GetFeedPlaceholderViewRequest,

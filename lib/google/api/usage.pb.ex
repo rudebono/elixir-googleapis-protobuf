@@ -1,16 +1,6 @@
 defmodule Google.Api.Usage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          requirements: [String.t()],
-          rules: [Google.Api.UsageRule.t()],
-          producer_notification_channel: String.t()
-        }
-
-  defstruct requirements: [],
-            rules: [],
-            producer_notification_channel: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :requirements, 1, repeated: true, type: :string
   field :rules, 6, repeated: true, type: Google.Api.UsageRule
@@ -18,17 +8,7 @@ defmodule Google.Api.Usage do
 end
 defmodule Google.Api.UsageRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: String.t(),
-          allow_unregistered_calls: boolean,
-          skip_service_control: boolean
-        }
-
-  defstruct selector: "",
-            allow_unregistered_calls: false,
-            skip_service_control: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :allow_unregistered_calls, 2, type: :bool, json_name: "allowUnregisteredCalls"

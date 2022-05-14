@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Language.V1beta2.EncodingType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NONE | :UTF8 | :UTF16 | :UTF32
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NONE, 0
   field :UTF8, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Language.V1beta2.EncodingType do
 end
 defmodule Google.Cloud.Language.V1beta2.Document.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PLAIN_TEXT | :HTML
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PLAIN_TEXT, 1
@@ -21,23 +17,7 @@ defmodule Google.Cloud.Language.V1beta2.Document.Type do
 end
 defmodule Google.Cloud.Language.V1beta2.Entity.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN
-          | :PERSON
-          | :LOCATION
-          | :ORGANIZATION
-          | :EVENT
-          | :WORK_OF_ART
-          | :CONSUMER_GOOD
-          | :OTHER
-          | :PHONE_NUMBER
-          | :ADDRESS
-          | :DATE
-          | :NUMBER
-          | :PRICE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PERSON, 1
@@ -55,24 +35,7 @@ defmodule Google.Cloud.Language.V1beta2.Entity.Type do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tag do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN
-          | :ADJ
-          | :ADP
-          | :ADV
-          | :CONJ
-          | :DET
-          | :NOUN
-          | :NUM
-          | :PRON
-          | :PRT
-          | :PUNCT
-          | :VERB
-          | :X
-          | :AFFIX
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ADJ, 1
@@ -91,9 +54,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tag do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Aspect do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ASPECT_UNKNOWN | :PERFECTIVE | :IMPERFECTIVE | :PROGRESSIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ASPECT_UNKNOWN, 0
   field :PERFECTIVE, 1
@@ -102,25 +63,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Aspect do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Case do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CASE_UNKNOWN
-          | :ACCUSATIVE
-          | :ADVERBIAL
-          | :COMPLEMENTIVE
-          | :DATIVE
-          | :GENITIVE
-          | :INSTRUMENTAL
-          | :LOCATIVE
-          | :NOMINATIVE
-          | :OBLIQUE
-          | :PARTITIVE
-          | :PREPOSITIONAL
-          | :REFLEXIVE_CASE
-          | :RELATIVE_CASE
-          | :VOCATIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CASE_UNKNOWN, 0
   field :ACCUSATIVE, 1
@@ -140,22 +83,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Case do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Form do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FORM_UNKNOWN
-          | :ADNOMIAL
-          | :AUXILIARY
-          | :COMPLEMENTIZER
-          | :FINAL_ENDING
-          | :GERUND
-          | :REALIS
-          | :IRREALIS
-          | :SHORT
-          | :LONG
-          | :ORDER
-          | :SPECIFIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FORM_UNKNOWN, 0
   field :ADNOMIAL, 1
@@ -172,9 +100,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Form do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Gender do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :GENDER_UNKNOWN | :FEMININE | :MASCULINE | :NEUTER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GENDER_UNKNOWN, 0
   field :FEMININE, 1
@@ -183,17 +109,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Gender do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Mood do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MOOD_UNKNOWN
-          | :CONDITIONAL_MOOD
-          | :IMPERATIVE
-          | :INDICATIVE
-          | :INTERROGATIVE
-          | :JUSSIVE
-          | :SUBJUNCTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MOOD_UNKNOWN, 0
   field :CONDITIONAL_MOOD, 1
@@ -205,9 +121,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Mood do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Number do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NUMBER_UNKNOWN | :SINGULAR | :PLURAL | :DUAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NUMBER_UNKNOWN, 0
   field :SINGULAR, 1
@@ -216,9 +130,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Number do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Person do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PERSON_UNKNOWN | :FIRST | :SECOND | :THIRD | :REFLEXIVE_PERSON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PERSON_UNKNOWN, 0
   field :FIRST, 1
@@ -228,9 +140,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Person do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Proper do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PROPER_UNKNOWN | :PROPER | :NOT_PROPER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROPER_UNKNOWN, 0
   field :PROPER, 1
@@ -238,9 +148,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Proper do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Reciprocity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RECIPROCITY_UNKNOWN | :RECIPROCAL | :NON_RECIPROCAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RECIPROCITY_UNKNOWN, 0
   field :RECIPROCAL, 1
@@ -248,17 +156,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Reciprocity do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tense do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TENSE_UNKNOWN
-          | :CONDITIONAL_TENSE
-          | :FUTURE
-          | :PAST
-          | :PRESENT
-          | :IMPERFECT
-          | :PLUPERFECT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TENSE_UNKNOWN, 0
   field :CONDITIONAL_TENSE, 1
@@ -270,9 +168,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Tense do
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Voice do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VOICE_UNKNOWN | :ACTIVE | :CAUSATIVE | :PASSIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VOICE_UNKNOWN, 0
   field :ACTIVE, 1
@@ -281,93 +177,7 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech.Voice do
 end
 defmodule Google.Cloud.Language.V1beta2.DependencyEdge.Label do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN
-          | :ABBREV
-          | :ACOMP
-          | :ADVCL
-          | :ADVMOD
-          | :AMOD
-          | :APPOS
-          | :ATTR
-          | :AUX
-          | :AUXPASS
-          | :CC
-          | :CCOMP
-          | :CONJ
-          | :CSUBJ
-          | :CSUBJPASS
-          | :DEP
-          | :DET
-          | :DISCOURSE
-          | :DOBJ
-          | :EXPL
-          | :GOESWITH
-          | :IOBJ
-          | :MARK
-          | :MWE
-          | :MWV
-          | :NEG
-          | :NN
-          | :NPADVMOD
-          | :NSUBJ
-          | :NSUBJPASS
-          | :NUM
-          | :NUMBER
-          | :P
-          | :PARATAXIS
-          | :PARTMOD
-          | :PCOMP
-          | :POBJ
-          | :POSS
-          | :POSTNEG
-          | :PRECOMP
-          | :PRECONJ
-          | :PREDET
-          | :PREF
-          | :PREP
-          | :PRONL
-          | :PRT
-          | :PS
-          | :QUANTMOD
-          | :RCMOD
-          | :RCMODREL
-          | :RDROP
-          | :REF
-          | :REMNANT
-          | :REPARANDUM
-          | :ROOT
-          | :SNUM
-          | :SUFF
-          | :TMOD
-          | :TOPIC
-          | :VMOD
-          | :VOCATIVE
-          | :XCOMP
-          | :SUFFIX
-          | :TITLE
-          | :ADVPHMOD
-          | :AUXCAUS
-          | :AUXVV
-          | :DTMOD
-          | :FOREIGN
-          | :KW
-          | :LIST
-          | :NOMC
-          | :NOMCSUBJ
-          | :NOMCSUBJPASS
-          | :NUMC
-          | :COP
-          | :DISLOCATED
-          | :ASP
-          | :GMOD
-          | :GOBJ
-          | :INFMOD
-          | :MES
-          | :NCOMP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ABBREV, 1
@@ -455,9 +265,7 @@ defmodule Google.Cloud.Language.V1beta2.DependencyEdge.Label do
 end
 defmodule Google.Cloud.Language.V1beta2.EntityMention.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNKNOWN | :PROPER | :COMMON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNKNOWN, 0
   field :PROPER, 1
@@ -465,17 +273,7 @@ defmodule Google.Cloud.Language.V1beta2.EntityMention.Type do
 end
 defmodule Google.Cloud.Language.V1beta2.Document do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:content, String.t()} | {:gcs_content_uri, String.t()},
-          type: Google.Cloud.Language.V1beta2.Document.Type.t(),
-          language: String.t()
-        }
-
-  defstruct source: nil,
-            type: :TYPE_UNSPECIFIED,
-            language: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -486,53 +284,21 @@ defmodule Google.Cloud.Language.V1beta2.Document do
 end
 defmodule Google.Cloud.Language.V1beta2.Sentence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: Google.Cloud.Language.V1beta2.TextSpan.t() | nil,
-          sentiment: Google.Cloud.Language.V1beta2.Sentiment.t() | nil
-        }
-
-  defstruct text: nil,
-            sentiment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
   field :sentiment, 2, type: Google.Cloud.Language.V1beta2.Sentiment
 end
 defmodule Google.Cloud.Language.V1beta2.Entity.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Language.V1beta2.Entity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Language.V1beta2.Entity.Type.t(),
-          metadata: %{String.t() => String.t()},
-          salience: float | :infinity | :negative_infinity | :nan,
-          mentions: [Google.Cloud.Language.V1beta2.EntityMention.t()],
-          sentiment: Google.Cloud.Language.V1beta2.Sentiment.t() | nil
-        }
-
-  defstruct name: "",
-            type: :UNKNOWN,
-            metadata: %{},
-            salience: 0.0,
-            mentions: [],
-            sentiment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Language.V1beta2.Entity.Type, enum: true
@@ -548,19 +314,7 @@ defmodule Google.Cloud.Language.V1beta2.Entity do
 end
 defmodule Google.Cloud.Language.V1beta2.Token do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: Google.Cloud.Language.V1beta2.TextSpan.t() | nil,
-          part_of_speech: Google.Cloud.Language.V1beta2.PartOfSpeech.t() | nil,
-          dependency_edge: Google.Cloud.Language.V1beta2.DependencyEdge.t() | nil,
-          lemma: String.t()
-        }
-
-  defstruct text: nil,
-            part_of_speech: nil,
-            dependency_edge: nil,
-            lemma: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
 
@@ -576,50 +330,14 @@ defmodule Google.Cloud.Language.V1beta2.Token do
 end
 defmodule Google.Cloud.Language.V1beta2.Sentiment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          magnitude: float | :infinity | :negative_infinity | :nan,
-          score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct magnitude: 0.0,
-            score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :magnitude, 2, type: :float
   field :score, 3, type: :float
 end
 defmodule Google.Cloud.Language.V1beta2.PartOfSpeech do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag: Google.Cloud.Language.V1beta2.PartOfSpeech.Tag.t(),
-          aspect: Google.Cloud.Language.V1beta2.PartOfSpeech.Aspect.t(),
-          case: Google.Cloud.Language.V1beta2.PartOfSpeech.Case.t(),
-          form: Google.Cloud.Language.V1beta2.PartOfSpeech.Form.t(),
-          gender: Google.Cloud.Language.V1beta2.PartOfSpeech.Gender.t(),
-          mood: Google.Cloud.Language.V1beta2.PartOfSpeech.Mood.t(),
-          number: Google.Cloud.Language.V1beta2.PartOfSpeech.Number.t(),
-          person: Google.Cloud.Language.V1beta2.PartOfSpeech.Person.t(),
-          proper: Google.Cloud.Language.V1beta2.PartOfSpeech.Proper.t(),
-          reciprocity: Google.Cloud.Language.V1beta2.PartOfSpeech.Reciprocity.t(),
-          tense: Google.Cloud.Language.V1beta2.PartOfSpeech.Tense.t(),
-          voice: Google.Cloud.Language.V1beta2.PartOfSpeech.Voice.t()
-        }
-
-  defstruct tag: :UNKNOWN,
-            aspect: :ASPECT_UNKNOWN,
-            case: :CASE_UNKNOWN,
-            form: :FORM_UNKNOWN,
-            gender: :GENDER_UNKNOWN,
-            mood: :MOOD_UNKNOWN,
-            number: :NUMBER_UNKNOWN,
-            person: :PERSON_UNKNOWN,
-            proper: :PROPER_UNKNOWN,
-            reciprocity: :RECIPROCITY_UNKNOWN,
-            tense: :TENSE_UNKNOWN,
-            voice: :VOICE_UNKNOWN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag, 1, type: Google.Cloud.Language.V1beta2.PartOfSpeech.Tag, enum: true
   field :aspect, 2, type: Google.Cloud.Language.V1beta2.PartOfSpeech.Aspect, enum: true
@@ -636,32 +354,14 @@ defmodule Google.Cloud.Language.V1beta2.PartOfSpeech do
 end
 defmodule Google.Cloud.Language.V1beta2.DependencyEdge do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          head_token_index: integer,
-          label: Google.Cloud.Language.V1beta2.DependencyEdge.Label.t()
-        }
-
-  defstruct head_token_index: 0,
-            label: :UNKNOWN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :head_token_index, 1, type: :int32, json_name: "headTokenIndex"
   field :label, 2, type: Google.Cloud.Language.V1beta2.DependencyEdge.Label, enum: true
 end
 defmodule Google.Cloud.Language.V1beta2.EntityMention do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: Google.Cloud.Language.V1beta2.TextSpan.t() | nil,
-          type: Google.Cloud.Language.V1beta2.EntityMention.Type.t(),
-          sentiment: Google.Cloud.Language.V1beta2.Sentiment.t() | nil
-        }
-
-  defstruct text: nil,
-            type: :TYPE_UNKNOWN,
-            sentiment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: Google.Cloud.Language.V1beta2.TextSpan
   field :type, 2, type: Google.Cloud.Language.V1beta2.EntityMention.Type, enum: true
@@ -669,45 +369,21 @@ defmodule Google.Cloud.Language.V1beta2.EntityMention do
 end
 defmodule Google.Cloud.Language.V1beta2.TextSpan do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: String.t(),
-          begin_offset: integer
-        }
-
-  defstruct content: "",
-            begin_offset: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :begin_offset, 2, type: :int32, json_name: "beginOffset"
 end
 defmodule Google.Cloud.Language.V1beta2.ClassificationCategory do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct name: "",
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :confidence, 2, type: :float
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil,
-          encoding_type: Google.Cloud.Language.V1beta2.EncodingType.t()
-        }
-
-  defstruct document: nil,
-            encoding_type: :NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 
@@ -718,17 +394,7 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest do
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document_sentiment: Google.Cloud.Language.V1beta2.Sentiment.t() | nil,
-          language: String.t(),
-          sentences: [Google.Cloud.Language.V1beta2.Sentence.t()]
-        }
-
-  defstruct document_sentiment: nil,
-            language: "",
-            sentences: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document_sentiment, 1,
     type: Google.Cloud.Language.V1beta2.Sentiment,
@@ -739,15 +405,7 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentResponse do
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil,
-          encoding_type: Google.Cloud.Language.V1beta2.EncodingType.t()
-        }
-
-  defstruct document: nil,
-            encoding_type: :NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 
@@ -758,30 +416,14 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentRequest do
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitySentimentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entities: [Google.Cloud.Language.V1beta2.Entity.t()],
-          language: String.t()
-        }
-
-  defstruct entities: [],
-            language: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entities, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Entity
   field :language, 2, type: :string
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil,
-          encoding_type: Google.Cloud.Language.V1beta2.EncodingType.t()
-        }
-
-  defstruct document: nil,
-            encoding_type: :NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 
@@ -792,30 +434,14 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesRequest do
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeEntitiesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entities: [Google.Cloud.Language.V1beta2.Entity.t()],
-          language: String.t()
-        }
-
-  defstruct entities: [],
-            language: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entities, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Entity
   field :language, 2, type: :string
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil,
-          encoding_type: Google.Cloud.Language.V1beta2.EncodingType.t()
-        }
-
-  defstruct document: nil,
-            encoding_type: :NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 
@@ -826,17 +452,7 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxRequest do
 end
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sentences: [Google.Cloud.Language.V1beta2.Sentence.t()],
-          tokens: [Google.Cloud.Language.V1beta2.Token.t()],
-          language: String.t()
-        }
-
-  defstruct sentences: [],
-            tokens: [],
-            language: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sentences, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Sentence
   field :tokens, 2, repeated: true, type: Google.Cloud.Language.V1beta2.Token
@@ -844,45 +460,19 @@ defmodule Google.Cloud.Language.V1beta2.AnalyzeSyntaxResponse do
 end
 defmodule Google.Cloud.Language.V1beta2.ClassifyTextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil
-        }
-
-  defstruct document: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 end
 defmodule Google.Cloud.Language.V1beta2.ClassifyTextResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          categories: [Google.Cloud.Language.V1beta2.ClassificationCategory.t()]
-        }
-
-  defstruct categories: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :categories, 1, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
 end
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          extract_syntax: boolean,
-          extract_entities: boolean,
-          extract_document_sentiment: boolean,
-          extract_entity_sentiment: boolean,
-          classify_text: boolean
-        }
-
-  defstruct extract_syntax: false,
-            extract_entities: false,
-            extract_document_sentiment: false,
-            extract_entity_sentiment: false,
-            classify_text: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :extract_syntax, 1, type: :bool, json_name: "extractSyntax"
   field :extract_entities, 2, type: :bool, json_name: "extractEntities"
@@ -892,17 +482,7 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
 end
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Language.V1beta2.Document.t() | nil,
-          features: Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features.t() | nil,
-          encoding_type: Google.Cloud.Language.V1beta2.EncodingType.t()
-        }
-
-  defstruct document: nil,
-            features: nil,
-            encoding_type: :NONE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
 
@@ -917,23 +497,7 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest do
 end
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sentences: [Google.Cloud.Language.V1beta2.Sentence.t()],
-          tokens: [Google.Cloud.Language.V1beta2.Token.t()],
-          entities: [Google.Cloud.Language.V1beta2.Entity.t()],
-          document_sentiment: Google.Cloud.Language.V1beta2.Sentiment.t() | nil,
-          language: String.t(),
-          categories: [Google.Cloud.Language.V1beta2.ClassificationCategory.t()]
-        }
-
-  defstruct sentences: [],
-            tokens: [],
-            entities: [],
-            document_sentiment: nil,
-            language: "",
-            categories: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sentences, 1, repeated: true, type: Google.Cloud.Language.V1beta2.Sentence
   field :tokens, 2, repeated: true, type: Google.Cloud.Language.V1beta2.Token
@@ -948,7 +512,9 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
 end
 defmodule Google.Cloud.Language.V1beta2.LanguageService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.language.v1beta2.LanguageService"
+  use GRPC.Service,
+    name: "google.cloud.language.v1beta2.LanguageService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :AnalyzeSentiment,
       Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest,

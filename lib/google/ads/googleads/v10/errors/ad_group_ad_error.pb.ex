@@ -1,22 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.AdGroupAdErrorEnum.AdGroupAdError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :AD_GROUP_AD_LABEL_DOES_NOT_EXIST
-          | :AD_GROUP_AD_LABEL_ALREADY_EXISTS
-          | :AD_NOT_UNDER_ADGROUP
-          | :CANNOT_OPERATE_ON_REMOVED_ADGROUPAD
-          | :CANNOT_CREATE_DEPRECATED_ADS
-          | :CANNOT_CREATE_TEXT_ADS
-          | :EMPTY_FIELD
-          | :RESOURCE_REFERENCED_IN_MULTIPLE_OPS
-          | :AD_TYPE_CANNOT_BE_PAUSED
-          | :AD_TYPE_CANNOT_BE_REMOVED
-          | :CANNOT_UPDATE_DEPRECATED_ADS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -34,9 +18,5 @@ defmodule Google.Ads.Googleads.V10.Errors.AdGroupAdErrorEnum.AdGroupAdError do
 end
 defmodule Google.Ads.Googleads.V10.Errors.AdGroupAdErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

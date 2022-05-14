@@ -1,18 +1,6 @@
 defmodule Google.Example.Library.V1.Book do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          author: String.t(),
-          title: String.t(),
-          read: boolean
-        }
-
-  defstruct name: "",
-            author: "",
-            title: "",
-            read: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :author, 2, type: :string
@@ -21,140 +9,66 @@ defmodule Google.Example.Library.V1.Book do
 end
 defmodule Google.Example.Library.V1.Shelf do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          theme: String.t()
-        }
-
-  defstruct name: "",
-            theme: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :theme, 2, type: :string
 end
 defmodule Google.Example.Library.V1.CreateShelfRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          shelf: Google.Example.Library.V1.Shelf.t() | nil
-        }
-
-  defstruct shelf: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :shelf, 1, type: Google.Example.Library.V1.Shelf, deprecated: false
 end
 defmodule Google.Example.Library.V1.GetShelfRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Example.Library.V1.ListShelvesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
 end
 defmodule Google.Example.Library.V1.ListShelvesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          shelves: [Google.Example.Library.V1.Shelf.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct shelves: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :shelves, 1, repeated: true, type: Google.Example.Library.V1.Shelf
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Example.Library.V1.DeleteShelfRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Example.Library.V1.MergeShelvesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          other_shelf: String.t()
-        }
-
-  defstruct name: "",
-            other_shelf: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :other_shelf, 2, type: :string, json_name: "otherShelf", deprecated: false
 end
 defmodule Google.Example.Library.V1.CreateBookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          book: Google.Example.Library.V1.Book.t() | nil
-        }
-
-  defstruct parent: "",
-            book: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :book, 2, type: Google.Example.Library.V1.Book, deprecated: false
 end
 defmodule Google.Example.Library.V1.GetBookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Example.Library.V1.ListBooksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -162,30 +76,14 @@ defmodule Google.Example.Library.V1.ListBooksRequest do
 end
 defmodule Google.Example.Library.V1.ListBooksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          books: [Google.Example.Library.V1.Book.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct books: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :books, 1, repeated: true, type: Google.Example.Library.V1.Book
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Example.Library.V1.UpdateBookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          book: Google.Example.Library.V1.Book.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct book: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :book, 1, type: Google.Example.Library.V1.Book, deprecated: false
 
@@ -196,34 +94,22 @@ defmodule Google.Example.Library.V1.UpdateBookRequest do
 end
 defmodule Google.Example.Library.V1.DeleteBookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Example.Library.V1.MoveBookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          other_shelf_name: String.t()
-        }
-
-  defstruct name: "",
-            other_shelf_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :other_shelf_name, 2, type: :string, json_name: "otherShelfName", deprecated: false
 end
 defmodule Google.Example.Library.V1.LibraryService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.example.library.v1.LibraryService"
+  use GRPC.Service,
+    name: "google.example.library.v1.LibraryService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateShelf, Google.Example.Library.V1.CreateShelfRequest, Google.Example.Library.V1.Shelf
 

@@ -1,26 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.BigQueryExport do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          filter: String.t(),
-          dataset: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          most_recent_editor: String.t(),
-          principal: String.t()
-        }
-
-  defstruct name: "",
-            description: "",
-            filter: "",
-            dataset: "",
-            create_time: nil,
-            update_time: nil,
-            most_recent_editor: "",
-            principal: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string

@@ -1,13 +1,6 @@
 defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REDIRECTION_STATE_UNSPECIFIED
-          | :REDIRECTION_FROM_GCR_IO_DISABLED
-          | :REDIRECTION_FROM_GCR_IO_ENABLED
-          | :REDIRECTION_FROM_GCR_IO_FINALIZED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REDIRECTION_STATE_UNSPECIFIED, 0
   field :REDIRECTION_FROM_GCR_IO_DISABLED, 1
@@ -16,16 +9,7 @@ defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState d
 end
 defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          legacy_redirection_state:
-            Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState.t()
-        }
-
-  defstruct name: "",
-            legacy_redirection_state: :REDIRECTION_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -36,27 +20,13 @@ defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
 end
 defmodule Google.Devtools.Artifactregistry.V1.GetProjectSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Artifactregistry.V1.UpdateProjectSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_settings: Google.Devtools.Artifactregistry.V1.ProjectSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct project_settings: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_settings, 2,
     type: Google.Devtools.Artifactregistry.V1.ProjectSettings,

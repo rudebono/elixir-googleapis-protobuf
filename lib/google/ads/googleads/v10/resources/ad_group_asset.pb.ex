@@ -1,20 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.AdGroupAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          ad_group: String.t(),
-          asset: String.t(),
-          field_type: Google.Ads.Googleads.V10.Enums.AssetFieldTypeEnum.AssetFieldType.t(),
-          status: Google.Ads.Googleads.V10.Enums.AssetLinkStatusEnum.AssetLinkStatus.t()
-        }
-
-  defstruct resource_name: "",
-            ad_group: "",
-            asset: "",
-            field_type: :UNSPECIFIED,
-            status: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :ad_group, 2, type: :string, json_name: "adGroup", deprecated: false

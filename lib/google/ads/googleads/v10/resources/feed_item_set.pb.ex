@@ -1,26 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.FeedItemSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dynamic_set_filter:
-            {:dynamic_location_set_filter,
-             Google.Ads.Googleads.V10.Common.DynamicLocationSetFilter.t() | nil}
-            | {:dynamic_affiliate_location_set_filter,
-               Google.Ads.Googleads.V10.Common.DynamicAffiliateLocationSetFilter.t() | nil},
-          resource_name: String.t(),
-          feed: String.t(),
-          feed_item_set_id: integer,
-          display_name: String.t(),
-          status: Google.Ads.Googleads.V10.Enums.FeedItemSetStatusEnum.FeedItemSetStatus.t()
-        }
-
-  defstruct dynamic_set_filter: nil,
-            resource_name: "",
-            feed: "",
-            feed_item_set_id: 0,
-            display_name: "",
-            status: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :dynamic_set_filter, 0
 

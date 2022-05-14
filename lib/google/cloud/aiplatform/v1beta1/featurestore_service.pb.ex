@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          featurestore: Google.Cloud.Aiplatform.V1beta1.Featurestore.t() | nil,
-          featurestore_id: String.t()
-        }
-
-  defstruct parent: "",
-            featurestore: nil,
-            featurestore_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :featurestore, 2, type: Google.Cloud.Aiplatform.V1beta1.Featurestore, deprecated: false
@@ -18,35 +8,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetFeaturestoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -57,94 +25,35 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturestoresResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          featurestores: [Google.Cloud.Aiplatform.V1beta1.Featurestore.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct featurestores: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :featurestores, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Featurestore
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          featurestore: Google.Cloud.Aiplatform.V1beta1.Featurestore.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct featurestore: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :featurestore, 1, type: Google.Cloud.Aiplatform.V1beta1.Featurestore, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeaturestoreRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          source_field: String.t()
-        }
-
-  defstruct id: "",
-            source_field: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :source_field, 2, type: :string, json_name: "sourceField"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:avro_source, Google.Cloud.Aiplatform.V1beta1.AvroSource.t() | nil}
-            | {:bigquery_source, Google.Cloud.Aiplatform.V1beta1.BigQuerySource.t() | nil}
-            | {:csv_source, Google.Cloud.Aiplatform.V1beta1.CsvSource.t() | nil},
-          feature_time_source:
-            {:feature_time_field, String.t()}
-            | {:feature_time, Google.Protobuf.Timestamp.t() | nil},
-          entity_type: String.t(),
-          entity_id_field: String.t(),
-          feature_specs: [
-            Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest.FeatureSpec.t()
-          ],
-          disable_online_serving: boolean,
-          worker_count: integer,
-          disable_ingestion_analysis: boolean
-        }
-
-  defstruct source: nil,
-            feature_time_source: nil,
-            entity_type: "",
-            entity_id_field: "",
-            feature_specs: [],
-            disable_online_serving: false,
-            worker_count: 0,
-            disable_ingestion_analysis: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
   oneof :feature_time_source, 1
@@ -181,17 +90,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          imported_entity_count: integer,
-          imported_feature_value_count: integer,
-          invalid_row_count: integer
-        }
-
-  defstruct imported_entity_count: 0,
-            imported_feature_value_count: 0,
-            invalid_row_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :imported_entity_count, 1, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 2, type: :int64, json_name: "importedFeatureValueCount"
@@ -199,29 +98,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          field_name: String.t()
-        }
-
-  defstruct field_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_type_id: String.t(),
-          feature_selector: Google.Cloud.Aiplatform.V1beta1.FeatureSelector.t() | nil,
-          settings: [Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting.t()]
-        }
-
-  defstruct entity_type_id: "",
-            feature_selector: nil,
-            settings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_type_id, 1, type: :string, json_name: "entityTypeId", deprecated: false
 
@@ -236,27 +119,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTy
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          read_option:
-            {:csv_read_instances, Google.Cloud.Aiplatform.V1beta1.CsvSource.t() | nil}
-            | {:bigquery_read_instances, Google.Cloud.Aiplatform.V1beta1.BigQuerySource.t() | nil},
-          featurestore: String.t(),
-          destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
-          pass_through_fields: [
-            Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField.t()
-          ],
-          entity_type_specs: [
-            Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.EntityTypeSpec.t()
-          ]
-        }
-
-  defstruct read_option: nil,
-            featurestore: "",
-            destination: nil,
-            pass_through_fields: [],
-            entity_type_specs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :read_option, 0
 
@@ -289,55 +152,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct snapshot_time: nil,
-            start_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.FullExport do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 1, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mode:
-            {:snapshot_export,
-             Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.SnapshotExport.t() | nil}
-            | {:full_export,
-               Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest.FullExport.t() | nil},
-          entity_type: String.t(),
-          destination: Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination.t() | nil,
-          feature_selector: Google.Cloud.Aiplatform.V1beta1.FeatureSelector.t() | nil,
-          settings: [Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting.t()]
-        }
-
-  defstruct mode: nil,
-            entity_type: "",
-            destination: nil,
-            feature_selector: nil,
-            settings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -368,32 +197,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DestinationFeatureSetting do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_id: String.t(),
-          destination_field: String.t()
-        }
-
-  defstruct feature_id: "",
-            destination_field: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :feature_id, 1, type: :string, json_name: "featureId", deprecated: false
   field :destination_field, 2, type: :string, json_name: "destinationField"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:bigquery_destination, Google.Cloud.Aiplatform.V1beta1.BigQueryDestination.t() | nil}
-            | {:tfrecord_destination,
-               Google.Cloud.Aiplatform.V1beta1.TFRecordDestination.t() | nil}
-            | {:csv_destination, Google.Cloud.Aiplatform.V1beta1.CsvDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -414,33 +225,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureValueDestination do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          entity_type: Google.Cloud.Aiplatform.V1beta1.EntityType.t() | nil,
-          entity_type_id: String.t()
-        }
-
-  defstruct parent: "",
-            entity_type: nil,
-            entity_type_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entity_type, 2, type: Google.Cloud.Aiplatform.V1beta1.EntityType, json_name: "entityType"
@@ -448,35 +241,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetEntityTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -487,15 +258,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_types: [Google.Cloud.Aiplatform.V1beta1.EntityType.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct entity_types: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_types, 1,
     repeated: true,
@@ -506,15 +269,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEntityTypesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEntityTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_type: Google.Cloud.Aiplatform.V1beta1.EntityType.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct entity_type: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_type, 1,
     type: Google.Cloud.Aiplatform.V1beta1.EntityType,
@@ -525,32 +280,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEntityTypeRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEntityTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          feature: Google.Cloud.Aiplatform.V1beta1.Feature.t() | nil,
-          feature_id: String.t()
-        }
-
-  defstruct parent: "",
-            feature: nil,
-            feature_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :feature, 2, type: Google.Cloud.Aiplatform.V1beta1.Feature, deprecated: false
@@ -558,15 +295,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          requests: [Google.Cloud.Aiplatform.V1beta1.CreateFeatureRequest.t()]
-        }
-
-  defstruct parent: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -577,49 +306,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          features: [Google.Cloud.Aiplatform.V1beta1.Feature.t()]
-        }
-
-  defstruct features: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil,
-          latest_stats_count: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil,
-            latest_stats_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -631,34 +330,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          features: [Google.Cloud.Aiplatform.V1beta1.Feature.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct features: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct location: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :query, 3, type: :string
@@ -667,55 +346,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchFeaturesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          features: [Google.Cloud.Aiplatform.V1beta1.Feature.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct features: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :features, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Feature
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature: Google.Cloud.Aiplatform.V1beta1.Feature.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct feature: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :feature, 1, type: Google.Cloud.Aiplatform.V1beta1.Feature, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -723,13 +374,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -737,19 +382,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeaturestoreOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil,
-          imported_entity_count: integer,
-          imported_feature_value_count: integer,
-          invalid_row_count: integer
-        }
-
-  defstruct generic_metadata: nil,
-            imported_entity_count: 0,
-            imported_feature_value_count: 0,
-            invalid_row_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -761,13 +394,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -775,13 +402,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesOperationMetadata d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -789,13 +410,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesOperationMetadat
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -803,13 +418,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -817,13 +426,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -831,7 +434,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.FeaturestoreService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.FeaturestoreService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateFeaturestore,
       Google.Cloud.Aiplatform.V1beta1.CreateFeaturestoreRequest,

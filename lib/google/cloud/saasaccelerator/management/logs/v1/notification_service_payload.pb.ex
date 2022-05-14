@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STAGE_UNSPECIFIED | :SENT | :SEND_FAILURE | :DROPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STAGE_UNSPECIFIED, 0
   field :SENT, 1
@@ -11,30 +9,14 @@ defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stag
 end
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Event do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVENT_UNSPECIFIED | :HEALTH_STATUS_CHANGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_UNSPECIFIED, 0
   field :HEALTH_STATUS_CHANGE, 1
 end
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stage: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage.t(),
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          notification_id: String.t(),
-          event: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Event.t(),
-          message: String.t()
-        }
-
-  defstruct stage: :STAGE_UNSPECIFIED,
-            event_time: nil,
-            notification_id: "",
-            event: :EVENT_UNSPECIFIED,
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stage, 1,
     type: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage,

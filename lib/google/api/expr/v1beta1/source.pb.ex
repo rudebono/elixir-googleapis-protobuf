@@ -1,31 +1,13 @@
 defmodule Google.Api.Expr.V1beta1.SourceInfo.PositionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: integer
-        }
-
-  defstruct key: 0,
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
 end
 defmodule Google.Api.Expr.V1beta1.SourceInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          line_offsets: [integer],
-          positions: %{integer => integer}
-        }
-
-  defstruct location: "",
-            line_offsets: [],
-            positions: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 2, type: :string
   field :line_offsets, 3, repeated: true, type: :int32, json_name: "lineOffsets"
@@ -37,19 +19,7 @@ defmodule Google.Api.Expr.V1beta1.SourceInfo do
 end
 defmodule Google.Api.Expr.V1beta1.SourcePosition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          offset: integer,
-          line: integer,
-          column: integer
-        }
-
-  defstruct location: "",
-            offset: 0,
-            line: 0,
-            column: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :offset, 2, type: :int32

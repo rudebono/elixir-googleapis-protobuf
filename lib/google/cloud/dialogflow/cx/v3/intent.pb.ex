@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.IntentView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INTENT_VIEW_UNSPECIFIED | :INTENT_VIEW_PARTIAL | :INTENT_VIEW_FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INTENT_VIEW_UNSPECIFIED, 0
   field :INTENT_VIEW_PARTIAL, 1
@@ -10,32 +8,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.IntentView do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.Part do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          parameter_id: String.t()
-        }
-
-  defstruct text: "",
-            parameter_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :parameter_id, 2, type: :string, json_name: "parameterId"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          parts: [Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.Part.t()],
-          repeat_count: integer
-        }
-
-  defstruct id: "",
-            parts: [],
-            repeat_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -48,19 +28,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          entity_type: String.t(),
-          is_list: boolean,
-          redact: boolean
-        }
-
-  defstruct id: "",
-            entity_type: "",
-            is_list: false,
-            redact: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :entity_type, 2, type: :string, json_name: "entityType", deprecated: false
@@ -69,42 +37,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          training_phrases: [Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.t()],
-          parameters: [Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter.t()],
-          priority: integer,
-          is_fallback: boolean,
-          labels: %{String.t() => String.t()},
-          description: String.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            training_phrases: [],
-            parameters: [],
-            priority: 0,
-            is_fallback: false,
-            labels: %{},
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -127,21 +67,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          language_code: String.t(),
-          intent_view: Google.Cloud.Dialogflow.Cx.V3.IntentView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            language_code: "",
-            intent_view: :INTENT_VIEW_UNSPECIFIED,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -156,47 +82,21 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intents: [Google.Cloud.Dialogflow.Cx.V3.Intent.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct intents: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Intent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct name: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          intent: Google.Cloud.Dialogflow.Cx.V3.Intent.t() | nil,
-          language_code: String.t()
-        }
-
-  defstruct parent: "",
-            intent: nil,
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :intent, 2, type: Google.Cloud.Dialogflow.Cx.V3.Intent, deprecated: false
@@ -204,17 +104,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intent: Google.Cloud.Dialogflow.Cx.V3.Intent.t() | nil,
-          language_code: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct intent: nil,
-            language_code: "",
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intent, 1, type: Google.Cloud.Dialogflow.Cx.V3.Intent, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -222,19 +112,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Intents"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.cx.v3.Intents",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListIntents,
       Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest,

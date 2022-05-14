@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Source.V1.AliasContext.Kind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANY | :FIXED | :MOVABLE | :OTHER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANY, 0
   field :FIXED, 1
@@ -11,17 +9,7 @@ defmodule Google.Devtools.Source.V1.AliasContext.Kind do
 end
 defmodule Google.Devtools.Source.V1.SourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context:
-            {:cloud_repo, Google.Devtools.Source.V1.CloudRepoSourceContext.t() | nil}
-            | {:cloud_workspace, Google.Devtools.Source.V1.CloudWorkspaceSourceContext.t() | nil}
-            | {:gerrit, Google.Devtools.Source.V1.GerritSourceContext.t() | nil}
-            | {:git, Google.Devtools.Source.V1.GitSourceContext.t() | nil}
-        }
-
-  defstruct context: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :context, 0
 
@@ -40,30 +28,14 @@ defmodule Google.Devtools.Source.V1.SourceContext do
 end
 defmodule Google.Devtools.Source.V1.ExtendedSourceContext.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Source.V1.ExtendedSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context: Google.Devtools.Source.V1.SourceContext.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct context: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :context, 1, type: Google.Devtools.Source.V1.SourceContext
 
@@ -74,33 +46,14 @@ defmodule Google.Devtools.Source.V1.ExtendedSourceContext do
 end
 defmodule Google.Devtools.Source.V1.AliasContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: Google.Devtools.Source.V1.AliasContext.Kind.t(),
-          name: String.t()
-        }
-
-  defstruct kind: :ANY,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: Google.Devtools.Source.V1.AliasContext.Kind, enum: true
   field :name, 2, type: :string
 end
 defmodule Google.Devtools.Source.V1.CloudRepoSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision:
-            {:revision_id, String.t()}
-            | {:alias_name, String.t()}
-            | {:alias_context, Google.Devtools.Source.V1.AliasContext.t() | nil},
-          repo_id: Google.Devtools.Source.V1.RepoId.t() | nil
-        }
-
-  defstruct revision: nil,
-            repo_id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -115,15 +68,7 @@ defmodule Google.Devtools.Source.V1.CloudRepoSourceContext do
 end
 defmodule Google.Devtools.Source.V1.CloudWorkspaceSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workspace_id: Google.Devtools.Source.V1.CloudWorkspaceId.t() | nil,
-          snapshot_id: String.t()
-        }
-
-  defstruct workspace_id: nil,
-            snapshot_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workspace_id, 1,
     type: Google.Devtools.Source.V1.CloudWorkspaceId,
@@ -133,20 +78,7 @@ defmodule Google.Devtools.Source.V1.CloudWorkspaceSourceContext do
 end
 defmodule Google.Devtools.Source.V1.GerritSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision:
-            {:revision_id, String.t()}
-            | {:alias_name, String.t()}
-            | {:alias_context, Google.Devtools.Source.V1.AliasContext.t() | nil},
-          host_uri: String.t(),
-          gerrit_project: String.t()
-        }
-
-  defstruct revision: nil,
-            host_uri: "",
-            gerrit_project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -162,30 +94,14 @@ defmodule Google.Devtools.Source.V1.GerritSourceContext do
 end
 defmodule Google.Devtools.Source.V1.GitSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          revision_id: String.t()
-        }
-
-  defstruct url: "",
-            revision_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
 end
 defmodule Google.Devtools.Source.V1.RepoId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id:
-            {:project_repo_id, Google.Devtools.Source.V1.ProjectRepoId.t() | nil}
-            | {:uid, String.t()}
-        }
-
-  defstruct id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :id, 0
 
@@ -198,30 +114,14 @@ defmodule Google.Devtools.Source.V1.RepoId do
 end
 defmodule Google.Devtools.Source.V1.ProjectRepoId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          repo_name: String.t()
-        }
-
-  defstruct project_id: "",
-            repo_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"
 end
 defmodule Google.Devtools.Source.V1.CloudWorkspaceId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repo_id: Google.Devtools.Source.V1.RepoId.t() | nil,
-          name: String.t()
-        }
-
-  defstruct repo_id: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repo_id, 1, type: Google.Devtools.Source.V1.RepoId, json_name: "repoId"
   field :name, 2, type: :string

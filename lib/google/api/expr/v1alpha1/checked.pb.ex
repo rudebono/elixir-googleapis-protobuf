@@ -1,16 +1,6 @@
 defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PRIMITIVE_TYPE_UNSPECIFIED
-          | :BOOL
-          | :INT64
-          | :UINT64
-          | :DOUBLE
-          | :STRING
-          | :BYTES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -22,9 +12,7 @@ defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
 end
 defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :WELL_KNOWN_TYPE_UNSPECIFIED | :ANY | :TIMESTAMP | :DURATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :WELL_KNOWN_TYPE_UNSPECIFIED, 0
   field :ANY, 1
@@ -33,51 +21,21 @@ defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
 end
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.ReferenceMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: Google.Api.Expr.V1alpha1.Reference.t() | nil
-        }
-
-  defstruct key: 0,
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Reference
 end
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.TypeMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: Google.Api.Expr.V1alpha1.Type.t() | nil
-        }
-
-  defstruct key: 0,
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Type
 end
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_map: %{integer => Google.Api.Expr.V1alpha1.Reference.t() | nil},
-          type_map: %{integer => Google.Api.Expr.V1alpha1.Type.t() | nil},
-          source_info: Google.Api.Expr.V1alpha1.SourceInfo.t() | nil,
-          expr_version: String.t(),
-          expr: Google.Api.Expr.V1alpha1.Expr.t() | nil
-        }
-
-  defstruct reference_map: %{},
-            type_map: %{},
-            source_info: nil,
-            expr_version: "",
-            expr: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_map, 2,
     repeated: true,
@@ -97,57 +55,27 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
 end
 defmodule Google.Api.Expr.V1alpha1.Type.ListType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          elem_type: Google.Api.Expr.V1alpha1.Type.t() | nil
-        }
-
-  defstruct elem_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :elem_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "elemType"
 end
 defmodule Google.Api.Expr.V1alpha1.Type.MapType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_type: Google.Api.Expr.V1alpha1.Type.t() | nil,
-          value_type: Google.Api.Expr.V1alpha1.Type.t() | nil
-        }
-
-  defstruct key_type: nil,
-            value_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "keyType"
   field :value_type, 2, type: Google.Api.Expr.V1alpha1.Type, json_name: "valueType"
 end
 defmodule Google.Api.Expr.V1alpha1.Type.FunctionType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result_type: Google.Api.Expr.V1alpha1.Type.t() | nil,
-          arg_types: [Google.Api.Expr.V1alpha1.Type.t()]
-        }
-
-  defstruct result_type: nil,
-            arg_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "resultType"
   field :arg_types, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type, json_name: "argTypes"
 end
 defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parameter_types: [Google.Api.Expr.V1alpha1.Type.t()]
-        }
-
-  defstruct name: "",
-            parameter_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -158,26 +86,7 @@ defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
 end
 defmodule Google.Api.Expr.V1alpha1.Type do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type_kind:
-            {:dyn, Google.Protobuf.Empty.t() | nil}
-            | {:null, Google.Protobuf.NullValue.t()}
-            | {:primitive, Google.Api.Expr.V1alpha1.Type.PrimitiveType.t()}
-            | {:wrapper, Google.Api.Expr.V1alpha1.Type.PrimitiveType.t()}
-            | {:well_known, Google.Api.Expr.V1alpha1.Type.WellKnownType.t()}
-            | {:list_type, Google.Api.Expr.V1alpha1.Type.ListType.t() | nil}
-            | {:map_type, Google.Api.Expr.V1alpha1.Type.MapType.t() | nil}
-            | {:function, Google.Api.Expr.V1alpha1.Type.FunctionType.t() | nil}
-            | {:message_type, String.t()}
-            | {:type_param, String.t()}
-            | {:type, Google.Api.Expr.V1alpha1.Type.t() | nil}
-            | {:error, Google.Protobuf.Empty.t() | nil}
-            | {:abstract_type, Google.Api.Expr.V1alpha1.Type.AbstractType.t() | nil}
-        }
-
-  defstruct type_kind: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type_kind, 0
 
@@ -211,17 +120,7 @@ defmodule Google.Api.Expr.V1alpha1.Type do
 end
 defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Api.Expr.V1alpha1.Type.t() | nil,
-          value: Google.Api.Expr.V1alpha1.Constant.t() | nil,
-          doc: String.t()
-        }
-
-  defstruct type: nil,
-            value: nil,
-            doc: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Api.Expr.V1alpha1.Type
   field :value, 2, type: Google.Api.Expr.V1alpha1.Constant
@@ -229,23 +128,7 @@ defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
 end
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          overload_id: String.t(),
-          params: [Google.Api.Expr.V1alpha1.Type.t()],
-          type_params: [String.t()],
-          result_type: Google.Api.Expr.V1alpha1.Type.t() | nil,
-          is_instance_function: boolean,
-          doc: String.t()
-        }
-
-  defstruct overload_id: "",
-            params: [],
-            type_params: [],
-            result_type: nil,
-            is_instance_function: false,
-            doc: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :overload_id, 1, type: :string, json_name: "overloadId"
   field :params, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type
@@ -256,29 +139,13 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
 end
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          overloads: [Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload.t()]
-        }
-
-  defstruct overloads: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :overloads, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload
 end
 defmodule Google.Api.Expr.V1alpha1.Decl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          decl_kind:
-            {:ident, Google.Api.Expr.V1alpha1.Decl.IdentDecl.t() | nil}
-            | {:function, Google.Api.Expr.V1alpha1.Decl.FunctionDecl.t() | nil},
-          name: String.t()
-        }
-
-  defstruct decl_kind: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :decl_kind, 0
 
@@ -288,17 +155,7 @@ defmodule Google.Api.Expr.V1alpha1.Decl do
 end
 defmodule Google.Api.Expr.V1alpha1.Reference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          overload_id: [String.t()],
-          value: Google.Api.Expr.V1alpha1.Constant.t() | nil
-        }
-
-  defstruct name: "",
-            overload_id: [],
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :overload_id, 3, repeated: true, type: :string, json_name: "overloadId"

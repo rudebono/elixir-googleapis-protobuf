@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target:
-            {:connection_profile, Google.Cloud.Datastream.V1.ConnectionProfile.t() | nil}
-            | {:connection_profile_name, String.t()},
-          hierarchy: {:full_hierarchy, boolean} | {:hierarchy_depth, integer},
-          data_object:
-            {:oracle_rdbms, Google.Cloud.Datastream.V1.OracleRdbms.t() | nil}
-            | {:mysql_rdbms, Google.Cloud.Datastream.V1.MysqlRdbms.t() | nil},
-          parent: String.t()
-        }
-
-  defstruct target: nil,
-            hierarchy: nil,
-            data_object: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
   oneof :hierarchy, 1
@@ -45,15 +29,7 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileRequest do
 end
 defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_object:
-            {:oracle_rdbms, Google.Cloud.Datastream.V1.OracleRdbms.t() | nil}
-            | {:mysql_rdbms, Google.Cloud.Datastream.V1.MysqlRdbms.t() | nil}
-        }
-
-  defstruct data_object: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :data_object, 0
 
@@ -69,17 +45,7 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
 end
 defmodule Google.Cloud.Datastream.V1.FetchStaticIpsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -87,36 +53,14 @@ defmodule Google.Cloud.Datastream.V1.FetchStaticIpsRequest do
 end
 defmodule Google.Cloud.Datastream.V1.FetchStaticIpsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          static_ips: [String.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct static_ips: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :static_ips, 1, repeated: true, type: :string, json_name: "staticIps"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Datastream.V1.ListConnectionProfilesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -126,17 +70,7 @@ defmodule Google.Cloud.Datastream.V1.ListConnectionProfilesRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListConnectionProfilesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          connection_profiles: [Google.Cloud.Datastream.V1.ConnectionProfile.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct connection_profiles: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :connection_profiles, 1,
     repeated: true,
@@ -148,35 +82,13 @@ defmodule Google.Cloud.Datastream.V1.ListConnectionProfilesResponse do
 end
 defmodule Google.Cloud.Datastream.V1.GetConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.CreateConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          connection_profile_id: String.t(),
-          connection_profile: Google.Cloud.Datastream.V1.ConnectionProfile.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean,
-          force: boolean
-        }
-
-  defstruct parent: "",
-            connection_profile_id: "",
-            connection_profile: nil,
-            request_id: "",
-            validate_only: false,
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -196,21 +108,7 @@ defmodule Google.Cloud.Datastream.V1.CreateConnectionProfileRequest do
 end
 defmodule Google.Cloud.Datastream.V1.UpdateConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          connection_profile: Google.Cloud.Datastream.V1.ConnectionProfile.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean,
-          force: boolean
-        }
-
-  defstruct update_mask: nil,
-            connection_profile: nil,
-            request_id: "",
-            validate_only: false,
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -228,36 +126,14 @@ defmodule Google.Cloud.Datastream.V1.UpdateConnectionProfileRequest do
 end
 defmodule Google.Cloud.Datastream.V1.DeleteConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.ListStreamsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -267,17 +143,7 @@ defmodule Google.Cloud.Datastream.V1.ListStreamsRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListStreamsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          streams: [Google.Cloud.Datastream.V1.Stream.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct streams: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Cloud.Datastream.V1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -285,35 +151,13 @@ defmodule Google.Cloud.Datastream.V1.ListStreamsResponse do
 end
 defmodule Google.Cloud.Datastream.V1.GetStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.CreateStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          stream_id: String.t(),
-          stream: Google.Cloud.Datastream.V1.Stream.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean,
-          force: boolean
-        }
-
-  defstruct parent: "",
-            stream_id: "",
-            stream: nil,
-            request_id: "",
-            validate_only: false,
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
@@ -324,21 +168,7 @@ defmodule Google.Cloud.Datastream.V1.CreateStreamRequest do
 end
 defmodule Google.Cloud.Datastream.V1.UpdateStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          stream: Google.Cloud.Datastream.V1.Stream.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean,
-          force: boolean
-        }
-
-  defstruct update_mask: nil,
-            stream: nil,
-            request_id: "",
-            validate_only: false,
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -352,42 +182,20 @@ defmodule Google.Cloud.Datastream.V1.UpdateStreamRequest do
 end
 defmodule Google.Cloud.Datastream.V1.DeleteStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.GetStreamObjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.LookupStreamObjectRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source_object_identifier: Google.Cloud.Datastream.V1.SourceObjectIdentifier.t() | nil
-        }
-
-  defstruct parent: "",
-            source_object_identifier: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -398,65 +206,31 @@ defmodule Google.Cloud.Datastream.V1.LookupStreamObjectRequest do
 end
 defmodule Google.Cloud.Datastream.V1.StartBackfillJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object: String.t()
-        }
-
-  defstruct object: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :object, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.StartBackfillJobResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object: Google.Cloud.Datastream.V1.StreamObject.t() | nil
-        }
-
-  defstruct object: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :object, 1, type: Google.Cloud.Datastream.V1.StreamObject
 end
 defmodule Google.Cloud.Datastream.V1.StopBackfillJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object: String.t()
-        }
-
-  defstruct object: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :object, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.StopBackfillJobResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object: Google.Cloud.Datastream.V1.StreamObject.t() | nil
-        }
-
-  defstruct object: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :object, 1, type: Google.Cloud.Datastream.V1.StreamObject
 end
 defmodule Google.Cloud.Datastream.V1.ListStreamObjectsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -464,15 +238,7 @@ defmodule Google.Cloud.Datastream.V1.ListStreamObjectsRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListStreamObjectsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream_objects: [Google.Cloud.Datastream.V1.StreamObject.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct stream_objects: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream_objects, 1,
     repeated: true,
@@ -483,27 +249,7 @@ defmodule Google.Cloud.Datastream.V1.ListStreamObjectsResponse do
 end
 defmodule Google.Cloud.Datastream.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t(),
-          validation_result: Google.Cloud.Datastream.V1.ValidationResult.t() | nil
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: "",
-            validation_result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -529,19 +275,7 @@ defmodule Google.Cloud.Datastream.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Datastream.V1.CreatePrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          private_connection_id: String.t(),
-          private_connection: Google.Cloud.Datastream.V1.PrivateConnection.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            private_connection_id: "",
-            private_connection: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -559,21 +293,7 @@ defmodule Google.Cloud.Datastream.V1.CreatePrivateConnectionRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -583,17 +303,7 @@ defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          private_connections: [Google.Cloud.Datastream.V1.PrivateConnection.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct private_connections: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :private_connections, 1,
     repeated: true,
@@ -605,17 +315,7 @@ defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsResponse do
 end
 defmodule Google.Cloud.Datastream.V1.DeletePrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            request_id: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -623,31 +323,13 @@ defmodule Google.Cloud.Datastream.V1.DeletePrivateConnectionRequest do
 end
 defmodule Google.Cloud.Datastream.V1.GetPrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.CreateRouteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          route_id: String.t(),
-          route: Google.Cloud.Datastream.V1.Route.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            route_id: "",
-            route: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :route_id, 2, type: :string, json_name: "routeId", deprecated: false
@@ -656,21 +338,7 @@ defmodule Google.Cloud.Datastream.V1.CreateRouteRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListRoutesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -680,17 +348,7 @@ defmodule Google.Cloud.Datastream.V1.ListRoutesRequest do
 end
 defmodule Google.Cloud.Datastream.V1.ListRoutesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routes: [Google.Cloud.Datastream.V1.Route.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct routes: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Cloud.Datastream.V1.Route
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -698,34 +356,22 @@ defmodule Google.Cloud.Datastream.V1.ListRoutesResponse do
 end
 defmodule Google.Cloud.Datastream.V1.DeleteRouteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.GetRouteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1.Datastream.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.datastream.v1.Datastream"
+  use GRPC.Service,
+    name: "google.cloud.datastream.v1.Datastream",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListConnectionProfiles,
       Google.Cloud.Datastream.V1.ListConnectionProfilesRequest,

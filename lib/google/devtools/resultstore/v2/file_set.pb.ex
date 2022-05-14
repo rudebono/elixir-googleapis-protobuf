@@ -1,33 +1,13 @@
 defmodule Google.Devtools.Resultstore.V2.FileSet.Id do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation_id: String.t(),
-          file_set_id: String.t()
-        }
-
-  defstruct invocation_id: "",
-            file_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :file_set_id, 2, type: :string, json_name: "fileSetId"
 end
 defmodule Google.Devtools.Resultstore.V2.FileSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.FileSet.Id.t() | nil,
-          file_sets: [String.t()],
-          files: [Google.Devtools.Resultstore.V2.File.t()]
-        }
-
-  defstruct name: "",
-            id: nil,
-            file_sets: [],
-            files: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.FileSet.Id

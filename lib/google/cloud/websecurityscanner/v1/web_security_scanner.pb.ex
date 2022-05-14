@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          scan_config: Google.Cloud.Websecurityscanner.V1.ScanConfig.t() | nil
-        }
-
-  defstruct parent: "",
-            scan_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
 
@@ -18,41 +10,19 @@ defmodule Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.DeleteScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.GetScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -60,15 +30,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.UpdateScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scan_config: Google.Cloud.Websecurityscanner.V1.ScanConfig.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct scan_config: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scan_config, 2,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig,
@@ -78,15 +40,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.UpdateScanConfigRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scan_configs: [Google.Cloud.Websecurityscanner.V1.ScanConfig.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct scan_configs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scan_configs, 1,
     repeated: true,
@@ -97,41 +51,19 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsResponse do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.StartScanRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.GetScanRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -139,15 +71,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scan_runs: [Google.Cloud.Websecurityscanner.V1.ScanRun.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct scan_runs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scan_runs, 1,
     repeated: true,
@@ -158,29 +82,13 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsResponse do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.StopScanRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -188,15 +96,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          crawled_urls: [Google.Cloud.Websecurityscanner.V1.CrawledUrl.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct crawled_urls: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :crawled_urls, 1,
     repeated: true,
@@ -207,31 +107,13 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsResponse do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.GetFindingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
@@ -240,40 +122,20 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListFindingsRequest do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          findings: [Google.Cloud.Websecurityscanner.V1.Finding.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct findings: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :findings, 1, repeated: true, type: Google.Cloud.Websecurityscanner.V1.Finding
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          finding_type_stats: [Google.Cloud.Websecurityscanner.V1.FindingTypeStats.t()]
-        }
-
-  defstruct finding_type_stats: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :finding_type_stats, 1,
     repeated: true,
@@ -282,7 +144,9 @@ defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsResponse do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.WebSecurityScanner.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.websecurityscanner.v1.WebSecurityScanner"
+  use GRPC.Service,
+    name: "google.cloud.websecurityscanner.v1.WebSecurityScanner",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateScanConfig,
       Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest,

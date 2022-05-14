@@ -1,30 +1,12 @@
 defmodule Google.Home.Enterprise.Sdm.V1.GetDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListDevicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -33,32 +15,14 @@ defmodule Google.Home.Enterprise.Sdm.V1.ListDevicesRequest do
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListDevicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          devices: [Google.Home.Enterprise.Sdm.V1.Device.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct devices: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :devices, 1, repeated: true, type: Google.Home.Enterprise.Sdm.V1.Device
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ExecuteDeviceCommandRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          command: String.t(),
-          params: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct name: "",
-            command: "",
-            params: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :command, 2, type: :string
@@ -66,43 +30,19 @@ defmodule Google.Home.Enterprise.Sdm.V1.ExecuteDeviceCommandRequest do
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ExecuteDeviceCommandResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct results: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, type: Google.Protobuf.Struct
 end
 defmodule Google.Home.Enterprise.Sdm.V1.GetStructureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListStructuresRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -111,44 +51,20 @@ defmodule Google.Home.Enterprise.Sdm.V1.ListStructuresRequest do
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListStructuresResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          structures: [Google.Home.Enterprise.Sdm.V1.Structure.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct structures: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :structures, 1, repeated: true, type: Google.Home.Enterprise.Sdm.V1.Structure
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Home.Enterprise.Sdm.V1.GetRoomRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListRoomsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -156,22 +72,16 @@ defmodule Google.Home.Enterprise.Sdm.V1.ListRoomsRequest do
 end
 defmodule Google.Home.Enterprise.Sdm.V1.ListRoomsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rooms: [Google.Home.Enterprise.Sdm.V1.Room.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct rooms: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rooms, 1, repeated: true, type: Google.Home.Enterprise.Sdm.V1.Room
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Home.Enterprise.Sdm.V1.SmartDeviceManagementService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.home.enterprise.sdm.v1.SmartDeviceManagementService"
+  use GRPC.Service,
+    name: "google.home.enterprise.sdm.v1.SmartDeviceManagementService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetDevice,
       Google.Home.Enterprise.Sdm.V1.GetDeviceRequest,

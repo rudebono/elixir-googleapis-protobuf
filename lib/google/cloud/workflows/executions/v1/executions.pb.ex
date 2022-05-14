@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Workflows.Executions.V1.ExecutionView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EXECUTION_VIEW_UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.ExecutionView do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :SUCCEEDED | :FAILED | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -22,9 +18,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CALL_LOG_LEVEL_UNSPECIFIED | :LOG_ALL_CALLS | :LOG_ERRORS_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CALL_LOG_LEVEL_UNSPECIFIED, 0
   field :LOG_ALL_CALLS, 1
@@ -32,17 +26,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          line: integer,
-          column: integer,
-          length: integer
-        }
-
-  defstruct line: 0,
-            column: 0,
-            length: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :line, 1, type: :int64
   field :column, 2, type: :int64
@@ -50,18 +34,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Posit
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          step: String.t(),
-          routine: String.t(),
-          position:
-            Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position.t() | nil
-        }
-
-  defstruct step: "",
-            routine: "",
-            position: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :step, 1, type: :string
   field :routine, 2, type: :string
@@ -71,13 +44,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTrace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          elements: [Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.t()]
-        }
-
-  defstruct elements: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :elements, 1,
     repeated: true,
@@ -85,17 +52,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTrace do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload: String.t(),
-          context: String.t(),
-          stack_trace: Google.Cloud.Workflows.Executions.V1.Execution.StackTrace.t() | nil
-        }
-
-  defstruct payload: "",
-            context: "",
-            stack_trace: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :payload, 1, type: :string
   field :context, 2, type: :string
@@ -106,29 +63,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Workflows.Executions.V1.Execution.State.t(),
-          argument: String.t(),
-          result: String.t(),
-          error: Google.Cloud.Workflows.Executions.V1.Execution.Error.t() | nil,
-          workflow_revision_id: String.t(),
-          call_log_level: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel.t()
-        }
-
-  defstruct name: "",
-            start_time: nil,
-            end_time: nil,
-            state: :STATE_UNSPECIFIED,
-            argument: "",
-            result: "",
-            error: nil,
-            workflow_revision_id: "",
-            call_log_level: :CALL_LOG_LEVEL_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -155,19 +90,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          view: Google.Cloud.Workflows.Executions.V1.ExecutionView.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            view: :EXECUTION_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -180,45 +103,21 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executions: [Google.Cloud.Workflows.Executions.V1.Execution.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct executions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :executions, 1, repeated: true, type: Google.Cloud.Workflows.Executions.V1.Execution
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Workflows.Executions.V1.CreateExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          execution: Google.Cloud.Workflows.Executions.V1.Execution.t() | nil
-        }
-
-  defstruct parent: "",
-            execution: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :execution, 2, type: Google.Cloud.Workflows.Executions.V1.Execution, deprecated: false
 end
 defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Cloud.Workflows.Executions.V1.ExecutionView.t()
-        }
-
-  defstruct name: "",
-            view: :EXECUTION_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -229,19 +128,15 @@ defmodule Google.Cloud.Workflows.Executions.V1.GetExecutionRequest do
 end
 defmodule Google.Cloud.Workflows.Executions.V1.CancelExecutionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Workflows.Executions.V1.Executions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.workflows.executions.v1.Executions"
+  use GRPC.Service,
+    name: "google.cloud.workflows.executions.v1.Executions",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListExecutions,
       Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest,

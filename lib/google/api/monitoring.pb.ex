@@ -1,29 +1,13 @@
 defmodule Google.Api.Monitoring.MonitoringDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          monitored_resource: String.t(),
-          metrics: [String.t()]
-        }
-
-  defstruct monitored_resource: "",
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :monitored_resource, 1, type: :string, json_name: "monitoredResource"
   field :metrics, 2, repeated: true, type: :string
 end
 defmodule Google.Api.Monitoring do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          producer_destinations: [Google.Api.Monitoring.MonitoringDestination.t()],
-          consumer_destinations: [Google.Api.Monitoring.MonitoringDestination.t()]
-        }
-
-  defstruct producer_destinations: [],
-            consumer_destinations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :producer_destinations, 1,
     repeated: true,

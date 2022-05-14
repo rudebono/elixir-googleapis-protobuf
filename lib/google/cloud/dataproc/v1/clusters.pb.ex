@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED
-          | :INHERIT_FROM_SUBNETWORK
-          | :OUTBOUND
-          | :BIDIRECTIONAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED, 0
   field :INHERIT_FROM_SUBNETWORK, 1
@@ -16,9 +9,7 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess do
 end
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PREEMPTIBILITY_UNSPECIFIED | :NON_PREEMPTIBLE | :PREEMPTIBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PREEMPTIBILITY_UNSPECIFIED, 0
   field :NON_PREEMPTIBLE, 1
@@ -26,20 +17,7 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN
-          | :CREATING
-          | :RUNNING
-          | :ERROR
-          | :ERROR_DUE_TO_UPDATE
-          | :DELETING
-          | :UPDATING
-          | :STOPPING
-          | :STOPPED
-          | :STARTING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :CREATING, 1
@@ -54,9 +32,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus.Substate do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :UNHEALTHY | :STALE_STATUS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNHEALTHY, 1
@@ -64,10 +40,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.Substate do
 end
 defmodule Google.Cloud.Dataproc.V1.ReservationAffinity.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :TYPE_UNSPECIFIED | :NO_RESERVATION | :ANY_RESERVATION | :SPECIFIC_RESERVATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NO_RESERVATION, 1
@@ -76,44 +49,14 @@ defmodule Google.Cloud.Dataproc.V1.ReservationAffinity.Type do
 end
 defmodule Google.Cloud.Dataproc.V1.Cluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.Cluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          cluster_name: String.t(),
-          config: Google.Cloud.Dataproc.V1.ClusterConfig.t() | nil,
-          virtual_cluster_config: Google.Cloud.Dataproc.V1.VirtualClusterConfig.t() | nil,
-          labels: %{String.t() => String.t()},
-          status: Google.Cloud.Dataproc.V1.ClusterStatus.t() | nil,
-          status_history: [Google.Cloud.Dataproc.V1.ClusterStatus.t()],
-          cluster_uuid: String.t(),
-          metrics: Google.Cloud.Dataproc.V1.ClusterMetrics.t() | nil
-        }
-
-  defstruct project_id: "",
-            cluster_name: "",
-            config: nil,
-            virtual_cluster_config: nil,
-            labels: %{},
-            status: nil,
-            status_history: [],
-            cluster_uuid: "",
-            metrics: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
@@ -143,39 +86,7 @@ defmodule Google.Cloud.Dataproc.V1.Cluster do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config_bucket: String.t(),
-          temp_bucket: String.t(),
-          gce_cluster_config: Google.Cloud.Dataproc.V1.GceClusterConfig.t() | nil,
-          master_config: Google.Cloud.Dataproc.V1.InstanceGroupConfig.t() | nil,
-          worker_config: Google.Cloud.Dataproc.V1.InstanceGroupConfig.t() | nil,
-          secondary_worker_config: Google.Cloud.Dataproc.V1.InstanceGroupConfig.t() | nil,
-          software_config: Google.Cloud.Dataproc.V1.SoftwareConfig.t() | nil,
-          initialization_actions: [Google.Cloud.Dataproc.V1.NodeInitializationAction.t()],
-          encryption_config: Google.Cloud.Dataproc.V1.EncryptionConfig.t() | nil,
-          autoscaling_config: Google.Cloud.Dataproc.V1.AutoscalingConfig.t() | nil,
-          security_config: Google.Cloud.Dataproc.V1.SecurityConfig.t() | nil,
-          lifecycle_config: Google.Cloud.Dataproc.V1.LifecycleConfig.t() | nil,
-          endpoint_config: Google.Cloud.Dataproc.V1.EndpointConfig.t() | nil,
-          metastore_config: Google.Cloud.Dataproc.V1.MetastoreConfig.t() | nil
-        }
-
-  defstruct config_bucket: "",
-            temp_bucket: "",
-            gce_cluster_config: nil,
-            master_config: nil,
-            worker_config: nil,
-            secondary_worker_config: nil,
-            software_config: nil,
-            initialization_actions: [],
-            encryption_config: nil,
-            autoscaling_config: nil,
-            security_config: nil,
-            lifecycle_config: nil,
-            endpoint_config: nil,
-            metastore_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :config_bucket, 1, type: :string, json_name: "configBucket", deprecated: false
   field :temp_bucket, 2, type: :string, json_name: "tempBucket", deprecated: false
@@ -243,19 +154,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.VirtualClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          infrastructure_config:
-            {:kubernetes_cluster_config,
-             Google.Cloud.Dataproc.V1.KubernetesClusterConfig.t() | nil},
-          staging_bucket: String.t(),
-          auxiliary_services_config: Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig.t() | nil
-        }
-
-  defstruct infrastructure_config: nil,
-            staging_bucket: "",
-            auxiliary_services_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :infrastructure_config, 0
 
@@ -274,15 +173,7 @@ defmodule Google.Cloud.Dataproc.V1.VirtualClusterConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metastore_config: Google.Cloud.Dataproc.V1.MetastoreConfig.t() | nil,
-          spark_history_server_config: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig.t() | nil
-        }
-
-  defstruct metastore_config: nil,
-            spark_history_server_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metastore_config, 1,
     type: Google.Cloud.Dataproc.V1.MetastoreConfig,
@@ -296,30 +187,14 @@ defmodule Google.Cloud.Dataproc.V1.AuxiliaryServicesConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.EndpointConfig.HttpPortsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.EndpointConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          http_ports: %{String.t() => String.t()},
-          enable_http_port_access: boolean
-        }
-
-  defstruct http_ports: %{},
-            enable_http_port_access: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :http_ports, 1,
     repeated: true,
@@ -335,78 +210,26 @@ defmodule Google.Cloud.Dataproc.V1.EndpointConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.AutoscalingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy_uri: String.t()
-        }
-
-  defstruct policy_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy_uri, 1, type: :string, json_name: "policyUri", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.EncryptionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gce_pd_kms_key_name: String.t()
-        }
-
-  defstruct gce_pd_kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gce_pd_kms_key_name, 1, type: :string, json_name: "gcePdKmsKeyName", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          zone_uri: String.t(),
-          network_uri: String.t(),
-          subnetwork_uri: String.t(),
-          internal_ip_only: boolean,
-          private_ipv6_google_access:
-            Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess.t(),
-          service_account: String.t(),
-          service_account_scopes: [String.t()],
-          tags: [String.t()],
-          metadata: %{String.t() => String.t()},
-          reservation_affinity: Google.Cloud.Dataproc.V1.ReservationAffinity.t() | nil,
-          node_group_affinity: Google.Cloud.Dataproc.V1.NodeGroupAffinity.t() | nil,
-          shielded_instance_config: Google.Cloud.Dataproc.V1.ShieldedInstanceConfig.t() | nil,
-          confidential_instance_config:
-            Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig.t() | nil
-        }
-
-  defstruct zone_uri: "",
-            network_uri: "",
-            subnetwork_uri: "",
-            internal_ip_only: false,
-            private_ipv6_google_access: :PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED,
-            service_account: "",
-            service_account_scopes: [],
-            tags: [],
-            metadata: %{},
-            reservation_affinity: nil,
-            node_group_affinity: nil,
-            shielded_instance_config: nil,
-            confidential_instance_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :zone_uri, 1, type: :string, json_name: "zoneUri", deprecated: false
   field :network_uri, 2, type: :string, json_name: "networkUri", deprecated: false
@@ -456,29 +279,13 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.NodeGroupAffinity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          node_group_uri: String.t()
-        }
-
-  defstruct node_group_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :node_group_uri, 1, type: :string, json_name: "nodeGroupUri", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_secure_boot: boolean,
-          enable_vtpm: boolean,
-          enable_integrity_monitoring: boolean
-        }
-
-  defstruct enable_secure_boot: false,
-            enable_vtpm: false,
-            enable_integrity_monitoring: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot", deprecated: false
   field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm", deprecated: false
@@ -490,13 +297,7 @@ defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_confidential_compute: boolean
-        }
-
-  defstruct enable_confidential_compute: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_confidential_compute, 1,
     type: :bool,
@@ -505,31 +306,7 @@ defmodule Google.Cloud.Dataproc.V1.ConfidentialInstanceConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_instances: integer,
-          instance_names: [String.t()],
-          image_uri: String.t(),
-          machine_type_uri: String.t(),
-          disk_config: Google.Cloud.Dataproc.V1.DiskConfig.t() | nil,
-          is_preemptible: boolean,
-          preemptibility: Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility.t(),
-          managed_group_config: Google.Cloud.Dataproc.V1.ManagedGroupConfig.t() | nil,
-          accelerators: [Google.Cloud.Dataproc.V1.AcceleratorConfig.t()],
-          min_cpu_platform: String.t()
-        }
-
-  defstruct num_instances: 0,
-            instance_names: [],
-            image_uri: "",
-            machine_type_uri: "",
-            disk_config: nil,
-            is_preemptible: false,
-            preemptibility: :PREEMPTIBILITY_UNSPECIFIED,
-            managed_group_config: nil,
-            accelerators: [],
-            min_cpu_platform: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_instances, 1, type: :int32, json_name: "numInstances", deprecated: false
 
@@ -568,15 +345,7 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance_template_name: String.t(),
-          instance_group_manager_name: String.t()
-        }
-
-  defstruct instance_template_name: "",
-            instance_group_manager_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance_template_name, 1,
     type: :string,
@@ -590,34 +359,14 @@ defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.AcceleratorConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          accelerator_type_uri: String.t(),
-          accelerator_count: integer
-        }
-
-  defstruct accelerator_type_uri: "",
-            accelerator_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :accelerator_type_uri, 1, type: :string, json_name: "acceleratorTypeUri"
   field :accelerator_count, 2, type: :int32, json_name: "acceleratorCount"
 end
 defmodule Google.Cloud.Dataproc.V1.DiskConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          boot_disk_type: String.t(),
-          boot_disk_size_gb: integer,
-          num_local_ssds: integer,
-          local_ssd_interface: String.t()
-        }
-
-  defstruct boot_disk_type: "",
-            boot_disk_size_gb: 0,
-            num_local_ssds: 0,
-            local_ssd_interface: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :boot_disk_type, 3, type: :string, json_name: "bootDiskType", deprecated: false
   field :boot_disk_size_gb, 1, type: :int32, json_name: "bootDiskSizeGb", deprecated: false
@@ -626,15 +375,7 @@ defmodule Google.Cloud.Dataproc.V1.DiskConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executable_file: String.t(),
-          execution_timeout: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct executable_file: "",
-            execution_timeout: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :executable_file, 1, type: :string, json_name: "executableFile", deprecated: false
 
@@ -645,19 +386,7 @@ defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Dataproc.V1.ClusterStatus.State.t(),
-          detail: String.t(),
-          state_start_time: Google.Protobuf.Timestamp.t() | nil,
-          substate: Google.Cloud.Dataproc.V1.ClusterStatus.Substate.t()
-        }
-
-  defstruct state: :UNKNOWN,
-            detail: "",
-            state_start_time: nil,
-            substate: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Dataproc.V1.ClusterStatus.State,
@@ -678,15 +407,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus do
 end
 defmodule Google.Cloud.Dataproc.V1.SecurityConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kerberos_config: Google.Cloud.Dataproc.V1.KerberosConfig.t() | nil,
-          identity_config: Google.Cloud.Dataproc.V1.IdentityConfig.t() | nil
-        }
-
-  defstruct kerberos_config: nil,
-            identity_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kerberos_config, 1,
     type: Google.Cloud.Dataproc.V1.KerberosConfig,
@@ -700,41 +421,7 @@ defmodule Google.Cloud.Dataproc.V1.SecurityConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.KerberosConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_kerberos: boolean,
-          root_principal_password_uri: String.t(),
-          kms_key_uri: String.t(),
-          keystore_uri: String.t(),
-          truststore_uri: String.t(),
-          keystore_password_uri: String.t(),
-          key_password_uri: String.t(),
-          truststore_password_uri: String.t(),
-          cross_realm_trust_realm: String.t(),
-          cross_realm_trust_kdc: String.t(),
-          cross_realm_trust_admin_server: String.t(),
-          cross_realm_trust_shared_password_uri: String.t(),
-          kdc_db_key_uri: String.t(),
-          tgt_lifetime_hours: integer,
-          realm: String.t()
-        }
-
-  defstruct enable_kerberos: false,
-            root_principal_password_uri: "",
-            kms_key_uri: "",
-            keystore_uri: "",
-            truststore_uri: "",
-            keystore_password_uri: "",
-            key_password_uri: "",
-            truststore_password_uri: "",
-            cross_realm_trust_realm: "",
-            cross_realm_trust_kdc: "",
-            cross_realm_trust_admin_server: "",
-            cross_realm_trust_shared_password_uri: "",
-            kdc_db_key_uri: "",
-            tgt_lifetime_hours: 0,
-            realm: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_kerberos, 1, type: :bool, json_name: "enableKerberos", deprecated: false
 
@@ -785,28 +472,14 @@ defmodule Google.Cloud.Dataproc.V1.KerberosConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.IdentityConfig.UserServiceAccountMappingEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.IdentityConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_service_account_mapping: %{String.t() => String.t()}
-        }
-
-  defstruct user_service_account_mapping: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :user_service_account_mapping, 1,
     repeated: true,
@@ -817,32 +490,14 @@ defmodule Google.Cloud.Dataproc.V1.IdentityConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.SoftwareConfig.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.SoftwareConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_version: String.t(),
-          properties: %{String.t() => String.t()},
-          optional_components: [Google.Cloud.Dataproc.V1.Component.t()]
-        }
-
-  defstruct image_version: "",
-            properties: %{},
-            optional_components: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_version, 1, type: :string, json_name: "imageVersion", deprecated: false
 
@@ -861,19 +516,7 @@ defmodule Google.Cloud.Dataproc.V1.SoftwareConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.LifecycleConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ttl:
-            {:auto_delete_time, Google.Protobuf.Timestamp.t() | nil}
-            | {:auto_delete_ttl, Google.Protobuf.Duration.t() | nil},
-          idle_delete_ttl: Google.Protobuf.Duration.t() | nil,
-          idle_start_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct ttl: nil,
-            idle_delete_ttl: nil,
-            idle_start_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :ttl, 0
 
@@ -901,13 +544,7 @@ defmodule Google.Cloud.Dataproc.V1.LifecycleConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataproc_metastore_service: String.t()
-        }
-
-  defstruct dataproc_metastore_service: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataproc_metastore_service, 1,
     type: :string,
@@ -916,45 +553,21 @@ defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.YarnMetricsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hdfs_metrics: %{String.t() => integer},
-          yarn_metrics: %{String.t() => integer}
-        }
-
-  defstruct hdfs_metrics: %{},
-            yarn_metrics: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hdfs_metrics, 1,
     repeated: true,
@@ -970,21 +583,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterMetrics do
 end
 defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster: Google.Cloud.Dataproc.V1.Cluster.t() | nil,
-          request_id: String.t(),
-          action_on_failed_primary_workers: Google.Cloud.Dataproc.V1.FailureAction.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster: nil,
-            request_id: "",
-            action_on_failed_primary_workers: :FAILURE_ACTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -999,25 +598,7 @@ defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.UpdateClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t(),
-          cluster: Google.Cloud.Dataproc.V1.Cluster.t() | nil,
-          graceful_decommission_timeout: Google.Protobuf.Duration.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: "",
-            cluster: nil,
-            graceful_decommission_timeout: nil,
-            update_mask: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 5, type: :string, deprecated: false
@@ -1038,21 +619,7 @@ defmodule Google.Cloud.Dataproc.V1.UpdateClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.StopClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t(),
-          cluster_uuid: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: "",
-            cluster_uuid: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 2, type: :string, deprecated: false
@@ -1062,21 +629,7 @@ defmodule Google.Cloud.Dataproc.V1.StopClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.StartClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t(),
-          cluster_uuid: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: "",
-            cluster_uuid: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 2, type: :string, deprecated: false
@@ -1086,21 +639,7 @@ defmodule Google.Cloud.Dataproc.V1.StartClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.DeleteClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t(),
-          cluster_uuid: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: "",
-            cluster_uuid: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -1110,17 +649,7 @@ defmodule Google.Cloud.Dataproc.V1.DeleteClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.GetClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -1128,21 +657,7 @@ defmodule Google.Cloud.Dataproc.V1.GetClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.ListClustersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 4, type: :string, deprecated: false
@@ -1152,32 +667,14 @@ defmodule Google.Cloud.Dataproc.V1.ListClustersRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.ListClustersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          clusters: [Google.Cloud.Dataproc.V1.Cluster.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct clusters: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Cluster, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          region: String.t(),
-          cluster_name: String.t()
-        }
-
-  defstruct project_id: "",
-            region: "",
-            cluster_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -1185,29 +682,13 @@ defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
 end
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterResults do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_uri: String.t()
-        }
-
-  defstruct output_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_uri, 1, type: :string, json_name: "outputUri", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.ReservationAffinity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consume_reservation_type: Google.Cloud.Dataproc.V1.ReservationAffinity.Type.t(),
-          key: String.t(),
-          values: [String.t()]
-        }
-
-  defstruct consume_reservation_type: :TYPE_UNSPECIFIED,
-            key: "",
-            values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :consume_reservation_type, 1,
     type: Google.Cloud.Dataproc.V1.ReservationAffinity.Type,
@@ -1220,7 +701,9 @@ defmodule Google.Cloud.Dataproc.V1.ReservationAffinity do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterController.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dataproc.v1.ClusterController"
+  use GRPC.Service,
+    name: "google.cloud.dataproc.v1.ClusterController",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateCluster, Google.Cloud.Dataproc.V1.CreateClusterRequest, Google.Longrunning.Operation
 

@@ -1,31 +1,13 @@
 defmodule Google.Cloud.Automl.V1beta1.PredictRequest.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1beta1.PredictRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          payload: Google.Cloud.Automl.V1beta1.ExamplePayload.t() | nil,
-          params: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            payload: nil,
-            params: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :payload, 2, type: Google.Cloud.Automl.V1beta1.ExamplePayload, deprecated: false
@@ -37,32 +19,14 @@ defmodule Google.Cloud.Automl.V1beta1.PredictRequest do
 end
 defmodule Google.Cloud.Automl.V1beta1.PredictResponse.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1beta1.PredictResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload: [Google.Cloud.Automl.V1beta1.AnnotationPayload.t()],
-          preprocessed_input: Google.Cloud.Automl.V1beta1.ExamplePayload.t() | nil,
-          metadata: %{String.t() => String.t()}
-        }
-
-  defstruct payload: [],
-            preprocessed_input: nil,
-            metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :payload, 1, repeated: true, type: Google.Cloud.Automl.V1beta1.AnnotationPayload
 
@@ -77,34 +41,14 @@ defmodule Google.Cloud.Automl.V1beta1.PredictResponse do
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          input_config: Google.Cloud.Automl.V1beta1.BatchPredictInputConfig.t() | nil,
-          output_config: Google.Cloud.Automl.V1beta1.BatchPredictOutputConfig.t() | nil,
-          params: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            input_config: nil,
-            output_config: nil,
-            params: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -126,28 +70,14 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictRequest do
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata: %{String.t() => String.t()}
-        }
-
-  defstruct metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata, 1,
     repeated: true,
@@ -156,7 +86,9 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictResult do
 end
 defmodule Google.Cloud.Automl.V1beta1.PredictionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.automl.v1beta1.PredictionService"
+  use GRPC.Service,
+    name: "google.cloud.automl.v1beta1.PredictionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Predict,
       Google.Cloud.Automl.V1beta1.PredictRequest,

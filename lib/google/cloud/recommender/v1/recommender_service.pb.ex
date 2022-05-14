@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Recommender.V1.ListInsightsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -21,59 +9,27 @@ defmodule Google.Cloud.Recommender.V1.ListInsightsRequest do
 end
 defmodule Google.Cloud.Recommender.V1.ListInsightsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          insights: [Google.Cloud.Recommender.V1.Insight.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct insights: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :insights, 1, repeated: true, type: Google.Cloud.Recommender.V1.Insight
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Recommender.V1.GetInsightRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recommender.V1.MarkInsightAcceptedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.MarkInsightAcceptedRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state_metadata: %{String.t() => String.t()},
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            state_metadata: %{},
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -88,19 +44,7 @@ defmodule Google.Cloud.Recommender.V1.MarkInsightAcceptedRequest do
 end
 defmodule Google.Cloud.Recommender.V1.ListRecommendationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -109,59 +53,27 @@ defmodule Google.Cloud.Recommender.V1.ListRecommendationsRequest do
 end
 defmodule Google.Cloud.Recommender.V1.ListRecommendationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          recommendations: [Google.Cloud.Recommender.V1.Recommendation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct recommendations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :recommendations, 1, repeated: true, type: Google.Cloud.Recommender.V1.Recommendation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Recommender.V1.GetRecommendationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state_metadata: %{String.t() => String.t()},
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            state_metadata: %{},
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -175,32 +87,14 @@ defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest do
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationSucceededRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationSucceededRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state_metadata: %{String.t() => String.t()},
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            state_metadata: %{},
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -214,32 +108,14 @@ defmodule Google.Cloud.Recommender.V1.MarkRecommendationSucceededRequest do
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state_metadata: %{String.t() => String.t()},
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            state_metadata: %{},
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -253,7 +129,9 @@ defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest do
 end
 defmodule Google.Cloud.Recommender.V1.Recommender.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.recommender.v1.Recommender"
+  use GRPC.Service,
+    name: "google.cloud.recommender.v1.Recommender",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListInsights,
       Google.Cloud.Recommender.V1.ListInsightsRequest,

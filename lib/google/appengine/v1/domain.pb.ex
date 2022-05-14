@@ -1,14 +1,6 @@
 defmodule Google.Appengine.V1.AuthorizedDomain do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t()
-        }
-
-  defstruct name: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string

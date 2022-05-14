@@ -1,16 +1,6 @@
 defmodule Google.Spanner.V1.Mutation.Write do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table: String.t(),
-          columns: [String.t()],
-          values: [Google.Protobuf.ListValue.t()]
-        }
-
-  defstruct table: "",
-            columns: [],
-            values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :columns, 2, repeated: true, type: :string
@@ -18,33 +8,14 @@ defmodule Google.Spanner.V1.Mutation.Write do
 end
 defmodule Google.Spanner.V1.Mutation.Delete do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table: String.t(),
-          key_set: Google.Spanner.V1.KeySet.t() | nil
-        }
-
-  defstruct table: "",
-            key_set: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet", deprecated: false
 end
 defmodule Google.Spanner.V1.Mutation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:insert, Google.Spanner.V1.Mutation.Write.t() | nil}
-            | {:update, Google.Spanner.V1.Mutation.Write.t() | nil}
-            | {:insert_or_update, Google.Spanner.V1.Mutation.Write.t() | nil}
-            | {:replace, Google.Spanner.V1.Mutation.Write.t() | nil}
-            | {:delete, Google.Spanner.V1.Mutation.Delete.t() | nil}
-        }
-
-  defstruct operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 

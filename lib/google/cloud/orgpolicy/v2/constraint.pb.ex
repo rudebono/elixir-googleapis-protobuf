@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONSTRAINT_DEFAULT_UNSPECIFIED | :ALLOW | :DENY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONSTRAINT_DEFAULT_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -10,47 +8,18 @@ defmodule Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault do
 end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ListConstraint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          supports_in: boolean,
-          supports_under: boolean
-        }
-
-  defstruct supports_in: false,
-            supports_under: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :supports_in, 1, type: :bool, json_name: "supportsIn"
   field :supports_under, 2, type: :bool, json_name: "supportsUnder"
 end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.BooleanConstraint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          constraint_type:
-            {:list_constraint, Google.Cloud.Orgpolicy.V2.Constraint.ListConstraint.t() | nil}
-            | {:boolean_constraint,
-               Google.Cloud.Orgpolicy.V2.Constraint.BooleanConstraint.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          constraint_default: Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault.t()
-        }
-
-  defstruct constraint_type: nil,
-            name: "",
-            display_name: "",
-            description: "",
-            constraint_default: :CONSTRAINT_DEFAULT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :constraint_type, 0
 

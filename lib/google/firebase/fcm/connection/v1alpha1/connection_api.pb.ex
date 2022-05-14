@@ -1,12 +1,6 @@
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.UpstreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_type: {:ack, Google.Firebase.Fcm.Connection.V1alpha1.Ack.t() | nil}
-        }
-
-  defstruct request_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request_type, 0
 
@@ -14,13 +8,7 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.UpstreamRequest do
 end
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.DownstreamResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response_type: {:message, Google.Firebase.Fcm.Connection.V1alpha1.Message.t() | nil}
-        }
-
-  defstruct response_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :response_type, 0
 
@@ -28,46 +16,20 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.DownstreamResponse do
 end
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Ack do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message_id: String.t()
-        }
-
-  defstruct message_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message_id, 1, type: :string, json_name: "messageId"
 end
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message.DataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          data: %{String.t() => String.t()}
-        }
-
-  defstruct message_id: "",
-            create_time: nil,
-            expire_time: nil,
-            data: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message_id, 1, type: :string, json_name: "messageId"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -80,7 +42,9 @@ defmodule Google.Firebase.Fcm.Connection.V1alpha1.Message do
 end
 defmodule Google.Firebase.Fcm.Connection.V1alpha1.ConnectionApi.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.firebase.fcm.connection.v1alpha1.ConnectionApi"
+  use GRPC.Service,
+    name: "google.firebase.fcm.connection.v1alpha1.ConnectionApi",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Connect,
       stream(Google.Firebase.Fcm.Connection.V1alpha1.UpstreamRequest),

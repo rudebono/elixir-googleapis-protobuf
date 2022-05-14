@@ -1,8 +1,6 @@
 defmodule Google.Api.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CHANGE_TYPE_UNSPECIFIED | :ADDED | :REMOVED | :MODIFIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :ADDED, 1
@@ -11,21 +9,7 @@ defmodule Google.Api.ChangeType do
 end
 defmodule Google.Api.ConfigChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          element: String.t(),
-          old_value: String.t(),
-          new_value: String.t(),
-          change_type: Google.Api.ChangeType.t(),
-          advices: [Google.Api.Advice.t()]
-        }
-
-  defstruct element: "",
-            old_value: "",
-            new_value: "",
-            change_type: :CHANGE_TYPE_UNSPECIFIED,
-            advices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :element, 1, type: :string
   field :old_value, 2, type: :string, json_name: "oldValue"
@@ -35,13 +19,7 @@ defmodule Google.Api.ConfigChange do
 end
 defmodule Google.Api.Advice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          description: String.t()
-        }
-
-  defstruct description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :description, 2, type: :string
 end

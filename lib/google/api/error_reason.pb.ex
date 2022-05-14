@@ -1,29 +1,6 @@
 defmodule Google.Api.ErrorReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ERROR_REASON_UNSPECIFIED
-          | :SERVICE_DISABLED
-          | :BILLING_DISABLED
-          | :API_KEY_INVALID
-          | :API_KEY_SERVICE_BLOCKED
-          | :API_KEY_HTTP_REFERRER_BLOCKED
-          | :API_KEY_IP_ADDRESS_BLOCKED
-          | :API_KEY_ANDROID_APP_BLOCKED
-          | :API_KEY_IOS_APP_BLOCKED
-          | :RATE_LIMIT_EXCEEDED
-          | :RESOURCE_QUOTA_EXCEEDED
-          | :LOCATION_TAX_POLICY_VIOLATED
-          | :USER_PROJECT_DENIED
-          | :CONSUMER_SUSPENDED
-          | :CONSUMER_INVALID
-          | :SECURITY_POLICY_VIOLATED
-          | :ACCESS_TOKEN_EXPIRED
-          | :ACCESS_TOKEN_SCOPE_INSUFFICIENT
-          | :ACCOUNT_STATE_INVALID
-          | :ACCESS_TOKEN_TYPE_UNSUPPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ERROR_REASON_UNSPECIFIED, 0
   field :SERVICE_DISABLED, 1

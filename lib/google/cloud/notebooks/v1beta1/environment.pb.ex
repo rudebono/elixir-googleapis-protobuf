@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1beta1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_type:
-            {:vm_image, Google.Cloud.Notebooks.V1beta1.VmImage.t() | nil}
-            | {:container_image, Google.Cloud.Notebooks.V1beta1.ContainerImage.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          post_startup_script: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct image_type: nil,
-            name: "",
-            display_name: "",
-            description: "",
-            post_startup_script: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :image_type, 0
 
@@ -41,15 +23,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.Environment do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image: {:image_name, String.t()} | {:image_family, String.t()},
-          project: String.t()
-        }
-
-  defstruct image: nil,
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -59,15 +33,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.VmImage do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ContainerImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repository: String.t(),
-          tag: String.t()
-        }
-
-  defstruct repository: "",
-            tag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
   field :tag, 2, type: :string

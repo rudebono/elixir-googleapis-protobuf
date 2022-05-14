@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.ExternalSystem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          assignees: [String.t()],
-          external_uid: String.t(),
-          status: String.t(),
-          external_system_update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            assignees: [],
-            external_uid: "",
-            status: "",
-            external_system_update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :assignees, 2, repeated: true, type: :string

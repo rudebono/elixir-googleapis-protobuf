@@ -1,12 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.TableDisplayOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          shown_columns: [String.t()]
-        }
-
-  defstruct shown_columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :shown_columns, 1,
     repeated: true,

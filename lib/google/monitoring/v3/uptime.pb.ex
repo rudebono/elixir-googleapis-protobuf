@@ -1,8 +1,6 @@
 defmodule Google.Monitoring.V3.UptimeCheckRegion do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REGION_UNSPECIFIED | :USA | :EUROPE | :SOUTH_AMERICA | :ASIA_PACIFIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REGION_UNSPECIFIED, 0
   field :USA, 1
@@ -12,9 +10,7 @@ defmodule Google.Monitoring.V3.UptimeCheckRegion do
 end
 defmodule Google.Monitoring.V3.GroupResourceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESOURCE_TYPE_UNSPECIFIED | :INSTANCE | :AWS_ELB_LOAD_BALANCER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :INSTANCE, 1
@@ -22,9 +18,7 @@ defmodule Google.Monitoring.V3.GroupResourceType do
 end
 defmodule Google.Monitoring.V3.InternalChecker.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :CREATING | :RUNNING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :CREATING, 1
@@ -32,9 +26,7 @@ defmodule Google.Monitoring.V3.InternalChecker.State do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METHOD_UNSPECIFIED | :GET | :POST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :GET, 1
@@ -42,24 +34,14 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ContentType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :URL_ENCODED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :URL_ENCODED, 1
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CONTENT_MATCHER_OPTION_UNSPECIFIED
-          | :CONTAINS_STRING
-          | :NOT_CONTAINS_STRING
-          | :MATCHES_REGEX
-          | :NOT_MATCHES_REGEX
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTENT_MATCHER_OPTION_UNSPECIFIED, 0
   field :CONTAINS_STRING, 1
@@ -69,23 +51,7 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOp
 end
 defmodule Google.Monitoring.V3.InternalChecker do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          network: String.t(),
-          gcp_zone: String.t(),
-          peer_project_id: String.t(),
-          state: Google.Monitoring.V3.InternalChecker.State.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            network: "",
-            gcp_zone: "",
-            peer_project_id: "",
-            state: :UNSPECIFIED
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -96,15 +62,7 @@ defmodule Google.Monitoring.V3.InternalChecker do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          group_id: String.t(),
-          resource_type: Google.Monitoring.V3.GroupResourceType.t()
-        }
-
-  defstruct group_id: "",
-            resource_type: :RESOURCE_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
 
@@ -115,62 +73,21 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.BasicAuthentication do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          username: String.t(),
-          password: String.t()
-        }
-
-  defstruct username: "",
-            password: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_method: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod.t(),
-          use_ssl: boolean,
-          path: String.t(),
-          port: integer,
-          auth_info:
-            Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.BasicAuthentication.t() | nil,
-          mask_headers: boolean,
-          headers: %{String.t() => String.t()},
-          content_type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ContentType.t(),
-          validate_ssl: boolean,
-          body: binary
-        }
-
-  defstruct request_method: :METHOD_UNSPECIFIED,
-            use_ssl: false,
-            path: "",
-            port: 0,
-            auth_info: nil,
-            mask_headers: false,
-            headers: %{},
-            content_type: :TYPE_UNSPECIFIED,
-            validate_ssl: false,
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_method, 8,
     type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod,
@@ -202,27 +119,13 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.TcpCheck do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          port: integer
-        }
-
-  defstruct port: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :port, 1, type: :int32
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: String.t(),
-          matcher: Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption.t()
-        }
-
-  defstruct content: "",
-            matcher: :CONTENT_MATCHER_OPTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :string
 
@@ -232,35 +135,7 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher do
 end
 defmodule Google.Monitoring.V3.UptimeCheckConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource:
-            {:monitored_resource, Google.Api.MonitoredResource.t() | nil}
-            | {:resource_group, Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup.t() | nil},
-          check_request_type:
-            {:http_check, Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.t() | nil}
-            | {:tcp_check, Google.Monitoring.V3.UptimeCheckConfig.TcpCheck.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          period: Google.Protobuf.Duration.t() | nil,
-          timeout: Google.Protobuf.Duration.t() | nil,
-          content_matchers: [Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.t()],
-          selected_regions: [Google.Monitoring.V3.UptimeCheckRegion.t()],
-          is_internal: boolean,
-          internal_checkers: [Google.Monitoring.V3.InternalChecker.t()]
-        }
-
-  defstruct resource: nil,
-            check_request_type: nil,
-            name: "",
-            display_name: "",
-            period: nil,
-            timeout: nil,
-            content_matchers: [],
-            selected_regions: [],
-            is_internal: false,
-            internal_checkers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resource, 0
   oneof :check_request_type, 1
@@ -312,17 +187,7 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig do
 end
 defmodule Google.Monitoring.V3.UptimeCheckIp do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          region: Google.Monitoring.V3.UptimeCheckRegion.t(),
-          location: String.t(),
-          ip_address: String.t()
-        }
-
-  defstruct region: :REGION_UNSPECIFIED,
-            location: "",
-            ip_address: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :region, 1, type: Google.Monitoring.V3.UptimeCheckRegion, enum: true
   field :location, 2, type: :string

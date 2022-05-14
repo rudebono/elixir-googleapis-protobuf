@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Event.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :INPUT | :OUTPUT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INPUT, 1
@@ -10,36 +8,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Event.Type do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Event.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Event do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact: String.t(),
-          execution: String.t(),
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          type: Google.Cloud.Aiplatform.V1beta1.Event.Type.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct artifact: "",
-            execution: "",
-            event_time: nil,
-            type: :TYPE_UNSPECIFIED,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact, 1, type: :string, deprecated: false
   field :execution, 2, type: :string, deprecated: false

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          migration_workflow: Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.t() | nil
-        }
-
-  defstruct parent: "",
-            migration_workflow: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,34 +11,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil,
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            read_mask: nil,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
@@ -55,15 +27,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsRequest 
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          migration_workflows: [Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct migration_workflows: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :migration_workflows, 1,
     repeated: true,
@@ -74,60 +38,26 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationWorkflowsResponse
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.DeleteMigrationWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.StartMigrationWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.GetMigrationSubtaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil,
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            read_mask: nil,
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
@@ -137,15 +67,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksRequest d
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          migration_subtasks: [Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct migration_subtasks: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :migration_subtasks, 1,
     repeated: true,
@@ -156,7 +78,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.ListMigrationSubtasksResponse 
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.migration.v2alpha.MigrationService"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.migration.v2alpha.MigrationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateMigrationWorkflow,
       Google.Cloud.Bigquery.Migration.V2alpha.CreateMigrationWorkflowRequest,

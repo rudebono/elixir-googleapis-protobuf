@@ -1,16 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.TestCase.Result do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :RESULT_UNSPECIFIED
-          | :COMPLETED
-          | :INTERRUPTED
-          | :CANCELLED
-          | :FILTERED
-          | :SKIPPED
-          | :SUPPRESSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :COMPLETED, 1
@@ -22,25 +12,7 @@ defmodule Google.Devtools.Resultstore.V2.TestCase.Result do
 end
 defmodule Google.Devtools.Resultstore.V2.TestSuite do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          suite_name: String.t(),
-          tests: [Google.Devtools.Resultstore.V2.Test.t()],
-          failures: [Google.Devtools.Resultstore.V2.TestFailure.t()],
-          errors: [Google.Devtools.Resultstore.V2.TestError.t()],
-          timing: Google.Devtools.Resultstore.V2.Timing.t() | nil,
-          properties: [Google.Devtools.Resultstore.V2.Property.t()],
-          files: [Google.Devtools.Resultstore.V2.File.t()]
-        }
-
-  defstruct suite_name: "",
-            tests: [],
-            failures: [],
-            errors: [],
-            timing: nil,
-            properties: [],
-            files: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :suite_name, 1, type: :string, json_name: "suiteName"
   field :tests, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Test
@@ -52,15 +24,7 @@ defmodule Google.Devtools.Resultstore.V2.TestSuite do
 end
 defmodule Google.Devtools.Resultstore.V2.Test do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_type:
-            {:test_case, Google.Devtools.Resultstore.V2.TestCase.t() | nil}
-            | {:test_suite, Google.Devtools.Resultstore.V2.TestSuite.t() | nil}
-        }
-
-  defstruct test_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :test_type, 0
 
@@ -76,27 +40,7 @@ defmodule Google.Devtools.Resultstore.V2.Test do
 end
 defmodule Google.Devtools.Resultstore.V2.TestCase do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          case_name: String.t(),
-          class_name: String.t(),
-          result: Google.Devtools.Resultstore.V2.TestCase.Result.t(),
-          failures: [Google.Devtools.Resultstore.V2.TestFailure.t()],
-          errors: [Google.Devtools.Resultstore.V2.TestError.t()],
-          timing: Google.Devtools.Resultstore.V2.Timing.t() | nil,
-          properties: [Google.Devtools.Resultstore.V2.Property.t()],
-          files: [Google.Devtools.Resultstore.V2.File.t()]
-        }
-
-  defstruct case_name: "",
-            class_name: "",
-            result: :RESULT_UNSPECIFIED,
-            failures: [],
-            errors: [],
-            timing: nil,
-            properties: [],
-            files: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :case_name, 1, type: :string, json_name: "caseName"
   field :class_name, 2, type: :string, json_name: "className"
@@ -109,21 +53,7 @@ defmodule Google.Devtools.Resultstore.V2.TestCase do
 end
 defmodule Google.Devtools.Resultstore.V2.TestFailure do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          failure_message: String.t(),
-          exception_type: String.t(),
-          stack_trace: String.t(),
-          expected: [String.t()],
-          actual: [String.t()]
-        }
-
-  defstruct failure_message: "",
-            exception_type: "",
-            stack_trace: "",
-            expected: [],
-            actual: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :failure_message, 1, type: :string, json_name: "failureMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"
@@ -133,17 +63,7 @@ defmodule Google.Devtools.Resultstore.V2.TestFailure do
 end
 defmodule Google.Devtools.Resultstore.V2.TestError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_message: String.t(),
-          exception_type: String.t(),
-          stack_trace: String.t()
-        }
-
-  defstruct error_message: "",
-            exception_type: "",
-            stack_trace: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_message, 1, type: :string, json_name: "errorMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Support.Common.SupportAccount.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :PENDING | :PENDING_DELETION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Support.Common.SupportAccount.State do
 end
 defmodule Google.Cloud.Support.Common.SupportAccount.PricingModel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRICING_MODEL_UNKNOWN | :PACKAGES | :USER_ROLES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRICING_MODEL_UNKNOWN, 0
   field :PACKAGES, 1
@@ -21,9 +17,7 @@ defmodule Google.Cloud.Support.Common.SupportAccount.PricingModel do
 end
 defmodule Google.Cloud.Support.Common.Case.Priority do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRIORITY_UNSPECIFIED | :P0 | :P1 | :P2 | :P3 | :P4
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :P0, 1
@@ -34,19 +28,7 @@ defmodule Google.Cloud.Support.Common.Case.Priority do
 end
 defmodule Google.Cloud.Support.Common.Case.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :NEW
-          | :ASSIGNED
-          | :IN_PROGRESS_GOOGLE_SUPPORT
-          | :IN_PROGRESS_GOOGLE_ENG
-          | :IN_PROGRESS_KNOWN_ISSUE
-          | :WAITING_FOR_CUSTOMER_RESPONSE
-          | :SOLUTION_OFFERED
-          | :CLOSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NEW, 1
@@ -60,16 +42,7 @@ defmodule Google.Cloud.Support.Common.Case.State do
 end
 defmodule Google.Cloud.Support.Common.CustomerIssue.IssueState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ISSUE_STATE_UNSPECIFIED
-          | :OPEN
-          | :IN_PROGRESS
-          | :FIXED
-          | :WONT_FIX
-          | :VERIFIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ISSUE_STATE_UNSPECIFIED, 0
   field :OPEN, 1
@@ -80,9 +53,7 @@ defmodule Google.Cloud.Support.Common.CustomerIssue.IssueState do
 end
 defmodule Google.Cloud.Support.Common.SupportRole.Role do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ROLE_UNSPECIFIED | :BASIC | :DEVELOPER | :OPERATION | :SITE_RELIABILITY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :BASIC, 1
@@ -92,29 +63,7 @@ defmodule Google.Cloud.Support.Common.SupportRole.Role do
 end
 defmodule Google.Cloud.Support.Common.SupportAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          account_id: String.t(),
-          cloud_resource: String.t(),
-          display_name: String.t(),
-          state: Google.Cloud.Support.Common.SupportAccount.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          billing_account_name: String.t(),
-          unify_account_id: String.t(),
-          pricing_model: Google.Cloud.Support.Common.SupportAccount.PricingModel.t()
-        }
-
-  defstruct name: "",
-            account_id: "",
-            cloud_resource: "",
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            billing_account_name: "",
-            unify_account_id: "",
-            pricing_model: :PRICING_MODEL_UNKNOWN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :account_id, 2, type: :string, json_name: "accountId"
@@ -132,41 +81,7 @@ defmodule Google.Cloud.Support.Common.SupportAccount do
 end
 defmodule Google.Cloud.Support.Common.Case do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          component: String.t(),
-          subcomponent: String.t(),
-          client_timezone: String.t(),
-          cc_addresses: [String.t()],
-          project_id: String.t(),
-          issues: [Google.Cloud.Support.Common.CustomerIssue.t()],
-          priority: Google.Cloud.Support.Common.Case.Priority.t(),
-          state: Google.Cloud.Support.Common.Case.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          creator_email: String.t(),
-          category: String.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            component: "",
-            subcomponent: "",
-            client_timezone: "",
-            cc_addresses: [],
-            project_id: "",
-            issues: [],
-            priority: :PRIORITY_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil,
-            creator_email: "",
-            category: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -186,21 +101,7 @@ defmodule Google.Cloud.Support.Common.Case do
 end
 defmodule Google.Cloud.Support.Common.CustomerIssue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          issue_id: String.t(),
-          state: Google.Cloud.Support.Common.CustomerIssue.IssueState.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          resolve_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct issue_id: "",
-            state: :ISSUE_STATE_UNSPECIFIED,
-            create_time: nil,
-            resolve_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :issue_id, 1, type: :string, json_name: "issueId"
   field :state, 2, type: Google.Cloud.Support.Common.CustomerIssue.IssueState, enum: true
@@ -210,34 +111,14 @@ defmodule Google.Cloud.Support.Common.CustomerIssue do
 end
 defmodule Google.Cloud.Support.Common.SupportRole do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          email: String.t(),
-          role: Google.Cloud.Support.Common.SupportRole.Role.t()
-        }
-
-  defstruct email: "",
-            role: :ROLE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :role, 2, type: Google.Cloud.Support.Common.SupportRole.Role, enum: true
 end
 defmodule Google.Cloud.Support.Common.Comment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          author: String.t(),
-          name: String.t()
-        }
-
-  defstruct text: "",
-            create_time: nil,
-            author: "",
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -246,19 +127,7 @@ defmodule Google.Cloud.Support.Common.Comment do
 end
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Component do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          languages: [String.t()],
-          template: String.t(),
-          subcomponents: [Google.Cloud.Support.Common.IssueTaxonomy.Component.t()]
-        }
-
-  defstruct display_name: "",
-            languages: [],
-            template: "",
-            subcomponents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :languages, 2, repeated: true, type: :string
@@ -270,32 +139,14 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.Component do
 end
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category.ComponentsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Support.Common.IssueTaxonomy.Component.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Support.Common.IssueTaxonomy.Component
 end
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          components: %{
-            String.t() => Google.Cloud.Support.Common.IssueTaxonomy.Component.t() | nil
-          }
-        }
-
-  defstruct display_name: "",
-            components: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 
@@ -306,30 +157,14 @@ defmodule Google.Cloud.Support.Common.IssueTaxonomy.Category do
 end
 defmodule Google.Cloud.Support.Common.IssueTaxonomy.CategoriesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Support.Common.IssueTaxonomy.Category.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Support.Common.IssueTaxonomy.Category
 end
 defmodule Google.Cloud.Support.Common.IssueTaxonomy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          categories: %{
-            String.t() => Google.Cloud.Support.Common.IssueTaxonomy.Category.t() | nil
-          }
-        }
-
-  defstruct categories: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :categories, 1,
     repeated: true,

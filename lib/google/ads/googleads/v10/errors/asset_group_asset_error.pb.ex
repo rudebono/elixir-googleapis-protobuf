@@ -1,14 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.AssetGroupAssetErrorEnum.AssetGroupAssetError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :DUPLICATE_RESOURCE
-          | :EXPANDABLE_TAGS_NOT_ALLOWED_IN_DESCRIPTION
-          | :AD_CUSTOMIZER_NOT_SUPPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -18,9 +10,5 @@ defmodule Google.Ads.Googleads.V10.Errors.AssetGroupAssetErrorEnum.AssetGroupAss
 end
 defmodule Google.Ads.Googleads.V10.Errors.AssetGroupAssetErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

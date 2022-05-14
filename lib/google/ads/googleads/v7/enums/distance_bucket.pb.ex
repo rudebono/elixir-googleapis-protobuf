@@ -1,38 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.DistanceBucketEnum.DistanceBucket do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :WITHIN_700M
-          | :WITHIN_1KM
-          | :WITHIN_5KM
-          | :WITHIN_10KM
-          | :WITHIN_15KM
-          | :WITHIN_20KM
-          | :WITHIN_25KM
-          | :WITHIN_30KM
-          | :WITHIN_35KM
-          | :WITHIN_40KM
-          | :WITHIN_45KM
-          | :WITHIN_50KM
-          | :WITHIN_55KM
-          | :WITHIN_60KM
-          | :WITHIN_65KM
-          | :BEYOND_65KM
-          | :WITHIN_0_7MILES
-          | :WITHIN_1MILE
-          | :WITHIN_5MILES
-          | :WITHIN_10MILES
-          | :WITHIN_15MILES
-          | :WITHIN_20MILES
-          | :WITHIN_25MILES
-          | :WITHIN_30MILES
-          | :WITHIN_35MILES
-          | :WITHIN_40MILES
-          | :BEYOND_40MILES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -66,9 +34,5 @@ defmodule Google.Ads.Googleads.V7.Enums.DistanceBucketEnum.DistanceBucket do
 end
 defmodule Google.Ads.Googleads.V7.Enums.DistanceBucketEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

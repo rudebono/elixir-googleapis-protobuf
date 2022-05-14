@@ -1,15 +1,6 @@
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :NORMAL
-          | :BEST_EFFORT
-          | :CHECK_ONLY
-          | :QUERY_ONLY
-          | :ADJUST_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :NORMAL, 1
@@ -20,16 +11,7 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode do
 end
 defmodule Google.Api.Servicecontrol.V1.QuotaError.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :RESOURCE_EXHAUSTED
-          | :BILLING_NOT_ACTIVE
-          | :PROJECT_DELETED
-          | :API_KEY_INVALID
-          | :API_KEY_EXPIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :RESOURCE_EXHAUSTED, 8
@@ -40,17 +22,7 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError.Code do
 end
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          allocate_operation: Google.Api.Servicecontrol.V1.QuotaOperation.t() | nil,
-          service_config_id: String.t()
-        }
-
-  defstruct service_name: "",
-            allocate_operation: nil,
-            service_config_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
 
@@ -62,38 +34,14 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
 end
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_id: String.t(),
-          method_name: String.t(),
-          consumer_id: String.t(),
-          labels: %{String.t() => String.t()},
-          quota_metrics: [Google.Api.Servicecontrol.V1.MetricValueSet.t()],
-          quota_mode: Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode.t()
-        }
-
-  defstruct operation_id: "",
-            method_name: "",
-            consumer_id: "",
-            labels: %{},
-            quota_metrics: [],
-            quota_mode: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :method_name, 2, type: :string, json_name: "methodName"
@@ -116,19 +64,7 @@ defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
 end
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_id: String.t(),
-          allocate_errors: [Google.Api.Servicecontrol.V1.QuotaError.t()],
-          quota_metrics: [Google.Api.Servicecontrol.V1.MetricValueSet.t()],
-          service_config_id: String.t()
-        }
-
-  defstruct operation_id: "",
-            allocate_errors: [],
-            quota_metrics: [],
-            service_config_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -146,19 +82,7 @@ defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
 end
 defmodule Google.Api.Servicecontrol.V1.QuotaError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Api.Servicecontrol.V1.QuotaError.Code.t(),
-          subject: String.t(),
-          description: String.t(),
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct code: :UNSPECIFIED,
-            subject: "",
-            description: "",
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.QuotaError.Code, enum: true
   field :subject, 2, type: :string
@@ -167,7 +91,9 @@ defmodule Google.Api.Servicecontrol.V1.QuotaError do
 end
 defmodule Google.Api.Servicecontrol.V1.QuotaController.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.api.servicecontrol.v1.QuotaController"
+  use GRPC.Service,
+    name: "google.api.servicecontrol.v1.QuotaController",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :AllocateQuota,
       Google.Api.Servicecontrol.V1.AllocateQuotaRequest,

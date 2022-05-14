@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.ModelReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          dataset_id: String.t(),
-          model_id: String.t()
-        }
-
-  defstruct project_id: "",
-            dataset_id: "",
-            model_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false

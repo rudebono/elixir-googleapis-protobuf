@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ASSET_VALIDATION_STATE_UNSPECIFIED | :PENDING | :VALID | :INVALID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ASSET_VALIDATION_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -11,19 +9,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationStat
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct resource: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
@@ -32,34 +18,14 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          catalogs: [Google.Cloud.Privatecatalog.V1beta1.Catalog.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct catalogs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Catalog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct resource: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
@@ -68,34 +34,14 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          products: [Google.Cloud.Privatecatalog.V1beta1.Product.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct products: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct resource: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -104,36 +50,14 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          versions: [Google.Cloud.Privatecatalog.V1beta1.Version.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct versions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -151,25 +75,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          asset_type: String.t(),
-          display_metadata: Google.Protobuf.Struct.t() | nil,
-          icon_uri: String.t(),
-          asset_references: [Google.Cloud.Privatecatalog.V1beta1.AssetReference.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            asset_type: "",
-            display_metadata: nil,
-            icon_uri: "",
-            asset_references: [],
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType", deprecated: false
@@ -199,35 +105,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:asset, String.t()}
-            | {:gcs_path, String.t()}
-            | {:git_source, Google.Cloud.Privatecatalog.V1beta1.GitSource.t() | nil},
-          id: String.t(),
-          description: String.t(),
-          inputs: Google.Cloud.Privatecatalog.V1beta1.Inputs.t() | nil,
-          validation_status:
-            Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState.t(),
-          validation_operation: Google.Longrunning.Operation.t() | nil,
-          gcs_source: Google.Cloud.Privatecatalog.V1beta1.GcsSource.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          version: String.t()
-        }
-
-  defstruct source: nil,
-            id: "",
-            description: "",
-            inputs: nil,
-            validation_status: :ASSET_VALIDATION_STATE_UNSPECIFIED,
-            validation_operation: nil,
-            gcs_source: nil,
-            create_time: nil,
-            update_time: nil,
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -274,29 +152,13 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameters: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameters, 1, type: Google.Protobuf.Struct, deprecated: false
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_path: String.t(),
-          generation: integer,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct gcs_path: "",
-            generation: 0,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath", deprecated: false
   field :generation, 2, type: :int64, deprecated: false
@@ -308,17 +170,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ref: {:commit, String.t()} | {:branch, String.t()} | {:tag, String.t()},
-          repo: String.t(),
-          dir: String.t()
-        }
-
-  defstruct ref: nil,
-            repo: "",
-            dir: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :ref, 0
 
@@ -330,21 +182,7 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          asset: Google.Protobuf.Struct.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            asset: nil,
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -362,7 +200,9 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
 end
 defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.privatecatalog.v1beta1.PrivateCatalog"
+  use GRPC.Service,
+    name: "google.cloud.privatecatalog.v1beta1.PrivateCatalog",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SearchCatalogs,
       Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest,

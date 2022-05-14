@@ -1,78 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.LeadFormFieldUserInputTypeEnum.LeadFormFieldUserInputType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :FULL_NAME
-          | :EMAIL
-          | :PHONE_NUMBER
-          | :POSTAL_CODE
-          | :CITY
-          | :REGION
-          | :COUNTRY
-          | :WORK_EMAIL
-          | :COMPANY_NAME
-          | :WORK_PHONE
-          | :JOB_TITLE
-          | :GOVERNMENT_ISSUED_ID_CPF_BR
-          | :GOVERNMENT_ISSUED_ID_DNI_AR
-          | :GOVERNMENT_ISSUED_ID_DNI_PE
-          | :GOVERNMENT_ISSUED_ID_RUT_CL
-          | :GOVERNMENT_ISSUED_ID_CC_CO
-          | :GOVERNMENT_ISSUED_ID_CI_EC
-          | :GOVERNMENT_ISSUED_ID_RFC_MX
-          | :FIRST_NAME
-          | :LAST_NAME
-          | :VEHICLE_MODEL
-          | :VEHICLE_TYPE
-          | :PREFERRED_DEALERSHIP
-          | :VEHICLE_PURCHASE_TIMELINE
-          | :VEHICLE_OWNERSHIP
-          | :VEHICLE_PAYMENT_TYPE
-          | :VEHICLE_CONDITION
-          | :COMPANY_SIZE
-          | :ANNUAL_SALES
-          | :YEARS_IN_BUSINESS
-          | :JOB_DEPARTMENT
-          | :JOB_ROLE
-          | :EDUCATION_PROGRAM
-          | :EDUCATION_COURSE
-          | :PRODUCT
-          | :SERVICE
-          | :OFFER
-          | :CATEGORY
-          | :PREFERRED_CONTACT_METHOD
-          | :PREFERRED_LOCATION
-          | :PREFERRED_CONTACT_TIME
-          | :PURCHASE_TIMELINE
-          | :YEARS_OF_EXPERIENCE
-          | :JOB_INDUSTRY
-          | :LEVEL_OF_EDUCATION
-          | :PROPERTY_TYPE
-          | :REALTOR_HELP_GOAL
-          | :PROPERTY_COMMUNITY
-          | :PRICE_RANGE
-          | :NUMBER_OF_BEDROOMS
-          | :FURNISHED_PROPERTY
-          | :PETS_ALLOWED_PROPERTY
-          | :NEXT_PLANNED_PURCHASE
-          | :EVENT_SIGNUP_INTEREST
-          | :PREFERRED_SHOPPING_PLACES
-          | :FAVORITE_BRAND
-          | :TRANSPORTATION_COMMERCIAL_LICENSE_TYPE
-          | :EVENT_BOOKING_INTEREST
-          | :DESTINATION_COUNTRY
-          | :DESTINATION_CITY
-          | :DEPARTURE_COUNTRY
-          | :DEPARTURE_CITY
-          | :DEPARTURE_DATE
-          | :RETURN_DATE
-          | :NUMBER_OF_TRAVELERS
-          | :TRAVEL_BUDGET
-          | :TRAVEL_ACCOMMODATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -146,9 +74,5 @@ defmodule Google.Ads.Googleads.V10.Enums.LeadFormFieldUserInputTypeEnum.LeadForm
 end
 defmodule Google.Ads.Googleads.V10.Enums.LeadFormFieldUserInputTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

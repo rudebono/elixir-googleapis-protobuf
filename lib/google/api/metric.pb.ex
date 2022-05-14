@@ -1,8 +1,6 @@
 defmodule Google.Api.MetricDescriptor.MetricKind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METRIC_KIND_UNSPECIFIED | :GAUGE | :DELTA | :CUMULATIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METRIC_KIND_UNSPECIFIED, 0
   field :GAUGE, 1
@@ -11,17 +9,7 @@ defmodule Google.Api.MetricDescriptor.MetricKind do
 end
 defmodule Google.Api.MetricDescriptor.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :VALUE_TYPE_UNSPECIFIED
-          | :BOOL
-          | :INT64
-          | :DOUBLE
-          | :STRING
-          | :DISTRIBUTION
-          | :MONEY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -33,17 +21,7 @@ defmodule Google.Api.MetricDescriptor.ValueType do
 end
 defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          launch_stage: Google.Api.LaunchStage.t(),
-          sample_period: Google.Protobuf.Duration.t() | nil,
-          ingest_delay: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct launch_stage: :LAUNCH_STAGE_UNSPECIFIED,
-            sample_period: nil,
-            ingest_delay: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :launch_stage, 1,
     type: Google.Api.LaunchStage,
@@ -56,33 +34,7 @@ defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata do
 end
 defmodule Google.Api.MetricDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          labels: [Google.Api.LabelDescriptor.t()],
-          metric_kind: Google.Api.MetricDescriptor.MetricKind.t(),
-          value_type: Google.Api.MetricDescriptor.ValueType.t(),
-          unit: String.t(),
-          description: String.t(),
-          display_name: String.t(),
-          metadata: Google.Api.MetricDescriptor.MetricDescriptorMetadata.t() | nil,
-          launch_stage: Google.Api.LaunchStage.t(),
-          monitored_resource_types: [String.t()]
-        }
-
-  defstruct name: "",
-            type: "",
-            labels: [],
-            metric_kind: :METRIC_KIND_UNSPECIFIED,
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            unit: "",
-            description: "",
-            display_name: "",
-            metadata: nil,
-            launch_stage: :LAUNCH_STAGE_UNSPECIFIED,
-            monitored_resource_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 8, type: :string
@@ -111,30 +63,14 @@ defmodule Google.Api.MetricDescriptor do
 end
 defmodule Google.Api.Metric.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.Metric do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct type: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 3, type: :string
   field :labels, 2, repeated: true, type: Google.Api.Metric.LabelsEntry, map: true

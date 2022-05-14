@@ -1,21 +1,13 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.IntentView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INTENT_VIEW_UNSPECIFIED | :INTENT_VIEW_FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INTENT_VIEW_UNSPECIFIED, 0
   field :INTENT_VIEW_FULL, 1
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.WebhookState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :WEBHOOK_STATE_UNSPECIFIED
-          | :WEBHOOK_STATE_ENABLED
-          | :WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :WEBHOOK_STATE_UNSPECIFIED, 0
   field :WEBHOOK_STATE_ENABLED, 1
@@ -23,9 +15,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.WebhookState do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :EXAMPLE | :TEMPLATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EXAMPLE, 1
@@ -33,21 +23,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Type do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Platform do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PLATFORM_UNSPECIFIED
-          | :FACEBOOK
-          | :SLACK
-          | :TELEGRAM
-          | :KIK
-          | :SKYPE
-          | :LINE
-          | :VIBER
-          | :ACTIONS_ON_GOOGLE
-          | :TELEPHONY
-          | :GOOGLE_HANGOUTS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :FACEBOOK, 1
@@ -63,9 +39,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Platform do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard.CardWidth do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CARD_WIDTH_UNSPECIFIED | :SMALL | :MEDIUM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CARD_WIDTH_UNSPECIFIED, 0
   field :SMALL, 1
@@ -73,9 +47,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard.CardWid
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.CardOrientation do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CARD_ORIENTATION_UNSPECIFIED | :HORIZONTAL | :VERTICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CARD_ORIENTATION_UNSPECIFIED, 0
   field :HORIZONTAL, 1
@@ -83,9 +55,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.CardO
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.ThumbnailImageAlignment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED | :LEFT | :RIGHT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED, 0
   field :LEFT, 1
@@ -93,9 +63,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.Thumb
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia.Height do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HEIGHT_UNSPECIFIED | :SHORT | :MEDIUM | :TALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HEIGHT_UNSPECIFIED, 0
   field :SHORT, 1
@@ -104,24 +72,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMediaType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESPONSE_MEDIA_TYPE_UNSPECIFIED | :AUDIO
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESPONSE_MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.ImageDisplayOptions do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
-          | :GRAY
-          | :WHITE
-          | :CROPPED
-          | :BLURRED_BACKGROUND
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IMAGE_DISPLAY_OPTIONS_UNSPECIFIED, 0
   field :GRAY, 1
@@ -131,9 +89,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.Imag
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction.UrlTypeHint do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :URL_TYPE_HINT_UNSPECIFIED | :AMP_ACTION | :AMP_CONTENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :URL_TYPE_HINT_UNSPECIFIED, 0
   field :AMP_ACTION, 1
@@ -141,9 +97,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.Brow
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties.HorizontalAlignment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HORIZONTAL_ALIGNMENT_UNSPECIFIED | :LEADING | :CENTER | :TRAILING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HORIZONTAL_ALIGNMENT_UNSPECIFIED, 0
   field :LEADING, 1
@@ -152,19 +106,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties.Horizo
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Part do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          entity_type: String.t(),
-          alias: String.t(),
-          user_defined: boolean
-        }
-
-  defstruct text: "",
-            entity_type: "",
-            alias: "",
-            user_defined: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :entity_type, 2, type: :string, json_name: "entityType"
@@ -173,19 +115,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Part do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Type.t(),
-          parts: [Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.Part.t()],
-          times_added_count: integer
-        }
-
-  defstruct name: "",
-            type: :TYPE_UNSPECIFIED,
-            parts: [],
-            times_added_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -203,27 +133,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Parameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          value: String.t(),
-          default_value: String.t(),
-          entity_type_display_name: String.t(),
-          mandatory: boolean,
-          prompts: [String.t()],
-          is_list: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            value: "",
-            default_value: "",
-            entity_type_display_name: "",
-            mandatory: false,
-            prompts: [],
-            is_list: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -236,76 +146,34 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Parameter do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Text do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: [String.t()]
-        }
-
-  defstruct text: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_uri: String.t(),
-          accessibility_text: String.t()
-        }
-
-  defstruct image_uri: "",
-            accessibility_text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
   field :accessibility_text, 2, type: :string, json_name: "accessibilityText"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.QuickReplies do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          quick_replies: [String.t()]
-        }
-
-  defstruct title: "",
-            quick_replies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :quick_replies, 2, repeated: true, type: :string, json_name: "quickReplies"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Card.Button do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          postback: String.t()
-        }
-
-  defstruct text: "",
-            postback: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :postback, 2, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Card do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          image_uri: String.t(),
-          buttons: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.Card.Button.t()]
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            image_uri: "",
-            buttons: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -317,17 +185,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Card do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text_to_speech: String.t(),
-          ssml: String.t(),
-          display_text: String.t()
-        }
-
-  defstruct text_to_speech: "",
-            ssml: "",
-            display_text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text_to_speech, 1, type: :string, json_name: "textToSpeech"
   field :ssml, 2, type: :string
@@ -335,13 +193,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponse do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponses do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          simple_responses: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponse.t()]
-        }
-
-  defstruct simple_responses: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :simple_responses, 1,
     repeated: true,
@@ -350,29 +202,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponses do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button.OpenUriAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          open_uri_action:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button.OpenUriAction.t()
-            | nil
-        }
-
-  defstruct title: "",
-            open_uri_action: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
 
@@ -382,21 +218,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          formatted_text: String.t(),
-          image: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil,
-          buttons: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button.t()]
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            formatted_text: "",
-            image: nil,
-            buttons: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -409,25 +231,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Suggestion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t()
-        }
-
-  defstruct title: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Suggestions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          suggestions: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.Suggestion.t()]
-        }
-
-  defstruct suggestions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -435,34 +245,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.Suggestions do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.LinkOutSuggestion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination_name: String.t(),
-          uri: String.t()
-        }
-
-  defstruct destination_name: "",
-            uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :destination_name, 1, type: :string, json_name: "destinationName"
   field :uri, 2, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect.Item do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          info: Google.Cloud.Dialogflow.V2beta1.Intent.Message.SelectItemInfo.t() | nil,
-          title: String.t(),
-          description: String.t(),
-          image: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil
-        }
-
-  defstruct info: nil,
-            title: "",
-            description: "",
-            image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :info, 1, type: Google.Cloud.Dialogflow.V2beta1.Intent.Message.SelectItemInfo
   field :title, 2, type: :string
@@ -471,17 +261,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect.Item do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          items: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect.Item.t()],
-          subtitle: String.t()
-        }
-
-  defstruct title: "",
-            items: [],
-            subtitle: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
 
@@ -493,19 +273,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect.Item do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          info: Google.Cloud.Dialogflow.V2beta1.Intent.Message.SelectItemInfo.t() | nil,
-          title: String.t(),
-          description: String.t(),
-          image: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil
-        }
-
-  defstruct info: nil,
-            title: "",
-            description: "",
-            image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :info, 1, type: Google.Cloud.Dialogflow.V2beta1.Intent.Message.SelectItemInfo
   field :title, 2, type: :string
@@ -514,13 +282,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect.Item do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          items: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect.Item.t()]
-        }
-
-  defstruct items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,
@@ -528,40 +290,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.SelectItemInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          synonyms: [String.t()]
-        }
-
-  defstruct key: "",
-            synonyms: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :synonyms, 2, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonyPlayAudio do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_uri: String.t()
-        }
-
-  defstruct audio_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_uri, 1, type: :string, json_name: "audioUri"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonySynthesizeSpeech do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:text, String.t()} | {:ssml, String.t()}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -570,27 +312,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonySynthesizeSpee
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonyTransferCall do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          phone_number: String.t()
-        }
-
-  defstruct phone_number: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmText do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          rbm_suggestion: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestion.t()]
-        }
-
-  defstruct text: "",
-            rbm_suggestion: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 
@@ -601,16 +329,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmText do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          card_width:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard.CardWidth.t(),
-          card_contents: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.t()]
-        }
-
-  defstruct card_width: :CARD_WIDTH_UNSPECIFIED,
-            card_contents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :card_width, 1,
     type: Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard.CardWidth,
@@ -624,19 +343,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          card_orientation:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.CardOrientation.t(),
-          thumbnail_image_alignment:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.ThumbnailImageAlignment.t(),
-          card_content: Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.t() | nil
-        }
-
-  defstruct card_orientation: :CARD_ORIENTATION_UNSPECIFIED,
-            thumbnail_image_alignment: :THUMBNAIL_IMAGE_ALIGNMENT_UNSPECIFIED,
-            card_content: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :card_orientation, 1,
     type: Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.CardOrientation,
@@ -655,18 +362,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_uri: String.t(),
-          thumbnail_uri: String.t(),
-          height:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia.Height.t()
-        }
-
-  defstruct file_uri: "",
-            thumbnail_uri: "",
-            height: :HEIGHT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_uri, 1, type: :string, json_name: "fileUri"
   field :thumbnail_uri, 2, type: :string, json_name: "thumbnailUri"
@@ -677,19 +373,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          description: String.t(),
-          media: Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent.RbmMedia.t() | nil,
-          suggestions: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestion.t()]
-        }
-
-  defstruct title: "",
-            description: "",
-            media: nil,
-            suggestions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -701,16 +385,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCardContent do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          suggestion:
-            {:reply, Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedReply.t() | nil}
-            | {:action,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.t() | nil}
-        }
-
-  defstruct suggestion: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :suggestion, 0
 
@@ -724,73 +399,30 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestion do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedReply do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t(),
-          postback_data: String.t()
-        }
-
-  defstruct text: "",
-            postback_data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :postback_data, 2, type: :string, json_name: "postbackData"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionDial do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          phone_number: String.t()
-        }
-
-  defstruct phone_number: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionOpenUri do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionShareLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action:
-            {:dial,
-             Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionDial.t()
-             | nil}
-            | {:open_url,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionOpenUri.t()
-               | nil}
-            | {:share_location,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction.RbmSuggestedActionShareLocation.t()
-               | nil},
-          text: String.t(),
-          postback_data: String.t()
-        }
-
-  defstruct action: nil,
-            text: "",
-            postback_data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -816,21 +448,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmSuggestedAction do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMediaObject do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image:
-            {:large_image, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil}
-            | {:icon, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          content_url: String.t()
-        }
-
-  defstruct image: nil,
-            name: "",
-            description: "",
-            content_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -847,18 +465,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMe
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          media_type:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMediaType.t(),
-          media_objects: [
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMediaObject.t()
-          ]
-        }
-
-  defstruct media_type: :RESPONSE_MEDIA_TYPE_UNSPECIFIED,
-            media_objects: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :media_type, 1,
     type: Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.ResponseMediaType,
@@ -872,16 +479,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          url_type_hint:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction.UrlTypeHint.t()
-        }
-
-  defstruct url: "",
-            url_type_hint: :URL_TYPE_HINT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
 
@@ -893,23 +491,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.Brow
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          open_uri_action:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction.t()
-            | nil,
-          title: String.t(),
-          description: String.t(),
-          image: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil,
-          footer: String.t()
-        }
-
-  defstruct open_uri_action: nil,
-            title: "",
-            description: "",
-            image: nil,
-            footer: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :open_uri_action, 1,
     type:
@@ -923,18 +505,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.Brow
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          items: [
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.t()
-          ],
-          image_display_options:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.ImageDisplayOptions.t()
-        }
-
-  defstruct items: [],
-            image_display_options: :IMAGE_DISPLAY_OPTIONS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,
@@ -947,23 +518,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          image: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil,
-          column_properties: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties.t()],
-          rows: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCardRow.t()],
-          buttons: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.Button.t()]
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            image: nil,
-            column_properties: [],
-            rows: [],
-            buttons: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -984,16 +539,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCard do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: String.t(),
-          horizontal_alignment:
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties.HorizontalAlignment.t()
-        }
-
-  defstruct header: "",
-            horizontal_alignment: :HORIZONTAL_ALIGNMENT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: :string
 
@@ -1004,15 +550,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.ColumnProperties do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCardRow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cells: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCardCell.t()],
-          divider_after: boolean
-        }
-
-  defstruct cells: [],
-            divider_after: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cells, 1,
     repeated: true,
@@ -1022,58 +560,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCardRow do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCardCell do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t()
-        }
-
-  defstruct text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message:
-            {:text, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Text.t() | nil}
-            | {:image, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Image.t() | nil}
-            | {:quick_replies,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.QuickReplies.t() | nil}
-            | {:card, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Card.t() | nil}
-            | {:payload, Google.Protobuf.Struct.t() | nil}
-            | {:simple_responses,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.SimpleResponses.t() | nil}
-            | {:basic_card, Google.Cloud.Dialogflow.V2beta1.Intent.Message.BasicCard.t() | nil}
-            | {:suggestions, Google.Cloud.Dialogflow.V2beta1.Intent.Message.Suggestions.t() | nil}
-            | {:link_out_suggestion,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.LinkOutSuggestion.t() | nil}
-            | {:list_select, Google.Cloud.Dialogflow.V2beta1.Intent.Message.ListSelect.t() | nil}
-            | {:carousel_select,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.CarouselSelect.t() | nil}
-            | {:telephony_play_audio,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonyPlayAudio.t() | nil}
-            | {:telephony_synthesize_speech,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonySynthesizeSpeech.t() | nil}
-            | {:telephony_transfer_call,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.TelephonyTransferCall.t() | nil}
-            | {:rbm_text, Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmText.t() | nil}
-            | {:rbm_standalone_rich_card,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmStandaloneCard.t() | nil}
-            | {:rbm_carousel_rich_card,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.RbmCarouselCard.t() | nil}
-            | {:browse_carousel_card,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.BrowseCarouselCard.t() | nil}
-            | {:table_card, Google.Cloud.Dialogflow.V2beta1.Intent.Message.TableCard.t() | nil}
-            | {:media_content,
-               Google.Cloud.Dialogflow.V2beta1.Intent.Message.MediaContent.t() | nil},
-          platform: Google.Cloud.Dialogflow.V2beta1.Intent.Message.Platform.t()
-        }
-
-  defstruct message: nil,
-            platform: :PLATFORM_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :message, 0
 
@@ -1169,70 +662,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent.Message do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent.FollowupIntentInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          followup_intent_name: String.t(),
-          parent_followup_intent_name: String.t()
-        }
-
-  defstruct followup_intent_name: "",
-            parent_followup_intent_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :followup_intent_name, 1, type: :string, json_name: "followupIntentName"
   field :parent_followup_intent_name, 2, type: :string, json_name: "parentFollowupIntentName"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          webhook_state: Google.Cloud.Dialogflow.V2beta1.Intent.WebhookState.t(),
-          priority: integer,
-          is_fallback: boolean,
-          ml_enabled: boolean,
-          ml_disabled: boolean,
-          live_agent_handoff: boolean,
-          end_interaction: boolean,
-          input_context_names: [String.t()],
-          events: [String.t()],
-          training_phrases: [Google.Cloud.Dialogflow.V2beta1.Intent.TrainingPhrase.t()],
-          action: String.t(),
-          output_contexts: [Google.Cloud.Dialogflow.V2beta1.Context.t()],
-          reset_contexts: boolean,
-          parameters: [Google.Cloud.Dialogflow.V2beta1.Intent.Parameter.t()],
-          messages: [Google.Cloud.Dialogflow.V2beta1.Intent.Message.t()],
-          default_response_platforms: [
-            Google.Cloud.Dialogflow.V2beta1.Intent.Message.Platform.t()
-          ],
-          root_followup_intent_name: String.t(),
-          parent_followup_intent_name: String.t(),
-          followup_intent_info: [Google.Cloud.Dialogflow.V2beta1.Intent.FollowupIntentInfo.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            webhook_state: :WEBHOOK_STATE_UNSPECIFIED,
-            priority: 0,
-            is_fallback: false,
-            ml_enabled: false,
-            ml_disabled: false,
-            live_agent_handoff: false,
-            end_interaction: false,
-            input_context_names: [],
-            events: [],
-            training_phrases: [],
-            action: "",
-            output_contexts: [],
-            reset_contexts: false,
-            parameters: [],
-            messages: [],
-            default_response_platforms: [],
-            root_followup_intent_name: "",
-            parent_followup_intent_name: "",
-            followup_intent_info: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -1306,21 +743,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Intent do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListIntentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          language_code: String.t(),
-          intent_view: Google.Cloud.Dialogflow.V2beta1.IntentView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            language_code: "",
-            intent_view: :INTENT_VIEW_UNSPECIFIED,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -1335,32 +758,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListIntentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListIntentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intents: [Google.Cloud.Dialogflow.V2beta1.Intent.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct intents: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Intent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          language_code: String.t(),
-          intent_view: Google.Cloud.Dialogflow.V2beta1.IntentView.t()
-        }
-
-  defstruct name: "",
-            language_code: "",
-            intent_view: :INTENT_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -1372,19 +777,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetIntentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          intent: Google.Cloud.Dialogflow.V2beta1.Intent.t() | nil,
-          language_code: String.t(),
-          intent_view: Google.Cloud.Dialogflow.V2beta1.IntentView.t()
-        }
-
-  defstruct parent: "",
-            intent: nil,
-            language_code: "",
-            intent_view: :INTENT_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :intent, 2, type: Google.Cloud.Dialogflow.V2beta1.Intent, deprecated: false
@@ -1397,19 +790,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateIntentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intent: Google.Cloud.Dialogflow.V2beta1.Intent.t() | nil,
-          language_code: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          intent_view: Google.Cloud.Dialogflow.V2beta1.IntentView.t()
-        }
-
-  defstruct intent: nil,
-            language_code: "",
-            update_mask: nil,
-            intent_view: :INTENT_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intent, 1, type: Google.Cloud.Dialogflow.V2beta1.Intent, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -1422,35 +803,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateIntentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.BatchUpdateIntentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intent_batch:
-            {:intent_batch_uri, String.t()}
-            | {:intent_batch_inline, Google.Cloud.Dialogflow.V2beta1.IntentBatch.t() | nil},
-          parent: String.t(),
-          language_code: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          intent_view: Google.Cloud.Dialogflow.V2beta1.IntentView.t()
-        }
-
-  defstruct intent_batch: nil,
-            parent: "",
-            language_code: "",
-            update_mask: nil,
-            intent_view: :INTENT_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :intent_batch, 0
 
@@ -1472,27 +831,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.BatchUpdateIntentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.BatchUpdateIntentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intents: [Google.Cloud.Dialogflow.V2beta1.Intent.t()]
-        }
-
-  defstruct intents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Intent
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.BatchDeleteIntentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          intents: [Google.Cloud.Dialogflow.V2beta1.Intent.t()]
-        }
-
-  defstruct parent: "",
-            intents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1503,19 +848,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.BatchDeleteIntentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.IntentBatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intents: [Google.Cloud.Dialogflow.V2beta1.Intent.t()]
-        }
-
-  defstruct intents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Intent
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Intents.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Intents"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2beta1.Intents",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListIntents,
       Google.Cloud.Dialogflow.V2beta1.ListIntentsRequest,

@@ -1,31 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.RecommendationTypeEnum.RecommendationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CAMPAIGN_BUDGET
-          | :KEYWORD
-          | :TEXT_AD
-          | :TARGET_CPA_OPT_IN
-          | :MAXIMIZE_CONVERSIONS_OPT_IN
-          | :ENHANCED_CPC_OPT_IN
-          | :SEARCH_PARTNERS_OPT_IN
-          | :MAXIMIZE_CLICKS_OPT_IN
-          | :OPTIMIZE_AD_ROTATION
-          | :CALLOUT_EXTENSION
-          | :SITELINK_EXTENSION
-          | :CALL_EXTENSION
-          | :KEYWORD_MATCH_TYPE
-          | :MOVE_UNUSED_BUDGET
-          | :FORECASTING_CAMPAIGN_BUDGET
-          | :TARGET_ROAS_OPT_IN
-          | :RESPONSIVE_SEARCH_AD
-          | :MARGINAL_ROI_CAMPAIGN_BUDGET
-          | :USE_BROAD_MATCH_KEYWORD
-          | :RESPONSIVE_SEARCH_AD_ASSET
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -52,9 +27,5 @@ defmodule Google.Ads.Googleads.V10.Enums.RecommendationTypeEnum.RecommendationTy
 end
 defmodule Google.Ads.Googleads.V10.Enums.RecommendationTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

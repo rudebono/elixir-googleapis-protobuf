@@ -1,22 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content:
-            {:card, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCardPrompt.t() | nil}
-            | {:image, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil}
-            | {:table, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt.t() | nil}
-            | {:media, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.t() | nil}
-            | {:list, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.t() | nil}
-            | {:collection,
-               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.t() | nil}
-            | {:collection_browse,
-               Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt.t()
-               | nil}
-        }
-
-  defstruct content: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :content, 0
 

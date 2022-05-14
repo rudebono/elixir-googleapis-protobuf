@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Automl.V1.ClassificationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CLASSIFICATION_TYPE_UNSPECIFIED | :MULTICLASS | :MULTILABEL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLASSIFICATION_TYPE_UNSPECIFIED, 0
   field :MULTICLASS, 1
@@ -10,51 +8,13 @@ defmodule Google.Cloud.Automl.V1.ClassificationType do
 end
 defmodule Google.Cloud.Automl.V1.ClassificationAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score, 1, type: :float
 end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          confidence_threshold: float | :infinity | :negative_infinity | :nan,
-          position_threshold: integer,
-          recall: float | :infinity | :negative_infinity | :nan,
-          precision: float | :infinity | :negative_infinity | :nan,
-          false_positive_rate: float | :infinity | :negative_infinity | :nan,
-          f1_score: float | :infinity | :negative_infinity | :nan,
-          recall_at1: float | :infinity | :negative_infinity | :nan,
-          precision_at1: float | :infinity | :negative_infinity | :nan,
-          false_positive_rate_at1: float | :infinity | :negative_infinity | :nan,
-          f1_score_at1: float | :infinity | :negative_infinity | :nan,
-          true_positive_count: integer,
-          false_positive_count: integer,
-          false_negative_count: integer,
-          true_negative_count: integer
-        }
-
-  defstruct confidence_threshold: 0.0,
-            position_threshold: 0,
-            recall: 0.0,
-            precision: 0.0,
-            false_positive_rate: 0.0,
-            f1_score: 0.0,
-            recall_at1: 0.0,
-            precision_at1: 0.0,
-            false_positive_rate_at1: 0.0,
-            f1_score_at1: 0.0,
-            true_positive_count: 0,
-            false_positive_count: 0,
-            false_negative_count: 0,
-            true_negative_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :position_threshold, 14, type: :int32, json_name: "positionThreshold"
@@ -73,29 +33,13 @@ defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetri
 end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.Row do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          example_count: [integer]
-        }
-
-  defstruct example_count: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :example_count, 1, repeated: true, type: :int32, json_name: "exampleCount"
 end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec_id: [String.t()],
-          display_name: [String.t()],
-          row: [Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.Row.t()]
-        }
-
-  defstruct annotation_spec_id: [],
-            display_name: [],
-            row: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec_id, 1, repeated: true, type: :string, json_name: "annotationSpecId"
   field :display_name, 3, repeated: true, type: :string, json_name: "displayName"
@@ -106,26 +50,7 @@ defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix
 end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          au_prc: float | :infinity | :negative_infinity | :nan,
-          au_roc: float | :infinity | :negative_infinity | :nan,
-          log_loss: float | :infinity | :negative_infinity | :nan,
-          confidence_metrics_entry: [
-            Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry.t()
-          ],
-          confusion_matrix:
-            Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.t() | nil,
-          annotation_spec_id: [String.t()]
-        }
-
-  defstruct au_prc: 0.0,
-            au_roc: 0.0,
-            log_loss: 0.0,
-            confidence_metrics_entry: [],
-            confusion_matrix: nil,
-            annotation_spec_id: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
   field :au_roc, 6, type: :float, json_name: "auRoc"

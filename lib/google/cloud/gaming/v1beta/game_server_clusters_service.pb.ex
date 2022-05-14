@@ -1,6 +1,8 @@
 defmodule Google.Cloud.Gaming.V1beta.GameServerClustersService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.gaming.v1beta.GameServerClustersService"
+  use GRPC.Service,
+    name: "google.cloud.gaming.v1beta.GameServerClustersService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListGameServerClusters,
       Google.Cloud.Gaming.V1beta.ListGameServerClustersRequest,

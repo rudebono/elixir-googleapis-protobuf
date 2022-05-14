@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Gkebackup.V1.Backup.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :IN_PROGRESS
-          | :SUCCEEDED
-          | :FAILED
-          | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -20,34 +11,14 @@ defmodule Google.Cloud.Gkebackup.V1.Backup.State do
 end
 defmodule Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata.BackupCrdVersionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          platform_version: {:gke_version, String.t()} | {:anthos_version, String.t()},
-          cluster: String.t(),
-          k8s_version: String.t(),
-          backup_crd_versions: %{String.t() => String.t()}
-        }
-
-  defstruct platform_version: nil,
-            cluster: "",
-            k8s_version: "",
-            backup_crd_versions: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :platform_version, 0
 
@@ -65,79 +36,14 @@ defmodule Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata do
 end
 defmodule Google.Cloud.Gkebackup.V1.Backup.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkebackup.V1.Backup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup_scope:
-            {:all_namespaces, boolean}
-            | {:selected_namespaces, Google.Cloud.Gkebackup.V1.Namespaces.t() | nil}
-            | {:selected_applications, Google.Cloud.Gkebackup.V1.NamespacedNames.t() | nil},
-          name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          manual: boolean,
-          labels: %{String.t() => String.t()},
-          delete_lock_days: integer,
-          delete_lock_expire_time: Google.Protobuf.Timestamp.t() | nil,
-          retain_days: integer,
-          retain_expire_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption_key: Google.Cloud.Gkebackup.V1.EncryptionKey.t() | nil,
-          contains_volume_data: boolean,
-          contains_secrets: boolean,
-          cluster_metadata: Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata.t() | nil,
-          state: Google.Cloud.Gkebackup.V1.Backup.State.t(),
-          state_reason: String.t(),
-          complete_time: Google.Protobuf.Timestamp.t() | nil,
-          resource_count: integer,
-          volume_count: integer,
-          size_bytes: integer,
-          etag: String.t(),
-          description: String.t(),
-          pod_count: integer,
-          config_backup_size_bytes: integer
-        }
-
-  defstruct backup_scope: nil,
-            name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            manual: false,
-            labels: %{},
-            delete_lock_days: 0,
-            delete_lock_expire_time: nil,
-            retain_days: 0,
-            retain_expire_time: nil,
-            encryption_key: nil,
-            contains_volume_data: false,
-            contains_secrets: false,
-            cluster_metadata: nil,
-            state: :STATE_UNSPECIFIED,
-            state_reason: "",
-            complete_time: nil,
-            resource_count: 0,
-            volume_count: 0,
-            size_bytes: 0,
-            etag: "",
-            description: "",
-            pod_count: 0,
-            config_backup_size_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :backup_scope, 0
 

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SSML_VOICE_GENDER_UNSPECIFIED | :MALE | :FEMALE | :NEUTRAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :MALE, 1
@@ -11,17 +9,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AUDIO_ENCODING_UNSPECIFIED
-          | :LINEAR16
-          | :MP3
-          | :MP3_64_KBPS
-          | :OGG_OPUS
-          | :MULAW
-          | :ALAW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -33,18 +21,14 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioEncoding do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TIMEPOINT_TYPE_UNSPECIFIED | :SSML_MARK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TIMEPOINT_TYPE_UNSPECIFIED, 0
   field :SSML_MARK, 1
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REPORTED_USAGE_UNSPECIFIED | :REALTIME | :OFFLINE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REPORTED_USAGE_UNSPECIFIED, 0
   field :REALTIME, 1
@@ -52,43 +36,19 @@ defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t()
-        }
-
-  defstruct language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          voices: [Google.Cloud.Texttospeech.V1beta1.Voice.t()]
-        }
-
-  defstruct voices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :voices, 1, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Voice
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_codes: [String.t()],
-          name: String.t(),
-          ssml_gender: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender.t(),
-          natural_sample_rate_hertz: integer
-        }
-
-  defstruct language_codes: [],
-            name: "",
-            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED,
-            natural_sample_rate_hertz: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
   field :name, 2, type: :string
@@ -102,21 +62,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input: Google.Cloud.Texttospeech.V1beta1.SynthesisInput.t() | nil,
-          voice: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams.t() | nil,
-          audio_config: Google.Cloud.Texttospeech.V1beta1.AudioConfig.t() | nil,
-          enable_time_pointing: [
-            Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType.t()
-          ]
-        }
-
-  defstruct input: nil,
-            voice: nil,
-            audio_config: nil,
-            enable_time_pointing: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input, 1, type: Google.Cloud.Texttospeech.V1beta1.SynthesisInput, deprecated: false
   field :voice, 2, type: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams, deprecated: false
@@ -134,13 +80,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_source: {:text, String.t()} | {:ssml, String.t()}
-        }
-
-  defstruct input_source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :input_source, 0
 
@@ -149,19 +89,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t(),
-          name: String.t(),
-          ssml_gender: Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender.t(),
-          custom_voice: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.t() | nil
-        }
-
-  defstruct language_code: "",
-            name: "",
-            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED,
-            custom_voice: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
   field :name, 2, type: :string
@@ -177,23 +105,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_encoding: Google.Cloud.Texttospeech.V1beta1.AudioEncoding.t(),
-          speaking_rate: float | :infinity | :negative_infinity | :nan,
-          pitch: float | :infinity | :negative_infinity | :nan,
-          volume_gain_db: float | :infinity | :negative_infinity | :nan,
-          sample_rate_hertz: integer,
-          effects_profile_id: [String.t()]
-        }
-
-  defstruct audio_encoding: :AUDIO_ENCODING_UNSPECIFIED,
-            speaking_rate: 0.0,
-            pitch: 0.0,
-            volume_gain_db: 0.0,
-            sample_rate_hertz: 0,
-            effects_profile_id: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Texttospeech.V1beta1.AudioEncoding,
@@ -214,15 +126,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: String.t(),
-          reported_usage: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage.t()
-        }
-
-  defstruct model: "",
-            reported_usage: :REPORTED_USAGE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
 
@@ -234,17 +138,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_content: binary,
-          timepoints: [Google.Cloud.Texttospeech.V1beta1.Timepoint.t()],
-          audio_config: Google.Cloud.Texttospeech.V1beta1.AudioConfig.t() | nil
-        }
-
-  defstruct audio_content: "",
-            timepoints: [],
-            audio_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_content, 1, type: :bytes, json_name: "audioContent"
   field :timepoints, 2, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Timepoint
@@ -255,22 +149,16 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mark_name: String.t(),
-          time_seconds: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct mark_name: "",
-            time_seconds: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mark_name, 4, type: :string, json_name: "markName"
   field :time_seconds, 3, type: :double, json_name: "timeSeconds"
 end
 defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.texttospeech.v1beta1.TextToSpeech"
+  use GRPC.Service,
+    name: "google.cloud.texttospeech.v1beta1.TextToSpeech",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListVoices,
       Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest,

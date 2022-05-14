@@ -1,8 +1,6 @@
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :MY_DRIVE_ROOT | :TEAM_DRIVE_ROOT | :STANDARD_FOLDER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MY_DRIVE_ROOT, 1
@@ -11,9 +9,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type do
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :MY_DRIVE_ROOT | :SHARED_DRIVE_ROOT | :STANDARD_FOLDER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MY_DRIVE_ROOT, 1
@@ -22,18 +18,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type do
 end
 defmodule Google.Apps.Drive.Activity.V2.Target do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object:
-            {:drive_item, Google.Apps.Drive.Activity.V2.DriveItem.t() | nil}
-            | {:drive, Google.Apps.Drive.Activity.V2.Drive.t() | nil}
-            | {:file_comment, Google.Apps.Drive.Activity.V2.FileComment.t() | nil},
-          team_drive: Google.Apps.Drive.Activity.V2.TeamDrive.t() | nil
-        }
-
-  defstruct object: nil,
-            team_drive: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :object, 0
 
@@ -56,17 +41,7 @@ defmodule Google.Apps.Drive.Activity.V2.Target do
 end
 defmodule Google.Apps.Drive.Activity.V2.TargetReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          object:
-            {:drive_item, Google.Apps.Drive.Activity.V2.DriveItemReference.t() | nil}
-            | {:drive, Google.Apps.Drive.Activity.V2.DriveReference.t() | nil},
-          team_drive: Google.Apps.Drive.Activity.V2.TeamDriveReference.t() | nil
-        }
-
-  defstruct object: nil,
-            team_drive: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :object, 0
 
@@ -84,19 +59,7 @@ defmodule Google.Apps.Drive.Activity.V2.TargetReference do
 end
 defmodule Google.Apps.Drive.Activity.V2.FileComment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          legacy_comment_id: String.t(),
-          legacy_discussion_id: String.t(),
-          link_to_discussion: String.t(),
-          parent: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
-        }
-
-  defstruct legacy_comment_id: "",
-            legacy_discussion_id: "",
-            link_to_discussion: "",
-            parent: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :legacy_comment_id, 1, type: :string, json_name: "legacyCommentId"
   field :legacy_discussion_id, 2, type: :string, json_name: "legacyDiscussionId"
@@ -105,67 +68,27 @@ defmodule Google.Apps.Drive.Activity.V2.FileComment do
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.File do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type, enum: true
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type, enum: true
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          item_type:
-            {:drive_file, Google.Apps.Drive.Activity.V2.DriveItem.DriveFile.t() | nil}
-            | {:drive_folder, Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.t() | nil},
-          name: String.t(),
-          title: String.t(),
-          file: Google.Apps.Drive.Activity.V2.DriveItem.File.t() | nil,
-          folder: Google.Apps.Drive.Activity.V2.DriveItem.Folder.t() | nil,
-          mime_type: String.t(),
-          owner: Google.Apps.Drive.Activity.V2.Owner.t() | nil
-        }
-
-  defstruct item_type: nil,
-            name: "",
-            title: "",
-            file: nil,
-            folder: nil,
-            mime_type: "",
-            owner: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :item_type, 0
 
@@ -189,19 +112,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItem do
 end
 defmodule Google.Apps.Drive.Activity.V2.Owner do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          owner:
-            {:user, Google.Apps.Drive.Activity.V2.User.t() | nil}
-            | {:drive, Google.Apps.Drive.Activity.V2.DriveReference.t() | nil},
-          team_drive: Google.Apps.Drive.Activity.V2.TeamDriveReference.t() | nil,
-          domain: Google.Apps.Drive.Activity.V2.Domain.t() | nil
-        }
-
-  defstruct owner: nil,
-            team_drive: nil,
-            domain: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :owner, 0
 
@@ -217,17 +128,7 @@ defmodule Google.Apps.Drive.Activity.V2.Owner do
 end
 defmodule Google.Apps.Drive.Activity.V2.TeamDrive do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          root: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
-        }
-
-  defstruct name: "",
-            title: "",
-            root: nil
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -235,17 +136,7 @@ defmodule Google.Apps.Drive.Activity.V2.TeamDrive do
 end
 defmodule Google.Apps.Drive.Activity.V2.Drive do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          root: Google.Apps.Drive.Activity.V2.DriveItem.t() | nil
-        }
-
-  defstruct name: "",
-            title: "",
-            root: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -253,23 +144,7 @@ defmodule Google.Apps.Drive.Activity.V2.Drive do
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          item_type:
-            {:drive_file, Google.Apps.Drive.Activity.V2.DriveItem.DriveFile.t() | nil}
-            | {:drive_folder, Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.t() | nil},
-          name: String.t(),
-          title: String.t(),
-          file: Google.Apps.Drive.Activity.V2.DriveItem.File.t() | nil,
-          folder: Google.Apps.Drive.Activity.V2.DriveItem.Folder.t() | nil
-        }
-
-  defstruct item_type: nil,
-            name: "",
-            title: "",
-            file: nil,
-            folder: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :item_type, 0
 
@@ -290,30 +165,14 @@ defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
 end
 defmodule Google.Apps.Drive.Activity.V2.TeamDriveReference do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t()
-        }
-
-  defstruct name: "",
-            title: ""
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
 end
 defmodule Google.Apps.Drive.Activity.V2.DriveReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t()
-        }
-
-  defstruct name: "",
-            title: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string

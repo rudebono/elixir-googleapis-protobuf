@@ -1,20 +1,6 @@
 defmodule Google.Devtools.Containeranalysis.V1beta1.ScanConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          enabled: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            enabled: false,
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -24,31 +10,13 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.ScanConfig do
 end
 defmodule Google.Devtools.Containeranalysis.V1beta1.GetScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Containeranalysis.V1beta1.ListScanConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -57,15 +25,7 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.ListScanConfigsRequest do
 end
 defmodule Google.Devtools.Containeranalysis.V1beta1.ListScanConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scan_configs: [Google.Devtools.Containeranalysis.V1beta1.ScanConfig.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct scan_configs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scan_configs, 1,
     repeated: true,
@@ -76,15 +36,7 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.ListScanConfigsResponse do
 end
 defmodule Google.Devtools.Containeranalysis.V1beta1.UpdateScanConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          scan_config: Google.Devtools.Containeranalysis.V1beta1.ScanConfig.t() | nil
-        }
-
-  defstruct name: "",
-            scan_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -95,7 +47,9 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.UpdateScanConfigRequest do
 end
 defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1"
+  use GRPC.Service,
+    name: "google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 

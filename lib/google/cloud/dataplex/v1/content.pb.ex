@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dataplex.V1.GetContentRequest.ContentView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONTENT_VIEW_UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTENT_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,17 +8,7 @@ defmodule Google.Cloud.Dataplex.V1.GetContentRequest.ContentView do
 end
 defmodule Google.Cloud.Dataplex.V1.CreateContentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          content: Google.Cloud.Dataplex.V1.Content.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            content: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :content, 2, type: Google.Cloud.Dataplex.V1.Content, deprecated: false
@@ -28,17 +16,7 @@ defmodule Google.Cloud.Dataplex.V1.CreateContentRequest do
 end
 defmodule Google.Cloud.Dataplex.V1.UpdateContentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          content: Google.Cloud.Dataplex.V1.Content.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct update_mask: nil,
-            content: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -50,31 +28,13 @@ defmodule Google.Cloud.Dataplex.V1.UpdateContentRequest do
 end
 defmodule Google.Cloud.Dataplex.V1.DeleteContentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.ListContentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -83,30 +43,14 @@ defmodule Google.Cloud.Dataplex.V1.ListContentRequest do
 end
 defmodule Google.Cloud.Dataplex.V1.ListContentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: [Google.Cloud.Dataplex.V1.Content.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct content: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Content
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dataplex.V1.GetContentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Cloud.Dataplex.V1.GetContentRequest.ContentView.t()
-        }
-
-  defstruct name: "",
-            view: :CONTENT_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -117,7 +61,9 @@ defmodule Google.Cloud.Dataplex.V1.GetContentRequest do
 end
 defmodule Google.Cloud.Dataplex.V1.ContentService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dataplex.v1.ContentService"
+  use GRPC.Service,
+    name: "google.cloud.dataplex.v1.ContentService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateContent,
       Google.Cloud.Dataplex.V1.CreateContentRequest,

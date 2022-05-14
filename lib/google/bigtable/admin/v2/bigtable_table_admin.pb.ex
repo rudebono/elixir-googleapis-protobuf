@@ -1,16 +1,6 @@
 defmodule Google.Bigtable.Admin.V2.RestoreTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:backup, String.t()},
-          parent: String.t(),
-          table_id: String.t()
-        }
-
-  defstruct source: nil,
-            parent: "",
-            table_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -20,21 +10,7 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableRequest do
 end
 defmodule Google.Bigtable.Admin.V2.RestoreTableMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_info: {:backup_info, Google.Bigtable.Admin.V2.BackupInfo.t() | nil},
-          name: String.t(),
-          source_type: Google.Bigtable.Admin.V2.RestoreSourceType.t(),
-          optimize_table_operation_name: String.t(),
-          progress: Google.Bigtable.Admin.V2.OperationProgress.t() | nil
-        }
-
-  defstruct source_info: nil,
-            name: "",
-            source_type: :RESTORE_SOURCE_TYPE_UNSPECIFIED,
-            optimize_table_operation_name: "",
-            progress: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -55,46 +31,20 @@ defmodule Google.Bigtable.Admin.V2.RestoreTableMetadata do
 end
 defmodule Google.Bigtable.Admin.V2.OptimizeRestoredTableMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          progress: Google.Bigtable.Admin.V2.OperationProgress.t() | nil
-        }
-
-  defstruct name: "",
-            progress: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :progress, 2, type: Google.Bigtable.Admin.V2.OperationProgress
 end
 defmodule Google.Bigtable.Admin.V2.CreateTableRequest.Split do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: binary
-        }
-
-  defstruct key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :bytes
 end
 defmodule Google.Bigtable.Admin.V2.CreateTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          table_id: String.t(),
-          table: Google.Bigtable.Admin.V2.Table.t() | nil,
-          initial_splits: [Google.Bigtable.Admin.V2.CreateTableRequest.Split.t()]
-        }
-
-  defstruct parent: "",
-            table_id: "",
-            table: nil,
-            initial_splits: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :table_id, 2, type: :string, json_name: "tableId", deprecated: false
@@ -107,17 +57,7 @@ defmodule Google.Bigtable.Admin.V2.CreateTableRequest do
 end
 defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          table_id: String.t(),
-          source_snapshot: String.t()
-        }
-
-  defstruct parent: "",
-            table_id: "",
-            source_snapshot: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :table_id, 2, type: :string, json_name: "tableId", deprecated: false
@@ -125,15 +65,7 @@ defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest do
 end
 defmodule Google.Bigtable.Admin.V2.DropRowRangeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: {:row_key_prefix, binary} | {:delete_all_data_from_table, boolean},
-          name: String.t()
-        }
-
-  defstruct target: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -143,19 +75,7 @@ defmodule Google.Bigtable.Admin.V2.DropRowRangeRequest do
 end
 defmodule Google.Bigtable.Admin.V2.ListTablesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          view: Google.Bigtable.Admin.V2.Table.View.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            view: :VIEW_UNSPECIFIED,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Bigtable.Admin.V2.Table.View, enum: true
@@ -164,60 +84,27 @@ defmodule Google.Bigtable.Admin.V2.ListTablesRequest do
 end
 defmodule Google.Bigtable.Admin.V2.ListTablesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tables: [Google.Bigtable.Admin.V2.Table.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tables: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tables, 1, repeated: true, type: Google.Bigtable.Admin.V2.Table
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Bigtable.Admin.V2.GetTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Bigtable.Admin.V2.Table.View.t()
-        }
-
-  defstruct name: "",
-            view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Bigtable.Admin.V2.Table.View, enum: true
 end
 defmodule Google.Bigtable.Admin.V2.DeleteTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mod:
-            {:create, Google.Bigtable.Admin.V2.ColumnFamily.t() | nil}
-            | {:update, Google.Bigtable.Admin.V2.ColumnFamily.t() | nil}
-            | {:drop, boolean},
-          id: String.t()
-        }
-
-  defstruct mod: nil,
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mod, 0
 
@@ -228,15 +115,7 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
 end
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          modifications: [Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification.t()]
-        }
-
-  defstruct name: "",
-            modifications: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -247,72 +126,32 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
 end
 defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consistency_token: String.t()
-        }
-
-  defstruct consistency_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :consistency_token, 1, type: :string, json_name: "consistencyToken"
 end
 defmodule Google.Bigtable.Admin.V2.CheckConsistencyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          consistency_token: String.t()
-        }
-
-  defstruct name: "",
-            consistency_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :consistency_token, 2, type: :string, json_name: "consistencyToken", deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.CheckConsistencyResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consistent: boolean
-        }
-
-  defstruct consistent: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :consistent, 1, type: :bool
 end
 defmodule Google.Bigtable.Admin.V2.SnapshotTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          cluster: String.t(),
-          snapshot_id: String.t(),
-          ttl: Google.Protobuf.Duration.t() | nil,
-          description: String.t()
-        }
-
-  defstruct name: "",
-            cluster: "",
-            snapshot_id: "",
-            ttl: nil,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :cluster, 2, type: :string, deprecated: false
@@ -322,29 +161,13 @@ defmodule Google.Bigtable.Admin.V2.SnapshotTableRequest do
 end
 defmodule Google.Bigtable.Admin.V2.GetSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.ListSnapshotsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -352,44 +175,20 @@ defmodule Google.Bigtable.Admin.V2.ListSnapshotsRequest do
 end
 defmodule Google.Bigtable.Admin.V2.ListSnapshotsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshots: [Google.Bigtable.Admin.V2.Snapshot.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct snapshots: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshots, 1, repeated: true, type: Google.Bigtable.Admin.V2.Snapshot
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Bigtable.Admin.V2.DeleteSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.SnapshotTableMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          original_request: Google.Bigtable.Admin.V2.SnapshotTableRequest.t() | nil,
-          request_time: Google.Protobuf.Timestamp.t() | nil,
-          finish_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct original_request: nil,
-            request_time: nil,
-            finish_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :original_request, 1,
     type: Google.Bigtable.Admin.V2.SnapshotTableRequest,
@@ -400,17 +199,7 @@ defmodule Google.Bigtable.Admin.V2.SnapshotTableMetadata do
 end
 defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          original_request: Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest.t() | nil,
-          request_time: Google.Protobuf.Timestamp.t() | nil,
-          finish_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct original_request: nil,
-            request_time: nil,
-            finish_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :original_request, 1,
     type: Google.Bigtable.Admin.V2.CreateTableFromSnapshotRequest,
@@ -421,17 +210,7 @@ defmodule Google.Bigtable.Admin.V2.CreateTableFromSnapshotMetadata do
 end
 defmodule Google.Bigtable.Admin.V2.CreateBackupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          backup_id: String.t(),
-          backup: Google.Bigtable.Admin.V2.Backup.t() | nil
-        }
-
-  defstruct parent: "",
-            backup_id: "",
-            backup: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -439,19 +218,7 @@ defmodule Google.Bigtable.Admin.V2.CreateBackupRequest do
 end
 defmodule Google.Bigtable.Admin.V2.CreateBackupMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          source_table: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            source_table: "",
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_table, 2, type: :string, json_name: "sourceTable"
@@ -460,15 +227,7 @@ defmodule Google.Bigtable.Admin.V2.CreateBackupMetadata do
 end
 defmodule Google.Bigtable.Admin.V2.UpdateBackupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup: Google.Bigtable.Admin.V2.Backup.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct backup: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backup, 1, type: Google.Bigtable.Admin.V2.Backup, deprecated: false
 
@@ -479,45 +238,19 @@ defmodule Google.Bigtable.Admin.V2.UpdateBackupRequest do
 end
 defmodule Google.Bigtable.Admin.V2.GetBackupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.DeleteBackupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.ListBackupsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            order_by: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -527,22 +260,16 @@ defmodule Google.Bigtable.Admin.V2.ListBackupsRequest do
 end
 defmodule Google.Bigtable.Admin.V2.ListBackupsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backups: [Google.Bigtable.Admin.V2.Backup.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct backups: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Bigtable.Admin.V2.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.bigtable.admin.v2.BigtableTableAdmin"
+  use GRPC.Service,
+    name: "google.bigtable.admin.v2.BigtableTableAdmin",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTable, Google.Bigtable.Admin.V2.CreateTableRequest, Google.Bigtable.Admin.V2.Table
 

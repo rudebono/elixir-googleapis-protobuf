@@ -1,31 +1,13 @@
 defmodule Grafeas.V1.Layer do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          directive: String.t(),
-          arguments: String.t()
-        }
-
-  defstruct directive: "",
-            arguments: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :directive, 1, type: :string
   field :arguments, 2, type: :string
 end
 defmodule Grafeas.V1.Fingerprint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          v1_name: String.t(),
-          v2_blob: [String.t()],
-          v2_name: String.t()
-        }
-
-  defstruct v1_name: "",
-            v2_blob: [],
-            v2_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :v1_name, 1, type: :string, json_name: "v1Name"
   field :v2_blob, 2, repeated: true, type: :string, json_name: "v2Blob"
@@ -33,34 +15,14 @@ defmodule Grafeas.V1.Fingerprint do
 end
 defmodule Grafeas.V1.ImageNote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_url: String.t(),
-          fingerprint: Grafeas.V1.Fingerprint.t() | nil
-        }
-
-  defstruct resource_url: "",
-            fingerprint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_url, 1, type: :string, json_name: "resourceUrl"
   field :fingerprint, 2, type: Grafeas.V1.Fingerprint
 end
 defmodule Grafeas.V1.ImageOccurrence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fingerprint: Grafeas.V1.Fingerprint.t() | nil,
-          distance: integer,
-          layer_info: [Grafeas.V1.Layer.t()],
-          base_resource_url: String.t()
-        }
-
-  defstruct fingerprint: nil,
-            distance: 0,
-            layer_info: [],
-            base_resource_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fingerprint, 1, type: Grafeas.V1.Fingerprint
   field :distance, 2, type: :int32

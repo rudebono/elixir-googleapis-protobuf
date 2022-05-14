@@ -1,38 +1,6 @@
 defmodule Grafeas.V1.Occurrence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:vulnerability, Grafeas.V1.VulnerabilityOccurrence.t() | nil}
-            | {:build, Grafeas.V1.BuildOccurrence.t() | nil}
-            | {:image, Grafeas.V1.ImageOccurrence.t() | nil}
-            | {:package, Grafeas.V1.PackageOccurrence.t() | nil}
-            | {:deployment, Grafeas.V1.DeploymentOccurrence.t() | nil}
-            | {:discovery, Grafeas.V1.DiscoveryOccurrence.t() | nil}
-            | {:attestation, Grafeas.V1.AttestationOccurrence.t() | nil}
-            | {:upgrade, Grafeas.V1.UpgradeOccurrence.t() | nil}
-            | {:compliance, Grafeas.V1.ComplianceOccurrence.t() | nil}
-            | {:dsse_attestation, Grafeas.V1.DSSEAttestationOccurrence.t() | nil},
-          name: String.t(),
-          resource_uri: String.t(),
-          note_name: String.t(),
-          kind: Grafeas.V1.NoteKind.t(),
-          remediation: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          envelope: Grafeas.V1.Envelope.t() | nil
-        }
-
-  defstruct details: nil,
-            name: "",
-            resource_uri: "",
-            note_name: "",
-            kind: :NOTE_KIND_UNSPECIFIED,
-            remediation: "",
-            create_time: nil,
-            update_time: nil,
-            envelope: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -62,41 +30,7 @@ defmodule Grafeas.V1.Occurrence do
 end
 defmodule Grafeas.V1.Note do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:vulnerability, Grafeas.V1.VulnerabilityNote.t() | nil}
-            | {:build, Grafeas.V1.BuildNote.t() | nil}
-            | {:image, Grafeas.V1.ImageNote.t() | nil}
-            | {:package, Grafeas.V1.PackageNote.t() | nil}
-            | {:deployment, Grafeas.V1.DeploymentNote.t() | nil}
-            | {:discovery, Grafeas.V1.DiscoveryNote.t() | nil}
-            | {:attestation, Grafeas.V1.AttestationNote.t() | nil}
-            | {:upgrade, Grafeas.V1.UpgradeNote.t() | nil}
-            | {:compliance, Grafeas.V1.ComplianceNote.t() | nil}
-            | {:dsse_attestation, Grafeas.V1.DSSEAttestationNote.t() | nil},
-          name: String.t(),
-          short_description: String.t(),
-          long_description: String.t(),
-          kind: Grafeas.V1.NoteKind.t(),
-          related_url: [Grafeas.V1.RelatedUrl.t()],
-          expiration_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          related_note_names: [String.t()]
-        }
-
-  defstruct type: nil,
-            name: "",
-            short_description: "",
-            long_description: "",
-            kind: :NOTE_KIND_UNSPECIFIED,
-            related_url: [],
-            expiration_time: nil,
-            create_time: nil,
-            update_time: nil,
-            related_note_names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -126,31 +60,13 @@ defmodule Grafeas.V1.Note do
 end
 defmodule Grafeas.V1.GetOccurrenceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Grafeas.V1.ListOccurrencesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -159,59 +75,27 @@ defmodule Grafeas.V1.ListOccurrencesRequest do
 end
 defmodule Grafeas.V1.ListOccurrencesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          occurrences: [Grafeas.V1.Occurrence.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct occurrences: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Grafeas.V1.DeleteOccurrenceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Grafeas.V1.CreateOccurrenceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          occurrence: Grafeas.V1.Occurrence.t() | nil
-        }
-
-  defstruct parent: "",
-            occurrence: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :occurrence, 2, type: Grafeas.V1.Occurrence, deprecated: false
 end
 defmodule Grafeas.V1.UpdateOccurrenceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          occurrence: Grafeas.V1.Occurrence.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            occurrence: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :occurrence, 2, type: Grafeas.V1.Occurrence, deprecated: false
@@ -219,43 +103,19 @@ defmodule Grafeas.V1.UpdateOccurrenceRequest do
 end
 defmodule Grafeas.V1.GetNoteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Grafeas.V1.GetOccurrenceNoteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Grafeas.V1.ListNotesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -264,44 +124,20 @@ defmodule Grafeas.V1.ListNotesRequest do
 end
 defmodule Grafeas.V1.ListNotesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notes: [Grafeas.V1.Note.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct notes: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notes, 1, repeated: true, type: Grafeas.V1.Note
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Grafeas.V1.DeleteNoteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Grafeas.V1.CreateNoteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          note_id: String.t(),
-          note: Grafeas.V1.Note.t() | nil
-        }
-
-  defstruct parent: "",
-            note_id: "",
-            note: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :note_id, 2, type: :string, json_name: "noteId", deprecated: false
@@ -309,17 +145,7 @@ defmodule Grafeas.V1.CreateNoteRequest do
 end
 defmodule Grafeas.V1.UpdateNoteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          note: Grafeas.V1.Note.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            note: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :note, 2, type: Grafeas.V1.Note, deprecated: false
@@ -327,19 +153,7 @@ defmodule Grafeas.V1.UpdateNoteRequest do
 end
 defmodule Grafeas.V1.ListNoteOccurrencesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -348,45 +162,21 @@ defmodule Grafeas.V1.ListNoteOccurrencesRequest do
 end
 defmodule Grafeas.V1.ListNoteOccurrencesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          occurrences: [Grafeas.V1.Occurrence.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct occurrences: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Grafeas.V1.BatchCreateNotesRequest.NotesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Grafeas.V1.Note.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1.Note
 end
 defmodule Grafeas.V1.BatchCreateNotesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          notes: %{String.t() => Grafeas.V1.Note.t() | nil}
-        }
-
-  defstruct parent: "",
-            notes: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -398,46 +188,26 @@ defmodule Grafeas.V1.BatchCreateNotesRequest do
 end
 defmodule Grafeas.V1.BatchCreateNotesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notes: [Grafeas.V1.Note.t()]
-        }
-
-  defstruct notes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notes, 1, repeated: true, type: Grafeas.V1.Note
 end
 defmodule Grafeas.V1.BatchCreateOccurrencesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          occurrences: [Grafeas.V1.Occurrence.t()]
-        }
-
-  defstruct parent: "",
-            occurrences: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :occurrences, 2, repeated: true, type: Grafeas.V1.Occurrence, deprecated: false
 end
 defmodule Grafeas.V1.BatchCreateOccurrencesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          occurrences: [Grafeas.V1.Occurrence.t()]
-        }
-
-  defstruct occurrences: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
 end
 defmodule Grafeas.V1.Grafeas.Service do
   @moduledoc false
-  use GRPC.Service, name: "grafeas.v1.Grafeas"
+  use GRPC.Service, name: "grafeas.v1.Grafeas", protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetOccurrence, Grafeas.V1.GetOccurrenceRequest, Grafeas.V1.Occurrence
 

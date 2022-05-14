@@ -1,18 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.CustomerPayPerConversionEligibilityFailureReasonEnum.CustomerPayPerConversionEligibilityFailureReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :NOT_ENOUGH_CONVERSIONS
-          | :CONVERSION_LAG_TOO_HIGH
-          | :HAS_CAMPAIGN_WITH_SHARED_BUDGET
-          | :HAS_UPLOAD_CLICKS_CONVERSION
-          | :AVERAGE_DAILY_SPEND_TOO_HIGH
-          | :ANALYSIS_NOT_COMPLETE
-          | :OTHER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -26,9 +14,5 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomerPayPerConversionEligibilityFailu
 end
 defmodule Google.Ads.Googleads.V7.Enums.CustomerPayPerConversionEligibilityFailureReasonEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

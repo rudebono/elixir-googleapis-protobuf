@@ -1,24 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          initial_prompt: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_match_prompt1: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_match_prompt2: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_match_final_prompt: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_input_prompt1: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_input_prompt2: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          no_input_final_prompt: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil
-        }
-
-  defstruct initial_prompt: nil,
-            no_match_prompt1: nil,
-            no_match_prompt2: nil,
-            no_match_final_prompt: nil,
-            no_input_prompt1: nil,
-            no_input_prompt2: nil,
-            no_input_final_prompt: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :initial_prompt, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
@@ -50,52 +32,20 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          write_session_param: String.t()
-        }
-
-  defstruct write_session_param: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :write_session_param, 1, type: :string, json_name: "writeSessionParam"
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          session_param: String.t(),
-          constant: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct session_param: "",
-            constant: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :session_param, 1, type: :string, json_name: "sessionParam", deprecated: false
   field :constant, 2, type: Google.Protobuf.Value, deprecated: false
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference.t() | nil,
-          required: boolean,
-          prompt_settings: Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings.t() | nil,
-          commit_behavior: Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior.t() | nil,
-          config: Google.Protobuf.Value.t() | nil,
-          default_value: Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue.t() | nil
-        }
-
-  defstruct name: "",
-            type: nil,
-            required: false,
-            prompt_settings: nil,
-            commit_behavior: nil,
-            config: nil,
-            default_value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

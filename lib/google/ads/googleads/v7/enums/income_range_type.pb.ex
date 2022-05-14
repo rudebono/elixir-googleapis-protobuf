@@ -1,18 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.IncomeRangeTypeEnum.IncomeRangeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INCOME_RANGE_0_50
-          | :INCOME_RANGE_50_60
-          | :INCOME_RANGE_60_70
-          | :INCOME_RANGE_70_80
-          | :INCOME_RANGE_80_90
-          | :INCOME_RANGE_90_UP
-          | :INCOME_RANGE_UNDETERMINED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -26,9 +14,5 @@ defmodule Google.Ads.Googleads.V7.Enums.IncomeRangeTypeEnum.IncomeRangeType do
 end
 defmodule Google.Ads.Googleads.V7.Enums.IncomeRangeTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

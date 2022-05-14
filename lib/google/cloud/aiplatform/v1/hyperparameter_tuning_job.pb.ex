@@ -1,57 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1.HyperparameterTuningJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1.HyperparameterTuningJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          study_spec: Google.Cloud.Aiplatform.V1.StudySpec.t() | nil,
-          max_trial_count: integer,
-          parallel_trial_count: integer,
-          max_failed_trial_count: integer,
-          trial_job_spec: Google.Cloud.Aiplatform.V1.CustomJobSpec.t() | nil,
-          trials: [Google.Cloud.Aiplatform.V1.Trial.t()],
-          state: Google.Cloud.Aiplatform.V1.JobState.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          labels: %{String.t() => String.t()},
-          encryption_spec: Google.Cloud.Aiplatform.V1.EncryptionSpec.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            study_spec: nil,
-            max_trial_count: 0,
-            parallel_trial_count: 0,
-            max_failed_trial_count: 0,
-            trial_job_spec: nil,
-            trials: [],
-            state: :JOB_STATE_UNSPECIFIED,
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            update_time: nil,
-            error: nil,
-            labels: %{},
-            encryption_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

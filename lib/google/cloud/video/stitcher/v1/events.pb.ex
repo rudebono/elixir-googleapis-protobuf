@@ -1,34 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.Event.EventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EVENT_TYPE_UNSPECIFIED
-          | :CREATIVE_VIEW
-          | :START
-          | :BREAK_START
-          | :BREAK_END
-          | :IMPRESSION
-          | :FIRST_QUARTILE
-          | :MIDPOINT
-          | :THIRD_QUARTILE
-          | :COMPLETE
-          | :PROGRESS
-          | :MUTE
-          | :UNMUTE
-          | :PAUSE
-          | :CLICK
-          | :CLICK_THROUGH
-          | :REWIND
-          | :RESUME
-          | :ERROR
-          | :EXPAND
-          | :COLLAPSE
-          | :CLOSE
-          | :CLOSE_LINEAR
-          | :SKIP
-          | :ACCEPT_INVITATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :CREATIVE_VIEW, 1
@@ -58,19 +30,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.Event.EventType do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.Event do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Video.Stitcher.V1.Event.EventType.t(),
-          uri: String.t(),
-          id: String.t(),
-          offset: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct type: :EVENT_TYPE_UNSPECIFIED,
-            uri: "",
-            id: "",
-            offset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Video.Stitcher.V1.Event.EventType, enum: true
   field :uri, 2, type: :string
@@ -79,15 +39,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.Event do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.ProgressEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_offset: Google.Protobuf.Duration.t() | nil,
-          events: [Google.Cloud.Video.Stitcher.V1.Event.t()]
-        }
-
-  defstruct time_offset: nil,
-            events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :events, 2, repeated: true, type: Google.Cloud.Video.Stitcher.V1.Event

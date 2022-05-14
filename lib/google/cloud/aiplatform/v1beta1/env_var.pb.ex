@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.EnvVar do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          value: String.t()
-        }
-
-  defstruct name: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false

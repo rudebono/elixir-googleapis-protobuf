@@ -1,85 +1,27 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.SampleConfig.SampleStrategy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SAMPLE_STRATEGY_UNSPECIFIED | :UNCERTAINTY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SAMPLE_STRATEGY_UNSPECIFIED, 0
   field :UNCERTAINTY, 1
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob.AnnotationLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          datasets: [String.t()],
-          annotation_labels: %{String.t() => String.t()},
-          labeler_count: integer,
-          instruction_uri: String.t(),
-          inputs_schema_uri: String.t(),
-          inputs: Google.Protobuf.Value.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.JobState.t(),
-          labeling_progress: integer,
-          current_spend: Google.Type.Money.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          labels: %{String.t() => String.t()},
-          specialist_pools: [String.t()],
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
-          active_learning_config: Google.Cloud.Aiplatform.V1beta1.ActiveLearningConfig.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            datasets: [],
-            annotation_labels: %{},
-            labeler_count: 0,
-            instruction_uri: "",
-            inputs_schema_uri: "",
-            inputs: nil,
-            state: :JOB_STATE_UNSPECIFIED,
-            labeling_progress: 0,
-            current_spend: nil,
-            create_time: nil,
-            update_time: nil,
-            error: nil,
-            labels: %{},
-            specialist_pools: [],
-            encryption_spec: nil,
-            active_learning_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -128,18 +70,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ActiveLearningConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          human_labeling_budget:
-            {:max_data_item_count, integer} | {:max_data_item_percentage, integer},
-          sample_config: Google.Cloud.Aiplatform.V1beta1.SampleConfig.t() | nil,
-          training_config: Google.Cloud.Aiplatform.V1beta1.TrainingConfig.t() | nil
-        }
-
-  defstruct human_labeling_budget: nil,
-            sample_config: nil,
-            training_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :human_labeling_budget, 0
 
@@ -156,17 +87,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ActiveLearningConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.SampleConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          initial_batch_sample_size: {:initial_batch_sample_percentage, integer},
-          following_batch_sample_size: {:following_batch_sample_percentage, integer},
-          sample_strategy: Google.Cloud.Aiplatform.V1beta1.SampleConfig.SampleStrategy.t()
-        }
-
-  defstruct initial_batch_sample_size: nil,
-            following_batch_sample_size: nil,
-            sample_strategy: :SAMPLE_STRATEGY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :initial_batch_sample_size, 0
   oneof :following_batch_sample_size, 1
@@ -188,13 +109,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SampleConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.TrainingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          timeout_training_milli_hours: integer
-        }
-
-  defstruct timeout_training_milli_hours: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :timeout_training_milli_hours, 1, type: :int64, json_name: "timeoutTrainingMilliHours"
 end

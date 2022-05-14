@@ -1,53 +1,13 @@
 defmodule Google.Cloud.Automl.V1.Dataset.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Automl.V1.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_metadata:
-            {:translation_dataset_metadata,
-             Google.Cloud.Automl.V1.TranslationDatasetMetadata.t() | nil}
-            | {:image_classification_dataset_metadata,
-               Google.Cloud.Automl.V1.ImageClassificationDatasetMetadata.t() | nil}
-            | {:text_classification_dataset_metadata,
-               Google.Cloud.Automl.V1.TextClassificationDatasetMetadata.t() | nil}
-            | {:image_object_detection_dataset_metadata,
-               Google.Cloud.Automl.V1.ImageObjectDetectionDatasetMetadata.t() | nil}
-            | {:text_extraction_dataset_metadata,
-               Google.Cloud.Automl.V1.TextExtractionDatasetMetadata.t() | nil}
-            | {:text_sentiment_dataset_metadata,
-               Google.Cloud.Automl.V1.TextSentimentDatasetMetadata.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          example_count: integer,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct dataset_metadata: nil,
-            name: "",
-            display_name: "",
-            description: "",
-            example_count: 0,
-            create_time: nil,
-            etag: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :dataset_metadata, 0
 

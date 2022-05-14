@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Deploy.V1.TargetNotificationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message: String.t(),
-          target: String.t(),
-          type: Google.Cloud.Deploy.V1.Type.t()
-        }
-
-  defstruct message: "",
-            target: "",
-            type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :target, 2, type: :string

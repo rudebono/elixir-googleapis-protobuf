@@ -1,31 +1,13 @@
 defmodule Google.Api.Distribution.Range do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min: float | :infinity | :negative_infinity | :nan,
-          max: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct min: 0.0,
-            max: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min, 1, type: :double
   field :max, 2, type: :double
 end
 defmodule Google.Api.Distribution.BucketOptions.Linear do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_finite_buckets: integer,
-          width: float | :infinity | :negative_infinity | :nan,
-          offset: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct num_finite_buckets: 0,
-            width: 0.0,
-            offset: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :width, 2, type: :double
@@ -33,17 +15,7 @@ defmodule Google.Api.Distribution.BucketOptions.Linear do
 end
 defmodule Google.Api.Distribution.BucketOptions.Exponential do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_finite_buckets: integer,
-          growth_factor: float | :infinity | :negative_infinity | :nan,
-          scale: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct num_finite_buckets: 0,
-            growth_factor: 0.0,
-            scale: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :growth_factor, 2, type: :double, json_name: "growthFactor"
@@ -51,28 +23,13 @@ defmodule Google.Api.Distribution.BucketOptions.Exponential do
 end
 defmodule Google.Api.Distribution.BucketOptions.Explicit do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bounds: [float | :infinity | :negative_infinity | :nan]
-        }
-
-  defstruct bounds: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bounds, 1, repeated: true, type: :double
 end
 defmodule Google.Api.Distribution.BucketOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          options:
-            {:linear_buckets, Google.Api.Distribution.BucketOptions.Linear.t() | nil}
-            | {:exponential_buckets, Google.Api.Distribution.BucketOptions.Exponential.t() | nil}
-            | {:explicit_buckets, Google.Api.Distribution.BucketOptions.Explicit.t() | nil}
-        }
-
-  defstruct options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :options, 0
 
@@ -93,17 +50,7 @@ defmodule Google.Api.Distribution.BucketOptions do
 end
 defmodule Google.Api.Distribution.Exemplar do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: float | :infinity | :negative_infinity | :nan,
-          timestamp: Google.Protobuf.Timestamp.t() | nil,
-          attachments: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct value: 0.0,
-            timestamp: nil,
-            attachments: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: :double
   field :timestamp, 2, type: Google.Protobuf.Timestamp
@@ -111,25 +58,7 @@ defmodule Google.Api.Distribution.Exemplar do
 end
 defmodule Google.Api.Distribution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          count: integer,
-          mean: float | :infinity | :negative_infinity | :nan,
-          sum_of_squared_deviation: float | :infinity | :negative_infinity | :nan,
-          range: Google.Api.Distribution.Range.t() | nil,
-          bucket_options: Google.Api.Distribution.BucketOptions.t() | nil,
-          bucket_counts: [integer],
-          exemplars: [Google.Api.Distribution.Exemplar.t()]
-        }
-
-  defstruct count: 0,
-            mean: 0.0,
-            sum_of_squared_deviation: 0.0,
-            range: nil,
-            bucket_options: nil,
-            bucket_counts: [],
-            exemplars: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :count, 1, type: :int64
   field :mean, 2, type: :double

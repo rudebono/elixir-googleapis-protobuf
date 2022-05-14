@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Talent.V4beta1.Application.ApplicationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :APPLICATION_STATE_UNSPECIFIED
-          | :IN_PROGRESS
-          | :CANDIDATE_WITHDREW
-          | :EMPLOYER_WITHDREW
-          | :COMPLETED
-          | :CLOSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :APPLICATION_STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -20,18 +11,7 @@ defmodule Google.Cloud.Talent.V4beta1.Application.ApplicationState do
 end
 defmodule Google.Cloud.Talent.V4beta1.Application.ApplicationStage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :APPLICATION_STAGE_UNSPECIFIED
-          | :NEW
-          | :SCREEN
-          | :HIRING_MANAGER_REVIEW
-          | :INTERVIEW
-          | :OFFER_EXTENDED
-          | :OFFER_ACCEPTED
-          | :STARTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :APPLICATION_STAGE_UNSPECIFIED, 0
   field :NEW, 1
@@ -44,43 +24,7 @@ defmodule Google.Cloud.Talent.V4beta1.Application.ApplicationStage do
 end
 defmodule Google.Cloud.Talent.V4beta1.Application do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          external_id: String.t(),
-          profile: String.t(),
-          job: String.t(),
-          company: String.t(),
-          application_date: Google.Type.Date.t() | nil,
-          stage: Google.Cloud.Talent.V4beta1.Application.ApplicationStage.t(),
-          state: Google.Cloud.Talent.V4beta1.Application.ApplicationState.t(),
-          interviews: [Google.Cloud.Talent.V4beta1.Interview.t()],
-          referral: Google.Protobuf.BoolValue.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          outcome_notes: String.t(),
-          outcome: Google.Cloud.Talent.V4beta1.Outcome.t(),
-          is_match: Google.Protobuf.BoolValue.t() | nil,
-          job_title_snippet: String.t()
-        }
-
-  defstruct name: "",
-            external_id: "",
-            profile: "",
-            job: "",
-            company: "",
-            application_date: nil,
-            stage: :APPLICATION_STAGE_UNSPECIFIED,
-            state: :APPLICATION_STATE_UNSPECIFIED,
-            interviews: [],
-            referral: nil,
-            create_time: nil,
-            update_time: nil,
-            outcome_notes: "",
-            outcome: :OUTCOME_UNSPECIFIED,
-            is_match: nil,
-            job_title_snippet: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :external_id, 31, type: :string, json_name: "externalId", deprecated: false

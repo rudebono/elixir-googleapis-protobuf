@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.AudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AUDIO_ENCODING_UNSPECIFIED
-          | :AUDIO_ENCODING_LINEAR_16
-          | :AUDIO_ENCODING_FLAC
-          | :AUDIO_ENCODING_MULAW
-          | :AUDIO_ENCODING_AMR
-          | :AUDIO_ENCODING_AMR_WB
-          | :AUDIO_ENCODING_OGG_OPUS
-          | :AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :AUDIO_ENCODING_LINEAR_16, 1
@@ -24,14 +13,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AudioEncoding do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SPEECH_MODEL_VARIANT_UNSPECIFIED
-          | :USE_BEST_AVAILABLE
-          | :USE_STANDARD
-          | :USE_ENHANCED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SPEECH_MODEL_VARIANT_UNSPECIFIED, 0
   field :USE_BEST_AVAILABLE, 1
@@ -40,14 +22,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SsmlVoiceGender do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SSML_VOICE_GENDER_UNSPECIFIED
-          | :SSML_VOICE_GENDER_MALE
-          | :SSML_VOICE_GENDER_FEMALE
-          | :SSML_VOICE_GENDER_NEUTRAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :SSML_VOICE_GENDER_MALE, 1
@@ -56,16 +31,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SsmlVoiceGender do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OUTPUT_AUDIO_ENCODING_UNSPECIFIED
-          | :OUTPUT_AUDIO_ENCODING_LINEAR_16
-          | :OUTPUT_AUDIO_ENCODING_MP3
-          | :OUTPUT_AUDIO_ENCODING_MP3_64_KBPS
-          | :OUTPUT_AUDIO_ENCODING_OGG_OPUS
-          | :OUTPUT_AUDIO_ENCODING_MULAW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OUTPUT_AUDIO_ENCODING_UNSPECIFIED, 0
   field :OUTPUT_AUDIO_ENCODING_LINEAR_16, 1
@@ -76,27 +42,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.TelephonyDtmf do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TELEPHONY_DTMF_UNSPECIFIED
-          | :DTMF_ONE
-          | :DTMF_TWO
-          | :DTMF_THREE
-          | :DTMF_FOUR
-          | :DTMF_FIVE
-          | :DTMF_SIX
-          | :DTMF_SEVEN
-          | :DTMF_EIGHT
-          | :DTMF_NINE
-          | :DTMF_ZERO
-          | :DTMF_A
-          | :DTMF_B
-          | :DTMF_C
-          | :DTMF_D
-          | :DTMF_STAR
-          | :DTMF_POUND
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TELEPHONY_DTMF_UNSPECIFIED, 0
   field :DTMF_ONE, 1
@@ -118,34 +64,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.TelephonyDtmf do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          phrases: [String.t()],
-          boost: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct phrases: [],
-            boost: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :phrases, 1, repeated: true, type: :string
   field :boost, 2, type: :float
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechWordInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          word: String.t(),
-          start_offset: Google.Protobuf.Duration.t() | nil,
-          end_offset: Google.Protobuf.Duration.t() | nil,
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct word: "",
-            start_offset: nil,
-            end_offset: nil,
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :word, 3, type: :string
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
@@ -154,31 +80,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SpeechWordInfo do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_encoding: Google.Cloud.Dialogflow.V2beta1.AudioEncoding.t(),
-          sample_rate_hertz: integer,
-          language_code: String.t(),
-          enable_word_info: boolean,
-          phrase_hints: [String.t()],
-          speech_contexts: [Google.Cloud.Dialogflow.V2beta1.SpeechContext.t()],
-          model: String.t(),
-          model_variant: Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant.t(),
-          single_utterance: boolean,
-          disable_no_speech_recognized_event: boolean
-        }
-
-  defstruct audio_encoding: :AUDIO_ENCODING_UNSPECIFIED,
-            sample_rate_hertz: 0,
-            language_code: "",
-            enable_word_info: false,
-            phrase_hints: [],
-            speech_contexts: [],
-            model: "",
-            model_variant: :SPEECH_MODEL_VARIANT_UNSPECIFIED,
-            single_utterance: false,
-            disable_no_speech_recognized_event: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.V2beta1.AudioEncoding,
@@ -215,15 +117,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          ssml_gender: Google.Cloud.Dialogflow.V2beta1.SsmlVoiceGender.t()
-        }
-
-  defstruct name: "",
-            ssml_gender: :SSML_VOICE_GENDER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -234,21 +128,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          speaking_rate: float | :infinity | :negative_infinity | :nan,
-          pitch: float | :infinity | :negative_infinity | :nan,
-          volume_gain_db: float | :infinity | :negative_infinity | :nan,
-          effects_profile_id: [String.t()],
-          voice: Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams.t() | nil
-        }
-
-  defstruct speaking_rate: 0.0,
-            pitch: 0.0,
-            volume_gain_db: 0.0,
-            effects_profile_id: [],
-            voice: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :speaking_rate, 1, type: :double, json_name: "speakingRate"
   field :pitch, 2, type: :double
@@ -258,18 +138,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_encoding: Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding.t(),
-          sample_rate_hertz: integer,
-          synthesize_speech_config:
-            Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig.t() | nil
-        }
-
-  defstruct audio_encoding: :OUTPUT_AUDIO_ENCODING_UNSPECIFIED,
-            sample_rate_hertz: 0,
-            synthesize_speech_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding,
@@ -285,13 +154,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dtmf_events: [Google.Cloud.Dialogflow.V2beta1.TelephonyDtmf.t()]
-        }
-
-  defstruct dtmf_events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dtmf_events, 1,
     repeated: true,
@@ -301,13 +164,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          speech_model_variant: Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant.t()
-        }
-
-  defstruct speech_model_variant: :SPEECH_MODEL_VARIANT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :speech_model_variant, 1,
     type: Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant,

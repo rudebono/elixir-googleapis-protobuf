@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Orgpolicy.V2.Policy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          spec: Google.Cloud.Orgpolicy.V2.PolicySpec.t() | nil,
-          alternate: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec.t() | nil
-        }
-
-  defstruct name: "",
-            spec: nil,
-            alternate: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
@@ -18,49 +8,21 @@ defmodule Google.Cloud.Orgpolicy.V2.Policy do
 end
 defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          launch: String.t(),
-          spec: Google.Cloud.Orgpolicy.V2.PolicySpec.t() | nil
-        }
-
-  defstruct launch: "",
-            spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :launch, 1, type: :string
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
 end
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule.StringValues do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_values: [String.t()],
-          denied_values: [String.t()]
-        }
-
-  defstruct allowed_values: [],
-            denied_values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
   field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
 end
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind:
-            {:values, Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule.StringValues.t() | nil}
-            | {:allow_all, boolean}
-            | {:deny_all, boolean}
-            | {:enforce, boolean},
-          condition: Google.Type.Expr.t() | nil
-        }
-
-  defstruct kind: nil,
-            condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -72,21 +34,7 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
 end
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          etag: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          rules: [Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule.t()],
-          inherit_from_parent: boolean,
-          reset: boolean
-        }
-
-  defstruct etag: "",
-            update_time: nil,
-            rules: [],
-            inherit_from_parent: false,
-            reset: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :etag, 1, type: :string
 
@@ -101,17 +49,7 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec do
 end
 defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -119,32 +57,14 @@ defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsRequest do
 end
 defmodule Google.Cloud.Orgpolicy.V2.ListConstraintsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          constraints: [Google.Cloud.Orgpolicy.V2.Constraint.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct constraints: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :constraints, 1, repeated: true, type: Google.Cloud.Orgpolicy.V2.Constraint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -152,85 +72,47 @@ defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesRequest do
 end
 defmodule Google.Cloud.Orgpolicy.V2.ListPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policies: [Google.Cloud.Orgpolicy.V2.Policy.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policies, 1, repeated: true, type: Google.Cloud.Orgpolicy.V2.Policy
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Orgpolicy.V2.GetPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Orgpolicy.V2.GetEffectivePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Orgpolicy.V2.CreatePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          policy: Google.Cloud.Orgpolicy.V2.Policy.t() | nil
-        }
-
-  defstruct parent: "",
-            policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :policy, 3, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
 end
 defmodule Google.Cloud.Orgpolicy.V2.UpdatePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy: Google.Cloud.Orgpolicy.V2.Policy.t() | nil
-        }
-
-  defstruct policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy, 1, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
 end
 defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.orgpolicy.v2.OrgPolicy"
+  use GRPC.Service,
+    name: "google.cloud.orgpolicy.v2.OrgPolicy",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListConstraints,
       Google.Cloud.Orgpolicy.V2.ListConstraintsRequest,

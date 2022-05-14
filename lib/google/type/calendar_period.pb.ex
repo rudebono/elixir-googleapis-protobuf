@@ -1,17 +1,6 @@
 defmodule Google.Type.CalendarPeriod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CALENDAR_PERIOD_UNSPECIFIED
-          | :DAY
-          | :WEEK
-          | :FORTNIGHT
-          | :MONTH
-          | :QUARTER
-          | :HALF
-          | :YEAR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CALENDAR_PERIOD_UNSPECIFIED, 0
   field :DAY, 1

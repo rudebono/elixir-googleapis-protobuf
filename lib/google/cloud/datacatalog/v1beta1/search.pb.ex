@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1beta1.SearchResultType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEARCH_RESULT_TYPE_UNSPECIFIED | :ENTRY | :TAG_TEMPLATE | :ENTRY_GROUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEARCH_RESULT_TYPE_UNSPECIFIED, 0
   field :ENTRY, 1
@@ -11,19 +9,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchResultType do
 end
 defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          search_result_type: Google.Cloud.Datacatalog.V1beta1.SearchResultType.t(),
-          search_result_subtype: String.t(),
-          relative_resource_name: String.t(),
-          linked_resource: String.t()
-        }
-
-  defstruct search_result_type: :SEARCH_RESULT_TYPE_UNSPECIFIED,
-            search_result_subtype: "",
-            relative_resource_name: "",
-            linked_resource: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :search_result_type, 1,
     type: Google.Cloud.Datacatalog.V1beta1.SearchResultType,

@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:gcs_prefix, String.t()}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -14,30 +8,14 @@ defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
 end
 defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
 defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_samples: [Google.Rpc.Status.t()],
-          errors_config: Google.Cloud.Retail.V2beta.ExportErrorsConfig.t() | nil
-        }
-
-  defstruct error_samples: [],
-            errors_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -47,15 +25,7 @@ defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
 end
 defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_samples: [Google.Rpc.Status.t()],
-          errors_config: Google.Cloud.Retail.V2beta.ExportErrorsConfig.t() | nil
-        }
-
-  defstruct error_samples: [],
-            errors_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 

@@ -1,42 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_metadata:
-            {:translation_dataset_metadata,
-             Google.Cloud.Automl.V1beta1.TranslationDatasetMetadata.t() | nil}
-            | {:image_classification_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.ImageClassificationDatasetMetadata.t() | nil}
-            | {:text_classification_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.TextClassificationDatasetMetadata.t() | nil}
-            | {:image_object_detection_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.ImageObjectDetectionDatasetMetadata.t() | nil}
-            | {:video_classification_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.VideoClassificationDatasetMetadata.t() | nil}
-            | {:video_object_tracking_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.VideoObjectTrackingDatasetMetadata.t() | nil}
-            | {:text_extraction_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.TextExtractionDatasetMetadata.t() | nil}
-            | {:text_sentiment_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.TextSentimentDatasetMetadata.t() | nil}
-            | {:tables_dataset_metadata,
-               Google.Cloud.Automl.V1beta1.TablesDatasetMetadata.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          example_count: integer,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct dataset_metadata: nil,
-            name: "",
-            display_name: "",
-            description: "",
-            example_count: 0,
-            create_time: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :dataset_metadata, 0
 

@@ -1,14 +1,6 @@
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          area_filter: Google.Maps.Playablelocations.V3.Sample.AreaFilter.t() | nil,
-          criteria: [Google.Maps.Playablelocations.V3.Sample.Criterion.t()]
-        }
-
-  defstruct area_filter: nil,
-            criteria: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :area_filter, 1,
     type: Google.Maps.Playablelocations.V3.Sample.AreaFilter,
@@ -22,32 +14,14 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
 end
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList.t() | nil
-        }
-
-  defstruct key: 0,
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList
 end
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          locations_per_game_object_type: %{
-            integer => Google.Maps.Playablelocations.V3.Sample.PlayableLocationList.t() | nil
-          },
-          ttl: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct locations_per_game_object_type: %{},
-            ttl: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :locations_per_game_object_type, 1,
     repeated: true,
@@ -60,17 +34,7 @@ defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
 end
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          player_reports: [Google.Maps.Playablelocations.V3.PlayerReport.t()],
-          request_id: String.t(),
-          client_info: Google.Maps.Unity.ClientInfo.t() | nil
-        }
-
-  defstruct player_reports: [],
-            request_id: "",
-            client_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :player_reports, 1,
     repeated: true,
@@ -87,25 +51,11 @@ defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
 end
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          impressions: [Google.Maps.Playablelocations.V3.Impression.t()],
-          request_id: String.t(),
-          client_info: Google.Maps.Unity.ClientInfo.t() | nil
-        }
-
-  defstruct impressions: [],
-            request_id: "",
-            client_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :impressions, 1,
     repeated: true,
@@ -121,15 +71,13 @@ defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
 end
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.maps.playablelocations.v3.PlayableLocations"
+  use GRPC.Service,
+    name: "google.maps.playablelocations.v3.PlayableLocations",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SamplePlayableLocations,
       Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest,

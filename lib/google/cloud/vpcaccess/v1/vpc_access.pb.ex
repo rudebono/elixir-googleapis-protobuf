@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Vpcaccess.V1.Connector.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :READY | :CREATING | :DELETING | :ERROR | :UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -13,42 +11,14 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector.State do
 end
 defmodule Google.Cloud.Vpcaccess.V1.Connector.Subnet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          project_id: String.t()
-        }
-
-  defstruct name: "",
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
 end
 defmodule Google.Cloud.Vpcaccess.V1.Connector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          network: String.t(),
-          ip_cidr_range: String.t(),
-          state: Google.Cloud.Vpcaccess.V1.Connector.State.t(),
-          min_throughput: integer,
-          max_throughput: integer,
-          connected_projects: [String.t()],
-          subnet: Google.Cloud.Vpcaccess.V1.Connector.Subnet.t() | nil
-        }
-
-  defstruct name: "",
-            network: "",
-            ip_cidr_range: "",
-            state: :STATE_UNSPECIFIED,
-            min_throughput: 0,
-            max_throughput: 0,
-            connected_projects: [],
-            subnet: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :network, 2, type: :string
@@ -67,17 +37,7 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector do
 end
 defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          connector_id: String.t(),
-          connector: Google.Cloud.Vpcaccess.V1.Connector.t() | nil
-        }
-
-  defstruct parent: "",
-            connector_id: "",
-            connector: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connector_id, 2, type: :string, json_name: "connectorId", deprecated: false
@@ -85,29 +45,13 @@ defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do
 end
 defmodule Google.Cloud.Vpcaccess.V1.GetConnectorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -115,46 +59,20 @@ defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsRequest do
 end
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          connectors: [Google.Cloud.Vpcaccess.V1.Connector.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct connectors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :connectors, 1, repeated: true, type: Google.Cloud.Vpcaccess.V1.Connector
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Vpcaccess.V1.DeleteConnectorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          method: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t()
-        }
-
-  defstruct method: "",
-            create_time: nil,
-            end_time: nil,
-            target: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :method, 1, type: :string, deprecated: false
 
@@ -168,7 +86,9 @@ defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.vpcaccess.v1.VpcAccessService"
+  use GRPC.Service,
+    name: "google.cloud.vpcaccess.v1.VpcAccessService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateConnector,
       Google.Cloud.Vpcaccess.V1.CreateConnectorRequest,

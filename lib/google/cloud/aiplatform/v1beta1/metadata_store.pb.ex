@@ -1,34 +1,12 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore.MetadataStoreState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disk_utilization_bytes: integer
-        }
-
-  defstruct disk_utilization_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disk_utilization_bytes, 1, type: :int64, json_name: "diskUtilizationBytes"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
-          description: String.t(),
-          state: Google.Cloud.Aiplatform.V1beta1.MetadataStore.MetadataStoreState.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            encryption_spec: nil,
-            description: "",
-            state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

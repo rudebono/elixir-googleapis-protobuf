@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak.BreakType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :SPACE | :SURE_SPACE | :EOL_SURE_SPACE | :HYPHEN | :LINE_BREAK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :SPACE, 1
@@ -13,9 +11,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak.BreakType d
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Block.BlockType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :TEXT | :TABLE | :PICTURE | :RULER | :BARCODE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :TEXT, 1
@@ -26,30 +22,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.Block.BlockType do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedLanguage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t(),
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct language_code: "",
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
 end
 defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak.BreakType.t(),
-          is_prefix: boolean
-        }
-
-  defstruct type: :UNKNOWN,
-            is_prefix: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak.BreakType,
@@ -59,15 +39,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          detected_languages: [Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedLanguage.t()],
-          detected_break: Google.Cloud.Vision.V1p3beta1.TextAnnotation.DetectedBreak.t() | nil
-        }
-
-  defstruct detected_languages: [],
-            detected_break: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :detected_languages, 1,
     repeated: true,
@@ -80,36 +52,14 @@ defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.TextAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pages: [Google.Cloud.Vision.V1p3beta1.Page.t()],
-          text: String.t()
-        }
-
-  defstruct pages: [],
-            text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pages, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Page
   field :text, 2, type: :string
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Page do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty.t() | nil,
-          width: integer,
-          height: integer,
-          blocks: [Google.Cloud.Vision.V1p3beta1.Block.t()],
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct property: nil,
-            width: 0,
-            height: 0,
-            blocks: [],
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty
   field :width, 2, type: :int32
@@ -119,21 +69,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.Page do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Block do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty.t() | nil,
-          bounding_box: Google.Cloud.Vision.V1p3beta1.BoundingPoly.t() | nil,
-          paragraphs: [Google.Cloud.Vision.V1p3beta1.Paragraph.t()],
-          block_type: Google.Cloud.Vision.V1p3beta1.Block.BlockType.t(),
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct property: nil,
-            bounding_box: nil,
-            paragraphs: [],
-            block_type: :UNKNOWN,
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty
 
@@ -152,19 +88,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.Block do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Paragraph do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty.t() | nil,
-          bounding_box: Google.Cloud.Vision.V1p3beta1.BoundingPoly.t() | nil,
-          words: [Google.Cloud.Vision.V1p3beta1.Word.t()],
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct property: nil,
-            bounding_box: nil,
-            words: [],
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty
 
@@ -177,19 +101,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.Paragraph do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Word do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty.t() | nil,
-          bounding_box: Google.Cloud.Vision.V1p3beta1.BoundingPoly.t() | nil,
-          symbols: [Google.Cloud.Vision.V1p3beta1.Symbol.t()],
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct property: nil,
-            bounding_box: nil,
-            symbols: [],
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty
 
@@ -202,19 +114,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.Word do
 end
 defmodule Google.Cloud.Vision.V1p3beta1.Symbol do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty.t() | nil,
-          bounding_box: Google.Cloud.Vision.V1p3beta1.BoundingPoly.t() | nil,
-          text: String.t(),
-          confidence: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct property: nil,
-            bounding_box: nil,
-            text: "",
-            confidence: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Cloud.Vision.V1p3beta1.TextAnnotation.TextProperty
 

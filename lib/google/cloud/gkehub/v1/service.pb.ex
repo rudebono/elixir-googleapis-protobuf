@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Gkehub.V1.ListMembershipsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -24,17 +10,7 @@ defmodule Google.Cloud.Gkehub.V1.ListMembershipsRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.ListMembershipsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [Google.Cloud.Gkehub.V1.Membership.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct resources: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1.Membership
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -42,31 +18,13 @@ defmodule Google.Cloud.Gkehub.V1.ListMembershipsResponse do
 end
 defmodule Google.Cloud.Gkehub.V1.GetMembershipRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1.CreateMembershipRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          membership_id: String.t(),
-          resource: Google.Cloud.Gkehub.V1.Membership.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            membership_id: "",
-            resource: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :membership_id, 2, type: :string, json_name: "membershipId", deprecated: false
@@ -75,34 +33,14 @@ defmodule Google.Cloud.Gkehub.V1.CreateMembershipRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.DeleteMembershipRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1.UpdateMembershipRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          resource: Google.Cloud.Gkehub.V1.Membership.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            update_mask: nil,
-            resource: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -116,25 +54,7 @@ defmodule Google.Cloud.Gkehub.V1.UpdateMembershipRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          namespace: String.t(),
-          proxy: binary,
-          version: String.t(),
-          is_upgrade: boolean,
-          registry: String.t(),
-          image_pull_secret_content: binary
-        }
-
-  defstruct name: "",
-            namespace: "",
-            proxy: "",
-            version: "",
-            is_upgrade: false,
-            registry: "",
-            image_pull_secret_content: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :namespace, 2, type: :string, deprecated: false
@@ -150,63 +70,27 @@ defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.GenerateConnectManifestResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          manifest: [Google.Cloud.Gkehub.V1.ConnectAgentResource.t()]
-        }
-
-  defstruct manifest: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :manifest, 1, repeated: true, type: Google.Cloud.Gkehub.V1.ConnectAgentResource
 end
 defmodule Google.Cloud.Gkehub.V1.ConnectAgentResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Gkehub.V1.TypeMeta.t() | nil,
-          manifest: String.t()
-        }
-
-  defstruct type: nil,
-            manifest: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Gkehub.V1.TypeMeta
   field :manifest, 2, type: :string
 end
 defmodule Google.Cloud.Gkehub.V1.TypeMeta do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          api_version: String.t()
-        }
-
-  defstruct kind: "",
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :api_version, 2, type: :string, json_name: "apiVersion"
 end
 defmodule Google.Cloud.Gkehub.V1.ListFeaturesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -216,46 +100,20 @@ defmodule Google.Cloud.Gkehub.V1.ListFeaturesRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.ListFeaturesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [Google.Cloud.Gkehub.V1.Feature.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct resources: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1.Feature
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Gkehub.V1.GetFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          feature_id: String.t(),
-          resource: Google.Cloud.Gkehub.V1.Feature.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            feature_id: "",
-            resource: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :feature_id, 2, type: :string, json_name: "featureId"
@@ -264,17 +122,7 @@ defmodule Google.Cloud.Gkehub.V1.CreateFeatureRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean,
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            force: false,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -282,19 +130,7 @@ defmodule Google.Cloud.Gkehub.V1.DeleteFeatureRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.UpdateFeatureRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          resource: Google.Cloud.Gkehub.V1.Feature.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            update_mask: nil,
-            resource: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -303,25 +139,7 @@ defmodule Google.Cloud.Gkehub.V1.UpdateFeatureRequest do
 end
 defmodule Google.Cloud.Gkehub.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_detail: String.t(),
-          cancel_requested: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_detail: "",
-            cancel_requested: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -337,7 +155,7 @@ defmodule Google.Cloud.Gkehub.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Gkehub.V1.GkeHub.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.gkehub.v1.GkeHub"
+  use GRPC.Service, name: "google.cloud.gkehub.v1.GkeHub", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListMemberships,
       Google.Cloud.Gkehub.V1.ListMembershipsRequest,

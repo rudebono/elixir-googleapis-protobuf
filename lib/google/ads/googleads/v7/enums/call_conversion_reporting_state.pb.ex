@@ -1,14 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.CallConversionReportingStateEnum.CallConversionReportingState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :DISABLED
-          | :USE_ACCOUNT_LEVEL_CALL_CONVERSION_ACTION
-          | :USE_RESOURCE_LEVEL_CALL_CONVERSION_ACTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -18,9 +10,5 @@ defmodule Google.Ads.Googleads.V7.Enums.CallConversionReportingStateEnum.CallCon
 end
 defmodule Google.Ads.Googleads.V7.Enums.CallConversionReportingStateEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

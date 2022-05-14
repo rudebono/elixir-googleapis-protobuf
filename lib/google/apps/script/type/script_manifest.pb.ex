@@ -1,13 +1,6 @@
 defmodule Google.Apps.Script.Type.HttpAuthorizationHeader do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :HTTP_AUTHORIZATION_HEADER_UNSPECIFIED
-          | :SYSTEM_ID_TOKEN
-          | :USER_ID_TOKEN
-          | :NONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HTTP_AUTHORIZATION_HEADER_UNSPECIFIED, 0
   field :SYSTEM_ID_TOKEN, 1
@@ -16,27 +9,7 @@ defmodule Google.Apps.Script.Type.HttpAuthorizationHeader do
 end
 defmodule Google.Apps.Script.Type.CommonAddOnManifest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          logo_url: String.t(),
-          layout_properties: Google.Apps.Script.Type.LayoutProperties.t() | nil,
-          add_on_widget_set: Google.Apps.Script.Type.AddOnWidgetSet.t() | nil,
-          use_locale_from_app: boolean,
-          homepage_trigger: Google.Apps.Script.Type.HomepageExtensionPoint.t() | nil,
-          universal_actions: [Google.Apps.Script.Type.UniversalActionExtensionPoint.t()],
-          open_link_url_prefixes: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct name: "",
-            logo_url: "",
-            layout_properties: nil,
-            add_on_widget_set: nil,
-            use_locale_from_app: false,
-            homepage_trigger: nil,
-            universal_actions: [],
-            open_link_url_prefixes: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :logo_url, 2, type: :string, json_name: "logoUrl"
@@ -66,28 +39,14 @@ defmodule Google.Apps.Script.Type.CommonAddOnManifest do
 end
 defmodule Google.Apps.Script.Type.LayoutProperties do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary_color: String.t(),
-          secondary_color: String.t()
-        }
-
-  defstruct primary_color: "",
-            secondary_color: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary_color, 1, type: :string, json_name: "primaryColor"
   field :secondary_color, 2, type: :string, json_name: "secondaryColor"
 end
 defmodule Google.Apps.Script.Type.HttpOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authorization_header: Google.Apps.Script.Type.HttpAuthorizationHeader.t()
-        }
-
-  defstruct authorization_header: :HTTP_AUTHORIZATION_HEADER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :authorization_header, 1,
     type: Google.Apps.Script.Type.HttpAuthorizationHeader,

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.Text do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: [String.t()],
-          allow_playback_interruption: boolean
-        }
-
-  defstruct text: [],
-            allow_playback_interruption: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string, deprecated: false
 
@@ -19,39 +11,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.Text do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.LiveAgentHandoff do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.ConversationSuccess do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metadata: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.OutputAudioText do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:text, String.t()} | {:ssml, String.t()},
-          allow_playback_interruption: boolean
-        }
-
-  defstruct source: nil,
-            allow_playback_interruption: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -65,23 +37,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.OutputAudioText do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.EndInteraction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_uri: String.t(),
-          allow_playback_interruption: boolean
-        }
-
-  defstruct audio_uri: "",
-            allow_playback_interruption: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_uri, 1, type: :string, json_name: "audioUri", deprecated: false
 
@@ -92,15 +52,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: {:audio, binary} | {:uri, String.t()},
-          allow_playback_interruption: boolean
-        }
-
-  defstruct content: nil,
-            allow_playback_interruption: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -114,13 +66,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment 
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          segments: [Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.Segment.t()]
-        }
-
-  defstruct segments: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :segments, 1,
     repeated: true,
@@ -128,13 +74,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: {:phone_number, String.t()}
-        }
-
-  defstruct endpoint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :endpoint, 0
 
@@ -142,29 +82,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCa
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message:
-            {:text, Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.Text.t() | nil}
-            | {:payload, Google.Protobuf.Struct.t() | nil}
-            | {:conversation_success,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.ConversationSuccess.t() | nil}
-            | {:output_audio_text,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.OutputAudioText.t() | nil}
-            | {:live_agent_handoff,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.LiveAgentHandoff.t() | nil}
-            | {:end_interaction,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.EndInteraction.t() | nil}
-            | {:play_audio,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.PlayAudio.t() | nil}
-            | {:mixed_audio,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.MixedAudio.t() | nil}
-            | {:telephony_transfer_call,
-               Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall.t() | nil}
-        }
-
-  defstruct message: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :message, 0
 

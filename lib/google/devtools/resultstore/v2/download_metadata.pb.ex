@@ -1,14 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.DownloadMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          upload_status: Google.Devtools.Resultstore.V2.UploadStatus.t()
-        }
-
-  defstruct name: "",
-            upload_status: :UPLOAD_STATUS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 

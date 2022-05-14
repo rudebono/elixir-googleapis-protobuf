@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.Delivery.V1.Task.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PICKUP | :DELIVERY | :SCHEDULED_STOP | :UNAVAILABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PICKUP, 1
@@ -12,9 +10,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.Type do
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :OPEN | :CLOSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OPEN, 1
@@ -22,9 +18,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.State do
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcome do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TASK_OUTCOME_UNSPECIFIED | :SUCCEEDED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TASK_OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -32,10 +26,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcome do
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcomeLocationSource do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED | :PROVIDER | :LAST_VEHICLE_LOCATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED, 0
   field :PROVIDER, 2
@@ -43,19 +34,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcomeLocationSource do
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          remaining_vehicle_journey_segments: [
-            Maps.Fleetengine.Delivery.V1.VehicleJourneySegment.t()
-          ],
-          last_location: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation.t() | nil,
-          last_location_snappable: boolean
-        }
-
-  defstruct remaining_vehicle_journey_segments: [],
-            last_location: nil,
-            last_location_snappable: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :remaining_vehicle_journey_segments, 1,
     repeated: true,
@@ -70,36 +49,7 @@ defmodule Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo do
 end
 defmodule Maps.Fleetengine.Delivery.V1.Task do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Maps.Fleetengine.Delivery.V1.Task.Type.t(),
-          state: Maps.Fleetengine.Delivery.V1.Task.State.t(),
-          task_outcome: Maps.Fleetengine.Delivery.V1.Task.TaskOutcome.t(),
-          task_outcome_time: Google.Protobuf.Timestamp.t() | nil,
-          task_outcome_location: Maps.Fleetengine.Delivery.V1.LocationInfo.t() | nil,
-          task_outcome_location_source:
-            Maps.Fleetengine.Delivery.V1.Task.TaskOutcomeLocationSource.t(),
-          tracking_id: String.t(),
-          delivery_vehicle_id: String.t(),
-          planned_location: Maps.Fleetengine.Delivery.V1.LocationInfo.t() | nil,
-          task_duration: Google.Protobuf.Duration.t() | nil,
-          journey_sharing_info: Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo.t() | nil
-        }
-
-  defstruct name: "",
-            type: :TYPE_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            task_outcome: :TASK_OUTCOME_UNSPECIFIED,
-            task_outcome_time: nil,
-            task_outcome_location: nil,
-            task_outcome_location_source: :TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED,
-            tracking_id: "",
-            delivery_vehicle_id: "",
-            planned_location: nil,
-            task_duration: nil,
-            journey_sharing_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Maps.Fleetengine.Delivery.V1.Task.Type, enum: true, deprecated: false

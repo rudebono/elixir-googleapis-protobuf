@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Location.ListLocationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
@@ -21,63 +9,27 @@ defmodule Google.Cloud.Location.ListLocationsRequest do
 end
 defmodule Google.Cloud.Location.ListLocationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          locations: [Google.Cloud.Location.Location.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct locations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :locations, 1, repeated: true, type: Google.Cloud.Location.Location
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Location.GetLocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Location.Location.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Location.Location do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          location_id: String.t(),
-          display_name: String.t(),
-          labels: %{String.t() => String.t()},
-          metadata: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct name: "",
-            location_id: "",
-            display_name: "",
-            labels: %{},
-            metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :location_id, 4, type: :string, json_name: "locationId"
@@ -87,7 +39,7 @@ defmodule Google.Cloud.Location.Location do
 end
 defmodule Google.Cloud.Location.Locations.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.location.Locations"
+  use GRPC.Service, name: "google.cloud.location.Locations", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListLocations,
       Google.Cloud.Location.ListLocationsRequest,

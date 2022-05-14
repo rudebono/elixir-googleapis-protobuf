@@ -1,64 +1,20 @@
 defmodule Google.Cloud.Run.V2.RevisionTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Run.V2.RevisionTemplate.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Run.V2.RevisionTemplate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision: String.t(),
-          labels: %{String.t() => String.t()},
-          annotations: %{String.t() => String.t()},
-          scaling: Google.Cloud.Run.V2.RevisionScaling.t() | nil,
-          vpc_access: Google.Cloud.Run.V2.VpcAccess.t() | nil,
-          timeout: Google.Protobuf.Duration.t() | nil,
-          service_account: String.t(),
-          containers: [Google.Cloud.Run.V2.Container.t()],
-          volumes: [Google.Cloud.Run.V2.Volume.t()],
-          execution_environment: Google.Cloud.Run.V2.ExecutionEnvironment.t(),
-          encryption_key: String.t(),
-          max_instance_request_concurrency: integer
-        }
-
-  defstruct revision: "",
-            labels: %{},
-            annotations: %{},
-            scaling: nil,
-            vpc_access: nil,
-            timeout: nil,
-            service_account: "",
-            containers: [],
-            volumes: [],
-            execution_environment: :EXECUTION_ENVIRONMENT_UNSPECIFIED,
-            encryption_key: "",
-            max_instance_request_concurrency: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :revision, 1, type: :string, deprecated: false
 

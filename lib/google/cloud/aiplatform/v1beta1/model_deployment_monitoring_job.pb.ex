@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED
-          | :RAW_FEATURE_SKEW
-          | :RAW_FEATURE_DRIFT
-          | :FEATURE_ATTRIBUTION_SKEW
-          | :FEATURE_ATTRIBUTION_DRIFT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED, 0
   field :RAW_FEATURE_SKEW, 1
@@ -18,9 +10,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveType
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MONITORING_SCHEDULE_STATE_UNSPECIFIED | :PENDING | :OFFLINE | :RUNNING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MONITORING_SCHEDULE_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -29,9 +19,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.Monitorin
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.LogSource do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LOG_SOURCE_UNSPECIFIED | :TRAINING | :SERVING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOG_SOURCE_UNSPECIFIED, 0
   field :TRAINING, 1
@@ -39,9 +27,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.LogType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LOG_TYPE_UNSPECIFIED | :PREDICT | :EXPLAIN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOG_TYPE_UNSPECIFIED, 0
   field :PREDICT, 1
@@ -49,97 +35,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_time: Google.Protobuf.Timestamp.t() | nil,
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct run_time: nil,
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_time, 1, type: Google.Protobuf.Timestamp, json_name: "runTime"
   field :status, 2, type: Google.Rpc.Status
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          endpoint: String.t(),
-          state: Google.Cloud.Aiplatform.V1beta1.JobState.t(),
-          schedule_state:
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.MonitoringScheduleState.t(),
-          latest_monitoring_pipeline_metadata:
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata.t()
-            | nil,
-          model_deployment_monitoring_objective_configs: [
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveConfig.t()
-          ],
-          model_deployment_monitoring_schedule_config:
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringScheduleConfig.t() | nil,
-          logging_sampling_strategy: Google.Cloud.Aiplatform.V1beta1.SamplingStrategy.t() | nil,
-          model_monitoring_alert_config:
-            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertConfig.t() | nil,
-          predict_instance_schema_uri: String.t(),
-          sample_predict_instance: Google.Protobuf.Value.t() | nil,
-          analysis_instance_schema_uri: String.t(),
-          bigquery_tables: [
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.t()
-          ],
-          log_ttl: Google.Protobuf.Duration.t() | nil,
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          next_schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          stats_anomalies_base_directory:
-            Google.Cloud.Aiplatform.V1beta1.GcsDestination.t() | nil,
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil,
-          enable_monitoring_pipeline_logs: boolean,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            endpoint: "",
-            state: :JOB_STATE_UNSPECIFIED,
-            schedule_state: :MONITORING_SCHEDULE_STATE_UNSPECIFIED,
-            latest_monitoring_pipeline_metadata: nil,
-            model_deployment_monitoring_objective_configs: [],
-            model_deployment_monitoring_schedule_config: nil,
-            logging_sampling_strategy: nil,
-            model_monitoring_alert_config: nil,
-            predict_instance_schema_uri: "",
-            sample_predict_instance: nil,
-            analysis_instance_schema_uri: "",
-            bigquery_tables: [],
-            log_ttl: nil,
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            next_schedule_time: nil,
-            stats_anomalies_base_directory: nil,
-            encryption_spec: nil,
-            enable_monitoring_pipeline_logs: false,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -230,19 +140,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_source:
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.LogSource.t(),
-          log_type:
-            Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.LogType.t(),
-          bigquery_table_path: String.t()
-        }
-
-  defstruct log_source: :LOG_SOURCE_UNSPECIFIED,
-            log_type: :LOG_TYPE_UNSPECIFIED,
-            bigquery_table_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_source, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable.LogSource,
@@ -258,16 +156,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployed_model_id: String.t(),
-          objective_config:
-            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.t() | nil
-        }
-
-  defstruct deployed_model_id: "",
-            objective_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployed_model_id, 1, type: :string, json_name: "deployedModelId"
 
@@ -277,13 +166,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveConf
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringScheduleConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          monitor_interval: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct monitor_interval: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :monitor_interval, 1,
     type: Google.Protobuf.Duration,
@@ -292,19 +175,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringScheduleConfi
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_display_name: String.t(),
-          threshold: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig.t() | nil,
-          training_stats: Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly.t() | nil,
-          prediction_stats: [Google.Cloud.Aiplatform.V1beta1.FeatureStatsAnomaly.t()]
-        }
-
-  defstruct feature_display_name: "",
-            threshold: nil,
-            training_stats: nil,
-            prediction_stats: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :feature_display_name, 1, type: :string, json_name: "featureDisplayName"
   field :threshold, 3, type: Google.Cloud.Aiplatform.V1beta1.ThresholdConfig
@@ -320,21 +191,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies.FeatureH
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          objective: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveType.t(),
-          deployed_model_id: String.t(),
-          anomaly_count: integer,
-          feature_stats: [
-            Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies.t()
-          ]
-        }
-
-  defstruct objective: :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED,
-            deployed_model_id: "",
-            anomaly_count: 0,
-            feature_stats: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :objective, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveType,

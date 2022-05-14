@@ -1,12 +1,6 @@
 defmodule Google.Devtools.Testing.V1.OrchestratorOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ORCHESTRATOR_OPTION_UNSPECIFIED
-          | :USE_ORCHESTRATOR
-          | :DO_NOT_USE_ORCHESTRATOR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ORCHESTRATOR_OPTION_UNSPECIFIED, 0
   field :USE_ORCHESTRATOR, 1
@@ -14,9 +8,7 @@ defmodule Google.Devtools.Testing.V1.OrchestratorOption do
 end
 defmodule Google.Devtools.Testing.V1.RoboActionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTION_TYPE_UNSPECIFIED | :SINGLE_CLICK | :ENTER_TEXT | :IGNORE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :SINGLE_CLICK, 1
@@ -25,45 +17,7 @@ defmodule Google.Devtools.Testing.V1.RoboActionType do
 end
 defmodule Google.Devtools.Testing.V1.InvalidMatrixDetails do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INVALID_MATRIX_DETAILS_UNSPECIFIED
-          | :DETAILS_UNAVAILABLE
-          | :MALFORMED_APK
-          | :MALFORMED_TEST_APK
-          | :NO_MANIFEST
-          | :NO_PACKAGE_NAME
-          | :INVALID_PACKAGE_NAME
-          | :TEST_SAME_AS_APP
-          | :NO_INSTRUMENTATION
-          | :NO_SIGNATURE
-          | :INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE
-          | :NO_TEST_RUNNER_CLASS
-          | :NO_LAUNCHER_ACTIVITY
-          | :FORBIDDEN_PERMISSIONS
-          | :INVALID_ROBO_DIRECTIVES
-          | :INVALID_RESOURCE_NAME
-          | :INVALID_DIRECTIVE_ACTION
-          | :TEST_LOOP_INTENT_FILTER_NOT_FOUND
-          | :SCENARIO_LABEL_NOT_DECLARED
-          | :SCENARIO_LABEL_MALFORMED
-          | :SCENARIO_NOT_DECLARED
-          | :DEVICE_ADMIN_RECEIVER
-          | :MALFORMED_XC_TEST_ZIP
-          | :BUILT_FOR_IOS_SIMULATOR
-          | :NO_TESTS_IN_XC_TEST_ZIP
-          | :USE_DESTINATION_ARTIFACTS
-          | :TEST_NOT_APP_HOSTED
-          | :PLIST_CANNOT_BE_PARSED
-          | :TEST_ONLY_APK
-          | :MALFORMED_IPA
-          | :MISSING_URL_SCHEME
-          | :MALFORMED_APP_BUNDLE
-          | :NO_CODE_APK
-          | :INVALID_INPUT_APK
-          | :INVALID_APK_PREVIEW_SDK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INVALID_MATRIX_DETAILS_UNSPECIFIED, 0
   field :DETAILS_UNAVAILABLE, 1
@@ -103,21 +57,7 @@ defmodule Google.Devtools.Testing.V1.InvalidMatrixDetails do
 end
 defmodule Google.Devtools.Testing.V1.TestState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TEST_STATE_UNSPECIFIED
-          | :VALIDATING
-          | :PENDING
-          | :RUNNING
-          | :FINISHED
-          | :ERROR
-          | :UNSUPPORTED_ENVIRONMENT
-          | :INCOMPATIBLE_ENVIRONMENT
-          | :INCOMPATIBLE_ARCHITECTURE
-          | :CANCELLED
-          | :INVALID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TEST_STATE_UNSPECIFIED, 0
   field :VALIDATING, 8
@@ -133,10 +73,7 @@ defmodule Google.Devtools.Testing.V1.TestState do
 end
 defmodule Google.Devtools.Testing.V1.OutcomeSummary do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :OUTCOME_SUMMARY_UNSPECIFIED | :SUCCESS | :FAILURE | :INCONCLUSIVE | :SKIPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OUTCOME_SUMMARY_UNSPECIFIED, 0
   field :SUCCESS, 1
@@ -146,16 +83,7 @@ defmodule Google.Devtools.Testing.V1.OutcomeSummary do
 end
 defmodule Google.Devtools.Testing.V1.InvalidRequestDetail.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REASON_UNSPECIFIED
-          | :REQUEST_INVALID
-          | :RESOURCE_TOO_BIG
-          | :RESOURCE_NOT_FOUND
-          | :UNSUPPORTED
-          | :NOT_IMPLEMENTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :REQUEST_INVALID, 1
@@ -166,37 +94,7 @@ defmodule Google.Devtools.Testing.V1.InvalidRequestDetail.Reason do
 end
 defmodule Google.Devtools.Testing.V1.TestMatrix do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_matrix_id: String.t(),
-          project_id: String.t(),
-          client_info: Google.Devtools.Testing.V1.ClientInfo.t() | nil,
-          test_specification: Google.Devtools.Testing.V1.TestSpecification.t() | nil,
-          environment_matrix: Google.Devtools.Testing.V1.EnvironmentMatrix.t() | nil,
-          test_executions: [Google.Devtools.Testing.V1.TestExecution.t()],
-          result_storage: Google.Devtools.Testing.V1.ResultStorage.t() | nil,
-          state: Google.Devtools.Testing.V1.TestState.t(),
-          timestamp: Google.Protobuf.Timestamp.t() | nil,
-          invalid_matrix_details: Google.Devtools.Testing.V1.InvalidMatrixDetails.t(),
-          flaky_test_attempts: integer,
-          outcome_summary: Google.Devtools.Testing.V1.OutcomeSummary.t(),
-          fail_fast: boolean
-        }
-
-  defstruct test_matrix_id: "",
-            project_id: "",
-            client_info: nil,
-            test_specification: nil,
-            environment_matrix: nil,
-            test_executions: [],
-            result_storage: nil,
-            state: :TEST_STATE_UNSPECIFIED,
-            timestamp: nil,
-            invalid_matrix_details: :INVALID_MATRIX_DETAILS_UNSPECIFIED,
-            flaky_test_attempts: 0,
-            outcome_summary: :OUTCOME_SUMMARY_UNSPECIFIED,
-            fail_fast: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_matrix_id, 1, type: :string, json_name: "testMatrixId"
   field :project_id, 7, type: :string, json_name: "projectId"
@@ -238,31 +136,7 @@ defmodule Google.Devtools.Testing.V1.TestMatrix do
 end
 defmodule Google.Devtools.Testing.V1.TestExecution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          matrix_id: String.t(),
-          project_id: String.t(),
-          test_specification: Google.Devtools.Testing.V1.TestSpecification.t() | nil,
-          shard: Google.Devtools.Testing.V1.Shard.t() | nil,
-          environment: Google.Devtools.Testing.V1.Environment.t() | nil,
-          state: Google.Devtools.Testing.V1.TestState.t(),
-          tool_results_step: Google.Devtools.Testing.V1.ToolResultsStep.t() | nil,
-          timestamp: Google.Protobuf.Timestamp.t() | nil,
-          test_details: Google.Devtools.Testing.V1.TestDetails.t() | nil
-        }
-
-  defstruct id: "",
-            matrix_id: "",
-            project_id: "",
-            test_specification: nil,
-            shard: nil,
-            environment: nil,
-            state: :TEST_STATE_UNSPECIFIED,
-            tool_results_step: nil,
-            timestamp: nil,
-            test_details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :matrix_id, 9, type: :string, json_name: "matrixId"
@@ -285,29 +159,7 @@ defmodule Google.Devtools.Testing.V1.TestExecution do
 end
 defmodule Google.Devtools.Testing.V1.TestSpecification do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          setup:
-            {:test_setup, Google.Devtools.Testing.V1.TestSetup.t() | nil}
-            | {:ios_test_setup, Google.Devtools.Testing.V1.IosTestSetup.t() | nil},
-          test:
-            {:android_instrumentation_test,
-             Google.Devtools.Testing.V1.AndroidInstrumentationTest.t() | nil}
-            | {:android_robo_test, Google.Devtools.Testing.V1.AndroidRoboTest.t() | nil}
-            | {:android_test_loop, Google.Devtools.Testing.V1.AndroidTestLoop.t() | nil}
-            | {:ios_xc_test, Google.Devtools.Testing.V1.IosXcTest.t() | nil}
-            | {:ios_test_loop, Google.Devtools.Testing.V1.IosTestLoop.t() | nil},
-          test_timeout: Google.Protobuf.Duration.t() | nil,
-          disable_video_recording: boolean,
-          disable_performance_metrics: boolean
-        }
-
-  defstruct setup: nil,
-            test: nil,
-            test_timeout: nil,
-            disable_video_recording: false,
-            disable_performance_metrics: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :setup, 0
   oneof :test, 1
@@ -354,39 +206,13 @@ defmodule Google.Devtools.Testing.V1.TestSpecification do
 end
 defmodule Google.Devtools.Testing.V1.SystraceSetup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          duration_seconds: integer
-        }
-
-  defstruct duration_seconds: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :duration_seconds, 1, type: :int32, json_name: "durationSeconds"
 end
 defmodule Google.Devtools.Testing.V1.TestSetup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          files_to_push: [Google.Devtools.Testing.V1.DeviceFile.t()],
-          directories_to_pull: [String.t()],
-          additional_apks: [Google.Devtools.Testing.V1.Apk.t()],
-          account: Google.Devtools.Testing.V1.Account.t() | nil,
-          network_profile: String.t(),
-          environment_variables: [Google.Devtools.Testing.V1.EnvironmentVariable.t()],
-          systrace: Google.Devtools.Testing.V1.SystraceSetup.t() | nil,
-          dont_autogrant_permissions: boolean
-        }
-
-  defstruct files_to_push: [],
-            directories_to_pull: [],
-            additional_apks: [],
-            account: nil,
-            network_profile: "",
-            environment_variables: [],
-            systrace: nil,
-            dont_autogrant_permissions: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :files_to_push, 1,
     repeated: true,
@@ -413,19 +239,7 @@ defmodule Google.Devtools.Testing.V1.TestSetup do
 end
 defmodule Google.Devtools.Testing.V1.IosTestSetup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network_profile: String.t(),
-          additional_ipas: [Google.Devtools.Testing.V1.FileReference.t()],
-          push_files: [Google.Devtools.Testing.V1.IosDeviceFile.t()],
-          pull_directories: [Google.Devtools.Testing.V1.IosDeviceFile.t()]
-        }
-
-  defstruct network_profile: "",
-            additional_ipas: [],
-            push_files: [],
-            pull_directories: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :network_profile, 1, type: :string, json_name: "networkProfile"
 
@@ -446,28 +260,14 @@ defmodule Google.Devtools.Testing.V1.IosTestSetup do
 end
 defmodule Google.Devtools.Testing.V1.EnvironmentVariable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Testing.V1.Account do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          account_type: {:google_auto, Google.Devtools.Testing.V1.GoogleAuto.t() | nil}
-        }
-
-  defstruct account_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :account_type, 0
 
@@ -478,36 +278,18 @@ defmodule Google.Devtools.Testing.V1.Account do
 end
 defmodule Google.Devtools.Testing.V1.GoogleAuto do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Testing.V1.Apk do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          package_name: String.t()
-        }
-
-  defstruct location: nil,
-            package_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: Google.Devtools.Testing.V1.FileReference
   field :package_name, 2, type: :string, json_name: "packageName"
 end
 defmodule Google.Devtools.Testing.V1.AppBundle do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bundle: {:bundle_location, Google.Devtools.Testing.V1.FileReference.t() | nil}
-        }
-
-  defstruct bundle: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :bundle, 0
 
@@ -518,15 +300,7 @@ defmodule Google.Devtools.Testing.V1.AppBundle do
 end
 defmodule Google.Devtools.Testing.V1.DeviceFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_file:
-            {:obb_file, Google.Devtools.Testing.V1.ObbFile.t() | nil}
-            | {:regular_file, Google.Devtools.Testing.V1.RegularFile.t() | nil}
-        }
-
-  defstruct device_file: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :device_file, 0
 
@@ -539,47 +313,21 @@ defmodule Google.Devtools.Testing.V1.DeviceFile do
 end
 defmodule Google.Devtools.Testing.V1.ObbFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          obb_file_name: String.t(),
-          obb: Google.Devtools.Testing.V1.FileReference.t() | nil
-        }
-
-  defstruct obb_file_name: "",
-            obb: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :obb_file_name, 1, type: :string, json_name: "obbFileName"
   field :obb, 2, type: Google.Devtools.Testing.V1.FileReference
 end
 defmodule Google.Devtools.Testing.V1.RegularFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          device_path: String.t()
-        }
-
-  defstruct content: nil,
-            device_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: Google.Devtools.Testing.V1.FileReference
   field :device_path, 2, type: :string, json_name: "devicePath"
 end
 defmodule Google.Devtools.Testing.V1.IosDeviceFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          bundle_id: String.t(),
-          device_path: String.t()
-        }
-
-  defstruct content: nil,
-            bundle_id: "",
-            device_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: Google.Devtools.Testing.V1.FileReference
   field :bundle_id, 2, type: :string, json_name: "bundleId"
@@ -587,21 +335,7 @@ defmodule Google.Devtools.Testing.V1.IosDeviceFile do
 end
 defmodule Google.Devtools.Testing.V1.AndroidTestLoop do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_under_test:
-            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
-            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
-          app_package_id: String.t(),
-          scenarios: [integer],
-          scenario_labels: [String.t()]
-        }
-
-  defstruct app_under_test: nil,
-            app_package_id: "",
-            scenarios: [],
-            scenario_labels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :app_under_test, 0
 
@@ -618,21 +352,7 @@ defmodule Google.Devtools.Testing.V1.AndroidTestLoop do
 end
 defmodule Google.Devtools.Testing.V1.IosXcTest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tests_zip: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          xctestrun: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          xcode_version: String.t(),
-          app_bundle_id: String.t(),
-          test_special_entitlements: boolean
-        }
-
-  defstruct tests_zip: nil,
-            xctestrun: nil,
-            xcode_version: "",
-            app_bundle_id: "",
-            test_special_entitlements: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tests_zip, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "testsZip"
   field :xctestrun, 2, type: Google.Devtools.Testing.V1.FileReference
@@ -642,17 +362,7 @@ defmodule Google.Devtools.Testing.V1.IosXcTest do
 end
 defmodule Google.Devtools.Testing.V1.IosTestLoop do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_ipa: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          scenarios: [integer],
-          app_bundle_id: String.t()
-        }
-
-  defstruct app_ipa: nil,
-            scenarios: [],
-            app_bundle_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :app_ipa, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appIpa"
   field :scenarios, 2, repeated: true, type: :int32
@@ -660,29 +370,7 @@ defmodule Google.Devtools.Testing.V1.IosTestLoop do
 end
 defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_under_test:
-            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
-            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
-          test_apk: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          app_package_id: String.t(),
-          test_package_id: String.t(),
-          test_runner_class: String.t(),
-          test_targets: [String.t()],
-          orchestrator_option: Google.Devtools.Testing.V1.OrchestratorOption.t(),
-          sharding_option: Google.Devtools.Testing.V1.ShardingOption.t() | nil
-        }
-
-  defstruct app_under_test: nil,
-            test_apk: nil,
-            app_package_id: "",
-            test_package_id: "",
-            test_runner_class: "",
-            test_targets: [],
-            orchestrator_option: :ORCHESTRATOR_OPTION_UNSPECIFIED,
-            sharding_option: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :app_under_test, 0
 
@@ -710,29 +398,7 @@ defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
 end
 defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          app_under_test:
-            {:app_apk, Google.Devtools.Testing.V1.FileReference.t() | nil}
-            | {:app_bundle, Google.Devtools.Testing.V1.AppBundle.t() | nil},
-          app_package_id: String.t(),
-          app_initial_activity: String.t(),
-          max_depth: integer,
-          max_steps: integer,
-          robo_directives: [Google.Devtools.Testing.V1.RoboDirective.t()],
-          robo_script: Google.Devtools.Testing.V1.FileReference.t() | nil,
-          starting_intents: [Google.Devtools.Testing.V1.RoboStartingIntent.t()]
-        }
-
-  defstruct app_under_test: nil,
-            app_package_id: "",
-            app_initial_activity: "",
-            max_depth: 0,
-            max_steps: 0,
-            robo_directives: [],
-            robo_script: nil,
-            starting_intents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :app_under_test, 0
 
@@ -762,17 +428,7 @@ defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
 end
 defmodule Google.Devtools.Testing.V1.RoboDirective do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          input_text: String.t(),
-          action_type: Google.Devtools.Testing.V1.RoboActionType.t()
-        }
-
-  defstruct resource_name: "",
-            input_text: "",
-            action_type: :ACTION_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
   field :input_text, 2, type: :string, json_name: "inputText"
@@ -784,17 +440,7 @@ defmodule Google.Devtools.Testing.V1.RoboDirective do
 end
 defmodule Google.Devtools.Testing.V1.RoboStartingIntent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          starting_intent:
-            {:launcher_activity, Google.Devtools.Testing.V1.LauncherActivityIntent.t() | nil}
-            | {:start_activity, Google.Devtools.Testing.V1.StartActivityIntent.t() | nil},
-          timeout: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct starting_intent: nil,
-            timeout: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :starting_intent, 0
 
@@ -812,25 +458,11 @@ defmodule Google.Devtools.Testing.V1.RoboStartingIntent do
 end
 defmodule Google.Devtools.Testing.V1.LauncherActivityIntent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Testing.V1.StartActivityIntent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action: String.t(),
-          uri: String.t(),
-          categories: [String.t()]
-        }
-
-  defstruct action: "",
-            uri: "",
-            categories: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :action, 2, type: :string
   field :uri, 3, type: :string
@@ -838,16 +470,7 @@ defmodule Google.Devtools.Testing.V1.StartActivityIntent do
 end
 defmodule Google.Devtools.Testing.V1.EnvironmentMatrix do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment_matrix:
-            {:android_matrix, Google.Devtools.Testing.V1.AndroidMatrix.t() | nil}
-            | {:android_device_list, Google.Devtools.Testing.V1.AndroidDeviceList.t() | nil}
-            | {:ios_device_list, Google.Devtools.Testing.V1.IosDeviceList.t() | nil}
-        }
-
-  defstruct environment_matrix: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :environment_matrix, 0
 
@@ -868,13 +491,7 @@ defmodule Google.Devtools.Testing.V1.EnvironmentMatrix do
 end
 defmodule Google.Devtools.Testing.V1.AndroidDeviceList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          android_devices: [Google.Devtools.Testing.V1.AndroidDevice.t()]
-        }
-
-  defstruct android_devices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :android_devices, 1,
     repeated: true,
@@ -883,13 +500,7 @@ defmodule Google.Devtools.Testing.V1.AndroidDeviceList do
 end
 defmodule Google.Devtools.Testing.V1.IosDeviceList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ios_devices: [Google.Devtools.Testing.V1.IosDevice.t()]
-        }
-
-  defstruct ios_devices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ios_devices, 1,
     repeated: true,
@@ -898,19 +509,7 @@ defmodule Google.Devtools.Testing.V1.IosDeviceList do
 end
 defmodule Google.Devtools.Testing.V1.AndroidMatrix do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          android_model_ids: [String.t()],
-          android_version_ids: [String.t()],
-          locales: [String.t()],
-          orientations: [String.t()]
-        }
-
-  defstruct android_model_ids: [],
-            android_version_ids: [],
-            locales: [],
-            orientations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :android_model_ids, 1, repeated: true, type: :string, json_name: "androidModelIds"
   field :android_version_ids, 2, repeated: true, type: :string, json_name: "androidVersionIds"
@@ -919,15 +518,7 @@ defmodule Google.Devtools.Testing.V1.AndroidMatrix do
 end
 defmodule Google.Devtools.Testing.V1.ClientInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          client_info_details: [Google.Devtools.Testing.V1.ClientInfoDetail.t()]
-        }
-
-  defstruct name: "",
-            client_info_details: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -938,34 +529,14 @@ defmodule Google.Devtools.Testing.V1.ClientInfo do
 end
 defmodule Google.Devtools.Testing.V1.ClientInfoDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Testing.V1.ResultStorage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          google_cloud_storage: Google.Devtools.Testing.V1.GoogleCloudStorage.t() | nil,
-          tool_results_history: Google.Devtools.Testing.V1.ToolResultsHistory.t() | nil,
-          tool_results_execution: Google.Devtools.Testing.V1.ToolResultsExecution.t() | nil,
-          results_url: String.t()
-        }
-
-  defstruct google_cloud_storage: nil,
-            tool_results_history: nil,
-            tool_results_execution: nil,
-            results_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :google_cloud_storage, 1,
     type: Google.Devtools.Testing.V1.GoogleCloudStorage,
@@ -983,32 +554,14 @@ defmodule Google.Devtools.Testing.V1.ResultStorage do
 end
 defmodule Google.Devtools.Testing.V1.ToolResultsHistory do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          history_id: String.t()
-        }
-
-  defstruct project_id: "",
-            history_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :history_id, 2, type: :string, json_name: "historyId"
 end
 defmodule Google.Devtools.Testing.V1.ToolResultsExecution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          history_id: String.t(),
-          execution_id: String.t()
-        }
-
-  defstruct project_id: "",
-            history_id: "",
-            execution_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :history_id, 2, type: :string, json_name: "historyId"
@@ -1016,19 +569,7 @@ defmodule Google.Devtools.Testing.V1.ToolResultsExecution do
 end
 defmodule Google.Devtools.Testing.V1.ToolResultsStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          history_id: String.t(),
-          execution_id: String.t(),
-          step_id: String.t()
-        }
-
-  defstruct project_id: "",
-            history_id: "",
-            execution_id: "",
-            step_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :history_id, 2, type: :string, json_name: "historyId"
@@ -1037,25 +578,13 @@ defmodule Google.Devtools.Testing.V1.ToolResultsStep do
 end
 defmodule Google.Devtools.Testing.V1.GoogleCloudStorage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_path: String.t()
-        }
-
-  defstruct gcs_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath"
 end
 defmodule Google.Devtools.Testing.V1.FileReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file: {:gcs_path, String.t()}
-        }
-
-  defstruct file: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :file, 0
 
@@ -1063,15 +592,7 @@ defmodule Google.Devtools.Testing.V1.FileReference do
 end
 defmodule Google.Devtools.Testing.V1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment:
-            {:android_device, Google.Devtools.Testing.V1.AndroidDevice.t() | nil}
-            | {:ios_device, Google.Devtools.Testing.V1.IosDevice.t() | nil}
-        }
-
-  defstruct environment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :environment, 0
 
@@ -1087,19 +608,7 @@ defmodule Google.Devtools.Testing.V1.Environment do
 end
 defmodule Google.Devtools.Testing.V1.AndroidDevice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          android_model_id: String.t(),
-          android_version_id: String.t(),
-          locale: String.t(),
-          orientation: String.t()
-        }
-
-  defstruct android_model_id: "",
-            android_version_id: "",
-            locale: "",
-            orientation: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :android_model_id, 1, type: :string, json_name: "androidModelId"
   field :android_version_id, 2, type: :string, json_name: "androidVersionId"
@@ -1108,19 +617,7 @@ defmodule Google.Devtools.Testing.V1.AndroidDevice do
 end
 defmodule Google.Devtools.Testing.V1.IosDevice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ios_model_id: String.t(),
-          ios_version_id: String.t(),
-          locale: String.t(),
-          orientation: String.t()
-        }
-
-  defstruct ios_model_id: "",
-            ios_version_id: "",
-            locale: "",
-            orientation: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ios_model_id, 1, type: :string, json_name: "iosModelId"
   field :ios_version_id, 2, type: :string, json_name: "iosVersionId"
@@ -1129,42 +626,20 @@ defmodule Google.Devtools.Testing.V1.IosDevice do
 end
 defmodule Google.Devtools.Testing.V1.TestDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          progress_messages: [String.t()],
-          error_message: String.t()
-        }
-
-  defstruct progress_messages: [],
-            error_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :progress_messages, 3, repeated: true, type: :string, json_name: "progressMessages"
   field :error_message, 4, type: :string, json_name: "errorMessage"
 end
 defmodule Google.Devtools.Testing.V1.InvalidRequestDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Devtools.Testing.V1.InvalidRequestDetail.Reason.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1, type: Google.Devtools.Testing.V1.InvalidRequestDetail.Reason, enum: true
 end
 defmodule Google.Devtools.Testing.V1.ShardingOption do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          option:
-            {:uniform_sharding, Google.Devtools.Testing.V1.UniformSharding.t() | nil}
-            | {:manual_sharding, Google.Devtools.Testing.V1.ManualSharding.t() | nil}
-        }
-
-  defstruct option: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :option, 0
 
@@ -1180,25 +655,13 @@ defmodule Google.Devtools.Testing.V1.ShardingOption do
 end
 defmodule Google.Devtools.Testing.V1.UniformSharding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_shards: integer
-        }
-
-  defstruct num_shards: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_shards, 1, type: :int32, json_name: "numShards"
 end
 defmodule Google.Devtools.Testing.V1.ManualSharding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_targets_for_shard: [Google.Devtools.Testing.V1.TestTargetsForShard.t()]
-        }
-
-  defstruct test_targets_for_shard: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_targets_for_shard, 1,
     repeated: true,
@@ -1207,29 +670,13 @@ defmodule Google.Devtools.Testing.V1.ManualSharding do
 end
 defmodule Google.Devtools.Testing.V1.TestTargetsForShard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_targets: [String.t()]
-        }
-
-  defstruct test_targets: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_targets, 1, repeated: true, type: :string, json_name: "testTargets"
 end
 defmodule Google.Devtools.Testing.V1.Shard do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          shard_index: integer,
-          num_shards: integer,
-          test_targets_for_shard: Google.Devtools.Testing.V1.TestTargetsForShard.t() | nil
-        }
-
-  defstruct shard_index: 0,
-            num_shards: 0,
-            test_targets_for_shard: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :shard_index, 1, type: :int32, json_name: "shardIndex"
   field :num_shards, 2, type: :int32, json_name: "numShards"
@@ -1240,17 +687,7 @@ defmodule Google.Devtools.Testing.V1.Shard do
 end
 defmodule Google.Devtools.Testing.V1.CreateTestMatrixRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          test_matrix: Google.Devtools.Testing.V1.TestMatrix.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct project_id: "",
-            test_matrix: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :test_matrix, 2, type: Google.Devtools.Testing.V1.TestMatrix, json_name: "testMatrix"
@@ -1258,43 +695,21 @@ defmodule Google.Devtools.Testing.V1.CreateTestMatrixRequest do
 end
 defmodule Google.Devtools.Testing.V1.GetTestMatrixRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          test_matrix_id: String.t()
-        }
-
-  defstruct project_id: "",
-            test_matrix_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :test_matrix_id, 2, type: :string, json_name: "testMatrixId"
 end
 defmodule Google.Devtools.Testing.V1.CancelTestMatrixRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          test_matrix_id: String.t()
-        }
-
-  defstruct project_id: "",
-            test_matrix_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :test_matrix_id, 2, type: :string, json_name: "testMatrixId"
 end
 defmodule Google.Devtools.Testing.V1.CancelTestMatrixResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_state: Google.Devtools.Testing.V1.TestState.t()
-        }
-
-  defstruct test_state: :TEST_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_state, 1,
     type: Google.Devtools.Testing.V1.TestState,
@@ -1303,7 +718,9 @@ defmodule Google.Devtools.Testing.V1.CancelTestMatrixResponse do
 end
 defmodule Google.Devtools.Testing.V1.TestExecutionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.testing.v1.TestExecutionService"
+  use GRPC.Service,
+    name: "google.devtools.testing.v1.TestExecutionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTestMatrix,
       Google.Devtools.Testing.V1.CreateTestMatrixRequest,

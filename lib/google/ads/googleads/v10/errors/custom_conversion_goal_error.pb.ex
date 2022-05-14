@@ -1,16 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.CustomConversionGoalErrorEnum.CustomConversionGoalError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INVALID_CONVERSION_ACTION
-          | :CONVERSION_ACTION_NOT_ENABLED
-          | :CANNOT_REMOVE_LINKED_CUSTOM_CONVERSION_GOAL
-          | :CUSTOM_GOAL_DUPLICATE_NAME
-          | :DUPLICATE_CONVERSION_ACTION_LIST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -22,9 +12,5 @@ defmodule Google.Ads.Googleads.V10.Errors.CustomConversionGoalErrorEnum.CustomCo
 end
 defmodule Google.Ads.Googleads.V10.Errors.CustomConversionGoalErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

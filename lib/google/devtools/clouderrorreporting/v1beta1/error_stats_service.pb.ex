@@ -1,12 +1,6 @@
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCountAlignment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ERROR_COUNT_ALIGNMENT_UNSPECIFIED
-          | :ALIGNMENT_EQUAL_ROUNDED
-          | :ALIGNMENT_EQUAL_AT_END
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ERROR_COUNT_ALIGNMENT_UNSPECIFIED, 0
   field :ALIGNMENT_EQUAL_ROUNDED, 1
@@ -14,15 +8,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCountAlignment do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :GROUP_ORDER_UNSPECIFIED
-          | :COUNT_DESC
-          | :LAST_SEEN_DESC
-          | :CREATED_DESC
-          | :AFFECTED_USERS_DESC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GROUP_ORDER_UNSPECIFIED, 0
   field :COUNT_DESC, 1
@@ -32,16 +18,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PERIOD_UNSPECIFIED
-          | :PERIOD_1_HOUR
-          | :PERIOD_6_HOURS
-          | :PERIOD_1_DAY
-          | :PERIOD_1_WEEK
-          | :PERIOD_30_DAYS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PERIOD_UNSPECIFIED, 0
   field :PERIOD_1_HOUR, 1
@@ -52,32 +29,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_name: String.t(),
-          group_id: [String.t()],
-          service_filter:
-            Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter.t() | nil,
-          time_range: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.t() | nil,
-          timed_count_duration: Google.Protobuf.Duration.t() | nil,
-          alignment: Google.Devtools.Clouderrorreporting.V1beta1.TimedCountAlignment.t(),
-          alignment_time: Google.Protobuf.Timestamp.t() | nil,
-          order: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupOrder.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project_name: "",
-            group_id: [],
-            service_filter: nil,
-            time_range: nil,
-            timed_count_duration: nil,
-            alignment: :ERROR_COUNT_ALIGNMENT_UNSPECIFIED,
-            alignment_time: nil,
-            order: :GROUP_ORDER_UNSPECIFIED,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
   field :group_id, 2, repeated: true, type: :string, json_name: "groupId", deprecated: false
@@ -117,17 +69,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_group_stats: [Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats.t()],
-          next_page_token: String.t(),
-          time_range_begin: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct error_group_stats: [],
-            next_page_token: "",
-            time_range_begin: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_group_stats, 1,
     repeated: true,
@@ -139,29 +81,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsResponse do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          group: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup.t() | nil,
-          count: integer,
-          affected_users_count: integer,
-          timed_counts: [Google.Devtools.Clouderrorreporting.V1beta1.TimedCount.t()],
-          first_seen_time: Google.Protobuf.Timestamp.t() | nil,
-          last_seen_time: Google.Protobuf.Timestamp.t() | nil,
-          affected_services: [Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext.t()],
-          num_affected_services: integer,
-          representative: Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent.t() | nil
-        }
-
-  defstruct group: nil,
-            count: 0,
-            affected_users_count: 0,
-            timed_counts: [],
-            first_seen_time: nil,
-            last_seen_time: nil,
-            affected_services: [],
-            num_affected_services: 0,
-            representative: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :group, 1, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup
   field :count, 2, type: :int64
@@ -185,17 +105,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroupStats do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          count: integer,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct count: 0,
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :count, 1, type: :int64
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -203,24 +113,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.TimedCount do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_name: String.t(),
-          group_id: String.t(),
-          service_filter:
-            Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter.t() | nil,
-          time_range: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.t() | nil,
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project_name: "",
-            group_id: "",
-            service_filter: nil,
-            time_range: nil,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
   field :group_id, 2, type: :string, json_name: "groupId", deprecated: false
@@ -240,17 +133,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsRequest do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_events: [Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent.t()],
-          next_page_token: String.t(),
-          time_range_begin: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct error_events: [],
-            next_page_token: "",
-            time_range_begin: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_events, 1,
     repeated: true,
@@ -262,13 +145,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ListEventsResponse do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          period: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period.t()
-        }
-
-  defstruct period: :PERIOD_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :period, 1,
     type: Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange.Period,
@@ -276,17 +153,7 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.QueryTimeRange do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: String.t(),
-          version: String.t(),
-          resource_type: String.t()
-        }
-
-  defstruct service: "",
-            version: "",
-            resource_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 2, type: :string, deprecated: false
   field :version, 3, type: :string, deprecated: false
@@ -294,27 +161,19 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContextFilter do
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_name: String.t()
-        }
-
-  defstruct project_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.DeleteEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorStatsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"
+  use GRPC.Service,
+    name: "google.devtools.clouderrorreporting.v1beta1.ErrorStatsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListGroupStats,
       Google.Devtools.Clouderrorreporting.V1beta1.ListGroupStatsRequest,

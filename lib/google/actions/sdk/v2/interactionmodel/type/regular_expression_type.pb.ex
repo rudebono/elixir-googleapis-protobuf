@@ -1,14 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay.t() | nil,
-          regular_expressions: [String.t()]
-        }
-
-  defstruct display: nil,
-            regular_expressions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,
@@ -22,32 +14,14 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Enti
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.EntitiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value:
-            Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entities: %{
-            String.t() =>
-              Google.Actions.Sdk.V2.Interactionmodel.Type.RegularExpressionType.Entity.t() | nil
-          }
-        }
-
-  defstruct entities: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entities, 1,
     repeated: true,

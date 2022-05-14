@@ -1,21 +1,13 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTranslationSourceDialect do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED | :TERADATA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED, 0
   field :TERADATA, 1
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SQL_TRANSLATION_ERROR_TYPE_UNSPECIFIED
-          | :SQL_PARSE_ERROR
-          | :UNSUPPORTED_SQL_FUNCTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SQL_TRANSLATION_ERROR_TYPE_UNSPECIFIED, 0
   field :SQL_PARSE_ERROR, 1
@@ -23,18 +15,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTransla
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          source_dialect:
-            Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest.SqlTranslationSourceDialect.t(),
-          query: String.t()
-        }
-
-  defstruct parent: "",
-            source_dialect: :SQL_TRANSLATION_SOURCE_DIALECT_UNSPECIFIED,
-            query: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,19 +30,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          translation_job: String.t(),
-          translated_query: String.t(),
-          errors: [Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.t()],
-          warnings: [Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning.t()]
-        }
-
-  defstruct translation_job: "",
-            translated_query: "",
-            errors: [],
-            warnings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :translation_job, 4, type: :string, json_name: "translationJob", deprecated: false
   field :translated_query, 1, type: :string, json_name: "translatedQuery"
@@ -76,17 +45,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryResponse do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row: integer,
-          column: integer,
-          message: String.t()
-        }
-
-  defstruct row: 0,
-            column: 0,
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row, 1, type: :int64
   field :column, 2, type: :int64
@@ -94,17 +53,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_type:
-            Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType.t(),
-          error_detail:
-            Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail.t() | nil
-        }
-
-  defstruct error_type: :SQL_TRANSLATION_ERROR_TYPE_UNSPECIFIED,
-            error_detail: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_type, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError.SqlTranslationErrorType,
@@ -117,14 +66,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationError do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          warning_detail:
-            Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail.t() | nil
-        }
-
-  defstruct warning_detail: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :warning_detail, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationErrorDetail,
@@ -132,7 +74,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationWarning do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.SqlTranslationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.migration.v2alpha.SqlTranslationService"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.migration.v2alpha.SqlTranslationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :TranslateQuery,
       Google.Cloud.Bigquery.Migration.V2alpha.TranslateQueryRequest,

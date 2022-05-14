@@ -1,20 +1,6 @@
 defmodule Grafeas.V1.Recipe do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          defined_in_material: integer,
-          entry_point: String.t(),
-          arguments: [Google.Protobuf.Any.t()],
-          environment: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct type: "",
-            defined_in_material: 0,
-            entry_point: "",
-            arguments: [],
-            environment: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :defined_in_material, 2, type: :int64, json_name: "definedInMaterial"
@@ -24,17 +10,7 @@ defmodule Grafeas.V1.Recipe do
 end
 defmodule Grafeas.V1.Completeness do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          arguments: boolean,
-          environment: boolean,
-          materials: boolean
-        }
-
-  defstruct arguments: false,
-            environment: false,
-            materials: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :arguments, 1, type: :bool
   field :environment, 2, type: :bool
@@ -42,21 +18,7 @@ defmodule Grafeas.V1.Completeness do
 end
 defmodule Grafeas.V1.Metadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          build_invocation_id: String.t(),
-          build_started_on: Google.Protobuf.Timestamp.t() | nil,
-          build_finished_on: Google.Protobuf.Timestamp.t() | nil,
-          completeness: Grafeas.V1.Completeness.t() | nil,
-          reproducible: boolean
-        }
-
-  defstruct build_invocation_id: "",
-            build_started_on: nil,
-            build_finished_on: nil,
-            completeness: nil,
-            reproducible: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :build_invocation_id, 1, type: :string, json_name: "buildInvocationId"
   field :build_started_on, 2, type: Google.Protobuf.Timestamp, json_name: "buildStartedOn"
@@ -66,31 +28,13 @@ defmodule Grafeas.V1.Metadata do
 end
 defmodule Grafeas.V1.BuilderConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t()
-        }
-
-  defstruct id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 defmodule Grafeas.V1.InTotoProvenance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          builder_config: Grafeas.V1.BuilderConfig.t() | nil,
-          recipe: Grafeas.V1.Recipe.t() | nil,
-          metadata: Grafeas.V1.Metadata.t() | nil,
-          materials: [String.t()]
-        }
-
-  defstruct builder_config: nil,
-            recipe: nil,
-            metadata: nil,
-            materials: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :builder_config, 1, type: Grafeas.V1.BuilderConfig, json_name: "builderConfig"
   field :recipe, 2, type: Grafeas.V1.Recipe

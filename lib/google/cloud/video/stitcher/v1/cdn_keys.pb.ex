@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.CdnKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cdn_key_config:
-            {:google_cdn_key, Google.Cloud.Video.Stitcher.V1.GoogleCdnKey.t() | nil}
-            | {:akamai_cdn_key, Google.Cloud.Video.Stitcher.V1.AkamaiCdnKey.t() | nil},
-          name: String.t(),
-          hostname: String.t()
-        }
-
-  defstruct cdn_key_config: nil,
-            name: "",
-            hostname: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :cdn_key_config, 0
 
@@ -31,28 +19,14 @@ defmodule Google.Cloud.Video.Stitcher.V1.CdnKey do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.GoogleCdnKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          private_key: binary,
-          key_name: String.t()
-        }
-
-  defstruct private_key: "",
-            key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :private_key, 1, type: :bytes, json_name: "privateKey", deprecated: false
   field :key_name, 2, type: :string, json_name: "keyName"
 end
 defmodule Google.Cloud.Video.Stitcher.V1.AkamaiCdnKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          token_key: binary
-        }
-
-  defstruct token_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :token_key, 1, type: :bytes, json_name: "tokenKey", deprecated: false
 end

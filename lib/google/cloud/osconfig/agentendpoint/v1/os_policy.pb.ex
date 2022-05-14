@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Mode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MODE_UNSPECIFIED | :VALIDATION | :ENFORCEMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Mode do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.DesiredState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DESIRED_STATE_UNSPECIFIED | :INSTALLED | :REMOVED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :INSTALLED, 1
@@ -20,9 +16,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResour
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ARCHIVE_TYPE_UNSPECIFIED | :DEB | :DEB_SRC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :DEB, 1
@@ -30,9 +24,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryRes
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec.Interpreter do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INTERPRETER_UNSPECIFIED | :NONE | :SHELL | :POWERSHELL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :NONE, 1
@@ -41,9 +33,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource.DesiredState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DESIRED_STATE_UNSPECIFIED | :PRESENT | :ABSENT | :CONTENTS_MATCH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :PRESENT, 1
@@ -52,32 +42,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource.
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.Remote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          sha256_checksum: String.t()
-        }
-
-  defstruct uri: "",
-            sha256_checksum: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :sha256_checksum, 2, type: :string, json_name: "sha256Checksum"
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.Gcs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bucket: String.t(),
-          object: String.t(),
-          generation: integer
-        }
-
-  defstruct bucket: "",
-            object: "",
-            generation: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -85,19 +57,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.Gcs do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:remote,
-             Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.Remote.t() | nil}
-            | {:gcs, Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.Gcs.t() | nil}
-            | {:local_path, String.t()},
-          allow_insecure: boolean
-        }
-
-  defstruct type: nil,
-            allow_insecure: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -111,15 +71,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.Deb do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.t() | nil,
-          pull_deps: boolean
-        }
-
-  defstruct source: nil,
-            pull_deps: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File,
@@ -129,27 +81,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResour
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.APT do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.RPM do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.t() | nil,
-          pull_deps: boolean
-        }
-
-  defstruct source: nil,
-            pull_deps: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File,
@@ -159,51 +97,25 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResour
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.YUM do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.Zypper do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.GooGet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.MSI do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.t() | nil,
-          properties: [String.t()]
-        }
-
-  defstruct source: nil,
-            properties: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File,
@@ -213,37 +125,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResour
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          system_package:
-            {:apt,
-             Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.APT.t()
-             | nil}
-            | {:deb,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.Deb.t()
-               | nil}
-            | {:yum,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.YUM.t()
-               | nil}
-            | {:zypper,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.Zypper.t()
-               | nil}
-            | {:rpm,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.RPM.t()
-               | nil}
-            | {:googet,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.GooGet.t()
-               | nil}
-            | {:msi,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.MSI.t()
-               | nil},
-          desired_state:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.DesiredState.t()
-        }
-
-  defstruct system_package: nil,
-            desired_state: :DESIRED_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :system_package, 0
 
@@ -283,22 +165,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResour
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.AptRepository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          archive_type:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveType.t(),
-          uri: String.t(),
-          distribution: String.t(),
-          components: [String.t()],
-          gpg_key: String.t()
-        }
-
-  defstruct archive_type: :ARCHIVE_TYPE_UNSPECIFIED,
-            uri: "",
-            distribution: "",
-            components: [],
-            gpg_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :archive_type, 1,
     type:
@@ -314,19 +181,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryRes
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.YumRepository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          display_name: String.t(),
-          base_url: String.t(),
-          gpg_keys: [String.t()]
-        }
-
-  defstruct id: "",
-            display_name: "",
-            base_url: "",
-            gpg_keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -335,19 +190,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryRes
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.ZypperRepository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          display_name: String.t(),
-          base_url: String.t(),
-          gpg_keys: [String.t()]
-        }
-
-  defstruct id: "",
-            display_name: "",
-            base_url: "",
-            gpg_keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -356,40 +199,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryRes
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.GooRepository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          url: String.t()
-        }
-
-  defstruct name: "",
-            url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :url, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repository:
-            {:apt,
-             Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.AptRepository.t()
-             | nil}
-            | {:yum,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.YumRepository.t()
-               | nil}
-            | {:zypper,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.ZypperRepository.t()
-               | nil}
-            | {:goo,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.GooRepository.t()
-               | nil}
-        }
-
-  defstruct repository: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :repository, 0
 
@@ -415,22 +232,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryRes
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:file, Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.t() | nil}
-            | {:script, String.t()},
-          args: [String.t()],
-          interpreter:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec.Interpreter.t(),
-          output_file_path: String.t()
-        }
-
-  defstruct source: nil,
-            args: [],
-            interpreter: :INTERPRETER_UNSPECIFIED,
-            output_file_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -447,17 +249,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          validate:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec.t() | nil,
-          enforce:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec.t() | nil
-        }
-
-  defstruct validate: nil,
-            enforce: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :validate, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.Exec,
@@ -468,22 +260,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource 
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:file, Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.File.t() | nil}
-            | {:content, String.t()},
-          path: String.t(),
-          state:
-            Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource.DesiredState.t(),
-          permissions: String.t()
-        }
-
-  defstruct source: nil,
-            path: "",
-            state: :DESIRED_STATE_UNSPECIFIED,
-            permissions: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -500,24 +277,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource 
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_type:
-            {:pkg,
-             Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.PackageResource.t() | nil}
-            | {:repository,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.RepositoryResource.t()
-               | nil}
-            | {:exec,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.ExecResource.t() | nil}
-            | {:file,
-               Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource.FileResource.t() | nil},
-          id: String.t()
-        }
-
-  defstruct resource_type: nil,
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resource_type, 0
 
@@ -541,9 +301,5 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

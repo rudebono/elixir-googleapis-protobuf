@@ -1,29 +1,6 @@
 defmodule Google.Cloud.Bigquery.Dataexchange.Common.Category do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CATEGORY_UNSPECIFIED
-          | :CATEGORY_OTHERS
-          | :CATEGORY_ADVERTISING_AND_MARKETING
-          | :CATEGORY_COMMERCE
-          | :CATEGORY_CLIMATE_AND_ENVIRONMENT
-          | :CATEGORY_DEMOGRAPHICS
-          | :CATEGORY_ECONOMICS
-          | :CATEGORY_EDUCATION
-          | :CATEGORY_ENERGY
-          | :CATEGORY_FINANCIAL
-          | :CATEGORY_GAMING
-          | :CATEGORY_GEOSPATIAL
-          | :CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE
-          | :CATEGORY_MEDIA
-          | :CATEGORY_PUBLIC_SECTOR
-          | :CATEGORY_RETAIL
-          | :CATEGORY_SPORTS
-          | :CATEGORY_SCIENCE_AND_RESEARCH
-          | :CATEGORY_TRANSPORTATION_AND_LOGISTICS
-          | :CATEGORY_TRAVEL_AND_TOURISM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :CATEGORY_OTHERS, 1

@@ -1,27 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1.UploadModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          model: Google.Cloud.Aiplatform.V1.Model.t() | nil
-        }
-
-  defstruct parent: "",
-            model: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :model, 2, type: Google.Cloud.Aiplatform.V1.Model, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.UploadModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -29,47 +15,19 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1.UploadModelResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: String.t()
-        }
-
-  defstruct model: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.GetModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil,
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil,
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -80,30 +38,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          models: [Google.Cloud.Aiplatform.V1.Model.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct models: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: Google.Cloud.Aiplatform.V1.Model.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct model: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Aiplatform.V1.Model, deprecated: false
 
@@ -114,29 +56,13 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          export_format_id: String.t(),
-          artifact_destination: Google.Cloud.Aiplatform.V1.GcsDestination.t() | nil,
-          image_destination: Google.Cloud.Aiplatform.V1.ContainerRegistryDestination.t() | nil
-        }
-
-  defstruct export_format_id: "",
-            artifact_destination: nil,
-            image_destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :export_format_id, 1, type: :string, json_name: "exportFormatId"
 
@@ -150,15 +76,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          output_config: Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig.t() | nil
-        }
-
-  defstruct name: "",
-            output_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -169,31 +87,14 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          artifact_output_uri: String.t(),
-          image_output_uri: String.t()
-        }
-
-  defstruct artifact_output_uri: "",
-            image_output_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :artifact_output_uri, 2, type: :string, json_name: "artifactOutputUri", deprecated: false
   field :image_output_uri, 3, type: :string, json_name: "imageOutputUri", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil,
-          output_info:
-            Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo.t() | nil
-        }
-
-  defstruct generic_metadata: nil,
-            output_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -206,23 +107,11 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          model_evaluation: Google.Cloud.Aiplatform.V1.ModelEvaluation.t() | nil
-        }
-
-  defstruct parent: "",
-            model_evaluation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -233,33 +122,13 @@ defmodule Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -269,15 +138,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_evaluations: [Google.Cloud.Aiplatform.V1.ModelEvaluation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct model_evaluations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_evaluations, 1,
     repeated: true,
@@ -288,33 +149,13 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationSliceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -324,15 +165,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_evaluation_slices: [Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct model_evaluation_slices: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_evaluation_slices, 1,
     repeated: true,
@@ -343,7 +176,9 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelEvaluationSlicesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1.ModelService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1.ModelService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :UploadModel, Google.Cloud.Aiplatform.V1.UploadModelRequest, Google.Longrunning.Operation
 

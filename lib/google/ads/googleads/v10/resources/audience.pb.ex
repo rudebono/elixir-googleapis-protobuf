@@ -1,25 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.Audience do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          id: integer,
-          status: Google.Ads.Googleads.V10.Enums.AudienceStatusEnum.AudienceStatus.t(),
-          name: String.t(),
-          description: String.t(),
-          dimensions: [Google.Ads.Googleads.V10.Common.AudienceDimension.t()],
-          exclusion_dimension:
-            Google.Ads.Googleads.V10.Common.AudienceExclusionDimension.t() | nil
-        }
-
-  defstruct resource_name: "",
-            id: 0,
-            status: :UNSPECIFIED,
-            name: "",
-            description: "",
-            dimensions: [],
-            exclusion_dimension: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

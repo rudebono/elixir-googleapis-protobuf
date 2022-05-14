@@ -1,27 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.CampaignCriterionErrorEnum.CampaignCriterionError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CONCRETE_TYPE_REQUIRED
-          | :INVALID_PLACEMENT_URL
-          | :CANNOT_EXCLUDE_CRITERIA_TYPE
-          | :CANNOT_SET_STATUS_FOR_CRITERIA_TYPE
-          | :CANNOT_SET_STATUS_FOR_EXCLUDED_CRITERIA
-          | :CANNOT_TARGET_AND_EXCLUDE
-          | :TOO_MANY_OPERATIONS
-          | :OPERATOR_NOT_SUPPORTED_FOR_CRITERION_TYPE
-          | :SHOPPING_CAMPAIGN_SALES_COUNTRY_NOT_SUPPORTED_FOR_SALES_CHANNEL
-          | :CANNOT_ADD_EXISTING_FIELD
-          | :CANNOT_UPDATE_NEGATIVE_CRITERION
-          | :CANNOT_SET_NEGATIVE_KEYWORD_THEME_CONSTANT_CRITERION
-          | :INVALID_KEYWORD_THEME_CONSTANT
-          | :MISSING_KEYWORD_THEME_CONSTANT_OR_FREE_FORM_KEYWORD_THEME
-          | :CANNOT_TARGET_BOTH_PROXIMITY_AND_LOCATION_CRITERIA_FOR_SMART_CAMPAIGN
-          | :CANNOT_TARGET_MULTIPLE_PROXIMITY_CRITERIA_FOR_SMART_CAMPAIGN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -44,9 +23,5 @@ defmodule Google.Ads.Googleads.V10.Errors.CampaignCriterionErrorEnum.CampaignCri
 end
 defmodule Google.Ads.Googleads.V10.Errors.CampaignCriterionErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

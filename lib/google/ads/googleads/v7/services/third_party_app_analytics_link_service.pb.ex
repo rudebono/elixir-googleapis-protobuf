@@ -1,38 +1,24 @@
 defmodule Google.Ads.Googleads.V7.Services.GetThirdPartyAppAnalyticsLinkRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V7.Services.RegenerateShareableLinkIdRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V7.Services.RegenerateShareableLinkIdResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Ads.Googleads.V7.Services.ThirdPartyAppAnalyticsLinkService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v7.services.ThirdPartyAppAnalyticsLinkService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v7.services.ThirdPartyAppAnalyticsLinkService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetThirdPartyAppAnalyticsLink,
       Google.Ads.Googleads.V7.Services.GetThirdPartyAppAnalyticsLinkRequest,

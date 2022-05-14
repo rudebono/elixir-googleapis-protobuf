@@ -1,24 +1,6 @@
 defmodule Google.Protobuf.Api do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          methods: [Google.Protobuf.Method.t()],
-          options: [Google.Protobuf.Option.t()],
-          version: String.t(),
-          source_context: Google.Protobuf.SourceContext.t() | nil,
-          mixins: [Google.Protobuf.Mixin.t()],
-          syntax: Google.Protobuf.Syntax.t()
-        }
-
-  defstruct name: "",
-            methods: [],
-            options: [],
-            version: "",
-            source_context: nil,
-            mixins: [],
-            syntax: :SYNTAX_PROTO2
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :methods, 2, repeated: true, type: Google.Protobuf.Method
@@ -30,25 +12,7 @@ defmodule Google.Protobuf.Api do
 end
 defmodule Google.Protobuf.Method do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_type_url: String.t(),
-          request_streaming: boolean,
-          response_type_url: String.t(),
-          response_streaming: boolean,
-          options: [Google.Protobuf.Option.t()],
-          syntax: Google.Protobuf.Syntax.t()
-        }
-
-  defstruct name: "",
-            request_type_url: "",
-            request_streaming: false,
-            response_type_url: "",
-            response_streaming: false,
-            options: [],
-            syntax: :SYNTAX_PROTO2
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :request_type_url, 2, type: :string, json_name: "requestTypeUrl"
@@ -60,15 +24,7 @@ defmodule Google.Protobuf.Method do
 end
 defmodule Google.Protobuf.Mixin do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          root: String.t()
-        }
-
-  defstruct name: "",
-            root: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :root, 2, type: :string

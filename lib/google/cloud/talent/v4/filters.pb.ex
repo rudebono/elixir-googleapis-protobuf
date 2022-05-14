@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TELECOMMUTE_PREFERENCE_UNSPECIFIED
-          | :TELECOMMUTE_EXCLUDED
-          | :TELECOMMUTE_ALLOWED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TELECOMMUTE_PREFERENCE_UNSPECIFIED, 0
   field :TELECOMMUTE_EXCLUDED, 1
@@ -14,15 +8,7 @@ defmodule Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference do
 end
 defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FILTER_TYPE_UNSPECIFIED
-          | :UNIT_ONLY
-          | :UNIT_AND_AMOUNT
-          | :ANNUALIZED_BASE_AMOUNT
-          | :ANNUALIZED_TOTAL_AMOUNT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FILTER_TYPE_UNSPECIFIED, 0
   field :UNIT_ONLY, 1
@@ -32,9 +18,7 @@ defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
 end
 defmodule Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ROAD_TRAFFIC_UNSPECIFIED | :TRAFFIC_FREE | :BUSY_HOUR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROAD_TRAFFIC_UNSPECIFIED, 0
   field :TRAFFIC_FREE, 1
@@ -42,39 +26,7 @@ defmodule Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic do
 end
 defmodule Google.Cloud.Talent.V4.JobQuery do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          query_language_code: String.t(),
-          companies: [String.t()],
-          location_filters: [Google.Cloud.Talent.V4.LocationFilter.t()],
-          job_categories: [Google.Cloud.Talent.V4.JobCategory.t()],
-          commute_filter: Google.Cloud.Talent.V4.CommuteFilter.t() | nil,
-          company_display_names: [String.t()],
-          compensation_filter: Google.Cloud.Talent.V4.CompensationFilter.t() | nil,
-          custom_attribute_filter: String.t(),
-          disable_spell_check: boolean,
-          employment_types: [Google.Cloud.Talent.V4.EmploymentType.t()],
-          language_codes: [String.t()],
-          publish_time_range: Google.Cloud.Talent.V4.TimestampRange.t() | nil,
-          excluded_jobs: [String.t()]
-        }
-
-  defstruct query: "",
-            query_language_code: "",
-            companies: [],
-            location_filters: [],
-            job_categories: [],
-            commute_filter: nil,
-            company_display_names: [],
-            compensation_filter: nil,
-            custom_attribute_filter: "",
-            disable_spell_check: false,
-            employment_types: [],
-            language_codes: [],
-            publish_time_range: nil,
-            excluded_jobs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_language_code, 14, type: :string, json_name: "queryLanguageCode"
@@ -117,21 +69,7 @@ defmodule Google.Cloud.Talent.V4.JobQuery do
 end
 defmodule Google.Cloud.Talent.V4.LocationFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          address: String.t(),
-          region_code: String.t(),
-          lat_lng: Google.Type.LatLng.t() | nil,
-          distance_in_miles: float | :infinity | :negative_infinity | :nan,
-          telecommute_preference: Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference.t()
-        }
-
-  defstruct address: "",
-            region_code: "",
-            lat_lng: nil,
-            distance_in_miles: 0.0,
-            telecommute_preference: :TELECOMMUTE_PREFERENCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :address, 1, type: :string
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -145,19 +83,7 @@ defmodule Google.Cloud.Talent.V4.LocationFilter do
 end
 defmodule Google.Cloud.Talent.V4.CompensationFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Talent.V4.CompensationFilter.FilterType.t(),
-          units: [Google.Cloud.Talent.V4.CompensationInfo.CompensationUnit.t()],
-          range: Google.Cloud.Talent.V4.CompensationInfo.CompensationRange.t() | nil,
-          include_jobs_with_unspecified_compensation_range: boolean
-        }
-
-  defstruct type: :FILTER_TYPE_UNSPECIFIED,
-            units: [],
-            range: nil,
-            include_jobs_with_unspecified_compensation_range: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4.CompensationFilter.FilterType,
@@ -178,23 +104,7 @@ defmodule Google.Cloud.Talent.V4.CompensationFilter do
 end
 defmodule Google.Cloud.Talent.V4.CommuteFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          traffic_option:
-            {:road_traffic, Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic.t()}
-            | {:departure_time, Google.Type.TimeOfDay.t() | nil},
-          commute_method: Google.Cloud.Talent.V4.CommuteMethod.t(),
-          start_coordinates: Google.Type.LatLng.t() | nil,
-          travel_duration: Google.Protobuf.Duration.t() | nil,
-          allow_imprecise_addresses: boolean
-        }
-
-  defstruct traffic_option: nil,
-            commute_method: :COMMUTE_METHOD_UNSPECIFIED,
-            start_coordinates: nil,
-            travel_duration: nil,
-            allow_imprecise_addresses: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :traffic_option, 0
 

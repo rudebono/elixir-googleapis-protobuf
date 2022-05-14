@@ -1,35 +1,13 @@
 defmodule Google.Cloud.Video.Transcoder.V1.CreateJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          job: Google.Cloud.Video.Transcoder.V1.Job.t() | nil
-        }
-
-  defstruct parent: "",
-            job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job, 2, type: Google.Cloud.Video.Transcoder.V1.Job, deprecated: false
 end
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -39,44 +17,20 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobsRequest do
 end
 defmodule Google.Cloud.Video.Transcoder.V1.GetJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          allow_missing: boolean
-        }
-
-  defstruct name: "",
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
 end
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          jobs: [Google.Cloud.Video.Transcoder.V1.Job.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct jobs: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -84,17 +38,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobsResponse do
 end
 defmodule Google.Cloud.Video.Transcoder.V1.CreateJobTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          job_template: Google.Cloud.Video.Transcoder.V1.JobTemplate.t() | nil,
-          job_template_id: String.t()
-        }
-
-  defstruct parent: "",
-            job_template: nil,
-            job_template_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -107,21 +51,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.CreateJobTemplateRequest do
 end
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -131,44 +61,20 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesRequest do
 end
 defmodule Google.Cloud.Video.Transcoder.V1.GetJobTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          allow_missing: boolean
-        }
-
-  defstruct name: "",
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
 end
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_templates: [Google.Cloud.Video.Transcoder.V1.JobTemplate.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct job_templates: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_templates, 1,
     repeated: true,
@@ -180,7 +86,9 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesResponse do
 end
 defmodule Google.Cloud.Video.Transcoder.V1.TranscoderService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.video.transcoder.v1.TranscoderService"
+  use GRPC.Service,
+    name: "google.cloud.video.transcoder.v1.TranscoderService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateJob,
       Google.Cloud.Video.Transcoder.V1.CreateJobRequest,

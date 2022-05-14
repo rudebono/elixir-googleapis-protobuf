@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.MetadataSchema.MetadataSchemaType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :METADATA_SCHEMA_TYPE_UNSPECIFIED
-          | :ARTIFACT_TYPE
-          | :EXECUTION_TYPE
-          | :CONTEXT_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METADATA_SCHEMA_TYPE_UNSPECIFIED, 0
   field :ARTIFACT_TYPE, 1
@@ -16,23 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1.MetadataSchema.MetadataSchemaType do
 end
 defmodule Google.Cloud.Aiplatform.V1.MetadataSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          schema_version: String.t(),
-          schema: String.t(),
-          schema_type: Google.Cloud.Aiplatform.V1.MetadataSchema.MetadataSchemaType.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          description: String.t()
-        }
-
-  defstruct name: "",
-            schema_version: "",
-            schema: "",
-            schema_type: :METADATA_SCHEMA_TYPE_UNSPECIFIED,
-            create_time: nil,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :schema_version, 2, type: :string, json_name: "schemaVersion"

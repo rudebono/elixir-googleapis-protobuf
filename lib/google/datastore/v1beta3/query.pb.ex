@@ -1,8 +1,6 @@
 defmodule Google.Datastore.V1beta3.EntityResult.ResultType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESULT_TYPE_UNSPECIFIED | :FULL | :PROJECTION | :KEY_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESULT_TYPE_UNSPECIFIED, 0
   field :FULL, 1
@@ -11,9 +9,7 @@ defmodule Google.Datastore.V1beta3.EntityResult.ResultType do
 end
 defmodule Google.Datastore.V1beta3.PropertyOrder.Direction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIRECTION_UNSPECIFIED | :ASCENDING | :DESCENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -21,26 +17,14 @@ defmodule Google.Datastore.V1beta3.PropertyOrder.Direction do
 end
 defmodule Google.Datastore.V1beta3.CompositeFilter.Operator do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OPERATOR_UNSPECIFIED | :AND
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :AND, 1
 end
 defmodule Google.Datastore.V1beta3.PropertyFilter.Operator do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OPERATOR_UNSPECIFIED
-          | :LESS_THAN
-          | :LESS_THAN_OR_EQUAL
-          | :GREATER_THAN
-          | :GREATER_THAN_OR_EQUAL
-          | :EQUAL
-          | :HAS_ANCESTOR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS_THAN, 1
@@ -52,15 +36,7 @@ defmodule Google.Datastore.V1beta3.PropertyFilter.Operator do
 end
 defmodule Google.Datastore.V1beta3.QueryResultBatch.MoreResultsType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MORE_RESULTS_TYPE_UNSPECIFIED
-          | :NOT_FINISHED
-          | :MORE_RESULTS_AFTER_LIMIT
-          | :MORE_RESULTS_AFTER_CURSOR
-          | :NO_MORE_RESULTS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MORE_RESULTS_TYPE_UNSPECIFIED, 0
   field :NOT_FINISHED, 1
@@ -70,17 +46,7 @@ defmodule Google.Datastore.V1beta3.QueryResultBatch.MoreResultsType do
 end
 defmodule Google.Datastore.V1beta3.EntityResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity: Google.Datastore.V1beta3.Entity.t() | nil,
-          version: integer,
-          cursor: binary
-        }
-
-  defstruct entity: nil,
-            version: 0,
-            cursor: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity, 1, type: Google.Datastore.V1beta3.Entity
   field :version, 4, type: :int64
@@ -88,29 +54,7 @@ defmodule Google.Datastore.V1beta3.EntityResult do
 end
 defmodule Google.Datastore.V1beta3.Query do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          projection: [Google.Datastore.V1beta3.Projection.t()],
-          kind: [Google.Datastore.V1beta3.KindExpression.t()],
-          filter: Google.Datastore.V1beta3.Filter.t() | nil,
-          order: [Google.Datastore.V1beta3.PropertyOrder.t()],
-          distinct_on: [Google.Datastore.V1beta3.PropertyReference.t()],
-          start_cursor: binary,
-          end_cursor: binary,
-          offset: integer,
-          limit: Google.Protobuf.Int32Value.t() | nil
-        }
-
-  defstruct projection: [],
-            kind: [],
-            filter: nil,
-            order: [],
-            distinct_on: [],
-            start_cursor: "",
-            end_cursor: "",
-            offset: 0,
-            limit: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :projection, 2, repeated: true, type: Google.Datastore.V1beta3.Projection
   field :kind, 3, repeated: true, type: Google.Datastore.V1beta3.KindExpression
@@ -129,66 +73,32 @@ defmodule Google.Datastore.V1beta3.Query do
 end
 defmodule Google.Datastore.V1beta3.KindExpression do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Datastore.V1beta3.PropertyReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 2, type: :string
 end
 defmodule Google.Datastore.V1beta3.Projection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Datastore.V1beta3.PropertyReference.t() | nil
-        }
-
-  defstruct property: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Datastore.V1beta3.PropertyReference
 end
 defmodule Google.Datastore.V1beta3.PropertyOrder do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Datastore.V1beta3.PropertyReference.t() | nil,
-          direction: Google.Datastore.V1beta3.PropertyOrder.Direction.t()
-        }
-
-  defstruct property: nil,
-            direction: :DIRECTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Datastore.V1beta3.PropertyReference
   field :direction, 2, type: Google.Datastore.V1beta3.PropertyOrder.Direction, enum: true
 end
 defmodule Google.Datastore.V1beta3.Filter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter_type:
-            {:composite_filter, Google.Datastore.V1beta3.CompositeFilter.t() | nil}
-            | {:property_filter, Google.Datastore.V1beta3.PropertyFilter.t() | nil}
-        }
-
-  defstruct filter_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :filter_type, 0
 
@@ -204,32 +114,14 @@ defmodule Google.Datastore.V1beta3.Filter do
 end
 defmodule Google.Datastore.V1beta3.CompositeFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          op: Google.Datastore.V1beta3.CompositeFilter.Operator.t(),
-          filters: [Google.Datastore.V1beta3.Filter.t()]
-        }
-
-  defstruct op: :OPERATOR_UNSPECIFIED,
-            filters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :op, 1, type: Google.Datastore.V1beta3.CompositeFilter.Operator, enum: true
   field :filters, 2, repeated: true, type: Google.Datastore.V1beta3.Filter
 end
 defmodule Google.Datastore.V1beta3.PropertyFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: Google.Datastore.V1beta3.PropertyReference.t() | nil,
-          op: Google.Datastore.V1beta3.PropertyFilter.Operator.t(),
-          value: Google.Datastore.V1beta3.Value.t() | nil
-        }
-
-  defstruct property: nil,
-            op: :OPERATOR_UNSPECIFIED,
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: Google.Datastore.V1beta3.PropertyReference
   field :op, 2, type: Google.Datastore.V1beta3.PropertyFilter.Operator, enum: true
@@ -237,34 +129,14 @@ defmodule Google.Datastore.V1beta3.PropertyFilter do
 end
 defmodule Google.Datastore.V1beta3.GqlQuery.NamedBindingsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Datastore.V1beta3.GqlQueryParameter.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1beta3.GqlQueryParameter
 end
 defmodule Google.Datastore.V1beta3.GqlQuery do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query_string: String.t(),
-          allow_literals: boolean,
-          named_bindings: %{String.t() => Google.Datastore.V1beta3.GqlQueryParameter.t() | nil},
-          positional_bindings: [Google.Datastore.V1beta3.GqlQueryParameter.t()]
-        }
-
-  defstruct query_string: "",
-            allow_literals: false,
-            named_bindings: %{},
-            positional_bindings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query_string, 1, type: :string, json_name: "queryString"
   field :allow_literals, 2, type: :bool, json_name: "allowLiterals"
@@ -282,13 +154,7 @@ defmodule Google.Datastore.V1beta3.GqlQuery do
 end
 defmodule Google.Datastore.V1beta3.GqlQueryParameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameter_type: {:value, Google.Datastore.V1beta3.Value.t() | nil} | {:cursor, binary}
-        }
-
-  defstruct parameter_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :parameter_type, 0
 
@@ -297,25 +163,7 @@ defmodule Google.Datastore.V1beta3.GqlQueryParameter do
 end
 defmodule Google.Datastore.V1beta3.QueryResultBatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          skipped_results: integer,
-          skipped_cursor: binary,
-          entity_result_type: Google.Datastore.V1beta3.EntityResult.ResultType.t(),
-          entity_results: [Google.Datastore.V1beta3.EntityResult.t()],
-          end_cursor: binary,
-          more_results: Google.Datastore.V1beta3.QueryResultBatch.MoreResultsType.t(),
-          snapshot_version: integer
-        }
-
-  defstruct skipped_results: 0,
-            skipped_cursor: "",
-            entity_result_type: :RESULT_TYPE_UNSPECIFIED,
-            entity_results: [],
-            end_cursor: "",
-            more_results: :MORE_RESULTS_TYPE_UNSPECIFIED,
-            snapshot_version: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :skipped_results, 6, type: :int32, json_name: "skippedResults"
   field :skipped_cursor, 3, type: :bytes, json_name: "skippedCursor"

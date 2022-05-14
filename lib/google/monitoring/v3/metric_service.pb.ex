@@ -1,27 +1,13 @@
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FULL | :HEADERS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FULL, 0
   field :HEADERS, 1
 end
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -30,15 +16,7 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
 end
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_descriptors: [Google.Api.MonitoredResourceDescriptor.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct resource_descriptors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_descriptors, 1,
     repeated: true,
@@ -49,31 +27,13 @@ defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
 end
 defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -82,15 +42,7 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
 end
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metric_descriptors: [Google.Api.MetricDescriptor.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct metric_descriptors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metric_descriptors, 1,
     repeated: true,
@@ -101,27 +53,13 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
 end
 defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          metric_descriptor: Google.Api.MetricDescriptor.t() | nil
-        }
-
-  defstruct name: "",
-            metric_descriptor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -132,41 +70,13 @@ defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
 end
 defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          filter: String.t(),
-          interval: Google.Monitoring.V3.TimeInterval.t() | nil,
-          aggregation: Google.Monitoring.V3.Aggregation.t() | nil,
-          secondary_aggregation: Google.Monitoring.V3.Aggregation.t() | nil,
-          order_by: String.t(),
-          view: Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            filter: "",
-            interval: nil,
-            aggregation: nil,
-            secondary_aggregation: nil,
-            order_by: "",
-            view: :FULL,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 10, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -189,19 +99,7 @@ defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
 end
 defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series: [Google.Monitoring.V3.TimeSeries.t()],
-          next_page_token: String.t(),
-          execution_errors: [Google.Rpc.Status.t()],
-          unit: String.t()
-        }
-
-  defstruct time_series: [],
-            next_page_token: "",
-            execution_errors: [],
-            unit: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series, 1,
     repeated: true,
@@ -219,15 +117,7 @@ defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
 end
 defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          time_series: [Google.Monitoring.V3.TimeSeries.t()]
-        }
-
-  defstruct name: "",
-            time_series: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -239,15 +129,7 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
 end
 defmodule Google.Monitoring.V3.CreateTimeSeriesError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series: Google.Monitoring.V3.TimeSeries.t() | nil,
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct time_series: nil,
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series, 1,
     type: Google.Monitoring.V3.TimeSeries,
@@ -258,32 +140,14 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesError do
 end
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Rpc.Status.t() | nil,
-          point_count: integer
-        }
-
-  defstruct status: nil,
-            point_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :point_count, 2, type: :int32, json_name: "pointCount"
 end
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_point_count: integer,
-          success_point_count: integer,
-          errors: [Google.Monitoring.V3.CreateTimeSeriesSummary.Error.t()]
-        }
-
-  defstruct total_point_count: 0,
-            success_point_count: 0,
-            errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_point_count, 1, type: :int32, json_name: "totalPointCount"
   field :success_point_count, 2, type: :int32, json_name: "successPointCount"
@@ -291,19 +155,7 @@ defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
 end
 defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 7, type: :string, deprecated: false
@@ -312,19 +164,7 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
 end
 defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series_descriptor: Google.Monitoring.V3.TimeSeriesDescriptor.t() | nil,
-          time_series_data: [Google.Monitoring.V3.TimeSeriesData.t()],
-          next_page_token: String.t(),
-          partial_errors: [Google.Rpc.Status.t()]
-        }
-
-  defstruct time_series_descriptor: nil,
-            time_series_data: [],
-            next_page_token: "",
-            partial_errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series_descriptor, 8,
     type: Google.Monitoring.V3.TimeSeriesDescriptor,
@@ -340,22 +180,16 @@ defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
 end
 defmodule Google.Monitoring.V3.QueryErrorList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          errors: [Google.Monitoring.V3.QueryError.t()],
-          error_summary: String.t()
-        }
-
-  defstruct errors: [],
-            error_summary: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Monitoring.V3.QueryError
   field :error_summary, 2, type: :string, json_name: "errorSummary"
 end
 defmodule Google.Monitoring.V3.MetricService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.monitoring.v3.MetricService"
+  use GRPC.Service,
+    name: "google.monitoring.v3.MetricService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListMonitoredResourceDescriptors,
       Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest,

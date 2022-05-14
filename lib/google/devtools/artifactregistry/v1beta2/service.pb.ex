@@ -1,14 +1,12 @@
 defmodule Google.Devtools.Artifactregistry.V1beta2.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Devtools.Artifactregistry.V1beta2.ArtifactRegistry.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.artifactregistry.v1beta2.ArtifactRegistry"
+  use GRPC.Service,
+    name: "google.devtools.artifactregistry.v1beta2.ArtifactRegistry",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ImportAptArtifacts,
       Google.Devtools.Artifactregistry.V1beta2.ImportAptArtifactsRequest,

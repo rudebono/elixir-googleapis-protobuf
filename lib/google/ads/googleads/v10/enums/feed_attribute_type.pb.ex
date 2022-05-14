@@ -1,24 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.FeedAttributeTypeEnum.FeedAttributeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INT64
-          | :DOUBLE
-          | :STRING
-          | :BOOLEAN
-          | :URL
-          | :DATE_TIME
-          | :INT64_LIST
-          | :DOUBLE_LIST
-          | :STRING_LIST
-          | :BOOLEAN_LIST
-          | :URL_LIST
-          | :DATE_TIME_LIST
-          | :PRICE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -38,9 +20,5 @@ defmodule Google.Ads.Googleads.V10.Enums.FeedAttributeTypeEnum.FeedAttributeType
 end
 defmodule Google.Ads.Googleads.V10.Enums.FeedAttributeTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
