@@ -1,40 +1,13 @@
 defmodule Google.Cloud.Recommender.V1beta1.RecommenderConfig.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1beta1.RecommenderConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          recommender_generation_config:
-            Google.Cloud.Recommender.V1beta1.RecommenderGenerationConfig.t() | nil,
-          etag: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          revision_id: String.t(),
-          annotations: %{String.t() => String.t()},
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            recommender_generation_config: nil,
-            etag: "",
-            update_time: nil,
-            revision_id: "",
-            annotations: %{},
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -55,13 +28,7 @@ defmodule Google.Cloud.Recommender.V1beta1.RecommenderConfig do
 end
 defmodule Google.Cloud.Recommender.V1beta1.RecommenderGenerationConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          params: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct params: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :params, 1, type: Google.Protobuf.Struct
 end

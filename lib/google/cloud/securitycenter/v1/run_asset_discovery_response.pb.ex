@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryResponse.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :COMPLETED | :SUPERSEDED | :TERMINATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :COMPLETED, 1
@@ -11,15 +9,7 @@ defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryResponse.State do
 end
 defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Securitycenter.V1.RunAssetDiscoveryResponse.State.t(),
-          duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Securitycenter.V1.RunAssetDiscoveryResponse.State,

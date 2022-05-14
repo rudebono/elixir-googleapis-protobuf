@@ -1,43 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.OfflineUserDataJobErrorEnum.OfflineUserDataJobError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INVALID_USER_LIST_ID
-          | :INVALID_USER_LIST_TYPE
-          | :NOT_ON_ALLOWLIST_FOR_USER_ID
-          | :INCOMPATIBLE_UPLOAD_KEY_TYPE
-          | :MISSING_USER_IDENTIFIER
-          | :INVALID_MOBILE_ID_FORMAT
-          | :TOO_MANY_USER_IDENTIFIERS
-          | :NOT_ON_ALLOWLIST_FOR_STORE_SALES_DIRECT
-          | :NOT_ON_ALLOWLIST_FOR_UNIFIED_STORE_SALES
-          | :INVALID_PARTNER_ID
-          | :INVALID_ENCODING
-          | :INVALID_COUNTRY_CODE
-          | :INCOMPATIBLE_USER_IDENTIFIER
-          | :FUTURE_TRANSACTION_TIME
-          | :INVALID_CONVERSION_ACTION
-          | :MOBILE_ID_NOT_SUPPORTED
-          | :INVALID_OPERATION_ORDER
-          | :CONFLICTING_OPERATION
-          | :EXTERNAL_UPDATE_ID_ALREADY_EXISTS
-          | :JOB_ALREADY_STARTED
-          | :REMOVE_NOT_SUPPORTED
-          | :REMOVE_ALL_NOT_SUPPORTED
-          | :INVALID_SHA256_FORMAT
-          | :CUSTOM_KEY_DISABLED
-          | :CUSTOM_KEY_NOT_PREDEFINED
-          | :CUSTOM_KEY_NOT_SET
-          | :CUSTOMER_NOT_ACCEPTED_CUSTOMER_DATA_TERMS
-          | :ATTRIBUTES_NOT_APPLICABLE_FOR_CUSTOMER_MATCH_USER_LIST
-          | :LIFETIME_VALUE_BUCKET_NOT_IN_RANGE
-          | :INCOMPATIBLE_USER_IDENTIFIER_FOR_ATTRIBUTES
-          | :FUTURE_TIME_NOT_ALLOWED
-          | :LAST_PURCHASE_TIME_LESS_THAN_ACQUISITION_TIME
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -76,9 +39,5 @@ defmodule Google.Ads.Googleads.V8.Errors.OfflineUserDataJobErrorEnum.OfflineUser
 end
 defmodule Google.Ads.Googleads.V8.Errors.OfflineUserDataJobErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

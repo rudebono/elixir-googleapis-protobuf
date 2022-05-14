@@ -1,35 +1,14 @@
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          timestamp_bound:
-            {:strong, boolean}
-            | {:min_read_timestamp, Google.Protobuf.Timestamp.t() | nil}
-            | {:max_staleness, Google.Protobuf.Duration.t() | nil}
-            | {:read_timestamp, Google.Protobuf.Timestamp.t() | nil}
-            | {:exact_staleness, Google.Protobuf.Duration.t() | nil},
-          return_read_timestamp: boolean
-        }
-
-  defstruct timestamp_bound: nil,
-            return_read_timestamp: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :timestamp_bound, 0
 
@@ -47,16 +26,7 @@ defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
 end
 defmodule Google.Spanner.V1.TransactionOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mode:
-            {:read_write, Google.Spanner.V1.TransactionOptions.ReadWrite.t() | nil}
-            | {:partitioned_dml, Google.Spanner.V1.TransactionOptions.PartitionedDml.t() | nil}
-            | {:read_only, Google.Spanner.V1.TransactionOptions.ReadOnly.t() | nil}
-        }
-
-  defstruct mode: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -77,31 +47,14 @@ defmodule Google.Spanner.V1.TransactionOptions do
 end
 defmodule Google.Spanner.V1.Transaction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: binary,
-          read_timestamp: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct id: "",
-            read_timestamp: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :bytes
   field :read_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "readTimestamp"
 end
 defmodule Google.Spanner.V1.TransactionSelector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector:
-            {:single_use, Google.Spanner.V1.TransactionOptions.t() | nil}
-            | {:id, binary}
-            | {:begin, Google.Spanner.V1.TransactionOptions.t() | nil}
-        }
-
-  defstruct selector: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :selector, 0
 

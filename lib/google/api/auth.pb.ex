@@ -1,33 +1,13 @@
 defmodule Google.Api.Authentication do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rules: [Google.Api.AuthenticationRule.t()],
-          providers: [Google.Api.AuthProvider.t()]
-        }
-
-  defstruct rules: [],
-            providers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rules, 3, repeated: true, type: Google.Api.AuthenticationRule
   field :providers, 4, repeated: true, type: Google.Api.AuthProvider
 end
 defmodule Google.Api.AuthenticationRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: String.t(),
-          oauth: Google.Api.OAuthRequirements.t() | nil,
-          allow_without_credential: boolean,
-          requirements: [Google.Api.AuthRequirement.t()]
-        }
-
-  defstruct selector: "",
-            oauth: nil,
-            allow_without_credential: false,
-            requirements: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :oauth, 2, type: Google.Api.OAuthRequirements
@@ -36,15 +16,7 @@ defmodule Google.Api.AuthenticationRule do
 end
 defmodule Google.Api.JwtLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          in: {:header, String.t()} | {:query, String.t()},
-          value_prefix: String.t()
-        }
-
-  defstruct in: nil,
-            value_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :in, 0
 
@@ -54,23 +26,7 @@ defmodule Google.Api.JwtLocation do
 end
 defmodule Google.Api.AuthProvider do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          issuer: String.t(),
-          jwks_uri: String.t(),
-          audiences: String.t(),
-          authorization_url: String.t(),
-          jwt_locations: [Google.Api.JwtLocation.t()]
-        }
-
-  defstruct id: "",
-            issuer: "",
-            jwks_uri: "",
-            audiences: "",
-            authorization_url: "",
-            jwt_locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :issuer, 2, type: :string
@@ -81,27 +37,13 @@ defmodule Google.Api.AuthProvider do
 end
 defmodule Google.Api.OAuthRequirements do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          canonical_scopes: String.t()
-        }
-
-  defstruct canonical_scopes: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :canonical_scopes, 1, type: :string, json_name: "canonicalScopes"
 end
 defmodule Google.Api.AuthRequirement do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          provider_id: String.t(),
-          audiences: String.t()
-        }
-
-  defstruct provider_id: "",
-            audiences: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :provider_id, 1, type: :string, json_name: "providerId"
   field :audiences, 2, type: :string

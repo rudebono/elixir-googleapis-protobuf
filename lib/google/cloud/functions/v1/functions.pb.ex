@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Functions.V1.CloudFunctionStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLOUD_FUNCTION_STATUS_UNSPECIFIED
-          | :ACTIVE
-          | :OFFLINE
-          | :DEPLOY_IN_PROGRESS
-          | :DELETE_IN_PROGRESS
-          | :UNKNOWN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLOUD_FUNCTION_STATUS_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -20,13 +11,7 @@ defmodule Google.Cloud.Functions.V1.CloudFunctionStatus do
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED
-          | :PRIVATE_RANGES_ONLY
-          | :ALL_TRAFFIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED, 0
   field :PRIVATE_RANGES_ONLY, 1
@@ -34,14 +19,7 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings do
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction.IngressSettings do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INGRESS_SETTINGS_UNSPECIFIED
-          | :ALLOW_ALL
-          | :ALLOW_INTERNAL_ONLY
-          | :ALLOW_INTERNAL_AND_GCLB
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INGRESS_SETTINGS_UNSPECIFIED, 0
   field :ALLOW_ALL, 1
@@ -50,9 +28,7 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.IngressSettings do
 end
 defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SECURITY_LEVEL_UNSPECIFIED | :SECURE_ALWAYS | :SECURE_OPTIONAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SECURITY_LEVEL_UNSPECIFIED, 0
   field :SECURE_ALWAYS, 1
@@ -60,120 +36,28 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction.EnvironmentVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction.BuildEnvironmentVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Functions.V1.CloudFunction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_code:
-            {:source_archive_url, String.t()}
-            | {:source_repository, Google.Cloud.Functions.V1.SourceRepository.t() | nil}
-            | {:source_upload_url, String.t()},
-          trigger:
-            {:https_trigger, Google.Cloud.Functions.V1.HttpsTrigger.t() | nil}
-            | {:event_trigger, Google.Cloud.Functions.V1.EventTrigger.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          status: Google.Cloud.Functions.V1.CloudFunctionStatus.t(),
-          entry_point: String.t(),
-          runtime: String.t(),
-          timeout: Google.Protobuf.Duration.t() | nil,
-          available_memory_mb: integer,
-          service_account_email: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          version_id: integer,
-          labels: %{String.t() => String.t()},
-          environment_variables: %{String.t() => String.t()},
-          build_environment_variables: %{String.t() => String.t()},
-          network: String.t(),
-          max_instances: integer,
-          min_instances: integer,
-          vpc_connector: String.t(),
-          vpc_connector_egress_settings:
-            Google.Cloud.Functions.V1.CloudFunction.VpcConnectorEgressSettings.t(),
-          ingress_settings: Google.Cloud.Functions.V1.CloudFunction.IngressSettings.t(),
-          kms_key_name: String.t(),
-          build_worker_pool: String.t(),
-          build_id: String.t(),
-          build_name: String.t(),
-          secret_environment_variables: [Google.Cloud.Functions.V1.SecretEnvVar.t()],
-          secret_volumes: [Google.Cloud.Functions.V1.SecretVolume.t()],
-          source_token: String.t(),
-          docker_repository: String.t()
-        }
-
-  defstruct source_code: nil,
-            trigger: nil,
-            name: "",
-            description: "",
-            status: :CLOUD_FUNCTION_STATUS_UNSPECIFIED,
-            entry_point: "",
-            runtime: "",
-            timeout: nil,
-            available_memory_mb: 0,
-            service_account_email: "",
-            update_time: nil,
-            version_id: 0,
-            labels: %{},
-            environment_variables: %{},
-            build_environment_variables: %{},
-            network: "",
-            max_instances: 0,
-            min_instances: 0,
-            vpc_connector: "",
-            vpc_connector_egress_settings: :VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED,
-            ingress_settings: :INGRESS_SETTINGS_UNSPECIFIED,
-            kms_key_name: "",
-            build_worker_pool: "",
-            build_id: "",
-            build_name: "",
-            secret_environment_variables: [],
-            secret_volumes: [],
-            source_token: "",
-            docker_repository: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_code, 0
   oneof :trigger, 1
@@ -269,30 +153,14 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
 end
 defmodule Google.Cloud.Functions.V1.SourceRepository do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          deployed_url: String.t()
-        }
-
-  defstruct url: "",
-            deployed_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :deployed_url, 2, type: :string, json_name: "deployedUrl", deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.HttpsTrigger do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          security_level: Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel.t()
-        }
-
-  defstruct url: "",
-            security_level: :SECURITY_LEVEL_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
 
@@ -303,19 +171,7 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger do
 end
 defmodule Google.Cloud.Functions.V1.EventTrigger do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_type: String.t(),
-          resource: String.t(),
-          service: String.t(),
-          failure_policy: Google.Cloud.Functions.V1.FailurePolicy.t() | nil
-        }
-
-  defstruct event_type: "",
-            resource: "",
-            service: "",
-            failure_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType"
   field :resource, 2, type: :string
@@ -327,21 +183,11 @@ defmodule Google.Cloud.Functions.V1.EventTrigger do
 end
 defmodule Google.Cloud.Functions.V1.FailurePolicy.Retry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Functions.V1.FailurePolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action: {:retry, Google.Cloud.Functions.V1.FailurePolicy.Retry.t() | nil}
-        }
-
-  defstruct action: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -349,19 +195,7 @@ defmodule Google.Cloud.Functions.V1.FailurePolicy do
 end
 defmodule Google.Cloud.Functions.V1.SecretEnvVar do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          project_id: String.t(),
-          secret: String.t(),
-          version: String.t()
-        }
-
-  defstruct key: "",
-            project_id: "",
-            secret: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -370,34 +204,14 @@ defmodule Google.Cloud.Functions.V1.SecretEnvVar do
 end
 defmodule Google.Cloud.Functions.V1.SecretVolume.SecretVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          path: String.t()
-        }
-
-  defstruct version: "",
-            path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :path, 2, type: :string
 end
 defmodule Google.Cloud.Functions.V1.SecretVolume do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mount_path: String.t(),
-          project_id: String.t(),
-          secret: String.t(),
-          versions: [Google.Cloud.Functions.V1.SecretVolume.SecretVersion.t()]
-        }
-
-  defstruct mount_path: "",
-            project_id: "",
-            secret: "",
-            versions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mount_path, 1, type: :string, json_name: "mountPath"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -406,59 +220,27 @@ defmodule Google.Cloud.Functions.V1.SecretVolume do
 end
 defmodule Google.Cloud.Functions.V1.CreateFunctionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          function: Google.Cloud.Functions.V1.CloudFunction.t() | nil
-        }
-
-  defstruct location: "",
-            function: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :function, 2, type: Google.Cloud.Functions.V1.CloudFunction, deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.UpdateFunctionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          function: Google.Cloud.Functions.V1.CloudFunction.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct function: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :function, 1, type: Google.Cloud.Functions.V1.CloudFunction, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Functions.V1.GetFunctionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.ListFunctionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -466,17 +248,7 @@ defmodule Google.Cloud.Functions.V1.ListFunctionsRequest do
 end
 defmodule Google.Cloud.Functions.V1.ListFunctionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          functions: [Google.Cloud.Functions.V1.CloudFunction.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct functions: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :functions, 1, repeated: true, type: Google.Cloud.Functions.V1.CloudFunction
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -484,44 +256,20 @@ defmodule Google.Cloud.Functions.V1.ListFunctionsResponse do
 end
 defmodule Google.Cloud.Functions.V1.DeleteFunctionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.CallFunctionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          data: String.t()
-        }
-
-  defstruct name: "",
-            data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.CallFunctionResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution_id: String.t(),
-          result: String.t(),
-          error: String.t()
-        }
-
-  defstruct execution_id: "",
-            result: "",
-            error: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution_id, 1, type: :string, json_name: "executionId"
   field :result, 2, type: :string
@@ -529,58 +277,34 @@ defmodule Google.Cloud.Functions.V1.CallFunctionResponse do
 end
 defmodule Google.Cloud.Functions.V1.GenerateUploadUrlRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
 end
 defmodule Google.Cloud.Functions.V1.GenerateUploadUrlResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          upload_url: String.t()
-        }
-
-  defstruct upload_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :upload_url, 1, type: :string, json_name: "uploadUrl"
 end
 defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version_id: non_neg_integer
-        }
-
-  defstruct name: "",
-            version_id: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version_id, 2, type: :uint64, json_name: "versionId"
 end
 defmodule Google.Cloud.Functions.V1.GenerateDownloadUrlResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          download_url: String.t()
-        }
-
-  defstruct download_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :download_url, 1, type: :string, json_name: "downloadUrl"
 end
 defmodule Google.Cloud.Functions.V1.CloudFunctionsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.functions.v1.CloudFunctionsService"
+  use GRPC.Service,
+    name: "google.cloud.functions.v1.CloudFunctionsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListFunctions,
       Google.Cloud.Functions.V1.ListFunctionsRequest,

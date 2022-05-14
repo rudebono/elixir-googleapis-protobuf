@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EVENT_TYPE_UNSPECIFIED
-          | :CONFIG
-          | :ENTITY_CREATED
-          | :ENTITY_UPDATED
-          | :ENTITY_DELETED
-          | :PARTITION_CREATED
-          | :PARTITION_UPDATED
-          | :PARTITION_DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :CONFIG, 1
@@ -24,9 +13,7 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ENTITY_TYPE_UNSPECIFIED | :TABLE | :FILESET
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -34,9 +21,7 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
 end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :SPARK | :NOTEBOOK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SPARK, 1
@@ -44,9 +29,7 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent.Type do
 end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :CANCELLED | :ABORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -56,18 +39,14 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent.State do
 end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Service do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVICE_UNSPECIFIED | :DATAPROC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :DATAPROC, 1
 end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVENT_TYPE_UNSPECIFIED | :START | :STOP | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :START, 1
@@ -76,9 +55,7 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
 end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ENGINE_UNSPECIFIED | :SPARK_SQL | :BIGQUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENGINE_UNSPECIFIED, 0
   field :SPARK_SQL, 1
@@ -86,28 +63,14 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameters: %{String.t() => String.t()}
-        }
-
-  defstruct parameters: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -116,32 +79,14 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails do
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity: String.t(),
-          type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType.t()
-        }
-
-  defstruct entity: "",
-            type: :ENTITY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity, 1, type: :string
   field :type, 2, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType, enum: true
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partition: String.t(),
-          entity: String.t(),
-          type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType.t()
-        }
-
-  defstruct partition: "",
-            entity: "",
-            type: :ENTITY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partition, 1, type: :string
   field :entity, 2, type: :string
@@ -149,41 +94,13 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t()
-        }
-
-  defstruct type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:config, Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.t() | nil}
-            | {:entity, Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails.t() | nil}
-            | {:partition, Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails.t() | nil}
-            | {:action, Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails.t() | nil},
-          message: String.t(),
-          lake_id: String.t(),
-          zone_id: String.t(),
-          asset_id: String.t(),
-          data_location: String.t(),
-          type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType.t()
-        }
-
-  defstruct details: nil,
-            message: "",
-            lake_id: "",
-            zone_id: "",
-            asset_id: "",
-            data_location: "",
-            type: :EVENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -200,29 +117,7 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
 end
 defmodule Google.Cloud.Dataplex.V1.JobEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message: String.t(),
-          job_id: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Dataplex.V1.JobEvent.State.t(),
-          retries: integer,
-          type: Google.Cloud.Dataplex.V1.JobEvent.Type.t(),
-          service: Google.Cloud.Dataplex.V1.JobEvent.Service.t(),
-          service_job: String.t()
-        }
-
-  defstruct message: "",
-            job_id: "",
-            start_time: nil,
-            end_time: nil,
-            state: :STATE_UNSPECIFIED,
-            retries: 0,
-            type: :TYPE_UNSPECIFIED,
-            service: :SERVICE_UNSPECIFIED,
-            service_job: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -236,23 +131,7 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent do
 end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query_id: String.t(),
-          query_text: String.t(),
-          engine: Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine.t(),
-          duration: Google.Protobuf.Duration.t() | nil,
-          result_size_bytes: integer,
-          data_processed_bytes: integer
-        }
-
-  defstruct query_id: "",
-            query_text: "",
-            engine: :ENGINE_UNSPECIFIED,
-            duration: nil,
-            result_size_bytes: 0,
-            data_processed_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query_id, 1, type: :string, json_name: "queryId"
   field :query_text, 2, type: :string, json_name: "queryText"
@@ -263,21 +142,7 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
 end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          detail: {:query, Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.t() | nil},
-          message: String.t(),
-          user_id: String.t(),
-          session_id: String.t(),
-          type: Google.Cloud.Dataplex.V1.SessionEvent.EventType.t()
-        }
-
-  defstruct detail: nil,
-            message: "",
-            user_id: "",
-            session_id: "",
-            type: :EVENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :detail, 0
 

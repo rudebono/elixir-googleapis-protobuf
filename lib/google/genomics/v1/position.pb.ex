@@ -1,16 +1,6 @@
 defmodule Google.Genomics.V1.Position do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_name: String.t(),
-          position: integer,
-          reverse_strand: boolean
-        }
-
-  defstruct reference_name: "",
-            position: 0,
-            reverse_strand: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_name, 1, type: :string, json_name: "referenceName"
   field :position, 2, type: :int64

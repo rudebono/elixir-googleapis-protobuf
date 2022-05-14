@@ -1,27 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.AnnotationPayload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          detail:
-            {:translation, Google.Cloud.Automl.V1beta1.TranslationAnnotation.t() | nil}
-            | {:classification, Google.Cloud.Automl.V1beta1.ClassificationAnnotation.t() | nil}
-            | {:image_object_detection,
-               Google.Cloud.Automl.V1beta1.ImageObjectDetectionAnnotation.t() | nil}
-            | {:video_classification,
-               Google.Cloud.Automl.V1beta1.VideoClassificationAnnotation.t() | nil}
-            | {:video_object_tracking,
-               Google.Cloud.Automl.V1beta1.VideoObjectTrackingAnnotation.t() | nil}
-            | {:text_extraction, Google.Cloud.Automl.V1beta1.TextExtractionAnnotation.t() | nil}
-            | {:text_sentiment, Google.Cloud.Automl.V1beta1.TextSentimentAnnotation.t() | nil}
-            | {:tables, Google.Cloud.Automl.V1beta1.TablesAnnotation.t() | nil},
-          annotation_spec_id: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct detail: nil,
-            annotation_spec_id: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :detail, 0
 

@@ -1,20 +1,6 @@
 defmodule Google.Monitoring.V3.Group do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          parent_name: String.t(),
-          filter: String.t(),
-          is_cluster: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            parent_name: "",
-            filter: "",
-            is_cluster: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

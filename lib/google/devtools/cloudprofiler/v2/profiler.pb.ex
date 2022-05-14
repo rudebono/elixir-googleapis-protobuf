@@ -1,17 +1,6 @@
 defmodule Google.Devtools.Cloudprofiler.V2.ProfileType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PROFILE_TYPE_UNSPECIFIED
-          | :CPU
-          | :WALL
-          | :HEAP
-          | :THREADS
-          | :CONTENTION
-          | :PEAK_HEAP
-          | :HEAP_ALLOC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROFILE_TYPE_UNSPECIFIED, 0
   field :CPU, 1
@@ -24,17 +13,7 @@ defmodule Google.Devtools.Cloudprofiler.V2.ProfileType do
 end
 defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          deployment: Google.Devtools.Cloudprofiler.V2.Deployment.t() | nil,
-          profile_type: [Google.Devtools.Cloudprofiler.V2.ProfileType.t()]
-        }
-
-  defstruct parent: "",
-            deployment: nil,
-            profile_type: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 4, type: :string
   field :deployment, 1, type: Google.Devtools.Cloudprofiler.V2.Deployment
@@ -47,68 +26,28 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
 end
 defmodule Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          profile: Google.Devtools.Cloudprofiler.V2.Profile.t() | nil
-        }
-
-  defstruct parent: "",
-            profile: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :profile, 2, type: Google.Devtools.Cloudprofiler.V2.Profile
 end
 defmodule Google.Devtools.Cloudprofiler.V2.UpdateProfileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          profile: Google.Devtools.Cloudprofiler.V2.Profile.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct profile: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :profile, 1, type: Google.Devtools.Cloudprofiler.V2.Profile
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudprofiler.V2.Profile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          profile_type: Google.Devtools.Cloudprofiler.V2.ProfileType.t(),
-          deployment: Google.Devtools.Cloudprofiler.V2.Deployment.t() | nil,
-          duration: Google.Protobuf.Duration.t() | nil,
-          profile_bytes: binary,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            profile_type: :PROFILE_TYPE_UNSPECIFIED,
-            deployment: nil,
-            duration: nil,
-            profile_bytes: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -128,32 +67,14 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile do
 end
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          target: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct project_id: "",
-            target: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :target, 2, type: :string
@@ -165,7 +86,9 @@ defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
 end
 defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.cloudprofiler.v2.ProfilerService"
+  use GRPC.Service,
+    name: "google.devtools.cloudprofiler.v2.ProfilerService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateProfile,
       Google.Devtools.Cloudprofiler.V2.CreateProfileRequest,

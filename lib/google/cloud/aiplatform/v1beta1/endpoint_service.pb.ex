@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          endpoint: Google.Cloud.Aiplatform.V1beta1.Endpoint.t() | nil,
-          endpoint_id: String.t()
-        }
-
-  defstruct parent: "",
-            endpoint: nil,
-            endpoint_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint, 2, type: Google.Cloud.Aiplatform.V1beta1.Endpoint, deprecated: false
@@ -18,13 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -32,33 +16,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -68,30 +32,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoints: [Google.Cloud.Aiplatform.V1beta1.Endpoint.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct endpoints: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: Google.Cloud.Aiplatform.V1beta1.Endpoint.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct endpoint: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: Google.Cloud.Aiplatform.V1beta1.Endpoint, deprecated: false
 
@@ -102,44 +50,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          deployed_model: Google.Cloud.Aiplatform.V1beta1.DeployedModel.t() | nil,
-          traffic_split: %{String.t() => integer}
-        }
-
-  defstruct endpoint: "",
-            deployed_model: nil,
-            traffic_split: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
 
@@ -156,13 +80,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployed_model: Google.Cloud.Aiplatform.V1beta1.DeployedModel.t() | nil
-        }
-
-  defstruct deployed_model: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deployed_model, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModel,
@@ -170,13 +88,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -184,32 +96,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          deployed_model_id: String.t(),
-          traffic_split: %{String.t() => integer}
-        }
-
-  defstruct endpoint: "",
-            deployed_model_id: "",
-            traffic_split: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId", deprecated: false
@@ -222,21 +116,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -244,7 +128,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.EndpointService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.EndpointService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateEndpoint,
       Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest,

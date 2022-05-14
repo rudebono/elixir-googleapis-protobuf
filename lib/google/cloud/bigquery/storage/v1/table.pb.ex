@@ -1,25 +1,6 @@
 defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :STRING
-          | :INT64
-          | :DOUBLE
-          | :STRUCT
-          | :BYTES
-          | :BOOL
-          | :TIMESTAMP
-          | :DATE
-          | :TIME
-          | :DATETIME
-          | :GEOGRAPHY
-          | :NUMERIC
-          | :BIGNUMERIC
-          | :INTERVAL
-          | :JSON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -40,9 +21,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Type do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Mode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MODE_UNSPECIFIED | :NULLABLE | :REQUIRED | :REPEATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :NULLABLE, 1
@@ -51,39 +30,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Mode do
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.TableSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: [Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.t()]
-        }
-
-  defstruct fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Type.t(),
-          mode: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Mode.t(),
-          fields: [Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.t()],
-          description: String.t(),
-          max_length: integer,
-          precision: integer,
-          scale: integer
-        }
-
-  defstruct name: "",
-            type: :TYPE_UNSPECIFIED,
-            mode: :MODE_UNSPECIFIED,
-            fields: [],
-            description: "",
-            max_length: 0,
-            precision: 0,
-            scale: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

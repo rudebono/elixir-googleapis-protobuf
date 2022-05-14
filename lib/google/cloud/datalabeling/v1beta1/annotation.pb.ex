@@ -1,17 +1,13 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSource do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANNOTATION_SOURCE_UNSPECIFIED | :OPERATOR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANNOTATION_SOURCE_UNSPECIFIED, 0
   field :OPERATOR, 3
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANNOTATION_SENTIMENT_UNSPECIFIED | :NEGATIVE | :POSITIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANNOTATION_SENTIMENT_UNSPECIFIED, 0
   field :NEGATIVE, 1
@@ -19,24 +15,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ANNOTATION_TYPE_UNSPECIFIED
-          | :IMAGE_CLASSIFICATION_ANNOTATION
-          | :IMAGE_BOUNDING_BOX_ANNOTATION
-          | :IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION
-          | :IMAGE_BOUNDING_POLY_ANNOTATION
-          | :IMAGE_POLYLINE_ANNOTATION
-          | :IMAGE_SEGMENTATION_ANNOTATION
-          | :VIDEO_SHOTS_CLASSIFICATION_ANNOTATION
-          | :VIDEO_OBJECT_TRACKING_ANNOTATION
-          | :VIDEO_OBJECT_DETECTION_ANNOTATION
-          | :VIDEO_EVENT_ANNOTATION
-          | :TEXT_CLASSIFICATION_ANNOTATION
-          | :TEXT_ENTITY_EXTRACTION_ANNOTATION
-          | :GENERAL_CLASSIFICATION_ANNOTATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :IMAGE_CLASSIFICATION_ANNOTATION, 1
@@ -55,21 +34,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationType do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          annotation_source: Google.Cloud.Datalabeling.V1beta1.AnnotationSource.t(),
-          annotation_value: Google.Cloud.Datalabeling.V1beta1.AnnotationValue.t() | nil,
-          annotation_metadata: Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata.t() | nil,
-          annotation_sentiment: Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment.t()
-        }
-
-  defstruct name: "",
-            annotation_source: :ANNOTATION_SOURCE_UNSPECIFIED,
-            annotation_value: nil,
-            annotation_metadata: nil,
-            annotation_sentiment: :ANNOTATION_SENTIMENT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -93,31 +58,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value_type:
-            {:image_classification_annotation,
-             Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation.t() | nil}
-            | {:image_bounding_poly_annotation,
-               Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation.t() | nil}
-            | {:image_polyline_annotation,
-               Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation.t() | nil}
-            | {:image_segmentation_annotation,
-               Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation.t() | nil}
-            | {:text_classification_annotation,
-               Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation.t() | nil}
-            | {:text_entity_extraction_annotation,
-               Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation.t() | nil}
-            | {:video_classification_annotation,
-               Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation.t() | nil}
-            | {:video_object_tracking_annotation,
-               Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation.t() | nil}
-            | {:video_event_annotation,
-               Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation.t() | nil}
-        }
-
-  defstruct value_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -168,13 +109,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct annotation_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -182,55 +117,27 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.Vertex do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          x: integer,
-          y: integer
-        }
-
-  defstruct x: 0,
-            y: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :x, 1, type: :int32
   field :y, 2, type: :int32
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedVertex do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          x: float | :infinity | :negative_infinity | :nan,
-          y: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct x: 0.0,
-            y: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :x, 1, type: :float
   field :y, 2, type: :float
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPoly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vertices: [Google.Cloud.Datalabeling.V1beta1.Vertex.t()]
-        }
-
-  defstruct vertices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          normalized_vertices: [Google.Cloud.Datalabeling.V1beta1.NormalizedVertex.t()]
-        }
-
-  defstruct normalized_vertices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -239,18 +146,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bounded_area:
-            {:bounding_poly, Google.Cloud.Datalabeling.V1beta1.BoundingPoly.t() | nil}
-            | {:normalized_bounding_poly,
-               Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly.t() | nil},
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct bounded_area: nil,
-            annotation_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :bounded_area, 0
 
@@ -270,25 +166,13 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.Polyline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vertices: [Google.Cloud.Datalabeling.V1beta1.Vertex.t()]
-        }
-
-  defstruct vertices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          normalized_vertices: [Google.Cloud.Datalabeling.V1beta1.NormalizedVertex.t()]
-        }
-
-  defstruct normalized_vertices: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -297,18 +181,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          poly:
-            {:polyline, Google.Cloud.Datalabeling.V1beta1.Polyline.t() | nil}
-            | {:normalized_polyline,
-               Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline.t() | nil},
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct poly: nil,
-            annotation_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :poly, 0
 
@@ -325,34 +198,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation.AnnotationColorsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_colors: %{
-            String.t() => Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-          },
-          mime_type: String.t(),
-          image_bytes: binary
-        }
-
-  defstruct annotation_colors: %{},
-            mime_type: "",
-            image_bytes: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_colors, 1,
     repeated: true,
@@ -365,13 +218,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct annotation_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -379,15 +226,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil,
-          sequential_segment: Google.Cloud.Datalabeling.V1beta1.SequentialSegment.t() | nil
-        }
-
-  defstruct annotation_spec: nil,
-            sequential_segment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -399,45 +238,21 @@ defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.SequentialSegment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: integer,
-          end: integer
-        }
-
-  defstruct start: 0,
-            end: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.TimeSegment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time_offset: Google.Protobuf.Duration.t() | nil,
-          end_time_offset: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct start_time_offset: nil,
-            end_time_offset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_segment: Google.Cloud.Datalabeling.V1beta1.TimeSegment.t() | nil,
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil
-        }
-
-  defstruct time_segment: nil,
-            annotation_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_segment, 1,
     type: Google.Cloud.Datalabeling.V1beta1.TimeSegment,
@@ -449,18 +264,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bounded_area:
-            {:bounding_poly, Google.Cloud.Datalabeling.V1beta1.BoundingPoly.t() | nil}
-            | {:normalized_bounding_poly,
-               Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly.t() | nil},
-          time_offset: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct bounded_area: nil,
-            time_offset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :bounded_area, 0
 
@@ -478,17 +282,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil,
-          time_segment: Google.Cloud.Datalabeling.V1beta1.TimeSegment.t() | nil,
-          object_tracking_frames: [Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame.t()]
-        }
-
-  defstruct annotation_spec: nil,
-            time_segment: nil,
-            object_tracking_frames: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -505,15 +299,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_spec: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t() | nil,
-          time_segment: Google.Cloud.Datalabeling.V1beta1.TimeSegment.t() | nil
-        }
-
-  defstruct annotation_spec: nil,
-            time_segment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -525,13 +311,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operator_metadata: Google.Cloud.Datalabeling.V1beta1.OperatorMetadata.t() | nil
-        }
-
-  defstruct operator_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operator_metadata, 2,
     type: Google.Cloud.Datalabeling.V1beta1.OperatorMetadata,
@@ -539,19 +319,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.OperatorMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score: float | :infinity | :negative_infinity | :nan,
-          total_votes: integer,
-          label_votes: integer,
-          comments: [String.t()]
-        }
-
-  defstruct score: 0.0,
-            total_votes: 0,
-            label_votes: 0,
-            comments: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score, 1, type: :float
   field :total_votes, 2, type: :int32, json_name: "totalVotes"

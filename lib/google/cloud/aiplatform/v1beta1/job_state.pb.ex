@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.JobState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :JOB_STATE_UNSPECIFIED
-          | :JOB_STATE_QUEUED
-          | :JOB_STATE_PENDING
-          | :JOB_STATE_RUNNING
-          | :JOB_STATE_SUCCEEDED
-          | :JOB_STATE_FAILED
-          | :JOB_STATE_CANCELLING
-          | :JOB_STATE_CANCELLED
-          | :JOB_STATE_PAUSED
-          | :JOB_STATE_EXPIRED
-          | :JOB_STATE_UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JOB_STATE_UNSPECIFIED, 0
   field :JOB_STATE_QUEUED, 1

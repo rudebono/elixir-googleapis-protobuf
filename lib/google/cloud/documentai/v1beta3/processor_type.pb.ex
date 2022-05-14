@@ -1,32 +1,12 @@
 defmodule Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location_id: String.t()
-        }
-
-  defstruct location_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location_id, 1, type: :string, json_name: "locationId"
 end
 defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          category: String.t(),
-          available_locations: [Google.Cloud.Documentai.V1beta3.ProcessorType.LocationInfo.t()],
-          allow_creation: boolean
-        }
-
-  defstruct name: "",
-            type: "",
-            category: "",
-            available_locations: [],
-            allow_creation: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string

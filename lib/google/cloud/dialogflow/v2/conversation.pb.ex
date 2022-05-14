@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2.Conversation.LifecycleState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LIFECYCLE_STATE_UNSPECIFIED | :IN_PROGRESS | :COMPLETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -10,10 +8,7 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation.LifecycleState do
 end
 defmodule Google.Cloud.Dialogflow.V2.Conversation.ConversationStage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :CONVERSATION_STAGE_UNSPECIFIED | :VIRTUAL_AGENT_STAGE | :HUMAN_ASSIST_STAGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONVERSATION_STAGE_UNSPECIFIED, 0
   field :VIRTUAL_AGENT_STAGE, 1
@@ -21,25 +16,7 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation.ConversationStage do
 end
 defmodule Google.Cloud.Dialogflow.V2.Conversation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          lifecycle_state: Google.Cloud.Dialogflow.V2.Conversation.LifecycleState.t(),
-          conversation_profile: String.t(),
-          phone_number: Google.Cloud.Dialogflow.V2.ConversationPhoneNumber.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          conversation_stage: Google.Cloud.Dialogflow.V2.Conversation.ConversationStage.t()
-        }
-
-  defstruct name: "",
-            lifecycle_state: :LIFECYCLE_STATE_UNSPECIFIED,
-            conversation_profile: "",
-            phone_number: nil,
-            start_time: nil,
-            end_time: nil,
-            conversation_stage: :CONVERSATION_STAGE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -69,17 +46,7 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation do
 end
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          conversation: Google.Cloud.Dialogflow.V2.Conversation.t() | nil,
-          conversation_id: String.t()
-        }
-
-  defstruct parent: "",
-            conversation: nil,
-            conversation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :conversation, 2, type: Google.Cloud.Dialogflow.V2.Conversation, deprecated: false
@@ -87,19 +54,7 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2.ListConversationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -108,58 +63,26 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2.ListConversationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          conversations: [Google.Cloud.Dialogflow.V2.Conversation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct conversations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :conversations, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Conversation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2.GetConversationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2.CompleteConversationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2.ListMessagesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string, deprecated: false
@@ -168,34 +91,22 @@ defmodule Google.Cloud.Dialogflow.V2.ListMessagesRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2.ListMessagesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          messages: [Google.Cloud.Dialogflow.V2.Message.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct messages: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Message
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          phone_number: String.t()
-        }
-
-  defstruct phone_number: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :phone_number, 3, type: :string, json_name: "phoneNumber", deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2.Conversations"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2.Conversations",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateConversation,
       Google.Cloud.Dialogflow.V2.CreateConversationRequest,

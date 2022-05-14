@@ -1,47 +1,19 @@
 defmodule Google.Cloud.Sql.V1beta4.SqlTiersListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t()
-        }
-
-  defstruct project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: :string
 end
 defmodule Google.Cloud.Sql.V1beta4.TiersListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1beta4.Tier.t()]
-        }
-
-  defstruct kind: "",
-            items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.Tier
 end
 defmodule Google.Cloud.Sql.V1beta4.Tier do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tier: String.t(),
-          RAM: integer,
-          kind: String.t(),
-          Disk_Quota: integer,
-          region: [String.t()]
-        }
-
-  defstruct tier: "",
-            RAM: 0,
-            kind: "",
-            Disk_Quota: 0,
-            region: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tier, 1, type: :string
   field :RAM, 2, type: :int64
@@ -51,7 +23,9 @@ defmodule Google.Cloud.Sql.V1beta4.Tier do
 end
 defmodule Google.Cloud.Sql.V1beta4.SqlTiersService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1beta4.SqlTiersService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1beta4.SqlTiersService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :List,
       Google.Cloud.Sql.V1beta4.SqlTiersListRequest,

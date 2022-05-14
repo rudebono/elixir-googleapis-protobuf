@@ -1,41 +1,13 @@
 defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          sni: String.t(),
-          client_certificate: Google.Cloud.Networksecurity.V1beta1.CertificateProvider.t() | nil,
-          server_validation_ca: [Google.Cloud.Networksecurity.V1beta1.ValidationCA.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            sni: "",
-            client_certificate: nil,
-            server_validation_ca: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -71,17 +43,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -89,15 +51,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesRequest do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          client_tls_policies: [Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct client_tls_policies: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :client_tls_policies, 1,
     repeated: true,
@@ -108,29 +62,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ListClientTlsPoliciesResponse do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.GetClientTlsPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          client_tls_policy_id: String.t(),
-          client_tls_policy: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.t() | nil
-        }
-
-  defstruct parent: "",
-            client_tls_policy_id: "",
-            client_tls_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :client_tls_policy_id, 2, type: :string, json_name: "clientTlsPolicyId", deprecated: false
@@ -142,15 +80,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.CreateClientTlsPolicyRequest do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          client_tls_policy: Google.Cloud.Networksecurity.V1beta1.ClientTlsPolicy.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            client_tls_policy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -164,13 +94,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.UpdateClientTlsPolicyRequest do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.DeleteClientTlsPolicyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Run.V2.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          service: Google.Cloud.Run.V2.Service.t() | nil,
-          service_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            service: nil,
-            service_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service, 2, type: Google.Cloud.Run.V2.Service, deprecated: false
@@ -21,17 +9,7 @@ defmodule Google.Cloud.Run.V2.CreateServiceRequest do
 end
 defmodule Google.Cloud.Run.V2.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service: Google.Cloud.Run.V2.Service.t() | nil,
-          validate_only: boolean,
-          allow_missing: boolean
-        }
-
-  defstruct service: nil,
-            validate_only: false,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service, 1, type: Google.Cloud.Run.V2.Service, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -39,19 +17,7 @@ defmodule Google.Cloud.Run.V2.UpdateServiceRequest do
 end
 defmodule Google.Cloud.Run.V2.ListServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          show_deleted: boolean
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            show_deleted: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -60,44 +26,20 @@ defmodule Google.Cloud.Run.V2.ListServicesRequest do
 end
 defmodule Google.Cloud.Run.V2.ListServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Cloud.Run.V2.Service.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct services: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Run.V2.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Run.V2.GetServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Run.V2.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          validate_only: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            validate_only: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -105,97 +47,21 @@ defmodule Google.Cloud.Run.V2.DeleteServiceRequest do
 end
 defmodule Google.Cloud.Run.V2.Service.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Run.V2.Service.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Run.V2.Service do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          uid: String.t(),
-          generation: integer,
-          labels: %{String.t() => String.t()},
-          annotations: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          creator: String.t(),
-          last_modifier: String.t(),
-          client: String.t(),
-          client_version: String.t(),
-          ingress: Google.Cloud.Run.V2.IngressTraffic.t(),
-          launch_stage: Google.Api.LaunchStage.t(),
-          binary_authorization: Google.Cloud.Run.V2.BinaryAuthorization.t() | nil,
-          template: Google.Cloud.Run.V2.RevisionTemplate.t() | nil,
-          traffic: [Google.Cloud.Run.V2.TrafficTarget.t()],
-          observed_generation: integer,
-          terminal_condition: Google.Cloud.Run.V2.Condition.t() | nil,
-          conditions: [Google.Cloud.Run.V2.Condition.t()],
-          latest_ready_revision: String.t(),
-          latest_created_revision: String.t(),
-          traffic_statuses: [Google.Cloud.Run.V2.TrafficTargetStatus.t()],
-          uri: String.t(),
-          reconciling: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            description: "",
-            uid: "",
-            generation: 0,
-            labels: %{},
-            annotations: %{},
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil,
-            expire_time: nil,
-            creator: "",
-            last_modifier: "",
-            client: "",
-            client_version: "",
-            ingress: :INGRESS_TRAFFIC_UNSPECIFIED,
-            launch_stage: :LAUNCH_STAGE_UNSPECIFIED,
-            binary_authorization: nil,
-            template: nil,
-            traffic: [],
-            observed_generation: 0,
-            terminal_condition: nil,
-            conditions: [],
-            latest_ready_revision: "",
-            latest_created_revision: "",
-            traffic_statuses: [],
-            uri: "",
-            reconciling: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -272,7 +138,7 @@ defmodule Google.Cloud.Run.V2.Service do
 end
 defmodule Google.Cloud.Run.V2.Services.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.run.v2.Services"
+  use GRPC.Service, name: "google.cloud.run.v2.Services", protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateService, Google.Cloud.Run.V2.CreateServiceRequest, Google.Longrunning.Operation
 

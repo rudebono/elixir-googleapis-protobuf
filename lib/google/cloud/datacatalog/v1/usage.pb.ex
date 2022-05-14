@@ -1,19 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.UsageStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_completions: float | :infinity | :negative_infinity | :nan,
-          total_failures: float | :infinity | :negative_infinity | :nan,
-          total_cancellations: float | :infinity | :negative_infinity | :nan,
-          total_execution_time_for_completions_millis:
-            float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct total_completions: 0.0,
-            total_failures: 0.0,
-            total_cancellations: 0.0,
-            total_execution_time_for_completions_millis: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_completions, 1, type: :float, json_name: "totalCompletions"
   field :total_failures, 2, type: :float, json_name: "totalFailures"
@@ -25,32 +12,14 @@ defmodule Google.Cloud.Datacatalog.V1.UsageStats do
 end
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Datacatalog.V1.UsageStats.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.UsageStats
 end
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          usage_within_time_range: %{
-            String.t() => Google.Cloud.Datacatalog.V1.UsageStats.t() | nil
-          }
-        }
-
-  defstruct update_time: nil,
-            usage_within_time_range: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 

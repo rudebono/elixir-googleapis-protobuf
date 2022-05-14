@@ -1,45 +1,19 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.NotificationConfig.EventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVENT_TYPE_UNSPECIFIED | :FINDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :FINDING, 1
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.NotificationConfig.StreamingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t()
-        }
-
-  defstruct filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 1, type: :string
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.NotificationConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notify_config:
-            {:streaming_config,
-             Google.Cloud.Securitycenter.V1p1beta1.NotificationConfig.StreamingConfig.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          event_type: Google.Cloud.Securitycenter.V1p1beta1.NotificationConfig.EventType.t(),
-          pubsub_topic: String.t(),
-          service_account: String.t()
-        }
-
-  defstruct notify_config: nil,
-            name: "",
-            description: "",
-            event_type: :EVENT_TYPE_UNSPECIFIED,
-            pubsub_topic: "",
-            service_account: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :notify_config, 0
 

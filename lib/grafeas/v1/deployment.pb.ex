@@ -1,8 +1,6 @@
 defmodule Grafeas.V1.DeploymentOccurrence.Platform do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PLATFORM_UNSPECIFIED | :GKE | :FLEX | :CUSTOM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :GKE, 1
@@ -11,37 +9,13 @@ defmodule Grafeas.V1.DeploymentOccurrence.Platform do
 end
 defmodule Grafeas.V1.DeploymentNote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_uri: [String.t()]
-        }
-
-  defstruct resource_uri: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_uri, 1, repeated: true, type: :string, json_name: "resourceUri"
 end
 defmodule Grafeas.V1.DeploymentOccurrence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_email: String.t(),
-          deploy_time: Google.Protobuf.Timestamp.t() | nil,
-          undeploy_time: Google.Protobuf.Timestamp.t() | nil,
-          config: String.t(),
-          address: String.t(),
-          resource_uri: [String.t()],
-          platform: Grafeas.V1.DeploymentOccurrence.Platform.t()
-        }
-
-  defstruct user_email: "",
-            deploy_time: nil,
-            undeploy_time: nil,
-            config: "",
-            address: "",
-            resource_uri: [],
-            platform: :PLATFORM_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :user_email, 1, type: :string, json_name: "userEmail"
   field :deploy_time, 2, type: Google.Protobuf.Timestamp, json_name: "deployTime"

@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Essentialcontacts.V1.NotificationCategory do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :NOTIFICATION_CATEGORY_UNSPECIFIED
-          | :ALL
-          | :SUSPENSION
-          | :SECURITY
-          | :TECHNICAL
-          | :BILLING
-          | :LEGAL
-          | :PRODUCT_UPDATES
-          | :TECHNICAL_INCIDENTS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NOTIFICATION_CATEGORY_UNSPECIFIED, 0
   field :ALL, 2
@@ -26,9 +14,7 @@ defmodule Google.Cloud.Essentialcontacts.V1.NotificationCategory do
 end
 defmodule Google.Cloud.Essentialcontacts.V1.ValidationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VALIDATION_STATE_UNSPECIFIED | :VALID | :INVALID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VALIDATION_STATE_UNSPECIFIED, 0
   field :VALID, 1

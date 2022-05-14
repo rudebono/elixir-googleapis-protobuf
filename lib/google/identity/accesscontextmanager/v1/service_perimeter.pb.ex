@@ -1,22 +1,13 @@
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter.PerimeterType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PERIMETER_TYPE_REGULAR | :PERIMETER_TYPE_BRIDGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PERIMETER_TYPE_REGULAR, 0
   field :PERIMETER_TYPE_BRIDGE, 1
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :IDENTITY_TYPE_UNSPECIFIED
-          | :ANY_IDENTITY
-          | :ANY_USER_ACCOUNT
-          | :ANY_SERVICE_ACCOUNT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IDENTITY_TYPE_UNSPECIFIED, 0
   field :ANY_IDENTITY, 1
@@ -25,30 +16,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Identit
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          perimeter_type:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeter.PerimeterType.t(),
-          status: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.t() | nil,
-          spec: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.t() | nil,
-          use_explicit_dry_run_spec: boolean
-        }
-
-  defstruct name: "",
-            title: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            perimeter_type: :PERIMETER_TYPE_REGULAR,
-            status: nil,
-            spec: nil,
-            use_explicit_dry_run_spec: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -67,28 +35,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter do
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_restriction: boolean,
-          allowed_services: [String.t()]
-        }
-
-  defstruct enable_restriction: false,
-            allowed_services: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_restriction, 1, type: :bool, json_name: "enableRestriction"
   field :allowed_services, 2, repeated: true, type: :string, json_name: "allowedServices"
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: {:method, String.t()} | {:permission, String.t()}
-        }
-
-  defstruct kind: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -97,17 +51,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodS
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_name: String.t(),
-          method_selectors: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector.t()
-          ]
-        }
-
-  defstruct service_name: "",
-            method_selectors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
 
@@ -118,13 +62,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOper
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:access_level, String.t()} | {:resource, String.t()}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -133,17 +71,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [String.t()],
-          operations: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation.t()
-          ]
-        }
-
-  defstruct resources: [],
-            operations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: :string
 
@@ -153,20 +81,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressT
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sources: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressSource.t()
-          ],
-          identities: [String.t()],
-          identity_type:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType.t()
-        }
-
-  defstruct sources: [],
-            identities: [],
-            identity_type: :IDENTITY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sources, 1,
     repeated: true,
@@ -181,17 +96,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operations: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation.t()
-          ],
-          resources: [String.t()]
-        }
-
-  defstruct operations: [],
-            resources: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operations, 1,
     repeated: true,
@@ -201,17 +106,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ingress_from:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom.t() | nil,
-          ingress_to:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo.t() | nil
-        }
-
-  defstruct ingress_from: nil,
-            ingress_to: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ingress_from, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom,
@@ -223,17 +118,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          egress_from:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom.t() | nil,
-          egress_to:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo.t() | nil
-        }
-
-  defstruct egress_from: nil,
-            egress_to: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :egress_from, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom,
@@ -245,16 +130,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressP
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          identities: [String.t()],
-          identity_type:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType.t()
-        }
-
-  defstruct identities: [],
-            identity_type: :IDENTITY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :identities, 1, repeated: true, type: :string
 
@@ -265,29 +141,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressF
 end
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [String.t()],
-          access_levels: [String.t()],
-          restricted_services: [String.t()],
-          vpc_accessible_services:
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices.t()
-            | nil,
-          ingress_policies: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy.t()
-          ],
-          egress_policies: [
-            Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy.t()
-          ]
-        }
-
-  defstruct resources: [],
-            access_levels: [],
-            restricted_services: [],
-            vpc_accessible_services: nil,
-            ingress_policies: [],
-            egress_policies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: :string
   field :access_levels, 2, repeated: true, type: :string, json_name: "accessLevels"

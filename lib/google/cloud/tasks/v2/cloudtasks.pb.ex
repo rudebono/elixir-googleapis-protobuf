@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Tasks.V2.ListQueuesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -21,124 +9,58 @@ defmodule Google.Cloud.Tasks.V2.ListQueuesRequest do
 end
 defmodule Google.Cloud.Tasks.V2.ListQueuesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          queues: [Google.Cloud.Tasks.V2.Queue.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct queues: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :queues, 1, repeated: true, type: Google.Cloud.Tasks.V2.Queue
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Tasks.V2.GetQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.CreateQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          queue: Google.Cloud.Tasks.V2.Queue.t() | nil
-        }
-
-  defstruct parent: "",
-            queue: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :queue, 2, type: Google.Cloud.Tasks.V2.Queue, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.UpdateQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          queue: Google.Cloud.Tasks.V2.Queue.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct queue: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :queue, 1, type: Google.Cloud.Tasks.V2.Queue, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Tasks.V2.DeleteQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.PurgeQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.PauseQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.ResumeQueueRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.ListTasksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          response_view: Google.Cloud.Tasks.V2.Task.View.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            response_view: :VIEW_UNSPECIFIED,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -152,30 +74,14 @@ defmodule Google.Cloud.Tasks.V2.ListTasksRequest do
 end
 defmodule Google.Cloud.Tasks.V2.ListTasksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tasks: [Google.Cloud.Tasks.V2.Task.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tasks: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Tasks.V2.GetTaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          response_view: Google.Cloud.Tasks.V2.Task.View.t()
-        }
-
-  defstruct name: "",
-            response_view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -186,17 +92,7 @@ defmodule Google.Cloud.Tasks.V2.GetTaskRequest do
 end
 defmodule Google.Cloud.Tasks.V2.CreateTaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          task: Google.Cloud.Tasks.V2.Task.t() | nil,
-          response_view: Google.Cloud.Tasks.V2.Task.View.t()
-        }
-
-  defstruct parent: "",
-            task: nil,
-            response_view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :task, 2, type: Google.Cloud.Tasks.V2.Task, deprecated: false
@@ -208,27 +104,13 @@ defmodule Google.Cloud.Tasks.V2.CreateTaskRequest do
 end
 defmodule Google.Cloud.Tasks.V2.DeleteTaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tasks.V2.RunTaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          response_view: Google.Cloud.Tasks.V2.Task.View.t()
-        }
-
-  defstruct name: "",
-            response_view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -239,7 +121,7 @@ defmodule Google.Cloud.Tasks.V2.RunTaskRequest do
 end
 defmodule Google.Cloud.Tasks.V2.CloudTasks.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.tasks.v2.CloudTasks"
+  use GRPC.Service, name: "google.cloud.tasks.v2.CloudTasks", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListQueues,
       Google.Cloud.Tasks.V2.ListQueuesRequest,

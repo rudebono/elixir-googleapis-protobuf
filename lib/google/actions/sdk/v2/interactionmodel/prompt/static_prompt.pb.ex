@@ -1,25 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          first_simple:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.t() | nil,
-          content: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticContentPrompt.t() | nil,
-          last_simple: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt.t() | nil,
-          suggestions: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.Suggestion.t()],
-          link: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt.t() | nil,
-          override: boolean,
-          canvas: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCanvasPrompt.t() | nil
-        }
-
-  defstruct first_simple: nil,
-            content: nil,
-            last_simple: nil,
-            suggestions: [],
-            link: nil,
-            override: false,
-            canvas: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :first_simple, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
@@ -49,17 +30,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector.t() | nil,
-          prompt_response:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse.t()
-            | nil
-        }
-
-  defstruct selector: nil,
-            prompt_response: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selector, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector,
@@ -72,14 +43,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromp
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          surface_capabilities:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.t() | nil
-        }
-
-  defstruct surface_capabilities: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :surface_capabilities, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities,
@@ -87,15 +51,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          candidates: [
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.t()
-          ]
-        }
-
-  defstruct candidates: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :candidates, 1,
     repeated: true,

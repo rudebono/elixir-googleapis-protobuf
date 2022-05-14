@@ -1,8 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Media.MediaType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MEDIA_TYPE_UNSPECIFIED | :AUDIO | :MEDIA_STATUS_ACK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
@@ -10,9 +8,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Media.MediaType do
 end
 defmodule Google.Actions.Sdk.V2.Conversation.Media.OptionalMediaControls do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED | :PAUSED | :STOPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -20,21 +16,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Media.OptionalMediaControls do
 end
 defmodule Google.Actions.Sdk.V2.Conversation.Media do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          media_type: Google.Actions.Sdk.V2.Conversation.Media.MediaType.t(),
-          start_offset: Google.Protobuf.Duration.t() | nil,
-          optional_media_controls: [
-            Google.Actions.Sdk.V2.Conversation.Media.OptionalMediaControls.t()
-          ],
-          media_objects: [Google.Actions.Sdk.V2.Conversation.MediaObject.t()]
-        }
-
-  defstruct media_type: :MEDIA_TYPE_UNSPECIFIED,
-            start_offset: nil,
-            optional_media_controls: [],
-            media_objects: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :media_type, 8,
     type: Google.Actions.Sdk.V2.Conversation.Media.MediaType,
@@ -56,19 +38,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.Media do
 end
 defmodule Google.Actions.Sdk.V2.Conversation.MediaObject do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          url: String.t(),
-          image: Google.Actions.Sdk.V2.Conversation.MediaImage.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            url: "",
-            image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -77,15 +47,7 @@ defmodule Google.Actions.Sdk.V2.Conversation.MediaObject do
 end
 defmodule Google.Actions.Sdk.V2.Conversation.MediaImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image:
-            {:large, Google.Actions.Sdk.V2.Conversation.Image.t() | nil}
-            | {:icon, Google.Actions.Sdk.V2.Conversation.Image.t() | nil}
-        }
-
-  defstruct image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :image, 0
 

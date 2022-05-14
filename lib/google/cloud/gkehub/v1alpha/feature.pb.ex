@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Gkehub.V1alpha.FeatureResourceState.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :ENABLING
-          | :ACTIVE
-          | :DISABLING
-          | :UPDATING
-          | :SERVICE_UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLING, 1
@@ -20,9 +11,7 @@ defmodule Google.Cloud.Gkehub.V1alpha.FeatureResourceState.State do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.FeatureState.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CODE_UNSPECIFIED | :OK | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :OK, 1
@@ -31,80 +20,28 @@ defmodule Google.Cloud.Gkehub.V1alpha.FeatureState.Code do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.Feature.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gkehub.V1alpha.Feature.MembershipSpecsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Gkehub.V1alpha.MembershipFeatureSpec.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1alpha.MembershipFeatureSpec
 end
 defmodule Google.Cloud.Gkehub.V1alpha.Feature.MembershipStatesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Gkehub.V1alpha.MembershipFeatureState.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1alpha.MembershipFeatureState
 end
 defmodule Google.Cloud.Gkehub.V1alpha.Feature do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          labels: %{String.t() => String.t()},
-          resource_state: Google.Cloud.Gkehub.V1alpha.FeatureResourceState.t() | nil,
-          spec: Google.Cloud.Gkehub.V1alpha.CommonFeatureSpec.t() | nil,
-          membership_specs: %{
-            String.t() => Google.Cloud.Gkehub.V1alpha.MembershipFeatureSpec.t() | nil
-          },
-          state: Google.Cloud.Gkehub.V1alpha.CommonFeatureState.t() | nil,
-          membership_states: %{
-            String.t() => Google.Cloud.Gkehub.V1alpha.MembershipFeatureState.t() | nil
-          },
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            labels: %{},
-            resource_state: nil,
-            spec: nil,
-            membership_specs: %{},
-            state: nil,
-            membership_states: %{},
-            create_time: nil,
-            update_time: nil,
-            delete_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -153,29 +90,13 @@ defmodule Google.Cloud.Gkehub.V1alpha.Feature do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.FeatureResourceState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Gkehub.V1alpha.FeatureResourceState.State.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Gkehub.V1alpha.FeatureResourceState.State, enum: true
 end
 defmodule Google.Cloud.Gkehub.V1alpha.FeatureState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Cloud.Gkehub.V1alpha.FeatureState.Code.t(),
-          description: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct code: :CODE_UNSPECIFIED,
-            description: "",
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Gkehub.V1alpha.FeatureState.Code, enum: true
   field :description, 2, type: :string
@@ -183,17 +104,7 @@ defmodule Google.Cloud.Gkehub.V1alpha.FeatureState do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.CommonFeatureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_spec:
-            {:multiclusteringress,
-             Google.Cloud.Gkehub.Multiclusteringress.V1alpha.FeatureSpec.t() | nil}
-            | {:cloudauditlogging,
-               Google.Cloud.Gkehub.Cloudauditlogging.V1alpha.FeatureSpec.t() | nil}
-        }
-
-  defstruct feature_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :feature_spec, 0
 
@@ -207,16 +118,7 @@ defmodule Google.Cloud.Gkehub.V1alpha.CommonFeatureSpec do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.CommonFeatureState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_state:
-            {:servicemesh, Google.Cloud.Gkehub.Servicemesh.V1alpha.FeatureState.t() | nil},
-          state: Google.Cloud.Gkehub.V1alpha.FeatureState.t() | nil
-        }
-
-  defstruct feature_state: nil,
-            state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :feature_state, 0
 
@@ -225,15 +127,7 @@ defmodule Google.Cloud.Gkehub.V1alpha.CommonFeatureState do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.MembershipFeatureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_spec:
-            {:configmanagement,
-             Google.Cloud.Gkehub.Configmanagement.V1alpha.MembershipSpec.t() | nil}
-        }
-
-  defstruct feature_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :feature_spec, 0
 
@@ -243,19 +137,7 @@ defmodule Google.Cloud.Gkehub.V1alpha.MembershipFeatureSpec do
 end
 defmodule Google.Cloud.Gkehub.V1alpha.MembershipFeatureState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          feature_state:
-            {:servicemesh, Google.Cloud.Gkehub.Servicemesh.V1alpha.MembershipState.t() | nil}
-            | {:metering, Google.Cloud.Gkehub.Metering.V1alpha.MembershipState.t() | nil}
-            | {:configmanagement,
-               Google.Cloud.Gkehub.Configmanagement.V1alpha.MembershipState.t() | nil},
-          state: Google.Cloud.Gkehub.V1alpha.FeatureState.t() | nil
-        }
-
-  defstruct feature_state: nil,
-            state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :feature_state, 0
 

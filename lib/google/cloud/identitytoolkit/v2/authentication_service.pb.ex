@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          verification_info:
-            {:phone_verification_info,
-             Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo.t() | nil},
-          mfa_pending_credential: String.t(),
-          tenant_id: String.t()
-        }
-
-  defstruct verification_info: nil,
-            mfa_pending_credential: "",
-            tenant_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :verification_info, 0
 
@@ -30,19 +18,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
 end
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          auxiliary_auth_info:
-            {:phone_auth_info,
-             Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo.t() | nil},
-          id_token: String.t(),
-          refresh_token: String.t()
-        }
-
-  defstruct auxiliary_auth_info: nil,
-            id_token: "",
-            refresh_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :auxiliary_auth_info, 0
 
@@ -56,21 +32,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
 end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sign_in_info:
-            {:phone_sign_in_info,
-             Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo.t() | nil},
-          mfa_pending_credential: String.t(),
-          mfa_enrollment_id: String.t(),
-          tenant_id: String.t()
-        }
-
-  defstruct sign_in_info: nil,
-            mfa_pending_credential: "",
-            mfa_enrollment_id: "",
-            tenant_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :sign_in_info, 0
 
@@ -90,15 +52,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
 end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response_info:
-            {:phone_response_info,
-             Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo.t() | nil}
-        }
-
-  defstruct response_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :response_info, 0
 
@@ -109,7 +63,9 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
 end
 defmodule Google.Cloud.Identitytoolkit.V2.AuthenticationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.identitytoolkit.v2.AuthenticationService"
+  use GRPC.Service,
+    name: "google.cloud.identitytoolkit.v2.AuthenticationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :FinalizeMfaSignIn,
       Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest,

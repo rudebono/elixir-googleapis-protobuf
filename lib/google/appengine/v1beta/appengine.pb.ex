@@ -1,26 +1,20 @@
 defmodule Google.Appengine.V1beta.VersionView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASIC, 0
   field :FULL, 1
 end
 defmodule Google.Appengine.V1beta.AuthorizedCertificateView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BASIC_CERTIFICATE | :FULL_CERTIFICATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASIC_CERTIFICATE, 0
   field :FULL_CERTIFICATE, 1
 end
 defmodule Google.Appengine.V1beta.DomainOverrideStrategy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY | :STRICT | :OVERRIDE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY, 0
   field :STRICT, 1
@@ -28,41 +22,19 @@ defmodule Google.Appengine.V1beta.DomainOverrideStrategy do
 end
 defmodule Google.Appengine.V1beta.GetApplicationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.CreateApplicationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          application: Google.Appengine.V1beta.Application.t() | nil
-        }
-
-  defstruct application: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :application, 2, type: Google.Appengine.V1beta.Application
 end
 defmodule Google.Appengine.V1beta.UpdateApplicationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          application: Google.Appengine.V1beta.Application.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            application: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :application, 2, type: Google.Appengine.V1beta.Application
@@ -70,29 +42,13 @@ defmodule Google.Appengine.V1beta.UpdateApplicationRequest do
 end
 defmodule Google.Appengine.V1beta.RepairApplicationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.ListServicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -100,46 +56,20 @@ defmodule Google.Appengine.V1beta.ListServicesRequest do
 end
 defmodule Google.Appengine.V1beta.ListServicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          services: [Google.Appengine.V1beta.Service.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct services: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Appengine.V1beta.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Appengine.V1beta.GetServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          service: Google.Appengine.V1beta.Service.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          migrate_traffic: boolean
-        }
-
-  defstruct name: "",
-            service: nil,
-            update_mask: nil,
-            migrate_traffic: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :service, 2, type: Google.Appengine.V1beta.Service
@@ -148,31 +78,13 @@ defmodule Google.Appengine.V1beta.UpdateServiceRequest do
 end
 defmodule Google.Appengine.V1beta.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.ListVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          view: Google.Appengine.V1beta.VersionView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            view: :BASIC,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
@@ -181,62 +93,28 @@ defmodule Google.Appengine.V1beta.ListVersionsRequest do
 end
 defmodule Google.Appengine.V1beta.ListVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          versions: [Google.Appengine.V1beta.Version.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct versions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Appengine.V1beta.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Appengine.V1beta.GetVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Appengine.V1beta.VersionView.t()
-        }
-
-  defstruct name: "",
-            view: :BASIC
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
 end
 defmodule Google.Appengine.V1beta.CreateVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          version: Google.Appengine.V1beta.Version.t() | nil
-        }
-
-  defstruct parent: "",
-            version: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
 end
 defmodule Google.Appengine.V1beta.UpdateVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version: Google.Appengine.V1beta.Version.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            version: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
@@ -244,29 +122,13 @@ defmodule Google.Appengine.V1beta.UpdateVersionRequest do
 end
 defmodule Google.Appengine.V1beta.DeleteVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -274,73 +136,33 @@ defmodule Google.Appengine.V1beta.ListInstancesRequest do
 end
 defmodule Google.Appengine.V1beta.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instances: [Google.Appengine.V1beta.Instance.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct instances: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Appengine.V1beta.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Appengine.V1beta.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.DebugInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          ssh_key: String.t()
-        }
-
-  defstruct name: "",
-            ssh_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ssh_key, 2, type: :string, json_name: "sshKey"
 end
 defmodule Google.Appengine.V1beta.ListIngressRulesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          matching_address: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            matching_address: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -349,15 +171,7 @@ defmodule Google.Appengine.V1beta.ListIngressRulesRequest do
 end
 defmodule Google.Appengine.V1beta.ListIngressRulesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ingress_rules: [Google.Appengine.V1beta.FirewallRule.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct ingress_rules: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ingress_rules, 1,
     repeated: true,
@@ -368,15 +182,7 @@ defmodule Google.Appengine.V1beta.ListIngressRulesResponse do
 end
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          ingress_rules: [Google.Appengine.V1beta.FirewallRule.t()]
-        }
-
-  defstruct name: "",
-            ingress_rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -387,13 +193,7 @@ defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesRequest do
 end
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ingress_rules: [Google.Appengine.V1beta.FirewallRule.t()]
-        }
-
-  defstruct ingress_rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ingress_rules, 1,
     repeated: true,
@@ -402,44 +202,20 @@ defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesResponse do
 end
 defmodule Google.Appengine.V1beta.CreateIngressRuleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          rule: Google.Appengine.V1beta.FirewallRule.t() | nil
-        }
-
-  defstruct parent: "",
-            rule: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
 end
 defmodule Google.Appengine.V1beta.GetIngressRuleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.UpdateIngressRuleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          rule: Google.Appengine.V1beta.FirewallRule.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            rule: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
@@ -447,29 +223,13 @@ defmodule Google.Appengine.V1beta.UpdateIngressRuleRequest do
 end
 defmodule Google.Appengine.V1beta.DeleteIngressRuleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -477,34 +237,14 @@ defmodule Google.Appengine.V1beta.ListAuthorizedDomainsRequest do
 end
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domains: [Google.Appengine.V1beta.AuthorizedDomain.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct domains: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domains, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedDomain
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          view: Google.Appengine.V1beta.AuthorizedCertificateView.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            view: :BASIC_CERTIFICATE,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :view, 4, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
@@ -513,62 +253,28 @@ defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesRequest do
 end
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificates: [Google.Appengine.V1beta.AuthorizedCertificate.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct certificates: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedCertificate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Appengine.V1beta.GetAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Appengine.V1beta.AuthorizedCertificateView.t()
-        }
-
-  defstruct name: "",
-            view: :BASIC_CERTIFICATE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
 end
 defmodule Google.Appengine.V1beta.CreateAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          certificate: Google.Appengine.V1beta.AuthorizedCertificate.t() | nil
-        }
-
-  defstruct parent: "",
-            certificate: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
 end
 defmodule Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          certificate: Google.Appengine.V1beta.AuthorizedCertificate.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            certificate: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
@@ -576,29 +282,13 @@ defmodule Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest do
 end
 defmodule Google.Appengine.V1beta.DeleteAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.ListDomainMappingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -606,15 +296,7 @@ defmodule Google.Appengine.V1beta.ListDomainMappingsRequest do
 end
 defmodule Google.Appengine.V1beta.ListDomainMappingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain_mappings: [Google.Appengine.V1beta.DomainMapping.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct domain_mappings: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain_mappings, 1,
     repeated: true,
@@ -625,29 +307,13 @@ defmodule Google.Appengine.V1beta.ListDomainMappingsResponse do
 end
 defmodule Google.Appengine.V1beta.GetDomainMappingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.CreateDomainMappingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          domain_mapping: Google.Appengine.V1beta.DomainMapping.t() | nil,
-          override_strategy: Google.Appengine.V1beta.DomainOverrideStrategy.t()
-        }
-
-  defstruct parent: "",
-            domain_mapping: nil,
-            override_strategy: :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
 
@@ -662,17 +328,7 @@ defmodule Google.Appengine.V1beta.CreateDomainMappingRequest do
 end
 defmodule Google.Appengine.V1beta.UpdateDomainMappingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          domain_mapping: Google.Appengine.V1beta.DomainMapping.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            domain_mapping: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -684,19 +340,15 @@ defmodule Google.Appengine.V1beta.UpdateDomainMappingRequest do
 end
 defmodule Google.Appengine.V1beta.DeleteDomainMappingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.Applications.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Applications"
+  use GRPC.Service,
+    name: "google.appengine.v1beta.Applications",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetApplication,
       Google.Appengine.V1beta.GetApplicationRequest,
@@ -721,7 +373,7 @@ defmodule Google.Appengine.V1beta.Applications.Stub do
 end
 defmodule Google.Appengine.V1beta.Services.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Services"
+  use GRPC.Service, name: "google.appengine.v1beta.Services", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListServices,
       Google.Appengine.V1beta.ListServicesRequest,
@@ -740,7 +392,7 @@ defmodule Google.Appengine.V1beta.Services.Stub do
 end
 defmodule Google.Appengine.V1beta.Versions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Versions"
+  use GRPC.Service, name: "google.appengine.v1beta.Versions", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListVersions,
       Google.Appengine.V1beta.ListVersionsRequest,
@@ -761,7 +413,7 @@ defmodule Google.Appengine.V1beta.Versions.Stub do
 end
 defmodule Google.Appengine.V1beta.Instances.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Instances"
+  use GRPC.Service, name: "google.appengine.v1beta.Instances", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListInstances,
       Google.Appengine.V1beta.ListInstancesRequest,
@@ -780,7 +432,7 @@ defmodule Google.Appengine.V1beta.Instances.Stub do
 end
 defmodule Google.Appengine.V1beta.Firewall.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Firewall"
+  use GRPC.Service, name: "google.appengine.v1beta.Firewall", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListIngressRules,
       Google.Appengine.V1beta.ListIngressRulesRequest,
@@ -811,7 +463,9 @@ defmodule Google.Appengine.V1beta.Firewall.Stub do
 end
 defmodule Google.Appengine.V1beta.AuthorizedDomains.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.AuthorizedDomains"
+  use GRPC.Service,
+    name: "google.appengine.v1beta.AuthorizedDomains",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListAuthorizedDomains,
       Google.Appengine.V1beta.ListAuthorizedDomainsRequest,
@@ -824,7 +478,9 @@ defmodule Google.Appengine.V1beta.AuthorizedDomains.Stub do
 end
 defmodule Google.Appengine.V1beta.AuthorizedCertificates.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.AuthorizedCertificates"
+  use GRPC.Service,
+    name: "google.appengine.v1beta.AuthorizedCertificates",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListAuthorizedCertificates,
       Google.Appengine.V1beta.ListAuthorizedCertificatesRequest,
@@ -853,7 +509,9 @@ defmodule Google.Appengine.V1beta.AuthorizedCertificates.Stub do
 end
 defmodule Google.Appengine.V1beta.DomainMappings.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.DomainMappings"
+  use GRPC.Service,
+    name: "google.appengine.v1beta.DomainMappings",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListDomainMappings,
       Google.Appengine.V1beta.ListDomainMappingsRequest,

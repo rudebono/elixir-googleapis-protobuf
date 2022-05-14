@@ -1,60 +1,6 @@
 defmodule Google.Api.Service do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          producer_project_id: String.t(),
-          id: String.t(),
-          apis: [Google.Protobuf.Api.t()],
-          types: [Google.Protobuf.Type.t()],
-          enums: [Google.Protobuf.Enum.t()],
-          documentation: Google.Api.Documentation.t() | nil,
-          backend: Google.Api.Backend.t() | nil,
-          http: Google.Api.Http.t() | nil,
-          quota: Google.Api.Quota.t() | nil,
-          authentication: Google.Api.Authentication.t() | nil,
-          context: Google.Api.Context.t() | nil,
-          usage: Google.Api.Usage.t() | nil,
-          endpoints: [Google.Api.Endpoint.t()],
-          control: Google.Api.Control.t() | nil,
-          logs: [Google.Api.LogDescriptor.t()],
-          metrics: [Google.Api.MetricDescriptor.t()],
-          monitored_resources: [Google.Api.MonitoredResourceDescriptor.t()],
-          billing: Google.Api.Billing.t() | nil,
-          logging: Google.Api.Logging.t() | nil,
-          monitoring: Google.Api.Monitoring.t() | nil,
-          system_parameters: Google.Api.SystemParameters.t() | nil,
-          source_info: Google.Api.SourceInfo.t() | nil,
-          config_version: Google.Protobuf.UInt32Value.t() | nil
-        }
-
-  defstruct name: "",
-            title: "",
-            producer_project_id: "",
-            id: "",
-            apis: [],
-            types: [],
-            enums: [],
-            documentation: nil,
-            backend: nil,
-            http: nil,
-            quota: nil,
-            authentication: nil,
-            context: nil,
-            usage: nil,
-            endpoints: [],
-            control: nil,
-            logs: [],
-            metrics: [],
-            monitored_resources: [],
-            billing: nil,
-            logging: nil,
-            monitoring: nil,
-            system_parameters: nil,
-            source_info: nil,
-            config_version: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string

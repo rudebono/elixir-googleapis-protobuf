@@ -1,32 +1,6 @@
 defmodule Google.Cloud.Asset.V1p7beta1.Asset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_context_policy:
-            {:access_policy, Google.Identity.Accesscontextmanager.V1.AccessPolicy.t() | nil}
-            | {:access_level, Google.Identity.Accesscontextmanager.V1.AccessLevel.t() | nil}
-            | {:service_perimeter,
-               Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t() | nil},
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          name: String.t(),
-          asset_type: String.t(),
-          resource: Google.Cloud.Asset.V1p7beta1.Resource.t() | nil,
-          iam_policy: Google.Iam.V1.Policy.t() | nil,
-          org_policy: [Google.Cloud.Orgpolicy.V1.Policy.t()],
-          related_assets: Google.Cloud.Asset.V1p7beta1.RelatedAssets.t() | nil,
-          ancestors: [String.t()]
-        }
-
-  defstruct access_context_policy: nil,
-            update_time: nil,
-            name: "",
-            asset_type: "",
-            resource: nil,
-            iam_policy: nil,
-            org_policy: [],
-            related_assets: nil,
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -64,25 +38,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.Asset do
 end
 defmodule Google.Cloud.Asset.V1p7beta1.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          discovery_document_uri: String.t(),
-          discovery_name: String.t(),
-          resource_url: String.t(),
-          parent: String.t(),
-          data: Google.Protobuf.Struct.t() | nil,
-          location: String.t()
-        }
-
-  defstruct version: "",
-            discovery_document_uri: "",
-            discovery_name: "",
-            resource_url: "",
-            parent: "",
-            data: nil,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -94,15 +50,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.Resource do
 end
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAssets do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          relationship_attributes: Google.Cloud.Asset.V1p7beta1.RelationshipAttributes.t() | nil,
-          assets: [Google.Cloud.Asset.V1p7beta1.RelatedAsset.t()]
-        }
-
-  defstruct relationship_attributes: nil,
-            assets: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1p7beta1.RelationshipAttributes,
@@ -112,19 +60,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.RelatedAssets do
 end
 defmodule Google.Cloud.Asset.V1p7beta1.RelationshipAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          source_resource_type: String.t(),
-          target_resource_type: String.t(),
-          action: String.t()
-        }
-
-  defstruct type: "",
-            source_resource_type: "",
-            target_resource_type: "",
-            action: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
@@ -133,17 +69,7 @@ defmodule Google.Cloud.Asset.V1p7beta1.RelationshipAttributes do
 end
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          asset: String.t(),
-          asset_type: String.t(),
-          ancestors: [String.t()]
-        }
-
-  defstruct asset: "",
-            asset_type: "",
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"

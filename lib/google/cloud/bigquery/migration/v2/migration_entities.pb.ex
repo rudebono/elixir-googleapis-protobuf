@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :DRAFT | :RUNNING | :PAUSED | :COMPLETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -12,17 +10,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow.State do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :PENDING
-          | :ORCHESTRATING
-          | :RUNNING
-          | :PAUSED
-          | :SUCCEEDED
-          | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -34,9 +22,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask.State do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :RUNNING | :SUCCEEDED | :FAILED | :PAUSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -47,38 +33,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask.State do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow.TasksEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Bigquery.Migration.V2.MigrationTask.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2.MigrationTask
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          tasks: %{String.t() => Google.Cloud.Bigquery.Migration.V2.MigrationTask.t() | nil},
-          state: Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          last_update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            tasks: %{},
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            last_update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 6, type: :string, json_name: "displayName"
@@ -98,27 +60,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task_details:
-            {:translation_config_details,
-             Google.Cloud.Bigquery.Migration.V2.TranslationConfigDetails.t() | nil},
-          id: String.t(),
-          type: String.t(),
-          state: Google.Cloud.Bigquery.Migration.V2.MigrationTask.State.t(),
-          processing_error: Google.Rpc.ErrorInfo.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          last_update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct task_details: nil,
-            id: "",
-            type: "",
-            state: :STATE_UNSPECIFIED,
-            processing_error: nil,
-            create_time: nil,
-            last_update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :task_details, 0
 
@@ -145,31 +87,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask do
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          task_id: String.t(),
-          type: String.t(),
-          state: Google.Cloud.Bigquery.Migration.V2.MigrationSubtask.State.t(),
-          processing_error: Google.Rpc.ErrorInfo.t() | nil,
-          resource_error_details: [Google.Cloud.Bigquery.Migration.V2.ResourceErrorDetail.t()],
-          resource_error_count: integer,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          last_update_time: Google.Protobuf.Timestamp.t() | nil,
-          metrics: [Google.Cloud.Bigquery.Migration.V2.TimeSeries.t()]
-        }
-
-  defstruct name: "",
-            task_id: "",
-            type: "",
-            state: :STATE_UNSPECIFIED,
-            processing_error: nil,
-            resource_error_details: [],
-            resource_error_count: 0,
-            create_time: nil,
-            last_update_time: nil,
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :task_id, 2, type: :string, json_name: "taskId"

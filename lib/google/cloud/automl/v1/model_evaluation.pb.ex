@@ -1,32 +1,6 @@
 defmodule Google.Cloud.Automl.V1.ModelEvaluation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metrics:
-            {:classification_evaluation_metrics,
-             Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.t() | nil}
-            | {:translation_evaluation_metrics,
-               Google.Cloud.Automl.V1.TranslationEvaluationMetrics.t() | nil}
-            | {:image_object_detection_evaluation_metrics,
-               Google.Cloud.Automl.V1.ImageObjectDetectionEvaluationMetrics.t() | nil}
-            | {:text_sentiment_evaluation_metrics,
-               Google.Cloud.Automl.V1.TextSentimentEvaluationMetrics.t() | nil}
-            | {:text_extraction_evaluation_metrics,
-               Google.Cloud.Automl.V1.TextExtractionEvaluationMetrics.t() | nil},
-          name: String.t(),
-          annotation_spec_id: String.t(),
-          display_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          evaluated_example_count: integer
-        }
-
-  defstruct metrics: nil,
-            name: "",
-            annotation_spec_id: "",
-            display_name: "",
-            create_time: nil,
-            evaluated_example_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :metrics, 0
 

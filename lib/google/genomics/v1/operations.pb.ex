@@ -1,43 +1,13 @@
 defmodule Google.Genomics.V1.OperationMetadata.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Genomics.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          request: Google.Protobuf.Any.t() | nil,
-          events: [Google.Genomics.V1.OperationEvent.t()],
-          client_id: String.t(),
-          runtime_metadata: Google.Protobuf.Any.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct project_id: "",
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            request: nil,
-            events: [],
-            client_id: "",
-            runtime_metadata: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -55,17 +25,7 @@ defmodule Google.Genomics.V1.OperationMetadata do
 end
 defmodule Google.Genomics.V1.OperationEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          description: String.t()
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"

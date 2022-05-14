@@ -1,31 +1,13 @@
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResponse.SpeechEventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SPEECH_EVENT_TYPE_UNSPECIFIED | :END_OF_SINGLE_UTTERANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SPEECH_EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_SINGLE_UTTERANCE, 1
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_encoding: String.t(),
-          source_language_code: String.t(),
-          target_language_code: String.t(),
-          alternative_source_language_codes: [String.t()],
-          sample_rate_hertz: integer,
-          model: String.t()
-        }
-
-  defstruct audio_encoding: "",
-            source_language_code: "",
-            target_language_code: "",
-            alternative_source_language_codes: [],
-            sample_rate_hertz: 0,
-            model: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_encoding, 1, type: :string, json_name: "audioEncoding", deprecated: false
 
@@ -50,21 +32,7 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig do
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_config: Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig.t() | nil,
-          single_utterance: boolean,
-          stability: String.t(),
-          translation_mode: String.t(),
-          disable_interim_results: boolean
-        }
-
-  defstruct audio_config: nil,
-            single_utterance: false,
-            stability: "",
-            translation_mode: "",
-            disable_interim_results: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_config, 1,
     type: Google.Cloud.Mediatranslation.V1alpha1.TranslateSpeechConfig,
@@ -82,16 +50,7 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig 
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          streaming_request:
-            {:streaming_config,
-             Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechConfig.t() | nil}
-            | {:audio_content, binary}
-        }
-
-  defstruct streaming_request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :streaming_request, 0
 
@@ -104,50 +63,20 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.TextTranslationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          translation: String.t(),
-          is_final: boolean
-        }
-
-  defstruct translation: "",
-            is_final: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :translation, 1, type: :string, deprecated: false
   field :is_final, 2, type: :bool, json_name: "isFinal", deprecated: false
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_translation: binary
-        }
-
-  defstruct audio_translation: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_translation, 1, type: :bytes, json_name: "audioTranslation", deprecated: false
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text_translation_result:
-            Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.TextTranslationResult.t()
-            | nil,
-          audio_translation_result:
-            Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.AudioTranslationResult.t()
-            | nil,
-          recognition_result: String.t(),
-          detected_source_language_code: String.t()
-        }
-
-  defstruct text_translation_result: nil,
-            audio_translation_result: nil,
-            recognition_result: "",
-            detected_source_language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text_translation_result, 1,
     type:
@@ -168,18 +97,7 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult 
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error: Google.Rpc.Status.t() | nil,
-          result: Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResult.t() | nil,
-          speech_event_type:
-            Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechResponse.SpeechEventType.t()
-        }
-
-  defstruct error: nil,
-            result: nil,
-            speech_event_type: :SPEECH_EVENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error, 1, type: Google.Rpc.Status, deprecated: false
 
@@ -195,7 +113,9 @@ defmodule Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRespons
 end
 defmodule Google.Cloud.Mediatranslation.V1alpha1.SpeechTranslationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.mediatranslation.v1alpha1.SpeechTranslationService"
+  use GRPC.Service,
+    name: "google.cloud.mediatranslation.v1alpha1.SpeechTranslationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :StreamingTranslateSpeech,
       stream(Google.Cloud.Mediatranslation.V1alpha1.StreamingTranslateSpeechRequest),

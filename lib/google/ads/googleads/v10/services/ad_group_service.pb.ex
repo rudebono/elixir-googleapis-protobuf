@@ -1,21 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Services.MutateAdGroupsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V10.Services.AdGroupOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean,
-          response_content_type:
-            Google.Ads.Googleads.V10.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            partial_failure: false,
-            validate_only: false,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -34,18 +19,7 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAdGroupsRequest do
 end
 defmodule Google.Ads.Googleads.V10.Services.AdGroupOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V10.Resources.AdGroup.t() | nil}
-            | {:update, Google.Ads.Googleads.V10.Resources.AdGroup.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -56,37 +30,23 @@ defmodule Google.Ads.Googleads.V10.Services.AdGroupOperation do
 end
 defmodule Google.Ads.Googleads.V10.Services.MutateAdGroupsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partial_failure_error: Google.Rpc.Status.t() | nil,
-          results: [Google.Ads.Googleads.V10.Services.MutateAdGroupResult.t()]
-        }
-
-  defstruct partial_failure_error: nil,
-            results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V10.Services.MutateAdGroupResult
 end
 defmodule Google.Ads.Googleads.V10.Services.MutateAdGroupResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          ad_group: Google.Ads.Googleads.V10.Resources.AdGroup.t() | nil
-        }
-
-  defstruct resource_name: "",
-            ad_group: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :ad_group, 2, type: Google.Ads.Googleads.V10.Resources.AdGroup, json_name: "adGroup"
 end
 defmodule Google.Ads.Googleads.V10.Services.AdGroupService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v10.services.AdGroupService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v10.services.AdGroupService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :MutateAdGroups,
       Google.Ads.Googleads.V10.Services.MutateAdGroupsRequest,

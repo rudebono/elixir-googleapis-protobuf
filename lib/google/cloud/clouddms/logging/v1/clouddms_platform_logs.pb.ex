@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseEngine do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATABASE_ENGINE_UNSPECIFIED | :MYSQL | :POSTGRESQL | :SQLSERVER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATABASE_ENGINE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseEngine do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATABASE_PROVIDER_UNSPECIFIED | :CLOUDSQL | :RDS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
   field :CLOUDSQL, 1
@@ -21,26 +17,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :MAINTENANCE
-          | :DRAFT
-          | :CREATING
-          | :NOT_STARTED
-          | :RUNNING
-          | :FAILED
-          | :COMPLETED
-          | :DELETING
-          | :STOPPING
-          | :STOPPED
-          | :DELETED
-          | :UPDATING
-          | :STARTING
-          | :RESTARTING
-          | :RESUMING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :MAINTENANCE, 1
@@ -61,16 +38,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PHASE_UNSPECIFIED
-          | :FULL_DUMP
-          | :CDC
-          | :PROMOTE_IN_PROGRESS
-          | :WAITING_FOR_SOURCE_WRITES_TO_STOP
-          | :PREPARING_THE_DUMP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PHASE_UNSPECIFIED, 0
   field :FULL_DUMP, 1
@@ -81,9 +49,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :ONE_TIME | :CONTINUOUS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ONE_TIME, 1
@@ -91,9 +57,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONNECTIVITY_TYPE_UNSPECIFIED | :STATIC_IP | :REVERSE_SSH | :VPC_PEERING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONNECTIVITY_TYPE_UNSPECIFIED, 0
   field :STATIC_IP, 1
@@ -102,9 +66,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType d
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VERSION_UNSPECIFIED | :V5_5 | :V5_6 | :V5_7 | :V8_0
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V5_5, 1
@@ -114,9 +76,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VERSION_UNSPECIFIED | :V9_6 | :V11 | :V10 | :V12 | :V13
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V9_6, 1
@@ -127,18 +87,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version d
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :DRAFT
-          | :CREATING
-          | :READY
-          | :UPDATING
-          | :DELETING
-          | :DELETED
-          | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -151,72 +100,21 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          provider: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider.t(),
-          engine: Google.Cloud.Clouddms.Logging.V1.DatabaseEngine.t()
-        }
-
-  defstruct provider: :DATABASE_PROVIDER_UNSPECIFIED,
-            engine: :DATABASE_ENGINE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :provider, 1, type: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider, enum: true
   field :engine, 2, type: Google.Cloud.Clouddms.Logging.V1.DatabaseEngine, enum: true
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          state: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State.t(),
-          phase: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase.t(),
-          type: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type.t(),
-          dump_path: String.t(),
-          source: String.t(),
-          destination: String.t(),
-          duration: Google.Protobuf.Duration.t() | nil,
-          connectivity_type:
-            Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType.t(),
-          error: Google.Rpc.Status.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          source_database: Google.Cloud.Clouddms.Logging.V1.DatabaseType.t() | nil,
-          destination_database: Google.Cloud.Clouddms.Logging.V1.DatabaseType.t() | nil
-        }
-
-  defstruct name: "",
-            labels: %{},
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            phase: :PHASE_UNSPECIFIED,
-            type: :TYPE_UNSPECIFIED,
-            dump_path: "",
-            source: "",
-            destination: "",
-            duration: nil,
-            connectivity_type: :CONNECTIVITY_TYPE_UNSPECIFIED,
-            error: nil,
-            end_time: nil,
-            source_database: nil,
-            destination_database: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -269,15 +167,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version.t(),
-          cloud_sql_id: String.t()
-        }
-
-  defstruct version: :VERSION_UNSPECIFIED,
-            cloud_sql_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1,
     type: Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version,
@@ -287,15 +177,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version.t(),
-          cloud_sql_id: String.t()
-        }
-
-  defstruct version: :VERSION_UNSPECIFIED,
-            cloud_sql_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1,
     type: Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version,
@@ -305,56 +187,20 @@ defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cloud_sql_id: String.t()
-        }
-
-  defstruct cloud_sql_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId"
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          connection_profile:
-            {:mysql, Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.t() | nil}
-            | {:postgresql,
-               Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.t() | nil}
-            | {:cloudsql, Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile.t() | nil},
-          name: String.t(),
-          labels: %{String.t() => String.t()},
-          state: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State.t(),
-          display_name: String.t(),
-          error: Google.Rpc.Status.t() | nil,
-          provider: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider.t()
-        }
-
-  defstruct connection_profile: nil,
-            name: "",
-            labels: %{},
-            state: :STATE_UNSPECIFIED,
-            display_name: "",
-            error: nil,
-            provider: :DATABASE_PROVIDER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :connection_profile, 0
 
@@ -382,21 +228,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          original_cause: {:original_code, integer} | {:original_message, String.t()},
-          migration_job: Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.t() | nil,
-          occurrence_timestamp: Google.Protobuf.Timestamp.t() | nil,
-          code: integer,
-          text_message: String.t()
-        }
-
-  defstruct original_cause: nil,
-            migration_job: nil,
-            occurrence_timestamp: nil,
-            code: 0,
-            text_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :original_cause, 0
 
@@ -415,21 +247,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
 end
 defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          original_cause: {:original_code, integer} | {:original_message, String.t()},
-          connection_profile: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.t() | nil,
-          occurrence_timestamp: Google.Protobuf.Timestamp.t() | nil,
-          code: integer,
-          text_message: String.t()
-        }
-
-  defstruct original_cause: nil,
-            connection_profile: nil,
-            occurrence_timestamp: nil,
-            code: 0,
-            text_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :original_cause, 0
 

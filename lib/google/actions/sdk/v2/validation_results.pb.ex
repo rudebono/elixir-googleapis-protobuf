@@ -1,38 +1,18 @@
 defmodule Google.Actions.Sdk.V2.ValidationResults do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Actions.Sdk.V2.ValidationResult.t()]
-        }
-
-  defstruct results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Actions.Sdk.V2.ValidationResult
 end
 defmodule Google.Actions.Sdk.V2.ValidationResult.ValidationContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t()
-        }
-
-  defstruct language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 end
 defmodule Google.Actions.Sdk.V2.ValidationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          validation_message: String.t(),
-          validation_context: Google.Actions.Sdk.V2.ValidationResult.ValidationContext.t() | nil
-        }
-
-  defstruct validation_message: "",
-            validation_context: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :validation_message, 1, type: :string, json_name: "validationMessage"
 

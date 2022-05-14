@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Integrations.V1alpha.JsonValidationOption do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :JSON_VALIDATION_OPTION_UNSPECIFIED
-          | :SKIP
-          | :PRE_EXECUTION
-          | :POST_EXECUTION
-          | :PRE_POST_EXECUTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JSON_VALIDATION_OPTION_UNSPECIFIED, 0
   field :SKIP, 1

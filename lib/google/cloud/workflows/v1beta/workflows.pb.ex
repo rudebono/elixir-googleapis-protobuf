@@ -1,54 +1,20 @@
 defmodule Google.Cloud.Workflows.V1beta.Workflow.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
 end
 defmodule Google.Cloud.Workflows.V1beta.Workflow.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Workflows.V1beta.Workflow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_code: {:source_contents, String.t()},
-          name: String.t(),
-          description: String.t(),
-          state: Google.Cloud.Workflows.V1beta.Workflow.State.t(),
-          revision_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          revision_create_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          service_account: String.t()
-        }
-
-  defstruct source_code: nil,
-            name: "",
-            description: "",
-            state: :STATE_UNSPECIFIED,
-            revision_id: "",
-            create_time: nil,
-            update_time: nil,
-            revision_create_time: nil,
-            labels: %{},
-            service_account: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_code, 0
 
@@ -87,21 +53,7 @@ defmodule Google.Cloud.Workflows.V1beta.Workflow do
 end
 defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -111,17 +63,7 @@ defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsRequest do
 end
 defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workflows: [Google.Cloud.Workflows.V1beta.Workflow.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct workflows: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workflows, 1, repeated: true, type: Google.Cloud.Workflows.V1beta.Workflow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -129,29 +71,13 @@ defmodule Google.Cloud.Workflows.V1beta.ListWorkflowsResponse do
 end
 defmodule Google.Cloud.Workflows.V1beta.GetWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Workflows.V1beta.CreateWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          workflow: Google.Cloud.Workflows.V1beta.Workflow.t() | nil,
-          workflow_id: String.t()
-        }
-
-  defstruct parent: "",
-            workflow: nil,
-            workflow_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workflow, 2, type: Google.Cloud.Workflows.V1beta.Workflow, deprecated: false
@@ -159,48 +85,20 @@ defmodule Google.Cloud.Workflows.V1beta.CreateWorkflowRequest do
 end
 defmodule Google.Cloud.Workflows.V1beta.DeleteWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Workflows.V1beta.UpdateWorkflowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workflow: Google.Cloud.Workflows.V1beta.Workflow.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct workflow: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workflow, 1, type: Google.Cloud.Workflows.V1beta.Workflow, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Workflows.V1beta.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -210,7 +108,9 @@ defmodule Google.Cloud.Workflows.V1beta.OperationMetadata do
 end
 defmodule Google.Cloud.Workflows.V1beta.Workflows.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.workflows.v1beta.Workflows"
+  use GRPC.Service,
+    name: "google.cloud.workflows.v1beta.Workflows",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListWorkflows,
       Google.Cloud.Workflows.V1beta.ListWorkflowsRequest,

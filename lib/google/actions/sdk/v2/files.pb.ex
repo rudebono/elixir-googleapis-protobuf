@@ -1,14 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Files do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_type:
-            {:config_files, Google.Actions.Sdk.V2.ConfigFiles.t() | nil}
-            | {:data_files, Google.Actions.Sdk.V2.DataFiles.t() | nil}
-        }
-
-  defstruct file_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :file_type, 0
 

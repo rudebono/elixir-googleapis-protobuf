@@ -1,30 +1,13 @@
 defmodule Google.Firestore.V1.DocumentTransform.FieldTransform.ServerValue do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVER_VALUE_UNSPECIFIED | :REQUEST_TIME
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVER_VALUE_UNSPECIFIED, 0
   field :REQUEST_TIME, 1
 end
 defmodule Google.Firestore.V1.Write do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:update, Google.Firestore.V1.Document.t() | nil}
-            | {:delete, String.t()}
-            | {:transform, Google.Firestore.V1.DocumentTransform.t() | nil},
-          update_mask: Google.Firestore.V1.DocumentMask.t() | nil,
-          update_transforms: [Google.Firestore.V1.DocumentTransform.FieldTransform.t()],
-          current_document: Google.Firestore.V1.Precondition.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil,
-            update_transforms: [],
-            current_document: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -42,22 +25,7 @@ defmodule Google.Firestore.V1.Write do
 end
 defmodule Google.Firestore.V1.DocumentTransform.FieldTransform do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transform_type:
-            {:set_to_server_value,
-             Google.Firestore.V1.DocumentTransform.FieldTransform.ServerValue.t()}
-            | {:increment, Google.Firestore.V1.Value.t() | nil}
-            | {:maximum, Google.Firestore.V1.Value.t() | nil}
-            | {:minimum, Google.Firestore.V1.Value.t() | nil}
-            | {:append_missing_elements, Google.Firestore.V1.ArrayValue.t() | nil}
-            | {:remove_all_from_array, Google.Firestore.V1.ArrayValue.t() | nil},
-          field_path: String.t()
-        }
-
-  defstruct transform_type: nil,
-            field_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :transform_type, 0
 
@@ -85,15 +53,7 @@ defmodule Google.Firestore.V1.DocumentTransform.FieldTransform do
 end
 defmodule Google.Firestore.V1.DocumentTransform do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: String.t(),
-          field_transforms: [Google.Firestore.V1.DocumentTransform.FieldTransform.t()]
-        }
-
-  defstruct document: "",
-            field_transforms: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: :string
 
@@ -104,15 +64,7 @@ defmodule Google.Firestore.V1.DocumentTransform do
 end
 defmodule Google.Firestore.V1.WriteResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          transform_results: [Google.Firestore.V1.Value.t()]
-        }
-
-  defstruct update_time: nil,
-            transform_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -123,17 +75,7 @@ defmodule Google.Firestore.V1.WriteResult do
 end
 defmodule Google.Firestore.V1.DocumentChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Firestore.V1.Document.t() | nil,
-          target_ids: [integer],
-          removed_target_ids: [integer]
-        }
-
-  defstruct document: nil,
-            target_ids: [],
-            removed_target_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Firestore.V1.Document
   field :target_ids, 5, repeated: true, type: :int32, json_name: "targetIds"
@@ -141,17 +83,7 @@ defmodule Google.Firestore.V1.DocumentChange do
 end
 defmodule Google.Firestore.V1.DocumentDelete do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: String.t(),
-          removed_target_ids: [integer],
-          read_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct document: "",
-            removed_target_ids: [],
-            read_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 6, repeated: true, type: :int32, json_name: "removedTargetIds"
@@ -159,17 +91,7 @@ defmodule Google.Firestore.V1.DocumentDelete do
 end
 defmodule Google.Firestore.V1.DocumentRemove do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: String.t(),
-          removed_target_ids: [integer],
-          read_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct document: "",
-            removed_target_ids: [],
-            read_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 2, repeated: true, type: :int32, json_name: "removedTargetIds"
@@ -177,15 +99,7 @@ defmodule Google.Firestore.V1.DocumentRemove do
 end
 defmodule Google.Firestore.V1.ExistenceFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_id: integer,
-          count: integer
-        }
-
-  defstruct target_id: 0,
-            count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_id, 1, type: :int32, json_name: "targetId"
   field :count, 2, type: :int32

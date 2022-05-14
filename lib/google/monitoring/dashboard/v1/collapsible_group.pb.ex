@@ -1,12 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.CollapsibleGroup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          collapsed: boolean
-        }
-
-  defstruct collapsed: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :collapsed, 1, type: :bool
 end

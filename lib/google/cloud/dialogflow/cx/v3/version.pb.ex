@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.Version.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :SUCCEEDED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -11,35 +9,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Version.State do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateVersionOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t()
-        }
-
-  defstruct version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Version do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          nlu_settings: Google.Cloud.Dialogflow.Cx.V3.NluSettings.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Dialogflow.Cx.V3.Version.State.t()
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            nlu_settings: nil,
-            create_time: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -62,17 +38,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Version do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -80,57 +46,27 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListVersionsRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          versions: [Google.Cloud.Dialogflow.Cx.V3.Version.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct versions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          version: Google.Cloud.Dialogflow.Cx.V3.Version.t() | nil
-        }
-
-  defstruct parent: "",
-            version: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :version, 2, type: Google.Cloud.Dialogflow.Cx.V3.Version, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: Google.Cloud.Dialogflow.Cx.V3.Version.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct version: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: Google.Cloud.Dialogflow.Cx.V3.Version, deprecated: false
 
@@ -141,44 +77,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateVersionRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.LoadVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          allow_override_agent_resources: boolean
-        }
-
-  defstruct name: "",
-            allow_override_agent_resources: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_override_agent_resources, 2, type: :bool, json_name: "allowOverrideAgentResources"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CompareVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          base_version: String.t(),
-          target_version: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct base_version: "",
-            target_version: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :base_version, 1, type: :string, json_name: "baseVersion", deprecated: false
   field :target_version, 2, type: :string, json_name: "targetVersion", deprecated: false
@@ -186,17 +98,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CompareVersionsRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CompareVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          base_version_content_json: String.t(),
-          target_version_content_json: String.t(),
-          compare_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct base_version_content_json: "",
-            target_version_content_json: "",
-            compare_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :base_version_content_json, 1, type: :string, json_name: "baseVersionContentJson"
   field :target_version_content_json, 2, type: :string, json_name: "targetVersionContentJson"
@@ -204,7 +106,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CompareVersionsResponse do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Versions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Versions"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.cx.v3.Versions",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListVersions,
       Google.Cloud.Dialogflow.Cx.V3.ListVersionsRequest,

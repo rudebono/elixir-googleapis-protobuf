@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STITCHING_POLICY_UNSPECIFIED | :COMPLETE_AD | :COMPLETE_POD | :CUT_CURRENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STITCHING_POLICY_UNSPECIFIED, 0
   field :COMPLETE_AD, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ORDER_POLICY_UNSPECIFIED | :ASCENDING | :DESCENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ORDER_POLICY_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -21,42 +17,14 @@ defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession.AdTagMacroMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          interstitials: Google.Cloud.Video.Stitcher.V1.Interstitials.t() | nil,
-          play_uri: String.t(),
-          source_uri: String.t(),
-          ad_tag_uri: String.t(),
-          ad_tag_macro_map: %{String.t() => String.t()},
-          client_ad_tracking: boolean,
-          manifest_options: Google.Cloud.Video.Stitcher.V1.ManifestOptions.t() | nil
-        }
-
-  defstruct name: "",
-            interstitials: nil,
-            play_uri: "",
-            source_uri: "",
-            ad_tag_uri: "",
-            ad_tag_macro_map: %{},
-            client_ad_tracking: false,
-            manifest_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :interstitials, 2, type: Google.Cloud.Video.Stitcher.V1.Interstitials, deprecated: false
@@ -78,15 +46,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ad_breaks: [Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak.t()],
-          session_content: Google.Cloud.Video.Stitcher.V1.VodSessionContent.t() | nil
-        }
-
-  defstruct ad_breaks: [],
-            session_content: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ad_breaks, 1,
     repeated: true,
@@ -99,17 +59,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAd do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          duration: Google.Protobuf.Duration.t() | nil,
-          companion_ads: Google.Cloud.Video.Stitcher.V1.CompanionAds.t() | nil,
-          activity_events: [Google.Cloud.Video.Stitcher.V1.Event.t()]
-        }
-
-  defstruct duration: nil,
-            companion_ads: nil,
-            activity_events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 
@@ -124,31 +74,13 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAd do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionContent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          progress_events: [Google.Cloud.Video.Stitcher.V1.ProgressEvent.t()],
-          ads: [Google.Cloud.Video.Stitcher.V1.VodSessionAd.t()],
-          end_time_offset: Google.Protobuf.Duration.t() | nil,
-          start_time_offset: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct progress_events: [],
-            ads: [],
-            end_time_offset: nil,
-            start_time_offset: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :progress_events, 1,
     repeated: true,
@@ -161,61 +93,21 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Video.Stitcher.V1.AdTag.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Video.Stitcher.V1.AdTag
 end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMacrosEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          play_uri: String.t(),
-          source_uri: String.t(),
-          default_ad_tag_id: String.t(),
-          ad_tag_map: %{String.t() => Google.Cloud.Video.Stitcher.V1.AdTag.t() | nil},
-          ad_tag_macros: %{String.t() => String.t()},
-          client_ad_tracking: boolean,
-          default_slate_id: String.t(),
-          stitching_policy: Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy.t(),
-          manifest_options: Google.Cloud.Video.Stitcher.V1.ManifestOptions.t() | nil
-        }
-
-  defstruct name: "",
-            play_uri: "",
-            source_uri: "",
-            default_ad_tag_id: "",
-            ad_tag_map: %{},
-            ad_tag_macros: %{},
-            client_ad_tracking: false,
-            default_slate_id: "",
-            stitching_policy: :STITCHING_POLICY_UNSPECIFIED,
-            manifest_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :play_uri, 2, type: :string, json_name: "playUri", deprecated: false
@@ -248,27 +140,13 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.AdTag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          include_renditions: [Google.Cloud.Video.Stitcher.V1.RenditionFilter.t()],
-          bitrate_order: Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy.t()
-        }
-
-  defstruct include_renditions: [],
-            bitrate_order: :ORDER_POLICY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :include_renditions, 1,
     repeated: true,
@@ -282,15 +160,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.RenditionFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bitrate_bps: integer,
-          codecs: String.t()
-        }
-
-  defstruct bitrate_bps: 0,
-            codecs: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bitrate_bps, 1, type: :int32, json_name: "bitrateBps"
   field :codecs, 2, type: :string

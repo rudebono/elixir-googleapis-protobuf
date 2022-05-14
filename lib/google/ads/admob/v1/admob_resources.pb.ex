@@ -1,8 +1,6 @@
 defmodule Google.Ads.Admob.V1.SortOrder do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SORT_ORDER_UNSPECIFIED | :ASCENDING | :DESCENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SORT_ORDER_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -10,20 +8,7 @@ defmodule Google.Ads.Admob.V1.SortOrder do
 end
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.Dimension do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DIMENSION_UNSPECIFIED
-          | :DATE
-          | :MONTH
-          | :WEEK
-          | :AD_UNIT
-          | :APP
-          | :AD_TYPE
-          | :COUNTRY
-          | :FORMAT
-          | :PLATFORM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIMENSION_UNSPECIFIED, 0
   field :DATE, 1
@@ -38,20 +23,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.Dimension do
 end
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.Metric do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :METRIC_UNSPECIFIED
-          | :AD_REQUESTS
-          | :CLICKS
-          | :ESTIMATED_EARNINGS
-          | :IMPRESSIONS
-          | :IMPRESSION_CTR
-          | :IMPRESSION_RPM
-          | :MATCHED_REQUESTS
-          | :MATCH_RATE
-          | :SHOW_RATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METRIC_UNSPECIFIED, 0
   field :AD_REQUESTS, 1
@@ -66,22 +38,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.Metric do
 end
 defmodule Google.Ads.Admob.V1.MediationReportSpec.Dimension do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DIMENSION_UNSPECIFIED
-          | :DATE
-          | :MONTH
-          | :WEEK
-          | :AD_SOURCE
-          | :AD_SOURCE_INSTANCE
-          | :AD_UNIT
-          | :APP
-          | :MEDIATION_GROUP
-          | :COUNTRY
-          | :FORMAT
-          | :PLATFORM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIMENSION_UNSPECIFIED, 0
   field :DATE, 1
@@ -98,19 +55,7 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.Dimension do
 end
 defmodule Google.Ads.Admob.V1.MediationReportSpec.Metric do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :METRIC_UNSPECIFIED
-          | :AD_REQUESTS
-          | :CLICKS
-          | :ESTIMATED_EARNINGS
-          | :IMPRESSIONS
-          | :IMPRESSION_CTR
-          | :MATCHED_REQUESTS
-          | :MATCH_RATE
-          | :OBSERVED_ECPM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METRIC_UNSPECIFIED, 0
   field :AD_REQUESTS, 1
@@ -124,15 +69,7 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.Metric do
 end
 defmodule Google.Ads.Admob.V1.ReportWarning.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE
-          | :DATA_DELAYED
-          | :OTHER
-          | :REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE, 1
@@ -142,19 +79,7 @@ defmodule Google.Ads.Admob.V1.ReportWarning.Type do
 end
 defmodule Google.Ads.Admob.V1.PublisherAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          publisher_id: String.t(),
-          reporting_time_zone: String.t(),
-          currency_code: String.t()
-        }
-
-  defstruct name: "",
-            publisher_id: "",
-            reporting_time_zone: "",
-            currency_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :publisher_id, 2, type: :string, json_name: "publisherId"
@@ -163,15 +88,7 @@ defmodule Google.Ads.Admob.V1.PublisherAccount do
 end
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operator: {:matches_any, Google.Ads.Admob.V1.StringList.t() | nil},
-          dimension: Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()
-        }
-
-  defstruct operator: nil,
-            dimension: :DIMENSION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operator, 0
 
@@ -180,17 +97,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter do
 end
 defmodule Google.Ads.Admob.V1.NetworkReportSpec.SortCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sort_on:
-            {:dimension, Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()}
-            | {:metric, Google.Ads.Admob.V1.NetworkReportSpec.Metric.t()},
-          order: Google.Ads.Admob.V1.SortOrder.t()
-        }
-
-  defstruct sort_on: nil,
-            order: :SORT_ORDER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :sort_on, 0
 
@@ -200,27 +107,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec.SortCondition do
 end
 defmodule Google.Ads.Admob.V1.NetworkReportSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          date_range: Google.Ads.Admob.V1.DateRange.t() | nil,
-          dimensions: [Google.Ads.Admob.V1.NetworkReportSpec.Dimension.t()],
-          metrics: [Google.Ads.Admob.V1.NetworkReportSpec.Metric.t()],
-          dimension_filters: [Google.Ads.Admob.V1.NetworkReportSpec.DimensionFilter.t()],
-          sort_conditions: [Google.Ads.Admob.V1.NetworkReportSpec.SortCondition.t()],
-          localization_settings: Google.Ads.Admob.V1.LocalizationSettings.t() | nil,
-          max_report_rows: integer,
-          time_zone: String.t()
-        }
-
-  defstruct date_range: nil,
-            dimensions: [],
-            metrics: [],
-            dimension_filters: [],
-            sort_conditions: [],
-            localization_settings: nil,
-            max_report_rows: 0,
-            time_zone: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
 
@@ -253,15 +140,7 @@ defmodule Google.Ads.Admob.V1.NetworkReportSpec do
 end
 defmodule Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operator: {:matches_any, Google.Ads.Admob.V1.StringList.t() | nil},
-          dimension: Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()
-        }
-
-  defstruct operator: nil,
-            dimension: :DIMENSION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operator, 0
 
@@ -270,17 +149,7 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter do
 end
 defmodule Google.Ads.Admob.V1.MediationReportSpec.SortCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sort_on:
-            {:dimension, Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()}
-            | {:metric, Google.Ads.Admob.V1.MediationReportSpec.Metric.t()},
-          order: Google.Ads.Admob.V1.SortOrder.t()
-        }
-
-  defstruct sort_on: nil,
-            order: :SORT_ORDER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :sort_on, 0
 
@@ -294,27 +163,7 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec.SortCondition do
 end
 defmodule Google.Ads.Admob.V1.MediationReportSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          date_range: Google.Ads.Admob.V1.DateRange.t() | nil,
-          dimensions: [Google.Ads.Admob.V1.MediationReportSpec.Dimension.t()],
-          metrics: [Google.Ads.Admob.V1.MediationReportSpec.Metric.t()],
-          dimension_filters: [Google.Ads.Admob.V1.MediationReportSpec.DimensionFilter.t()],
-          sort_conditions: [Google.Ads.Admob.V1.MediationReportSpec.SortCondition.t()],
-          localization_settings: Google.Ads.Admob.V1.LocalizationSettings.t() | nil,
-          max_report_rows: integer,
-          time_zone: String.t()
-        }
-
-  defstruct date_range: nil,
-            dimensions: [],
-            metrics: [],
-            dimension_filters: [],
-            sort_conditions: [],
-            localization_settings: nil,
-            max_report_rows: 0,
-            time_zone: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
 
@@ -347,31 +196,14 @@ defmodule Google.Ads.Admob.V1.MediationReportSpec do
 end
 defmodule Google.Ads.Admob.V1.ReportRow.DimensionValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: String.t(),
-          display_label: String.t()
-        }
-
-  defstruct value: "",
-            display_label: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :display_label, 2, type: :string, json_name: "displayLabel"
 end
 defmodule Google.Ads.Admob.V1.ReportRow.MetricValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:integer_value, integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:micros_value, integer}
-        }
-
-  defstruct value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -381,47 +213,21 @@ defmodule Google.Ads.Admob.V1.ReportRow.MetricValue do
 end
 defmodule Google.Ads.Admob.V1.ReportRow.DimensionValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Ads.Admob.V1.ReportRow.DimensionValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Ads.Admob.V1.ReportRow.DimensionValue
 end
 defmodule Google.Ads.Admob.V1.ReportRow.MetricValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Ads.Admob.V1.ReportRow.MetricValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Ads.Admob.V1.ReportRow.MetricValue
 end
 defmodule Google.Ads.Admob.V1.ReportRow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dimension_values: %{
-            String.t() => Google.Ads.Admob.V1.ReportRow.DimensionValue.t() | nil
-          },
-          metric_values: %{String.t() => Google.Ads.Admob.V1.ReportRow.MetricValue.t() | nil}
-        }
-
-  defstruct dimension_values: %{},
-            metric_values: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -437,32 +243,14 @@ defmodule Google.Ads.Admob.V1.ReportRow do
 end
 defmodule Google.Ads.Admob.V1.ReportWarning do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Ads.Admob.V1.ReportWarning.Type.t(),
-          description: String.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Ads.Admob.V1.ReportWarning.Type, enum: true
   field :description, 2, type: :string
 end
 defmodule Google.Ads.Admob.V1.ReportHeader do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          date_range: Google.Ads.Admob.V1.DateRange.t() | nil,
-          localization_settings: Google.Ads.Admob.V1.LocalizationSettings.t() | nil,
-          reporting_time_zone: String.t()
-        }
-
-  defstruct date_range: nil,
-            localization_settings: nil,
-            reporting_time_zone: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :date_range, 1, type: Google.Ads.Admob.V1.DateRange, json_name: "dateRange"
 
@@ -474,58 +262,28 @@ defmodule Google.Ads.Admob.V1.ReportHeader do
 end
 defmodule Google.Ads.Admob.V1.ReportFooter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          warnings: [Google.Ads.Admob.V1.ReportWarning.t()],
-          matching_row_count: integer
-        }
-
-  defstruct warnings: [],
-            matching_row_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :warnings, 1, repeated: true, type: Google.Ads.Admob.V1.ReportWarning
   field :matching_row_count, 2, type: :int64, json_name: "matchingRowCount"
 end
 defmodule Google.Ads.Admob.V1.DateRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_date: Google.Type.Date.t() | nil,
-          end_date: Google.Type.Date.t() | nil
-        }
-
-  defstruct start_date: nil,
-            end_date: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
 end
 defmodule Google.Ads.Admob.V1.LocalizationSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          currency_code: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct currency_code: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :currency_code, 1, type: :string, json_name: "currencyCode"
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
 defmodule Google.Ads.Admob.V1.StringList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          values: [String.t()]
-        }
-
-  defstruct values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end

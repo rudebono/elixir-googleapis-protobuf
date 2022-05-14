@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED | :RENDER | :DEPLOY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED, 0
   field :RENDER, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
 end
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RENDER_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -21,9 +17,7 @@ defmodule Google.Cloud.Deploy.V1.Release.RenderState do
 end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TARGET_RENDER_STATE_UNSPECIFIED | :SUCCEEDED | :FAILED | :IN_PROGRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TARGET_RENDER_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -32,9 +26,7 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
 end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FAILURE_CAUSE_UNSPECIFIED | :CLOUD_BUILD_UNAVAILABLE | :EXECUTION_FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -42,15 +34,7 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
 end
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :APPROVAL_STATE_UNSPECIFIED
-          | :NEEDS_APPROVAL
-          | :DOES_NOT_NEED_APPROVAL
-          | :APPROVED
-          | :REJECTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :APPROVAL_STATE_UNSPECIFIED, 0
   field :NEEDS_APPROVAL, 1
@@ -60,18 +44,7 @@ defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
 end
 defmodule Google.Cloud.Deploy.V1.Rollout.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :SUCCEEDED
-          | :FAILED
-          | :IN_PROGRESS
-          | :PENDING_APPROVAL
-          | :APPROVAL_REJECTED
-          | :PENDING
-          | :PENDING_RELEASE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -84,15 +57,7 @@ defmodule Google.Cloud.Deploy.V1.Rollout.State do
 end
 defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FAILURE_CAUSE_UNSPECIFIED
-          | :CLOUD_BUILD_UNAVAILABLE
-          | :EXECUTION_FAILED
-          | :DEADLINE_EXCEEDED
-          | :RELEASE_FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -102,61 +67,21 @@ defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
 end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pipeline: {:serial_pipeline, Google.Cloud.Deploy.V1.SerialPipeline.t() | nil},
-          name: String.t(),
-          uid: String.t(),
-          description: String.t(),
-          annotations: %{String.t() => String.t()},
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          condition: Google.Cloud.Deploy.V1.PipelineCondition.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct pipeline: nil,
-            name: "",
-            uid: "",
-            description: "",
-            annotations: %{},
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            condition: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :pipeline, 0
 
@@ -194,59 +119,27 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
 end
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stages: [Google.Cloud.Deploy.V1.Stage.t()]
-        }
-
-  defstruct stages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage
 end
 defmodule Google.Cloud.Deploy.V1.Stage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_id: String.t(),
-          profiles: [String.t()]
-        }
-
-  defstruct target_id: "",
-            profiles: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: boolean,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct status: false,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 3, type: :bool
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
 defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: boolean,
-          missing_targets: [String.t()],
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct status: false,
-            missing_targets: [],
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: :bool
 
@@ -260,15 +153,7 @@ defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
 end
 defmodule Google.Cloud.Deploy.V1.PipelineCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pipeline_ready_condition: Google.Cloud.Deploy.V1.PipelineReadyCondition.t() | nil,
-          targets_present_condition: Google.Cloud.Deploy.V1.TargetsPresentCondition.t() | nil
-        }
-
-  defstruct pipeline_ready_condition: nil,
-            targets_present_condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pipeline_ready_condition, 1,
     type: Google.Cloud.Deploy.V1.PipelineReadyCondition,
@@ -280,21 +165,7 @@ defmodule Google.Cloud.Deploy.V1.PipelineCondition do
 end
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -304,17 +175,7 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
 end
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          delivery_pipelines: [Google.Cloud.Deploy.V1.DeliveryPipeline.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct delivery_pipelines: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :delivery_pipelines, 1,
     repeated: true,
@@ -326,33 +187,13 @@ defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
 end
 defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          delivery_pipeline_id: String.t(),
-          delivery_pipeline: Google.Cloud.Deploy.V1.DeliveryPipeline.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            delivery_pipeline_id: "",
-            delivery_pipeline: nil,
-            request_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -371,21 +212,7 @@ defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
 end
 defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          delivery_pipeline: Google.Cloud.Deploy.V1.DeliveryPipeline.t() | nil,
-          request_id: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct update_mask: nil,
-            delivery_pipeline: nil,
-            request_id: "",
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -403,23 +230,7 @@ defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
 end
 defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean,
-          force: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            request_id: "",
-            allow_missing: false,
-            validate_only: false,
-            force: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -430,67 +241,21 @@ defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
 end
 defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Target do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deployment_target:
-            {:gke, Google.Cloud.Deploy.V1.GkeCluster.t() | nil}
-            | {:anthos_cluster, Google.Cloud.Deploy.V1.AnthosCluster.t() | nil},
-          name: String.t(),
-          target_id: String.t(),
-          uid: String.t(),
-          description: String.t(),
-          annotations: %{String.t() => String.t()},
-          labels: %{String.t() => String.t()},
-          require_approval: boolean,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          execution_configs: [Google.Cloud.Deploy.V1.ExecutionConfig.t()]
-        }
-
-  defstruct deployment_target: nil,
-            name: "",
-            target_id: "",
-            uid: "",
-            description: "",
-            annotations: %{},
-            labels: %{},
-            require_approval: false,
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            execution_configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :deployment_target, 0
 
@@ -539,23 +304,7 @@ defmodule Google.Cloud.Deploy.V1.Target do
 end
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution_environment:
-            {:default_pool, Google.Cloud.Deploy.V1.DefaultPool.t() | nil}
-            | {:private_pool, Google.Cloud.Deploy.V1.PrivatePool.t() | nil},
-          usages: [Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage.t()],
-          worker_pool: String.t(),
-          service_account: String.t(),
-          artifact_storage: String.t()
-        }
-
-  defstruct execution_environment: nil,
-            usages: [],
-            worker_pool: "",
-            service_account: "",
-            artifact_storage: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :execution_environment, 0
 
@@ -583,32 +332,14 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
 end
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_account: String.t(),
-          artifact_storage: String.t()
-        }
-
-  defstruct service_account: "",
-            artifact_storage: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
   field :artifact_storage, 2, type: :string, json_name: "artifactStorage", deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.PrivatePool do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_pool: String.t(),
-          service_account: String.t(),
-          artifact_storage: String.t()
-        }
-
-  defstruct worker_pool: "",
-            service_account: "",
-            artifact_storage: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
@@ -616,48 +347,20 @@ defmodule Google.Cloud.Deploy.V1.PrivatePool do
 end
 defmodule Google.Cloud.Deploy.V1.GkeCluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster: String.t(),
-          internal_ip: boolean
-        }
-
-  defstruct cluster: "",
-            internal_ip: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :internal_ip, 2, type: :bool, json_name: "internalIp", deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.AnthosCluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          membership: String.t()
-        }
-
-  defstruct membership: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :membership, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -667,17 +370,7 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
 end
 defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          targets: [Google.Cloud.Deploy.V1.Target.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct targets: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -685,33 +378,13 @@ defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
 end
 defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          target_id: String.t(),
-          target: Google.Cloud.Deploy.V1.Target.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            target_id: "",
-            target: nil,
-            request_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :target_id, 2, type: :string, json_name: "targetId", deprecated: false
@@ -721,21 +394,7 @@ defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
 end
 defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          target: Google.Cloud.Deploy.V1.Target.t() | nil,
-          request_id: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean
-        }
-
-  defstruct update_mask: nil,
-            target: nil,
-            request_id: "",
-            allow_missing: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -749,21 +408,7 @@ defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
 end
 defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t(),
-          allow_missing: boolean,
-          validate_only: boolean,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            request_id: "",
-            allow_missing: false,
-            validate_only: false,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -773,17 +418,7 @@ defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
 end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rendering_build: String.t(),
-          rendering_state: Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState.t(),
-          failure_cause: Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause.t()
-        }
-
-  defstruct rendering_build: "",
-            rendering_state: :TARGET_RENDER_STATE_UNSPECIFIED,
-            failure_cause: :FAILURE_CAUSE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rendering_build, 1, type: :string, json_name: "renderingBuild", deprecated: false
 
@@ -801,107 +436,35 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
 end
 defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Deploy.V1.TargetArtifact.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.TargetArtifact
 end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Deploy.V1.Release.TargetRender.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.Release.TargetRender
 end
 defmodule Google.Cloud.Deploy.V1.Release do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          description: String.t(),
-          annotations: %{String.t() => String.t()},
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          render_start_time: Google.Protobuf.Timestamp.t() | nil,
-          render_end_time: Google.Protobuf.Timestamp.t() | nil,
-          skaffold_config_uri: String.t(),
-          skaffold_config_path: String.t(),
-          build_artifacts: [Google.Cloud.Deploy.V1.BuildArtifact.t()],
-          delivery_pipeline_snapshot: Google.Cloud.Deploy.V1.DeliveryPipeline.t() | nil,
-          target_snapshots: [Google.Cloud.Deploy.V1.Target.t()],
-          render_state: Google.Cloud.Deploy.V1.Release.RenderState.t(),
-          etag: String.t(),
-          skaffold_version: String.t(),
-          target_artifacts: %{String.t() => Google.Cloud.Deploy.V1.TargetArtifact.t() | nil},
-          target_renders: %{String.t() => Google.Cloud.Deploy.V1.Release.TargetRender.t() | nil}
-        }
-
-  defstruct name: "",
-            uid: "",
-            description: "",
-            annotations: %{},
-            labels: %{},
-            create_time: nil,
-            render_start_time: nil,
-            render_end_time: nil,
-            skaffold_config_uri: "",
-            skaffold_config_path: "",
-            build_artifacts: [],
-            delivery_pipeline_snapshot: nil,
-            target_snapshots: [],
-            render_state: :RENDER_STATE_UNSPECIFIED,
-            etag: "",
-            skaffold_version: "",
-            target_artifacts: %{},
-            target_renders: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -973,32 +536,14 @@ defmodule Google.Cloud.Deploy.V1.Release do
 end
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image: String.t(),
-          tag: String.t()
-        }
-
-  defstruct image: "",
-            tag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image, 3, type: :string
   field :tag, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.TargetArtifact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: {:artifact_uri, String.t()},
-          skaffold_config_path: String.t(),
-          manifest_path: String.t()
-        }
-
-  defstruct uri: nil,
-            skaffold_config_path: "",
-            manifest_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :uri, 0
 
@@ -1013,21 +558,7 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact do
 end
 defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1037,17 +568,7 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
 end
 defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          releases: [Google.Cloud.Deploy.V1.Release.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct releases: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :releases, 1, repeated: true, type: Google.Cloud.Deploy.V1.Release
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1055,33 +576,13 @@ defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
 end
 defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          release_id: String.t(),
-          release: Google.Cloud.Deploy.V1.Release.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            release_id: "",
-            release: nil,
-            request_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :release_id, 2, type: :string, json_name: "releaseId", deprecated: false
@@ -1091,75 +592,21 @@ defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
 end
 defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Deploy.V1.Rollout do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          description: String.t(),
-          annotations: %{String.t() => String.t()},
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          approve_time: Google.Protobuf.Timestamp.t() | nil,
-          enqueue_time: Google.Protobuf.Timestamp.t() | nil,
-          deploy_start_time: Google.Protobuf.Timestamp.t() | nil,
-          deploy_end_time: Google.Protobuf.Timestamp.t() | nil,
-          target_id: String.t(),
-          approval_state: Google.Cloud.Deploy.V1.Rollout.ApprovalState.t(),
-          state: Google.Cloud.Deploy.V1.Rollout.State.t(),
-          failure_reason: String.t(),
-          deploying_build: String.t(),
-          etag: String.t(),
-          deploy_failure_cause: Google.Cloud.Deploy.V1.Rollout.FailureCause.t()
-        }
-
-  defstruct name: "",
-            uid: "",
-            description: "",
-            annotations: %{},
-            labels: %{},
-            create_time: nil,
-            approve_time: nil,
-            enqueue_time: nil,
-            deploy_start_time: nil,
-            deploy_end_time: nil,
-            target_id: "",
-            approval_state: :APPROVAL_STATE_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            failure_reason: "",
-            deploying_build: "",
-            etag: "",
-            deploy_failure_cause: :FAILURE_CAUSE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -1218,21 +665,7 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
 end
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1242,17 +675,7 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
 end
 defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rollouts: [Google.Cloud.Deploy.V1.Rollout.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct rollouts: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rollouts, 1, repeated: true, type: Google.Cloud.Deploy.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1260,33 +683,13 @@ defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
 end
 defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          rollout_id: String.t(),
-          rollout: Google.Cloud.Deploy.V1.Rollout.t() | nil,
-          request_id: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            rollout_id: "",
-            rollout: nil,
-            request_id: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
@@ -1296,25 +699,7 @@ defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
 end
 defmodule Google.Cloud.Deploy.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -1335,40 +720,18 @@ defmodule Google.Cloud.Deploy.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          approved: boolean
-        }
-
-  defstruct name: "",
-            approved: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :approved, 2, type: :bool, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Deploy.V1.Config do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          supported_versions: [Google.Cloud.Deploy.V1.SkaffoldVersion.t()],
-          default_skaffold_version: String.t()
-        }
-
-  defstruct name: "",
-            supported_versions: [],
-            default_skaffold_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -1385,34 +748,22 @@ defmodule Google.Cloud.Deploy.V1.Config do
 end
 defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          support_end_date: Google.Type.Date.t() | nil
-        }
-
-  defstruct version: "",
-            support_end_date: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :support_end_date, 2, type: Google.Type.Date, json_name: "supportEndDate"
 end
 defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.deploy.v1.CloudDeploy"
+  use GRPC.Service,
+    name: "google.cloud.deploy.v1.CloudDeploy",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListDeliveryPipelines,
       Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest,

@@ -1,6 +1,8 @@
 defmodule Google.Maps.Routes.V1.RoutesPreferred.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.maps.routes.v1.RoutesPreferred"
+  use GRPC.Service,
+    name: "google.maps.routes.v1.RoutesPreferred",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ComputeRoutes,
       Google.Maps.Routes.V1.ComputeRoutesRequest,

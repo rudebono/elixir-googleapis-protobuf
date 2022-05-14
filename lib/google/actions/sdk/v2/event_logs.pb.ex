@@ -1,34 +1,6 @@
 defmodule Google.Actions.Sdk.V2.ExecutionEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          EventData:
-            {:user_input, Google.Actions.Sdk.V2.UserConversationInput.t() | nil}
-            | {:intent_match, Google.Actions.Sdk.V2.IntentMatch.t() | nil}
-            | {:conditions_evaluated, Google.Actions.Sdk.V2.ConditionsEvaluated.t() | nil}
-            | {:on_scene_enter, Google.Actions.Sdk.V2.OnSceneEnter.t() | nil}
-            | {:webhook_request, Google.Actions.Sdk.V2.WebhookRequest.t() | nil}
-            | {:webhook_response, Google.Actions.Sdk.V2.WebhookResponse.t() | nil}
-            | {:webhook_initiated_transition,
-               Google.Actions.Sdk.V2.WebhookInitiatedTransition.t() | nil}
-            | {:slot_match, Google.Actions.Sdk.V2.SlotMatch.t() | nil}
-            | {:slot_requested, Google.Actions.Sdk.V2.SlotRequested.t() | nil}
-            | {:slot_validated, Google.Actions.Sdk.V2.SlotValidated.t() | nil}
-            | {:form_filled, Google.Actions.Sdk.V2.FormFilled.t() | nil}
-            | {:waiting_user_input, Google.Actions.Sdk.V2.WaitingForUserInput.t() | nil}
-            | {:end_conversation, Google.Actions.Sdk.V2.EndConversation.t() | nil},
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          execution_state: Google.Actions.Sdk.V2.ExecutionState.t() | nil,
-          status: Google.Rpc.Status.t() | nil,
-          warning_messages: [String.t()]
-        }
-
-  defstruct EventData: nil,
-            event_time: nil,
-            execution_state: nil,
-            status: nil,
-            warning_messages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :EventData, 0
 
@@ -106,23 +78,7 @@ defmodule Google.Actions.Sdk.V2.ExecutionEvent do
 end
 defmodule Google.Actions.Sdk.V2.ExecutionState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          current_scene_id: String.t(),
-          session_storage: Google.Protobuf.Struct.t() | nil,
-          slots: Google.Actions.Sdk.V2.Slots.t() | nil,
-          prompt_queue: [Google.Actions.Sdk.V2.Conversation.Prompt.t()],
-          user_storage: Google.Protobuf.Struct.t() | nil,
-          household_storage: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct current_scene_id: "",
-            session_storage: nil,
-            slots: nil,
-            prompt_queue: [],
-            user_storage: nil,
-            household_storage: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :current_scene_id, 1, type: :string, json_name: "currentSceneId"
   field :session_storage, 2, type: Google.Protobuf.Struct, json_name: "sessionStorage"
@@ -138,81 +94,35 @@ defmodule Google.Actions.Sdk.V2.ExecutionState do
 end
 defmodule Google.Actions.Sdk.V2.Slots.SlotsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Actions.Sdk.V2.Conversation.Slot.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.Slot
 end
 defmodule Google.Actions.Sdk.V2.Slots do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Actions.Sdk.V2.Conversation.SlotFillingStatus.t(),
-          slots: %{String.t() => Google.Actions.Sdk.V2.Conversation.Slot.t() | nil}
-        }
-
-  defstruct status: :UNSPECIFIED,
-            slots: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 2, type: Google.Actions.Sdk.V2.Conversation.SlotFillingStatus, enum: true
   field :slots, 3, repeated: true, type: Google.Actions.Sdk.V2.Slots.SlotsEntry, map: true
 end
 defmodule Google.Actions.Sdk.V2.UserConversationInput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          original_query: String.t()
-        }
-
-  defstruct type: "",
-            original_query: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :original_query, 2, type: :string, json_name: "originalQuery"
 end
 defmodule Google.Actions.Sdk.V2.IntentMatch.IntentParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
 end
 defmodule Google.Actions.Sdk.V2.IntentMatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          intent_id: String.t(),
-          intent_parameters: %{
-            String.t() => Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
-          },
-          handler: String.t(),
-          next_scene_id: String.t()
-        }
-
-  defstruct intent_id: "",
-            intent_parameters: %{},
-            handler: "",
-            next_scene_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :intent_id, 1, type: :string, json_name: "intentId"
 
@@ -227,15 +137,7 @@ defmodule Google.Actions.Sdk.V2.IntentMatch do
 end
 defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          failed_conditions: [Google.Actions.Sdk.V2.Condition.t()],
-          success_condition: Google.Actions.Sdk.V2.Condition.t() | nil
-        }
-
-  defstruct failed_conditions: [],
-            success_condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :failed_conditions, 1,
     repeated: true,
@@ -248,17 +150,7 @@ defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
 end
 defmodule Google.Actions.Sdk.V2.Condition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          expression: String.t(),
-          handler: String.t(),
-          next_scene_id: String.t()
-        }
-
-  defstruct expression: "",
-            handler: "",
-            next_scene_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :expression, 1, type: :string
   field :handler, 2, type: :string
@@ -266,78 +158,38 @@ defmodule Google.Actions.Sdk.V2.Condition do
 end
 defmodule Google.Actions.Sdk.V2.OnSceneEnter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          handler: String.t()
-        }
-
-  defstruct handler: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :handler, 1, type: :string
 end
 defmodule Google.Actions.Sdk.V2.WebhookInitiatedTransition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          next_scene_id: String.t()
-        }
-
-  defstruct next_scene_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :next_scene_id, 1, type: :string, json_name: "nextSceneId"
 end
 defmodule Google.Actions.Sdk.V2.WebhookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request_json: String.t()
-        }
-
-  defstruct request_json: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :request_json, 1, type: :string, json_name: "requestJson"
 end
 defmodule Google.Actions.Sdk.V2.WebhookResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response_json: String.t()
-        }
-
-  defstruct response_json: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :response_json, 1, type: :string, json_name: "responseJson"
 end
 defmodule Google.Actions.Sdk.V2.SlotMatch.NluParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
 end
 defmodule Google.Actions.Sdk.V2.SlotMatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          nlu_parameters: %{
-            String.t() => Google.Actions.Sdk.V2.Conversation.IntentParameterValue.t() | nil
-          }
-        }
-
-  defstruct nlu_parameters: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :nlu_parameters, 2,
     repeated: true,
@@ -347,48 +199,24 @@ defmodule Google.Actions.Sdk.V2.SlotMatch do
 end
 defmodule Google.Actions.Sdk.V2.SlotRequested do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          slot: String.t(),
-          prompt: Google.Actions.Sdk.V2.Conversation.Prompt.t() | nil
-        }
-
-  defstruct slot: "",
-            prompt: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :slot, 1, type: :string
   field :prompt, 3, type: Google.Actions.Sdk.V2.Conversation.Prompt
 end
 defmodule Google.Actions.Sdk.V2.SlotValidated do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Actions.Sdk.V2.FormFilled do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Actions.Sdk.V2.WaitingForUserInput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Actions.Sdk.V2.EndConversation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

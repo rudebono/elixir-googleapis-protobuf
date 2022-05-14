@@ -1,21 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Resources.CombinedAudience do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          id: integer,
-          status:
-            Google.Ads.Googleads.V8.Enums.CombinedAudienceStatusEnum.CombinedAudienceStatus.t(),
-          name: String.t(),
-          description: String.t()
-        }
-
-  defstruct resource_name: "",
-            id: 0,
-            status: :UNSPECIFIED,
-            name: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

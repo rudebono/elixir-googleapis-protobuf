@@ -1,37 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:delete_details, Google.Cloud.Automl.V1beta1.DeleteOperationMetadata.t() | nil}
-            | {:deploy_model_details,
-               Google.Cloud.Automl.V1beta1.DeployModelOperationMetadata.t() | nil}
-            | {:undeploy_model_details,
-               Google.Cloud.Automl.V1beta1.UndeployModelOperationMetadata.t() | nil}
-            | {:create_model_details,
-               Google.Cloud.Automl.V1beta1.CreateModelOperationMetadata.t() | nil}
-            | {:import_data_details,
-               Google.Cloud.Automl.V1beta1.ImportDataOperationMetadata.t() | nil}
-            | {:batch_predict_details,
-               Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata.t() | nil}
-            | {:export_data_details,
-               Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.t() | nil}
-            | {:export_model_details,
-               Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.t() | nil}
-            | {:export_evaluated_examples_details,
-               Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata.t() | nil},
-          progress_percent: integer,
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct details: nil,
-            progress_percent: 0,
-            partial_failures: [],
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -92,54 +61,27 @@ defmodule Google.Cloud.Automl.V1beta1.OperationMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.DeleteOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Automl.V1beta1.DeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Automl.V1beta1.UndeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Automl.V1beta1.CreateModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Automl.V1beta1.ImportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutputInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_location:
-            {:gcs_output_directory, String.t()} | {:bigquery_output_dataset, String.t()}
-        }
-
-  defstruct output_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output_location, 0
 
@@ -148,14 +90,7 @@ defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutp
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_info:
-            Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutputInfo.t() | nil
-        }
-
-  defstruct output_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_info, 1,
     type: Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutputInfo,
@@ -163,14 +98,7 @@ defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata.BatchPredictOutputInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_location:
-            {:gcs_output_directory, String.t()} | {:bigquery_output_dataset, String.t()}
-        }
-
-  defstruct output_location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output_location, 0
 
@@ -179,17 +107,7 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata.BatchPredict
 end
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_config: Google.Cloud.Automl.V1beta1.BatchPredictInputConfig.t() | nil,
-          output_info:
-            Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata.BatchPredictOutputInfo.t()
-            | nil
-        }
-
-  defstruct input_config: nil,
-            output_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1beta1.BatchPredictInputConfig,
@@ -201,27 +119,13 @@ defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.ExportModelOutputInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_output_directory: String.t()
-        }
-
-  defstruct gcs_output_directory: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory"
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_info:
-            Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.ExportModelOutputInfo.t()
-            | nil
-        }
-
-  defstruct output_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_info, 2,
     type: Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.ExportModelOutputInfo,
@@ -229,27 +133,13 @@ defmodule Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata do
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata.ExportEvaluatedExamplesOutputInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bigquery_output_dataset: String.t()
-        }
-
-  defstruct bigquery_output_dataset: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bigquery_output_dataset, 2, type: :string, json_name: "bigqueryOutputDataset"
 end
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_info:
-            Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata.ExportEvaluatedExamplesOutputInfo.t()
-            | nil
-        }
-
-  defstruct output_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_info, 2,
     type:

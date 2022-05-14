@@ -1,35 +1,13 @@
 defmodule Google.Cloud.Servicedirectory.V1beta1.Service.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Servicedirectory.V1beta1.Service do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          metadata: %{String.t() => String.t()},
-          endpoints: [Google.Cloud.Servicedirectory.V1beta1.Endpoint.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            metadata: %{},
-            endpoints: [],
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

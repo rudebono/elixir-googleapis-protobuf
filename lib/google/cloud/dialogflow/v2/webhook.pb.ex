@@ -1,19 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2.WebhookRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          session: String.t(),
-          response_id: String.t(),
-          query_result: Google.Cloud.Dialogflow.V2.QueryResult.t() | nil,
-          original_detect_intent_request:
-            Google.Cloud.Dialogflow.V2.OriginalDetectIntentRequest.t() | nil
-        }
-
-  defstruct session: "",
-            response_id: "",
-            query_result: nil,
-            original_detect_intent_request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :session, 4, type: :string
   field :response_id, 1, type: :string, json_name: "responseId"
@@ -25,25 +12,7 @@ defmodule Google.Cloud.Dialogflow.V2.WebhookRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2.WebhookResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fulfillment_text: String.t(),
-          fulfillment_messages: [Google.Cloud.Dialogflow.V2.Intent.Message.t()],
-          source: String.t(),
-          payload: Google.Protobuf.Struct.t() | nil,
-          output_contexts: [Google.Cloud.Dialogflow.V2.Context.t()],
-          followup_event_input: Google.Cloud.Dialogflow.V2.EventInput.t() | nil,
-          session_entity_types: [Google.Cloud.Dialogflow.V2.SessionEntityType.t()]
-        }
-
-  defstruct fulfillment_text: "",
-            fulfillment_messages: [],
-            source: "",
-            payload: nil,
-            output_contexts: [],
-            followup_event_input: nil,
-            session_entity_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fulfillment_text, 1, type: :string, json_name: "fulfillmentText"
 
@@ -71,17 +40,7 @@ defmodule Google.Cloud.Dialogflow.V2.WebhookResponse do
 end
 defmodule Google.Cloud.Dialogflow.V2.OriginalDetectIntentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: String.t(),
-          version: String.t(),
-          payload: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct source: "",
-            version: "",
-            payload: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source, 1, type: :string
   field :version, 2, type: :string

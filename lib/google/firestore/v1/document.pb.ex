@@ -1,33 +1,13 @@
 defmodule Google.Firestore.V1.Document.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Firestore.V1.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1.Value
 end
 defmodule Google.Firestore.V1.Document do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          fields: %{String.t() => Google.Firestore.V1.Value.t() | nil},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            fields: %{},
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Firestore.V1.Document.FieldsEntry, map: true
@@ -36,24 +16,7 @@ defmodule Google.Firestore.V1.Document do
 end
 defmodule Google.Firestore.V1.Value do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value_type:
-            {:null_value, Google.Protobuf.NullValue.t()}
-            | {:boolean_value, boolean}
-            | {:integer_value, integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:timestamp_value, Google.Protobuf.Timestamp.t() | nil}
-            | {:string_value, String.t()}
-            | {:bytes_value, binary}
-            | {:reference_value, String.t()}
-            | {:geo_point_value, Google.Type.LatLng.t() | nil}
-            | {:array_value, Google.Firestore.V1.ArrayValue.t() | nil}
-            | {:map_value, Google.Firestore.V1.MapValue.t() | nil}
-        }
-
-  defstruct value_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -81,40 +44,20 @@ defmodule Google.Firestore.V1.Value do
 end
 defmodule Google.Firestore.V1.ArrayValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          values: [Google.Firestore.V1.Value.t()]
-        }
-
-  defstruct values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Firestore.V1.Value
 end
 defmodule Google.Firestore.V1.MapValue.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Firestore.V1.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1.Value
 end
 defmodule Google.Firestore.V1.MapValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: %{String.t() => Google.Firestore.V1.Value.t() | nil}
-        }
-
-  defstruct fields: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Firestore.V1.MapValue.FieldsEntry, map: true
 end

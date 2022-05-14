@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Talent.V4.CreateClientEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          client_event: Google.Cloud.Talent.V4.ClientEvent.t() | nil
-        }
-
-  defstruct parent: "",
-            client_event: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,7 +11,9 @@ defmodule Google.Cloud.Talent.V4.CreateClientEventRequest do
 end
 defmodule Google.Cloud.Talent.V4.EventService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.talent.v4.EventService"
+  use GRPC.Service,
+    name: "google.cloud.talent.v4.EventService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateClientEvent,
       Google.Cloud.Talent.V4.CreateClientEventRequest,

@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -21,15 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          migratable_resources: [Google.Cloud.Aiplatform.V1beta1.MigratableResource.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct migratable_resources: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :migratable_resources, 1,
     repeated: true,
@@ -40,15 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          migrate_resource_requests: [Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.t()]
-        }
-
-  defstruct parent: "",
-            migrate_resource_requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -60,17 +32,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateMlEngineModelVersionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          model_version: String.t(),
-          model_display_name: String.t()
-        }
-
-  defstruct endpoint: "",
-            model_version: "",
-            model_display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :model_version, 2, type: :string, json_name: "modelVersion", deprecated: false
@@ -78,30 +40,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateMlEngine
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlModelConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: String.t(),
-          model_display_name: String.t()
-        }
-
-  defstruct model: "",
-            model_display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_display_name, 2, type: :string, json_name: "modelDisplayName", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlDatasetConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          dataset_display_name: String.t()
-        }
-
-  defstruct dataset: "",
-            dataset_display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -112,31 +58,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlDa
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.MigrateDataLabelingAnnotatedDatasetConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotated_dataset: String.t()
-        }
-
-  defstruct annotated_dataset: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotated_dataset, 1, type: :string, json_name: "annotatedDataset", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t(),
-          dataset_display_name: String.t(),
-          migrate_data_labeling_annotated_dataset_configs: [
-            Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.MigrateDataLabelingAnnotatedDatasetConfig.t()
-          ]
-        }
-
-  defstruct dataset: "",
-            dataset_display_name: "",
-            migrate_data_labeling_annotated_dataset_configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -154,25 +82,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabe
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:migrate_ml_engine_model_version_config,
-             Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateMlEngineModelVersionConfig.t()
-             | nil}
-            | {:migrate_automl_model_config,
-               Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlModelConfig.t()
-               | nil}
-            | {:migrate_automl_dataset_config,
-               Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlDatasetConfig.t()
-               | nil}
-            | {:migrate_data_labeling_dataset_config,
-               Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.t()
-               | nil}
-        }
-
-  defstruct request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -199,15 +109,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          migrate_resource_responses: [
-            Google.Cloud.Aiplatform.V1beta1.MigrateResourceResponse.t()
-          ]
-        }
-
-  defstruct migrate_resource_responses: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :migrate_resource_responses, 1,
     repeated: true,
@@ -216,15 +118,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          migrated_resource: {:dataset, String.t()} | {:model, String.t()},
-          migratable_resource: Google.Cloud.Aiplatform.V1beta1.MigratableResource.t() | nil
-        }
-
-  defstruct migrated_resource: nil,
-            migratable_resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :migrated_resource, 0
 
@@ -237,16 +131,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata.PartialResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result:
-            {:error, Google.Rpc.Status.t() | nil} | {:model, String.t()} | {:dataset, String.t()},
-          request: Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.t() | nil
-        }
-
-  defstruct result: nil,
-            request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -257,17 +142,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil,
-          partial_results: [
-            Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata.PartialResult.t()
-          ]
-        }
-
-  defstruct generic_metadata: nil,
-            partial_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -280,7 +155,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.MigrationService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.MigrationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SearchMigratableResources,
       Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesRequest,

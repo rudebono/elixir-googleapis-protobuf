@@ -1,23 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum.ChangeClientType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :GOOGLE_ADS_WEB_CLIENT
-          | :GOOGLE_ADS_AUTOMATED_RULE
-          | :GOOGLE_ADS_SCRIPTS
-          | :GOOGLE_ADS_BULK_UPLOAD
-          | :GOOGLE_ADS_API
-          | :GOOGLE_ADS_EDITOR
-          | :GOOGLE_ADS_MOBILE_APP
-          | :GOOGLE_ADS_RECOMMENDATIONS
-          | :SEARCH_ADS_360_SYNC
-          | :SEARCH_ADS_360_POST
-          | :INTERNAL_TOOL
-          | :OTHER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -36,9 +19,5 @@ defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum.ChangeClientType do
 end
 defmodule Google.Ads.Googleads.V7.Enums.ChangeClientTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

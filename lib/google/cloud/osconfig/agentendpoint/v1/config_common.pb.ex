@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyComplianceState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED
-          | :COMPLIANT
-          | :NON_COMPLIANT
-          | :UNKNOWN
-          | :NO_OS_POLICIES_APPLICABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED, 0
   field :COMPLIANT, 1
@@ -18,15 +10,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyComplianceState do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :VALIDATION
-          | :DESIRED_STATE_CHECK
-          | :DESIRED_STATE_ENFORCEMENT
-          | :DESIRED_STATE_CHECK_POST_ENFORCEMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -36,9 +20,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Outcome do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OUTCOME_UNSPECIFIED | :SUCCEEDED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -46,17 +28,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Outc
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type.t(),
-          outcome: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Outcome.t(),
-          error_message: String.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            outcome: :OUTCOME_UNSPECIFIED,
-            error_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type,
@@ -70,34 +42,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enforcement_output: binary
-        }
-
-  defstruct enforcement_output: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enforcement_output, 2, type: :bytes, json_name: "enforcementOutput"
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output:
-            {:exec_resource_output,
-             Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance.ExecResourceOutput.t()
-             | nil},
-          os_policy_resource_id: String.t(),
-          config_steps: [Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.t()],
-          state: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyComplianceState.t()
-        }
-
-  defstruct output: nil,
-            os_policy_resource_id: "",
-            config_steps: [],
-            state: :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output, 0
 

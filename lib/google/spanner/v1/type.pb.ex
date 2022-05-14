@@ -1,21 +1,6 @@
 defmodule Google.Spanner.V1.TypeCode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_CODE_UNSPECIFIED
-          | :BOOL
-          | :INT64
-          | :FLOAT64
-          | :TIMESTAMP
-          | :DATE
-          | :STRING
-          | :BYTES
-          | :ARRAY
-          | :STRUCT
-          | :NUMERIC
-          | :JSON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_CODE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -32,28 +17,14 @@ defmodule Google.Spanner.V1.TypeCode do
 end
 defmodule Google.Spanner.V1.TypeAnnotationCode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_ANNOTATION_CODE_UNSPECIFIED | :PG_NUMERIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_ANNOTATION_CODE_UNSPECIFIED, 0
   field :PG_NUMERIC, 2
 end
 defmodule Google.Spanner.V1.Type do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Spanner.V1.TypeCode.t(),
-          array_element_type: Google.Spanner.V1.Type.t() | nil,
-          struct_type: Google.Spanner.V1.StructType.t() | nil,
-          type_annotation: Google.Spanner.V1.TypeAnnotationCode.t()
-        }
-
-  defstruct code: :TYPE_CODE_UNSPECIFIED,
-            array_element_type: nil,
-            struct_type: nil,
-            type_annotation: :TYPE_ANNOTATION_CODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Spanner.V1.TypeCode, enum: true, deprecated: false
   field :array_element_type, 2, type: Google.Spanner.V1.Type, json_name: "arrayElementType"
@@ -66,28 +37,14 @@ defmodule Google.Spanner.V1.Type do
 end
 defmodule Google.Spanner.V1.StructType.Field do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Spanner.V1.Type.t() | nil
-        }
-
-  defstruct name: "",
-            type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Spanner.V1.Type
 end
 defmodule Google.Spanner.V1.StructType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: [Google.Spanner.V1.StructType.Field.t()]
-        }
-
-  defstruct fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Spanner.V1.StructType.Field
 end

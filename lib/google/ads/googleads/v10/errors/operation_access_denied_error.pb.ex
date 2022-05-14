@@ -1,21 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.OperationAccessDeniedErrorEnum.OperationAccessDeniedError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :ACTION_NOT_PERMITTED
-          | :CREATE_OPERATION_NOT_PERMITTED
-          | :REMOVE_OPERATION_NOT_PERMITTED
-          | :UPDATE_OPERATION_NOT_PERMITTED
-          | :MUTATE_ACTION_NOT_PERMITTED_FOR_CLIENT
-          | :OPERATION_NOT_PERMITTED_FOR_CAMPAIGN_TYPE
-          | :CREATE_AS_REMOVED_NOT_PERMITTED
-          | :OPERATION_NOT_PERMITTED_FOR_REMOVED_RESOURCE
-          | :OPERATION_NOT_PERMITTED_FOR_AD_GROUP_TYPE
-          | :MUTATE_NOT_PERMITTED_FOR_CUSTOMER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -32,9 +17,5 @@ defmodule Google.Ads.Googleads.V10.Errors.OperationAccessDeniedErrorEnum.Operati
 end
 defmodule Google.Ads.Googleads.V10.Errors.OperationAccessDeniedErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

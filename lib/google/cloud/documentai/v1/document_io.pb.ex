@@ -1,68 +1,32 @@
 defmodule Google.Cloud.Documentai.V1.RawDocument do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: binary,
-          mime_type: String.t()
-        }
-
-  defstruct content: "",
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
 defmodule Google.Cloud.Documentai.V1.GcsDocument do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_uri: String.t(),
-          mime_type: String.t()
-        }
-
-  defstruct gcs_uri: "",
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
 defmodule Google.Cloud.Documentai.V1.GcsDocuments do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          documents: [Google.Cloud.Documentai.V1.GcsDocument.t()]
-        }
-
-  defstruct documents: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Cloud.Documentai.V1.GcsDocument
 end
 defmodule Google.Cloud.Documentai.V1.GcsPrefix do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_uri_prefix: String.t()
-        }
-
-  defstruct gcs_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_uri_prefix, 1, type: :string, json_name: "gcsUriPrefix"
 end
 defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:gcs_prefix, Google.Cloud.Documentai.V1.GcsPrefix.t() | nil}
-            | {:gcs_documents, Google.Cloud.Documentai.V1.GcsDocuments.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -78,27 +42,13 @@ defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
 end
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_uri: String.t()
-        }
-
-  defstruct gcs_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
 end
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_output_config,
-             Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.DataSource.Service do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVICE_UNSPECIFIED | :CLOUD_STORAGE | :BIGQUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :CLOUD_STORAGE, 1
@@ -10,20 +8,7 @@ defmodule Google.Cloud.Datacatalog.V1.DataSource.Service do
 end
 defmodule Google.Cloud.Datacatalog.V1.DataSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          properties:
-            {:storage_properties, Google.Cloud.Datacatalog.V1.StorageProperties.t() | nil},
-          service: Google.Cloud.Datacatalog.V1.DataSource.Service.t(),
-          resource: String.t(),
-          source_entry: String.t()
-        }
-
-  defstruct properties: nil,
-            service: :SERVICE_UNSPECIFIED,
-            resource: "",
-            source_entry: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :properties, 0
 
@@ -38,15 +23,7 @@ defmodule Google.Cloud.Datacatalog.V1.DataSource do
 end
 defmodule Google.Cloud.Datacatalog.V1.StorageProperties do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_pattern: [String.t()],
-          file_type: String.t()
-        }
-
-  defstruct file_pattern: [],
-            file_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_pattern, 1, repeated: true, type: :string, json_name: "filePattern"
   field :file_type, 2, type: :string, json_name: "fileType"

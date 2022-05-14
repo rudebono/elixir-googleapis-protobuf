@@ -1,8 +1,6 @@
 defmodule Google.Maps.Routes.V1.RouteTravelMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TRAVEL_MODE_UNSPECIFIED | :DRIVE | :BICYCLE | :WALK | :TWO_WHEELER | :TAXI
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
   field :DRIVE, 1
@@ -13,14 +11,7 @@ defmodule Google.Maps.Routes.V1.RouteTravelMode do
 end
 defmodule Google.Maps.Routes.V1.RoutingPreference do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ROUTING_PREFERENCE_UNSPECIFIED
-          | :TRAFFIC_UNAWARE
-          | :TRAFFIC_AWARE
-          | :TRAFFIC_AWARE_OPTIMAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROUTING_PREFERENCE_UNSPECIFIED, 0
   field :TRAFFIC_UNAWARE, 1
@@ -29,9 +20,7 @@ defmodule Google.Maps.Routes.V1.RoutingPreference do
 end
 defmodule Google.Maps.Routes.V1.Units do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNITS_UNSPECIFIED | :METRIC | :IMPERIAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNITS_UNSPECIFIED, 0
   field :METRIC, 1
@@ -39,35 +28,7 @@ defmodule Google.Maps.Routes.V1.Units do
 end
 defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          origin: Google.Maps.Routes.V1.Waypoint.t() | nil,
-          destination: Google.Maps.Routes.V1.Waypoint.t() | nil,
-          intermediates: [Google.Maps.Routes.V1.Waypoint.t()],
-          travel_mode: Google.Maps.Routes.V1.RouteTravelMode.t(),
-          routing_preference: Google.Maps.Routes.V1.RoutingPreference.t(),
-          polyline_quality: Google.Maps.Routes.V1.PolylineQuality.t(),
-          polyline_encoding: Google.Maps.Routes.V1.PolylineEncoding.t(),
-          departure_time: Google.Protobuf.Timestamp.t() | nil,
-          compute_alternative_routes: boolean,
-          route_modifiers: Google.Maps.Routes.V1.RouteModifiers.t() | nil,
-          language_code: String.t(),
-          units: Google.Maps.Routes.V1.Units.t()
-        }
-
-  defstruct origin: nil,
-            destination: nil,
-            intermediates: [],
-            travel_mode: :TRAVEL_MODE_UNSPECIFIED,
-            routing_preference: :ROUTING_PREFERENCE_UNSPECIFIED,
-            polyline_quality: :POLYLINE_QUALITY_UNSPECIFIED,
-            polyline_encoding: :POLYLINE_ENCODING_UNSPECIFIED,
-            departure_time: nil,
-            compute_alternative_routes: false,
-            route_modifiers: nil,
-            language_code: "",
-            units: :UNITS_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint
@@ -105,23 +66,7 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
 end
 defmodule Google.Maps.Routes.V1.RouteModifiers do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          avoid_tolls: boolean,
-          avoid_highways: boolean,
-          avoid_ferries: boolean,
-          avoid_indoor: boolean,
-          vehicle_info: Google.Maps.Routes.V1.VehicleInfo.t() | nil,
-          toll_passes: [Google.Maps.Routes.V1.TollPass.t()]
-        }
-
-  defstruct avoid_tolls: false,
-            avoid_highways: false,
-            avoid_ferries: false,
-            avoid_indoor: false,
-            vehicle_info: nil,
-            toll_passes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :avoid_tolls, 1, type: :bool, json_name: "avoidTolls"
   field :avoid_highways, 2, type: :bool, json_name: "avoidHighways"
@@ -137,15 +82,7 @@ defmodule Google.Maps.Routes.V1.RouteModifiers do
 end
 defmodule Google.Maps.Routes.V1.VehicleInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          license_plate_last_character: String.t(),
-          emission_type: Google.Maps.Routes.V1.VehicleEmissionType.t()
-        }
-
-  defstruct license_plate_last_character: "",
-            emission_type: :VEHICLE_EMISSION_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :license_plate_last_character, 1, type: :string, json_name: "licensePlateLastCharacter"
 

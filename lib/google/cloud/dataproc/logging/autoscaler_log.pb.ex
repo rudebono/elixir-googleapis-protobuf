@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AUTOSCALER_STATE_UNSPECIFIED
-          | :COOLDOWN
-          | :RECOMMENDING
-          | :SCALING
-          | :STOPPED
-          | :FAILED
-          | :INITIALIZING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUTOSCALER_STATE_UNSPECIFIED, 0
   field :COOLDOWN, 1
@@ -22,15 +12,7 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerState do
 end
 defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SCALING_DECISION_TYPE_UNSPECIFIED
-          | :SCALE_UP
-          | :SCALE_DOWN
-          | :NO_SCALE
-          | :MIXED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCALING_DECISION_TYPE_UNSPECIFIED, 0
   field :SCALE_UP, 1
@@ -40,14 +22,7 @@ defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
 end
 defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CONSTRAINING_FACTOR_UNSPECIFIED
-          | :SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA
-          | :REACHED_MAXIMUM_CLUSTER_SIZE
-          | :REACHED_MINIMUM_CLUSTER_SIZE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONSTRAINING_FACTOR_UNSPECIFIED, 0
   field :SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA, 1
@@ -56,49 +31,21 @@ defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
 end
 defmodule Google.Cloud.Dataproc.Logging.ClusterSize do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary_worker_count: integer,
-          secondary_worker_count: integer
-        }
-
-  defstruct primary_worker_count: 0,
-            secondary_worker_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary_worker_count, 1, type: :int32, json_name: "primaryWorkerCount"
   field :secondary_worker_count, 2, type: :int32, json_name: "secondaryWorkerCount"
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerLog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Cloud.Dataproc.Logging.AutoscalerStatus.t() | nil,
-          recommendation: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.t() | nil
-        }
-
-  defstruct status: nil,
-            recommendation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerStatus
   field :recommendation, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Dataproc.Logging.AutoscalerState.t(),
-          details: String.t(),
-          update_cluster_operation_id: String.t(),
-          error: String.t()
-        }
-
-  defstruct state: :AUTOSCALER_STATE_UNSPECIFIED,
-            details: "",
-            update_cluster_operation_id: "",
-            error: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerState, enum: true
   field :details, 2, type: :string
@@ -107,34 +54,14 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerStatus do
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.ClusterMetricsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_metrics: %{String.t() => String.t()},
-          current_cluster_size: Google.Cloud.Dataproc.Logging.ClusterSize.t() | nil,
-          min_worker_counts: Google.Cloud.Dataproc.Logging.ClusterSize.t() | nil,
-          max_worker_counts: Google.Cloud.Dataproc.Logging.ClusterSize.t() | nil
-        }
-
-  defstruct cluster_metrics: %{},
-            current_cluster_size: nil,
-            min_worker_counts: nil,
-            max_worker_counts: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_metrics, 1,
     repeated: true,
@@ -156,23 +83,7 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          decision: Google.Cloud.Dataproc.Logging.ScalingDecisionType.t(),
-          recommended_cluster_size: Google.Cloud.Dataproc.Logging.ClusterSize.t() | nil,
-          graceful_decommission_timeout: Google.Protobuf.Duration.t() | nil,
-          constraints_reached: [Google.Cloud.Dataproc.Logging.ConstrainingFactor.t()],
-          additional_recommendation_details: [String.t()],
-          recommendation_id: String.t()
-        }
-
-  defstruct decision: :SCALING_DECISION_TYPE_UNSPECIFIED,
-            recommended_cluster_size: nil,
-            graceful_decommission_timeout: nil,
-            constraints_reached: [],
-            additional_recommendation_details: [],
-            recommendation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :decision, 1, type: Google.Cloud.Dataproc.Logging.ScalingDecisionType, enum: true
 
@@ -199,15 +110,7 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
 end
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inputs: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.t() | nil,
-          outputs: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs.t() | nil
-        }
-
-  defstruct inputs: nil,
-            outputs: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inputs, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs
   field :outputs, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs

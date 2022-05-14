@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.Page do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          entry_fulfillment: Google.Cloud.Dialogflow.Cx.V3.Fulfillment.t() | nil,
-          form: Google.Cloud.Dialogflow.Cx.V3.Form.t() | nil,
-          transition_route_groups: [String.t()],
-          transition_routes: [Google.Cloud.Dialogflow.Cx.V3.TransitionRoute.t()],
-          event_handlers: [Google.Cloud.Dialogflow.Cx.V3.EventHandler.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            entry_fulfillment: nil,
-            form: nil,
-            transition_route_groups: [],
-            transition_routes: [],
-            event_handlers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -47,15 +29,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Page do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Form.Parameter.FillBehavior do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          initial_prompt_fulfillment: Google.Cloud.Dialogflow.Cx.V3.Fulfillment.t() | nil,
-          reprompt_event_handlers: [Google.Cloud.Dialogflow.Cx.V3.EventHandler.t()]
-        }
-
-  defstruct initial_prompt_fulfillment: nil,
-            reprompt_event_handlers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :initial_prompt_fulfillment, 3,
     type: Google.Cloud.Dialogflow.Cx.V3.Fulfillment,
@@ -69,25 +43,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Form.Parameter.FillBehavior do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Form.Parameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          required: boolean,
-          entity_type: String.t(),
-          is_list: boolean,
-          fill_behavior: Google.Cloud.Dialogflow.Cx.V3.Form.Parameter.FillBehavior.t() | nil,
-          default_value: Google.Protobuf.Value.t() | nil,
-          redact: boolean
-        }
-
-  defstruct display_name: "",
-            required: false,
-            entity_type: "",
-            is_list: false,
-            fill_behavior: nil,
-            default_value: nil,
-            redact: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :required, 2, type: :bool
@@ -104,31 +60,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Form.Parameter do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Form do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameters: [Google.Cloud.Dialogflow.Cx.V3.Form.Parameter.t()]
-        }
-
-  defstruct parameters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameters, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Form.Parameter
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.EventHandler do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: {:target_page, String.t()} | {:target_flow, String.t()},
-          name: String.t(),
-          event: String.t(),
-          trigger_fulfillment: Google.Cloud.Dialogflow.Cx.V3.Fulfillment.t() | nil
-        }
-
-  defstruct target: nil,
-            name: "",
-            event: "",
-            trigger_fulfillment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -144,21 +82,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EventHandler do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.TransitionRoute do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: {:target_page, String.t()} | {:target_flow, String.t()},
-          name: String.t(),
-          intent: String.t(),
-          condition: String.t(),
-          trigger_fulfillment: Google.Cloud.Dialogflow.Cx.V3.Fulfillment.t() | nil
-        }
-
-  defstruct target: nil,
-            name: "",
-            intent: "",
-            condition: "",
-            trigger_fulfillment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -175,19 +99,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.TransitionRoute do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListPagesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          language_code: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            language_code: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -196,47 +108,21 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ListPagesRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListPagesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pages: [Google.Cloud.Dialogflow.Cx.V3.Page.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct pages: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Page
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetPageRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct name: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreatePageRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page: Google.Cloud.Dialogflow.Cx.V3.Page.t() | nil,
-          language_code: String.t()
-        }
-
-  defstruct parent: "",
-            page: nil,
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page, 2, type: Google.Cloud.Dialogflow.Cx.V3.Page, deprecated: false
@@ -244,17 +130,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.CreatePageRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdatePageRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page: Google.Cloud.Dialogflow.Cx.V3.Page.t() | nil,
-          language_code: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct page: nil,
-            language_code: "",
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page, 1, type: Google.Cloud.Dialogflow.Cx.V3.Page, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -262,22 +138,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.UpdatePageRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeletePageRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Pages.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3.Pages"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.cx.v3.Pages",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListPages,
       Google.Cloud.Dialogflow.Cx.V3.ListPagesRequest,

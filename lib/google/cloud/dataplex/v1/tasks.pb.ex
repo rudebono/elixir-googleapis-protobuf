@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :ON_DEMAND | :RECURRING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -10,26 +8,14 @@ defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec.Type do
 end
 defmodule Google.Cloud.Dataplex.V1.Job.Service do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVICE_UNSPECIFIED | :DATAPROC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :DATAPROC, 1
 end
 defmodule Google.Cloud.Dataplex.V1.Job.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :RUNNING
-          | :CANCELLING
-          | :CANCELLED
-          | :SUCCEEDED
-          | :FAILED
-          | :ABORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -41,47 +27,21 @@ defmodule Google.Cloud.Dataplex.V1.Job.State do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.BatchComputeResources do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executors_count: integer,
-          max_executors_count: integer
-        }
-
-  defstruct executors_count: 0,
-            max_executors_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :executors_count, 1, type: :int32, json_name: "executorsCount", deprecated: false
   field :max_executors_count, 2, type: :int32, json_name: "maxExecutorsCount", deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          java_jars: [String.t()],
-          python_packages: [String.t()],
-          properties: %{String.t() => String.t()}
-        }
-
-  defstruct java_jars: [],
-            python_packages: [],
-            properties: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :java_jars, 2, repeated: true, type: :string, json_name: "javaJars", deprecated: false
 
@@ -99,15 +59,7 @@ defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime
 end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.VpcNetwork do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network_name: {:network, String.t()} | {:sub_network, String.t()},
-          network_tags: [String.t()]
-        }
-
-  defstruct network_name: nil,
-            network_tags: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :network_name, 0
 
@@ -122,22 +74,7 @@ defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.VpcNetwork do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources:
-            {:batch,
-             Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.BatchComputeResources.t() | nil},
-          runtime:
-            {:container_image,
-             Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime.t() | nil},
-          network:
-            {:vpc_network, Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.VpcNetwork.t() | nil}
-        }
-
-  defstruct resources: nil,
-            runtime: nil,
-            network: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :resources, 0
   oneof :runtime, 1
@@ -159,21 +96,7 @@ defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          trigger: {:schedule, String.t()},
-          type: Google.Cloud.Dataplex.V1.Task.TriggerSpec.Type.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          disabled: boolean,
-          max_retries: integer
-        }
-
-  defstruct trigger: nil,
-            type: :TYPE_UNSPECIFIED,
-            start_time: nil,
-            disabled: false,
-            max_retries: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :trigger, 0
 
@@ -189,32 +112,14 @@ defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec.ArgsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          args: %{String.t() => String.t()},
-          service_account: String.t(),
-          max_job_execution_lifetime: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct args: %{},
-            service_account: "",
-            max_job_execution_lifetime: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :args, 4,
     repeated: true,
@@ -231,24 +136,7 @@ defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          driver:
-            {:main_jar_file_uri, String.t()}
-            | {:main_class, String.t()}
-            | {:python_script_file, String.t()}
-            | {:sql_script_file, String.t()}
-            | {:sql_script, String.t()},
-          file_uris: [String.t()],
-          archive_uris: [String.t()],
-          infrastructure_spec: Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.t() | nil
-        }
-
-  defstruct driver: nil,
-            file_uris: [],
-            archive_uris: [],
-            infrastructure_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -272,48 +160,14 @@ defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
 end
 defmodule Google.Cloud.Dataplex.V1.Task.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataplex.V1.Task do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config: {:spark, Google.Cloud.Dataplex.V1.Task.SparkTaskConfig.t() | nil},
-          name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          description: String.t(),
-          display_name: String.t(),
-          state: Google.Cloud.Dataplex.V1.State.t(),
-          labels: %{String.t() => String.t()},
-          trigger_spec: Google.Cloud.Dataplex.V1.Task.TriggerSpec.t() | nil,
-          execution_spec: Google.Cloud.Dataplex.V1.Task.ExecutionSpec.t() | nil
-        }
-
-  defstruct config: nil,
-            name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            description: "",
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            labels: %{},
-            trigger_spec: nil,
-            execution_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -354,29 +208,7 @@ defmodule Google.Cloud.Dataplex.V1.Task do
 end
 defmodule Google.Cloud.Dataplex.V1.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          uid: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Dataplex.V1.Job.State.t(),
-          retry_count: non_neg_integer,
-          service: Google.Cloud.Dataplex.V1.Job.Service.t(),
-          service_job: String.t(),
-          message: String.t()
-        }
-
-  defstruct name: "",
-            uid: "",
-            start_time: nil,
-            end_time: nil,
-            state: :STATE_UNSPECIFIED,
-            retry_count: 0,
-            service: :SERVICE_UNSPECIFIED,
-            service_job: "",
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

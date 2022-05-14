@@ -1,14 +1,6 @@
 defmodule Google.Apps.Script.Type.Drive.DriveAddOnManifest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          homepage_trigger: Google.Apps.Script.Type.HomepageExtensionPoint.t() | nil,
-          on_items_selected_trigger: Google.Apps.Script.Type.Drive.DriveExtensionPoint.t() | nil
-        }
-
-  defstruct homepage_trigger: nil,
-            on_items_selected_trigger: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :homepage_trigger, 1,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -20,13 +12,7 @@ defmodule Google.Apps.Script.Type.Drive.DriveAddOnManifest do
 end
 defmodule Google.Apps.Script.Type.Drive.DriveExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_function: String.t()
-        }
-
-  defstruct run_function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction"
 end

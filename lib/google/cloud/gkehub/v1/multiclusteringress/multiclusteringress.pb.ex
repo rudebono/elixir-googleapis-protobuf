@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Gkehub.Multiclusteringress.V1.FeatureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config_membership: String.t()
-        }
-
-  defstruct config_membership: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :config_membership, 1, type: :string, json_name: "configMembership"
 end

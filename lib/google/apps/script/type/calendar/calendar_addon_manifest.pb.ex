@@ -1,8 +1,6 @@
 defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :METADATA | :READ | :WRITE | :READ_WRITE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :METADATA, 1
@@ -12,24 +10,7 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess do
 end
 defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          homepage_trigger: Google.Apps.Script.Type.HomepageExtensionPoint.t() | nil,
-          conference_solution: [Google.Apps.Script.Type.Calendar.ConferenceSolution.t()],
-          create_settings_url_function: String.t(),
-          event_open_trigger: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint.t() | nil,
-          event_update_trigger: Google.Apps.Script.Type.Calendar.CalendarExtensionPoint.t() | nil,
-          current_event_access:
-            Google.Apps.Script.Type.Calendar.CalendarAddOnManifest.EventAccess.t()
-        }
-
-  defstruct homepage_trigger: nil,
-            conference_solution: [],
-            create_settings_url_function: "",
-            event_open_trigger: nil,
-            event_update_trigger: nil,
-            current_event_access: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :homepage_trigger, 6,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -57,19 +38,7 @@ defmodule Google.Apps.Script.Type.Calendar.CalendarAddOnManifest do
 end
 defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          on_create_function: String.t(),
-          id: String.t(),
-          name: String.t(),
-          logo_url: String.t()
-        }
-
-  defstruct on_create_function: "",
-            id: "",
-            name: "",
-            logo_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :on_create_function, 1, type: :string, json_name: "onCreateFunction", deprecated: false
   field :id, 4, type: :string, deprecated: false
@@ -78,13 +47,7 @@ defmodule Google.Apps.Script.Type.Calendar.ConferenceSolution do
 end
 defmodule Google.Apps.Script.Type.Calendar.CalendarExtensionPoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          run_function: String.t()
-        }
-
-  defstruct run_function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

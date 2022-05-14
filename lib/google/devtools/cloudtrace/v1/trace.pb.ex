@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SPAN_KIND_UNSPECIFIED | :RPC_SERVER | :RPC_CLIENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SPAN_KIND_UNSPECIFIED, 0
   field :RPC_SERVER, 1
@@ -10,9 +8,7 @@ defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind do
 end
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VIEW_TYPE_UNSPECIFIED | :MINIMAL | :ROOTSPAN | :COMPLETE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VIEW_TYPE_UNSPECIFIED, 0
   field :MINIMAL, 1
@@ -21,17 +17,7 @@ defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType do
 end
 defmodule Google.Devtools.Cloudtrace.V1.Trace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          trace_id: String.t(),
-          spans: [Google.Devtools.Cloudtrace.V1.TraceSpan.t()]
-        }
-
-  defstruct project_id: "",
-            trace_id: "",
-            spans: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :trace_id, 2, type: :string, json_name: "traceId"
@@ -39,52 +25,20 @@ defmodule Google.Devtools.Cloudtrace.V1.Trace do
 end
 defmodule Google.Devtools.Cloudtrace.V1.Traces do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          traces: [Google.Devtools.Cloudtrace.V1.Trace.t()]
-        }
-
-  defstruct traces: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
 end
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          span_id: non_neg_integer,
-          kind: Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind.t(),
-          name: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          parent_span_id: non_neg_integer,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct span_id: 0,
-            kind: :SPAN_KIND_UNSPECIFIED,
-            name: "",
-            start_time: nil,
-            end_time: nil,
-            parent_span_id: 0,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :span_id, 1, type: :fixed64, json_name: "spanId"
   field :kind, 2, type: Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind, enum: true
@@ -100,27 +54,7 @@ defmodule Google.Devtools.Cloudtrace.V1.TraceSpan do
 end
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          view: Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType.t(),
-          page_size: integer,
-          page_token: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct project_id: "",
-            view: :VIEW_TYPE_UNSPECIFIED,
-            page_size: 0,
-            page_token: "",
-            start_time: nil,
-            end_time: nil,
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
@@ -138,52 +72,30 @@ defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest do
 end
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          traces: [Google.Devtools.Cloudtrace.V1.Trace.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct traces: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Cloudtrace.V1.GetTraceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          trace_id: String.t()
-        }
-
-  defstruct project_id: "",
-            trace_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trace_id, 2, type: :string, json_name: "traceId", deprecated: false
 end
 defmodule Google.Devtools.Cloudtrace.V1.PatchTracesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          traces: Google.Devtools.Cloudtrace.V1.Traces.t() | nil
-        }
-
-  defstruct project_id: "",
-            traces: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :traces, 2, type: Google.Devtools.Cloudtrace.V1.Traces, deprecated: false
 end
 defmodule Google.Devtools.Cloudtrace.V1.TraceService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.cloudtrace.v1.TraceService"
+  use GRPC.Service,
+    name: "google.devtools.cloudtrace.v1.TraceService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListTraces,
       Google.Devtools.Cloudtrace.V1.ListTracesRequest,

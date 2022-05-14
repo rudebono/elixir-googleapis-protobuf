@@ -1,22 +1,6 @@
 defmodule Google.Api.Documentation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          summary: String.t(),
-          pages: [Google.Api.Page.t()],
-          rules: [Google.Api.DocumentationRule.t()],
-          documentation_root_url: String.t(),
-          service_root_url: String.t(),
-          overview: String.t()
-        }
-
-  defstruct summary: "",
-            pages: [],
-            rules: [],
-            documentation_root_url: "",
-            service_root_url: "",
-            overview: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :summary, 1, type: :string
   field :pages, 5, repeated: true, type: Google.Api.Page
@@ -27,17 +11,7 @@ defmodule Google.Api.Documentation do
 end
 defmodule Google.Api.DocumentationRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: String.t(),
-          description: String.t(),
-          deprecation_description: String.t()
-        }
-
-  defstruct selector: "",
-            description: "",
-            deprecation_description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :description, 2, type: :string
@@ -45,17 +19,7 @@ defmodule Google.Api.DocumentationRule do
 end
 defmodule Google.Api.Page do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          content: String.t(),
-          subpages: [Google.Api.Page.t()]
-        }
-
-  defstruct name: "",
-            content: "",
-            subpages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :content, 2, type: :string

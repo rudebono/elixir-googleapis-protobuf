@@ -1,8 +1,6 @@
 defmodule Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONTINUOUS_ANALYSIS_UNSPECIFIED | :ACTIVE | :INACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTINUOUS_ANALYSIS_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,16 +8,7 @@ defmodule Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis do
 end
 defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ANALYSIS_STATUS_UNSPECIFIED
-          | :PENDING
-          | :SCANNING
-          | :FINISHED_SUCCESS
-          | :FINISHED_FAILED
-          | :FINISHED_UNSUPPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANALYSIS_STATUS_UNSPECIFIED, 0
   field :PENDING, 1
@@ -30,35 +19,13 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
 end
 defmodule Grafeas.V1.DiscoveryNote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          analysis_kind: Grafeas.V1.NoteKind.t()
-        }
-
-  defstruct analysis_kind: :NOTE_KIND_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :analysis_kind, 1, type: Grafeas.V1.NoteKind, json_name: "analysisKind", enum: true
 end
 defmodule Grafeas.V1.DiscoveryOccurrence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          continuous_analysis: Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis.t(),
-          analysis_status: Grafeas.V1.DiscoveryOccurrence.AnalysisStatus.t(),
-          analysis_status_error: Google.Rpc.Status.t() | nil,
-          cpe: String.t(),
-          last_scan_time: Google.Protobuf.Timestamp.t() | nil,
-          archive_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct continuous_analysis: :CONTINUOUS_ANALYSIS_UNSPECIFIED,
-            analysis_status: :ANALYSIS_STATUS_UNSPECIFIED,
-            analysis_status_error: nil,
-            cpe: "",
-            last_scan_time: nil,
-            archive_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :continuous_analysis, 1,
     type: Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis,

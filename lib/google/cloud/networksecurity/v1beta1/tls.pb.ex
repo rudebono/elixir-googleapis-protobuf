@@ -1,27 +1,12 @@
 defmodule Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_uri: String.t()
-        }
-
-  defstruct target_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.ValidationCA do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:grpc_endpoint, Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint.t() | nil}
-            | {:certificate_provider_instance,
-               Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance.t() | nil}
-        }
-
-  defstruct type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -37,28 +22,13 @@ defmodule Google.Cloud.Networksecurity.V1beta1.ValidationCA do
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          plugin_instance: String.t()
-        }
-
-  defstruct plugin_instance: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :plugin_instance, 1, type: :string, json_name: "pluginInstance", deprecated: false
 end
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProvider do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:grpc_endpoint, Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint.t() | nil}
-            | {:certificate_provider_instance,
-               Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance.t() | nil}
-        }
-
-  defstruct type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 

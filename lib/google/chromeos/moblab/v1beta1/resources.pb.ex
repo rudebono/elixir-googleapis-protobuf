@@ -1,8 +1,6 @@
 defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BUILD_STATUS_UNSPECIFIED | :PASS | :FAIL | :RUNNING | :ABORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BUILD_STATUS_UNSPECIFIED, 0
   field :PASS, 1
@@ -12,9 +10,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildStatus do
 end
 defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BUILD_TYPE_UNSPECIFIED | :RELEASE | :FIRMWARE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BUILD_TYPE_UNSPECIFIED, 0
   field :RELEASE, 1
@@ -22,61 +18,25 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildType do
 end
 defmodule Google.Chromeos.Moblab.V1beta1.BuildTarget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Chromeos.Moblab.V1beta1.Model do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Chromeos.Moblab.V1beta1.Milestone do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Chromeos.Moblab.V1beta1.Build do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          milestone: String.t(),
-          build_version: String.t(),
-          status: Google.Chromeos.Moblab.V1beta1.Build.BuildStatus.t(),
-          type: Google.Chromeos.Moblab.V1beta1.Build.BuildType.t(),
-          branch: String.t(),
-          rw_firmware_version: String.t()
-        }
-
-  defstruct name: "",
-            milestone: "",
-            build_version: "",
-            status: :BUILD_STATUS_UNSPECIFIED,
-            type: :BUILD_TYPE_UNSPECIFIED,
-            branch: "",
-            rw_firmware_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :milestone, 2, type: :string, deprecated: false
@@ -88,21 +48,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build do
 end
 defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          build: String.t(),
-          bucket: String.t(),
-          path: String.t(),
-          object_count: non_neg_integer
-        }
-
-  defstruct name: "",
-            build: "",
-            bucket: "",
-            path: "",
-            object_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :build, 2, type: :string, deprecated: false

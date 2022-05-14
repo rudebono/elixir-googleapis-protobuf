@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :INFORMATIONAL | :LOW | :MEDIUM | :HIGH | :CRITICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :INFORMATIONAL, 1
@@ -13,9 +11,7 @@ defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
 end
 defmodule Google.Cloud.Ids.V1.Endpoint.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -24,48 +20,14 @@ defmodule Google.Cloud.Ids.V1.Endpoint.State do
 end
 defmodule Google.Cloud.Ids.V1.Endpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Ids.V1.Endpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          network: String.t(),
-          endpoint_forwarding_rule: String.t(),
-          endpoint_ip: String.t(),
-          description: String.t(),
-          severity: Google.Cloud.Ids.V1.Endpoint.Severity.t(),
-          state: Google.Cloud.Ids.V1.Endpoint.State.t(),
-          traffic_logs: boolean
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            network: "",
-            endpoint_forwarding_rule: "",
-            endpoint_ip: "",
-            description: "",
-            severity: :SEVERITY_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            traffic_logs: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -95,21 +57,7 @@ defmodule Google.Cloud.Ids.V1.Endpoint do
 end
 defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -119,17 +67,7 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
 end
 defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoints: [Google.Cloud.Ids.V1.Endpoint.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct endpoints: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Ids.V1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -137,31 +75,13 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
 end
 defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          endpoint_id: String.t(),
-          endpoint: Google.Cloud.Ids.V1.Endpoint.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            endpoint_id: "",
-            endpoint: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
@@ -170,40 +90,14 @@ defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
 end
 defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Cloud.Ids.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -224,7 +118,7 @@ defmodule Google.Cloud.Ids.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Ids.V1.IDS.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.ids.v1.IDS"
+  use GRPC.Service, name: "google.cloud.ids.v1.IDS", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListEndpoints,
       Google.Cloud.Ids.V1.ListEndpointsRequest,

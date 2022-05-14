@@ -1,17 +1,6 @@
 defmodule Google.Api.FieldBehavior do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FIELD_BEHAVIOR_UNSPECIFIED
-          | :OPTIONAL
-          | :REQUIRED
-          | :OUTPUT_ONLY
-          | :INPUT_ONLY
-          | :IMMUTABLE
-          | :UNORDERED_LIST
-          | :NON_EMPTY_DEFAULT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FIELD_BEHAVIOR_UNSPECIFIED, 0
   field :OPTIONAL, 1
@@ -24,7 +13,7 @@ defmodule Google.Api.FieldBehavior do
 end
 defmodule Google.Api.PbExtension do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   extend Google.Protobuf.FieldOptions, :field_behavior, 1052,
     repeated: true,

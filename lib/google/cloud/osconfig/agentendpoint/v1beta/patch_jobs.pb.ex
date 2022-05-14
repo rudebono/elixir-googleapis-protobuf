@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REBOOT_CONFIG_UNSPECIFIED | :DEFAULT | :ALWAYS | :NEVER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :DIST | :UPGRADE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :DIST, 1
@@ -21,20 +17,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings.Classification do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLASSIFICATION_UNSPECIFIED
-          | :CRITICAL
-          | :SECURITY
-          | :DEFINITION
-          | :DRIVER
-          | :FEATURE_PACK
-          | :SERVICE_PACK
-          | :TOOL
-          | :UPDATE_ROLLUP
-          | :UPDATE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLASSIFICATION_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -49,9 +32,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings.Class
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.Interpreter do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INTERPRETER_UNSPECIFIED | :NONE | :SHELL | :POWERSHELL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :NONE, 3
@@ -60,32 +41,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.Interpreter 
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reboot_config: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig.t(),
-          retry_strategy: Google.Cloud.Osconfig.Agentendpoint.V1beta.RetryStrategy.t() | nil,
-          apt: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.t() | nil,
-          yum: Google.Cloud.Osconfig.Agentendpoint.V1beta.YumSettings.t() | nil,
-          goo: Google.Cloud.Osconfig.Agentendpoint.V1beta.GooSettings.t() | nil,
-          zypper: Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperSettings.t() | nil,
-          windows_update:
-            Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings.t() | nil,
-          pre_step: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep.t() | nil,
-          post_step: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep.t() | nil,
-          mig_instances_allowed: boolean
-        }
-
-  defstruct reboot_config: :REBOOT_CONFIG_UNSPECIFIED,
-            retry_strategy: nil,
-            apt: nil,
-            yum: nil,
-            goo: nil,
-            zypper: nil,
-            windows_update: nil,
-            pre_step: nil,
-            post_step: nil,
-            mig_instances_allowed: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig,
@@ -117,17 +73,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type.t(),
-          excludes: [String.t()],
-          exclusive_packages: [String.t()]
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            excludes: [],
-            exclusive_packages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
@@ -135,19 +81,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          security: boolean,
-          minimal: boolean,
-          excludes: [String.t()],
-          exclusive_packages: [String.t()]
-        }
-
-  defstruct security: false,
-            minimal: false,
-            excludes: [],
-            exclusive_packages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
@@ -156,31 +90,11 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumSettings do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GooSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          with_optional: boolean,
-          with_update: boolean,
-          categories: [String.t()],
-          severities: [String.t()],
-          excludes: [String.t()],
-          exclusive_patches: [String.t()]
-        }
-
-  defstruct with_optional: false,
-            with_update: false,
-            categories: [],
-            severities: [],
-            excludes: [],
-            exclusive_patches: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :with_optional, 1, type: :bool, json_name: "withOptional"
   field :with_update, 2, type: :bool, json_name: "withUpdate"
@@ -191,19 +105,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperSettings do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          classifications: [
-            Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings.Classification.t()
-          ],
-          excludes: [String.t()],
-          exclusive_patches: [String.t()]
-        }
-
-  defstruct classifications: [],
-            excludes: [],
-            exclusive_patches: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :classifications, 1,
     repeated: true,
@@ -215,29 +117,13 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RetryStrategy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enabled: boolean
-        }
-
-  defstruct enabled: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          linux_exec_step_config:
-            Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.t() | nil,
-          windows_exec_step_config:
-            Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.t() | nil
-        }
-
-  defstruct linux_exec_step_config: nil,
-            windows_exec_step_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :linux_exec_step_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig,
@@ -249,19 +135,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executable:
-            {:local_path, String.t()}
-            | {:gcs_object, Google.Cloud.Osconfig.Agentendpoint.V1beta.GcsObject.t() | nil},
-          allowed_success_codes: [integer],
-          interpreter: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.Interpreter.t()
-        }
-
-  defstruct executable: nil,
-            allowed_success_codes: [],
-            interpreter: :INTERPRETER_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :executable, 0
 
@@ -280,17 +154,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GcsObject do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bucket: String.t(),
-          object: String.t(),
-          generation_number: integer
-        }
-
-  defstruct bucket: "",
-            object: "",
-            generation_number: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string

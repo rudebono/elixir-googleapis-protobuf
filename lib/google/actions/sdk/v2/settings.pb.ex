@@ -1,30 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Settings.Category do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CATEGORY_UNSPECIFIED
-          | :BUSINESS_AND_FINANCE
-          | :EDUCATION_AND_REFERENCE
-          | :FOOD_AND_DRINK
-          | :GAMES_AND_TRIVIA
-          | :HEALTH_AND_FITNESS
-          | :KIDS_AND_FAMILY
-          | :LIFESTYLE
-          | :LOCAL
-          | :MOVIES_AND_TV
-          | :MUSIC_AND_AUDIO
-          | :NEWS
-          | :NOVELTY_AND_HUMOR
-          | :PRODUCTIVITY
-          | :SHOPPING
-          | :SOCIAL
-          | :SPORTS
-          | :TRAVEL_AND_TRANSPORTATION
-          | :UTILITIES
-          | :WEATHER
-          | :HOME_CONTROL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :BUSINESS_AND_FINANCE, 2
@@ -50,45 +26,7 @@ defmodule Google.Actions.Sdk.V2.Settings.Category do
 end
 defmodule Google.Actions.Sdk.V2.Settings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          default_locale: String.t(),
-          enabled_regions: [String.t()],
-          disabled_regions: [String.t()],
-          category: Google.Actions.Sdk.V2.Settings.Category.t(),
-          uses_transactions_api: boolean,
-          uses_digital_purchase_api: boolean,
-          uses_interactive_canvas: boolean,
-          uses_home_storage: boolean,
-          designed_for_family: boolean,
-          contains_alcohol_or_tobacco_content: boolean,
-          keeps_mic_open: boolean,
-          surface_requirements: Google.Actions.Sdk.V2.SurfaceRequirements.t() | nil,
-          testing_instructions: String.t(),
-          localized_settings: Google.Actions.Sdk.V2.LocalizedSettings.t() | nil,
-          account_linking: Google.Actions.Sdk.V2.AccountLinking.t() | nil,
-          selected_android_apps: [String.t()]
-        }
-
-  defstruct project_id: "",
-            default_locale: "",
-            enabled_regions: [],
-            disabled_regions: [],
-            category: :CATEGORY_UNSPECIFIED,
-            uses_transactions_api: false,
-            uses_digital_purchase_api: false,
-            uses_interactive_canvas: false,
-            uses_home_storage: false,
-            designed_for_family: false,
-            contains_alcohol_or_tobacco_content: false,
-            keeps_mic_open: false,
-            surface_requirements: nil,
-            testing_instructions: "",
-            localized_settings: nil,
-            account_linking: nil,
-            selected_android_apps: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :default_locale, 2, type: :string, json_name: "defaultLocale"

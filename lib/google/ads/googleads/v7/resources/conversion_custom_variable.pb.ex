@@ -1,23 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Resources.ConversionCustomVariable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          id: integer,
-          name: String.t(),
-          tag: String.t(),
-          status:
-            Google.Ads.Googleads.V7.Enums.ConversionCustomVariableStatusEnum.ConversionCustomVariableStatus.t(),
-          owner_customer: String.t()
-        }
-
-  defstruct resource_name: "",
-            id: 0,
-            name: "",
-            tag: "",
-            status: :UNSPECIFIED,
-            owner_customer: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

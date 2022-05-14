@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Recommender.V1.Insight.Category do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CATEGORY_UNSPECIFIED | :COST | :SECURITY | :PERFORMANCE | :MANAGEABILITY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :COST, 1
@@ -12,9 +10,7 @@ defmodule Google.Cloud.Recommender.V1.Insight.Category do
 end
 defmodule Google.Cloud.Recommender.V1.Insight.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :LOW | :MEDIUM | :HIGH | :CRITICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :LOW, 1
@@ -24,9 +20,7 @@ defmodule Google.Cloud.Recommender.V1.Insight.Severity do
 end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :ACCEPTED | :DISMISSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -35,49 +29,13 @@ defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
 end
 defmodule Google.Cloud.Recommender.V1.Insight.RecommendationReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          recommendation: String.t()
-        }
-
-  defstruct recommendation: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :recommendation, 1, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.Insight do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          target_resources: [String.t()],
-          insight_subtype: String.t(),
-          content: Google.Protobuf.Struct.t() | nil,
-          last_refresh_time: Google.Protobuf.Timestamp.t() | nil,
-          observation_period: Google.Protobuf.Duration.t() | nil,
-          state_info: Google.Cloud.Recommender.V1.InsightStateInfo.t() | nil,
-          category: Google.Cloud.Recommender.V1.Insight.Category.t(),
-          severity: Google.Cloud.Recommender.V1.Insight.Severity.t(),
-          etag: String.t(),
-          associated_recommendations: [
-            Google.Cloud.Recommender.V1.Insight.RecommendationReference.t()
-          ]
-        }
-
-  defstruct name: "",
-            description: "",
-            target_resources: [],
-            insight_subtype: "",
-            content: nil,
-            last_refresh_time: nil,
-            observation_period: nil,
-            state_info: nil,
-            category: :CATEGORY_UNSPECIFIED,
-            severity: :SEVERITY_UNSPECIFIED,
-            etag: "",
-            associated_recommendations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -98,30 +56,14 @@ defmodule Google.Cloud.Recommender.V1.Insight do
 end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Recommender.V1.InsightStateInfo.State.t(),
-          state_metadata: %{String.t() => String.t()}
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            state_metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Recommender.V1.InsightStateInfo.State, enum: true
 

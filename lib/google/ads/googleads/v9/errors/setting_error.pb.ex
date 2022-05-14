@@ -1,22 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Errors.SettingErrorEnum.SettingError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :SETTING_TYPE_IS_NOT_AVAILABLE
-          | :SETTING_TYPE_IS_NOT_COMPATIBLE_WITH_CAMPAIGN
-          | :TARGETING_SETTING_CONTAINS_INVALID_CRITERION_TYPE_GROUP
-          | :TARGETING_SETTING_DEMOGRAPHIC_CRITERION_TYPE_GROUPS_MUST_BE_SET_TO_TARGET_ALL
-          | :TARGETING_SETTING_CANNOT_CHANGE_TARGET_ALL_TO_FALSE_FOR_DEMOGRAPHIC_CRITERION_TYPE_GROUP
-          | :DYNAMIC_SEARCH_ADS_SETTING_AT_LEAST_ONE_FEED_ID_MUST_BE_PRESENT
-          | :DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_DOMAIN_NAME
-          | :DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_SUBDOMAIN_NAME
-          | :DYNAMIC_SEARCH_ADS_SETTING_CONTAINS_INVALID_LANGUAGE_CODE
-          | :TARGET_ALL_IS_NOT_ALLOWED_FOR_PLACEMENT_IN_SEARCH_CAMPAIGN
-          | :SETTING_VALUE_NOT_COMPATIBLE_WITH_CAMPAIGN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -37,9 +21,5 @@ defmodule Google.Ads.Googleads.V9.Errors.SettingErrorEnum.SettingError do
 end
 defmodule Google.Ads.Googleads.V9.Errors.SettingErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

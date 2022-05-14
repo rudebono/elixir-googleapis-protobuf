@@ -1,9 +1,6 @@
 defmodule Google.Identity.Accesscontextmanager.Type.DeviceEncryptionStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :ENCRYPTION_UNSPECIFIED | :ENCRYPTION_UNSUPPORTED | :UNENCRYPTED | :ENCRYPTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCRYPTION_UNSPECIFIED, 0
   field :ENCRYPTION_UNSUPPORTED, 1
@@ -12,17 +9,7 @@ defmodule Google.Identity.Accesscontextmanager.Type.DeviceEncryptionStatus do
 end
 defmodule Google.Identity.Accesscontextmanager.Type.OsType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OS_UNSPECIFIED
-          | :DESKTOP_MAC
-          | :DESKTOP_WINDOWS
-          | :DESKTOP_LINUX
-          | :DESKTOP_CHROME_OS
-          | :ANDROID
-          | :IOS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OS_UNSPECIFIED, 0
   field :DESKTOP_MAC, 1
@@ -34,9 +21,7 @@ defmodule Google.Identity.Accesscontextmanager.Type.OsType do
 end
 defmodule Google.Identity.Accesscontextmanager.Type.DeviceManagementLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MANAGEMENT_UNSPECIFIED | :NONE | :BASIC | :COMPLETE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MANAGEMENT_UNSPECIFIED, 0
   field :NONE, 1

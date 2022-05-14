@@ -1,20 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Errors.ConversionValueRuleSetErrorEnum.ConversionValueRuleSetError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CONFLICTING_VALUE_RULE_CONDITIONS
-          | :INVALID_VALUE_RULE
-          | :DIMENSIONS_UPDATE_ONLY_ALLOW_APPEND
-          | :CONDITION_TYPE_NOT_ALLOWED
-          | :DUPLICATE_DIMENSIONS
-          | :INVALID_CAMPAIGN_ID
-          | :CANNOT_PAUSE_UNLESS_ALL_VALUE_RULES_ARE_PAUSED
-          | :SHOULD_PAUSE_WHEN_ALL_VALUE_RULES_ARE_PAUSED
-          | :VALUE_RULES_NOT_SUPPORTED_FOR_CAMPAIGN_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -30,9 +16,5 @@ defmodule Google.Ads.Googleads.V9.Errors.ConversionValueRuleSetErrorEnum.Convers
 end
 defmodule Google.Ads.Googleads.V9.Errors.ConversionValueRuleSetErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

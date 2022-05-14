@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Retail.V2alpha.Promotion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          promotion_id: String.t()
-        }
-
-  defstruct promotion_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :promotion_id, 1, type: :string, json_name: "promotionId"
 end

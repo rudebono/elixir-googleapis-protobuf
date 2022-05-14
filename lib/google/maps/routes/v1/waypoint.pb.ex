@@ -1,19 +1,6 @@
 defmodule Google.Maps.Routes.V1.Waypoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location_type:
-            {:location, Google.Maps.Routes.V1.Location.t() | nil} | {:place_id, String.t()},
-          via: boolean,
-          vehicle_stopover: boolean,
-          side_of_road: boolean
-        }
-
-  defstruct location_type: nil,
-            via: false,
-            vehicle_stopover: false,
-            side_of_road: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :location_type, 0
 
@@ -25,15 +12,7 @@ defmodule Google.Maps.Routes.V1.Waypoint do
 end
 defmodule Google.Maps.Routes.V1.Location do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lat_lng: Google.Type.LatLng.t() | nil,
-          heading: Google.Protobuf.Int32Value.t() | nil
-        }
-
-  defstruct lat_lng: nil,
-            heading: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :heading, 2, type: Google.Protobuf.Int32Value

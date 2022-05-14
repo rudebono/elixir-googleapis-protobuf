@@ -1,18 +1,6 @@
 defmodule Google.Firestore.Admin.V1beta2.Field.IndexConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          indexes: [Google.Firestore.Admin.V1beta2.Index.t()],
-          uses_ancestor_config: boolean,
-          ancestor_field: String.t(),
-          reverting: boolean
-        }
-
-  defstruct indexes: [],
-            uses_ancestor_config: false,
-            ancestor_field: "",
-            reverting: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1beta2.Index
   field :uses_ancestor_config, 2, type: :bool, json_name: "usesAncestorConfig"
@@ -21,15 +9,7 @@ defmodule Google.Firestore.Admin.V1beta2.Field.IndexConfig do
 end
 defmodule Google.Firestore.Admin.V1beta2.Field do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          index_config: Google.Firestore.Admin.V1beta2.Field.IndexConfig.t() | nil
-        }
-
-  defstruct name: "",
-            index_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 

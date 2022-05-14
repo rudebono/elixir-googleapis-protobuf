@@ -1,39 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.AdGroupCriterionErrorEnum.AdGroupCriterionError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :AD_GROUP_CRITERION_LABEL_DOES_NOT_EXIST
-          | :AD_GROUP_CRITERION_LABEL_ALREADY_EXISTS
-          | :CANNOT_ADD_LABEL_TO_NEGATIVE_CRITERION
-          | :TOO_MANY_OPERATIONS
-          | :CANT_UPDATE_NEGATIVE
-          | :CONCRETE_TYPE_REQUIRED
-          | :BID_INCOMPATIBLE_WITH_ADGROUP
-          | :CANNOT_TARGET_AND_EXCLUDE
-          | :ILLEGAL_URL
-          | :INVALID_KEYWORD_TEXT
-          | :INVALID_DESTINATION_URL
-          | :MISSING_DESTINATION_URL_TAG
-          | :KEYWORD_LEVEL_BID_NOT_SUPPORTED_FOR_MANUALCPM
-          | :INVALID_USER_STATUS
-          | :CANNOT_ADD_CRITERIA_TYPE
-          | :CANNOT_EXCLUDE_CRITERIA_TYPE
-          | :CAMPAIGN_TYPE_NOT_COMPATIBLE_WITH_PARTIAL_FAILURE
-          | :OPERATIONS_FOR_TOO_MANY_SHOPPING_ADGROUPS
-          | :CANNOT_MODIFY_URL_FIELDS_WITH_DUPLICATE_ELEMENTS
-          | :CANNOT_SET_WITHOUT_FINAL_URLS
-          | :CANNOT_CLEAR_FINAL_URLS_IF_FINAL_MOBILE_URLS_EXIST
-          | :CANNOT_CLEAR_FINAL_URLS_IF_FINAL_APP_URLS_EXIST
-          | :CANNOT_CLEAR_FINAL_URLS_IF_TRACKING_URL_TEMPLATE_EXISTS
-          | :CANNOT_CLEAR_FINAL_URLS_IF_URL_CUSTOM_PARAMETERS_EXIST
-          | :CANNOT_SET_BOTH_DESTINATION_URL_AND_FINAL_URLS
-          | :CANNOT_SET_BOTH_DESTINATION_URL_AND_TRACKING_URL_TEMPLATE
-          | :FINAL_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE
-          | :FINAL_MOBILE_URLS_NOT_SUPPORTED_FOR_CRITERION_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -68,9 +35,5 @@ defmodule Google.Ads.Googleads.V8.Errors.AdGroupCriterionErrorEnum.AdGroupCriter
 end
 defmodule Google.Ads.Googleads.V8.Errors.AdGroupCriterionErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

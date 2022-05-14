@@ -1,78 +1,36 @@
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.AvroSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t()
-        }
-
-  defstruct text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.ThriftSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t()
-        }
-
-  defstruct text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.ProtobufSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t()
-        }
-
-  defstruct text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.ParquetSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.OrcSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema.CsvSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datacatalog.V1.PhysicalSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema:
-            {:avro, Google.Cloud.Datacatalog.V1.PhysicalSchema.AvroSchema.t() | nil}
-            | {:thrift, Google.Cloud.Datacatalog.V1.PhysicalSchema.ThriftSchema.t() | nil}
-            | {:protobuf, Google.Cloud.Datacatalog.V1.PhysicalSchema.ProtobufSchema.t() | nil}
-            | {:parquet, Google.Cloud.Datacatalog.V1.PhysicalSchema.ParquetSchema.t() | nil}
-            | {:orc, Google.Cloud.Datacatalog.V1.PhysicalSchema.OrcSchema.t() | nil}
-            | {:csv, Google.Cloud.Datacatalog.V1.PhysicalSchema.CsvSchema.t() | nil}
-        }
-
-  defstruct schema: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :schema, 0
 

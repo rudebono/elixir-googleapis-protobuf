@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Apigateway.V1.Api.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :FAILED | :DELETING | :UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -13,17 +11,7 @@ defmodule Google.Cloud.Apigateway.V1.Api.State do
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :ACTIVE
-          | :FAILED
-          | :DELETING
-          | :UPDATING
-          | :ACTIVATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -35,9 +23,7 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.State do
 end
 defmodule Google.Cloud.Apigateway.V1.Gateway.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :ACTIVE | :FAILED | :DELETING | :UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -48,9 +34,7 @@ defmodule Google.Cloud.Apigateway.V1.Gateway.State do
 end
 defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONFIG_VIEW_UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONFIG_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -58,40 +42,14 @@ defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView do
 end
 defmodule Google.Cloud.Apigateway.V1.Api.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Apigateway.V1.Api do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          managed_service: String.t(),
-          state: Google.Cloud.Apigateway.V1.Api.State.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            managed_service: "",
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -117,42 +75,20 @@ defmodule Google.Cloud.Apigateway.V1.Api do
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.File do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          path: String.t(),
-          contents: binary
-        }
-
-  defstruct path: "",
-            contents: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :contents, 2, type: :bytes
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Apigateway.V1.ApiConfig.File.t() | nil
-        }
-
-  defstruct document: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Apigateway.V1.ApiConfig.File
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_descriptor_set: Google.Cloud.Apigateway.V1.ApiConfig.File.t() | nil,
-          source: [Google.Cloud.Apigateway.V1.ApiConfig.File.t()]
-        }
-
-  defstruct file_descriptor_set: nil,
-            source: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_descriptor_set, 1,
     type: Google.Cloud.Apigateway.V1.ApiConfig.File,
@@ -166,48 +102,14 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition do
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          gateway_service_account: String.t(),
-          service_config_id: String.t(),
-          state: Google.Cloud.Apigateway.V1.ApiConfig.State.t(),
-          openapi_documents: [Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument.t()],
-          grpc_services: [Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition.t()],
-          managed_service_configs: [Google.Cloud.Apigateway.V1.ApiConfig.File.t()]
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            gateway_service_account: "",
-            service_config_id: "",
-            state: :STATE_UNSPECIFIED,
-            openapi_documents: [],
-            grpc_services: [],
-            managed_service_configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -257,42 +159,14 @@ defmodule Google.Cloud.Apigateway.V1.ApiConfig do
 end
 defmodule Google.Cloud.Apigateway.V1.Gateway.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Apigateway.V1.Gateway do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          api_config: String.t(),
-          state: Google.Cloud.Apigateway.V1.Gateway.State.t(),
-          default_hostname: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            api_config: "",
-            state: :STATE_UNSPECIFIED,
-            default_hostname: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -319,21 +193,7 @@ defmodule Google.Cloud.Apigateway.V1.Gateway do
 end
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -343,17 +203,7 @@ defmodule Google.Cloud.Apigateway.V1.ListGatewaysRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gateways: [Google.Cloud.Apigateway.V1.Gateway.t()],
-          next_page_token: String.t(),
-          unreachable_locations: [String.t()]
-        }
-
-  defstruct gateways: [],
-            next_page_token: "",
-            unreachable_locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gateways, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Gateway
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -365,29 +215,13 @@ defmodule Google.Cloud.Apigateway.V1.ListGatewaysResponse do
 end
 defmodule Google.Cloud.Apigateway.V1.GetGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.CreateGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          gateway_id: String.t(),
-          gateway: Google.Cloud.Apigateway.V1.Gateway.t() | nil
-        }
-
-  defstruct parent: "",
-            gateway_id: "",
-            gateway: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
@@ -395,48 +229,20 @@ defmodule Google.Cloud.Apigateway.V1.CreateGatewayRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.UpdateGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          gateway: Google.Cloud.Apigateway.V1.Gateway.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            gateway: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :gateway, 2, type: Google.Cloud.Apigateway.V1.Gateway, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.DeleteGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.ListApisRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -446,17 +252,7 @@ defmodule Google.Cloud.Apigateway.V1.ListApisRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.ListApisResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          apis: [Google.Cloud.Apigateway.V1.Api.t()],
-          next_page_token: String.t(),
-          unreachable_locations: [String.t()]
-        }
-
-  defstruct apis: [],
-            next_page_token: "",
-            unreachable_locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :apis, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Api
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -468,29 +264,13 @@ defmodule Google.Cloud.Apigateway.V1.ListApisResponse do
 end
 defmodule Google.Cloud.Apigateway.V1.GetApiRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.CreateApiRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          api_id: String.t(),
-          api: Google.Cloud.Apigateway.V1.Api.t() | nil
-        }
-
-  defstruct parent: "",
-            api_id: "",
-            api: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_id, 2, type: :string, json_name: "apiId", deprecated: false
@@ -498,48 +278,20 @@ defmodule Google.Cloud.Apigateway.V1.CreateApiRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.UpdateApiRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          api: Google.Cloud.Apigateway.V1.Api.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            api: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :api, 2, type: Google.Cloud.Apigateway.V1.Api, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.DeleteApiRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -549,17 +301,7 @@ defmodule Google.Cloud.Apigateway.V1.ListApiConfigsRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          api_configs: [Google.Cloud.Apigateway.V1.ApiConfig.t()],
-          next_page_token: String.t(),
-          unreachable_locations: [String.t()]
-        }
-
-  defstruct api_configs: [],
-            next_page_token: "",
-            unreachable_locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :api_configs, 1,
     repeated: true,
@@ -575,32 +317,14 @@ defmodule Google.Cloud.Apigateway.V1.ListApiConfigsResponse do
 end
 defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView.t()
-        }
-
-  defstruct name: "",
-            view: :CONFIG_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 3, type: Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView, enum: true
 end
 defmodule Google.Cloud.Apigateway.V1.CreateApiConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          api_config_id: String.t(),
-          api_config: Google.Cloud.Apigateway.V1.ApiConfig.t() | nil
-        }
-
-  defstruct parent: "",
-            api_config_id: "",
-            api_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_config_id, 2, type: :string, json_name: "apiConfigId", deprecated: false
@@ -612,15 +336,7 @@ defmodule Google.Cloud.Apigateway.V1.CreateApiConfigRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.UpdateApiConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          api_config: Google.Cloud.Apigateway.V1.ApiConfig.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            api_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -631,54 +347,20 @@ defmodule Google.Cloud.Apigateway.V1.UpdateApiConfigRequest do
 end
 defmodule Google.Cloud.Apigateway.V1.DeleteApiConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          message: String.t()
-        }
-
-  defstruct location: "",
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :message, 2, type: :string
 end
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t(),
-          diagnostics: [Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic.t()]
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: "",
-            diagnostics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,

@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.File.HashType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HASH_TYPE_UNSPECIFIED | :MD5 | :SHA1 | :SHA256
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :MD5, 1
@@ -11,31 +9,7 @@ defmodule Google.Devtools.Resultstore.V2.File.HashType do
 end
 defmodule Google.Devtools.Resultstore.V2.File do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uid: String.t(),
-          uri: String.t(),
-          length: Google.Protobuf.Int64Value.t() | nil,
-          content_type: String.t(),
-          archive_entry: Google.Devtools.Resultstore.V2.ArchiveEntry.t() | nil,
-          content_viewer: String.t(),
-          hidden: boolean,
-          description: String.t(),
-          digest: String.t(),
-          hash_type: Google.Devtools.Resultstore.V2.File.HashType.t()
-        }
-
-  defstruct uid: "",
-            uri: "",
-            length: nil,
-            content_type: "",
-            archive_entry: nil,
-            content_viewer: "",
-            hidden: false,
-            description: "",
-            digest: "",
-            hash_type: :HASH_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uid, 1, type: :string
   field :uri, 2, type: :string
@@ -58,17 +32,7 @@ defmodule Google.Devtools.Resultstore.V2.File do
 end
 defmodule Google.Devtools.Resultstore.V2.ArchiveEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          path: String.t(),
-          length: Google.Protobuf.Int64Value.t() | nil,
-          content_type: String.t()
-        }
-
-  defstruct path: "",
-            length: nil,
-            content_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :length, 2, type: Google.Protobuf.Int64Value

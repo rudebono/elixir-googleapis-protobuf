@@ -1,24 +1,6 @@
 defmodule Google.Genomics.V1.Reference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          length: integer,
-          md5checksum: String.t(),
-          name: String.t(),
-          source_uri: String.t(),
-          source_accessions: [String.t()],
-          ncbi_taxon_id: integer
-        }
-
-  defstruct id: "",
-            length: 0,
-            md5checksum: "",
-            name: "",
-            source_uri: "",
-            source_accessions: [],
-            ncbi_taxon_id: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :length, 2, type: :int64
@@ -30,27 +12,7 @@ defmodule Google.Genomics.V1.Reference do
 end
 defmodule Google.Genomics.V1.ReferenceSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          reference_ids: [String.t()],
-          md5checksum: String.t(),
-          ncbi_taxon_id: integer,
-          description: String.t(),
-          assembly_id: String.t(),
-          source_uri: String.t(),
-          source_accessions: [String.t()]
-        }
-
-  defstruct id: "",
-            reference_ids: [],
-            md5checksum: "",
-            ncbi_taxon_id: 0,
-            description: "",
-            assembly_id: "",
-            source_uri: "",
-            source_accessions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :reference_ids, 2, repeated: true, type: :string, json_name: "referenceIds"
@@ -63,21 +25,7 @@ defmodule Google.Genomics.V1.ReferenceSet do
 end
 defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          md5checksums: [String.t()],
-          accessions: [String.t()],
-          assembly_id: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct md5checksums: [],
-            accessions: [],
-            assembly_id: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
@@ -87,15 +35,7 @@ defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
 end
 defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_sets: [Google.Genomics.V1.ReferenceSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct reference_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_sets, 1,
     repeated: true,
@@ -106,33 +46,13 @@ defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
 end
 defmodule Google.Genomics.V1.GetReferenceSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_set_id: String.t()
-        }
-
-  defstruct reference_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_set_id, 1, type: :string, json_name: "referenceSetId"
 end
 defmodule Google.Genomics.V1.SearchReferencesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          md5checksums: [String.t()],
-          accessions: [String.t()],
-          reference_set_id: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct md5checksums: [],
-            accessions: [],
-            reference_set_id: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
@@ -142,48 +62,20 @@ defmodule Google.Genomics.V1.SearchReferencesRequest do
 end
 defmodule Google.Genomics.V1.SearchReferencesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          references: [Google.Genomics.V1.Reference.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct references: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :references, 1, repeated: true, type: Google.Genomics.V1.Reference
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Genomics.V1.GetReferenceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_id: String.t()
-        }
-
-  defstruct reference_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
 end
 defmodule Google.Genomics.V1.ListBasesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_id: String.t(),
-          start: integer,
-          end: integer,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct reference_id: "",
-            start: 0,
-            end: 0,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
   field :start, 2, type: :int64
@@ -193,17 +85,7 @@ defmodule Google.Genomics.V1.ListBasesRequest do
 end
 defmodule Google.Genomics.V1.ListBasesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          offset: integer,
-          sequence: String.t(),
-          next_page_token: String.t()
-        }
-
-  defstruct offset: 0,
-            sequence: "",
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :offset, 1, type: :int64
   field :sequence, 2, type: :string
@@ -211,7 +93,9 @@ defmodule Google.Genomics.V1.ListBasesResponse do
 end
 defmodule Google.Genomics.V1.ReferenceServiceV1.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.genomics.v1.ReferenceServiceV1"
+  use GRPC.Service,
+    name: "google.genomics.v1.ReferenceServiceV1",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SearchReferenceSets,
       Google.Genomics.V1.SearchReferenceSetsRequest,

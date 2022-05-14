@@ -1,35 +1,13 @@
 defmodule Google.Dataflow.V1beta3.TopologyConfig.UserStageToComputationNameMapEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.TopologyConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          computations: [Google.Dataflow.V1beta3.ComputationTopology.t()],
-          data_disk_assignments: [Google.Dataflow.V1beta3.DataDiskAssignment.t()],
-          user_stage_to_computation_name_map: %{String.t() => String.t()},
-          forwarding_key_bits: integer,
-          persistent_state_version: integer
-        }
-
-  defstruct computations: [],
-            data_disk_assignments: [],
-            user_stage_to_computation_name_map: %{},
-            forwarding_key_bits: 0,
-            persistent_state_version: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :computations, 1, repeated: true, type: Google.Dataflow.V1beta3.ComputationTopology
 
@@ -49,25 +27,7 @@ defmodule Google.Dataflow.V1beta3.TopologyConfig do
 end
 defmodule Google.Dataflow.V1beta3.PubsubLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: String.t(),
-          subscription: String.t(),
-          timestamp_label: String.t(),
-          id_label: String.t(),
-          drop_late_data: boolean,
-          tracking_subscription: String.t(),
-          with_attributes: boolean
-        }
-
-  defstruct topic: "",
-            subscription: "",
-            timestamp_label: "",
-            id_label: "",
-            drop_late_data: false,
-            tracking_subscription: "",
-            with_attributes: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :subscription, 2, type: :string
@@ -79,56 +39,26 @@ defmodule Google.Dataflow.V1beta3.PubsubLocation do
 end
 defmodule Google.Dataflow.V1beta3.StreamingStageLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream_id: String.t()
-        }
-
-  defstruct stream_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId"
 end
 defmodule Google.Dataflow.V1beta3.StreamingSideInputLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tag: String.t(),
-          state_family: String.t()
-        }
-
-  defstruct tag: "",
-            state_family: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tag, 1, type: :string
   field :state_family, 2, type: :string, json_name: "stateFamily"
 end
 defmodule Google.Dataflow.V1beta3.CustomSourceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stateful: boolean
-        }
-
-  defstruct stateful: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stateful, 1, type: :bool
 end
 defmodule Google.Dataflow.V1beta3.StreamLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location:
-            {:streaming_stage_location, Google.Dataflow.V1beta3.StreamingStageLocation.t() | nil}
-            | {:pubsub_location, Google.Dataflow.V1beta3.PubsubLocation.t() | nil}
-            | {:side_input_location, Google.Dataflow.V1beta3.StreamingSideInputLocation.t() | nil}
-            | {:custom_source_location, Google.Dataflow.V1beta3.CustomSourceLocation.t() | nil}
-        }
-
-  defstruct location: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :location, 0
 
@@ -154,38 +84,14 @@ defmodule Google.Dataflow.V1beta3.StreamLocation do
 end
 defmodule Google.Dataflow.V1beta3.StateFamilyConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state_family: String.t(),
-          is_read: boolean
-        }
-
-  defstruct state_family: "",
-            is_read: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state_family, 1, type: :string, json_name: "stateFamily"
   field :is_read, 2, type: :bool, json_name: "isRead"
 end
 defmodule Google.Dataflow.V1beta3.ComputationTopology do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          system_stage_name: String.t(),
-          computation_id: String.t(),
-          key_ranges: [Google.Dataflow.V1beta3.KeyRangeLocation.t()],
-          inputs: [Google.Dataflow.V1beta3.StreamLocation.t()],
-          outputs: [Google.Dataflow.V1beta3.StreamLocation.t()],
-          state_families: [Google.Dataflow.V1beta3.StateFamilyConfig.t()]
-        }
-
-  defstruct system_stage_name: "",
-            computation_id: "",
-            key_ranges: [],
-            inputs: [],
-            outputs: [],
-            state_families: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :system_stage_name, 1, type: :string, json_name: "systemStageName"
   field :computation_id, 5, type: :string, json_name: "computationId"
@@ -205,21 +111,7 @@ defmodule Google.Dataflow.V1beta3.ComputationTopology do
 end
 defmodule Google.Dataflow.V1beta3.KeyRangeLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: String.t(),
-          end: String.t(),
-          delivery_endpoint: String.t(),
-          data_disk: String.t(),
-          deprecated_persistent_directory: String.t()
-        }
-
-  defstruct start: "",
-            end: "",
-            delivery_endpoint: "",
-            data_disk: "",
-            deprecated_persistent_directory: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: :string
   field :end, 2, type: :string
@@ -233,44 +125,20 @@ defmodule Google.Dataflow.V1beta3.KeyRangeLocation do
 end
 defmodule Google.Dataflow.V1beta3.MountedDataDisk do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_disk: String.t()
-        }
-
-  defstruct data_disk: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_disk, 1, type: :string, json_name: "dataDisk"
 end
 defmodule Google.Dataflow.V1beta3.DataDiskAssignment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vm_instance: String.t(),
-          data_disks: [String.t()]
-        }
-
-  defstruct vm_instance: "",
-            data_disks: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vm_instance, 1, type: :string, json_name: "vmInstance"
   field :data_disks, 2, repeated: true, type: :string, json_name: "dataDisks"
 end
 defmodule Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: String.t(),
-          end: String.t(),
-          data_disk: String.t()
-        }
-
-  defstruct start: "",
-            end: "",
-            data_disk: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: :string
   field :end, 2, type: :string
@@ -278,15 +146,7 @@ defmodule Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment do
 end
 defmodule Google.Dataflow.V1beta3.StreamingComputationRanges do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          computation_id: String.t(),
-          range_assignments: [Google.Dataflow.V1beta3.KeyRangeDataDiskAssignment.t()]
-        }
-
-  defstruct computation_id: "",
-            range_assignments: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :computation_id, 1, type: :string, json_name: "computationId"
 
@@ -297,15 +157,7 @@ defmodule Google.Dataflow.V1beta3.StreamingComputationRanges do
 end
 defmodule Google.Dataflow.V1beta3.StreamingApplianceSnapshotConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_id: String.t(),
-          import_state_endpoint: String.t()
-        }
-
-  defstruct snapshot_id: "",
-            import_state_endpoint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_id, 1, type: :string, json_name: "snapshotId"
   field :import_state_endpoint, 2, type: :string, json_name: "importStateEndpoint"

@@ -1,18 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          title: String.t(),
-          description: String.t(),
-          image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil
-        }
-
-  defstruct key: "",
-            title: "",
-            description: "",
-            image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :title, 2, type: :string, deprecated: false
@@ -24,17 +12,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListIte
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          items: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticListPrompt.ListItem.t()]
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false

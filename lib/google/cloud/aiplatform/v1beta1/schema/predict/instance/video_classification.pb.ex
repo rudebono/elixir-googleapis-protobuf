@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Instance.VideoClassificationPredictionInstance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content: String.t(),
-          mime_type: String.t(),
-          time_segment_start: String.t(),
-          time_segment_end: String.t()
-        }
-
-  defstruct content: "",
-            mime_type: "",
-            time_segment_start: "",
-            time_segment_end: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"

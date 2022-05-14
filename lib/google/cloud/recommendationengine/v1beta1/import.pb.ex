@@ -1,24 +1,12 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_uris: [String.t()]
-        }
-
-  defstruct input_uris: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          catalog_items: [Google.Cloud.Recommendationengine.V1beta1.CatalogItem.t()]
-        }
-
-  defstruct catalog_items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :catalog_items, 1,
     repeated: true,
@@ -28,13 +16,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_events: [Google.Cloud.Recommendationengine.V1beta1.UserEvent.t()]
-        }
-
-  defstruct user_events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -44,13 +26,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:gcs_prefix, String.t()}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -58,19 +34,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          request_id: String.t(),
-          input_config: Google.Cloud.Recommendationengine.V1beta1.InputConfig.t() | nil,
-          errors_config: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig.t() | nil
-        }
-
-  defstruct parent: "",
-            request_id: "",
-            input_config: nil,
-            errors_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -87,19 +51,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          request_id: String.t(),
-          input_config: Google.Cloud.Recommendationengine.V1beta1.InputConfig.t() | nil,
-          errors_config: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig.t() | nil
-        }
-
-  defstruct parent: "",
-            request_id: "",
-            input_config: nil,
-            errors_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -116,18 +68,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:catalog_inline_source,
-             Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource.t() | nil}
-            | {:gcs_source, Google.Cloud.Recommendationengine.V1beta1.GcsSource.t() | nil}
-            | {:user_event_inline_source,
-               Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource.t() | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -148,23 +89,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_name: String.t(),
-          request_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          success_count: integer,
-          failure_count: integer,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct operation_name: "",
-            request_id: "",
-            create_time: nil,
-            success_count: 0,
-            failure_count: 0,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_name, 5, type: :string, json_name: "operationName"
   field :request_id, 3, type: :string, json_name: "requestId"
@@ -175,15 +100,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportMetadata do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_samples: [Google.Rpc.Status.t()],
-          errors_config: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig.t() | nil
-        }
-
-  defstruct error_samples: [],
-            errors_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -193,18 +110,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsResponse d
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error_samples: [Google.Rpc.Status.t()],
-          errors_config: Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig.t() | nil,
-          import_summary:
-            Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary.t() | nil
-        }
-
-  defstruct error_samples: [],
-            errors_config: nil,
-            import_summary: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -218,15 +124,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsResponse do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          joined_events_count: integer,
-          unjoined_events_count: integer
-        }
-
-  defstruct joined_events_count: 0,
-            unjoined_events_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :joined_events_count, 1, type: :int64, json_name: "joinedEventsCount"
   field :unjoined_events_count, 2, type: :int64, json_name: "unjoinedEventsCount"

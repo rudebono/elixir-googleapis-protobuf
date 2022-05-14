@@ -1,54 +1,20 @@
 defmodule Google.Api.Servicecontrol.V1.Operation.Importance do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LOW | :HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOW, 0
   field :HIGH, 1
 end
 defmodule Google.Api.Servicecontrol.V1.Operation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.Servicecontrol.V1.Operation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_id: String.t(),
-          operation_name: String.t(),
-          consumer_id: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          metric_value_sets: [Google.Api.Servicecontrol.V1.MetricValueSet.t()],
-          log_entries: [Google.Api.Servicecontrol.V1.LogEntry.t()],
-          importance: Google.Api.Servicecontrol.V1.Operation.Importance.t(),
-          extensions: [Google.Protobuf.Any.t()]
-        }
-
-  defstruct operation_id: "",
-            operation_name: "",
-            consumer_id: "",
-            start_time: nil,
-            end_time: nil,
-            labels: %{},
-            metric_value_sets: [],
-            log_entries: [],
-            importance: :LOW,
-            extensions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :operation_name, 2, type: :string, json_name: "operationName"

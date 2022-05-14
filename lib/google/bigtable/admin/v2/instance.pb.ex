@@ -1,8 +1,6 @@
 defmodule Google.Bigtable.Admin.V2.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
@@ -10,9 +8,7 @@ defmodule Google.Bigtable.Admin.V2.Instance.State do
 end
 defmodule Google.Bigtable.Admin.V2.Instance.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PRODUCTION | :DEVELOPMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRODUCTION, 1
@@ -20,9 +16,7 @@ defmodule Google.Bigtable.Admin.V2.Instance.Type do
 end
 defmodule Google.Bigtable.Admin.V2.Cluster.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING | :RESIZING | :DISABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
@@ -32,38 +26,14 @@ defmodule Google.Bigtable.Admin.V2.Cluster.State do
 end
 defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Bigtable.Admin.V2.Instance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          state: Google.Bigtable.Admin.V2.Instance.State.t(),
-          type: Google.Bigtable.Admin.V2.Instance.Type.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            display_name: "",
-            state: :STATE_NOT_KNOWN,
-            type: :TYPE_UNSPECIFIED,
-            labels: %{},
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -78,42 +48,20 @@ defmodule Google.Bigtable.Admin.V2.Instance do
 end
 defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu_utilization_percent: integer
-        }
-
-  defstruct cpu_utilization_percent: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu_utilization_percent, 2, type: :int32, json_name: "cpuUtilizationPercent"
 end
 defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_serve_nodes: integer,
-          max_serve_nodes: integer
-        }
-
-  defstruct min_serve_nodes: 0,
-            max_serve_nodes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_serve_nodes, 1, type: :int32, json_name: "minServeNodes", deprecated: false
   field :max_serve_nodes, 2, type: :int32, json_name: "maxServeNodes", deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          autoscaling_limits: Google.Bigtable.Admin.V2.AutoscalingLimits.t() | nil,
-          autoscaling_targets: Google.Bigtable.Admin.V2.AutoscalingTargets.t() | nil
-        }
-
-  defstruct autoscaling_limits: nil,
-            autoscaling_targets: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :autoscaling_limits, 1,
     type: Google.Bigtable.Admin.V2.AutoscalingLimits,
@@ -127,14 +75,7 @@ defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
 end
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_autoscaling_config:
-            Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig.t() | nil
-        }
-
-  defstruct cluster_autoscaling_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_autoscaling_config, 1,
     type: Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig,
@@ -142,37 +83,13 @@ defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
 end
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t()
-        }
-
-  defstruct kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.Cluster do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config: {:cluster_config, Google.Bigtable.Admin.V2.Cluster.ClusterConfig.t() | nil},
-          name: String.t(),
-          location: String.t(),
-          state: Google.Bigtable.Admin.V2.Cluster.State.t(),
-          serve_nodes: integer,
-          default_storage_type: Google.Bigtable.Admin.V2.StorageType.t(),
-          encryption_config: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig.t() | nil
-        }
-
-  defstruct config: nil,
-            name: "",
-            location: "",
-            state: :STATE_NOT_KNOWN,
-            serve_nodes: 0,
-            default_storage_type: :STORAGE_TYPE_UNSPECIFIED,
-            encryption_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -198,50 +115,20 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
 end
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_ids: [String.t()]
-        }
-
-  defstruct cluster_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_ids, 1, repeated: true, type: :string, json_name: "clusterIds"
 end
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_id: String.t(),
-          allow_transactional_writes: boolean
-        }
-
-  defstruct cluster_id: "",
-            allow_transactional_writes: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_id, 1, type: :string, json_name: "clusterId"
   field :allow_transactional_writes, 2, type: :bool, json_name: "allowTransactionalWrites"
 end
 defmodule Google.Bigtable.Admin.V2.AppProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routing_policy:
-            {:multi_cluster_routing_use_any,
-             Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny.t() | nil}
-            | {:single_cluster_routing,
-               Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting.t() | nil},
-          name: String.t(),
-          etag: String.t(),
-          description: String.t()
-        }
-
-  defstruct routing_policy: nil,
-            name: "",
-            etag: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :routing_policy, 0
 
@@ -261,25 +148,7 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
 end
 defmodule Google.Bigtable.Admin.V2.HotTablet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          table_name: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          start_key: String.t(),
-          end_key: String.t(),
-          node_cpu_usage_percent: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct name: "",
-            table_name: "",
-            start_time: nil,
-            end_time: nil,
-            start_key: "",
-            end_key: "",
-            node_cpu_usage_percent: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :table_name, 2, type: :string, json_name: "tableName", deprecated: false

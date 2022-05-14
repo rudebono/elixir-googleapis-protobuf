@@ -1,18 +1,6 @@
 defmodule Google.Api.LogDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          labels: [Google.Api.LabelDescriptor.t()],
-          description: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            labels: [],
-            description: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Api.LabelDescriptor

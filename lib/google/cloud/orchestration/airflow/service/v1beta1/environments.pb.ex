@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.EnvironmentSize do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ENVIRONMENT_SIZE_UNSPECIFIED
-          | :ENVIRONMENT_SIZE_SMALL
-          | :ENVIRONMENT_SIZE_MEDIUM
-          | :ENVIRONMENT_SIZE_LARGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENVIRONMENT_SIZE_UNSPECIFIED, 0
   field :ENVIRONMENT_SIZE_SMALL, 1
@@ -16,9 +9,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.E
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :RUNNING | :UPDATING | :DELETING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -29,9 +20,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.State d
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeResponse.ConflictResult do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONFLICT_RESULT_UNSPECIFIED | :CONFLICT | :NO_CONFLICT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONFLICT_RESULT_UNSPECIFIED, 0
   field :CONFLICT, 1
@@ -39,44 +28,20 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeRespons
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          environment: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.t() | nil
-        }
-
-  defstruct parent: "",
-            environment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :environment, 2, type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListEnvironmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -84,15 +49,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListEnvironmentsReq
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListEnvironmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environments: [Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct environments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environments, 1,
     repeated: true,
@@ -102,29 +59,13 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListEnvironmentsRes
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DeleteEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          environment: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            environment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 2, type: :string
   field :environment, 1, type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment
@@ -136,61 +77,13 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateEnvironmentRe
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.RestartWebServerRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gke_cluster: String.t(),
-          dag_gcs_prefix: String.t(),
-          node_count: integer,
-          software_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.t() | nil,
-          node_config: Google.Cloud.Orchestration.Airflow.Service.V1beta1.NodeConfig.t() | nil,
-          private_environment_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateEnvironmentConfig.t() | nil,
-          web_server_network_access_control:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAccessControl.t()
-            | nil,
-          database_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.DatabaseConfig.t() | nil,
-          web_server_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerConfig.t() | nil,
-          airflow_uri: String.t(),
-          encryption_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.EncryptionConfig.t() | nil,
-          maintenance_window:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.MaintenanceWindow.t() | nil,
-          workloads_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.t() | nil,
-          environment_size:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.EnvironmentSize.t()
-        }
-
-  defstruct gke_cluster: "",
-            dag_gcs_prefix: "",
-            node_count: 0,
-            software_config: nil,
-            node_config: nil,
-            private_environment_config: nil,
-            web_server_network_access_control: nil,
-            database_config: nil,
-            web_server_config: nil,
-            airflow_uri: "",
-            encryption_config: nil,
-            maintenance_window: nil,
-            workloads_config: nil,
-            environment_size: :ENVIRONMENT_SIZE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gke_cluster, 1, type: :string, json_name: "gkeCluster", deprecated: false
   field :dag_gcs_prefix, 2, type: :string, json_name: "dagGcsPrefix", deprecated: false
@@ -248,30 +141,14 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig d
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAccessControl.AllowedIpRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: String.t(),
-          description: String.t()
-        }
-
-  defstruct value: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :description, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAccessControl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowed_ip_ranges: [
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAccessControl.AllowedIpRange.t()
-          ]
-        }
-
-  defstruct allowed_ip_ranges: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowed_ip_ranges, 1,
     repeated: true,
@@ -281,66 +158,28 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAcc
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.AirflowConfigOverridesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.PypiPackagesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.EnvVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_version: String.t(),
-          airflow_config_overrides: %{String.t() => String.t()},
-          pypi_packages: %{String.t() => String.t()},
-          env_variables: %{String.t() => String.t()},
-          python_version: String.t()
-        }
-
-  defstruct image_version: "",
-            airflow_config_overrides: %{},
-            pypi_packages: %{},
-            env_variables: %{},
-            python_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_version, 1, type: :string, json_name: "imageVersion"
 
@@ -370,21 +209,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig do
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.IPAllocationPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          use_ip_aliases: boolean,
-          cluster_secondary_range_name: String.t(),
-          services_secondary_range_name: String.t(),
-          cluster_ipv4_cidr_block: String.t(),
-          services_ipv4_cidr_block: String.t()
-        }
-
-  defstruct use_ip_aliases: false,
-            cluster_secondary_range_name: "",
-            services_secondary_range_name: "",
-            cluster_ipv4_cidr_block: "",
-            services_ipv4_cidr_block: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases", deprecated: false
 
@@ -410,32 +235,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.IPAllocationPolicy 
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.NodeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: String.t(),
-          machine_type: String.t(),
-          network: String.t(),
-          subnetwork: String.t(),
-          disk_size_gb: integer,
-          oauth_scopes: [String.t()],
-          service_account: String.t(),
-          tags: [String.t()],
-          ip_allocation_policy:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.IPAllocationPolicy.t() | nil,
-          max_pods_per_node: integer
-        }
-
-  defstruct location: "",
-            machine_type: "",
-            network: "",
-            subnetwork: "",
-            disk_size_gb: 0,
-            oauth_scopes: [],
-            service_account: "",
-            tags: [],
-            ip_allocation_policy: nil,
-            max_pods_per_node: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :machine_type, 2, type: :string, json_name: "machineType", deprecated: false
@@ -461,17 +261,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.NodeConfig do
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_private_endpoint: boolean,
-          master_ipv4_cidr_block: String.t(),
-          master_ipv4_reserved_range: String.t()
-        }
-
-  defstruct enable_private_endpoint: false,
-            master_ipv4_cidr_block: "",
-            master_ipv4_reserved_range: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_private_endpoint, 1,
     type: :bool,
@@ -490,26 +280,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateClusterConfi
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateEnvironmentConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_private_environment: boolean,
-          private_cluster_config:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateClusterConfig.t() | nil,
-          web_server_ipv4_cidr_block: String.t(),
-          cloud_sql_ipv4_cidr_block: String.t(),
-          web_server_ipv4_reserved_range: String.t(),
-          cloud_composer_network_ipv4_cidr_block: String.t(),
-          cloud_composer_network_ipv4_reserved_range: String.t()
-        }
-
-  defstruct enable_private_environment: false,
-            private_cluster_config: nil,
-            web_server_ipv4_cidr_block: "",
-            cloud_sql_ipv4_cidr_block: "",
-            web_server_ipv4_reserved_range: "",
-            cloud_composer_network_ipv4_cidr_block: "",
-            cloud_composer_network_ipv4_reserved_range: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_private_environment, 1,
     type: :bool,
@@ -548,53 +319,25 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateEnvironmentC
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DatabaseConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          machine_type: String.t()
-        }
-
-  defstruct machine_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          machine_type: String.t()
-        }
-
-  defstruct machine_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EncryptionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t()
-        }
-
-  defstruct kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.MaintenanceWindow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          recurrence: String.t()
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            recurrence: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -602,19 +345,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.MaintenanceWindow d
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.SchedulerResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu: float | :infinity | :negative_infinity | :nan,
-          memory_gb: float | :infinity | :negative_infinity | :nan,
-          storage_gb: float | :infinity | :negative_infinity | :nan,
-          count: integer
-        }
-
-  defstruct cpu: 0.0,
-            memory_gb: 0.0,
-            storage_gb: 0.0,
-            count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu, 1, type: :float, deprecated: false
   field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
@@ -623,17 +354,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.Sch
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.WebServerResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu: float | :infinity | :negative_infinity | :nan,
-          memory_gb: float | :infinity | :negative_infinity | :nan,
-          storage_gb: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct cpu: 0.0,
-            memory_gb: 0.0,
-            storage_gb: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu, 1, type: :float, deprecated: false
   field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
@@ -641,21 +362,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.Web
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.WorkerResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu: float | :infinity | :negative_infinity | :nan,
-          memory_gb: float | :infinity | :negative_infinity | :nan,
-          storage_gb: float | :infinity | :negative_infinity | :nan,
-          min_count: integer,
-          max_count: integer
-        }
-
-  defstruct cpu: 0.0,
-            memory_gb: 0.0,
-            storage_gb: 0.0,
-            min_count: 0,
-            max_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu, 1, type: :float, deprecated: false
   field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
@@ -665,23 +372,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.Wor
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scheduler:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.SchedulerResource.t()
-            | nil,
-          web_server:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.WebServerResource.t()
-            | nil,
-          worker:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.WorkerResource.t()
-            | nil
-        }
-
-  defstruct scheduler: nil,
-            web_server: nil,
-            worker: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scheduler, 1,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.SchedulerResource,
@@ -698,40 +389,14 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig do
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          config: Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.t() | nil,
-          uuid: String.t(),
-          state: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            config: nil,
-            uuid: "",
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig
@@ -759,52 +424,21 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment do
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: String.t(),
-          image_version: String.t()
-        }
-
-  defstruct environment: "",
-            image_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: :string
   field :image_version, 2, type: :string, json_name: "imageVersion"
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeResponse.PypiDependenciesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          build_log_uri: String.t(),
-          contains_pypi_modules_conflict:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeResponse.ConflictResult.t(),
-          pypi_conflict_build_log_extract: String.t(),
-          image_version: String.t(),
-          pypi_dependencies: %{String.t() => String.t()}
-        }
-
-  defstruct build_log_uri: "",
-            contains_pypi_modules_conflict: :CONFLICT_RESULT_UNSPECIFIED,
-            pypi_conflict_build_log_extract: "",
-            image_version: "",
-            pypi_dependencies: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :build_log_uri, 1, type: :string, json_name: "buildLogUri", deprecated: false
 
@@ -830,7 +464,9 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeRespons
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environments.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.orchestration.airflow.service.v1beta1.Environments"
+  use GRPC.Service,
+    name: "google.cloud.orchestration.airflow.service.v1beta1.Environments",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateEnvironment,
       Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateEnvironmentRequest,

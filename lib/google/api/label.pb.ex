@@ -1,8 +1,6 @@
 defmodule Google.Api.LabelDescriptor.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STRING | :BOOL | :INT64
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STRING, 0
   field :BOOL, 1
@@ -10,17 +8,7 @@ defmodule Google.Api.LabelDescriptor.ValueType do
 end
 defmodule Google.Api.LabelDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value_type: Google.Api.LabelDescriptor.ValueType.t(),
-          description: String.t()
-        }
-
-  defstruct key: "",
-            value_type: :STRING,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 

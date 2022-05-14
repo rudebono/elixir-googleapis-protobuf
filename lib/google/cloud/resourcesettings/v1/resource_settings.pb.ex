@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Resourcesettings.V1.SettingView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SETTING_VIEW_UNSPECIFIED
-          | :SETTING_VIEW_BASIC
-          | :SETTING_VIEW_EFFECTIVE_VALUE
-          | :SETTING_VIEW_LOCAL_VALUE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SETTING_VIEW_UNSPECIFIED, 0
   field :SETTING_VIEW_BASIC, 1
@@ -16,9 +9,7 @@ defmodule Google.Cloud.Resourcesettings.V1.SettingView do
 end
 defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata.DataType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_TYPE_UNSPECIFIED | :BOOLEAN | :STRING | :STRING_SET | :ENUM_VALUE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :BOOLEAN, 1
@@ -28,21 +19,7 @@ defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata.DataType do
 end
 defmodule Google.Cloud.Resourcesettings.V1.Setting do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          metadata: Google.Cloud.Resourcesettings.V1.SettingMetadata.t() | nil,
-          local_value: Google.Cloud.Resourcesettings.V1.Value.t() | nil,
-          effective_value: Google.Cloud.Resourcesettings.V1.Value.t() | nil,
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            metadata: nil,
-            local_value: nil,
-            effective_value: nil,
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :metadata, 7, type: Google.Cloud.Resourcesettings.V1.SettingMetadata, deprecated: false
@@ -57,21 +34,7 @@ defmodule Google.Cloud.Resourcesettings.V1.Setting do
 end
 defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          description: String.t(),
-          read_only: boolean,
-          data_type: Google.Cloud.Resourcesettings.V1.SettingMetadata.DataType.t(),
-          default_value: Google.Cloud.Resourcesettings.V1.Value.t() | nil
-        }
-
-  defstruct display_name: "",
-            description: "",
-            read_only: false,
-            data_type: :DATA_TYPE_UNSPECIFIED,
-            default_value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
@@ -86,41 +49,19 @@ defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata do
 end
 defmodule Google.Cloud.Resourcesettings.V1.Value.StringSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          values: [String.t()]
-        }
-
-  defstruct values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
 defmodule Google.Cloud.Resourcesettings.V1.Value.EnumValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: String.t()
-        }
-
-  defstruct value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
 defmodule Google.Cloud.Resourcesettings.V1.Value do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:boolean_value, boolean}
-            | {:string_value, String.t()}
-            | {:string_set_value, Google.Cloud.Resourcesettings.V1.Value.StringSet.t() | nil}
-            | {:enum_value, Google.Cloud.Resourcesettings.V1.Value.EnumValue.t() | nil}
-        }
-
-  defstruct value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -139,19 +80,7 @@ defmodule Google.Cloud.Resourcesettings.V1.Value do
 end
 defmodule Google.Cloud.Resourcesettings.V1.ListSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          view: Google.Cloud.Resourcesettings.V1.SettingView.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            view: :SETTING_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -160,49 +89,29 @@ defmodule Google.Cloud.Resourcesettings.V1.ListSettingsRequest do
 end
 defmodule Google.Cloud.Resourcesettings.V1.ListSettingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          settings: [Google.Cloud.Resourcesettings.V1.Setting.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct settings: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :settings, 1, repeated: true, type: Google.Cloud.Resourcesettings.V1.Setting
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Resourcesettings.V1.GetSettingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Cloud.Resourcesettings.V1.SettingView.t()
-        }
-
-  defstruct name: "",
-            view: :SETTING_VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Resourcesettings.V1.SettingView, enum: true
 end
 defmodule Google.Cloud.Resourcesettings.V1.UpdateSettingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          setting: Google.Cloud.Resourcesettings.V1.Setting.t() | nil
-        }
-
-  defstruct setting: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :setting, 1, type: Google.Cloud.Resourcesettings.V1.Setting, deprecated: false
 end
 defmodule Google.Cloud.Resourcesettings.V1.ResourceSettingsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.resourcesettings.v1.ResourceSettingsService"
+  use GRPC.Service,
+    name: "google.cloud.resourcesettings.v1.ResourceSettingsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListSettings,
       Google.Cloud.Resourcesettings.V1.ListSettingsRequest,

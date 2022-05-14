@@ -1,6 +1,8 @@
 defmodule Google.Cloud.Osconfig.V1.OsConfigService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.osconfig.v1.OsConfigService"
+  use GRPC.Service,
+    name: "google.cloud.osconfig.v1.OsConfigService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ExecutePatchJob,
       Google.Cloud.Osconfig.V1.ExecutePatchJobRequest,

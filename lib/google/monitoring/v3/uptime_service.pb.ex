@@ -1,16 +1,6 @@
 defmodule Google.Monitoring.V3.ListUptimeCheckConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
@@ -18,17 +8,7 @@ defmodule Google.Monitoring.V3.ListUptimeCheckConfigsRequest do
 end
 defmodule Google.Monitoring.V3.ListUptimeCheckConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uptime_check_configs: [Google.Monitoring.V3.UptimeCheckConfig.t()],
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct uptime_check_configs: [],
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uptime_check_configs, 1,
     repeated: true,
@@ -40,27 +20,13 @@ defmodule Google.Monitoring.V3.ListUptimeCheckConfigsResponse do
 end
 defmodule Google.Monitoring.V3.GetUptimeCheckConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.CreateUptimeCheckConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          uptime_check_config: Google.Monitoring.V3.UptimeCheckConfig.t() | nil
-        }
-
-  defstruct parent: "",
-            uptime_check_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -71,15 +37,7 @@ defmodule Google.Monitoring.V3.CreateUptimeCheckConfigRequest do
 end
 defmodule Google.Monitoring.V3.UpdateUptimeCheckConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          uptime_check_config: Google.Monitoring.V3.UptimeCheckConfig.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            uptime_check_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -90,42 +48,20 @@ defmodule Google.Monitoring.V3.UpdateUptimeCheckConfigRequest do
 end
 defmodule Google.Monitoring.V3.DeleteUptimeCheckConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Monitoring.V3.ListUptimeCheckIpsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 defmodule Google.Monitoring.V3.ListUptimeCheckIpsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uptime_check_ips: [Google.Monitoring.V3.UptimeCheckIp.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct uptime_check_ips: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uptime_check_ips, 1,
     repeated: true,
@@ -136,7 +72,9 @@ defmodule Google.Monitoring.V3.ListUptimeCheckIpsResponse do
 end
 defmodule Google.Monitoring.V3.UptimeCheckService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.monitoring.v3.UptimeCheckService"
+  use GRPC.Service,
+    name: "google.monitoring.v3.UptimeCheckService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListUptimeCheckConfigs,
       Google.Monitoring.V3.ListUptimeCheckConfigsRequest,

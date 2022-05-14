@@ -1,30 +1,12 @@
 defmodule Google.Ads.Googleads.V8.Services.GetFeedItemSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V8.Services.FeedItemSetOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            partial_failure: false,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -38,18 +20,7 @@ defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetsRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.FeedItemSetOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V8.Resources.FeedItemSet.t() | nil}
-            | {:update, Google.Ads.Googleads.V8.Resources.FeedItemSet.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -60,13 +31,7 @@ defmodule Google.Ads.Googleads.V8.Services.FeedItemSetOperation do
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V8.Services.MutateFeedItemSetResult.t()]
-        }
-
-  defstruct results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -74,19 +39,15 @@ defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetsResponse do
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateFeedItemSetResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V8.Services.FeedItemSetService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v8.services.FeedItemSetService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v8.services.FeedItemSetService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetFeedItemSet,
       Google.Ads.Googleads.V8.Services.GetFeedItemSetRequest,

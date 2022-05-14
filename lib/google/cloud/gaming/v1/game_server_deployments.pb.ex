@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -24,17 +10,7 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsRequest do
 end
 defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_server_deployments: [Google.Cloud.Gaming.V1.GameServerDeployment.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct game_server_deployments: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_server_deployments, 1,
     repeated: true,
@@ -46,41 +22,19 @@ defmodule Google.Cloud.Gaming.V1.ListGameServerDeploymentsResponse do
 end
 defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1.GetGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1.CreateGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          deployment_id: String.t(),
-          game_server_deployment: Google.Cloud.Gaming.V1.GameServerDeployment.t() | nil
-        }
-
-  defstruct parent: "",
-            deployment_id: "",
-            game_server_deployment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -92,27 +46,13 @@ defmodule Google.Cloud.Gaming.V1.CreateGameServerDeploymentRequest do
 end
 defmodule Google.Cloud.Gaming.V1.DeleteGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_server_deployment: Google.Cloud.Gaming.V1.GameServerDeployment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct game_server_deployment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_server_deployment, 1,
     type: Google.Cloud.Gaming.V1.GameServerDeployment,
@@ -126,15 +66,7 @@ defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRequest do
 end
 defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rollout: Google.Cloud.Gaming.V1.GameServerDeploymentRollout.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct rollout: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout, deprecated: false
 
@@ -145,27 +77,13 @@ defmodule Google.Cloud.Gaming.V1.UpdateGameServerDeploymentRolloutRequest do
 end
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster: String.t(),
-          fleet_details: [Google.Cloud.Gaming.V1.DeployedFleetDetails.t()]
-        }
-
-  defstruct cluster: "",
-            fleet_details: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 
@@ -176,17 +94,7 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterSta
 end
 defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_state: [
-            Google.Cloud.Gaming.V1.FetchDeploymentStateResponse.DeployedClusterState.t()
-          ],
-          unavailable: [String.t()]
-        }
-
-  defstruct cluster_state: [],
-            unavailable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_state, 1,
     repeated: true,
@@ -197,38 +105,14 @@ defmodule Google.Cloud.Gaming.V1.FetchDeploymentStateResponse do
 end
 defmodule Google.Cloud.Gaming.V1.GameServerDeployment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Gaming.V1.GameServerDeployment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          etag: String.t(),
-          description: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            etag: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -252,15 +136,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeployment do
 end
 defmodule Google.Cloud.Gaming.V1.GameServerConfigOverride do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: {:realms_selector, Google.Cloud.Gaming.V1.RealmSelector.t() | nil},
-          change: {:config_version, String.t()}
-        }
-
-  defstruct selector: nil,
-            change: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :selector, 0
   oneof :change, 1
@@ -274,23 +150,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerConfigOverride do
 end
 defmodule Google.Cloud.Gaming.V1.GameServerDeploymentRollout do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          default_game_server_config: String.t(),
-          game_server_config_overrides: [Google.Cloud.Gaming.V1.GameServerConfigOverride.t()],
-          etag: String.t()
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            default_game_server_config: "",
-            game_server_config_overrides: [],
-            etag: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -315,17 +175,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeploymentRollout do
 end
 defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rollout: Google.Cloud.Gaming.V1.GameServerDeploymentRollout.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          preview_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct rollout: nil,
-            update_mask: nil,
-            preview_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rollout, 1, type: Google.Cloud.Gaming.V1.GameServerDeploymentRollout, deprecated: false
 
@@ -341,17 +191,7 @@ defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutRequest do
 end
 defmodule Google.Cloud.Gaming.V1.PreviewGameServerDeploymentRolloutResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          unavailable: [String.t()],
-          etag: String.t(),
-          target_state: Google.Cloud.Gaming.V1.TargetState.t() | nil
-        }
-
-  defstruct unavailable: [],
-            etag: "",
-            target_state: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :unavailable, 2, repeated: true, type: :string
   field :etag, 3, type: :string

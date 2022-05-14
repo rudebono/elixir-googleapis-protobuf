@@ -1,62 +1,27 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_item_schema_uri: String.t(),
-          gcs_bucket: String.t()
-        }
-
-  defstruct data_item_schema_uri: "",
-            gcs_bucket: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_item_schema_uri: String.t(),
-          gcs_bucket: String.t()
-        }
-
-  defstruct data_item_schema_uri: "",
-            gcs_bucket: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_item_schema_uri: String.t(),
-          gcs_bucket: String.t()
-        }
-
-  defstruct data_item_schema_uri: "",
-            gcs_bucket: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_item_schema_uri, 1, type: :string, json_name: "dataItemSchemaUri"
   field :gcs_bucket, 2, type: :string, json_name: "gcsBucket"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:gcs_source,
-             Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource.t() | nil}
-            | {:bigquery_source,
-               Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource.t()
-               | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -72,38 +37,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConf
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: [String.t()]
-        }
-
-  defstruct uri: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, repeated: true, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.BigQuerySource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_config:
-            Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig.t() | nil
-        }
-
-  defstruct input_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata.InputConfig,
@@ -111,18 +57,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TablesDatasetMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:gcs_source,
-             Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSource.t() | nil}
-            | {:bigquery_source,
-               Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource.t()
-               | nil}
-        }
-
-  defstruct source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -138,42 +73,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.Input
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: [String.t()]
-        }
-
-  defstruct uri: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, repeated: true, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.BigQuerySource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t()
-        }
-
-  defstruct uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_config:
-            Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig.t() | nil,
-          time_series_identifier_column: String.t(),
-          time_column: String.t()
-        }
-
-  defstruct input_config: nil,
-            time_series_identifier_column: "",
-            time_column: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSeriesDatasetMetadata.InputConfig,

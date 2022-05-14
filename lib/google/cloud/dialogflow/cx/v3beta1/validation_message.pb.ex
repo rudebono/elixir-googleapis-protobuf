@@ -1,23 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.ResourceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :RESOURCE_TYPE_UNSPECIFIED
-          | :AGENT
-          | :INTENT
-          | :INTENT_TRAINING_PHRASE
-          | :INTENT_PARAMETER
-          | :INTENTS
-          | :INTENT_TRAINING_PHRASES
-          | :ENTITY_TYPE
-          | :ENTITY_TYPES
-          | :WEBHOOK
-          | :FLOW
-          | :PAGE
-          | :PAGES
-          | :TRANSITION_ROUTE_GROUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :AGENT, 1
@@ -36,9 +19,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.ResourceType do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :INFO | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :INFO, 1
@@ -47,21 +28,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.Severity do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_type: Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.ResourceType.t(),
-          resources: [String.t()],
-          resource_names: [Google.Cloud.Dialogflow.Cx.V3beta1.ResourceName.t()],
-          severity: Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.Severity.t(),
-          detail: String.t()
-        }
-
-  defstruct resource_type: :RESOURCE_TYPE_UNSPECIFIED,
-            resources: [],
-            resource_names: [],
-            severity: :SEVERITY_UNSPECIFIED,
-            detail: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.ResourceType,
@@ -83,15 +50,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResourceName do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t()
-        }
-
-  defstruct name: "",
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

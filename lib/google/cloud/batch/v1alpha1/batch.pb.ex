@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Batch.V1alpha1.CreateJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          job_id: String.t(),
-          job: Google.Cloud.Batch.V1alpha1.Job.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct parent: "",
-            job_id: "",
-            job: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -21,29 +9,13 @@ defmodule Google.Cloud.Batch.V1alpha1.CreateJobRequest do
 end
 defmodule Google.Cloud.Batch.V1alpha1.GetJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Batch.V1alpha1.DeleteJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          reason: String.t(),
-          request_id: String.t()
-        }
-
-  defstruct name: "",
-            reason: "",
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :reason, 2, type: :string, deprecated: false
@@ -51,19 +23,7 @@ defmodule Google.Cloud.Batch.V1alpha1.DeleteJobRequest do
 end
 defmodule Google.Cloud.Batch.V1alpha1.ListJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
@@ -72,17 +32,7 @@ defmodule Google.Cloud.Batch.V1alpha1.ListJobsRequest do
 end
 defmodule Google.Cloud.Batch.V1alpha1.ListJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          jobs: [Google.Cloud.Batch.V1alpha1.Job.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct jobs: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Batch.V1alpha1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -90,19 +40,7 @@ defmodule Google.Cloud.Batch.V1alpha1.ListJobsResponse do
 end
 defmodule Google.Cloud.Batch.V1alpha1.ListTasksRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -111,17 +49,7 @@ defmodule Google.Cloud.Batch.V1alpha1.ListTasksRequest do
 end
 defmodule Google.Cloud.Batch.V1alpha1.ListTasksResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tasks: [Google.Cloud.Batch.V1alpha1.Task.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct tasks: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Batch.V1alpha1.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -129,37 +57,13 @@ defmodule Google.Cloud.Batch.V1alpha1.ListTasksResponse do
 end
 defmodule Google.Cloud.Batch.V1alpha1.GetTaskRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Batch.V1alpha1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -180,7 +84,9 @@ defmodule Google.Cloud.Batch.V1alpha1.OperationMetadata do
 end
 defmodule Google.Cloud.Batch.V1alpha1.BatchService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.batch.v1alpha1.BatchService"
+  use GRPC.Service,
+    name: "google.cloud.batch.v1alpha1.BatchService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateJob, Google.Cloud.Batch.V1alpha1.CreateJobRequest, Google.Cloud.Batch.V1alpha1.Job
 

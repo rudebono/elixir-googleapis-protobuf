@@ -1,17 +1,13 @@
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BATCH_OPERATION_TYPE_UNSPECIFIED | :BATCH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BATCH_OPERATION_TYPE_UNSPECIFIED, 0
   field :BATCH, 1
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :PENDING | :RUNNING | :DONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PENDING, 1
@@ -20,42 +16,14 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
 end
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          batch: String.t(),
-          batch_uuid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          done_time: Google.Protobuf.Timestamp.t() | nil,
-          operation_type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()},
-          warnings: [String.t()]
-        }
-
-  defstruct batch: "",
-            batch_uuid: "",
-            create_time: nil,
-            done_time: nil,
-            operation_type: :BATCH_OPERATION_TYPE_UNSPECIFIED,
-            description: "",
-            labels: %{},
-            warnings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :batch, 1, type: :string
   field :batch_uuid, 2, type: :string, json_name: "batchUuid"
@@ -78,19 +46,7 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Dataproc.V1.ClusterOperationStatus.State.t(),
-          inner_state: String.t(),
-          details: String.t(),
-          state_start_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct state: :UNKNOWN,
-            inner_state: "",
-            details: "",
-            state_start_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Dataproc.V1.ClusterOperationStatus.State,
@@ -107,42 +63,14 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_name: String.t(),
-          cluster_uuid: String.t(),
-          status: Google.Cloud.Dataproc.V1.ClusterOperationStatus.t() | nil,
-          status_history: [Google.Cloud.Dataproc.V1.ClusterOperationStatus.t()],
-          operation_type: String.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()},
-          warnings: [String.t()]
-        }
-
-  defstruct cluster_name: "",
-            cluster_uuid: "",
-            status: nil,
-            status_history: [],
-            operation_type: "",
-            description: "",
-            labels: %{},
-            warnings: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_name, 7, type: :string, json_name: "clusterName", deprecated: false
   field :cluster_uuid, 8, type: :string, json_name: "clusterUuid", deprecated: false

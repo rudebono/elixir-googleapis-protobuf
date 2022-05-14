@@ -1,8 +1,6 @@
 defmodule Google.Devtools.Artifactregistry.V1.YumArtifact.PackageType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PACKAGE_TYPE_UNSPECIFIED | :BINARY | :SOURCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PACKAGE_TYPE_UNSPECIFIED, 0
   field :BINARY, 1
@@ -10,19 +8,7 @@ defmodule Google.Devtools.Artifactregistry.V1.YumArtifact.PackageType do
 end
 defmodule Google.Devtools.Artifactregistry.V1.YumArtifact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          package_name: String.t(),
-          package_type: Google.Devtools.Artifactregistry.V1.YumArtifact.PackageType.t(),
-          architecture: String.t()
-        }
-
-  defstruct name: "",
-            package_name: "",
-            package_type: :PACKAGE_TYPE_UNSPECIFIED,
-            architecture: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :package_name, 2, type: :string, json_name: "packageName", deprecated: false
@@ -37,32 +23,14 @@ defmodule Google.Devtools.Artifactregistry.V1.YumArtifact do
 end
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsGcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uris: [String.t()],
-          use_wildcards: boolean
-        }
-
-  defstruct uris: [],
-            use_wildcards: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string
   field :use_wildcards, 2, type: :bool, json_name: "useWildcards"
 end
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:gcs_source,
-             Google.Devtools.Artifactregistry.V1.ImportYumArtifactsGcsSource.t() | nil},
-          parent: String.t()
-        }
-
-  defstruct source: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -75,17 +43,7 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsRequest do
 end
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:gcs_source,
-             Google.Devtools.Artifactregistry.V1.ImportYumArtifactsGcsSource.t() | nil},
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct source: nil,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -98,15 +56,7 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo do
 end
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          yum_artifacts: [Google.Devtools.Artifactregistry.V1.YumArtifact.t()],
-          errors: [Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo.t()]
-        }
-
-  defstruct yum_artifacts: [],
-            errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :yum_artifacts, 1,
     repeated: true,
@@ -119,9 +69,5 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsResponse do
 end
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

@@ -1,37 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :AGE_RANGE_18_24
-          | :AGE_RANGE_18_34
-          | :AGE_RANGE_18_44
-          | :AGE_RANGE_18_49
-          | :AGE_RANGE_18_54
-          | :AGE_RANGE_18_64
-          | :AGE_RANGE_18_65_UP
-          | :AGE_RANGE_21_34
-          | :AGE_RANGE_25_34
-          | :AGE_RANGE_25_44
-          | :AGE_RANGE_25_49
-          | :AGE_RANGE_25_54
-          | :AGE_RANGE_25_64
-          | :AGE_RANGE_25_65_UP
-          | :AGE_RANGE_35_44
-          | :AGE_RANGE_35_49
-          | :AGE_RANGE_35_54
-          | :AGE_RANGE_35_64
-          | :AGE_RANGE_35_65_UP
-          | :AGE_RANGE_45_54
-          | :AGE_RANGE_45_64
-          | :AGE_RANGE_45_65_UP
-          | :AGE_RANGE_50_65_UP
-          | :AGE_RANGE_55_64
-          | :AGE_RANGE_55_65_UP
-          | :AGE_RANGE_65_UP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -64,9 +33,5 @@ defmodule Google.Ads.Googleads.V7.Enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange 
 end
 defmodule Google.Ads.Googleads.V7.Enums.ReachPlanAgeRangeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

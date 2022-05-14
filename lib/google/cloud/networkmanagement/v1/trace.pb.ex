@@ -1,32 +1,6 @@
 defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :START_FROM_INSTANCE
-          | :START_FROM_INTERNET
-          | :START_FROM_PRIVATE_NETWORK
-          | :START_FROM_GKE_MASTER
-          | :START_FROM_CLOUD_SQL_INSTANCE
-          | :APPLY_INGRESS_FIREWALL_RULE
-          | :APPLY_EGRESS_FIREWALL_RULE
-          | :APPLY_ROUTE
-          | :APPLY_FORWARDING_RULE
-          | :SPOOFING_APPROVED
-          | :ARRIVE_AT_INSTANCE
-          | :ARRIVE_AT_INTERNAL_LOAD_BALANCER
-          | :ARRIVE_AT_EXTERNAL_LOAD_BALANCER
-          | :ARRIVE_AT_VPN_GATEWAY
-          | :ARRIVE_AT_VPN_TUNNEL
-          | :NAT
-          | :PROXY_CONNECTION
-          | :DELIVER
-          | :DROP
-          | :FORWARD
-          | :ABORT
-          | :VIEWER_PERMISSION_MISSING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :START_FROM_INSTANCE, 1
@@ -54,14 +28,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
 end
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FIREWALL_RULE_TYPE_UNSPECIFIED
-          | :HIERARCHICAL_FIREWALL_POLICY_RULE
-          | :VPC_FIREWALL_RULE
-          | :IMPLIED_VPC_FIREWALL_RULE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FIREWALL_RULE_TYPE_UNSPECIFIED, 0
   field :HIERARCHICAL_FIREWALL_POLICY_RULE, 1
@@ -70,17 +37,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ROUTE_TYPE_UNSPECIFIED
-          | :SUBNET
-          | :STATIC
-          | :DYNAMIC
-          | :PEERING_SUBNET
-          | :PEERING_STATIC
-          | :PEERING_DYNAMIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROUTE_TYPE_UNSPECIFIED, 0
   field :SUBNET, 1
@@ -92,21 +49,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :NEXT_HOP_TYPE_UNSPECIFIED
-          | :NEXT_HOP_IP
-          | :NEXT_HOP_INSTANCE
-          | :NEXT_HOP_NETWORK
-          | :NEXT_HOP_PEERING
-          | :NEXT_HOP_INTERCONNECT
-          | :NEXT_HOP_VPN_TUNNEL
-          | :NEXT_HOP_VPN_GATEWAY
-          | :NEXT_HOP_INTERNET_GATEWAY
-          | :NEXT_HOP_BLACKHOLE
-          | :NEXT_HOP_ILB
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NEXT_HOP_TYPE_UNSPECIFIED, 0
   field :NEXT_HOP_IP, 1
@@ -122,16 +65,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :LOAD_BALANCER_TYPE_UNSPECIFIED
-          | :INTERNAL_TCP_UDP
-          | :NETWORK_TCP_UDP
-          | :HTTP_PROXY
-          | :TCP_PROXY
-          | :SSL_PROXY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LOAD_BALANCER_TYPE_UNSPECIFIED, 0
   field :INTERNAL_TCP_UDP, 1
@@ -142,9 +76,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.BackendType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BACKEND_TYPE_UNSPECIFIED | :BACKEND_SERVICE | :TARGET_POOL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BACKEND_TYPE_UNSPECIFIED, 0
   field :BACKEND_SERVICE, 1
@@ -152,9 +84,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.BackendType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend.HealthCheckFirewallState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED | :CONFIGURED | :MISCONFIGURED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED, 0
   field :CONFIGURED, 1
@@ -162,9 +92,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend.HealthCheckFirew
 end
 defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.RoutingType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ROUTING_TYPE_UNSPECIFIED | :ROUTE_BASED | :POLICY_BASED | :DYNAMIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROUTING_TYPE_UNSPECIFIED, 0
   field :ROUTE_BASED, 1
@@ -173,16 +101,7 @@ defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.RoutingType do
 end
 defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TARGET_UNSPECIFIED
-          | :INSTANCE
-          | :INTERNET
-          | :GOOGLE_API
-          | :GKE_MASTER
-          | :CLOUD_SQL_INSTANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TARGET_UNSPECIFIED, 0
   field :INSTANCE, 1
@@ -193,17 +112,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
 end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TARGET_UNSPECIFIED
-          | :PEERING_VPC
-          | :VPN_GATEWAY
-          | :INTERCONNECT
-          | :GKE_MASTER
-          | :IMPORTED_CUSTOM_ROUTE_NEXT_HOP
-          | :CLOUD_SQL_INSTANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TARGET_UNSPECIFIED, 0
   field :PEERING_VPC, 1
@@ -215,25 +124,7 @@ defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
 end
 defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CAUSE_UNSPECIFIED
-          | :UNKNOWN_NETWORK
-          | :UNKNOWN_IP
-          | :UNKNOWN_PROJECT
-          | :PERMISSION_DENIED
-          | :NO_SOURCE_LOCATION
-          | :INVALID_ARGUMENT
-          | :NO_EXTERNAL_IP
-          | :UNINTENDED_DESTINATION
-          | :TRACE_TOO_LONG
-          | :INTERNAL_ERROR
-          | :SOURCE_ENDPOINT_NOT_FOUND
-          | :MISMATCHED_SOURCE_NETWORK
-          | :DESTINATION_ENDPOINT_NOT_FOUND
-          | :MISMATCHED_DESTINATION_NETWORK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CAUSE_UNSPECIFIED, 0
   field :UNKNOWN_NETWORK, 1
@@ -253,32 +144,7 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
 end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CAUSE_UNSPECIFIED
-          | :UNKNOWN_EXTERNAL_ADDRESS
-          | :FOREIGN_IP_DISALLOWED
-          | :FIREWALL_RULE
-          | :NO_ROUTE
-          | :ROUTE_BLACKHOLE
-          | :ROUTE_WRONG_NETWORK
-          | :PRIVATE_TRAFFIC_TO_INTERNET
-          | :PRIVATE_GOOGLE_ACCESS_DISALLOWED
-          | :NO_EXTERNAL_ADDRESS
-          | :UNKNOWN_INTERNAL_ADDRESS
-          | :FORWARDING_RULE_MISMATCH
-          | :FORWARDING_RULE_NO_INSTANCES
-          | :FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK
-          | :INSTANCE_NOT_RUNNING
-          | :TRAFFIC_TYPE_BLOCKED
-          | :GKE_MASTER_UNAUTHORIZED_ACCESS
-          | :CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS
-          | :DROPPED_INSIDE_GKE_SERVICE
-          | :DROPPED_INSIDE_CLOUD_SQL_SERVICE
-          | :GOOGLE_MANAGED_SERVICE_NO_PEERING
-          | :CLOUD_SQL_INSTANCE_NO_IP_ADDRESS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CAUSE_UNSPECIFIED, 0
   field :UNKNOWN_EXTERNAL_ADDRESS, 1
@@ -305,15 +171,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
 end
 defmodule Google.Cloud.Networkmanagement.V1.Trace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint_info: Google.Cloud.Networkmanagement.V1.EndpointInfo.t() | nil,
-          steps: [Google.Cloud.Networkmanagement.V1.Step.t()]
-        }
-
-  defstruct endpoint_info: nil,
-            steps: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint_info, 1,
     type: Google.Cloud.Networkmanagement.V1.EndpointInfo,
@@ -323,37 +181,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Trace do
 end
 defmodule Google.Cloud.Networkmanagement.V1.Step do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          step_info:
-            {:instance, Google.Cloud.Networkmanagement.V1.InstanceInfo.t() | nil}
-            | {:firewall, Google.Cloud.Networkmanagement.V1.FirewallInfo.t() | nil}
-            | {:route, Google.Cloud.Networkmanagement.V1.RouteInfo.t() | nil}
-            | {:endpoint, Google.Cloud.Networkmanagement.V1.EndpointInfo.t() | nil}
-            | {:forwarding_rule, Google.Cloud.Networkmanagement.V1.ForwardingRuleInfo.t() | nil}
-            | {:vpn_gateway, Google.Cloud.Networkmanagement.V1.VpnGatewayInfo.t() | nil}
-            | {:vpn_tunnel, Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.t() | nil}
-            | {:deliver, Google.Cloud.Networkmanagement.V1.DeliverInfo.t() | nil}
-            | {:forward, Google.Cloud.Networkmanagement.V1.ForwardInfo.t() | nil}
-            | {:abort, Google.Cloud.Networkmanagement.V1.AbortInfo.t() | nil}
-            | {:drop, Google.Cloud.Networkmanagement.V1.DropInfo.t() | nil}
-            | {:load_balancer, Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.t() | nil}
-            | {:network, Google.Cloud.Networkmanagement.V1.NetworkInfo.t() | nil}
-            | {:gke_master, Google.Cloud.Networkmanagement.V1.GKEMasterInfo.t() | nil}
-            | {:cloud_sql_instance,
-               Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo.t() | nil},
-          description: String.t(),
-          state: Google.Cloud.Networkmanagement.V1.Step.State.t(),
-          causes_drop: boolean,
-          project_id: String.t()
-        }
-
-  defstruct step_info: nil,
-            description: "",
-            state: :STATE_UNSPECIFIED,
-            causes_drop: false,
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :step_info, 0
 
@@ -405,27 +233,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
 end
 defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          interface: String.t(),
-          network_uri: String.t(),
-          internal_ip: String.t(),
-          external_ip: String.t(),
-          network_tags: [String.t()],
-          service_account: String.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            interface: "",
-            network_uri: "",
-            internal_ip: "",
-            external_ip: "",
-            network_tags: [],
-            service_account: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -438,17 +246,7 @@ defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          matched_ip_range: String.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            matched_ip_range: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -456,31 +254,7 @@ defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          direction: String.t(),
-          action: String.t(),
-          priority: integer,
-          network_uri: String.t(),
-          target_tags: [String.t()],
-          target_service_accounts: [String.t()],
-          policy: String.t(),
-          firewall_rule_type: Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            direction: "",
-            action: "",
-            priority: 0,
-            network_uri: "",
-            target_tags: [],
-            target_service_accounts: [],
-            policy: "",
-            firewall_rule_type: :FIREWALL_RULE_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -504,29 +278,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          route_type: Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType.t(),
-          next_hop_type: Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType.t(),
-          display_name: String.t(),
-          uri: String.t(),
-          dest_ip_range: String.t(),
-          next_hop: String.t(),
-          network_uri: String.t(),
-          priority: integer,
-          instance_tags: [String.t()]
-        }
-
-  defstruct route_type: :ROUTE_TYPE_UNSPECIFIED,
-            next_hop_type: :NEXT_HOP_TYPE_UNSPECIFIED,
-            display_name: "",
-            uri: "",
-            dest_ip_range: "",
-            next_hop: "",
-            network_uri: "",
-            priority: 0,
-            instance_tags: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :route_type, 8,
     type: Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType,
@@ -548,25 +300,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardingRuleInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          matched_protocol: String.t(),
-          matched_port_range: String.t(),
-          vip: String.t(),
-          target: String.t(),
-          network_uri: String.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            matched_protocol: "",
-            matched_port_range: "",
-            vip: "",
-            target: "",
-            network_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -578,22 +312,7 @@ defmodule Google.Cloud.Networkmanagement.V1.ForwardingRuleInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          load_balancer_type:
-            Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType.t(),
-          health_check_uri: String.t(),
-          backends: [Google.Cloud.Networkmanagement.V1.LoadBalancerBackend.t()],
-          backend_type: Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.BackendType.t(),
-          backend_uri: String.t()
-        }
-
-  defstruct load_balancer_type: :LOAD_BALANCER_TYPE_UNSPECIFIED,
-            health_check_uri: "",
-            backends: [],
-            backend_type: :BACKEND_TYPE_UNSPECIFIED,
-            backend_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :load_balancer_type, 1,
     type: Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType,
@@ -612,22 +331,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          health_check_firewall_state:
-            Google.Cloud.Networkmanagement.V1.LoadBalancerBackend.HealthCheckFirewallState.t(),
-          health_check_allowing_firewall_rules: [String.t()],
-          health_check_blocking_firewall_rules: [String.t()]
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            health_check_firewall_state: :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED,
-            health_check_allowing_firewall_rules: [],
-            health_check_blocking_firewall_rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -649,23 +353,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend do
 end
 defmodule Google.Cloud.Networkmanagement.V1.VpnGatewayInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          network_uri: String.t(),
-          ip_address: String.t(),
-          vpn_tunnel_uri: String.t(),
-          region: String.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            network_uri: "",
-            ip_address: "",
-            vpn_tunnel_uri: "",
-            region: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -676,29 +364,7 @@ defmodule Google.Cloud.Networkmanagement.V1.VpnGatewayInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          source_gateway: String.t(),
-          remote_gateway: String.t(),
-          remote_gateway_ip: String.t(),
-          source_gateway_ip: String.t(),
-          network_uri: String.t(),
-          region: String.t(),
-          routing_type: Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.RoutingType.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            source_gateway: "",
-            remote_gateway: "",
-            remote_gateway_ip: "",
-            source_gateway_ip: "",
-            network_uri: "",
-            region: "",
-            routing_type: :ROUTING_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -716,25 +382,7 @@ defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.EndpointInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_ip: String.t(),
-          destination_ip: String.t(),
-          protocol: String.t(),
-          source_port: integer,
-          destination_port: integer,
-          source_network_uri: String.t(),
-          destination_network_uri: String.t()
-        }
-
-  defstruct source_ip: "",
-            destination_ip: "",
-            protocol: "",
-            source_port: 0,
-            destination_port: 0,
-            source_network_uri: "",
-            destination_network_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_ip, 1, type: :string, json_name: "sourceIp"
   field :destination_ip, 2, type: :string, json_name: "destinationIp"
@@ -746,79 +394,35 @@ defmodule Google.Cloud.Networkmanagement.V1.EndpointInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: Google.Cloud.Networkmanagement.V1.DeliverInfo.Target.t(),
-          resource_uri: String.t()
-        }
-
-  defstruct target: :TARGET_UNSPECIFIED,
-            resource_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1.DeliverInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
 end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: Google.Cloud.Networkmanagement.V1.ForwardInfo.Target.t(),
-          resource_uri: String.t()
-        }
-
-  defstruct target: :TARGET_UNSPECIFIED,
-            resource_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1.ForwardInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
 end
 defmodule Google.Cloud.Networkmanagement.V1.AbortInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cause: Google.Cloud.Networkmanagement.V1.AbortInfo.Cause.t(),
-          resource_uri: String.t()
-        }
-
-  defstruct cause: :CAUSE_UNSPECIFIED,
-            resource_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1.AbortInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
 end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cause: Google.Cloud.Networkmanagement.V1.DropInfo.Cause.t(),
-          resource_uri: String.t()
-        }
-
-  defstruct cause: :CAUSE_UNSPECIFIED,
-            resource_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1.DropInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
 end
 defmodule Google.Cloud.Networkmanagement.V1.GKEMasterInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cluster_uri: String.t(),
-          cluster_network_uri: String.t(),
-          internal_ip: String.t(),
-          external_ip: String.t()
-        }
-
-  defstruct cluster_uri: "",
-            cluster_network_uri: "",
-            internal_ip: "",
-            external_ip: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cluster_uri, 2, type: :string, json_name: "clusterUri"
   field :cluster_network_uri, 4, type: :string, json_name: "clusterNetworkUri"
@@ -827,23 +431,7 @@ defmodule Google.Cloud.Networkmanagement.V1.GKEMasterInfo do
 end
 defmodule Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          uri: String.t(),
-          network_uri: String.t(),
-          internal_ip: String.t(),
-          external_ip: String.t(),
-          region: String.t()
-        }
-
-  defstruct display_name: "",
-            uri: "",
-            network_uri: "",
-            internal_ip: "",
-            external_ip: "",
-            region: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string

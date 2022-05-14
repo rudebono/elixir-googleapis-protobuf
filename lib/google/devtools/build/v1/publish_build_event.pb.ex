@@ -1,31 +1,13 @@
 defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NONINTERACTIVE | :INTERACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NONINTERACTIVE, 0
   field :INTERACTIVE, 1
 end
 defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          service_level: Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel.t(),
-          build_event: Google.Devtools.Build.V1.OrderedBuildEvent.t() | nil,
-          stream_timeout: Google.Protobuf.Duration.t() | nil,
-          notification_keywords: [String.t()],
-          project_id: String.t(),
-          check_preceding_lifecycle_events_present: boolean
-        }
-
-  defstruct service_level: :NONINTERACTIVE,
-            build_event: nil,
-            stream_timeout: nil,
-            notification_keywords: [],
-            project_id: "",
-            check_preceding_lifecycle_events_present: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :service_level, 1,
     type: Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel,
@@ -52,32 +34,14 @@ defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest do
 end
 defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream_id: Google.Devtools.Build.V1.StreamId.t() | nil,
-          sequence_number: integer
-        }
-
-  defstruct stream_id: nil,
-            sequence_number: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream_id, 1, type: Google.Devtools.Build.V1.StreamId, json_name: "streamId"
   field :sequence_number, 2, type: :int64, json_name: "sequenceNumber"
 end
 defmodule Google.Devtools.Build.V1.OrderedBuildEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stream_id: Google.Devtools.Build.V1.StreamId.t() | nil,
-          sequence_number: integer,
-          event: Google.Devtools.Build.V1.BuildEvent.t() | nil
-        }
-
-  defstruct stream_id: nil,
-            sequence_number: 0,
-            event: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stream_id, 1, type: Google.Devtools.Build.V1.StreamId, json_name: "streamId"
   field :sequence_number, 2, type: :int64, json_name: "sequenceNumber"
@@ -85,19 +49,7 @@ defmodule Google.Devtools.Build.V1.OrderedBuildEvent do
 end
 defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ordered_build_event: Google.Devtools.Build.V1.OrderedBuildEvent.t() | nil,
-          notification_keywords: [String.t()],
-          project_id: String.t(),
-          check_preceding_lifecycle_events_present: boolean
-        }
-
-  defstruct ordered_build_event: nil,
-            notification_keywords: [],
-            project_id: "",
-            check_preceding_lifecycle_events_present: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ordered_build_event, 4,
     type: Google.Devtools.Build.V1.OrderedBuildEvent,
@@ -117,7 +69,9 @@ defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
 end
 defmodule Google.Devtools.Build.V1.PublishBuildEvent.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.build.v1.PublishBuildEvent"
+  use GRPC.Service,
+    name: "google.devtools.build.v1.PublishBuildEvent",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :PublishLifecycleEvent,
       Google.Devtools.Build.V1.PublishLifecycleEventRequest,

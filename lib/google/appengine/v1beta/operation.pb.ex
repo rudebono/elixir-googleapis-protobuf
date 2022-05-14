@@ -1,28 +1,6 @@
 defmodule Google.Appengine.V1beta.OperationMetadataV1Beta do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          method_metadata:
-            {:create_version_metadata,
-             Google.Appengine.V1beta.CreateVersionMetadataV1Beta.t() | nil},
-          method: String.t(),
-          insert_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          user: String.t(),
-          target: String.t(),
-          ephemeral_message: String.t(),
-          warning: [String.t()]
-        }
-
-  defstruct method_metadata: nil,
-            method: "",
-            insert_time: nil,
-            end_time: nil,
-            user: "",
-            target: "",
-            ephemeral_message: "",
-            warning: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :method_metadata, 0
 
@@ -41,13 +19,7 @@ defmodule Google.Appengine.V1beta.OperationMetadataV1Beta do
 end
 defmodule Google.Appengine.V1beta.CreateVersionMetadataV1Beta do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cloud_build_id: String.t()
-        }
-
-  defstruct cloud_build_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cloud_build_id, 1, type: :string, json_name: "cloudBuildId"
 end

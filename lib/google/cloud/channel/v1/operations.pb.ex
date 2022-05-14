@@ -1,21 +1,6 @@
 defmodule Google.Cloud.Channel.V1.OperationMetadata.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OPERATION_TYPE_UNSPECIFIED
-          | :CREATE_ENTITLEMENT
-          | :CHANGE_RENEWAL_SETTINGS
-          | :START_PAID_SERVICE
-          | :ACTIVATE_ENTITLEMENT
-          | :SUSPEND_ENTITLEMENT
-          | :CANCEL_ENTITLEMENT
-          | :TRANSFER_ENTITLEMENTS
-          | :TRANSFER_ENTITLEMENTS_TO_GOOGLE
-          | :CHANGE_OFFER
-          | :CHANGE_PARAMETERS
-          | :PROVISION_CLOUD_IDENTITY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :CREATE_ENTITLEMENT, 1
@@ -32,13 +17,7 @@ defmodule Google.Cloud.Channel.V1.OperationMetadata.OperationType do
 end
 defmodule Google.Cloud.Channel.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_type: Google.Cloud.Channel.V1.OperationMetadata.OperationType.t()
-        }
-
-  defstruct operation_type: :OPERATION_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_type, 1,
     type: Google.Cloud.Channel.V1.OperationMetadata.OperationType,

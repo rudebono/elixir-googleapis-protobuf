@@ -1,65 +1,13 @@
 defmodule Google.Cloud.Retail.V2.UserEvent.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Retail.V2.CustomAttribute.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2.CustomAttribute
 end
 defmodule Google.Cloud.Retail.V2.UserEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_type: String.t(),
-          visitor_id: String.t(),
-          session_id: String.t(),
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          experiment_ids: [String.t()],
-          attribution_token: String.t(),
-          product_details: [Google.Cloud.Retail.V2.ProductDetail.t()],
-          completion_detail: Google.Cloud.Retail.V2.CompletionDetail.t() | nil,
-          attributes: %{String.t() => Google.Cloud.Retail.V2.CustomAttribute.t() | nil},
-          cart_id: String.t(),
-          purchase_transaction: Google.Cloud.Retail.V2.PurchaseTransaction.t() | nil,
-          search_query: String.t(),
-          filter: String.t(),
-          order_by: String.t(),
-          offset: integer,
-          page_categories: [String.t()],
-          user_info: Google.Cloud.Retail.V2.UserInfo.t() | nil,
-          uri: String.t(),
-          referrer_uri: String.t(),
-          page_view_id: String.t()
-        }
-
-  defstruct event_type: "",
-            visitor_id: "",
-            session_id: "",
-            event_time: nil,
-            experiment_ids: [],
-            attribution_token: "",
-            product_details: [],
-            completion_detail: nil,
-            attributes: %{},
-            cart_id: "",
-            purchase_transaction: nil,
-            search_query: "",
-            filter: "",
-            order_by: "",
-            offset: 0,
-            page_categories: [],
-            user_info: nil,
-            uri: "",
-            referrer_uri: "",
-            page_view_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
   field :visitor_id, 2, type: :string, json_name: "visitorId", deprecated: false
@@ -100,32 +48,14 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
 end
 defmodule Google.Cloud.Retail.V2.ProductDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: Google.Cloud.Retail.V2.Product.t() | nil,
-          quantity: Google.Protobuf.Int32Value.t() | nil
-        }
-
-  defstruct product: nil,
-            quantity: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :quantity, 2, type: Google.Protobuf.Int32Value
 end
 defmodule Google.Cloud.Retail.V2.CompletionDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          completion_attribution_token: String.t(),
-          selected_suggestion: String.t(),
-          selected_position: integer
-        }
-
-  defstruct completion_attribution_token: "",
-            selected_suggestion: "",
-            selected_position: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :completion_attribution_token, 1, type: :string, json_name: "completionAttributionToken"
   field :selected_suggestion, 2, type: :string, json_name: "selectedSuggestion"
@@ -133,21 +63,7 @@ defmodule Google.Cloud.Retail.V2.CompletionDetail do
 end
 defmodule Google.Cloud.Retail.V2.PurchaseTransaction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          revenue: float | :infinity | :negative_infinity | :nan,
-          tax: float | :infinity | :negative_infinity | :nan,
-          cost: float | :infinity | :negative_infinity | :nan,
-          currency_code: String.t()
-        }
-
-  defstruct id: "",
-            revenue: 0.0,
-            tax: 0.0,
-            cost: 0.0,
-            currency_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :revenue, 2, type: :float, deprecated: false

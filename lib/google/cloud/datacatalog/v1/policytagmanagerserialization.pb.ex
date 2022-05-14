@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.SerializedTaxonomy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          description: String.t(),
-          policy_tags: [Google.Cloud.Datacatalog.V1.SerializedPolicyTag.t()],
-          activated_policy_types: [Google.Cloud.Datacatalog.V1.Taxonomy.PolicyType.t()]
-        }
-
-  defstruct display_name: "",
-            description: "",
-            policy_tags: [],
-            activated_policy_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :description, 2, type: :string
@@ -30,19 +18,7 @@ defmodule Google.Cloud.Datacatalog.V1.SerializedTaxonomy do
 end
 defmodule Google.Cloud.Datacatalog.V1.SerializedPolicyTag do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy_tag: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          child_policy_tags: [Google.Cloud.Datacatalog.V1.SerializedPolicyTag.t()]
-        }
-
-  defstruct policy_tag: "",
-            display_name: "",
-            description: "",
-            child_policy_tags: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy_tag, 1, type: :string, json_name: "policyTag"
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -55,15 +31,7 @@ defmodule Google.Cloud.Datacatalog.V1.SerializedPolicyTag do
 end
 defmodule Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          serialized_taxonomy: Google.Cloud.Datacatalog.V1.SerializedTaxonomy.t() | nil
-        }
-
-  defstruct name: "",
-            serialized_taxonomy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -74,17 +42,7 @@ defmodule Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest do
 end
 defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:inline_source, Google.Cloud.Datacatalog.V1.InlineSource.t() | nil}
-            | {:cross_regional_source, Google.Cloud.Datacatalog.V1.CrossRegionalSource.t() | nil},
-          parent: String.t()
-        }
-
-  defstruct source: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -102,13 +60,7 @@ defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesRequest do
 end
 defmodule Google.Cloud.Datacatalog.V1.InlineSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          taxonomies: [Google.Cloud.Datacatalog.V1.SerializedTaxonomy.t()]
-        }
-
-  defstruct taxonomies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :taxonomies, 1,
     repeated: true,
@@ -117,41 +69,19 @@ defmodule Google.Cloud.Datacatalog.V1.InlineSource do
 end
 defmodule Google.Cloud.Datacatalog.V1.CrossRegionalSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          taxonomy: String.t()
-        }
-
-  defstruct taxonomy: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :taxonomy, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datacatalog.V1.ImportTaxonomiesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          taxonomies: [Google.Cloud.Datacatalog.V1.Taxonomy.t()]
-        }
-
-  defstruct taxonomies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Taxonomy
 end
 defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination: {:serialized_taxonomies, boolean},
-          parent: String.t(),
-          taxonomies: [String.t()]
-        }
-
-  defstruct destination: nil,
-            parent: "",
-            taxonomies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -161,19 +91,15 @@ defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesRequest do
 end
 defmodule Google.Cloud.Datacatalog.V1.ExportTaxonomiesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          taxonomies: [Google.Cloud.Datacatalog.V1.SerializedTaxonomy.t()]
-        }
-
-  defstruct taxonomies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :taxonomies, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SerializedTaxonomy
 end
 defmodule Google.Cloud.Datacatalog.V1.PolicyTagManagerSerialization.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.datacatalog.v1.PolicyTagManagerSerialization"
+  use GRPC.Service,
+    name: "google.cloud.datacatalog.v1.PolicyTagManagerSerialization",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ReplaceTaxonomy,
       Google.Cloud.Datacatalog.V1.ReplaceTaxonomyRequest,

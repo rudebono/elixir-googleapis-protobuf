@@ -1,27 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.UserListSizeRangeEnum.UserListSizeRange do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :LESS_THAN_FIVE_HUNDRED
-          | :LESS_THAN_ONE_THOUSAND
-          | :ONE_THOUSAND_TO_TEN_THOUSAND
-          | :TEN_THOUSAND_TO_FIFTY_THOUSAND
-          | :FIFTY_THOUSAND_TO_ONE_HUNDRED_THOUSAND
-          | :ONE_HUNDRED_THOUSAND_TO_THREE_HUNDRED_THOUSAND
-          | :THREE_HUNDRED_THOUSAND_TO_FIVE_HUNDRED_THOUSAND
-          | :FIVE_HUNDRED_THOUSAND_TO_ONE_MILLION
-          | :ONE_MILLION_TO_TWO_MILLION
-          | :TWO_MILLION_TO_THREE_MILLION
-          | :THREE_MILLION_TO_FIVE_MILLION
-          | :FIVE_MILLION_TO_TEN_MILLION
-          | :TEN_MILLION_TO_TWENTY_MILLION
-          | :TWENTY_MILLION_TO_THIRTY_MILLION
-          | :THIRTY_MILLION_TO_FIFTY_MILLION
-          | :OVER_FIFTY_MILLION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -44,9 +23,5 @@ defmodule Google.Ads.Googleads.V10.Enums.UserListSizeRangeEnum.UserListSizeRange
 end
 defmodule Google.Ads.Googleads.V10.Enums.UserListSizeRangeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

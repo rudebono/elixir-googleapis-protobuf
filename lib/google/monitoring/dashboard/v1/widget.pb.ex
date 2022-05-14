@@ -1,22 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.Widget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          content:
-            {:xy_chart, Google.Monitoring.Dashboard.V1.XyChart.t() | nil}
-            | {:scorecard, Google.Monitoring.Dashboard.V1.Scorecard.t() | nil}
-            | {:text, Google.Monitoring.Dashboard.V1.Text.t() | nil}
-            | {:blank, Google.Protobuf.Empty.t() | nil}
-            | {:alert_chart, Google.Monitoring.Dashboard.V1.AlertChart.t() | nil}
-            | {:time_series_table, Google.Monitoring.Dashboard.V1.TimeSeriesTable.t() | nil}
-            | {:collapsible_group, Google.Monitoring.Dashboard.V1.CollapsibleGroup.t() | nil}
-            | {:logs_panel, Google.Monitoring.Dashboard.V1.LogsPanel.t() | nil},
-          title: String.t()
-        }
-
-  defstruct content: nil,
-            title: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :content, 0
 

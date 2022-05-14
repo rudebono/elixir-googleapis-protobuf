@@ -1,24 +1,12 @@
 defmodule Google.Storagetransfer.V1.GetGoogleServiceAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t()
-        }
-
-  defstruct project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 end
 defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_job: Google.Storagetransfer.V1.TransferJob.t() | nil
-        }
-
-  defstruct transfer_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_job, 1,
     type: Google.Storagetransfer.V1.TransferJob,
@@ -27,19 +15,7 @@ defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
 end
 defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: String.t(),
-          project_id: String.t(),
-          transfer_job: Google.Storagetransfer.V1.TransferJob.t() | nil,
-          update_transfer_job_field_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct job_name: "",
-            project_id: "",
-            transfer_job: nil,
-            update_transfer_job_field_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -55,32 +31,14 @@ defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
 end
 defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: String.t(),
-          project_id: String.t()
-        }
-
-  defstruct job_name: "",
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
 defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize"
@@ -88,15 +46,7 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
 end
 defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_jobs: [Google.Storagetransfer.V1.TransferJob.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct transfer_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_jobs, 1,
     repeated: true,
@@ -107,56 +57,26 @@ defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
 end
 defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: String.t(),
-          project_id: String.t()
-        }
-
-  defstruct job_name: "",
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
 defmodule Google.Storagetransfer.V1.CreateAgentPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          agent_pool: Google.Storagetransfer.V1.AgentPool.t() | nil,
-          agent_pool_id: String.t()
-        }
-
-  defstruct project_id: "",
-            agent_pool: nil,
-            agent_pool_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
@@ -169,15 +89,7 @@ defmodule Google.Storagetransfer.V1.CreateAgentPoolRequest do
 end
 defmodule Google.Storagetransfer.V1.UpdateAgentPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent_pool: Google.Storagetransfer.V1.AgentPool.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct agent_pool: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :agent_pool, 1,
     type: Google.Storagetransfer.V1.AgentPool,
@@ -188,43 +100,19 @@ defmodule Google.Storagetransfer.V1.UpdateAgentPoolRequest do
 end
 defmodule Google.Storagetransfer.V1.GetAgentPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Storagetransfer.V1.DeleteAgentPoolRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Storagetransfer.V1.ListAgentPoolsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project_id: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :filter, 2, type: :string
@@ -233,15 +121,7 @@ defmodule Google.Storagetransfer.V1.ListAgentPoolsRequest do
 end
 defmodule Google.Storagetransfer.V1.ListAgentPoolsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent_pools: [Google.Storagetransfer.V1.AgentPool.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct agent_pools: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :agent_pools, 1,
     repeated: true,
@@ -252,7 +132,9 @@ defmodule Google.Storagetransfer.V1.ListAgentPoolsResponse do
 end
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.storagetransfer.v1.StorageTransferService"
+  use GRPC.Service,
+    name: "google.storagetransfer.v1.StorageTransferService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetGoogleServiceAccount,
       Google.Storagetransfer.V1.GetGoogleServiceAccountRequest,

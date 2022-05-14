@@ -1,26 +1,6 @@
 defmodule Google.Maps.Routes.V1.TollPass do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TOLL_PASS_UNSPECIFIED
-          | :AU_LINKT
-          | :AR_TELEPASE
-          | :BR_CONECTCAR
-          | :BR_MOVE_MAIS
-          | :BR_SEM_PARAR
-          | :BR_TAGGY
-          | :BR_VELOE
-          | :ID_E_TOLL
-          | :MX_TAG_IAVE
-          | :MX_TAG_TELEVIA
-          | :MX_VIAPASS
-          | :US_CA_FASTRAK
-          | :US_IL_IPASS
-          | :US_MA_EZPASSMA
-          | :US_NY_EZPASSNY
-          | :US_WA_GOOD_TO_GO
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TOLL_PASS_UNSPECIFIED, 0
   field :AU_LINKT, 2

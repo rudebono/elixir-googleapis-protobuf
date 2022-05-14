@@ -1,50 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.ImageErrorEnum.ImageError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INVALID_IMAGE
-          | :STORAGE_ERROR
-          | :BAD_REQUEST
-          | :UNEXPECTED_SIZE
-          | :ANIMATED_NOT_ALLOWED
-          | :ANIMATION_TOO_LONG
-          | :SERVER_ERROR
-          | :CMYK_JPEG_NOT_ALLOWED
-          | :FLASH_NOT_ALLOWED
-          | :FLASH_WITHOUT_CLICKTAG
-          | :FLASH_ERROR_AFTER_FIXING_CLICK_TAG
-          | :ANIMATED_VISUAL_EFFECT
-          | :FLASH_ERROR
-          | :LAYOUT_PROBLEM
-          | :PROBLEM_READING_IMAGE_FILE
-          | :ERROR_STORING_IMAGE
-          | :ASPECT_RATIO_NOT_ALLOWED
-          | :FLASH_HAS_NETWORK_OBJECTS
-          | :FLASH_HAS_NETWORK_METHODS
-          | :FLASH_HAS_URL
-          | :FLASH_HAS_MOUSE_TRACKING
-          | :FLASH_HAS_RANDOM_NUM
-          | :FLASH_SELF_TARGETS
-          | :FLASH_BAD_GETURL_TARGET
-          | :FLASH_VERSION_NOT_SUPPORTED
-          | :FLASH_WITHOUT_HARD_CODED_CLICK_URL
-          | :INVALID_FLASH_FILE
-          | :FAILED_TO_FIX_CLICK_TAG_IN_FLASH
-          | :FLASH_ACCESSES_NETWORK_RESOURCES
-          | :FLASH_EXTERNAL_JS_CALL
-          | :FLASH_EXTERNAL_FS_CALL
-          | :FILE_TOO_LARGE
-          | :IMAGE_DATA_TOO_LARGE
-          | :IMAGE_PROCESSING_ERROR
-          | :IMAGE_TOO_SMALL
-          | :INVALID_INPUT
-          | :PROBLEM_READING_FILE
-          | :IMAGE_CONSTRAINTS_VIOLATED
-          | :FORMAT_NOT_ALLOWED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -90,9 +46,5 @@ defmodule Google.Ads.Googleads.V10.Errors.ImageErrorEnum.ImageError do
 end
 defmodule Google.Ads.Googleads.V10.Errors.ImageErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

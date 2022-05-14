@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Managedidentities.V1beta1.Domain.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :READY
-          | :UPDATING
-          | :DELETING
-          | :REPAIRING
-          | :PERFORMING_MAINTENANCE
-          | :UNAVAILABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -24,16 +13,7 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Domain.State do
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Trust.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :UPDATING
-          | :DELETING
-          | :CONNECTED
-          | :DISCONNECTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -44,9 +24,7 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.State do
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TRUST_TYPE_UNSPECIFIED | :FOREST | :EXTERNAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRUST_TYPE_UNSPECIFIED, 0
   field :FOREST, 1
@@ -54,9 +32,7 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustType do
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustDirection do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TRUST_DIRECTION_UNSPECIFIED | :INBOUND | :OUTBOUND | :BIDIRECTIONAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRUST_DIRECTION_UNSPECIFIED, 0
   field :INBOUND, 1
@@ -65,50 +41,14 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Trust.TrustDirection do
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Domain.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Domain do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          labels: %{String.t() => String.t()},
-          authorized_networks: [String.t()],
-          reserved_ip_range: String.t(),
-          locations: [String.t()],
-          admin: String.t(),
-          fqdn: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Managedidentities.V1beta1.Domain.State.t(),
-          status_message: String.t(),
-          trusts: [Google.Cloud.Managedidentities.V1beta1.Trust.t()]
-        }
-
-  defstruct name: "",
-            labels: %{},
-            authorized_networks: [],
-            reserved_ip_range: "",
-            locations: [],
-            admin: "",
-            fqdn: "",
-            create_time: nil,
-            update_time: nil,
-            state: :STATE_UNSPECIFIED,
-            status_message: "",
-            trusts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -153,33 +93,7 @@ defmodule Google.Cloud.Managedidentities.V1beta1.Domain do
 end
 defmodule Google.Cloud.Managedidentities.V1beta1.Trust do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_domain_name: String.t(),
-          trust_type: Google.Cloud.Managedidentities.V1beta1.Trust.TrustType.t(),
-          trust_direction: Google.Cloud.Managedidentities.V1beta1.Trust.TrustDirection.t(),
-          selective_authentication: boolean,
-          target_dns_ip_addresses: [String.t()],
-          trust_handshake_secret: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Managedidentities.V1beta1.Trust.State.t(),
-          state_description: String.t(),
-          last_trust_heartbeat_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct target_domain_name: "",
-            trust_type: :TRUST_TYPE_UNSPECIFIED,
-            trust_direction: :TRUST_DIRECTION_UNSPECIFIED,
-            selective_authentication: false,
-            target_dns_ip_addresses: [],
-            trust_handshake_secret: "",
-            create_time: nil,
-            update_time: nil,
-            state: :STATE_UNSPECIFIED,
-            state_description: "",
-            last_trust_heartbeat_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_domain_name, 1, type: :string, json_name: "targetDomainName"
 

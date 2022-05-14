@@ -1,8 +1,6 @@
 defmodule Google.Watcher.V1.Change.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EXISTS | :DOES_NOT_EXIST | :INITIAL_STATE_SKIPPED | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXISTS, 0
   field :DOES_NOT_EXIST, 1
@@ -11,48 +9,20 @@ defmodule Google.Watcher.V1.Change.State do
 end
 defmodule Google.Watcher.V1.Request do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: String.t(),
-          resume_marker: binary
-        }
-
-  defstruct target: "",
-            resume_marker: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 1, type: :string
   field :resume_marker, 2, type: :bytes, json_name: "resumeMarker"
 end
 defmodule Google.Watcher.V1.ChangeBatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          changes: [Google.Watcher.V1.Change.t()]
-        }
-
-  defstruct changes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :changes, 1, repeated: true, type: Google.Watcher.V1.Change
 end
 defmodule Google.Watcher.V1.Change do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          element: String.t(),
-          state: Google.Watcher.V1.Change.State.t(),
-          data: Google.Protobuf.Any.t() | nil,
-          resume_marker: binary,
-          continued: boolean
-        }
-
-  defstruct element: "",
-            state: :EXISTS,
-            data: nil,
-            resume_marker: "",
-            continued: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :element, 1, type: :string
   field :state, 2, type: Google.Watcher.V1.Change.State, enum: true
@@ -62,7 +32,7 @@ defmodule Google.Watcher.V1.Change do
 end
 defmodule Google.Watcher.V1.Watcher.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.watcher.v1.Watcher"
+  use GRPC.Service, name: "google.watcher.v1.Watcher", protoc_gen_elixir_version: "0.10.0"
 
   rpc :Watch, Google.Watcher.V1.Request, stream(Google.Watcher.V1.ChangeBatch)
 end

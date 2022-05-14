@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Retail.V2alpha.Product.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PRIMARY | :VARIANT | :COLLECTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -11,10 +9,7 @@ defmodule Google.Cloud.Retail.V2alpha.Product.Type do
 end
 defmodule Google.Cloud.Retail.V2alpha.Product.Availability do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :AVAILABILITY_UNSPECIFIED | :IN_STOCK | :OUT_OF_STOCK | :PREORDER | :BACKORDER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AVAILABILITY_UNSPECIFIED, 0
   field :IN_STOCK, 1
@@ -24,92 +19,14 @@ defmodule Google.Cloud.Retail.V2alpha.Product.Availability do
 end
 defmodule Google.Cloud.Retail.V2alpha.Product.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Retail.V2alpha.CustomAttribute.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CustomAttribute
 end
 defmodule Google.Cloud.Retail.V2alpha.Product do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          expiration:
-            {:expire_time, Google.Protobuf.Timestamp.t() | nil}
-            | {:ttl, Google.Protobuf.Duration.t() | nil},
-          name: String.t(),
-          id: String.t(),
-          type: Google.Cloud.Retail.V2alpha.Product.Type.t(),
-          primary_product_id: String.t(),
-          collection_member_ids: [String.t()],
-          gtin: String.t(),
-          categories: [String.t()],
-          title: String.t(),
-          brands: [String.t()],
-          description: String.t(),
-          language_code: String.t(),
-          attributes: %{String.t() => Google.Cloud.Retail.V2alpha.CustomAttribute.t() | nil},
-          tags: [String.t()],
-          price_info: Google.Cloud.Retail.V2alpha.PriceInfo.t() | nil,
-          rating: Google.Cloud.Retail.V2alpha.Rating.t() | nil,
-          available_time: Google.Protobuf.Timestamp.t() | nil,
-          availability: Google.Cloud.Retail.V2alpha.Product.Availability.t(),
-          available_quantity: Google.Protobuf.Int32Value.t() | nil,
-          fulfillment_info: [Google.Cloud.Retail.V2alpha.FulfillmentInfo.t()],
-          uri: String.t(),
-          images: [Google.Cloud.Retail.V2alpha.Image.t()],
-          audience: Google.Cloud.Retail.V2alpha.Audience.t() | nil,
-          color_info: Google.Cloud.Retail.V2alpha.ColorInfo.t() | nil,
-          sizes: [String.t()],
-          materials: [String.t()],
-          patterns: [String.t()],
-          conditions: [String.t()],
-          promotions: [Google.Cloud.Retail.V2alpha.Promotion.t()],
-          publish_time: Google.Protobuf.Timestamp.t() | nil,
-          retrievable_fields: Google.Protobuf.FieldMask.t() | nil,
-          variants: [Google.Cloud.Retail.V2alpha.Product.t()]
-        }
-
-  defstruct expiration: nil,
-            name: "",
-            id: "",
-            type: :TYPE_UNSPECIFIED,
-            primary_product_id: "",
-            collection_member_ids: [],
-            gtin: "",
-            categories: [],
-            title: "",
-            brands: [],
-            description: "",
-            language_code: "",
-            attributes: %{},
-            tags: [],
-            price_info: nil,
-            rating: nil,
-            available_time: nil,
-            availability: :AVAILABILITY_UNSPECIFIED,
-            available_quantity: nil,
-            fulfillment_info: [],
-            uri: "",
-            images: [],
-            audience: nil,
-            color_info: nil,
-            sizes: [],
-            materials: [],
-            patterns: [],
-            conditions: [],
-            promotions: [],
-            publish_time: nil,
-            retrievable_fields: nil,
-            variants: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :expiration, 0
 

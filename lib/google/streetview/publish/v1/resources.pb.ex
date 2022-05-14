@@ -1,17 +1,6 @@
 defmodule Google.Streetview.Publish.V1.Photo.TransferStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TRANSFER_STATUS_UNKNOWN
-          | :NEVER_TRANSFERRED
-          | :PENDING
-          | :COMPLETED
-          | :REJECTED
-          | :EXPIRED
-          | :CANCELLED
-          | :RECEIVED_VIA_TRANSFER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRANSFER_STATUS_UNKNOWN, 0
   field :NEVER_TRANSFERRED, 1
@@ -24,9 +13,7 @@ defmodule Google.Streetview.Publish.V1.Photo.TransferStatus do
 end
 defmodule Google.Streetview.Publish.V1.Photo.MapsPublishStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED_MAPS_PUBLISH_STATUS | :PUBLISHED | :REJECTED_UNKNOWN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED_MAPS_PUBLISH_STATUS, 0
   field :PUBLISHED, 1
@@ -34,13 +21,7 @@ defmodule Google.Streetview.Publish.V1.Photo.MapsPublishStatus do
 end
 defmodule Google.Streetview.Publish.V1.UploadRef do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_source: {:upload_url, String.t()}
-        }
-
-  defstruct file_source: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :file_source, 0
 
@@ -48,52 +29,20 @@ defmodule Google.Streetview.Publish.V1.UploadRef do
 end
 defmodule Google.Streetview.Publish.V1.PhotoId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t()
-        }
-
-  defstruct id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 defmodule Google.Streetview.Publish.V1.Level do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          number: float | :infinity | :negative_infinity | :nan,
-          name: String.t()
-        }
-
-  defstruct number: 0.0,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :number, 1, type: :double, deprecated: false
   field :name, 2, type: :string, deprecated: false
 end
 defmodule Google.Streetview.Publish.V1.Pose do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lat_lng_pair: Google.Type.LatLng.t() | nil,
-          altitude: float | :infinity | :negative_infinity | :nan,
-          heading: float | :infinity | :negative_infinity | :nan,
-          pitch: float | :infinity | :negative_infinity | :nan,
-          roll: float | :infinity | :negative_infinity | :nan,
-          level: Google.Streetview.Publish.V1.Level.t() | nil,
-          accuracy_meters: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct lat_lng_pair: nil,
-            altitude: 0.0,
-            heading: 0.0,
-            pitch: 0.0,
-            roll: 0.0,
-            level: nil,
-            accuracy_meters: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :lat_lng_pair, 1, type: Google.Type.LatLng, json_name: "latLngPair"
   field :altitude, 2, type: :double
@@ -105,17 +54,7 @@ defmodule Google.Streetview.Publish.V1.Pose do
 end
 defmodule Google.Streetview.Publish.V1.Place do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          place_id: String.t(),
-          name: String.t(),
-          language_code: String.t()
-        }
-
-  defstruct place_id: "",
-            name: "",
-            language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
   field :name, 2, type: :string, deprecated: false
@@ -123,49 +62,13 @@ defmodule Google.Streetview.Publish.V1.Place do
 end
 defmodule Google.Streetview.Publish.V1.Connection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target: Google.Streetview.Publish.V1.PhotoId.t() | nil
-        }
-
-  defstruct target: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target, 1, type: Google.Streetview.Publish.V1.PhotoId, deprecated: false
 end
 defmodule Google.Streetview.Publish.V1.Photo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          photo_id: Google.Streetview.Publish.V1.PhotoId.t() | nil,
-          upload_reference: Google.Streetview.Publish.V1.UploadRef.t() | nil,
-          download_url: String.t(),
-          thumbnail_url: String.t(),
-          share_link: String.t(),
-          pose: Google.Streetview.Publish.V1.Pose.t() | nil,
-          connections: [Google.Streetview.Publish.V1.Connection.t()],
-          capture_time: Google.Protobuf.Timestamp.t() | nil,
-          upload_time: Google.Protobuf.Timestamp.t() | nil,
-          places: [Google.Streetview.Publish.V1.Place.t()],
-          view_count: integer,
-          transfer_status: Google.Streetview.Publish.V1.Photo.TransferStatus.t(),
-          maps_publish_status: Google.Streetview.Publish.V1.Photo.MapsPublishStatus.t()
-        }
-
-  defstruct photo_id: nil,
-            upload_reference: nil,
-            download_url: "",
-            thumbnail_url: "",
-            share_link: "",
-            pose: nil,
-            connections: [],
-            capture_time: nil,
-            upload_time: nil,
-            places: [],
-            view_count: 0,
-            transfer_status: :TRANSFER_STATUS_UNKNOWN,
-            maps_publish_status: :UNSPECIFIED_MAPS_PUBLISH_STATUS
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :photo_id, 1,
     type: Google.Streetview.Publish.V1.PhotoId,

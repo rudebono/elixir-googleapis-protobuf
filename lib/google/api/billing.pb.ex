@@ -1,27 +1,13 @@
 defmodule Google.Api.Billing.BillingDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          monitored_resource: String.t(),
-          metrics: [String.t()]
-        }
-
-  defstruct monitored_resource: "",
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :monitored_resource, 1, type: :string, json_name: "monitoredResource"
   field :metrics, 2, repeated: true, type: :string
 end
 defmodule Google.Api.Billing do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consumer_destinations: [Google.Api.Billing.BillingDestination.t()]
-        }
-
-  defstruct consumer_destinations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :consumer_destinations, 8,
     repeated: true,

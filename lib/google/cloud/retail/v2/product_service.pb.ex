@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Retail.V2.CreateProductRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          product: Google.Cloud.Retail.V2.Product.t() | nil,
-          product_id: String.t()
-        }
-
-  defstruct parent: "",
-            product: nil,
-            product_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :product, 2, type: Google.Cloud.Retail.V2.Product, deprecated: false
@@ -18,29 +8,13 @@ defmodule Google.Cloud.Retail.V2.CreateProductRequest do
 end
 defmodule Google.Cloud.Retail.V2.GetProductRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Retail.V2.UpdateProductRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: Google.Cloud.Retail.V2.Product.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct product: nil,
-            update_mask: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -48,33 +22,13 @@ defmodule Google.Cloud.Retail.V2.UpdateProductRequest do
 end
 defmodule Google.Cloud.Retail.V2.DeleteProductRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Retail.V2.ListProductsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -84,34 +38,14 @@ defmodule Google.Cloud.Retail.V2.ListProductsRequest do
 end
 defmodule Google.Cloud.Retail.V2.ListProductsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          products: [Google.Cloud.Retail.V2.Product.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct products: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Retail.V2.SetInventoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inventory: Google.Cloud.Retail.V2.Product.t() | nil,
-          set_mask: Google.Protobuf.FieldMask.t() | nil,
-          set_time: Google.Protobuf.Timestamp.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct inventory: nil,
-            set_mask: nil,
-            set_time: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inventory, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :set_mask, 2, type: Google.Protobuf.FieldMask, json_name: "setMask"
@@ -120,37 +54,15 @@ defmodule Google.Cloud.Retail.V2.SetInventoryRequest do
 end
 defmodule Google.Cloud.Retail.V2.SetInventoryMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.SetInventoryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: String.t(),
-          type: String.t(),
-          place_ids: [String.t()],
-          add_time: Google.Protobuf.Timestamp.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct product: "",
-            type: "",
-            place_ids: [],
-            add_time: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -160,37 +72,15 @@ defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesRequest do
 end
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: String.t(),
-          local_inventories: [Google.Cloud.Retail.V2.LocalInventory.t()],
-          add_mask: Google.Protobuf.FieldMask.t() | nil,
-          add_time: Google.Protobuf.Timestamp.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct product: "",
-            local_inventories: [],
-            add_mask: nil,
-            add_time: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
 
@@ -206,35 +96,15 @@ defmodule Google.Cloud.Retail.V2.AddLocalInventoriesRequest do
 end
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: String.t(),
-          place_ids: [String.t()],
-          remove_time: Google.Protobuf.Timestamp.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct product: "",
-            place_ids: [],
-            remove_time: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :place_ids, 2, repeated: true, type: :string, json_name: "placeIds", deprecated: false
@@ -243,37 +113,15 @@ defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesRequest do
 end
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: String.t(),
-          type: String.t(),
-          place_ids: [String.t()],
-          remove_time: Google.Protobuf.Timestamp.t() | nil,
-          allow_missing: boolean
-        }
-
-  defstruct product: "",
-            type: "",
-            place_ids: [],
-            remove_time: nil,
-            allow_missing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -283,23 +131,17 @@ defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesRequest do
 end
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2.ProductService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.retail.v2.ProductService"
+  use GRPC.Service,
+    name: "google.cloud.retail.v2.ProductService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateProduct, Google.Cloud.Retail.V2.CreateProductRequest, Google.Cloud.Retail.V2.Product
 

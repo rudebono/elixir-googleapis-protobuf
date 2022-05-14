@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Domains.V1beta1.ContactPrivacy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CONTACT_PRIVACY_UNSPECIFIED
-          | :PUBLIC_CONTACT_DATA
-          | :PRIVATE_CONTACT_DATA
-          | :REDACTED_CONTACT_DATA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTACT_PRIVACY_UNSPECIFIED, 0
   field :PUBLIC_CONTACT_DATA, 1
@@ -16,27 +9,21 @@ defmodule Google.Cloud.Domains.V1beta1.ContactPrivacy do
 end
 defmodule Google.Cloud.Domains.V1beta1.DomainNotice do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DOMAIN_NOTICE_UNSPECIFIED | :HSTS_PRELOADED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DOMAIN_NOTICE_UNSPECIFIED, 0
   field :HSTS_PRELOADED, 1
 end
 defmodule Google.Cloud.Domains.V1beta1.ContactNotice do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONTACT_NOTICE_UNSPECIFIED | :PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONTACT_NOTICE_UNSPECIFIED, 0
   field :PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT, 1
 end
 defmodule Google.Cloud.Domains.V1beta1.TransferLockState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TRANSFER_LOCK_STATE_UNSPECIFIED | :UNLOCKED | :LOCKED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TRANSFER_LOCK_STATE_UNSPECIFIED, 0
   field :UNLOCKED, 1
@@ -44,18 +31,7 @@ defmodule Google.Cloud.Domains.V1beta1.TransferLockState do
 end
 defmodule Google.Cloud.Domains.V1beta1.Registration.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :REGISTRATION_PENDING
-          | :REGISTRATION_FAILED
-          | :TRANSFER_PENDING
-          | :TRANSFER_FAILED
-          | :ACTIVE
-          | :SUSPENDED
-          | :EXPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REGISTRATION_PENDING, 1
@@ -68,9 +44,7 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.State do
 end
 defmodule Google.Cloud.Domains.V1beta1.Registration.Issue do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ISSUE_UNSPECIFIED | :CONTACT_SUPPORT | :UNVERIFIED_EMAIL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ISSUE_UNSPECIFIED, 0
   field :CONTACT_SUPPORT, 1
@@ -78,9 +52,7 @@ defmodule Google.Cloud.Domains.V1beta1.Registration.Issue do
 end
 defmodule Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RENEWAL_METHOD_UNSPECIFIED | :AUTOMATIC_RENEWAL | :MANUAL_RENEWAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RENEWAL_METHOD_UNSPECIFIED, 0
   field :AUTOMATIC_RENEWAL, 1
@@ -88,9 +60,7 @@ defmodule Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DS_STATE_UNSPECIFIED | :DS_RECORDS_UNPUBLISHED | :DS_RECORDS_PUBLISHED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DS_STATE_UNSPECIFIED, 0
   field :DS_RECORDS_UNPUBLISHED, 1
@@ -98,28 +68,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsState do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ALGORITHM_UNSPECIFIED
-          | :RSAMD5
-          | :DH
-          | :DSA
-          | :ECC
-          | :RSASHA1
-          | :DSANSEC3SHA1
-          | :RSASHA1NSEC3SHA1
-          | :RSASHA256
-          | :RSASHA512
-          | :ECCGOST
-          | :ECDSAP256SHA256
-          | :ECDSAP384SHA384
-          | :ED25519
-          | :ED448
-          | :INDIRECT
-          | :PRIVATEDNS
-          | :PRIVATEOID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ALGORITHM_UNSPECIFIED, 0
   field :RSAMD5, 1
@@ -142,9 +91,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIGEST_TYPE_UNSPECIFIED | :SHA1 | :SHA256 | :GOST3411 | :SHA384
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIGEST_TYPE_UNSPECIFIED, 0
   field :SHA1, 1
@@ -154,15 +101,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType do
 end
 defmodule Google.Cloud.Domains.V1beta1.RegisterParameters.Availability do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AVAILABILITY_UNSPECIFIED
-          | :AVAILABLE
-          | :UNAVAILABLE
-          | :UNSUPPORTED
-          | :UNKNOWN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AVAILABILITY_UNSPECIFIED, 0
   field :AVAILABLE, 1
@@ -172,50 +111,14 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters.Availability do
 end
 defmodule Google.Cloud.Domains.V1beta1.Registration.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Domains.V1beta1.Registration do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          domain_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Domains.V1beta1.Registration.State.t(),
-          issues: [Google.Cloud.Domains.V1beta1.Registration.Issue.t()],
-          labels: %{String.t() => String.t()},
-          management_settings: Google.Cloud.Domains.V1beta1.ManagementSettings.t() | nil,
-          dns_settings: Google.Cloud.Domains.V1beta1.DnsSettings.t() | nil,
-          contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
-          pending_contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
-          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()]
-        }
-
-  defstruct name: "",
-            domain_name: "",
-            create_time: nil,
-            expire_time: nil,
-            state: :STATE_UNSPECIFIED,
-            issues: [],
-            labels: %{},
-            management_settings: nil,
-            dns_settings: nil,
-            contact_settings: nil,
-            pending_contact_settings: nil,
-            supported_privacy: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :domain_name, 2, type: :string, json_name: "domainName", deprecated: false
@@ -273,15 +176,7 @@ defmodule Google.Cloud.Domains.V1beta1.Registration do
 end
 defmodule Google.Cloud.Domains.V1beta1.ManagementSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          renewal_method: Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod.t(),
-          transfer_lock_state: Google.Cloud.Domains.V1beta1.TransferLockState.t()
-        }
-
-  defstruct renewal_method: :RENEWAL_METHOD_UNSPECIFIED,
-            transfer_lock_state: :TRANSFER_LOCK_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :renewal_method, 3,
     type: Google.Cloud.Domains.V1beta1.ManagementSettings.RenewalMethod,
@@ -296,15 +191,7 @@ defmodule Google.Cloud.Domains.V1beta1.ManagementSettings do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name_servers: [String.t()],
-          ds_records: [Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.t()]
-        }
-
-  defstruct name_servers: [],
-            ds_records: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name_servers, 1,
     repeated: true,
@@ -319,17 +206,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name_servers: [String.t()],
-          ds_state: Google.Cloud.Domains.V1beta1.DnsSettings.DsState.t(),
-          ds_records: [Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.t()]
-        }
-
-  defstruct name_servers: [],
-            ds_state: :DS_STATE_UNSPECIFIED,
-            ds_records: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name_servers, 1,
     repeated: true,
@@ -351,19 +228,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_tag: integer,
-          algorithm: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.Algorithm.t(),
-          digest_type: Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord.DigestType.t(),
-          digest: String.t()
-        }
-
-  defstruct key_tag: 0,
-            algorithm: :ALGORITHM_UNSPECIFIED,
-            digest_type: :DIGEST_TYPE_UNSPECIFIED,
-            digest: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_tag, 1, type: :int32, json_name: "keyTag"
 
@@ -380,17 +245,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.DsRecord do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          host_name: String.t(),
-          ipv4_addresses: [String.t()],
-          ipv6_addresses: [String.t()]
-        }
-
-  defstruct host_name: "",
-            ipv4_addresses: [],
-            ipv6_addresses: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :host_name, 1, type: :string, json_name: "hostName", deprecated: false
   field :ipv4_addresses, 2, repeated: true, type: :string, json_name: "ipv4Addresses"
@@ -398,18 +253,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord do
 end
 defmodule Google.Cloud.Domains.V1beta1.DnsSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dns_provider:
-            {:custom_dns, Google.Cloud.Domains.V1beta1.DnsSettings.CustomDns.t() | nil}
-            | {:google_domains_dns,
-               Google.Cloud.Domains.V1beta1.DnsSettings.GoogleDomainsDns.t() | nil},
-          glue_records: [Google.Cloud.Domains.V1beta1.DnsSettings.GlueRecord.t()]
-        }
-
-  defstruct dns_provider: nil,
-            glue_records: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :dns_provider, 0
 
@@ -430,19 +274,7 @@ defmodule Google.Cloud.Domains.V1beta1.DnsSettings do
 end
 defmodule Google.Cloud.Domains.V1beta1.ContactSettings.Contact do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          postal_address: Google.Type.PostalAddress.t() | nil,
-          email: String.t(),
-          phone_number: String.t(),
-          fax_number: String.t()
-        }
-
-  defstruct postal_address: nil,
-            email: "",
-            phone_number: "",
-            fax_number: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :postal_address, 1,
     type: Google.Type.PostalAddress,
@@ -455,19 +287,7 @@ defmodule Google.Cloud.Domains.V1beta1.ContactSettings.Contact do
 end
 defmodule Google.Cloud.Domains.V1beta1.ContactSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          privacy: Google.Cloud.Domains.V1beta1.ContactPrivacy.t(),
-          registrant_contact: Google.Cloud.Domains.V1beta1.ContactSettings.Contact.t() | nil,
-          admin_contact: Google.Cloud.Domains.V1beta1.ContactSettings.Contact.t() | nil,
-          technical_contact: Google.Cloud.Domains.V1beta1.ContactSettings.Contact.t() | nil
-        }
-
-  defstruct privacy: :CONTACT_PRIVACY_UNSPECIFIED,
-            registrant_contact: nil,
-            admin_contact: nil,
-            technical_contact: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :privacy, 1,
     type: Google.Cloud.Domains.V1beta1.ContactPrivacy,
@@ -491,28 +311,14 @@ defmodule Google.Cloud.Domains.V1beta1.ContactSettings do
 end
 defmodule Google.Cloud.Domains.V1beta1.SearchDomainsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          location: String.t()
-        }
-
-  defstruct query: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :location, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.SearchDomainsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          register_parameters: [Google.Cloud.Domains.V1beta1.RegisterParameters.t()]
-        }
-
-  defstruct register_parameters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :register_parameters, 1,
     repeated: true,
@@ -521,28 +327,14 @@ defmodule Google.Cloud.Domains.V1beta1.SearchDomainsResponse do
 end
 defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain_name: String.t(),
-          location: String.t()
-        }
-
-  defstruct domain_name: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName", deprecated: false
   field :location, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          register_parameters: Google.Cloud.Domains.V1beta1.RegisterParameters.t() | nil
-        }
-
-  defstruct register_parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :register_parameters, 1,
     type: Google.Cloud.Domains.V1beta1.RegisterParameters,
@@ -550,23 +342,7 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveRegisterParametersResponse do
 end
 defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
-          domain_notices: [Google.Cloud.Domains.V1beta1.DomainNotice.t()],
-          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
-          yearly_price: Google.Type.Money.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            registration: nil,
-            domain_notices: [],
-            contact_notices: [],
-            yearly_price: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :registration, 2, type: Google.Cloud.Domains.V1beta1.Registration, deprecated: false
@@ -588,28 +364,14 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterDomainRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain_name: String.t(),
-          location: String.t()
-        }
-
-  defstruct domain_name: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName", deprecated: false
   field :location, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_parameters: Google.Cloud.Domains.V1beta1.TransferParameters.t() | nil
-        }
-
-  defstruct transfer_parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_parameters, 1,
     type: Google.Cloud.Domains.V1beta1.TransferParameters,
@@ -617,23 +379,7 @@ defmodule Google.Cloud.Domains.V1beta1.RetrieveTransferParametersResponse do
 end
 defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
-          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
-          yearly_price: Google.Type.Money.t() | nil,
-          authorization_code: Google.Cloud.Domains.V1beta1.AuthorizationCode.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct parent: "",
-            registration: nil,
-            contact_notices: [],
-            yearly_price: nil,
-            authorization_code: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :registration, 2, type: Google.Cloud.Domains.V1beta1.Registration, deprecated: false
@@ -654,19 +400,7 @@ defmodule Google.Cloud.Domains.V1beta1.TransferDomainRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -675,42 +409,20 @@ defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ListRegistrationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registrations: [Google.Cloud.Domains.V1beta1.Registration.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct registrations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registrations, 1, repeated: true, type: Google.Cloud.Domains.V1beta1.Registration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Domains.V1beta1.GetRegistrationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.UpdateRegistrationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: Google.Cloud.Domains.V1beta1.Registration.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct registration: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: Google.Cloud.Domains.V1beta1.Registration
 
@@ -721,17 +433,7 @@ defmodule Google.Cloud.Domains.V1beta1.UpdateRegistrationRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ConfigureManagementSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: String.t(),
-          management_settings: Google.Cloud.Domains.V1beta1.ManagementSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct registration: "",
-            management_settings: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 
@@ -746,19 +448,7 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureManagementSettingsRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ConfigureDnsSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: String.t(),
-          dns_settings: Google.Cloud.Domains.V1beta1.DnsSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct registration: "",
-            dns_settings: nil,
-            update_mask: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
   field :dns_settings, 2, type: Google.Cloud.Domains.V1beta1.DnsSettings, json_name: "dnsSettings"
@@ -772,21 +462,7 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureDnsSettingsRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ConfigureContactSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: String.t(),
-          contact_settings: Google.Cloud.Domains.V1beta1.ContactSettings.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          contact_notices: [Google.Cloud.Domains.V1beta1.ContactNotice.t()],
-          validate_only: boolean
-        }
-
-  defstruct registration: "",
-            contact_settings: nil,
-            update_mask: nil,
-            contact_notices: [],
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 
@@ -809,69 +485,31 @@ defmodule Google.Cloud.Domains.V1beta1.ConfigureContactSettingsRequest do
 end
 defmodule Google.Cloud.Domains.V1beta1.ExportRegistrationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.DeleteRegistrationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.RetrieveAuthorizationCodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: String.t()
-        }
-
-  defstruct registration: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.ResetAuthorizationCodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          registration: String.t()
-        }
-
-  defstruct registration: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain_name: String.t(),
-          availability: Google.Cloud.Domains.V1beta1.RegisterParameters.Availability.t(),
-          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()],
-          domain_notices: [Google.Cloud.Domains.V1beta1.DomainNotice.t()],
-          yearly_price: Google.Type.Money.t() | nil
-        }
-
-  defstruct domain_name: "",
-            availability: :AVAILABILITY_UNSPECIFIED,
-            supported_privacy: [],
-            domain_notices: [],
-            yearly_price: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName"
 
@@ -895,23 +533,7 @@ defmodule Google.Cloud.Domains.V1beta1.RegisterParameters do
 end
 defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain_name: String.t(),
-          current_registrar: String.t(),
-          name_servers: [String.t()],
-          transfer_lock_state: Google.Cloud.Domains.V1beta1.TransferLockState.t(),
-          supported_privacy: [Google.Cloud.Domains.V1beta1.ContactPrivacy.t()],
-          yearly_price: Google.Type.Money.t() | nil
-        }
-
-  defstruct domain_name: "",
-            current_registrar: "",
-            name_servers: [],
-            transfer_lock_state: :TRANSFER_LOCK_STATE_UNSPECIFIED,
-            supported_privacy: [],
-            yearly_price: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName"
   field :current_registrar, 2, type: :string, json_name: "currentRegistrar"
@@ -932,35 +554,13 @@ defmodule Google.Cloud.Domains.V1beta1.TransferParameters do
 end
 defmodule Google.Cloud.Domains.V1beta1.AuthorizationCode do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: String.t()
-        }
-
-  defstruct code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: :string
 end
 defmodule Google.Cloud.Domains.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_detail: String.t(),
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_detail: "",
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -971,7 +571,9 @@ defmodule Google.Cloud.Domains.V1beta1.OperationMetadata do
 end
 defmodule Google.Cloud.Domains.V1beta1.Domains.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.domains.v1beta1.Domains"
+  use GRPC.Service,
+    name: "google.cloud.domains.v1beta1.Domains",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SearchDomains,
       Google.Cloud.Domains.V1beta1.SearchDomainsRequest,

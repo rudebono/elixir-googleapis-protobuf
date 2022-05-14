@@ -1,18 +1,6 @@
 defmodule Google.Spanner.V1.KeyRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_key_type:
-            {:start_closed, Google.Protobuf.ListValue.t() | nil}
-            | {:start_open, Google.Protobuf.ListValue.t() | nil},
-          end_key_type:
-            {:end_closed, Google.Protobuf.ListValue.t() | nil}
-            | {:end_open, Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct start_key_type: nil,
-            end_key_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :start_key_type, 0
   oneof :end_key_type, 1
@@ -24,17 +12,7 @@ defmodule Google.Spanner.V1.KeyRange do
 end
 defmodule Google.Spanner.V1.KeySet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          keys: [Google.Protobuf.ListValue.t()],
-          ranges: [Google.Spanner.V1.KeyRange.t()],
-          all: boolean
-        }
-
-  defstruct keys: [],
-            ranges: [],
-            all: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Protobuf.ListValue
   field :ranges, 2, repeated: true, type: Google.Spanner.V1.KeyRange

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Gkebackup.Logging.V1.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CHANGE_TYPE_UNSPECIFIED | :CREATION | :UPDATE | :DELETION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :CREATION, 1
@@ -11,21 +9,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.ChangeType do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup_plan: String.t(),
-          change_type: Google.Cloud.Gkebackup.Logging.V1.ChangeType.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          input_backup_plan: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.t() | nil,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct backup_plan: "",
-            change_type: :CHANGE_TYPE_UNSPECIFIED,
-            update_mask: nil,
-            input_backup_plan: nil,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backup_plan, 1, type: :string, json_name: "backupPlan"
 
@@ -44,23 +28,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup: String.t(),
-          change_type: Google.Cloud.Gkebackup.Logging.V1.ChangeType.t(),
-          scheduled: boolean,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          input_backup: Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.t() | nil,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct backup: "",
-            change_type: :CHANGE_TYPE_UNSPECIFIED,
-            scheduled: false,
-            update_mask: nil,
-            input_backup: nil,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backup, 1, type: :string
 
@@ -80,21 +48,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          restore_plan: String.t(),
-          change_type: Google.Cloud.Gkebackup.Logging.V1.ChangeType.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          input_restore_plan: Google.Cloud.Gkebackup.Logging.V1.LoggedRestorePlan.t() | nil,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct restore_plan: "",
-            change_type: :CHANGE_TYPE_UNSPECIFIED,
-            update_mask: nil,
-            input_restore_plan: nil,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :restore_plan, 1, type: :string, json_name: "restorePlan"
 
@@ -113,21 +67,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
 end
 defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          restore: String.t(),
-          change_type: Google.Cloud.Gkebackup.Logging.V1.ChangeType.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          input_restore: Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.t() | nil,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct restore: "",
-            change_type: :CHANGE_TYPE_UNSPECIFIED,
-            update_mask: nil,
-            input_restore: nil,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :restore, 1, type: :string
 

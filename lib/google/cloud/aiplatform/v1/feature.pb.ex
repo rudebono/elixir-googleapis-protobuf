@@ -1,19 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :VALUE_TYPE_UNSPECIFIED
-          | :BOOL
-          | :BOOL_ARRAY
-          | :DOUBLE
-          | :DOUBLE_ARRAY
-          | :INT64
-          | :INT64_ARRAY
-          | :STRING
-          | :STRING_ARRAY
-          | :BYTES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -28,9 +15,7 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
 end
 defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OBJECTIVE_UNSPECIFIED | :IMPORT_FEATURE_ANALYSIS | :SNAPSHOT_ANALYSIS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OBJECTIVE_UNSPECIFIED, 0
   field :IMPORT_FEATURE_ANALYSIS, 1
@@ -38,15 +23,7 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective do
 end
 defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          objective: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective.t(),
-          feature_stats_anomaly: Google.Cloud.Aiplatform.V1.FeatureStatsAnomaly.t() | nil
-        }
-
-  defstruct objective: :OBJECTIVE_UNSPECIFIED,
-            feature_stats_anomaly: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :objective, 1,
     type: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective,
@@ -60,46 +37,14 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly do
 end
 defmodule Google.Cloud.Aiplatform.V1.Feature.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1.Feature do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          value_type: Google.Cloud.Aiplatform.V1.Feature.ValueType.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          etag: String.t(),
-          disable_monitoring: boolean,
-          monitoring_stats_anomalies: [
-            Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.t()
-          ]
-        }
-
-  defstruct name: "",
-            description: "",
-            value_type: :VALUE_TYPE_UNSPECIFIED,
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            etag: "",
-            disable_monitoring: false,
-            monitoring_stats_anomalies: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string

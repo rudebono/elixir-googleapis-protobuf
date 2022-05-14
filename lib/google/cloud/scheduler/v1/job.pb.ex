@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Scheduler.V1.Job.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ENABLED | :PAUSED | :DISABLED | :UPDATE_FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -12,38 +10,7 @@ defmodule Google.Cloud.Scheduler.V1.Job.State do
 end
 defmodule Google.Cloud.Scheduler.V1.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target:
-            {:pubsub_target, Google.Cloud.Scheduler.V1.PubsubTarget.t() | nil}
-            | {:app_engine_http_target, Google.Cloud.Scheduler.V1.AppEngineHttpTarget.t() | nil}
-            | {:http_target, Google.Cloud.Scheduler.V1.HttpTarget.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          schedule: String.t(),
-          time_zone: String.t(),
-          user_update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Scheduler.V1.Job.State.t(),
-          status: Google.Rpc.Status.t() | nil,
-          schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          last_attempt_time: Google.Protobuf.Timestamp.t() | nil,
-          retry_config: Google.Cloud.Scheduler.V1.RetryConfig.t() | nil,
-          attempt_deadline: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct target: nil,
-            name: "",
-            description: "",
-            schedule: "",
-            time_zone: "",
-            user_update_time: nil,
-            state: :STATE_UNSPECIFIED,
-            status: nil,
-            schedule_time: nil,
-            last_attempt_time: nil,
-            retry_config: nil,
-            attempt_deadline: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -77,21 +44,7 @@ defmodule Google.Cloud.Scheduler.V1.Job do
 end
 defmodule Google.Cloud.Scheduler.V1.RetryConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          retry_count: integer,
-          max_retry_duration: Google.Protobuf.Duration.t() | nil,
-          min_backoff_duration: Google.Protobuf.Duration.t() | nil,
-          max_backoff_duration: Google.Protobuf.Duration.t() | nil,
-          max_doublings: integer
-        }
-
-  defstruct retry_count: 0,
-            max_retry_duration: nil,
-            min_backoff_duration: nil,
-            max_backoff_duration: nil,
-            max_doublings: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :retry_count, 1, type: :int32, json_name: "retryCount"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"

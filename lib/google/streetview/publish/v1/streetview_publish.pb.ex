@@ -1,6 +1,8 @@
 defmodule Google.Streetview.Publish.V1.StreetViewPublishService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.streetview.publish.v1.StreetViewPublishService"
+  use GRPC.Service,
+    name: "google.streetview.publish.v1.StreetViewPublishService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :StartUpload, Google.Protobuf.Empty, Google.Streetview.Publish.V1.UploadRef
 

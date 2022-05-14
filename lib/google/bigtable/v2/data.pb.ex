@@ -1,61 +1,27 @@
 defmodule Google.Bigtable.V2.Row do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: binary,
-          families: [Google.Bigtable.V2.Family.t()]
-        }
-
-  defstruct key: "",
-            families: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :bytes
   field :families, 2, repeated: true, type: Google.Bigtable.V2.Family
 end
 defmodule Google.Bigtable.V2.Family do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          columns: [Google.Bigtable.V2.Column.t()]
-        }
-
-  defstruct name: "",
-            columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :columns, 2, repeated: true, type: Google.Bigtable.V2.Column
 end
 defmodule Google.Bigtable.V2.Column do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          qualifier: binary,
-          cells: [Google.Bigtable.V2.Cell.t()]
-        }
-
-  defstruct qualifier: "",
-            cells: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :qualifier, 1, type: :bytes
   field :cells, 2, repeated: true, type: Google.Bigtable.V2.Cell
 end
 defmodule Google.Bigtable.V2.Cell do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          timestamp_micros: integer,
-          value: binary,
-          labels: [String.t()]
-        }
-
-  defstruct timestamp_micros: 0,
-            value: "",
-            labels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :timestamp_micros, 1, type: :int64, json_name: "timestampMicros"
   field :value, 2, type: :bytes
@@ -63,15 +29,7 @@ defmodule Google.Bigtable.V2.Cell do
 end
 defmodule Google.Bigtable.V2.RowRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_key: {:start_key_closed, binary} | {:start_key_open, binary},
-          end_key: {:end_key_open, binary} | {:end_key_closed, binary}
-        }
-
-  defstruct start_key: nil,
-            end_key: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :start_key, 0
   oneof :end_key, 1
@@ -83,32 +41,14 @@ defmodule Google.Bigtable.V2.RowRange do
 end
 defmodule Google.Bigtable.V2.RowSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row_keys: [binary],
-          row_ranges: [Google.Bigtable.V2.RowRange.t()]
-        }
-
-  defstruct row_keys: [],
-            row_ranges: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row_keys, 1, repeated: true, type: :bytes, json_name: "rowKeys"
   field :row_ranges, 2, repeated: true, type: Google.Bigtable.V2.RowRange, json_name: "rowRanges"
 end
 defmodule Google.Bigtable.V2.ColumnRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_qualifier: {:start_qualifier_closed, binary} | {:start_qualifier_open, binary},
-          end_qualifier: {:end_qualifier_closed, binary} | {:end_qualifier_open, binary},
-          family_name: String.t()
-        }
-
-  defstruct start_qualifier: nil,
-            end_qualifier: nil,
-            family_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :start_qualifier, 0
   oneof :end_qualifier, 1
@@ -121,30 +61,14 @@ defmodule Google.Bigtable.V2.ColumnRange do
 end
 defmodule Google.Bigtable.V2.TimestampRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_timestamp_micros: integer,
-          end_timestamp_micros: integer
-        }
-
-  defstruct start_timestamp_micros: 0,
-            end_timestamp_micros: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_timestamp_micros, 1, type: :int64, json_name: "startTimestampMicros"
   field :end_timestamp_micros, 2, type: :int64, json_name: "endTimestampMicros"
 end
 defmodule Google.Bigtable.V2.ValueRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_value: {:start_value_closed, binary} | {:start_value_open, binary},
-          end_value: {:end_value_closed, binary} | {:end_value_open, binary}
-        }
-
-  defstruct start_value: nil,
-            end_value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :start_value, 0
   oneof :end_value, 1
@@ -156,41 +80,19 @@ defmodule Google.Bigtable.V2.ValueRange do
 end
 defmodule Google.Bigtable.V2.RowFilter.Chain do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filters: [Google.Bigtable.V2.RowFilter.t()]
-        }
-
-  defstruct filters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filters, 1, repeated: true, type: Google.Bigtable.V2.RowFilter
 end
 defmodule Google.Bigtable.V2.RowFilter.Interleave do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filters: [Google.Bigtable.V2.RowFilter.t()]
-        }
-
-  defstruct filters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :filters, 1, repeated: true, type: Google.Bigtable.V2.RowFilter
 end
 defmodule Google.Bigtable.V2.RowFilter.Condition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          predicate_filter: Google.Bigtable.V2.RowFilter.t() | nil,
-          true_filter: Google.Bigtable.V2.RowFilter.t() | nil,
-          false_filter: Google.Bigtable.V2.RowFilter.t() | nil
-        }
-
-  defstruct predicate_filter: nil,
-            true_filter: nil,
-            false_filter: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :predicate_filter, 1, type: Google.Bigtable.V2.RowFilter, json_name: "predicateFilter"
   field :true_filter, 2, type: Google.Bigtable.V2.RowFilter, json_name: "trueFilter"
@@ -198,32 +100,7 @@ defmodule Google.Bigtable.V2.RowFilter.Condition do
 end
 defmodule Google.Bigtable.V2.RowFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter:
-            {:chain, Google.Bigtable.V2.RowFilter.Chain.t() | nil}
-            | {:interleave, Google.Bigtable.V2.RowFilter.Interleave.t() | nil}
-            | {:condition, Google.Bigtable.V2.RowFilter.Condition.t() | nil}
-            | {:sink, boolean}
-            | {:pass_all_filter, boolean}
-            | {:block_all_filter, boolean}
-            | {:row_key_regex_filter, binary}
-            | {:row_sample_filter, float | :infinity | :negative_infinity | :nan}
-            | {:family_name_regex_filter, String.t()}
-            | {:column_qualifier_regex_filter, binary}
-            | {:column_range_filter, Google.Bigtable.V2.ColumnRange.t() | nil}
-            | {:timestamp_range_filter, Google.Bigtable.V2.TimestampRange.t() | nil}
-            | {:value_regex_filter, binary}
-            | {:value_range_filter, Google.Bigtable.V2.ValueRange.t() | nil}
-            | {:cells_per_row_offset_filter, integer}
-            | {:cells_per_row_limit_filter, integer}
-            | {:cells_per_column_limit_filter, integer}
-            | {:strip_value_transformer, boolean}
-            | {:apply_label_transformer, String.t()}
-        }
-
-  defstruct filter: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :filter, 0
 
@@ -279,19 +156,7 @@ defmodule Google.Bigtable.V2.RowFilter do
 end
 defmodule Google.Bigtable.V2.Mutation.SetCell do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          family_name: String.t(),
-          column_qualifier: binary,
-          timestamp_micros: integer,
-          value: binary
-        }
-
-  defstruct family_name: "",
-            column_qualifier: "",
-            timestamp_micros: 0,
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :family_name, 1, type: :string, json_name: "familyName"
   field :column_qualifier, 2, type: :bytes, json_name: "columnQualifier"
@@ -300,17 +165,7 @@ defmodule Google.Bigtable.V2.Mutation.SetCell do
 end
 defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          family_name: String.t(),
-          column_qualifier: binary,
-          time_range: Google.Bigtable.V2.TimestampRange.t() | nil
-        }
-
-  defstruct family_name: "",
-            column_qualifier: "",
-            time_range: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :family_name, 1, type: :string, json_name: "familyName"
   field :column_qualifier, 2, type: :bytes, json_name: "columnQualifier"
@@ -318,37 +173,17 @@ defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
 end
 defmodule Google.Bigtable.V2.Mutation.DeleteFromFamily do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          family_name: String.t()
-        }
-
-  defstruct family_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :family_name, 1, type: :string, json_name: "familyName"
 end
 defmodule Google.Bigtable.V2.Mutation.DeleteFromRow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Bigtable.V2.Mutation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mutation:
-            {:set_cell, Google.Bigtable.V2.Mutation.SetCell.t() | nil}
-            | {:delete_from_column, Google.Bigtable.V2.Mutation.DeleteFromColumn.t() | nil}
-            | {:delete_from_family, Google.Bigtable.V2.Mutation.DeleteFromFamily.t() | nil}
-            | {:delete_from_row, Google.Bigtable.V2.Mutation.DeleteFromRow.t() | nil}
-        }
-
-  defstruct mutation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mutation, 0
 
@@ -371,17 +206,7 @@ defmodule Google.Bigtable.V2.Mutation do
 end
 defmodule Google.Bigtable.V2.ReadModifyWriteRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rule: {:append_value, binary} | {:increment_amount, integer},
-          family_name: String.t(),
-          column_qualifier: binary
-        }
-
-  defstruct rule: nil,
-            family_name: "",
-            column_qualifier: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :rule, 0
 

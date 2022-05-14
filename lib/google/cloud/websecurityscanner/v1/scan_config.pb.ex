@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :USER_AGENT_UNSPECIFIED | :CHROME_LINUX | :CHROME_ANDROID | :SAFARI_IPHONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :USER_AGENT_UNSPECIFIED, 0
   field :CHROME_LINUX, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RISK_LEVEL_UNSPECIFIED | :NORMAL | :LOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RISK_LEVEL_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -21,9 +17,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandCenter do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED | :ENABLED | :DISABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -31,32 +25,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandC
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          username: String.t(),
-          password: String.t()
-        }
-
-  defstruct username: "",
-            password: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          username: String.t(),
-          password: String.t(),
-          login_url: String.t()
-        }
-
-  defstruct username: "",
-            password: "",
-            login_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -64,13 +40,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAcc
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.IapTestServiceAccountInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_audience_client_id: String.t()
-        }
-
-  defstruct target_audience_client_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_audience_client_id, 1,
     type: :string,
@@ -79,16 +49,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCreden
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          iap_credentials:
-            {:iap_test_service_account_info,
-             Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.IapTestServiceAccountInfo.t()
-             | nil}
-        }
-
-  defstruct iap_credentials: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :iap_credentials, 0
 
@@ -100,21 +61,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCreden
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authentication:
-            {:google_account,
-             Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount.t() | nil}
-            | {:custom_account,
-               Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAccount.t()
-               | nil}
-            | {:iap_credential,
-               Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.t()
-               | nil}
-        }
-
-  defstruct authentication: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :authentication, 0
 
@@ -135,51 +82,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          interval_duration_days: integer
-        }
-
-  defstruct schedule_time: nil,
-            interval_duration_days: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :interval_duration_days, 2, type: :int32, json_name: "intervalDurationDays"
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          max_qps: integer,
-          starting_urls: [String.t()],
-          authentication: Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.t() | nil,
-          user_agent: Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent.t(),
-          blacklist_patterns: [String.t()],
-          schedule: Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule.t() | nil,
-          export_to_security_command_center:
-            Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandCenter.t(),
-          risk_level: Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel.t(),
-          managed_scan: boolean,
-          static_ip_scan: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            max_qps: 0,
-            starting_urls: [],
-            authentication: nil,
-            user_agent: :USER_AGENT_UNSPECIFIED,
-            blacklist_patterns: [],
-            schedule: nil,
-            export_to_security_command_center: :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED,
-            risk_level: :RISK_LEVEL_UNSPECIFIED,
-            managed_scan: false,
-            static_ip_scan: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

@@ -1,20 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt.CollectionBrowseItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          description: String.t(),
-          footer: String.t(),
-          image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil,
-          open_uri_action: Google.Actions.Sdk.V2.Interactionmodel.Prompt.OpenUrl.t() | nil
-        }
-
-  defstruct title: "",
-            description: "",
-            footer: "",
-            image: nil,
-            open_uri_action: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -28,18 +14,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePr
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          items: [
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionBrowsePrompt.CollectionBrowseItem.t()
-          ],
-          image_fill:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.ImageFill.t()
-        }
-
-  defstruct items: [],
-            image_fill: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,

@@ -1,30 +1,19 @@
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          uri: String.t()
-        }
-
-  defstruct parent: "",
-            uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,
-    name: "google.cloud.phishingprotection.v1beta1.PhishingProtectionServiceV1Beta1"
+    name: "google.cloud.phishingprotection.v1beta1.PhishingProtectionServiceV1Beta1",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ReportPhishing,
       Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest,

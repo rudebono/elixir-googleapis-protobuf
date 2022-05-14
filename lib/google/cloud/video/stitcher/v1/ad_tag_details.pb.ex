@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.LiveAdTagDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          ad_requests: [Google.Cloud.Video.Stitcher.V1.AdRequest.t()]
-        }
-
-  defstruct name: "",
-            ad_requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -19,15 +11,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveAdTagDetail do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.VodAdTagDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          ad_requests: [Google.Cloud.Video.Stitcher.V1.AdRequest.t()]
-        }
-
-  defstruct name: "",
-            ad_requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -38,17 +22,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodAdTagDetail do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.AdRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          request_metadata: Google.Cloud.Video.Stitcher.V1.RequestMetadata.t() | nil,
-          response_metadata: Google.Cloud.Video.Stitcher.V1.ResponseMetadata.t() | nil
-        }
-
-  defstruct uri: "",
-            request_metadata: nil,
-            response_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -62,35 +36,13 @@ defmodule Google.Cloud.Video.Stitcher.V1.AdRequest do
 end
 defmodule Google.Cloud.Video.Stitcher.V1.RequestMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          headers: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct headers: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :headers, 1, type: Google.Protobuf.Struct
 end
 defmodule Google.Cloud.Video.Stitcher.V1.ResponseMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          error: String.t(),
-          headers: Google.Protobuf.Struct.t() | nil,
-          status_code: String.t(),
-          size_bytes: integer,
-          duration: Google.Protobuf.Duration.t() | nil,
-          body: String.t()
-        }
-
-  defstruct error: "",
-            headers: nil,
-            status_code: "",
-            size_bytes: 0,
-            duration: nil,
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :error, 1, type: :string
   field :headers, 2, type: Google.Protobuf.Struct

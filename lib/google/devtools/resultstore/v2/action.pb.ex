@@ -1,14 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.ExecutionStrategy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EXECUTION_STRATEGY_UNSPECIFIED
-          | :OTHER_ENVIRONMENT
-          | :REMOTE_SERVICE
-          | :LOCAL_PARALLEL
-          | :LOCAL_SEQUENTIAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_STRATEGY_UNSPECIFIED, 0
   field :OTHER_ENVIRONMENT, 1
@@ -18,10 +10,7 @@ defmodule Google.Devtools.Resultstore.V2.ExecutionStrategy do
 end
 defmodule Google.Devtools.Resultstore.V2.TestCaching do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :TEST_CACHING_UNSPECIFIED | :LOCAL_CACHE_HIT | :REMOTE_CACHE_HIT | :CACHE_MISS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TEST_CACHING_UNSPECIFIED, 0
   field :LOCAL_CACHE_HIT, 1
@@ -30,19 +19,7 @@ defmodule Google.Devtools.Resultstore.V2.TestCaching do
 end
 defmodule Google.Devtools.Resultstore.V2.Action.Id do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation_id: String.t(),
-          target_id: String.t(),
-          configuration_id: String.t(),
-          action_id: String.t()
-        }
-
-  defstruct invocation_id: "",
-            target_id: "",
-            configuration_id: "",
-            action_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
@@ -51,37 +28,7 @@ defmodule Google.Devtools.Resultstore.V2.Action.Id do
 end
 defmodule Google.Devtools.Resultstore.V2.Action do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action_type:
-            {:build_action, Google.Devtools.Resultstore.V2.BuildAction.t() | nil}
-            | {:test_action, Google.Devtools.Resultstore.V2.TestAction.t() | nil},
-          name: String.t(),
-          id: Google.Devtools.Resultstore.V2.Action.Id.t() | nil,
-          status_attributes: Google.Devtools.Resultstore.V2.StatusAttributes.t() | nil,
-          timing: Google.Devtools.Resultstore.V2.Timing.t() | nil,
-          action_attributes: Google.Devtools.Resultstore.V2.ActionAttributes.t() | nil,
-          action_dependencies: [Google.Devtools.Resultstore.V2.Dependency.t()],
-          properties: [Google.Devtools.Resultstore.V2.Property.t()],
-          files: [Google.Devtools.Resultstore.V2.File.t()],
-          file_sets: [String.t()],
-          coverage: Google.Devtools.Resultstore.V2.ActionCoverage.t() | nil,
-          file_processing_errors: [Google.Devtools.Resultstore.V2.FileProcessingErrors.t()]
-        }
-
-  defstruct action_type: nil,
-            name: "",
-            id: nil,
-            status_attributes: nil,
-            timing: nil,
-            action_attributes: nil,
-            action_dependencies: [],
-            properties: [],
-            files: [],
-            file_sets: [],
-            coverage: nil,
-            file_processing_errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :action_type, 0
 
@@ -125,17 +72,7 @@ defmodule Google.Devtools.Resultstore.V2.Action do
 end
 defmodule Google.Devtools.Resultstore.V2.BuildAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          primary_input_path: String.t(),
-          primary_output_path: String.t()
-        }
-
-  defstruct type: "",
-            primary_input_path: "",
-            primary_output_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :primary_input_path, 2, type: :string, json_name: "primaryInputPath"
@@ -143,25 +80,7 @@ defmodule Google.Devtools.Resultstore.V2.BuildAction do
 end
 defmodule Google.Devtools.Resultstore.V2.TestAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_timing: Google.Devtools.Resultstore.V2.TestTiming.t() | nil,
-          shard_number: integer,
-          run_number: integer,
-          attempt_number: integer,
-          test_suite: Google.Devtools.Resultstore.V2.TestSuite.t() | nil,
-          warnings: [Google.Devtools.Resultstore.V2.TestWarning.t()],
-          estimated_memory_bytes: integer
-        }
-
-  defstruct test_timing: nil,
-            shard_number: 0,
-            run_number: 0,
-            attempt_number: 0,
-            test_suite: nil,
-            warnings: [],
-            estimated_memory_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_timing, 1, type: Google.Devtools.Resultstore.V2.TestTiming, json_name: "testTiming"
   field :shard_number, 2, type: :int32, json_name: "shardNumber"
@@ -173,19 +92,7 @@ defmodule Google.Devtools.Resultstore.V2.TestAction do
 end
 defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution_strategy: Google.Devtools.Resultstore.V2.ExecutionStrategy.t(),
-          exit_code: integer,
-          hostname: String.t(),
-          input_file_info: Google.Devtools.Resultstore.V2.InputFileInfo.t() | nil
-        }
-
-  defstruct execution_strategy: :EXECUTION_STRATEGY_UNSPECIFIED,
-            exit_code: 0,
-            hostname: "",
-            input_file_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution_strategy, 1,
     type: Google.Devtools.Resultstore.V2.ExecutionStrategy,
@@ -201,21 +108,7 @@ defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
 end
 defmodule Google.Devtools.Resultstore.V2.InputFileInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          count: integer,
-          distinct_count: integer,
-          count_limit: integer,
-          distinct_bytes: integer,
-          distinct_byte_limit: integer
-        }
-
-  defstruct count: 0,
-            distinct_count: 0,
-            count_limit: 0,
-            distinct_bytes: 0,
-            distinct_byte_limit: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :count, 1, type: :int64
   field :distinct_count, 2, type: :int64, json_name: "distinctCount"
@@ -225,13 +118,7 @@ defmodule Google.Devtools.Resultstore.V2.InputFileInfo do
 end
 defmodule Google.Devtools.Resultstore.V2.LocalTestTiming do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          test_process_duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct test_process_duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :test_process_duration, 1,
     type: Google.Protobuf.Duration,
@@ -239,21 +126,7 @@ defmodule Google.Devtools.Resultstore.V2.LocalTestTiming do
 end
 defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          queue_duration: Google.Protobuf.Duration.t() | nil,
-          upload_duration: Google.Protobuf.Duration.t() | nil,
-          machine_setup_duration: Google.Protobuf.Duration.t() | nil,
-          test_process_duration: Google.Protobuf.Duration.t() | nil,
-          download_duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct queue_duration: nil,
-            upload_duration: nil,
-            machine_setup_duration: nil,
-            test_process_duration: nil,
-            download_duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :queue_duration, 1, type: Google.Protobuf.Duration, json_name: "queueDuration"
   field :upload_duration, 2, type: Google.Protobuf.Duration, json_name: "uploadDuration"
@@ -270,15 +143,7 @@ defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
 end
 defmodule Google.Devtools.Resultstore.V2.RemoteTestTiming do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          local_analysis_duration: Google.Protobuf.Duration.t() | nil,
-          attempts: [Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming.t()]
-        }
-
-  defstruct local_analysis_duration: nil,
-            attempts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :local_analysis_duration, 1,
     type: Google.Protobuf.Duration,
@@ -288,21 +153,7 @@ defmodule Google.Devtools.Resultstore.V2.RemoteTestTiming do
 end
 defmodule Google.Devtools.Resultstore.V2.TestTiming do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location:
-            {:local, Google.Devtools.Resultstore.V2.LocalTestTiming.t() | nil}
-            | {:remote, Google.Devtools.Resultstore.V2.RemoteTestTiming.t() | nil},
-          system_time_duration: Google.Protobuf.Duration.t() | nil,
-          user_time_duration: Google.Protobuf.Duration.t() | nil,
-          test_caching: Google.Devtools.Resultstore.V2.TestCaching.t()
-        }
-
-  defstruct location: nil,
-            system_time_duration: nil,
-            user_time_duration: nil,
-            test_caching: :TEST_CACHING_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :location, 0
 
@@ -318,13 +169,7 @@ defmodule Google.Devtools.Resultstore.V2.TestTiming do
 end
 defmodule Google.Devtools.Resultstore.V2.TestWarning do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          warning_message: String.t()
-        }
-
-  defstruct warning_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :warning_message, 1, type: :string, json_name: "warningMessage"
 end

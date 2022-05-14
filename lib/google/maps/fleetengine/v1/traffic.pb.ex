@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.V1.SpeedReadingInterval.Speed do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SPEED_UNSPECIFIED | :NORMAL | :SLOW | :TRAFFIC_JAM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SPEED_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -11,17 +9,7 @@ defmodule Maps.Fleetengine.V1.SpeedReadingInterval.Speed do
 end
 defmodule Maps.Fleetengine.V1.SpeedReadingInterval do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_polyline_point_index: integer,
-          end_polyline_point_index: integer,
-          speed: Maps.Fleetengine.V1.SpeedReadingInterval.Speed.t()
-        }
-
-  defstruct start_polyline_point_index: 0,
-            end_polyline_point_index: 0,
-            speed: :SPEED_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_polyline_point_index, 1, type: :int32, json_name: "startPolylinePointIndex"
   field :end_polyline_point_index, 2, type: :int32, json_name: "endPolylinePointIndex"
@@ -29,15 +17,7 @@ defmodule Maps.Fleetengine.V1.SpeedReadingInterval do
 end
 defmodule Maps.Fleetengine.V1.ConsumableTrafficPolyline do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          speed_reading_interval: [Maps.Fleetengine.V1.SpeedReadingInterval.t()],
-          encoded_path_to_waypoint: String.t()
-        }
-
-  defstruct speed_reading_interval: [],
-            encoded_path_to_waypoint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :speed_reading_interval, 1,
     repeated: true,

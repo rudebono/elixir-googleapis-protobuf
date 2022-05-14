@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionScope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :COMPLETION_SCOPE_UNSPECIFIED | :TENANT | :PUBLIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMPLETION_SCOPE_UNSPECIFIED, 0
   field :TENANT, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionScope do
 end
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :COMPLETION_TYPE_UNSPECIFIED | :JOB_TITLE | :COMPANY_NAME | :COMBINED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMPLETION_TYPE_UNSPECIFIED, 0
   field :JOB_TITLE, 1
@@ -21,25 +17,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionType do
 end
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          query: String.t(),
-          language_codes: [String.t()],
-          page_size: integer,
-          company: String.t(),
-          scope: Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionScope.t(),
-          type: Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionType.t()
-        }
-
-  defstruct parent: "",
-            query: "",
-            language_codes: [],
-            page_size: 0,
-            company: "",
-            scope: :COMPLETION_SCOPE_UNSPECIFIED,
-            type: :COMPLETION_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -57,17 +35,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest do
 end
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse.CompletionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          suggestion: String.t(),
-          type: Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionType.t(),
-          image_uri: String.t()
-        }
-
-  defstruct suggestion: "",
-            type: :COMPLETION_TYPE_UNSPECIFIED,
-            image_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -79,17 +47,7 @@ defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse.CompletionResult do
 end
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          completion_results: [
-            Google.Cloud.Talent.V4beta1.CompleteQueryResponse.CompletionResult.t()
-          ],
-          metadata: Google.Cloud.Talent.V4beta1.ResponseMetadata.t() | nil
-        }
-
-  defstruct completion_results: [],
-            metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :completion_results, 1,
     repeated: true,
@@ -100,7 +58,9 @@ defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse do
 end
 defmodule Google.Cloud.Talent.V4beta1.Completion.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.talent.v4beta1.Completion"
+  use GRPC.Service,
+    name: "google.cloud.talent.v4beta1.Completion",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Talent.V4beta1.CompleteQueryRequest,

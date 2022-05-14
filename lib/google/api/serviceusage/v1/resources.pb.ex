@@ -1,8 +1,6 @@
 defmodule Google.Api.Serviceusage.V1.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :DISABLED | :ENABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -10,19 +8,7 @@ defmodule Google.Api.Serviceusage.V1.State do
 end
 defmodule Google.Api.Serviceusage.V1.Service do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          config: Google.Api.Serviceusage.V1.ServiceConfig.t() | nil,
-          state: Google.Api.Serviceusage.V1.State.t()
-        }
-
-  defstruct name: "",
-            parent: "",
-            config: nil,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 5, type: :string
@@ -31,31 +17,7 @@ defmodule Google.Api.Serviceusage.V1.Service do
 end
 defmodule Google.Api.Serviceusage.V1.ServiceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          title: String.t(),
-          apis: [Google.Protobuf.Api.t()],
-          documentation: Google.Api.Documentation.t() | nil,
-          quota: Google.Api.Quota.t() | nil,
-          authentication: Google.Api.Authentication.t() | nil,
-          usage: Google.Api.Usage.t() | nil,
-          endpoints: [Google.Api.Endpoint.t()],
-          monitored_resources: [Google.Api.MonitoredResourceDescriptor.t()],
-          monitoring: Google.Api.Monitoring.t() | nil
-        }
-
-  defstruct name: "",
-            title: "",
-            apis: [],
-            documentation: nil,
-            quota: nil,
-            authentication: nil,
-            usage: nil,
-            endpoints: [],
-            monitored_resources: [],
-            monitoring: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -75,13 +37,7 @@ defmodule Google.Api.Serviceusage.V1.ServiceConfig do
 end
 defmodule Google.Api.Serviceusage.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_names: [String.t()]
-        }
-
-  defstruct resource_names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_names, 2, repeated: true, type: :string, json_name: "resourceNames"
 end

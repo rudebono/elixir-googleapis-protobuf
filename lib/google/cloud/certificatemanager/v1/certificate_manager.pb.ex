@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Certificatemanager.V1.ServingState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVING_STATE_UNSPECIFIED | :ACTIVE | :PENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,18 +8,14 @@ defmodule Google.Cloud.Certificatemanager.V1.ServingState do
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.Scope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DEFAULT | :EDGE_CACHE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :EDGE_CACHE, 1
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PROVISIONING | :FAILED | :ACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -30,9 +24,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Stat
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :AUTHORIZATION_ISSUE | :RATE_LIMITED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :AUTHORIZATION_ISSUE, 1
@@ -40,9 +32,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Prov
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :AUTHORIZING | :AUTHORIZED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :AUTHORIZING, 1
@@ -51,9 +41,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Auth
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FAILURE_REASON_UNSPECIFIED | :CONFIG | :CAA | :RATE_LIMITED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FAILURE_REASON_UNSPECIFIED, 0
   field :CONFIG, 1
@@ -62,30 +50,14 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Auth
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMapEntry.Matcher do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MATCHER_UNSPECIFIED | :PRIMARY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MATCHER_UNSPECIFIED, 0
   field :PRIMARY, 1
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificatesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -95,17 +67,7 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificatesRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificatesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificates: [Google.Cloud.Certificatemanager.V1.Certificate.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct certificates: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: Google.Cloud.Certificatemanager.V1.Certificate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -113,29 +75,13 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificatesResponse do
 end
 defmodule Google.Cloud.Certificatemanager.V1.GetCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          certificate_id: String.t(),
-          certificate: Google.Cloud.Certificatemanager.V1.Certificate.t() | nil
-        }
-
-  defstruct parent: "",
-            certificate_id: "",
-            certificate: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :certificate_id, 2, type: :string, json_name: "certificateId", deprecated: false
@@ -143,15 +89,7 @@ defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate: Google.Cloud.Certificatemanager.V1.Certificate.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct certificate: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate, 1, type: Google.Cloud.Certificatemanager.V1.Certificate, deprecated: false
 
@@ -162,33 +100,13 @@ defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteCertificateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -198,17 +116,7 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapsRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_maps: [Google.Cloud.Certificatemanager.V1.CertificateMap.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct certificate_maps: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_maps, 1,
     repeated: true,
@@ -220,29 +128,13 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapsResponse do
 end
 defmodule Google.Cloud.Certificatemanager.V1.GetCertificateMapRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateMapRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          certificate_map_id: String.t(),
-          certificate_map: Google.Cloud.Certificatemanager.V1.CertificateMap.t() | nil
-        }
-
-  defstruct parent: "",
-            certificate_map_id: "",
-            certificate_map: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :certificate_map_id, 2, type: :string, json_name: "certificateMapId", deprecated: false
@@ -254,15 +146,7 @@ defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateMapRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateMapRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_map: Google.Cloud.Certificatemanager.V1.CertificateMap.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct certificate_map: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_map, 1,
     type: Google.Cloud.Certificatemanager.V1.CertificateMap,
@@ -276,33 +160,13 @@ defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateMapRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteCertificateMapRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapEntriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -312,17 +176,7 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapEntriesRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapEntriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_map_entries: [Google.Cloud.Certificatemanager.V1.CertificateMapEntry.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct certificate_map_entries: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_map_entries, 1,
     repeated: true,
@@ -334,29 +188,13 @@ defmodule Google.Cloud.Certificatemanager.V1.ListCertificateMapEntriesResponse d
 end
 defmodule Google.Cloud.Certificatemanager.V1.GetCertificateMapEntryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateMapEntryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          certificate_map_entry_id: String.t(),
-          certificate_map_entry: Google.Cloud.Certificatemanager.V1.CertificateMapEntry.t() | nil
-        }
-
-  defstruct parent: "",
-            certificate_map_entry_id: "",
-            certificate_map_entry: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -372,15 +210,7 @@ defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateMapEntryRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateMapEntryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_map_entry: Google.Cloud.Certificatemanager.V1.CertificateMapEntry.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct certificate_map_entry: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_map_entry, 1,
     type: Google.Cloud.Certificatemanager.V1.CertificateMapEntry,
@@ -394,33 +224,13 @@ defmodule Google.Cloud.Certificatemanager.V1.UpdateCertificateMapEntryRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteCertificateMapEntryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListDnsAuthorizationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -430,17 +240,7 @@ defmodule Google.Cloud.Certificatemanager.V1.ListDnsAuthorizationsRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.ListDnsAuthorizationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dns_authorizations: [Google.Cloud.Certificatemanager.V1.DnsAuthorization.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct dns_authorizations: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dns_authorizations, 1,
     repeated: true,
@@ -452,29 +252,13 @@ defmodule Google.Cloud.Certificatemanager.V1.ListDnsAuthorizationsResponse do
 end
 defmodule Google.Cloud.Certificatemanager.V1.GetDnsAuthorizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.CreateDnsAuthorizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          dns_authorization_id: String.t(),
-          dns_authorization: Google.Cloud.Certificatemanager.V1.DnsAuthorization.t() | nil
-        }
-
-  defstruct parent: "",
-            dns_authorization_id: "",
-            dns_authorization: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -490,15 +274,7 @@ defmodule Google.Cloud.Certificatemanager.V1.CreateDnsAuthorizationRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.UpdateDnsAuthorizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dns_authorization: Google.Cloud.Certificatemanager.V1.DnsAuthorization.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct dns_authorization: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dns_authorization, 1,
     type: Google.Cloud.Certificatemanager.V1.DnsAuthorization,
@@ -512,37 +288,13 @@ defmodule Google.Cloud.Certificatemanager.V1.UpdateDnsAuthorizationRequest do
 end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteDnsAuthorizationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -554,31 +306,14 @@ defmodule Google.Cloud.Certificatemanager.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.SelfManagedCertificate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pem_certificate: String.t(),
-          pem_private_key: String.t()
-        }
-
-  defstruct pem_certificate: "",
-            pem_private_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pem_certificate, 1, type: :string, json_name: "pemCertificate", deprecated: false
   field :pem_private_key, 2, type: :string, json_name: "pemPrivateKey", deprecated: false
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason:
-            Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue.Reason.t(),
-          details: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            details: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type:
@@ -589,21 +324,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Prov
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domain: String.t(),
-          state:
-            Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State.t(),
-          failure_reason:
-            Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.FailureReason.t(),
-          details: String.t()
-        }
-
-  defstruct domain: "",
-            state: :STATE_UNSPECIFIED,
-            failure_reason: :FAILURE_REASON_UNSPECIFIED,
-            details: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domain, 1, type: :string
 
@@ -623,25 +344,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Auth
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          domains: [String.t()],
-          dns_authorizations: [String.t()],
-          state: Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.State.t(),
-          provisioning_issue:
-            Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue.t()
-            | nil,
-          authorization_attempt_info: [
-            Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.t()
-          ]
-        }
-
-  defstruct domains: [],
-            dns_authorizations: [],
-            state: :STATE_UNSPECIFIED,
-            provisioning_issue: nil,
-            authorization_attempt_info: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :domains, 1, repeated: true, type: :string, deprecated: false
 
@@ -669,50 +372,14 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate do
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Certificatemanager.V1.Certificate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:self_managed,
-             Google.Cloud.Certificatemanager.V1.Certificate.SelfManagedCertificate.t() | nil}
-            | {:managed,
-               Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.t() | nil},
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          san_dnsnames: [String.t()],
-          pem_certificate: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          scope: Google.Cloud.Certificatemanager.V1.Certificate.Scope.t()
-        }
-
-  defstruct type: nil,
-            name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            san_dnsnames: [],
-            pem_certificate: "",
-            expire_time: nil,
-            scope: :DEFAULT
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -763,30 +430,14 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate do
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget.IpConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip_address: String.t(),
-          ports: [non_neg_integer]
-        }
-
-  defstruct ip_address: "",
-            ports: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :ports, 3, repeated: true, type: :uint32
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_proxy: {:target_https_proxy, String.t()} | {:target_ssl_proxy, String.t()},
-          ip_configs: [Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget.IpConfig.t()]
-        }
-
-  defstruct target_proxy: nil,
-            ip_configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target_proxy, 0
 
@@ -809,38 +460,14 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget do
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          gclb_targets: [Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            gclb_targets: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 5, type: :string
@@ -868,44 +495,14 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMap do
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMapEntry.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMapEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          match:
-            {:hostname, String.t()}
-            | {:matcher, Google.Cloud.Certificatemanager.V1.CertificateMapEntry.Matcher.t()},
-          name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          certificates: [String.t()],
-          state: Google.Cloud.Certificatemanager.V1.ServingState.t()
-        }
-
-  defstruct match: nil,
-            name: "",
-            description: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            certificates: [],
-            state: :SERVING_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :match, 0
 
@@ -943,17 +540,7 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMapEntry do
 end
 defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization.DnsResourceRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          data: String.t()
-        }
-
-  defstruct name: "",
-            type: "",
-            data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -961,41 +548,14 @@ defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization.DnsResourceRecord 
 end
 defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          description: String.t(),
-          domain: String.t(),
-          dns_resource_record:
-            Google.Cloud.Certificatemanager.V1.DnsAuthorization.DnsResourceRecord.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            description: "",
-            domain: "",
-            dns_resource_record: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -1024,7 +584,9 @@ defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization do
 end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateManager.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.certificatemanager.v1.CertificateManager"
+  use GRPC.Service,
+    name: "google.cloud.certificatemanager.v1.CertificateManager",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListCertificates,
       Google.Cloud.Certificatemanager.V1.ListCertificatesRequest,

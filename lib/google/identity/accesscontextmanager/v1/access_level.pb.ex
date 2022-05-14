@@ -1,33 +1,13 @@
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :AND | :OR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AND, 0
   field :OR, 1
 end
 defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          level:
-            {:basic, Google.Identity.Accesscontextmanager.V1.BasicLevel.t() | nil}
-            | {:custom, Google.Identity.Accesscontextmanager.V1.CustomLevel.t() | nil},
-          name: String.t(),
-          title: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct level: nil,
-            name: "",
-            title: "",
-            description: "",
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :level, 0
 
@@ -41,16 +21,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
 end
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          conditions: [Google.Identity.Accesscontextmanager.V1.Condition.t()],
-          combining_function:
-            Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction.t()
-        }
-
-  defstruct conditions: [],
-            combining_function: :AND
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :conditions, 1, repeated: true, type: Google.Identity.Accesscontextmanager.V1.Condition
 
@@ -61,23 +32,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel do
 end
 defmodule Google.Identity.Accesscontextmanager.V1.Condition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip_subnetworks: [String.t()],
-          device_policy: Google.Identity.Accesscontextmanager.V1.DevicePolicy.t() | nil,
-          required_access_levels: [String.t()],
-          negate: boolean,
-          members: [String.t()],
-          regions: [String.t()]
-        }
-
-  defstruct ip_subnetworks: [],
-            device_policy: nil,
-            required_access_levels: [],
-            negate: false,
-            members: [],
-            regions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip_subnetworks, 1, repeated: true, type: :string, json_name: "ipSubnetworks"
 
@@ -96,39 +51,13 @@ defmodule Google.Identity.Accesscontextmanager.V1.Condition do
 end
 defmodule Google.Identity.Accesscontextmanager.V1.CustomLevel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          expr: Google.Type.Expr.t() | nil
-        }
-
-  defstruct expr: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :expr, 1, type: Google.Type.Expr
 end
 defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          require_screenlock: boolean,
-          allowed_encryption_statuses: [
-            Google.Identity.Accesscontextmanager.Type.DeviceEncryptionStatus.t()
-          ],
-          os_constraints: [Google.Identity.Accesscontextmanager.V1.OsConstraint.t()],
-          allowed_device_management_levels: [
-            Google.Identity.Accesscontextmanager.Type.DeviceManagementLevel.t()
-          ],
-          require_admin_approval: boolean,
-          require_corp_owned: boolean
-        }
-
-  defstruct require_screenlock: false,
-            allowed_encryption_statuses: [],
-            os_constraints: [],
-            allowed_device_management_levels: [],
-            require_admin_approval: false,
-            require_corp_owned: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :require_screenlock, 1, type: :bool, json_name: "requireScreenlock"
 
@@ -154,17 +83,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
 end
 defmodule Google.Identity.Accesscontextmanager.V1.OsConstraint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          os_type: Google.Identity.Accesscontextmanager.Type.OsType.t(),
-          minimum_version: String.t(),
-          require_verified_chrome_os: boolean
-        }
-
-  defstruct os_type: :OS_UNSPECIFIED,
-            minimum_version: "",
-            require_verified_chrome_os: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :os_type, 1,
     type: Google.Identity.Accesscontextmanager.Type.OsType,

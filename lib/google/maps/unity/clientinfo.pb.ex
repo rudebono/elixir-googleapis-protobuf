@@ -1,17 +1,6 @@
 defmodule Google.Maps.Unity.ClientInfo.Platform do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PLATFORM_UNSPECIFIED
-          | :EDITOR
-          | :MAC_OS
-          | :WINDOWS
-          | :LINUX
-          | :ANDROID
-          | :IOS
-          | :WEB_GL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :EDITOR, 1
@@ -24,27 +13,7 @@ defmodule Google.Maps.Unity.ClientInfo.Platform do
 end
 defmodule Google.Maps.Unity.ClientInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          application_id: String.t(),
-          application_version: String.t(),
-          platform: Google.Maps.Unity.ClientInfo.Platform.t(),
-          operating_system: String.t(),
-          api_client: String.t(),
-          device_model: String.t(),
-          language_code: String.t(),
-          operating_system_build: String.t()
-        }
-
-  defstruct application_id: "",
-            application_version: "",
-            platform: :PLATFORM_UNSPECIFIED,
-            operating_system: "",
-            api_client: "",
-            device_model: "",
-            language_code: "",
-            operating_system_build: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :application_version, 2, type: :string, json_name: "applicationVersion"

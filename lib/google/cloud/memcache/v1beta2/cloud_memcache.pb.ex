@@ -1,18 +1,13 @@
 defmodule Google.Cloud.Memcache.V1beta2.MemcacheVersion do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MEMCACHE_VERSION_UNSPECIFIED | :MEMCACHE_1_5
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MEMCACHE_VERSION_UNSPECIFIED, 0
   field :MEMCACHE_1_5, 1
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :PERFORMING_MAINTENANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -22,9 +17,7 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.State do
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.Node.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -34,49 +27,21 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.Node.State do
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CODE_UNSPECIFIED | :ZONE_DISTRIBUTION_UNBALANCED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :ZONE_DISTRIBUTION_UNBALANCED, 1
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.NodeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu_count: integer,
-          memory_size_mb: integer
-        }
-
-  defstruct cpu_count: 0,
-            memory_size_mb: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu_count, 1, type: :int32, json_name: "cpuCount", deprecated: false
   field :memory_size_mb, 2, type: :int32, json_name: "memorySizeMb", deprecated: false
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.Node do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          node_id: String.t(),
-          zone: String.t(),
-          state: Google.Cloud.Memcache.V1beta2.Instance.Node.State.t(),
-          host: String.t(),
-          port: integer,
-          parameters: Google.Cloud.Memcache.V1beta2.MemcacheParameters.t() | nil,
-          update_available: boolean
-        }
-
-  defstruct node_id: "",
-            zone: "",
-            state: :STATE_UNSPECIFIED,
-            host: "",
-            port: 0,
-            parameters: nil,
-            update_available: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :node_id, 1, type: :string, json_name: "nodeId", deprecated: false
   field :zone, 2, type: :string, deprecated: false
@@ -93,75 +58,21 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.Node do
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code.t(),
-          message: String.t()
-        }
-
-  defstruct code: :CODE_UNSPECIFIED,
-            message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code, enum: true
   field :message, 2, type: :string
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Memcache.V1beta2.Instance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          labels: %{String.t() => String.t()},
-          authorized_network: String.t(),
-          zones: [String.t()],
-          node_count: integer,
-          node_config: Google.Cloud.Memcache.V1beta2.Instance.NodeConfig.t() | nil,
-          memcache_version: Google.Cloud.Memcache.V1beta2.MemcacheVersion.t(),
-          parameters: Google.Cloud.Memcache.V1beta2.MemcacheParameters.t() | nil,
-          memcache_nodes: [Google.Cloud.Memcache.V1beta2.Instance.Node.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Cloud.Memcache.V1beta2.Instance.State.t(),
-          memcache_full_version: String.t(),
-          instance_messages: [Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.t()],
-          discovery_endpoint: String.t(),
-          update_available: boolean
-        }
-
-  defstruct name: "",
-            display_name: "",
-            labels: %{},
-            authorized_network: "",
-            zones: [],
-            node_count: 0,
-            node_config: nil,
-            memcache_version: :MEMCACHE_VERSION_UNSPECIFIED,
-            parameters: nil,
-            memcache_nodes: [],
-            create_time: nil,
-            update_time: nil,
-            state: :STATE_UNSPECIFIED,
-            memcache_full_version: "",
-            instance_messages: [],
-            discovery_endpoint: "",
-            update_available: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -223,21 +134,7 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance do
 end
 defmodule Google.Cloud.Memcache.V1beta2.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -247,17 +144,7 @@ defmodule Google.Cloud.Memcache.V1beta2.ListInstancesRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [Google.Cloud.Memcache.V1beta2.Instance.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct resources: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: Google.Cloud.Memcache.V1beta2.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -265,29 +152,13 @@ defmodule Google.Cloud.Memcache.V1beta2.ListInstancesResponse do
 end
 defmodule Google.Cloud.Memcache.V1beta2.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Memcache.V1beta2.CreateInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          instance_id: String.t(),
-          resource: Google.Cloud.Memcache.V1beta2.Instance.t() | nil
-        }
-
-  defstruct parent: "",
-            instance_id: "",
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -295,15 +166,7 @@ defmodule Google.Cloud.Memcache.V1beta2.CreateInstanceRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.UpdateInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          resource: Google.Cloud.Memcache.V1beta2.Instance.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -314,29 +177,13 @@ defmodule Google.Cloud.Memcache.V1beta2.UpdateInstanceRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Memcache.V1beta2.ApplyParametersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          node_ids: [String.t()],
-          apply_all: boolean
-        }
-
-  defstruct name: "",
-            node_ids: [],
-            apply_all: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :node_ids, 2, repeated: true, type: :string, json_name: "nodeIds"
@@ -344,17 +191,7 @@ defmodule Google.Cloud.Memcache.V1beta2.ApplyParametersRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.UpdateParametersRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          parameters: Google.Cloud.Memcache.V1beta2.MemcacheParameters.t() | nil
-        }
-
-  defstruct name: "",
-            update_mask: nil,
-            parameters: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -367,17 +204,7 @@ defmodule Google.Cloud.Memcache.V1beta2.UpdateParametersRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          node_ids: [String.t()],
-          apply_all: boolean
-        }
-
-  defstruct instance: "",
-            node_ids: [],
-            apply_all: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
   field :node_ids, 2, repeated: true, type: :string, json_name: "nodeIds"
@@ -385,30 +212,14 @@ defmodule Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest do
 end
 defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          params: %{String.t() => String.t()}
-        }
-
-  defstruct id: "",
-            params: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -419,25 +230,7 @@ defmodule Google.Cloud.Memcache.V1beta2.MemcacheParameters do
 end
 defmodule Google.Cloud.Memcache.V1beta2.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_detail: String.t(),
-          cancel_requested: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_detail: "",
-            cancel_requested: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -453,28 +246,14 @@ defmodule Google.Cloud.Memcache.V1beta2.OperationMetadata do
 end
 defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata.AvailableZonesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Memcache.V1beta2.ZoneMetadata.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Memcache.V1beta2.ZoneMetadata
 end
 defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          available_zones: %{String.t() => Google.Cloud.Memcache.V1beta2.ZoneMetadata.t() | nil}
-        }
-
-  defstruct available_zones: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :available_zones, 1,
     repeated: true,
@@ -485,15 +264,13 @@ defmodule Google.Cloud.Memcache.V1beta2.LocationMetadata do
 end
 defmodule Google.Cloud.Memcache.V1beta2.ZoneMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Memcache.V1beta2.CloudMemcache.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.memcache.v1beta2.CloudMemcache"
+  use GRPC.Service,
+    name: "google.cloud.memcache.v1beta2.CloudMemcache",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListInstances,
       Google.Cloud.Memcache.V1beta2.ListInstancesRequest,

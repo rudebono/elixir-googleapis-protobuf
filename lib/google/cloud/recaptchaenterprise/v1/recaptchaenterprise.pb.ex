@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ANNOTATION_UNSPECIFIED
-          | :LEGITIMATE
-          | :FRAUDULENT
-          | :PASSWORD_CORRECT
-          | :PASSWORD_INCORRECT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANNOTATION_UNSPECIFIED, 0
   field :LEGITIMATE, 1
@@ -18,20 +10,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotati
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REASON_UNSPECIFIED
-          | :CHARGEBACK
-          | :CHARGEBACK_FRAUD
-          | :CHARGEBACK_DISPUTE
-          | :PAYMENT_HEURISTICS
-          | :INITIATED_TWO_FACTOR
-          | :PASSED_TWO_FACTOR
-          | :FAILED_TWO_FACTOR
-          | :CORRECT_PASSWORD
-          | :INCORRECT_PASSWORD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :CHARGEBACK, 1
@@ -46,16 +25,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLASSIFICATION_REASON_UNSPECIFIED
-          | :AUTOMATION
-          | :UNEXPECTED_ENVIRONMENT
-          | :TOO_MUCH_TRAFFIC
-          | :UNEXPECTED_USAGE_PATTERNS
-          | :LOW_CONFIDENCE_SCORE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLASSIFICATION_REASON_UNSPECIFIED, 0
   field :AUTOMATION, 1
@@ -66,17 +36,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason 
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INVALID_REASON_UNSPECIFIED
-          | :UNKNOWN_INVALID_REASON
-          | :MALFORMED
-          | :EXPIRED
-          | :DUPE
-          | :MISSING
-          | :BROWSER_ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INVALID_REASON_UNSPECIFIED, 0
   field :UNKNOWN_INVALID_REASON, 1
@@ -88,15 +48,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED
-          | :PROFILE_MATCH
-          | :SUSPICIOUS_LOGIN_ACTIVITY
-          | :SUSPICIOUS_ACCOUNT_CREATION
-          | :RELATED_ACCOUNTS_NUMBER_HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED, 0
   field :PROFILE_MATCH, 1
@@ -106,9 +58,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountD
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TESTING_CHALLENGE_UNSPECIFIED | :NOCAPTCHA | :UNSOLVABLE_CHALLENGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TESTING_CHALLENGE_UNSPECIFIED, 0
   field :NOCAPTCHA, 1
@@ -116,9 +66,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :INTEGRATION_TYPE_UNSPECIFIED | :SCORE | :CHECKBOX | :INVISIBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INTEGRATION_TYPE_UNSPECIFIED, 0
   field :SCORE, 1
@@ -127,10 +75,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPreference do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED | :USABILITY | :BALANCE | :SECURITY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED, 0
   field :USABILITY, 1
@@ -139,9 +84,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPr
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :WAF_FEATURE_UNSPECIFIED | :CHALLENGE_PAGE | :SESSION_TOKEN | :ACTION_TOKEN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :WAF_FEATURE_UNSPECIFIED, 0
   field :CHALLENGE_PAGE, 1
@@ -150,44 +93,21 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :WAF_SERVICE_UNSPECIFIED | :CA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :WAF_SERVICE_UNSPECIFIED, 0
   field :CA, 1
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          assessment: Google.Cloud.Recaptchaenterprise.V1.Assessment.t() | nil
-        }
-
-  defstruct parent: "",
-            assessment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :assessment, 2, type: Google.Cloud.Recaptchaenterprise.V1.Assessment, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          annotation:
-            Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Annotation.t(),
-          reasons: [Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason.t()],
-          hashed_account_id: binary
-        }
-
-  defstruct name: "",
-            annotation: :ANNOTATION_UNSPECIFIED,
-            reasons: [],
-            hashed_account_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -206,30 +126,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          event: Google.Cloud.Recaptchaenterprise.V1.Event.t() | nil,
-          risk_analysis: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.t() | nil,
-          token_properties: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.t() | nil,
-          account_defender_assessment:
-            Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.t() | nil
-        }
-
-  defstruct name: "",
-            event: nil,
-            risk_analysis: nil,
-            token_properties: nil,
-            account_defender_assessment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1.Event
@@ -250,23 +151,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          token: String.t(),
-          site_key: String.t(),
-          user_agent: String.t(),
-          user_ip_address: String.t(),
-          expected_action: String.t(),
-          hashed_account_id: binary
-        }
-
-  defstruct token: "",
-            site_key: "",
-            user_agent: "",
-            user_ip_address: "",
-            expected_action: "",
-            hashed_account_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :token, 1, type: :string, deprecated: false
   field :site_key, 2, type: :string, json_name: "siteKey", deprecated: false
@@ -277,15 +162,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score: float | :infinity | :negative_infinity | :nan,
-          reasons: [Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason.t()]
-        }
-
-  defstruct score: 0.0,
-            reasons: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score, 1, type: :float
 
@@ -296,21 +173,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          valid: boolean,
-          invalid_reason: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          hostname: String.t(),
-          action: String.t()
-        }
-
-  defstruct valid: false,
-            invalid_reason: :INVALID_REASON_UNSPECIFIED,
-            create_time: nil,
-            hostname: "",
-            action: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :valid, 1, type: :bool
 
@@ -325,15 +188,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          labels: [
-            Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel.t()
-          ]
-        }
-
-  defstruct labels: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
@@ -342,32 +197,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          key: Google.Cloud.Recaptchaenterprise.V1.Key.t() | nil
-        }
-
-  defstruct parent: "",
-            key: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :key, 2, type: Google.Cloud.Recaptchaenterprise.V1.Key, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -375,42 +212,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          keys: [Google.Cloud.Recaptchaenterprise.V1.Key.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct keys: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.Key
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: Google.Cloud.Recaptchaenterprise.V1.Key.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct key: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: Google.Cloud.Recaptchaenterprise.V1.Key, deprecated: false
 
@@ -421,55 +236,25 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          score_metrics: [Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.t()],
-          challenge_metrics: [Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics.t()]
-        }
-
-  defstruct name: "",
-            start_time: nil,
-            score_metrics: [],
-            challenge_metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -486,44 +271,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          platform_settings:
-            {:web_settings, Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.t() | nil}
-            | {:android_settings,
-               Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings.t() | nil}
-            | {:ios_settings, Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          testing_options: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.t() | nil,
-          waf_settings: Google.Cloud.Recaptchaenterprise.V1.WafSettings.t() | nil
-        }
-
-  defstruct platform_settings: nil,
-            name: "",
-            display_name: "",
-            labels: %{},
-            create_time: nil,
-            testing_options: nil,
-            waf_settings: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :platform_settings, 0
 
@@ -562,16 +317,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          testing_score: float | :infinity | :negative_infinity | :nan,
-          testing_challenge:
-            Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge.t()
-        }
-
-  defstruct testing_score: 0.0,
-            testing_challenge: :TESTING_CHALLENGE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :testing_score, 1, type: :float, json_name: "testingScore"
 
@@ -582,23 +328,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allow_all_domains: boolean,
-          allowed_domains: [String.t()],
-          allow_amp_traffic: boolean,
-          integration_type:
-            Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType.t(),
-          challenge_security_preference:
-            Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPreference.t()
-        }
-
-  defstruct allow_all_domains: false,
-            allowed_domains: [],
-            allow_amp_traffic: false,
-            integration_type: :INTEGRATION_TYPE_UNSPECIFIED,
-            challenge_security_preference: :CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allow_all_domains, 3, type: :bool, json_name: "allowAllDomains"
   field :allowed_domains, 1, repeated: true, type: :string, json_name: "allowedDomains"
@@ -617,58 +347,28 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allow_all_package_names: boolean,
-          allowed_package_names: [String.t()]
-        }
-
-  defstruct allow_all_package_names: false,
-            allowed_package_names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allow_all_package_names, 2, type: :bool, json_name: "allowAllPackageNames"
   field :allowed_package_names, 1, repeated: true, type: :string, json_name: "allowedPackageNames"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allow_all_bundle_ids: boolean,
-          allowed_bundle_ids: [String.t()]
-        }
-
-  defstruct allow_all_bundle_ids: false,
-            allowed_bundle_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allow_all_bundle_ids, 2, type: :bool, json_name: "allowAllBundleIds"
   field :allowed_bundle_ids, 1, repeated: true, type: :string, json_name: "allowedBundleIds"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: integer
-        }
-
-  defstruct key: 0,
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :int64
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          score_buckets: %{integer => integer}
-        }
-
-  defstruct score_buckets: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :score_buckets, 1,
     repeated: true,
@@ -678,32 +378,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics.ActionMetricsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          overall_metrics: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil,
-          action_metrics: %{
-            String.t() => Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.t() | nil
-          }
-        }
-
-  defstruct overall_metrics: nil,
-            action_metrics: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :overall_metrics, 1,
     type: Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution,
@@ -717,19 +399,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreMetrics do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pageload_count: integer,
-          nocaptcha_count: integer,
-          failed_count: integer,
-          passed_count: integer
-        }
-
-  defstruct pageload_count: 0,
-            nocaptcha_count: 0,
-            failed_count: 0,
-            passed_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pageload_count, 1, type: :int64, json_name: "pageloadCount"
   field :nocaptcha_count, 2, type: :int64, json_name: "nocaptchaCount"
@@ -738,17 +408,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -756,17 +416,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMemberships
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          related_account_group_memberships: [
-            Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership.t()
-          ],
-          next_page_token: String.t()
-        }
-
-  defstruct related_account_group_memberships: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :related_account_group_memberships, 1,
     repeated: true,
@@ -777,17 +427,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMemberships
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -795,15 +435,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          related_account_groups: [Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct related_account_groups: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :related_account_groups, 1,
     repeated: true,
@@ -814,19 +446,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsResponse d
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t(),
-          hashed_account_id: binary,
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project: "",
-            hashed_account_id: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId", deprecated: false
@@ -835,17 +455,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershipsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          related_account_group_memberships: [
-            Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership.t()
-          ],
-          next_page_token: String.t()
-        }
-
-  defstruct related_account_group_memberships: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :related_account_group_memberships, 1,
     repeated: true,
@@ -856,42 +466,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          hashed_account_id: binary
-        }
-
-  defstruct name: "",
-            hashed_account_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          waf_service: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService.t(),
-          waf_feature: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature.t()
-        }
-
-  defstruct waf_service: :WAF_SERVICE_UNSPECIFIED,
-            waf_feature: :WAF_FEATURE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :waf_service, 1,
     type: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService,
@@ -907,7 +495,9 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings do
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService"
+  use GRPC.Service,
+    name: "google.cloud.recaptchaenterprise.v1.RecaptchaEnterpriseService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateAssessment,
       Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest,

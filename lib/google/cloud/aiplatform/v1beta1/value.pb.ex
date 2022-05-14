@@ -1,15 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Value do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:int_value, integer}
-            | {:double_value, float | :infinity | :negative_infinity | :nan}
-            | {:string_value, String.t()}
-        }
-
-  defstruct value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 

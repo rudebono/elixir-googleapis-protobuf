@@ -1,19 +1,6 @@
 defmodule Google.Cloud.Batch.V1alpha1.Volume do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:nfs, Google.Cloud.Batch.V1alpha1.NFS.t() | nil}
-            | {:pd, Google.Cloud.Batch.V1alpha1.PD.t() | nil}
-            | {:gcs, Google.Cloud.Batch.V1alpha1.GCS.t() | nil},
-          mount_path: String.t(),
-          mount_options: [String.t()]
-        }
-
-  defstruct source: nil,
-            mount_path: "",
-            mount_options: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -25,32 +12,14 @@ defmodule Google.Cloud.Batch.V1alpha1.Volume do
 end
 defmodule Google.Cloud.Batch.V1alpha1.NFS do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          server: String.t(),
-          remote_path: String.t()
-        }
-
-  defstruct server: "",
-            remote_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :server, 1, type: :string
   field :remote_path, 2, type: :string, json_name: "remotePath"
 end
 defmodule Google.Cloud.Batch.V1alpha1.PD do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disk: String.t(),
-          device: String.t(),
-          existing: boolean
-        }
-
-  defstruct disk: "",
-            device: "",
-            existing: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disk, 1, type: :string
   field :device, 2, type: :string
@@ -58,13 +27,7 @@ defmodule Google.Cloud.Batch.V1alpha1.PD do
 end
 defmodule Google.Cloud.Batch.V1alpha1.GCS do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          remote_path: String.t()
-        }
-
-  defstruct remote_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :remote_path, 1, type: :string, json_name: "remotePath"
 end

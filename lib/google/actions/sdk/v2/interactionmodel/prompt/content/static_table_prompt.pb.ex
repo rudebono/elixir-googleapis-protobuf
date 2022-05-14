@@ -1,8 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :LEADING | :CENTER | :TRAILING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :LEADING, 1
@@ -11,23 +9,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAl
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          subtitle: String.t(),
-          image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil,
-          columns: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.t()],
-          rows: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow.t()],
-          button: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticLinkPrompt.t() | nil
-        }
-
-  defstruct title: "",
-            subtitle: "",
-            image: nil,
-            columns: [],
-            rows: [],
-            button: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false
@@ -52,15 +34,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticTablePrompt do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: String.t(),
-          align: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn.HorizontalAlignment.t()
-        }
-
-  defstruct header: "",
-            align: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: :string
 
@@ -70,27 +44,13 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableColumn do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          text: String.t()
-        }
-
-  defstruct text: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableRow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cells: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell.t()],
-          divider: boolean
-        }
-
-  defstruct cells: [],
-            divider: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cells, 1, repeated: true, type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.TableCell
   field :divider, 2, type: :bool

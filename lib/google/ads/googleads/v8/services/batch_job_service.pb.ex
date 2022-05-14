@@ -1,27 +1,13 @@
 defmodule Google.Ads.Googleads.V8.Services.MutateBatchJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operation: Google.Ads.Googleads.V8.Services.BatchJobOperation.t() | nil
-        }
-
-  defstruct customer_id: "",
-            operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :operation, 2, type: Google.Ads.Googleads.V8.Services.BatchJobOperation, deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.BatchJobOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation: {:create, Google.Ads.Googleads.V8.Resources.BatchJob.t() | nil}
-        }
-
-  defstruct operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -29,65 +15,31 @@ defmodule Google.Ads.Googleads.V8.Services.BatchJobOperation do
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateBatchJobResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Ads.Googleads.V8.Services.MutateBatchJobResult.t() | nil
-        }
-
-  defstruct result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1, type: Google.Ads.Googleads.V8.Services.MutateBatchJobResult
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateBatchJobResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V8.Services.GetBatchJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.RunBatchJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.AddBatchJobOperationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          sequence_token: String.t(),
-          mutate_operations: [Google.Ads.Googleads.V8.Services.MutateOperation.t()]
-        }
-
-  defstruct resource_name: "",
-            sequence_token: "",
-            mutate_operations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :sequence_token, 2, type: :string, json_name: "sequenceToken"
@@ -100,35 +52,14 @@ defmodule Google.Ads.Googleads.V8.Services.AddBatchJobOperationsRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.AddBatchJobOperationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_operations: integer,
-          next_sequence_token: String.t()
-        }
-
-  defstruct total_operations: 0,
-            next_sequence_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_operations, 1, type: :int64, json_name: "totalOperations"
   field :next_sequence_token, 2, type: :string, json_name: "nextSequenceToken"
 end
 defmodule Google.Ads.Googleads.V8.Services.ListBatchJobResultsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          page_token: String.t(),
-          page_size: integer,
-          response_content_type:
-            Google.Ads.Googleads.V8.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct resource_name: "",
-            page_token: "",
-            page_size: 0,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -141,33 +72,14 @@ defmodule Google.Ads.Googleads.V8.Services.ListBatchJobResultsRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.ListBatchJobResultsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V8.Services.BatchJobResult.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct results: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V8.Services.BatchJobResult
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Ads.Googleads.V8.Services.BatchJobResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation_index: integer,
-          mutate_operation_response:
-            Google.Ads.Googleads.V8.Services.MutateOperationResponse.t() | nil,
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct operation_index: 0,
-            mutate_operation_response: nil,
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operation_index, 1, type: :int64, json_name: "operationIndex"
 
@@ -179,7 +91,9 @@ defmodule Google.Ads.Googleads.V8.Services.BatchJobResult do
 end
 defmodule Google.Ads.Googleads.V8.Services.BatchJobService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v8.services.BatchJobService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v8.services.BatchJobService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :MutateBatchJob,
       Google.Ads.Googleads.V8.Services.MutateBatchJobRequest,

@@ -1,8 +1,6 @@
 defmodule Google.Datastore.Admin.V1.Index.AncestorMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANCESTOR_MODE_UNSPECIFIED | :NONE | :ALL_ANCESTORS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANCESTOR_MODE_UNSPECIFIED, 0
   field :NONE, 1
@@ -10,9 +8,7 @@ defmodule Google.Datastore.Admin.V1.Index.AncestorMode do
 end
 defmodule Google.Datastore.Admin.V1.Index.Direction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIRECTION_UNSPECIFIED | :ASCENDING | :DESCENDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -20,9 +16,7 @@ defmodule Google.Datastore.Admin.V1.Index.Direction do
 end
 defmodule Google.Datastore.Admin.V1.Index.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :DELETING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -32,15 +26,7 @@ defmodule Google.Datastore.Admin.V1.Index.State do
 end
 defmodule Google.Datastore.Admin.V1.Index.IndexedProperty do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          direction: Google.Datastore.Admin.V1.Index.Direction.t()
-        }
-
-  defstruct name: "",
-            direction: :DIRECTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -51,23 +37,7 @@ defmodule Google.Datastore.Admin.V1.Index.IndexedProperty do
 end
 defmodule Google.Datastore.Admin.V1.Index do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          index_id: String.t(),
-          kind: String.t(),
-          ancestor: Google.Datastore.Admin.V1.Index.AncestorMode.t(),
-          properties: [Google.Datastore.Admin.V1.Index.IndexedProperty.t()],
-          state: Google.Datastore.Admin.V1.Index.State.t()
-        }
-
-  defstruct project_id: "",
-            index_id: "",
-            kind: "",
-            ancestor: :ANCESTOR_MODE_UNSPECIFIED,
-            properties: [],
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :index_id, 3, type: :string, json_name: "indexId", deprecated: false

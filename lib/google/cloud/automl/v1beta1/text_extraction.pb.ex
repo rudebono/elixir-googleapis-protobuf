@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.TextExtractionAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation: {:text_segment, Google.Cloud.Automl.V1beta1.TextSegment.t() | nil},
-          score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct annotation: nil,
-            score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :annotation, 0
 
@@ -21,19 +13,7 @@ defmodule Google.Cloud.Automl.V1beta1.TextExtractionAnnotation do
 end
 defmodule Google.Cloud.Automl.V1beta1.TextExtractionEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          confidence_threshold: float | :infinity | :negative_infinity | :nan,
-          recall: float | :infinity | :negative_infinity | :nan,
-          precision: float | :infinity | :negative_infinity | :nan,
-          f1_score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct confidence_threshold: 0.0,
-            recall: 0.0,
-            precision: 0.0,
-            f1_score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 3, type: :float
@@ -42,17 +22,7 @@ defmodule Google.Cloud.Automl.V1beta1.TextExtractionEvaluationMetrics.Confidence
 end
 defmodule Google.Cloud.Automl.V1beta1.TextExtractionEvaluationMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          au_prc: float | :infinity | :negative_infinity | :nan,
-          confidence_metrics_entries: [
-            Google.Cloud.Automl.V1beta1.TextExtractionEvaluationMetrics.ConfidenceMetricsEntry.t()
-          ]
-        }
-
-  defstruct au_prc: 0.0,
-            confidence_metrics_entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
 

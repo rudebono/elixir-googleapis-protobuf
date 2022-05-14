@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.Finding.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :INACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.State do
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :CRITICAL | :HIGH | :MEDIUM | :LOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -22,9 +18,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MUTE_UNSPECIFIED | :MUTED | :UNMUTED | :UNDEFINED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MUTE_UNSPECIFIED, 0
   field :MUTED, 1
@@ -33,16 +27,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FINDING_CLASS_UNSPECIFIED
-          | :THREAT
-          | :VULNERABILITY
-          | :MISCONFIGURATION
-          | :OBSERVATION
-          | :SCC_ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FINDING_CLASS_UNSPECIFIED, 0
   field :THREAT, 1
@@ -53,93 +38,21 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.V1.ExternalSystem
 end
 defmodule Google.Cloud.Securitycenter.V1.Finding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          resource_name: String.t(),
-          state: Google.Cloud.Securitycenter.V1.Finding.State.t(),
-          category: String.t(),
-          external_uri: String.t(),
-          source_properties: %{String.t() => Google.Protobuf.Value.t() | nil},
-          security_marks: Google.Cloud.Securitycenter.V1.SecurityMarks.t() | nil,
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Cloud.Securitycenter.V1.Finding.Severity.t(),
-          canonical_name: String.t(),
-          mute: Google.Cloud.Securitycenter.V1.Finding.Mute.t(),
-          finding_class: Google.Cloud.Securitycenter.V1.Finding.FindingClass.t(),
-          indicator: Google.Cloud.Securitycenter.V1.Indicator.t() | nil,
-          vulnerability: Google.Cloud.Securitycenter.V1.Vulnerability.t() | nil,
-          mute_update_time: Google.Protobuf.Timestamp.t() | nil,
-          external_systems: %{
-            String.t() => Google.Cloud.Securitycenter.V1.ExternalSystem.t() | nil
-          },
-          mitre_attack: Google.Cloud.Securitycenter.V1.MitreAttack.t() | nil,
-          access: Google.Cloud.Securitycenter.V1.Access.t() | nil,
-          connections: [Google.Cloud.Securitycenter.V1.Connection.t()],
-          mute_initiator: String.t(),
-          description: String.t(),
-          iam_bindings: [Google.Cloud.Securitycenter.V1.IamBinding.t()],
-          next_steps: String.t()
-        }
-
-  defstruct name: "",
-            parent: "",
-            resource_name: "",
-            state: :STATE_UNSPECIFIED,
-            category: "",
-            external_uri: "",
-            source_properties: %{},
-            security_marks: nil,
-            event_time: nil,
-            create_time: nil,
-            severity: :SEVERITY_UNSPECIFIED,
-            canonical_name: "",
-            mute: :MUTE_UNSPECIFIED,
-            finding_class: :FINDING_CLASS_UNSPECIFIED,
-            indicator: nil,
-            vulnerability: nil,
-            mute_update_time: nil,
-            external_systems: %{},
-            mitre_attack: nil,
-            access: nil,
-            connections: [],
-            mute_initiator: "",
-            description: "",
-            iam_bindings: [],
-            next_steps: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 2, type: :string

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.OperationResponseMapping do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNDEFINED | :NAME | :STATUS | :ERROR_CODE | :ERROR_MESSAGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNDEFINED, 0
   field :NAME, 1
@@ -12,7 +10,7 @@ defmodule Google.Cloud.OperationResponseMapping do
 end
 defmodule Google.Cloud.PbExtension do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   extend Google.Protobuf.FieldOptions, :operation_field, 1149,
     optional: true,

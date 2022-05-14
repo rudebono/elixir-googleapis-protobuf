@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.NetworkType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NETWORK_TYPE_UNSPECIFIED | :GCP_NETWORK | :NON_GCP_NETWORK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NETWORK_TYPE_UNSPECIFIED, 0
   field :GCP_NETWORK, 1
@@ -10,10 +8,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.NetworkType do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :RESULT_UNSPECIFIED | :REACHABLE | :UNREACHABLE | :AMBIGUOUS | :UNDETERMINED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :REACHABLE, 1
@@ -23,15 +18,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PROBING_RESULT_UNSPECIFIED
-          | :REACHABLE
-          | :UNREACHABLE
-          | :REACHABILITY_INCONSISTENT
-          | :UNDETERMINED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROBING_RESULT_UNSPECIFIED, 0
   field :REACHABLE, 1
@@ -41,9 +28,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingAbortCause do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PROBING_ABORT_CAUSE_UNSPECIFIED | :PERMISSION_DENIED | :NO_SOURCE_LOCATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PROBING_ABORT_CAUSE_UNSPECIFIED, 0
   field :PERMISSION_DENIED, 1
@@ -51,51 +36,14 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingAbortCaus
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          source: Google.Cloud.Networkmanagement.V1beta1.Endpoint.t() | nil,
-          destination: Google.Cloud.Networkmanagement.V1beta1.Endpoint.t() | nil,
-          protocol: String.t(),
-          related_projects: [String.t()],
-          display_name: String.t(),
-          labels: %{String.t() => String.t()},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          reachability_details:
-            Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.t() | nil,
-          probing_details: Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            source: nil,
-            destination: nil,
-            protocol: "",
-            related_projects: [],
-            display_name: "",
-            labels: %{},
-            create_time: nil,
-            update_time: nil,
-            reachability_details: nil,
-            probing_details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -132,27 +80,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip_address: String.t(),
-          port: integer,
-          instance: String.t(),
-          gke_master_cluster: String.t(),
-          cloud_sql_instance: String.t(),
-          network: String.t(),
-          network_type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.NetworkType.t(),
-          project_id: String.t()
-        }
-
-  defstruct ip_address: "",
-            port: 0,
-            instance: "",
-            gke_master_cluster: "",
-            cloud_sql_instance: "",
-            network: "",
-            network_type: :NETWORK_TYPE_UNSPECIFIED,
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
@@ -170,19 +98,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result.t(),
-          verify_time: Google.Protobuf.Timestamp.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          traces: [Google.Cloud.Networkmanagement.V1beta1.Trace.t()]
-        }
-
-  defstruct result: :RESULT_UNSPECIFIED,
-            verify_time: nil,
-            error: nil,
-            traces: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result,
@@ -194,28 +110,14 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyPercentile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          percent: integer,
-          latency_micros: integer
-        }
-
-  defstruct percent: 0,
-            latency_micros: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :percent, 1, type: :int32
   field :latency_micros, 2, type: :int64, json_name: "latencyMicros"
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          latency_percentiles: [Google.Cloud.Networkmanagement.V1beta1.LatencyPercentile.t()]
-        }
-
-  defstruct latency_percentiles: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :latency_percentiles, 1,
     repeated: true,
@@ -224,28 +126,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult.t(),
-          verify_time: Google.Protobuf.Timestamp.t() | nil,
-          error: Google.Rpc.Status.t() | nil,
-          abort_cause:
-            Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingAbortCause.t(),
-          sent_probe_count: integer,
-          successful_probe_count: integer,
-          endpoint_info: Google.Cloud.Networkmanagement.V1beta1.EndpointInfo.t() | nil,
-          probing_latency: Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution.t() | nil
-        }
-
-  defstruct result: :PROBING_RESULT_UNSPECIFIED,
-            verify_time: nil,
-            error: nil,
-            abort_cause: :PROBING_ABORT_CAUSE_UNSPECIFIED,
-            sent_probe_count: 0,
-            successful_probe_count: 0,
-            endpoint_info: nil,
-            probing_latency: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult,

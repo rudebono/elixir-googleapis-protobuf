@@ -1,8 +1,6 @@
 defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :RATE_LIMIT | :NOT_CONSUMED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :RATE_LIMIT, 1
@@ -10,50 +8,20 @@ defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason do
 end
 defmodule Google.Logging.V2.DeleteLogRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_name: String.t()
-        }
-
-  defstruct log_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_name, 1, type: :string, json_name: "logName", deprecated: false
 end
 defmodule Google.Logging.V2.WriteLogEntriesRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Logging.V2.WriteLogEntriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_name: String.t(),
-          resource: Google.Api.MonitoredResource.t() | nil,
-          labels: %{String.t() => String.t()},
-          entries: [Google.Logging.V2.LogEntry.t()],
-          partial_success: boolean,
-          dry_run: boolean
-        }
-
-  defstruct log_name: "",
-            resource: nil,
-            labels: %{},
-            entries: [],
-            partial_success: false,
-            dry_run: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_name, 1, type: :string, json_name: "logName", deprecated: false
   field :resource, 2, type: Google.Api.MonitoredResource, deprecated: false
@@ -70,36 +38,18 @@ defmodule Google.Logging.V2.WriteLogEntriesRequest do
 end
 defmodule Google.Logging.V2.WriteLogEntriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Logging.V2.WriteLogEntriesPartialErrors.LogEntryErrorsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: integer,
-          value: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct key: 0,
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Rpc.Status
 end
 defmodule Google.Logging.V2.WriteLogEntriesPartialErrors do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_entry_errors: %{integer => Google.Rpc.Status.t() | nil}
-        }
-
-  defstruct log_entry_errors: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_entry_errors, 1,
     repeated: true,
@@ -109,21 +59,7 @@ defmodule Google.Logging.V2.WriteLogEntriesPartialErrors do
 end
 defmodule Google.Logging.V2.ListLogEntriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_names: [String.t()],
-          filter: String.t(),
-          order_by: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct resource_names: [],
-            filter: "",
-            order_by: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_names, 8,
     repeated: true,
@@ -138,45 +74,21 @@ defmodule Google.Logging.V2.ListLogEntriesRequest do
 end
 defmodule Google.Logging.V2.ListLogEntriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Logging.V2.LogEntry.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct entries: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Logging.V2.LogEntry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
 end
 defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_descriptors: [Google.Api.MonitoredResourceDescriptor.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct resource_descriptors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_descriptors, 1,
     repeated: true,
@@ -187,19 +99,7 @@ defmodule Google.Logging.V2.ListMonitoredResourceDescriptorsResponse do
 end
 defmodule Google.Logging.V2.ListLogsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          resource_names: [String.t()]
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            resource_names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -213,32 +113,14 @@ defmodule Google.Logging.V2.ListLogsRequest do
 end
 defmodule Google.Logging.V2.ListLogsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          log_names: [String.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct log_names: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :log_names, 3, repeated: true, type: :string, json_name: "logNames"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Logging.V2.TailLogEntriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_names: [String.t()],
-          filter: String.t(),
-          buffer_window: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct resource_names: [],
-            filter: "",
-            buffer_window: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_names, 1,
     repeated: true,
@@ -255,15 +137,7 @@ defmodule Google.Logging.V2.TailLogEntriesRequest do
 end
 defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason.t(),
-          suppressed_count: integer
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            suppressed_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.Reason,
@@ -273,15 +147,7 @@ defmodule Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo do
 end
 defmodule Google.Logging.V2.TailLogEntriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Logging.V2.LogEntry.t()],
-          suppression_info: [Google.Logging.V2.TailLogEntriesResponse.SuppressionInfo.t()]
-        }
-
-  defstruct entries: [],
-            suppression_info: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Logging.V2.LogEntry
 
@@ -292,7 +158,9 @@ defmodule Google.Logging.V2.TailLogEntriesResponse do
 end
 defmodule Google.Logging.V2.LoggingServiceV2.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.logging.v2.LoggingServiceV2"
+  use GRPC.Service,
+    name: "google.logging.v2.LoggingServiceV2",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :DeleteLog, Google.Logging.V2.DeleteLogRequest, Google.Protobuf.Empty
 

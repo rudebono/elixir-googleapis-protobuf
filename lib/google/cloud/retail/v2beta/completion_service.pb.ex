@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          catalog: String.t(),
-          query: String.t(),
-          visitor_id: String.t(),
-          language_codes: [String.t()],
-          device_type: String.t(),
-          dataset: String.t(),
-          max_suggestions: integer
-        }
-
-  defstruct catalog: "",
-            query: "",
-            visitor_id: "",
-            language_codes: [],
-            device_type: "",
-            dataset: "",
-            max_suggestions: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :catalog, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -30,30 +12,14 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
 end
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Retail.V2beta.CustomAttribute.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2beta.CustomAttribute
 end
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          suggestion: String.t(),
-          attributes: %{String.t() => Google.Cloud.Retail.V2beta.CustomAttribute.t() | nil}
-        }
-
-  defstruct suggestion: "",
-            attributes: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -64,33 +30,13 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult do
 end
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          recent_search: String.t()
-        }
-
-  defstruct recent_search: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :recent_search, 1, type: :string, json_name: "recentSearch"
 end
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          completion_results: [
-            Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.t()
-          ],
-          attribution_token: String.t(),
-          recent_search_results: [
-            Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult.t()
-          ]
-        }
-
-  defstruct completion_results: [],
-            attribution_token: "",
-            recent_search_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :completion_results, 1,
     repeated: true,
@@ -106,7 +52,9 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
 end
 defmodule Google.Cloud.Retail.V2beta.CompletionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.retail.v2beta.CompletionService"
+  use GRPC.Service,
+    name: "google.cloud.retail.v2beta.CompletionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Retail.V2beta.CompleteQueryRequest,

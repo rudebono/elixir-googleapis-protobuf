@@ -1,16 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.EventHandler do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          prompt:
-            {:static_prompt, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.t() | nil}
-            | {:static_prompt_name, String.t()},
-          webhook_handler: String.t()
-        }
-
-  defstruct prompt: nil,
-            webhook_handler: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :prompt, 0
 

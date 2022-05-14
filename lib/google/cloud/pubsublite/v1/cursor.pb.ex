@@ -1,61 +1,29 @@
 defmodule Google.Cloud.Pubsublite.V1.InitialCommitCursorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          partition: integer
-        }
-
-  defstruct subscription: "",
-            partition: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
 end
 defmodule Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
-        }
-
-  defstruct cursor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
 end
 defmodule Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          acknowledged_commits: integer
-        }
-
-  defstruct acknowledged_commits: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :acknowledged_commits, 1, type: :int64, json_name: "acknowledgedCommits"
 end
 defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:initial, Google.Cloud.Pubsublite.V1.InitialCommitCursorRequest.t() | nil}
-            | {:commit, Google.Cloud.Pubsublite.V1.SequencedCommitCursorRequest.t() | nil}
-        }
-
-  defstruct request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -64,15 +32,7 @@ defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          request:
-            {:initial, Google.Cloud.Pubsublite.V1.InitialCommitCursorResponse.t() | nil}
-            | {:commit, Google.Cloud.Pubsublite.V1.SequencedCommitCursorResponse.t() | nil}
-        }
-
-  defstruct request: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -81,17 +41,7 @@ defmodule Google.Cloud.Pubsublite.V1.StreamingCommitCursorResponse do
 end
 defmodule Google.Cloud.Pubsublite.V1.CommitCursorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          partition: integer,
-          cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
-        }
-
-  defstruct subscription: "",
-            partition: 0,
-            cursor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :partition, 2, type: :int64
@@ -99,25 +49,11 @@ defmodule Google.Cloud.Pubsublite.V1.CommitCursorRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.CommitCursorResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -125,30 +61,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.PartitionCursor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partition: integer,
-          cursor: Google.Cloud.Pubsublite.V1.Cursor.t() | nil
-        }
-
-  defstruct partition: 0,
-            cursor: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partition, 1, type: :int64
   field :cursor, 2, type: Google.Cloud.Pubsublite.V1.Cursor
 end
 defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partition_cursors: [Google.Cloud.Pubsublite.V1.PartitionCursor.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct partition_cursors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partition_cursors, 1,
     repeated: true,
@@ -159,7 +79,9 @@ defmodule Google.Cloud.Pubsublite.V1.ListPartitionCursorsResponse do
 end
 defmodule Google.Cloud.Pubsublite.V1.CursorService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.pubsublite.v1.CursorService"
+  use GRPC.Service,
+    name: "google.cloud.pubsublite.v1.CursorService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :StreamingCommitCursor,
       stream(Google.Cloud.Pubsublite.V1.StreamingCommitCursorRequest),

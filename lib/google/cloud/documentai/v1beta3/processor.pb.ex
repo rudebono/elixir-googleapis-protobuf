@@ -1,17 +1,6 @@
 defmodule Google.Cloud.Documentai.V1beta3.Processor.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :ENABLED
-          | :DISABLED
-          | :ENABLING
-          | :DISABLING
-          | :CREATING
-          | :FAILED
-          | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -24,27 +13,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor.State do
 end
 defmodule Google.Cloud.Documentai.V1beta3.Processor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          display_name: String.t(),
-          state: Google.Cloud.Documentai.V1beta3.Processor.State.t(),
-          default_processor_version: String.t(),
-          process_endpoint: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          kms_key_name: String.t()
-        }
-
-  defstruct name: "",
-            type: "",
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            default_processor_version: "",
-            process_endpoint: "",
-            create_time: nil,
-            kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string

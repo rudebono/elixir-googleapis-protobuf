@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Oslogin.Common.OperatingSystemType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OPERATING_SYSTEM_TYPE_UNSPECIFIED | :LINUX | :WINDOWS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATING_SYSTEM_TYPE_UNSPECIFIED, 0
   field :LINUX, 1
@@ -10,33 +8,7 @@ defmodule Google.Cloud.Oslogin.Common.OperatingSystemType do
 end
 defmodule Google.Cloud.Oslogin.Common.PosixAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary: boolean,
-          username: String.t(),
-          uid: integer,
-          gid: integer,
-          home_directory: String.t(),
-          shell: String.t(),
-          gecos: String.t(),
-          system_id: String.t(),
-          account_id: String.t(),
-          operating_system_type: Google.Cloud.Oslogin.Common.OperatingSystemType.t(),
-          name: String.t()
-        }
-
-  defstruct primary: false,
-            username: "",
-            uid: 0,
-            gid: 0,
-            home_directory: "",
-            shell: "",
-            gecos: "",
-            system_id: "",
-            account_id: "",
-            operating_system_type: :OPERATING_SYSTEM_TYPE_UNSPECIFIED,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary, 1, type: :bool
   field :username, 2, type: :string
@@ -57,19 +29,7 @@ defmodule Google.Cloud.Oslogin.Common.PosixAccount do
 end
 defmodule Google.Cloud.Oslogin.Common.SshPublicKey do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          expiration_time_usec: integer,
-          fingerprint: String.t(),
-          name: String.t()
-        }
-
-  defstruct key: "",
-            expiration_time_usec: 0,
-            fingerprint: "",
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :expiration_time_usec, 2, type: :int64, json_name: "expirationTimeUsec"

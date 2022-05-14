@@ -1,33 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.HotelReconciliation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          commission_id: String.t(),
-          order_id: String.t(),
-          campaign: String.t(),
-          hotel_center_id: integer,
-          hotel_id: String.t(),
-          check_in_date: String.t(),
-          check_out_date: String.t(),
-          reconciled_value_micros: integer,
-          billed: boolean,
-          status:
-            Google.Ads.Googleads.V10.Enums.HotelReconciliationStatusEnum.HotelReconciliationStatus.t()
-        }
-
-  defstruct resource_name: "",
-            commission_id: "",
-            order_id: "",
-            campaign: "",
-            hotel_center_id: 0,
-            hotel_id: "",
-            check_in_date: "",
-            check_out_date: "",
-            reconciled_value_micros: 0,
-            billed: false,
-            status: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :commission_id, 2, type: :string, json_name: "commissionId", deprecated: false

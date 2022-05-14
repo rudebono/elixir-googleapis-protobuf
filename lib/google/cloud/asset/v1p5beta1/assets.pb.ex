@@ -1,28 +1,6 @@
 defmodule Google.Cloud.Asset.V1p5beta1.Asset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_context_policy:
-            {:access_policy, Google.Identity.Accesscontextmanager.V1.AccessPolicy.t() | nil}
-            | {:access_level, Google.Identity.Accesscontextmanager.V1.AccessLevel.t() | nil}
-            | {:service_perimeter,
-               Google.Identity.Accesscontextmanager.V1.ServicePerimeter.t() | nil},
-          name: String.t(),
-          asset_type: String.t(),
-          resource: Google.Cloud.Asset.V1p5beta1.Resource.t() | nil,
-          iam_policy: Google.Iam.V1.Policy.t() | nil,
-          org_policy: [Google.Cloud.Orgpolicy.V1.Policy.t()],
-          ancestors: [String.t()]
-        }
-
-  defstruct access_context_policy: nil,
-            name: "",
-            asset_type: "",
-            resource: nil,
-            iam_policy: nil,
-            org_policy: [],
-            ancestors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -55,23 +33,7 @@ defmodule Google.Cloud.Asset.V1p5beta1.Asset do
 end
 defmodule Google.Cloud.Asset.V1p5beta1.Resource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          discovery_document_uri: String.t(),
-          discovery_name: String.t(),
-          resource_url: String.t(),
-          parent: String.t(),
-          data: Google.Protobuf.Struct.t() | nil
-        }
-
-  defstruct version: "",
-            discovery_document_uri: "",
-            discovery_name: "",
-            resource_url: "",
-            parent: "",
-            data: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"

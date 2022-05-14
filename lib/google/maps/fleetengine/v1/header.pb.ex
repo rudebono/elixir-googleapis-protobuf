@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.V1.RequestHeader.SdkType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SDK_TYPE_UNSPECIFIED | :CONSUMER | :DRIVER | :JAVASCRIPT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SDK_TYPE_UNSPECIFIED, 0
   field :CONSUMER, 1
@@ -11,9 +9,7 @@ defmodule Maps.Fleetengine.V1.RequestHeader.SdkType do
 end
 defmodule Maps.Fleetengine.V1.RequestHeader.Platform do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PLATFORM_UNSPECIFIED | :ANDROID | :IOS | :WEB
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :ANDROID, 1
@@ -22,33 +18,7 @@ defmodule Maps.Fleetengine.V1.RequestHeader.Platform do
 end
 defmodule Maps.Fleetengine.V1.RequestHeader do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t(),
-          region_code: String.t(),
-          sdk_version: String.t(),
-          os_version: String.t(),
-          device_model: String.t(),
-          sdk_type: Maps.Fleetengine.V1.RequestHeader.SdkType.t(),
-          maps_sdk_version: String.t(),
-          nav_sdk_version: String.t(),
-          platform: Maps.Fleetengine.V1.RequestHeader.Platform.t(),
-          manufacturer: String.t(),
-          android_api_level: integer
-        }
-
-  defstruct language_code: "",
-            region_code: "",
-            sdk_version: "",
-            os_version: "",
-            device_model: "",
-            sdk_type: :SDK_TYPE_UNSPECIFIED,
-            maps_sdk_version: "",
-            nav_sdk_version: "",
-            platform: :PLATFORM_UNSPECIFIED,
-            manufacturer: "",
-            android_api_level: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :region_code, 2, type: :string, json_name: "regionCode", deprecated: false

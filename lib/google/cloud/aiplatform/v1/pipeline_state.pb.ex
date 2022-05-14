@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.PipelineState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PIPELINE_STATE_UNSPECIFIED
-          | :PIPELINE_STATE_QUEUED
-          | :PIPELINE_STATE_PENDING
-          | :PIPELINE_STATE_RUNNING
-          | :PIPELINE_STATE_SUCCEEDED
-          | :PIPELINE_STATE_FAILED
-          | :PIPELINE_STATE_CANCELLING
-          | :PIPELINE_STATE_CANCELLED
-          | :PIPELINE_STATE_PAUSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PIPELINE_STATE_UNSPECIFIED, 0
   field :PIPELINE_STATE_QUEUED, 1

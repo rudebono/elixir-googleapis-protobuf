@@ -1,18 +1,6 @@
 defmodule Google.Iam.Credentials.V1.GenerateAccessTokenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          delegates: [String.t()],
-          scope: [String.t()],
-          lifetime: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct name: "",
-            delegates: [],
-            scope: [],
-            lifetime: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 2, repeated: true, type: :string
@@ -21,32 +9,14 @@ defmodule Google.Iam.Credentials.V1.GenerateAccessTokenRequest do
 end
 defmodule Google.Iam.Credentials.V1.GenerateAccessTokenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access_token: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct access_token: "",
-            expire_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken"
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
 defmodule Google.Iam.Credentials.V1.SignBlobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          delegates: [String.t()],
-          payload: binary
-        }
-
-  defstruct name: "",
-            delegates: [],
-            payload: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 3, repeated: true, type: :string
@@ -54,32 +24,14 @@ defmodule Google.Iam.Credentials.V1.SignBlobRequest do
 end
 defmodule Google.Iam.Credentials.V1.SignBlobResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          signed_blob: binary
-        }
-
-  defstruct key_id: "",
-            signed_blob: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :signed_blob, 4, type: :bytes, json_name: "signedBlob"
 end
 defmodule Google.Iam.Credentials.V1.SignJwtRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          delegates: [String.t()],
-          payload: String.t()
-        }
-
-  defstruct name: "",
-            delegates: [],
-            payload: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 3, repeated: true, type: :string
@@ -87,34 +39,14 @@ defmodule Google.Iam.Credentials.V1.SignJwtRequest do
 end
 defmodule Google.Iam.Credentials.V1.SignJwtResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key_id: String.t(),
-          signed_jwt: String.t()
-        }
-
-  defstruct key_id: "",
-            signed_jwt: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :signed_jwt, 2, type: :string, json_name: "signedJwt"
 end
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          delegates: [String.t()],
-          audience: String.t(),
-          include_email: boolean
-        }
-
-  defstruct name: "",
-            delegates: [],
-            audience: "",
-            include_email: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 2, repeated: true, type: :string
@@ -123,13 +55,7 @@ defmodule Google.Iam.Credentials.V1.GenerateIdTokenRequest do
 end
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          token: String.t()
-        }
-
-  defstruct token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :token, 1, type: :string
 end

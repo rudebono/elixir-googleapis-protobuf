@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.TypeCode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_CODE_UNSPECIFIED
-          | :FLOAT64
-          | :TIMESTAMP
-          | :STRING
-          | :ARRAY
-          | :STRUCT
-          | :CATEGORY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_CODE_UNSPECIFIED, 0
   field :FLOAT64, 3
@@ -22,20 +12,7 @@ defmodule Google.Cloud.Automl.V1beta1.TypeCode do
 end
 defmodule Google.Cloud.Automl.V1beta1.DataType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:list_element_type, Google.Cloud.Automl.V1beta1.DataType.t() | nil}
-            | {:struct_type, Google.Cloud.Automl.V1beta1.StructType.t() | nil}
-            | {:time_format, String.t()},
-          type_code: Google.Cloud.Automl.V1beta1.TypeCode.t(),
-          nullable: boolean
-        }
-
-  defstruct details: nil,
-            type_code: :TYPE_CODE_UNSPECIFIED,
-            nullable: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -60,28 +37,14 @@ defmodule Google.Cloud.Automl.V1beta1.DataType do
 end
 defmodule Google.Cloud.Automl.V1beta1.StructType.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Automl.V1beta1.DataType.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.DataType
 end
 defmodule Google.Cloud.Automl.V1beta1.StructType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: %{String.t() => Google.Cloud.Automl.V1beta1.DataType.t() | nil}
-        }
-
-  defstruct fields: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 1,
     repeated: true,

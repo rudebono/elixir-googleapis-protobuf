@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :STRING
-          | :INTEGER
-          | :DOUBLE
-          | :BOOLEAN
-          | :RECORD
-          | :PLUS_PAGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -22,14 +12,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AUTHORIZATION_TYPE_UNSPECIFIED
-          | :AUTHORIZATION_CODE
-          | :GOOGLE_PLUS_AUTHORIZATION_CODE
-          | :FIRST_PARTY_OAUTH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUTHORIZATION_TYPE_UNSPECIFIED, 0
   field :AUTHORIZATION_CODE, 1
@@ -38,9 +21,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_REFRESH_TYPE_UNSPECIFIED | :SLIDING_WINDOW | :CUSTOM_SLIDING_WINDOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_REFRESH_TYPE_UNSPECIFIED, 0
   field :SLIDING_WINDOW, 1
@@ -48,52 +29,14 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RUN_ATTEMPT_UNSPECIFIED | :LATEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RUN_ATTEMPT_UNSPECIFIED, 0
   field :LATEST, 1
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          param_id: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          type: Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type.t(),
-          required: boolean,
-          repeated: boolean,
-          validation_regex: String.t(),
-          allowed_values: [String.t()],
-          min_value: Google.Protobuf.DoubleValue.t() | nil,
-          max_value: Google.Protobuf.DoubleValue.t() | nil,
-          fields: [Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.t()],
-          validation_description: String.t(),
-          validation_help_url: String.t(),
-          immutable: boolean,
-          recurse: boolean,
-          deprecated: boolean
-        }
-
-  defstruct param_id: "",
-            display_name: "",
-            description: "",
-            type: :TYPE_UNSPECIFIED,
-            required: false,
-            repeated: false,
-            validation_regex: "",
-            allowed_values: [],
-            min_value: nil,
-            max_value: nil,
-            fields: [],
-            validation_description: "",
-            validation_help_url: "",
-            immutable: false,
-            recurse: false,
-            deprecated: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :param_id, 1, type: :string, json_name: "paramId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -118,48 +61,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          data_source_id: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          client_id: String.t(),
-          scopes: [String.t()],
-          transfer_type: Google.Cloud.Bigquery.Datatransfer.V1.TransferType.t(),
-          supports_multiple_transfers: boolean,
-          update_deadline_seconds: integer,
-          default_schedule: String.t(),
-          supports_custom_schedule: boolean,
-          parameters: [Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.t()],
-          help_url: String.t(),
-          authorization_type:
-            Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType.t(),
-          data_refresh_type: Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType.t(),
-          default_data_refresh_window_days: integer,
-          manual_runs_disabled: boolean,
-          minimum_schedule_interval: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct name: "",
-            data_source_id: "",
-            display_name: "",
-            description: "",
-            client_id: "",
-            scopes: [],
-            transfer_type: :TRANSFER_TYPE_UNSPECIFIED,
-            supports_multiple_transfers: false,
-            update_deadline_seconds: 0,
-            default_schedule: "",
-            supports_custom_schedule: false,
-            parameters: [],
-            help_url: "",
-            authorization_type: :AUTHORIZATION_TYPE_UNSPECIFIED,
-            data_refresh_type: :DATA_REFRESH_TYPE_UNSPECIFIED,
-            default_data_refresh_window_days: 0,
-            manual_runs_disabled: false,
-            minimum_schedule_interval: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data_source_id, 2, type: :string, json_name: "dataSourceId"
@@ -211,29 +113,13 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
@@ -241,15 +127,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_sources: [Google.Cloud.Bigquery.Datatransfer.V1.DataSource.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct data_sources: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_sources, 1,
     repeated: true,
@@ -260,21 +138,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          transfer_config: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig.t() | nil,
-          authorization_code: String.t(),
-          version_info: String.t(),
-          service_account_name: String.t()
-        }
-
-  defstruct parent: "",
-            transfer_config: nil,
-            authorization_code: "",
-            version_info: "",
-            service_account_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -289,21 +153,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_config: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig.t() | nil,
-          authorization_code: String.t(),
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          version_info: String.t(),
-          service_account_name: String.t()
-        }
-
-  defstruct transfer_config: nil,
-            authorization_code: "",
-            update_mask: nil,
-            version_info: "",
-            service_account_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_config, 1,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig,
@@ -322,67 +172,31 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          data_source_ids: [String.t()],
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            data_source_ids: [],
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
@@ -391,15 +205,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_configs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct transfer_configs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_configs, 1,
     repeated: true,
@@ -411,22 +217,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          states: [Google.Cloud.Bigquery.Datatransfer.V1.TransferState.t()],
-          page_token: String.t(),
-          page_size: integer,
-          run_attempt:
-            Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt.t()
-        }
-
-  defstruct parent: "",
-            states: [],
-            page_token: "",
-            page_size: 0,
-            run_attempt: :RUN_ATTEMPT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -445,15 +236,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_runs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferRun.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct transfer_runs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_runs, 1,
     repeated: true,
@@ -465,21 +248,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer,
-          message_types: [
-            Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.MessageSeverity.t()
-          ]
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0,
-            message_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken"
@@ -493,15 +262,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transfer_messages: [Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct transfer_messages: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transfer_messages, 1,
     repeated: true,
@@ -513,41 +274,19 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          has_valid_creds: boolean
-        }
-
-  defstruct has_valid_creds: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :has_valid_creds, 1, type: :bool, json_name: "hasValidCreds"
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct parent: "",
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -555,46 +294,20 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest do
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          runs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferRun.t()]
-        }
-
-  defstruct runs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.TimeRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time:
-            {:requested_time_range,
-             Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.TimeRange.t()
-             | nil}
-            | {:requested_run_time, Google.Protobuf.Timestamp.t() | nil},
-          parent: String.t()
-        }
-
-  defstruct time: nil,
-            parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :time, 0
 
@@ -612,34 +325,22 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest d
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          runs: [Google.Cloud.Bigquery.Datatransfer.V1.TransferRun.t()]
-        }
-
-  defstruct runs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          data_source_ids: [String.t()]
-        }
-
-  defstruct name: "",
-            data_source_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
 end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.datatransfer.v1.DataTransferService"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.datatransfer.v1.DataTransferService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetDataSource,
       Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest,

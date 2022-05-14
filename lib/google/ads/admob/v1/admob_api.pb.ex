@@ -1,72 +1,33 @@
 defmodule Google.Ads.Admob.V1.GetPublisherAccountRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Ads.Admob.V1.ListPublisherAccountsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
 end
 defmodule Google.Ads.Admob.V1.ListPublisherAccountsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          account: [Google.Ads.Admob.V1.PublisherAccount.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct account: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :account, 1, repeated: true, type: Google.Ads.Admob.V1.PublisherAccount
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Ads.Admob.V1.GenerateMediationReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          report_spec: Google.Ads.Admob.V1.MediationReportSpec.t() | nil
-        }
-
-  defstruct parent: "",
-            report_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :report_spec, 2, type: Google.Ads.Admob.V1.MediationReportSpec, json_name: "reportSpec"
 end
 defmodule Google.Ads.Admob.V1.GenerateMediationReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:header, Google.Ads.Admob.V1.ReportHeader.t() | nil}
-            | {:row, Google.Ads.Admob.V1.ReportRow.t() | nil}
-            | {:footer, Google.Ads.Admob.V1.ReportFooter.t() | nil}
-        }
-
-  defstruct payload: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -76,31 +37,14 @@ defmodule Google.Ads.Admob.V1.GenerateMediationReportResponse do
 end
 defmodule Google.Ads.Admob.V1.GenerateNetworkReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          report_spec: Google.Ads.Admob.V1.NetworkReportSpec.t() | nil
-        }
-
-  defstruct parent: "",
-            report_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :report_spec, 2, type: Google.Ads.Admob.V1.NetworkReportSpec, json_name: "reportSpec"
 end
 defmodule Google.Ads.Admob.V1.GenerateNetworkReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:header, Google.Ads.Admob.V1.ReportHeader.t() | nil}
-            | {:row, Google.Ads.Admob.V1.ReportRow.t() | nil}
-            | {:footer, Google.Ads.Admob.V1.ReportFooter.t() | nil}
-        }
-
-  defstruct payload: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -110,7 +54,7 @@ defmodule Google.Ads.Admob.V1.GenerateNetworkReportResponse do
 end
 defmodule Google.Ads.Admob.V1.AdMobApi.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.admob.v1.AdMobApi"
+  use GRPC.Service, name: "google.ads.admob.v1.AdMobApi", protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetPublisherAccount,
       Google.Ads.Admob.V1.GetPublisherAccountRequest,

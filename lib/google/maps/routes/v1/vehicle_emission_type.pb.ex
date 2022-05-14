@@ -1,8 +1,6 @@
 defmodule Google.Maps.Routes.V1.VehicleEmissionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VEHICLE_EMISSION_TYPE_UNSPECIFIED | :GASOLINE | :ELECTRIC | :HYBRID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VEHICLE_EMISSION_TYPE_UNSPECIFIED, 0
   field :GASOLINE, 1

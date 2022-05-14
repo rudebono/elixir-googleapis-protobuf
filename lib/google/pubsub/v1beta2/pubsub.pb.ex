@@ -1,43 +1,19 @@
 defmodule Google.Pubsub.V1beta2.Topic do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Pubsub.V1beta2.PubsubMessage.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Pubsub.V1beta2.PubsubMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data: binary,
-          attributes: %{String.t() => String.t()},
-          message_id: String.t()
-        }
-
-  defstruct data: "",
-            attributes: %{},
-            message_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 
@@ -50,56 +26,26 @@ defmodule Google.Pubsub.V1beta2.PubsubMessage do
 end
 defmodule Google.Pubsub.V1beta2.GetTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: String.t()
-        }
-
-  defstruct topic: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: :string
 end
 defmodule Google.Pubsub.V1beta2.PublishRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: String.t(),
-          messages: [Google.Pubsub.V1beta2.PubsubMessage.t()]
-        }
-
-  defstruct topic: "",
-            messages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :messages, 2, repeated: true, type: Google.Pubsub.V1beta2.PubsubMessage
 end
 defmodule Google.Pubsub.V1beta2.PublishResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message_ids: [String.t()]
-        }
-
-  defstruct message_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds"
 end
 defmodule Google.Pubsub.V1beta2.ListTopicsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -107,32 +53,14 @@ defmodule Google.Pubsub.V1beta2.ListTopicsRequest do
 end
 defmodule Google.Pubsub.V1beta2.ListTopicsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topics: [Google.Pubsub.V1beta2.Topic.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct topics: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topics, 1, repeated: true, type: Google.Pubsub.V1beta2.Topic
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Pubsub.V1beta2.ListTopicSubscriptionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct topic: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -140,46 +68,20 @@ defmodule Google.Pubsub.V1beta2.ListTopicSubscriptionsRequest do
 end
 defmodule Google.Pubsub.V1beta2.ListTopicSubscriptionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscriptions: [String.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct subscriptions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Pubsub.V1beta2.DeleteTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: String.t()
-        }
-
-  defstruct topic: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: :string
 end
 defmodule Google.Pubsub.V1beta2.Subscription do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          topic: String.t(),
-          push_config: Google.Pubsub.V1beta2.PushConfig.t() | nil,
-          ack_deadline_seconds: integer
-        }
-
-  defstruct name: "",
-            topic: "",
-            push_config: nil,
-            ack_deadline_seconds: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :topic, 2, type: :string
@@ -188,30 +90,14 @@ defmodule Google.Pubsub.V1beta2.Subscription do
 end
 defmodule Google.Pubsub.V1beta2.PushConfig.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Pubsub.V1beta2.PushConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          push_endpoint: String.t(),
-          attributes: %{String.t() => String.t()}
-        }
-
-  defstruct push_endpoint: "",
-            attributes: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :push_endpoint, 1, type: :string, json_name: "pushEndpoint"
 
@@ -222,44 +108,20 @@ defmodule Google.Pubsub.V1beta2.PushConfig do
 end
 defmodule Google.Pubsub.V1beta2.ReceivedMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ack_id: String.t(),
-          message: Google.Pubsub.V1beta2.PubsubMessage.t() | nil
-        }
-
-  defstruct ack_id: "",
-            message: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ack_id, 1, type: :string, json_name: "ackId"
   field :message, 2, type: Google.Pubsub.V1beta2.PubsubMessage
 end
 defmodule Google.Pubsub.V1beta2.GetSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t()
-        }
-
-  defstruct subscription: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
 end
 defmodule Google.Pubsub.V1beta2.ListSubscriptionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -267,59 +129,27 @@ defmodule Google.Pubsub.V1beta2.ListSubscriptionsRequest do
 end
 defmodule Google.Pubsub.V1beta2.ListSubscriptionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscriptions: [Google.Pubsub.V1beta2.Subscription.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct subscriptions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1beta2.Subscription
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Pubsub.V1beta2.DeleteSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t()
-        }
-
-  defstruct subscription: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
 end
 defmodule Google.Pubsub.V1beta2.ModifyPushConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          push_config: Google.Pubsub.V1beta2.PushConfig.t() | nil
-        }
-
-  defstruct subscription: "",
-            push_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :push_config, 2, type: Google.Pubsub.V1beta2.PushConfig, json_name: "pushConfig"
 end
 defmodule Google.Pubsub.V1beta2.PullRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          return_immediately: boolean,
-          max_messages: integer
-        }
-
-  defstruct subscription: "",
-            return_immediately: false,
-            max_messages: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :return_immediately, 2, type: :bool, json_name: "returnImmediately"
@@ -327,13 +157,7 @@ defmodule Google.Pubsub.V1beta2.PullRequest do
 end
 defmodule Google.Pubsub.V1beta2.PullResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          received_messages: [Google.Pubsub.V1beta2.ReceivedMessage.t()]
-        }
-
-  defstruct received_messages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :received_messages, 1,
     repeated: true,
@@ -342,17 +166,7 @@ defmodule Google.Pubsub.V1beta2.PullResponse do
 end
 defmodule Google.Pubsub.V1beta2.ModifyAckDeadlineRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          ack_id: String.t(),
-          ack_deadline_seconds: integer
-        }
-
-  defstruct subscription: "",
-            ack_id: "",
-            ack_deadline_seconds: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :ack_id, 2, type: :string, json_name: "ackId"
@@ -360,22 +174,14 @@ defmodule Google.Pubsub.V1beta2.ModifyAckDeadlineRequest do
 end
 defmodule Google.Pubsub.V1beta2.AcknowledgeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: String.t(),
-          ack_ids: [String.t()]
-        }
-
-  defstruct subscription: "",
-            ack_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: :string
   field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
 end
 defmodule Google.Pubsub.V1beta2.Subscriber.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.pubsub.v1beta2.Subscriber"
+  use GRPC.Service, name: "google.pubsub.v1beta2.Subscriber", protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateSubscription, Google.Pubsub.V1beta2.Subscription, Google.Pubsub.V1beta2.Subscription
 
@@ -404,7 +210,7 @@ defmodule Google.Pubsub.V1beta2.Subscriber.Stub do
 end
 defmodule Google.Pubsub.V1beta2.Publisher.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.pubsub.v1beta2.Publisher"
+  use GRPC.Service, name: "google.pubsub.v1beta2.Publisher", protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTopic, Google.Pubsub.V1beta2.Topic, Google.Pubsub.V1beta2.Topic
 

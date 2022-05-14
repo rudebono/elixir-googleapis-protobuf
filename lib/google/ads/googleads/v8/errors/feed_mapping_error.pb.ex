@@ -1,28 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.FeedMappingErrorEnum.FeedMappingError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :INVALID_PLACEHOLDER_FIELD
-          | :INVALID_CRITERION_FIELD
-          | :INVALID_PLACEHOLDER_TYPE
-          | :INVALID_CRITERION_TYPE
-          | :NO_ATTRIBUTE_FIELD_MAPPINGS
-          | :FEED_ATTRIBUTE_TYPE_MISMATCH
-          | :CANNOT_OPERATE_ON_MAPPINGS_FOR_SYSTEM_GENERATED_FEED
-          | :MULTIPLE_MAPPINGS_FOR_PLACEHOLDER_TYPE
-          | :MULTIPLE_MAPPINGS_FOR_CRITERION_TYPE
-          | :MULTIPLE_MAPPINGS_FOR_PLACEHOLDER_FIELD
-          | :MULTIPLE_MAPPINGS_FOR_CRITERION_FIELD
-          | :UNEXPECTED_ATTRIBUTE_FIELD_MAPPINGS
-          | :LOCATION_PLACEHOLDER_ONLY_FOR_PLACES_FEEDS
-          | :CANNOT_MODIFY_MAPPINGS_FOR_TYPED_FEED
-          | :INVALID_PLACEHOLDER_TYPE_FOR_NON_SYSTEM_GENERATED_FEED
-          | :INVALID_PLACEHOLDER_TYPE_FOR_SYSTEM_GENERATED_FEED_TYPE
-          | :ATTRIBUTE_FIELD_MAPPING_MISSING_FIELD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -46,9 +24,5 @@ defmodule Google.Ads.Googleads.V8.Errors.FeedMappingErrorEnum.FeedMappingError d
 end
 defmodule Google.Ads.Googleads.V8.Errors.FeedMappingErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

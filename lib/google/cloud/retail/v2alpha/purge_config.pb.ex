@@ -1,26 +1,10 @@
 defmodule Google.Cloud.Retail.V2alpha.PurgeMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Retail.V2alpha.PurgeProductsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          success_count: integer,
-          failure_count: integer
-        }
-
-  defstruct create_time: nil,
-            update_time: nil,
-            success_count: 0,
-            failure_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -29,17 +13,7 @@ defmodule Google.Cloud.Retail.V2alpha.PurgeProductsMetadata do
 end
 defmodule Google.Cloud.Retail.V2alpha.PurgeProductsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -47,15 +21,7 @@ defmodule Google.Cloud.Retail.V2alpha.PurgeProductsRequest do
 end
 defmodule Google.Cloud.Retail.V2alpha.PurgeProductsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purge_count: integer,
-          purge_sample: [String.t()]
-        }
-
-  defstruct purge_count: 0,
-            purge_sample: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purge_count, 1, type: :int64, json_name: "purgeCount"
 
@@ -67,17 +33,7 @@ defmodule Google.Cloud.Retail.V2alpha.PurgeProductsResponse do
 end
 defmodule Google.Cloud.Retail.V2alpha.PurgeUserEventsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          force: boolean
-        }
-
-  defstruct parent: "",
-            filter: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -85,13 +41,7 @@ defmodule Google.Cloud.Retail.V2alpha.PurgeUserEventsRequest do
 end
 defmodule Google.Cloud.Retail.V2alpha.PurgeUserEventsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          purged_events_count: integer
-        }
-
-  defstruct purged_events_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
 end

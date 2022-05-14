@@ -1,49 +1,19 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tensorboard: Google.Cloud.Aiplatform.V1beta1.Tensorboard.t() | nil
-        }
-
-  defstruct parent: "",
-            tensorboard: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tensorboard, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -54,30 +24,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboards: [Google.Cloud.Aiplatform.V1beta1.Tensorboard.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tensorboards: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboards, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          tensorboard: Google.Cloud.Aiplatform.V1beta1.Tensorboard.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            tensorboard: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -88,29 +42,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tensorboard_experiment: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment.t() | nil,
-          tensorboard_experiment_id: String.t()
-        }
-
-  defstruct parent: "",
-            tensorboard_experiment: nil,
-            tensorboard_experiment_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -125,35 +63,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -164,15 +80,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_experiments: [Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tensorboard_experiments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_experiments, 1,
     repeated: true,
@@ -183,15 +91,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardExperimentsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          tensorboard_experiment: Google.Cloud.Aiplatform.V1beta1.TensorboardExperiment.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            tensorboard_experiment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -205,27 +105,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardExperimentRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          requests: [Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest.t()]
-        }
-
-  defstruct parent: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -236,13 +122,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_runs: [Google.Cloud.Aiplatform.V1beta1.TensorboardRun.t()]
-        }
-
-  defstruct tensorboard_runs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_runs, 1,
     repeated: true,
@@ -251,17 +131,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardRunsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tensorboard_run: Google.Cloud.Aiplatform.V1beta1.TensorboardRun.t() | nil,
-          tensorboard_run_id: String.t()
-        }
-
-  defstruct parent: "",
-            tensorboard_run: nil,
-            tensorboard_run_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -274,62 +144,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRunRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series: String.t(),
-          blob_ids: [String.t()]
-        }
-
-  defstruct time_series: "",
-            blob_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series, 1, type: :string, json_name: "timeSeries", deprecated: false
   field :blob_ids, 2, repeated: true, type: :string, json_name: "blobIds"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardBlobDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          blobs: [Google.Cloud.Aiplatform.V1beta1.TensorboardBlob.t()]
-        }
-
-  defstruct blobs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :blobs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.TensorboardBlob
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -340,15 +174,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_runs: [Google.Cloud.Aiplatform.V1beta1.TensorboardRun.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tensorboard_runs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_runs, 1,
     repeated: true,
@@ -359,15 +185,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardRunsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          tensorboard_run: Google.Cloud.Aiplatform.V1beta1.TensorboardRun.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            tensorboard_run: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -381,27 +199,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRunRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRunRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          requests: [Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest.t()]
-        }
-
-  defstruct parent: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -412,13 +216,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesReques
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_time_series: [Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.t()]
-        }
-
-  defstruct tensorboard_time_series: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_time_series, 1,
     repeated: true,
@@ -427,17 +225,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateTensorboardTimeSeriesRespon
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tensorboard_time_series_id: String.t(),
-          tensorboard_time_series: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.t() | nil
-        }
-
-  defstruct parent: "",
-            tensorboard_time_series_id: "",
-            tensorboard_time_series: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -453,35 +241,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardTimeSeriesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -492,15 +258,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_time_series: [Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tensorboard_time_series: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_time_series, 1,
     repeated: true,
@@ -511,15 +269,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardTimeSeriesResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          tensorboard_time_series: Google.Cloud.Aiplatform.V1beta1.TensorboardTimeSeries.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            tensorboard_time_series: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -533,40 +283,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardTimeSeriesRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard: String.t(),
-          time_series: [String.t()]
-        }
-
-  defstruct tensorboard: "",
-            time_series: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard, 1, type: :string, deprecated: false
   field :time_series, 2, repeated: true, type: :string, json_name: "timeSeries", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series_data: [Google.Cloud.Aiplatform.V1beta1.TimeSeriesData.t()]
-        }
-
-  defstruct time_series_data: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series_data, 1,
     repeated: true,
@@ -575,17 +305,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadTensorboardTimeSeriesDataResp
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_time_series: String.t(),
-          max_data_points: integer,
-          filter: String.t()
-        }
-
-  defstruct tensorboard_time_series: "",
-            max_data_points: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_time_series, 1,
     type: :string,
@@ -597,13 +317,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataRequest d
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series_data: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData.t() | nil
-        }
-
-  defstruct time_series_data: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series_data, 1,
     type: Google.Cloud.Aiplatform.V1beta1.TimeSeriesData,
@@ -611,17 +325,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardTimeSeriesDataResponse 
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_experiment: String.t(),
-          write_run_data_requests: [
-            Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest.t()
-          ]
-        }
-
-  defstruct tensorboard_experiment: "",
-            write_run_data_requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_experiment, 1,
     type: :string,
@@ -636,23 +340,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataRequest 
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardExperimentDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_run: String.t(),
-          time_series_data: [Google.Cloud.Aiplatform.V1beta1.TimeSeriesData.t()]
-        }
-
-  defstruct tensorboard_run: "",
-            time_series_data: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_run, 1, type: :string, json_name: "tensorboardRun", deprecated: false
 
@@ -664,29 +356,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.WriteTensorboardRunDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tensorboard_time_series: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct tensorboard_time_series: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tensorboard_time_series, 1,
     type: :string,
@@ -700,15 +374,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRequest
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_series_data_points: [Google.Cloud.Aiplatform.V1beta1.TimeSeriesDataPoint.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct time_series_data_points: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time_series_data_points, 1,
     repeated: true,
@@ -719,13 +385,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportTensorboardTimeSeriesDataRespons
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -733,13 +393,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -747,7 +401,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1beta1.TensorboardService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1beta1.TensorboardService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTensorboard,
       Google.Cloud.Aiplatform.V1beta1.CreateTensorboardRequest,

@@ -1,15 +1,6 @@
 defmodule Google.Dataflow.V1beta3.ExecutionState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EXECUTION_STATE_UNKNOWN
-          | :EXECUTION_STATE_NOT_STARTED
-          | :EXECUTION_STATE_RUNNING
-          | :EXECUTION_STATE_SUCCEEDED
-          | :EXECUTION_STATE_FAILED
-          | :EXECUTION_STATE_CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EXECUTION_STATE_UNKNOWN, 0
   field :EXECUTION_STATE_NOT_STARTED, 1
@@ -20,32 +11,14 @@ defmodule Google.Dataflow.V1beta3.ExecutionState do
 end
 defmodule Google.Dataflow.V1beta3.MetricStructuredName.ContextEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.MetricStructuredName do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          origin: String.t(),
-          name: String.t(),
-          context: %{String.t() => String.t()}
-        }
-
-  defstruct origin: "",
-            name: "",
-            context: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :origin, 1, type: :string
   field :name, 2, type: :string
@@ -57,33 +30,7 @@ defmodule Google.Dataflow.V1beta3.MetricStructuredName do
 end
 defmodule Google.Dataflow.V1beta3.MetricUpdate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: Google.Dataflow.V1beta3.MetricStructuredName.t() | nil,
-          kind: String.t(),
-          cumulative: boolean,
-          scalar: Google.Protobuf.Value.t() | nil,
-          mean_sum: Google.Protobuf.Value.t() | nil,
-          mean_count: Google.Protobuf.Value.t() | nil,
-          set: Google.Protobuf.Value.t() | nil,
-          distribution: Google.Protobuf.Value.t() | nil,
-          gauge: Google.Protobuf.Value.t() | nil,
-          internal: Google.Protobuf.Value.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: nil,
-            kind: "",
-            cumulative: false,
-            scalar: nil,
-            mean_sum: nil,
-            mean_count: nil,
-            set: nil,
-            distribution: nil,
-            gauge: nil,
-            internal: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: Google.Dataflow.V1beta3.MetricStructuredName
   field :kind, 2, type: :string
@@ -99,19 +46,7 @@ defmodule Google.Dataflow.V1beta3.MetricUpdate do
 end
 defmodule Google.Dataflow.V1beta3.GetJobMetricsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          job_id: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          location: String.t()
-        }
-
-  defstruct project_id: "",
-            job_id: "",
-            start_time: nil,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -120,36 +55,14 @@ defmodule Google.Dataflow.V1beta3.GetJobMetricsRequest do
 end
 defmodule Google.Dataflow.V1beta3.JobMetrics do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metric_time: Google.Protobuf.Timestamp.t() | nil,
-          metrics: [Google.Dataflow.V1beta3.MetricUpdate.t()]
-        }
-
-  defstruct metric_time: nil,
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metric_time, 1, type: Google.Protobuf.Timestamp, json_name: "metricTime"
   field :metrics, 2, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
 end
 defmodule Google.Dataflow.V1beta3.GetJobExecutionDetailsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          job_id: String.t(),
-          location: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct project_id: "",
-            job_id: "",
-            location: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -159,30 +72,14 @@ defmodule Google.Dataflow.V1beta3.GetJobExecutionDetailsRequest do
 end
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries.Point do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time: Google.Protobuf.Timestamp.t() | nil,
-          value: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct time: nil,
-            value: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :value, 2, type: :double
 end
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          current_progress: float | :infinity | :negative_infinity | :nan,
-          data_points: [Google.Dataflow.V1beta3.ProgressTimeseries.Point.t()]
-        }
-
-  defstruct current_progress: 0.0,
-            data_points: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :current_progress, 1, type: :double, json_name: "currentProgress"
 
@@ -193,23 +90,7 @@ defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
 end
 defmodule Google.Dataflow.V1beta3.StageSummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stage_id: String.t(),
-          state: Google.Dataflow.V1beta3.ExecutionState.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          progress: Google.Dataflow.V1beta3.ProgressTimeseries.t() | nil,
-          metrics: [Google.Dataflow.V1beta3.MetricUpdate.t()]
-        }
-
-  defstruct stage_id: "",
-            state: :EXECUTION_STATE_UNKNOWN,
-            start_time: nil,
-            end_time: nil,
-            progress: nil,
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stage_id, 1, type: :string, json_name: "stageId"
   field :state, 2, type: Google.Dataflow.V1beta3.ExecutionState, enum: true
@@ -220,42 +101,14 @@ defmodule Google.Dataflow.V1beta3.StageSummary do
 end
 defmodule Google.Dataflow.V1beta3.JobExecutionDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stages: [Google.Dataflow.V1beta3.StageSummary.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct stages: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stages, 1, repeated: true, type: Google.Dataflow.V1beta3.StageSummary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Dataflow.V1beta3.GetStageExecutionDetailsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          job_id: String.t(),
-          location: String.t(),
-          stage_id: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct project_id: "",
-            job_id: "",
-            location: "",
-            stage_id: "",
-            page_size: 0,
-            page_token: "",
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -268,25 +121,7 @@ defmodule Google.Dataflow.V1beta3.GetStageExecutionDetailsRequest do
 end
 defmodule Google.Dataflow.V1beta3.WorkItemDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task_id: String.t(),
-          attempt_id: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Dataflow.V1beta3.ExecutionState.t(),
-          progress: Google.Dataflow.V1beta3.ProgressTimeseries.t() | nil,
-          metrics: [Google.Dataflow.V1beta3.MetricUpdate.t()]
-        }
-
-  defstruct task_id: "",
-            attempt_id: "",
-            start_time: nil,
-            end_time: nil,
-            state: :EXECUTION_STATE_UNKNOWN,
-            progress: nil,
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :task_id, 1, type: :string, json_name: "taskId"
   field :attempt_id, 2, type: :string, json_name: "attemptId"
@@ -298,15 +133,7 @@ defmodule Google.Dataflow.V1beta3.WorkItemDetails do
 end
 defmodule Google.Dataflow.V1beta3.WorkerDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          worker_name: String.t(),
-          work_items: [Google.Dataflow.V1beta3.WorkItemDetails.t()]
-        }
-
-  defstruct worker_name: "",
-            work_items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :worker_name, 1, type: :string, json_name: "workerName"
 
@@ -317,22 +144,16 @@ defmodule Google.Dataflow.V1beta3.WorkerDetails do
 end
 defmodule Google.Dataflow.V1beta3.StageExecutionDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workers: [Google.Dataflow.V1beta3.WorkerDetails.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct workers: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workers, 1, repeated: true, type: Google.Dataflow.V1beta3.WorkerDetails
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Dataflow.V1beta3.MetricsV1Beta3.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.dataflow.v1beta3.MetricsV1Beta3"
+  use GRPC.Service,
+    name: "google.dataflow.v1beta3.MetricsV1Beta3",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetJobMetrics,
       Google.Dataflow.V1beta3.GetJobMetricsRequest,

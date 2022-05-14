@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Iot.V1.CreateDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          device_registry: Google.Cloud.Iot.V1.DeviceRegistry.t() | nil
-        }
-
-  defstruct parent: "",
-            device_registry: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,39 +11,19 @@ defmodule Google.Cloud.Iot.V1.CreateDeviceRegistryRequest do
 end
 defmodule Google.Cloud.Iot.V1.GetDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_registry: Google.Cloud.Iot.V1.DeviceRegistry.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct device_registry: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_registry, 1,
     type: Google.Cloud.Iot.V1.DeviceRegistry,
@@ -65,17 +37,7 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -83,15 +45,7 @@ defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesRequest do
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_registries: [Google.Cloud.Iot.V1.DeviceRegistry.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct device_registries: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_registries, 1,
     repeated: true,
@@ -102,45 +56,21 @@ defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
 end
 defmodule Google.Cloud.Iot.V1.CreateDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          device: Google.Cloud.Iot.V1.Device.t() | nil
-        }
-
-  defstruct parent: "",
-            device: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :device, 2, type: Google.Cloud.Iot.V1.Device, deprecated: false
 end
 defmodule Google.Cloud.Iot.V1.GetDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          field_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            field_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
 end
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device: Google.Cloud.Iot.V1.Device.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct device: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device, 2, type: Google.Cloud.Iot.V1.Device, deprecated: false
 
@@ -151,37 +81,13 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
 end
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          device_num_ids: [non_neg_integer],
-          device_ids: [String.t()],
-          field_mask: Google.Protobuf.FieldMask.t() | nil,
-          gateway_list_options: Google.Cloud.Iot.V1.GatewayListOptions.t() | nil,
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            device_num_ids: [],
-            device_ids: [],
-            field_mask: nil,
-            gateway_list_options: nil,
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :device_num_ids, 2, repeated: true, type: :uint64, json_name: "deviceNumIds"
@@ -197,16 +103,7 @@ defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
 end
 defmodule Google.Cloud.Iot.V1.GatewayListOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          filter:
-            {:gateway_type, Google.Cloud.Iot.V1.GatewayType.t()}
-            | {:associations_gateway_id, String.t()}
-            | {:associations_device_id, String.t()}
-        }
-
-  defstruct filter: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :filter, 0
 
@@ -221,32 +118,14 @@ defmodule Google.Cloud.Iot.V1.GatewayListOptions do
 end
 defmodule Google.Cloud.Iot.V1.ListDevicesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          devices: [Google.Cloud.Iot.V1.Device.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct devices: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :devices, 1, repeated: true, type: Google.Cloud.Iot.V1.Device
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version_to_update: integer,
-          binary_data: binary
-        }
-
-  defstruct name: "",
-            version_to_update: 0,
-            binary_data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version_to_update, 2, type: :int64, json_name: "versionToUpdate"
@@ -254,28 +133,14 @@ defmodule Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest do
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          num_versions: integer
-        }
-
-  defstruct name: "",
-            num_versions: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :num_versions, 2, type: :int32, json_name: "numVersions"
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_configs: [Google.Cloud.Iot.V1.DeviceConfig.t()]
-        }
-
-  defstruct device_configs: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_configs, 1,
     repeated: true,
@@ -284,28 +149,14 @@ defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse do
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          num_states: integer
-        }
-
-  defstruct name: "",
-            num_states: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :num_states, 2, type: :int32, json_name: "numStates"
 end
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_states: [Google.Cloud.Iot.V1.DeviceState.t()]
-        }
-
-  defstruct device_states: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_states, 1,
     repeated: true,
@@ -314,17 +165,7 @@ defmodule Google.Cloud.Iot.V1.ListDeviceStatesResponse do
 end
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          binary_data: binary,
-          subfolder: String.t()
-        }
-
-  defstruct name: "",
-            binary_data: "",
-            subfolder: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :binary_data, 2, type: :bytes, json_name: "binaryData", deprecated: false
@@ -332,25 +173,11 @@ defmodule Google.Cloud.Iot.V1.SendCommandToDeviceRequest do
 end
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          gateway_id: String.t(),
-          device_id: String.t()
-        }
-
-  defstruct parent: "",
-            gateway_id: "",
-            device_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
@@ -358,25 +185,11 @@ defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayRequest do
 end
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          gateway_id: String.t(),
-          device_id: String.t()
-        }
-
-  defstruct parent: "",
-            gateway_id: "",
-            device_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
@@ -384,15 +197,11 @@ defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest do
 end
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Iot.V1.DeviceManager.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.iot.v1.DeviceManager"
+  use GRPC.Service, name: "google.cloud.iot.v1.DeviceManager", protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateDeviceRegistry,
       Google.Cloud.Iot.V1.CreateDeviceRegistryRequest,

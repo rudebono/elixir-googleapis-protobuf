@@ -1,8 +1,6 @@
 defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :DEPRECATION | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :DEPRECATION, 1
@@ -11,19 +9,7 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity do
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.ParseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cel_source: String.t(),
-          syntax_version: String.t(),
-          source_location: String.t(),
-          disable_macros: boolean
-        }
-
-  defstruct cel_source: "",
-            syntax_version: "",
-            source_location: "",
-            disable_macros: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cel_source, 1, type: :string, json_name: "celSource"
   field :syntax_version, 2, type: :string, json_name: "syntaxVersion"
@@ -32,34 +18,14 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.ParseRequest do
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.ParseResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parsed_expr: Google.Api.Expr.V1alpha1.ParsedExpr.t() | nil,
-          issues: [Google.Rpc.Status.t()]
-        }
-
-  defstruct parsed_expr: nil,
-            issues: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parsed_expr, 1, type: Google.Api.Expr.V1alpha1.ParsedExpr, json_name: "parsedExpr"
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.CheckRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parsed_expr: Google.Api.Expr.V1alpha1.ParsedExpr.t() | nil,
-          type_env: [Google.Api.Expr.V1alpha1.Decl.t()],
-          container: String.t(),
-          no_std_env: boolean
-        }
-
-  defstruct parsed_expr: nil,
-            type_env: [],
-            container: "",
-            no_std_env: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parsed_expr, 1, type: Google.Api.Expr.V1alpha1.ParsedExpr, json_name: "parsedExpr"
   field :type_env, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Decl, json_name: "typeEnv"
@@ -68,49 +34,21 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.CheckRequest do
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.CheckResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          checked_expr: Google.Api.Expr.V1alpha1.CheckedExpr.t() | nil,
-          issues: [Google.Rpc.Status.t()]
-        }
-
-  defstruct checked_expr: nil,
-            issues: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :checked_expr, 1, type: Google.Api.Expr.V1alpha1.CheckedExpr, json_name: "checkedExpr"
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest.BindingsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Api.Expr.V1alpha1.ExprValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Api.Expr.V1alpha1.ExprValue
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          expr_kind:
-            {:parsed_expr, Google.Api.Expr.V1alpha1.ParsedExpr.t() | nil}
-            | {:checked_expr, Google.Api.Expr.V1alpha1.CheckedExpr.t() | nil},
-          bindings: %{String.t() => Google.Api.Expr.V1alpha1.ExprValue.t() | nil},
-          container: String.t()
-        }
-
-  defstruct expr_kind: nil,
-            bindings: %{},
-            container: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :expr_kind, 0
 
@@ -133,32 +71,14 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalRequest do
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.EvalResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Api.Expr.V1alpha1.ExprValue.t() | nil,
-          issues: [Google.Rpc.Status.t()]
-        }
-
-  defstruct result: nil,
-            issues: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1, type: Google.Api.Expr.V1alpha1.ExprValue
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          severity: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity.t(),
-          position: Google.Api.Expr.V1alpha1.SourcePosition.t() | nil,
-          id: integer
-        }
-
-  defstruct severity: :SEVERITY_UNSPECIFIED,
-            position: nil,
-            id: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :severity, 1, type: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity, enum: true
   field :position, 2, type: Google.Api.Expr.V1alpha1.SourcePosition
@@ -166,7 +86,9 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
 end
 defmodule Google.Api.Expr.Conformance.V1alpha1.ConformanceService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.api.expr.conformance.v1alpha1.ConformanceService"
+  use GRPC.Service,
+    name: "google.api.expr.conformance.v1alpha1.ConformanceService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Parse,
       Google.Api.Expr.Conformance.V1alpha1.ParseRequest,

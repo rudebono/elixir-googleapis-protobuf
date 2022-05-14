@@ -1,8 +1,6 @@
 defmodule Google.Genomics.V1.AnnotationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ANNOTATION_TYPE_UNSPECIFIED | :GENERIC | :VARIANT | :GENE | :TRANSCRIPT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :GENERIC, 1
@@ -12,18 +10,7 @@ defmodule Google.Genomics.V1.AnnotationType do
 end
 defmodule Google.Genomics.V1.VariantAnnotation.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :TYPE_OTHER
-          | :INSERTION
-          | :DELETION
-          | :SUBSTITUTION
-          | :SNP
-          | :STRUCTURAL
-          | :CNV
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TYPE_OTHER, 1
@@ -36,19 +23,7 @@ defmodule Google.Genomics.V1.VariantAnnotation.Type do
 end
 defmodule Google.Genomics.V1.VariantAnnotation.Effect do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :EFFECT_UNSPECIFIED
-          | :EFFECT_OTHER
-          | :FRAMESHIFT
-          | :FRAME_PRESERVING_INDEL
-          | :SYNONYMOUS_SNP
-          | :NONSYNONYMOUS_SNP
-          | :STOP_GAIN
-          | :STOP_LOSS
-          | :SPLICE_SITE_DISRUPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EFFECT_UNSPECIFIED, 0
   field :EFFECT_OTHER, 1
@@ -62,24 +37,7 @@ defmodule Google.Genomics.V1.VariantAnnotation.Effect do
 end
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalSignificance do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLINICAL_SIGNIFICANCE_UNSPECIFIED
-          | :CLINICAL_SIGNIFICANCE_OTHER
-          | :UNCERTAIN
-          | :BENIGN
-          | :LIKELY_BENIGN
-          | :LIKELY_PATHOGENIC
-          | :PATHOGENIC
-          | :DRUG_RESPONSE
-          | :HISTOCOMPATIBILITY
-          | :CONFERS_SENSITIVITY
-          | :RISK_FACTOR
-          | :ASSOCIATION
-          | :PROTECTIVE
-          | :MULTIPLE_REPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLINICAL_SIGNIFICANCE_UNSPECIFIED, 0
   field :CLINICAL_SIGNIFICANCE_OTHER, 1
@@ -98,40 +56,14 @@ defmodule Google.Genomics.V1.VariantAnnotation.ClinicalSignificance do
 end
 defmodule Google.Genomics.V1.AnnotationSet.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.AnnotationSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          dataset_id: String.t(),
-          reference_set_id: String.t(),
-          name: String.t(),
-          source_uri: String.t(),
-          type: Google.Genomics.V1.AnnotationType.t(),
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct id: "",
-            dataset_id: "",
-            reference_set_id: "",
-            name: "",
-            source_uri: "",
-            type: :ANNOTATION_TYPE_UNSPECIFIED,
-            info: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -143,50 +75,14 @@ defmodule Google.Genomics.V1.AnnotationSet do
 end
 defmodule Google.Genomics.V1.Annotation.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.ListValue.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
 defmodule Google.Genomics.V1.Annotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:variant, Google.Genomics.V1.VariantAnnotation.t() | nil}
-            | {:transcript, Google.Genomics.V1.Transcript.t() | nil},
-          id: String.t(),
-          annotation_set_id: String.t(),
-          name: String.t(),
-          reference_id: String.t(),
-          reference_name: String.t(),
-          start: integer,
-          end: integer,
-          reverse_strand: boolean,
-          type: Google.Genomics.V1.AnnotationType.t(),
-          info: %{String.t() => Google.Protobuf.ListValue.t() | nil}
-        }
-
-  defstruct value: nil,
-            id: "",
-            annotation_set_id: "",
-            name: "",
-            reference_id: "",
-            reference_name: "",
-            start: 0,
-            end: 0,
-            reverse_strand: false,
-            type: :ANNOTATION_TYPE_UNSPECIFIED,
-            info: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -205,19 +101,7 @@ defmodule Google.Genomics.V1.Annotation do
 end
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          names: [String.t()],
-          external_ids: [Google.Genomics.V1.ExternalId.t()],
-          concept_id: String.t(),
-          omim_id: String.t()
-        }
-
-  defstruct names: [],
-            external_ids: [],
-            concept_id: "",
-            omim_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :names, 1, repeated: true, type: :string
 
@@ -231,25 +115,7 @@ defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
 end
 defmodule Google.Genomics.V1.VariantAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Genomics.V1.VariantAnnotation.Type.t(),
-          effect: Google.Genomics.V1.VariantAnnotation.Effect.t(),
-          alternate_bases: String.t(),
-          gene_id: String.t(),
-          transcript_ids: [String.t()],
-          conditions: [Google.Genomics.V1.VariantAnnotation.ClinicalCondition.t()],
-          clinical_significance: Google.Genomics.V1.VariantAnnotation.ClinicalSignificance.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            effect: :EFFECT_UNSPECIFIED,
-            alternate_bases: "",
-            gene_id: "",
-            transcript_ids: [],
-            conditions: [],
-            clinical_significance: :CLINICAL_SIGNIFICANCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Genomics.V1.VariantAnnotation.Type, enum: true
   field :effect, 2, type: Google.Genomics.V1.VariantAnnotation.Effect, enum: true
@@ -268,17 +134,7 @@ defmodule Google.Genomics.V1.VariantAnnotation do
 end
 defmodule Google.Genomics.V1.Transcript.Exon do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: integer,
-          end: integer,
-          frame: Google.Protobuf.Int32Value.t() | nil
-        }
-
-  defstruct start: 0,
-            end: 0,
-            frame: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
@@ -286,32 +142,14 @@ defmodule Google.Genomics.V1.Transcript.Exon do
 end
 defmodule Google.Genomics.V1.Transcript.CodingSequence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: integer,
-          end: integer
-        }
-
-  defstruct start: 0,
-            end: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
 end
 defmodule Google.Genomics.V1.Transcript do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gene_id: String.t(),
-          exons: [Google.Genomics.V1.Transcript.Exon.t()],
-          coding_sequence: Google.Genomics.V1.Transcript.CodingSequence.t() | nil
-        }
-
-  defstruct gene_id: "",
-            exons: [],
-            coding_sequence: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gene_id, 1, type: :string, json_name: "geneId"
   field :exons, 2, repeated: true, type: Google.Genomics.V1.Transcript.Exon
@@ -322,56 +160,26 @@ defmodule Google.Genomics.V1.Transcript do
 end
 defmodule Google.Genomics.V1.ExternalId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_name: String.t(),
-          id: String.t()
-        }
-
-  defstruct source_name: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_name, 1, type: :string, json_name: "sourceName"
   field :id, 2, type: :string
 end
 defmodule Google.Genomics.V1.CreateAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_set: Google.Genomics.V1.AnnotationSet.t() | nil
-        }
-
-  defstruct annotation_set: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_set, 1, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
 end
 defmodule Google.Genomics.V1.GetAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_set_id: String.t()
-        }
-
-  defstruct annotation_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
 end
 defmodule Google.Genomics.V1.UpdateAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_set_id: String.t(),
-          annotation_set: Google.Genomics.V1.AnnotationSet.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct annotation_set_id: "",
-            annotation_set: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
   field :annotation_set, 2, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
@@ -379,35 +187,13 @@ defmodule Google.Genomics.V1.UpdateAnnotationSetRequest do
 end
 defmodule Google.Genomics.V1.DeleteAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_set_id: String.t()
-        }
-
-  defstruct annotation_set_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
 end
 defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_ids: [String.t()],
-          reference_set_id: String.t(),
-          name: String.t(),
-          types: [Google.Genomics.V1.AnnotationType.t()],
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct dataset_ids: [],
-            reference_set_id: "",
-            name: "",
-            types: [],
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :reference_set_id, 2, type: :string, json_name: "referenceSetId"
@@ -418,15 +204,7 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
 end
 defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_sets: [Google.Genomics.V1.AnnotationSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct annotation_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_sets, 1,
     repeated: true,
@@ -437,83 +215,39 @@ defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
 end
 defmodule Google.Genomics.V1.CreateAnnotationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation: Google.Genomics.V1.Annotation.t() | nil
-        }
-
-  defstruct annotation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Genomics.V1.Annotation
 end
 defmodule Google.Genomics.V1.BatchCreateAnnotationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotations: [Google.Genomics.V1.Annotation.t()],
-          request_id: String.t()
-        }
-
-  defstruct annotations: [],
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Rpc.Status.t() | nil,
-          annotation: Google.Genomics.V1.Annotation.t() | nil
-        }
-
-  defstruct status: nil,
-            annotation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :annotation, 2, type: Google.Genomics.V1.Annotation
 end
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entries: [Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry.t()]
-        }
-
-  defstruct entries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry
 end
 defmodule Google.Genomics.V1.GetAnnotationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_id: String.t()
-        }
-
-  defstruct annotation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
 end
 defmodule Google.Genomics.V1.UpdateAnnotationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_id: String.t(),
-          annotation: Google.Genomics.V1.Annotation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct annotation_id: "",
-            annotation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
   field :annotation, 2, type: Google.Genomics.V1.Annotation
@@ -521,35 +255,13 @@ defmodule Google.Genomics.V1.UpdateAnnotationRequest do
 end
 defmodule Google.Genomics.V1.DeleteAnnotationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_id: String.t()
-        }
-
-  defstruct annotation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
 end
 defmodule Google.Genomics.V1.SearchAnnotationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference: {:reference_id, String.t()} | {:reference_name, String.t()},
-          annotation_set_ids: [String.t()],
-          start: integer,
-          end: integer,
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct reference: nil,
-            annotation_set_ids: [],
-            start: 0,
-            end: 0,
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :reference, 0
 
@@ -563,22 +275,16 @@ defmodule Google.Genomics.V1.SearchAnnotationsRequest do
 end
 defmodule Google.Genomics.V1.SearchAnnotationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotations: [Google.Genomics.V1.Annotation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct annotations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Genomics.V1.AnnotationServiceV1.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.genomics.v1.AnnotationServiceV1"
+  use GRPC.Service,
+    name: "google.genomics.v1.AnnotationServiceV1",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateAnnotationSet,
       Google.Genomics.V1.CreateAnnotationSetRequest,

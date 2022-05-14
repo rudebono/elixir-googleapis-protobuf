@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1alpha.FindingTypeStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          finding_type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType.t(),
-          finding_count: integer
-        }
-
-  defstruct finding_type: :FINDING_TYPE_UNSPECIFIED,
-            finding_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :finding_type, 1,
     type: Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType,

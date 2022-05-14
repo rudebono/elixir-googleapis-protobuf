@@ -1,14 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum.AdSharingError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :AD_GROUP_ALREADY_CONTAINS_AD
-          | :INCOMPATIBLE_AD_UNDER_AD_GROUP
-          | :CANNOT_SHARE_INACTIVE_AD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -18,9 +10,5 @@ defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum.AdSharingError do
 end
 defmodule Google.Ads.Googleads.V8.Errors.AdSharingErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

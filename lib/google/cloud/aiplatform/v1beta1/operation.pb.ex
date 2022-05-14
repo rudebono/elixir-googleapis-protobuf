@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partial_failures: [Google.Rpc.Status.t()],
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct partial_failures: [],
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partial_failures, 1,
     repeated: true,
@@ -30,13 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,

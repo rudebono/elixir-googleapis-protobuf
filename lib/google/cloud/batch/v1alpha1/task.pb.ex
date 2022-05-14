@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Batch.V1alpha1.TaskStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ASSIGNED | :RUNNING | :FAILED | :SUCCEEDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -13,9 +11,7 @@ defmodule Google.Cloud.Batch.V1alpha1.TaskStatus.State do
 end
 defmodule Google.Cloud.Batch.V1alpha1.LifecyclePolicy.Action do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTION_UNSPECIFIED | :RETRY_TASK | :FAIL_TASK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :RETRY_TASK, 1
@@ -23,19 +19,7 @@ defmodule Google.Cloud.Batch.V1alpha1.LifecyclePolicy.Action do
 end
 defmodule Google.Cloud.Batch.V1alpha1.ComputeResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu_milli: integer,
-          memory_mib: integer,
-          gpu_count: integer,
-          boot_disk_mib: integer
-        }
-
-  defstruct cpu_milli: 0,
-            memory_mib: 0,
-            gpu_count: 0,
-            boot_disk_mib: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu_milli, 1, type: :int64, json_name: "cpuMilli"
   field :memory_mib, 2, type: :int64, json_name: "memoryMib"
@@ -44,19 +28,7 @@ defmodule Google.Cloud.Batch.V1alpha1.ComputeResource do
 end
 defmodule Google.Cloud.Batch.V1alpha1.StatusEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          description: String.t(),
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          task_execution: Google.Cloud.Batch.V1alpha1.TaskExecution.t() | nil
-        }
-
-  defstruct type: "",
-            description: "",
-            event_time: nil,
-            task_execution: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 3, type: :string
   field :description, 1, type: :string
@@ -68,27 +40,13 @@ defmodule Google.Cloud.Batch.V1alpha1.StatusEvent do
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskExecution do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          exit_code: integer
-        }
-
-  defstruct exit_code: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :exit_code, 1, type: :int32, json_name: "exitCode"
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Batch.V1alpha1.TaskStatus.State.t(),
-          status_events: [Google.Cloud.Batch.V1alpha1.StatusEvent.t()]
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            status_events: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Batch.V1alpha1.TaskStatus.State, enum: true
 
@@ -99,21 +57,7 @@ defmodule Google.Cloud.Batch.V1alpha1.TaskStatus do
 end
 defmodule Google.Cloud.Batch.V1alpha1.Runnable.Container do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image_uri: String.t(),
-          commands: [String.t()],
-          entrypoint: String.t(),
-          volumes: [String.t()],
-          options: String.t()
-        }
-
-  defstruct image_uri: "",
-            commands: [],
-            entrypoint: "",
-            volumes: [],
-            options: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
   field :commands, 2, repeated: true, type: :string
@@ -123,13 +67,7 @@ defmodule Google.Cloud.Batch.V1alpha1.Runnable.Container do
 end
 defmodule Google.Cloud.Batch.V1alpha1.Runnable.Script do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          command: {:path, String.t()} | {:text, String.t()}
-        }
-
-  defstruct command: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :command, 0
 
@@ -138,34 +76,13 @@ defmodule Google.Cloud.Batch.V1alpha1.Runnable.Script do
 end
 defmodule Google.Cloud.Batch.V1alpha1.Runnable.Barrier do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.Runnable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          executable:
-            {:container, Google.Cloud.Batch.V1alpha1.Runnable.Container.t() | nil}
-            | {:script, Google.Cloud.Batch.V1alpha1.Runnable.Script.t() | nil}
-            | {:barrier, Google.Cloud.Batch.V1alpha1.Runnable.Barrier.t() | nil},
-          ignore_exit_status: boolean,
-          background: boolean,
-          always_run: boolean
-        }
-
-  defstruct executable: nil,
-            ignore_exit_status: false,
-            background: false,
-            always_run: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :executable, 0
 
@@ -178,40 +95,14 @@ defmodule Google.Cloud.Batch.V1alpha1.Runnable do
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskSpec.EnvironmentsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Batch.V1alpha1.TaskSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          runnables: [Google.Cloud.Batch.V1alpha1.Runnable.t()],
-          compute_resource: Google.Cloud.Batch.V1alpha1.ComputeResource.t() | nil,
-          max_run_duration: Google.Protobuf.Duration.t() | nil,
-          max_retry_count: integer,
-          lifecycle_policies: [Google.Cloud.Batch.V1alpha1.LifecyclePolicy.t()],
-          environments: %{String.t() => String.t()},
-          volumes: [Google.Cloud.Batch.V1alpha1.Volume.t()]
-        }
-
-  defstruct runnables: [],
-            compute_resource: nil,
-            max_run_duration: nil,
-            max_retry_count: 0,
-            lifecycle_policies: [],
-            environments: %{},
-            volumes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :runnables, 8, repeated: true, type: Google.Cloud.Batch.V1alpha1.Runnable
 
@@ -236,27 +127,13 @@ defmodule Google.Cloud.Batch.V1alpha1.TaskSpec do
 end
 defmodule Google.Cloud.Batch.V1alpha1.LifecyclePolicy.ActionCondition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          exit_codes: [integer]
-        }
-
-  defstruct exit_codes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :exit_codes, 1, repeated: true, type: :int32, json_name: "exitCodes"
 end
 defmodule Google.Cloud.Batch.V1alpha1.LifecyclePolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          action: Google.Cloud.Batch.V1alpha1.LifecyclePolicy.Action.t(),
-          action_condition: Google.Cloud.Batch.V1alpha1.LifecyclePolicy.ActionCondition.t() | nil
-        }
-
-  defstruct action: :ACTION_UNSPECIFIED,
-            action_condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :action, 1, type: Google.Cloud.Batch.V1alpha1.LifecyclePolicy.Action, enum: true
 
@@ -266,15 +143,7 @@ defmodule Google.Cloud.Batch.V1alpha1.LifecyclePolicy do
 end
 defmodule Google.Cloud.Batch.V1alpha1.Task do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          status: Google.Cloud.Batch.V1alpha1.TaskStatus.t() | nil
-        }
-
-  defstruct name: "",
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :status, 2, type: Google.Cloud.Batch.V1alpha1.TaskStatus

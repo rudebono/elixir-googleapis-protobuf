@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.NotificationMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event: {:finding, Google.Cloud.Securitycenter.V1.Finding.t() | nil},
-          notification_config_name: String.t(),
-          resource: Google.Cloud.Securitycenter.V1.Resource.t() | nil
-        }
-
-  defstruct event: nil,
-            notification_config_name: "",
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 

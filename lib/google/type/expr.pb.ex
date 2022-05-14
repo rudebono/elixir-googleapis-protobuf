@@ -1,18 +1,6 @@
 defmodule Google.Type.Expr do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          expression: String.t(),
-          title: String.t(),
-          description: String.t(),
-          location: String.t()
-        }
-
-  defstruct expression: "",
-            title: "",
-            description: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :expression, 1, type: :string
   field :title, 2, type: :string

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :RUNNING | :PAUSED | :DISABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -11,9 +9,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
 end
 defmodule Google.Cloud.Tasks.V2beta3.Queue.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PULL | :PUSH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PULL, 1
@@ -21,35 +17,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue.Type do
 end
 defmodule Google.Cloud.Tasks.V2beta3.Queue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          queue_type:
-            {:app_engine_http_queue, Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue.t() | nil},
-          name: String.t(),
-          rate_limits: Google.Cloud.Tasks.V2beta3.RateLimits.t() | nil,
-          retry_config: Google.Cloud.Tasks.V2beta3.RetryConfig.t() | nil,
-          state: Google.Cloud.Tasks.V2beta3.Queue.State.t(),
-          purge_time: Google.Protobuf.Timestamp.t() | nil,
-          task_ttl: Google.Protobuf.Duration.t() | nil,
-          tombstone_ttl: Google.Protobuf.Duration.t() | nil,
-          stackdriver_logging_config:
-            Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig.t() | nil,
-          type: Google.Cloud.Tasks.V2beta3.Queue.Type.t(),
-          stats: Google.Cloud.Tasks.V2beta3.QueueStats.t() | nil
-        }
-
-  defstruct queue_type: nil,
-            name: "",
-            rate_limits: nil,
-            retry_config: nil,
-            state: :STATE_UNSPECIFIED,
-            purge_time: nil,
-            task_ttl: nil,
-            tombstone_ttl: nil,
-            stackdriver_logging_config: nil,
-            type: :TYPE_UNSPECIFIED,
-            stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :queue_type, 0
 
@@ -76,17 +44,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue do
 end
 defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_dispatches_per_second: float | :infinity | :negative_infinity | :nan,
-          max_burst_size: integer,
-          max_concurrent_dispatches: integer
-        }
-
-  defstruct max_dispatches_per_second: 0.0,
-            max_burst_size: 0,
-            max_concurrent_dispatches: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_dispatches_per_second, 1, type: :double, json_name: "maxDispatchesPerSecond"
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
@@ -94,21 +52,7 @@ defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
 end
 defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_attempts: integer,
-          max_retry_duration: Google.Protobuf.Duration.t() | nil,
-          min_backoff: Google.Protobuf.Duration.t() | nil,
-          max_backoff: Google.Protobuf.Duration.t() | nil,
-          max_doublings: integer
-        }
-
-  defstruct max_attempts: 0,
-            max_retry_duration: nil,
-            min_backoff: nil,
-            max_backoff: nil,
-            max_doublings: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
@@ -118,33 +62,13 @@ defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
 end
 defmodule Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sampling_ratio: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct sampling_ratio: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sampling_ratio, 1, type: :double, json_name: "samplingRatio"
 end
 defmodule Google.Cloud.Tasks.V2beta3.QueueStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tasks_count: integer,
-          oldest_estimated_arrival_time: Google.Protobuf.Timestamp.t() | nil,
-          executed_last_minute_count: integer,
-          concurrent_dispatches_count: integer,
-          effective_execution_rate: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct tasks_count: 0,
-            oldest_estimated_arrival_time: nil,
-            executed_last_minute_count: 0,
-            concurrent_dispatches_count: 0,
-            effective_execution_rate: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 

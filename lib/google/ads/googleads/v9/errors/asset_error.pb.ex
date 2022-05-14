@@ -1,38 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Errors.AssetErrorEnum.AssetError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :CUSTOMER_NOT_ON_ALLOWLIST_FOR_ASSET_TYPE
-          | :DUPLICATE_ASSET
-          | :DUPLICATE_ASSET_NAME
-          | :ASSET_DATA_IS_MISSING
-          | :CANNOT_MODIFY_ASSET_NAME
-          | :FIELD_INCOMPATIBLE_WITH_ASSET_TYPE
-          | :INVALID_CALL_TO_ACTION_TEXT
-          | :LEAD_FORM_INVALID_FIELDS_COMBINATION
-          | :LEAD_FORM_MISSING_AGREEMENT
-          | :INVALID_ASSET_STATUS
-          | :FIELD_CANNOT_BE_MODIFIED_FOR_ASSET_TYPE
-          | :SCHEDULES_CANNOT_OVERLAP
-          | :PROMOTION_CANNOT_SET_PERCENT_OFF_AND_MONEY_AMOUNT_OFF
-          | :PROMOTION_CANNOT_SET_PROMOTION_CODE_AND_ORDERS_OVER_AMOUNT
-          | :TOO_MANY_DECIMAL_PLACES_SPECIFIED
-          | :DUPLICATE_ASSETS_WITH_DIFFERENT_FIELD_VALUE
-          | :CALL_CARRIER_SPECIFIC_SHORT_NUMBER_NOT_ALLOWED
-          | :CALL_CUSTOMER_CONSENT_FOR_CALL_RECORDING_REQUIRED
-          | :CALL_DISALLOWED_NUMBER_TYPE
-          | :CALL_INVALID_CONVERSION_ACTION
-          | :CALL_INVALID_COUNTRY_CODE
-          | :CALL_INVALID_DOMESTIC_PHONE_NUMBER_FORMAT
-          | :CALL_INVALID_PHONE_NUMBER
-          | :CALL_PHONE_NUMBER_NOT_SUPPORTED_FOR_COUNTRY
-          | :CALL_PREMIUM_RATE_NUMBER_NOT_ALLOWED
-          | :CALL_VANITY_PHONE_NUMBER_NOT_ALLOWED
-          | :PRICE_HEADER_SAME_AS_DESCRIPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -66,9 +34,5 @@ defmodule Google.Ads.Googleads.V9.Errors.AssetErrorEnum.AssetError do
 end
 defmodule Google.Ads.Googleads.V9.Errors.AssetErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

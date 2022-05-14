@@ -1,35 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dimension: String.t(),
-          value: String.t()
-        }
-
-  defstruct dimension: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dimension, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slice: Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.t() | nil,
-          metrics_schema_uri: String.t(),
-          metrics: Google.Protobuf.Value.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            slice: nil,
-            metrics_schema_uri: "",
-            metrics: nil,
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

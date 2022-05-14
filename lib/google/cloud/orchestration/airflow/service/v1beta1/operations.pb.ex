@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :RUNNING | :SUCCESSFUL | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -12,9 +10,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.S
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :CREATE | :DELETE | :UPDATE | :CHECK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -24,24 +20,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.T
 end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.State.t(),
-          operation_type:
-            Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.Type.t(),
-          resource: String.t(),
-          resource_uuid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            operation_type: :TYPE_UNSPECIFIED,
-            resource: "",
-            resource_uuid: "",
-            create_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.State,

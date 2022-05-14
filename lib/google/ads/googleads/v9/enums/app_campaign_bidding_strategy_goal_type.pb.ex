@@ -1,17 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Enums.AppCampaignBiddingStrategyGoalTypeEnum.AppCampaignBiddingStrategyGoalType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :OPTIMIZE_INSTALLS_TARGET_INSTALL_COST
-          | :OPTIMIZE_IN_APP_CONVERSIONS_TARGET_INSTALL_COST
-          | :OPTIMIZE_IN_APP_CONVERSIONS_TARGET_CONVERSION_COST
-          | :OPTIMIZE_RETURN_ON_ADVERTISING_SPEND
-          | :OPTIMIZE_PRE_REGISTRATION_CONVERSION_VOLUME
-          | :OPTIMIZE_INSTALLS_WITHOUT_TARGET_INSTALL_COST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -24,9 +13,5 @@ defmodule Google.Ads.Googleads.V9.Enums.AppCampaignBiddingStrategyGoalTypeEnum.A
 end
 defmodule Google.Ads.Googleads.V9.Enums.AppCampaignBiddingStrategyGoalTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

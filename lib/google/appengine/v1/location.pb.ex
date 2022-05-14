@@ -1,16 +1,6 @@
 defmodule Google.Appengine.V1.LocationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          standard_environment_available: boolean,
-          flexible_environment_available: boolean,
-          search_api_available: boolean
-        }
-
-  defstruct standard_environment_available: false,
-            flexible_environment_available: false,
-            search_api_available: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :standard_environment_available, 2, type: :bool, json_name: "standardEnvironmentAvailable"
   field :flexible_environment_available, 4, type: :bool, json_name: "flexibleEnvironmentAvailable"

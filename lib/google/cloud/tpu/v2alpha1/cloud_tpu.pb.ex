@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DISK_MODE_UNSPECIFIED | :READ_WRITE | :READ_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DISK_MODE_UNSPECIFIED, 0
   field :READ_WRITE, 1
@@ -10,25 +8,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATING
-          | :READY
-          | :RESTARTING
-          | :REIMAGING
-          | :DELETING
-          | :REPAIRING
-          | :STOPPED
-          | :STOPPING
-          | :STARTING
-          | :PREEMPTED
-          | :TERMINATED
-          | :HIDING
-          | :HIDDEN
-          | :UNHIDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -48,15 +28,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.State do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node.Health do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :HEALTH_UNSPECIFIED
-          | :HEALTHY
-          | :TIMEOUT
-          | :UNHEALTHY_TENSORFLOW
-          | :UNHEALTHY_MAINTENANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HEALTH_UNSPECIFIED, 0
   field :HEALTHY, 1
@@ -66,9 +38,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.Health do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node.ApiVersion do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :API_VERSION_UNSPECIFIED | :V1_ALPHA1 | :V1 | :V2_ALPHA1
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :API_VERSION_UNSPECIFIED, 0
   field :V1_ALPHA1, 1
@@ -77,17 +47,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.ApiVersion do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :SYMPTOM_TYPE_UNSPECIFIED
-          | :LOW_MEMORY
-          | :OUT_OF_MEMORY
-          | :EXECUTE_TIMED_OUT
-          | :MESH_BUILD_FAIL
-          | :HBM_OUT_OF_MEMORY
-          | :PROJECT_ABUSE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SYMPTOM_TYPE_UNSPECIFIED, 0
   field :LOW_MEMORY, 1
@@ -99,15 +59,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributes do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query_path: String.t(),
-          query_value: Google.Cloud.Tpu.V2alpha1.GuestAttributesValue.t() | nil
-        }
-
-  defstruct query_path: "",
-            query_value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query_path, 1, type: :string, json_name: "queryPath"
 
@@ -117,29 +69,13 @@ defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributes do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          items: [Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry.t()]
-        }
-
-  defstruct items: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :items, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          namespace: String.t(),
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct namespace: "",
-            key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :key, 2, type: :string
@@ -147,47 +83,21 @@ defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributesEntry do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.AttachedDisk do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_disk: String.t(),
-          mode: Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode.t()
-        }
-
-  defstruct source_disk: "",
-            mode: :DISK_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_disk, 3, type: :string, json_name: "sourceDisk"
   field :mode, 4, type: Google.Cloud.Tpu.V2alpha1.AttachedDisk.DiskMode, enum: true
 end
 defmodule Google.Cloud.Tpu.V2alpha1.SchedulingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          preemptible: boolean,
-          reserved: boolean
-        }
-
-  defstruct preemptible: false,
-            reserved: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :preemptible, 1, type: :bool
   field :reserved, 2, type: :bool
 end
 defmodule Google.Cloud.Tpu.V2alpha1.NetworkEndpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ip_address: String.t(),
-          port: integer,
-          access_config: Google.Cloud.Tpu.V2alpha1.AccessConfig.t() | nil
-        }
-
-  defstruct ip_address: "",
-            port: 0,
-            access_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
@@ -195,29 +105,13 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkEndpoint do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.AccessConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          external_ip: String.t()
-        }
-
-  defstruct external_ip: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :external_ip, 1, type: :string, json_name: "externalIp", deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network: String.t(),
-          subnetwork: String.t(),
-          enable_external_ips: boolean
-        }
-
-  defstruct network: "",
-            subnetwork: "",
-            enable_external_ips: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
@@ -225,96 +119,28 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceAccount do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          email: String.t(),
-          scope: [String.t()]
-        }
-
-  defstruct email: "",
-            scope: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :scope, 2, repeated: true, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Node do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          accelerator_type: String.t(),
-          state: Google.Cloud.Tpu.V2alpha1.Node.State.t(),
-          health_description: String.t(),
-          runtime_version: String.t(),
-          network_config: Google.Cloud.Tpu.V2alpha1.NetworkConfig.t() | nil,
-          cidr_block: String.t(),
-          service_account: Google.Cloud.Tpu.V2alpha1.ServiceAccount.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          scheduling_config: Google.Cloud.Tpu.V2alpha1.SchedulingConfig.t() | nil,
-          network_endpoints: [Google.Cloud.Tpu.V2alpha1.NetworkEndpoint.t()],
-          health: Google.Cloud.Tpu.V2alpha1.Node.Health.t(),
-          labels: %{String.t() => String.t()},
-          metadata: %{String.t() => String.t()},
-          tags: [String.t()],
-          id: integer,
-          data_disks: [Google.Cloud.Tpu.V2alpha1.AttachedDisk.t()],
-          api_version: Google.Cloud.Tpu.V2alpha1.Node.ApiVersion.t(),
-          symptoms: [Google.Cloud.Tpu.V2alpha1.Symptom.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            accelerator_type: "",
-            state: :STATE_UNSPECIFIED,
-            health_description: "",
-            runtime_version: "",
-            network_config: nil,
-            cidr_block: "",
-            service_account: nil,
-            create_time: nil,
-            scheduling_config: nil,
-            network_endpoints: [],
-            health: :HEALTH_UNSPECIFIED,
-            labels: %{},
-            metadata: %{},
-            tags: [],
-            id: 0,
-            data_disks: [],
-            api_version: :API_VERSION_UNSPECIFIED,
-            symptoms: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
@@ -374,17 +200,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -392,17 +208,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          nodes: [Google.Cloud.Tpu.V2alpha1.Node.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct nodes: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Node
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -410,29 +216,13 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListNodesResponse do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GetNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.CreateNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          node_id: String.t(),
-          node: Google.Cloud.Tpu.V2alpha1.Node.t() | nil
-        }
-
-  defstruct parent: "",
-            node_id: "",
-            node: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :node_id, 2, type: :string, json_name: "nodeId"
@@ -440,51 +230,25 @@ defmodule Google.Cloud.Tpu.V2alpha1.CreateNodeRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.DeleteNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.StopNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.StartNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          node: Google.Cloud.Tpu.V2alpha1.Node.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            node: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -495,84 +259,38 @@ defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          email: String.t()
-        }
-
-  defstruct email: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :email, 1, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t()
-        }
-
-  defstruct parent: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          identity: Google.Cloud.Tpu.V2alpha1.ServiceIdentity.t() | nil
-        }
-
-  defstruct identity: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :identity, 1, type: Google.Cloud.Tpu.V2alpha1.ServiceIdentity
 end
 defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t()
-        }
-
-  defstruct name: "",
-            type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GetAcceleratorTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -582,17 +300,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          accelerator_types: [Google.Cloud.Tpu.V2alpha1.AcceleratorType.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct accelerator_types: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :accelerator_types, 1,
     repeated: true,
@@ -604,25 +312,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesResponse do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_detail: String.t(),
-          cancel_requested: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_detail: "",
-            cancel_requested: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -634,48 +324,20 @@ defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.RuntimeVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          version: String.t()
-        }
-
-  defstruct name: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GetRuntimeVersionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -685,17 +347,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          runtime_versions: [Google.Cloud.Tpu.V2alpha1.RuntimeVersion.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct runtime_versions: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :runtime_versions, 1,
     repeated: true,
@@ -707,19 +359,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsResponse do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          symptom_type: Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType.t(),
-          details: String.t(),
-          worker_id: String.t()
-        }
-
-  defstruct create_time: nil,
-            symptom_type: :SYMPTOM_TYPE_UNSPECIFIED,
-            details: "",
-            worker_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
@@ -733,17 +373,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          query_path: String.t(),
-          worker_ids: [String.t()]
-        }
-
-  defstruct name: "",
-            query_path: "",
-            worker_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query_path, 2, type: :string, json_name: "queryPath"
@@ -751,13 +381,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          guest_attributes: [Google.Cloud.Tpu.V2alpha1.GuestAttributes.t()]
-        }
-
-  defstruct guest_attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :guest_attributes, 1,
     repeated: true,
@@ -766,7 +390,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
 end
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.tpu.v2alpha1.Tpu"
+  use GRPC.Service, name: "google.cloud.tpu.v2alpha1.Tpu", protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListNodes,
       Google.Cloud.Tpu.V2alpha1.ListNodesRequest,

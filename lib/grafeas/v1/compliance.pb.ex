@@ -1,39 +1,13 @@
 defmodule Grafeas.V1.ComplianceNote.CisBenchmark do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          profile_level: integer,
-          severity: Grafeas.V1.Severity.t()
-        }
-
-  defstruct profile_level: 0,
-            severity: :SEVERITY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :profile_level, 1, type: :int32, json_name: "profileLevel"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
 end
 defmodule Grafeas.V1.ComplianceNote do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          compliance_type: {:cis_benchmark, Grafeas.V1.ComplianceNote.CisBenchmark.t() | nil},
-          title: String.t(),
-          description: String.t(),
-          version: [Grafeas.V1.ComplianceVersion.t()],
-          rationale: String.t(),
-          remediation: String.t(),
-          scan_instructions: binary
-        }
-
-  defstruct compliance_type: nil,
-            title: "",
-            description: "",
-            version: [],
-            rationale: "",
-            remediation: "",
-            scan_instructions: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :compliance_type, 0
 
@@ -52,30 +26,14 @@ defmodule Grafeas.V1.ComplianceNote do
 end
 defmodule Grafeas.V1.ComplianceVersion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpe_uri: String.t(),
-          version: String.t()
-        }
-
-  defstruct cpe_uri: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: :string
 end
 defmodule Grafeas.V1.ComplianceOccurrence do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          non_compliant_files: [Grafeas.V1.NonCompliantFile.t()],
-          non_compliance_reason: String.t()
-        }
-
-  defstruct non_compliant_files: [],
-            non_compliance_reason: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :non_compliant_files, 2,
     repeated: true,
@@ -86,17 +44,7 @@ defmodule Grafeas.V1.ComplianceOccurrence do
 end
 defmodule Grafeas.V1.NonCompliantFile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          path: String.t(),
-          display_command: String.t(),
-          reason: String.t()
-        }
-
-  defstruct path: "",
-            display_command: "",
-            reason: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :display_command, 2, type: :string, json_name: "displayCommand"

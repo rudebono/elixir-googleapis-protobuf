@@ -1,35 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.CampaignSimulation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          point_list:
-            {:cpc_bid_point_list,
-             Google.Ads.Googleads.V10.Common.CpcBidSimulationPointList.t() | nil}
-            | {:target_cpa_point_list,
-               Google.Ads.Googleads.V10.Common.TargetCpaSimulationPointList.t() | nil}
-            | {:target_roas_point_list,
-               Google.Ads.Googleads.V10.Common.TargetRoasSimulationPointList.t() | nil}
-            | {:target_impression_share_point_list,
-               Google.Ads.Googleads.V10.Common.TargetImpressionShareSimulationPointList.t() | nil}
-            | {:budget_point_list,
-               Google.Ads.Googleads.V10.Common.BudgetSimulationPointList.t() | nil},
-          resource_name: String.t(),
-          campaign_id: integer,
-          type: Google.Ads.Googleads.V10.Enums.SimulationTypeEnum.SimulationType.t(),
-          modification_method:
-            Google.Ads.Googleads.V10.Enums.SimulationModificationMethodEnum.SimulationModificationMethod.t(),
-          start_date: String.t(),
-          end_date: String.t()
-        }
-
-  defstruct point_list: nil,
-            resource_name: "",
-            campaign_id: 0,
-            type: :UNSPECIFIED,
-            modification_method: :UNSPECIFIED,
-            start_date: "",
-            end_date: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :point_list, 0
 

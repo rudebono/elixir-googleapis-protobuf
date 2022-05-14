@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1.Schedule.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :ENABLED
-          | :PAUSED
-          | :DISABLED
-          | :UPDATE_FAILED
-          | :INITIALIZING
-          | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -22,31 +12,7 @@ defmodule Google.Cloud.Notebooks.V1.Schedule.State do
 end
 defmodule Google.Cloud.Notebooks.V1.Schedule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          state: Google.Cloud.Notebooks.V1.Schedule.State.t(),
-          cron_schedule: String.t(),
-          time_zone: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          execution_template: Google.Cloud.Notebooks.V1.ExecutionTemplate.t() | nil,
-          recent_executions: [Google.Cloud.Notebooks.V1.Execution.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            state: :STATE_UNSPECIFIED,
-            cron_schedule: "",
-            time_zone: "",
-            create_time: nil,
-            update_time: nil,
-            execution_template: nil,
-            recent_executions: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

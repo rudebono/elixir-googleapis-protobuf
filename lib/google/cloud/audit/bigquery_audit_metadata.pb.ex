@@ -1,13 +1,6 @@
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :WRITE_DISPOSITION_UNSPECIFIED
-          | :WRITE_EMPTY
-          | :WRITE_TRUNCATE
-          | :WRITE_APPEND
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :WRITE_DISPOSITION_UNSPECIFIED, 0
   field :WRITE_EMPTY, 1
@@ -16,9 +9,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OPERATION_TYPE_UNSPECIFIED | :COPY | :SNAPSHOT | :RESTORE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :COPY, 1
@@ -27,9 +18,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.OperationType do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CREATE_DISPOSITION_UNSPECIFIED | :CREATE_NEVER | :CREATE_IF_NEEDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CREATE_DISPOSITION_UNSPECIFIED, 0
   field :CREATE_NEVER, 1
@@ -37,9 +26,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :JOB_STATE_UNSPECIFIED | :PENDING | :RUNNING | :DONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JOB_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -48,42 +35,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobState do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :QUERY_STATEMENT_TYPE_UNSPECIFIED
-          | :SELECT
-          | :ASSERT
-          | :INSERT
-          | :UPDATE
-          | :DELETE
-          | :MERGE
-          | :CREATE_TABLE
-          | :CREATE_TABLE_AS_SELECT
-          | :CREATE_VIEW
-          | :CREATE_MODEL
-          | :CREATE_MATERIALIZED_VIEW
-          | :CREATE_FUNCTION
-          | :CREATE_PROCEDURE
-          | :CREATE_SCHEMA
-          | :DROP_TABLE
-          | :DROP_EXTERNAL_TABLE
-          | :DROP_VIEW
-          | :DROP_MODEL
-          | :DROP_MATERIALIZED_VIEW
-          | :DROP_FUNCTION
-          | :DROP_PROCEDURE
-          | :DROP_SCHEMA
-          | :ALTER_TABLE
-          | :ALTER_VIEW
-          | :ALTER_MATERIALIZED_VIEW
-          | :ALTER_SCHEMA
-          | :SCRIPT
-          | :TRUNCATE_TABLE
-          | :CREATE_EXTERNAL_TABLE
-          | :EXPORT_DATA
-          | :CALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :QUERY_STATEMENT_TYPE_UNSPECIFIED, 0
   field :SELECT, 1
@@ -120,9 +72,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :JOB_INSERT_REQUEST | :QUERY_REQUEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB_INSERT_REQUEST, 1
@@ -130,9 +80,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :CREATE | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :CREATE, 1
@@ -140,9 +88,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :UPDATE | :SET_IAM_POLICY | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :UPDATE, 1
@@ -151,9 +97,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :DELETE | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :DELETE, 1
@@ -161,9 +105,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :JOB | :QUERY | :TABLE_INSERT_REQUEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
@@ -172,18 +114,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 2
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :QUERY | :ROUTINE_INSERT_REQUEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
@@ -191,17 +129,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REASON_UNSPECIFIED
-          | :JOB
-          | :TABLEDATA_LIST_REQUEST
-          | :GET_QUERY_RESULTS_REQUEST
-          | :QUERY_REQUEST
-          | :CREATE_READ_SESSION
-          | :MATERIALIZED_VIEW_REFRESH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
@@ -213,9 +141,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :TABLE_UPDATE_REQUEST | :JOB | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :TABLE_UPDATE_REQUEST, 1
@@ -224,9 +150,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :MODEL_PATCH_REQUEST | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :MODEL_PATCH_REQUEST, 1
@@ -234,9 +158,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :QUERY | :ROUTINE_UPDATE_REQUEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
@@ -244,10 +166,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :REASON_UNSPECIFIED | :JOB | :QUERY | :MATERIALIZED_VIEW_REFRESH | :WRITE_API
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
@@ -257,27 +176,21 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :JOB
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :TABLE_DELETE_REQUEST | :EXPIRED | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :TABLE_DELETE_REQUEST, 2
@@ -286,9 +199,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :MODEL_DELETE_REQUEST | :EXPIRED | :QUERY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :MODEL_DELETE_REQUEST, 1
@@ -297,9 +208,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REASON_UNSPECIFIED | :QUERY | :ROUTINE_DELETE_REQUEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
@@ -307,9 +216,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.Reason do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :QUERY | :COPY | :EXPORT | :IMPORT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :QUERY, 1
@@ -319,9 +226,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query.Priority do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :PRIORITY_UNSPECIFIED | :QUERY_INTERACTIVE | :QUERY_BATCH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :QUERY_INTERACTIVE, 1
@@ -329,32 +234,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query.Priority do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job: Google.Cloud.Audit.BigQueryAuditMetadata.Job.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason.t()
-        }
-
-  defstruct job: nil,
-            reason: :REASON_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Job
   field :reason, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason, enum: true
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          before: Google.Cloud.Audit.BigQueryAuditMetadata.JobState.t(),
-          after: Google.Cloud.Audit.BigQueryAuditMetadata.JobState.t(),
-          job: Google.Cloud.Audit.BigQueryAuditMetadata.Job.t() | nil
-        }
-
-  defstruct before: :JOB_STATE_UNSPECIFIED,
-            after: :JOB_STATE_UNSPECIFIED,
-            job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :before, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
   field :after, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
@@ -362,17 +249,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct dataset: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset
 
@@ -384,17 +261,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct dataset: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset
 
@@ -406,15 +273,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason,
@@ -424,17 +283,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table: Google.Cloud.Audit.BigQueryAuditMetadata.Table.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct table: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Table
 
@@ -446,17 +295,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: Google.Cloud.Audit.BigQueryAuditMetadata.Model.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct model: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Model
 
@@ -468,17 +307,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routine: Google.Cloud.Audit.BigQueryAuditMetadata.Routine.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct routine: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -490,25 +319,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fields: [String.t()],
-          fields_truncated: boolean,
-          policy_tags: [String.t()],
-          policy_tags_truncated: boolean,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.Reason.t(),
-          job_name: String.t(),
-          session_name: String.t()
-        }
-
-  defstruct fields: [],
-            fields_truncated: false,
-            policy_tags: [],
-            policy_tags_truncated: false,
-            reason: :REASON_UNSPECIFIED,
-            job_name: "",
-            session_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fields, 2, repeated: true, type: :string
   field :fields_truncated, 8, type: :bool, json_name: "fieldsTruncated"
@@ -524,19 +335,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table: Google.Cloud.Audit.BigQueryAuditMetadata.Table.t() | nil,
-          truncated: boolean,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct table: nil,
-            truncated: false,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Table
   field :truncated, 4, type: :bool
@@ -545,17 +344,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model: Google.Cloud.Audit.BigQueryAuditMetadata.Model.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct model: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Model
 
@@ -567,17 +356,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routine: Google.Cloud.Audit.BigQueryAuditMetadata.Routine.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct routine: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -589,23 +368,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          deleted_rows_count: integer,
-          inserted_rows_count: integer,
-          truncated: boolean,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.Reason.t(),
-          job_name: String.t(),
-          stream_name: String.t()
-        }
-
-  defstruct deleted_rows_count: 0,
-            inserted_rows_count: 0,
-            truncated: false,
-            reason: :REASON_UNSPECIFIED,
-            job_name: "",
-            stream_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :deleted_rows_count, 1, type: :int64, json_name: "deletedRowsCount"
   field :inserted_rows_count, 2, type: :int64, json_name: "insertedRowsCount"
@@ -620,15 +383,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.Reason,
@@ -638,15 +393,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.Reason,
@@ -656,25 +403,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          acl: Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl.t() | nil,
-          default_table_expire_duration: Google.Protobuf.Duration.t() | nil,
-          dataset_info: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.t() | nil,
-          default_encryption: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil
-        }
-
-  defstruct dataset_name: "",
-            create_time: nil,
-            update_time: nil,
-            acl: nil,
-            default_table_expire_duration: nil,
-            dataset_info: nil,
-            default_encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_name, 1, type: :string, json_name: "datasetName"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -695,15 +424,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason,
@@ -713,15 +434,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason,
@@ -731,23 +444,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_name: String.t(),
-          model_info: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil
-        }
-
-  defstruct model_name: "",
-            model_info: nil,
-            expire_time: nil,
-            create_time: nil,
-            update_time: nil,
-            encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_name, 1, type: :string, json_name: "modelName"
 
@@ -762,17 +459,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routine: Google.Cloud.Audit.BigQueryAuditMetadata.Routine.t() | nil,
-          reason: Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.Reason.t(),
-          job_name: String.t()
-        }
-
-  defstruct routine: nil,
-            reason: :REASON_UNSPECIFIED,
-            job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -784,19 +471,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Job do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: String.t(),
-          job_config: Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.t() | nil,
-          job_status: Google.Cloud.Audit.BigQueryAuditMetadata.JobStatus.t() | nil,
-          job_stats: Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.t() | nil
-        }
-
-  defstruct job_name: "",
-            job_config: nil,
-            job_status: nil,
-            job_stats: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName"
 
@@ -814,32 +489,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Job do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          query_truncated: boolean,
-          destination_table: String.t(),
-          create_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition.t(),
-          write_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition.t(),
-          default_dataset: String.t(),
-          table_definitions: [Google.Cloud.Audit.BigQueryAuditMetadata.TableDefinition.t()],
-          priority: Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query.Priority.t(),
-          destination_table_encryption:
-            Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil,
-          statement_type: Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType.t()
-        }
-
-  defstruct query: "",
-            query_truncated: false,
-            destination_table: "",
-            create_disposition: :CREATE_DISPOSITION_UNSPECIFIED,
-            write_disposition: :WRITE_DISPOSITION_UNSPECIFIED,
-            default_dataset: "",
-            table_definitions: [],
-            priority: :PRIORITY_UNSPECIFIED,
-            destination_table_encryption: nil,
-            statement_type: :QUERY_STATEMENT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_truncated, 10, type: :bool, json_name: "queryTruncated"
@@ -877,28 +527,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Load do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_uris: [String.t()],
-          source_uris_truncated: boolean,
-          schema_json: String.t(),
-          schema_json_truncated: boolean,
-          destination_table: String.t(),
-          create_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition.t(),
-          write_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition.t(),
-          destination_table_encryption:
-            Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil
-        }
-
-  defstruct source_uris: [],
-            source_uris_truncated: false,
-            schema_json: "",
-            schema_json_truncated: false,
-            destination_table: "",
-            create_disposition: :CREATE_DISPOSITION_UNSPECIFIED,
-            write_disposition: :WRITE_DISPOSITION_UNSPECIFIED,
-            destination_table_encryption: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
   field :source_uris_truncated, 7, type: :bool, json_name: "sourceUrisTruncated"
@@ -922,17 +551,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Load do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Extract do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:source_table, String.t()} | {:source_model, String.t()},
-          destination_uris: [String.t()],
-          destination_uris_truncated: boolean
-        }
-
-  defstruct source: nil,
-            destination_uris: [],
-            destination_uris_truncated: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -943,28 +562,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Extract do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.TableCopy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_tables: [String.t()],
-          source_tables_truncated: boolean,
-          destination_table: String.t(),
-          create_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition.t(),
-          write_disposition: Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition.t(),
-          destination_table_encryption:
-            Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil,
-          operation_type: Google.Cloud.Audit.BigQueryAuditMetadata.OperationType.t(),
-          destination_expiration_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct source_tables: [],
-            source_tables_truncated: false,
-            destination_table: "",
-            create_disposition: :CREATE_DISPOSITION_UNSPECIFIED,
-            write_disposition: :WRITE_DISPOSITION_UNSPECIFIED,
-            destination_table_encryption: nil,
-            operation_type: :OPERATION_TYPE_UNSPECIFIED,
-            destination_expiration_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :source_tables, 1, repeated: true, type: :string, json_name: "sourceTables"
   field :source_tables_truncated, 6, type: :bool, json_name: "sourceTablesTruncated"
@@ -995,38 +593,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.TableCopy do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config:
-            {:query_config, Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query.t() | nil}
-            | {:load_config, Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Load.t() | nil}
-            | {:extract_config,
-               Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Extract.t() | nil}
-            | {:table_copy_config,
-               Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.TableCopy.t() | nil},
-          type: Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct config: nil,
-            type: :TYPE_UNSPECIFIED,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -1059,32 +633,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDefinition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          source_uris: [String.t()]
-        }
-
-  defstruct name: "",
-            source_uris: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_state: Google.Cloud.Audit.BigQueryAuditMetadata.JobState.t(),
-          error_result: Google.Rpc.Status.t() | nil,
-          errors: [Google.Rpc.Status.t()]
-        }
-
-  defstruct job_state: :JOB_STATE_UNSPECIFIED,
-            error_result: nil,
-            errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_state, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState,
@@ -1096,27 +652,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStatus do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Query do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_processed_bytes: integer,
-          total_billed_bytes: integer,
-          billing_tier: integer,
-          referenced_tables: [String.t()],
-          referenced_views: [String.t()],
-          referenced_routines: [String.t()],
-          output_row_count: integer,
-          cache_hit: boolean
-        }
-
-  defstruct total_processed_bytes: 0,
-            total_billed_bytes: 0,
-            billing_tier: 0,
-            referenced_tables: [],
-            referenced_views: [],
-            referenced_routines: [],
-            output_row_count: 0,
-            cache_hit: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_processed_bytes, 1, type: :int64, json_name: "totalProcessedBytes"
   field :total_billed_bytes, 2, type: :int64, json_name: "totalBilledBytes"
@@ -1129,70 +665,26 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Query do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Load do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_output_bytes: integer
-        }
-
-  defstruct total_output_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_output_bytes, 1, type: :int64, json_name: "totalOutputBytes"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Extract do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          total_input_bytes: integer
-        }
-
-  defstruct total_input_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :total_input_bytes, 1, type: :int64, json_name: "totalInputBytes"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.ReservationResourceUsage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slot_ms: integer
-        }
-
-  defstruct name: "",
-            slot_ms: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_ms, 2, type: :int64, json_name: "slotMs"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          extended:
-            {:query_stats, Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Query.t() | nil}
-            | {:load_stats, Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Load.t() | nil}
-            | {:extract_stats,
-               Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Extract.t() | nil},
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          total_slot_ms: integer,
-          reservation_usage: [
-            Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.ReservationResourceUsage.t()
-          ],
-          parent_job_name: String.t()
-        }
-
-  defstruct extended: nil,
-            create_time: nil,
-            start_time: nil,
-            end_time: nil,
-            total_slot_ms: 0,
-            reservation_usage: [],
-            parent_job_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :extended, 0
 
@@ -1226,31 +718,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          schema_json: String.t(),
-          schema_json_truncated: boolean,
-          view: Google.Cloud.Audit.BigQueryAuditMetadata.TableViewDefinition.t() | nil,
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          truncate_time: Google.Protobuf.Timestamp.t() | nil,
-          encryption: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo.t() | nil,
-          table_info: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.t() | nil
-        }
-
-  defstruct table_name: "",
-            schema_json: "",
-            schema_json_truncated: false,
-            view: nil,
-            expire_time: nil,
-            create_time: nil,
-            update_time: nil,
-            truncate_time: nil,
-            encryption: nil,
-            table_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName"
   field :schema_json, 3, type: :string, json_name: "schemaJson"
@@ -1268,17 +736,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Routine do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          routine_name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct routine_name: "",
-            create_time: nil,
-            update_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :routine_name, 1, type: :string, json_name: "routineName"
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -1286,32 +744,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Routine do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          friendly_name: String.t(),
-          description: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct friendly_name: "",
-            description: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -1323,80 +763,27 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo do
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableViewDefinition do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query: String.t(),
-          query_truncated: boolean
-        }
-
-  defstruct query: "",
-            query_truncated: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_truncated, 2, type: :bool, json_name: "queryTruncated"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          policy: Google.Iam.V1.Policy.t() | nil,
-          authorized_views: [String.t()]
-        }
-
-  defstruct policy: nil,
-            authorized_views: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :policy, 1, type: Google.Iam.V1.Policy
   field :authorized_views, 2, repeated: true, type: :string, json_name: "authorizedViews"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kms_key_name: String.t()
-        }
-
-  defstruct kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event:
-            {:job_insertion, Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.t() | nil}
-            | {:job_change, Google.Cloud.Audit.BigQueryAuditMetadata.JobChange.t() | nil}
-            | {:dataset_creation,
-               Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.t() | nil}
-            | {:dataset_change, Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange.t() | nil}
-            | {:dataset_deletion,
-               Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.t() | nil}
-            | {:table_creation, Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation.t() | nil}
-            | {:table_change, Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.t() | nil}
-            | {:table_deletion, Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.t() | nil}
-            | {:table_data_read, Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.t() | nil}
-            | {:table_data_change,
-               Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.t() | nil}
-            | {:model_deletion, Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.t() | nil}
-            | {:model_creation, Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation.t() | nil}
-            | {:model_metadata_change,
-               Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange.t() | nil}
-            | {:model_data_change,
-               Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.t() | nil}
-            | {:model_data_read, Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.t() | nil}
-            | {:routine_creation,
-               Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation.t() | nil}
-            | {:routine_change, Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange.t() | nil}
-            | {:routine_deletion,
-               Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.t() | nil}
-        }
-
-  defstruct event: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 

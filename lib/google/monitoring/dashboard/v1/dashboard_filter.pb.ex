@@ -1,15 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.DashboardFilter.FilterType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :FILTER_TYPE_UNSPECIFIED
-          | :RESOURCE_LABEL
-          | :METRIC_LABEL
-          | :USER_METADATA_LABEL
-          | :SYSTEM_METADATA_LABEL
-          | :GROUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FILTER_TYPE_UNSPECIFIED, 0
   field :RESOURCE_LABEL, 1
@@ -20,19 +11,7 @@ defmodule Google.Monitoring.Dashboard.V1.DashboardFilter.FilterType do
 end
 defmodule Google.Monitoring.Dashboard.V1.DashboardFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          default_value: {:string_value, String.t()},
-          label_key: String.t(),
-          template_variable: String.t(),
-          filter_type: Google.Monitoring.Dashboard.V1.DashboardFilter.FilterType.t()
-        }
-
-  defstruct default_value: nil,
-            label_key: "",
-            template_variable: "",
-            filter_type: :FILTER_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :default_value, 0
 

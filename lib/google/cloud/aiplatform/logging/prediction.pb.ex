@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Aiplatform.Logging.OnlinePredictionLogEntry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoint: String.t(),
-          deployed_model_id: String.t(),
-          instance_count: integer,
-          prediction_count: integer,
-          error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct endpoint: "",
-            deployed_model_id: "",
-            instance_count: 0,
-            prediction_count: 0,
-            error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoint, 1, type: :string
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"

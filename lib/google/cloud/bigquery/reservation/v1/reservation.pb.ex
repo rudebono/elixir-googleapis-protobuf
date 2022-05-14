@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :COMMITMENT_PLAN_UNSPECIFIED | :FLEX | :TRIAL | :MONTHLY | :ANNUAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :FLEX, 3
@@ -12,9 +10,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ACTIVE | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -23,9 +19,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :JOB_TYPE_UNSPECIFIED | :PIPELINE | :QUERY | :ML_EXTERNAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JOB_TYPE_UNSPECIFIED, 0
   field :PIPELINE, 1
@@ -34,9 +28,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -44,25 +36,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slot_capacity: integer,
-          ignore_idle_slots: boolean,
-          concurrency: integer,
-          creation_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          multi_region_auxiliary: boolean
-        }
-
-  defstruct name: "",
-            slot_capacity: 0,
-            ignore_idle_slots: false,
-            concurrency: 0,
-            creation_time: nil,
-            update_time: nil,
-            multi_region_auxiliary: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_capacity, 2, type: :int64, json_name: "slotCapacity"
@@ -83,30 +57,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slot_count: integer,
-          plan: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t(),
-          state: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State.t(),
-          commitment_start_time: Google.Protobuf.Timestamp.t() | nil,
-          commitment_end_time: Google.Protobuf.Timestamp.t() | nil,
-          failure_status: Google.Rpc.Status.t() | nil,
-          renewal_plan:
-            Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan.t(),
-          multi_region_auxiliary: boolean
-        }
-
-  defstruct name: "",
-            slot_count: 0,
-            plan: :COMMITMENT_PLAN_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED,
-            commitment_start_time: nil,
-            commitment_end_time: nil,
-            failure_status: nil,
-            renewal_plan: :COMMITMENT_PLAN_UNSPECIFIED,
-            multi_region_auxiliary: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :slot_count, 2, type: :int64, json_name: "slotCount"
@@ -141,17 +92,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          reservation_id: String.t(),
-          reservation: Google.Cloud.Bigquery.Reservation.V1.Reservation.t() | nil
-        }
-
-  defstruct parent: "",
-            reservation_id: "",
-            reservation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :reservation_id, 2, type: :string, json_name: "reservationId"
@@ -159,17 +100,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -177,73 +108,33 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reservations: [Google.Cloud.Bigquery.Reservation.V1.Reservation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct reservations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reservations, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reservation: Google.Cloud.Bigquery.Reservation.V1.Reservation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct reservation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          capacity_commitment: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t() | nil,
-          enforce_single_admin_project_per_org: boolean,
-          capacity_commitment_id: String.t()
-        }
-
-  defstruct parent: "",
-            capacity_commitment: nil,
-            enforce_single_admin_project_per_org: false,
-            capacity_commitment_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -259,17 +150,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest d
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -277,15 +158,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          capacity_commitments: [Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct capacity_commitments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :capacity_commitments, 1,
     repeated: true,
@@ -296,42 +169,20 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse d
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          force: boolean
-        }
-
-  defstruct name: "",
-            force: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 3, type: :bool
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          capacity_commitment: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct capacity_commitment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :capacity_commitment, 1,
     type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment,
@@ -341,45 +192,21 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest d
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          slot_count: integer
-        }
-
-  defstruct name: "",
-            slot_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :slot_count, 2, type: :int64, json_name: "slotCount"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          first: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t() | nil,
-          second: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.t() | nil
-        }
-
-  defstruct first: nil,
-            second: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :first, 1, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
   field :second, 2, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          capacity_commitment_ids: [String.t()]
-        }
-
-  defstruct parent: "",
-            capacity_commitment_ids: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -390,19 +217,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest d
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          assignee: String.t(),
-          job_type: Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType.t(),
-          state: Google.Cloud.Bigquery.Reservation.V1.Assignment.State.t()
-        }
-
-  defstruct name: "",
-            assignee: "",
-            job_type: :JOB_TYPE_UNSPECIFIED,
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :assignee, 4, type: :string
@@ -419,17 +234,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          assignment: Google.Cloud.Bigquery.Reservation.V1.Assignment.t() | nil,
-          assignment_id: String.t()
-        }
-
-  defstruct parent: "",
-            assignment: nil,
-            assignment_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :assignment, 2, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
@@ -437,17 +242,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -455,46 +250,20 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          assignments: [Google.Cloud.Bigquery.Reservation.V1.Assignment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct assignments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string
@@ -503,19 +272,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          query: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            query: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string
@@ -524,77 +281,35 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          assignments: [Google.Cloud.Bigquery.Reservation.V1.Assignment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct assignments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          assignments: [Google.Cloud.Bigquery.Reservation.V1.Assignment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct assignments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          destination_id: String.t()
-        }
-
-  defstruct name: "",
-            destination_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_id, 3, type: :string, json_name: "destinationId", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateAssignmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          assignment: Google.Cloud.Bigquery.Reservation.V1.Assignment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct assignment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :assignment, 1, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.TableReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          dataset_id: String.t(),
-          table_id: String.t()
-        }
-
-  defstruct project_id: "",
-            dataset_id: "",
-            table_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -602,19 +317,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.TableReference do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          size: integer,
-          preferred_tables: [Google.Cloud.Bigquery.Reservation.V1.TableReference.t()]
-        }
-
-  defstruct name: "",
-            update_time: nil,
-            size: 0,
-            preferred_tables: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -632,27 +335,13 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bi_reservation: Google.Cloud.Bigquery.Reservation.V1.BiReservation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct bi_reservation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bi_reservation, 1,
     type: Google.Cloud.Bigquery.Reservation.V1.BiReservation,
@@ -662,7 +351,9 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
 end
 defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.reservation.v1.ReservationService"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.reservation.v1.ReservationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateReservation,
       Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest,

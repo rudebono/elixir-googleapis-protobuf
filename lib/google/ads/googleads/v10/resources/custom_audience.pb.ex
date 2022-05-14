@@ -1,25 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.CustomAudience do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          id: integer,
-          status:
-            Google.Ads.Googleads.V10.Enums.CustomAudienceStatusEnum.CustomAudienceStatus.t(),
-          name: String.t(),
-          type: Google.Ads.Googleads.V10.Enums.CustomAudienceTypeEnum.CustomAudienceType.t(),
-          description: String.t(),
-          members: [Google.Ads.Googleads.V10.Resources.CustomAudienceMember.t()]
-        }
-
-  defstruct resource_name: "",
-            id: 0,
-            status: :UNSPECIFIED,
-            name: "",
-            type: :UNSPECIFIED,
-            description: "",
-            members: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false
@@ -40,20 +21,7 @@ defmodule Google.Ads.Googleads.V10.Resources.CustomAudience do
 end
 defmodule Google.Ads.Googleads.V10.Resources.CustomAudienceMember do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value:
-            {:keyword, String.t()}
-            | {:url, String.t()}
-            | {:place_category, integer}
-            | {:app, String.t()},
-          member_type:
-            Google.Ads.Googleads.V10.Enums.CustomAudienceMemberTypeEnum.CustomAudienceMemberType.t()
-        }
-
-  defstruct value: nil,
-            member_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :value, 0
 

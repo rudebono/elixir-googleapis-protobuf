@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.DataType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_TYPE_UNSPECIFIED | :IMAGE | :VIDEO | :TEXT | :GENERAL_DATA
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :IMAGE, 1
@@ -12,25 +10,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DataType do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.Dataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          input_configs: [Google.Cloud.Datalabeling.V1beta1.InputConfig.t()],
-          blocking_resources: [String.t()],
-          data_item_count: integer
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            create_time: nil,
-            input_configs: [],
-            blocking_resources: [],
-            data_item_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -47,25 +27,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.Dataset do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_type_metadata:
-            {:text_metadata, Google.Cloud.Datalabeling.V1beta1.TextMetadata.t() | nil},
-          source:
-            {:gcs_source, Google.Cloud.Datalabeling.V1beta1.GcsSource.t() | nil}
-            | {:bigquery_source, Google.Cloud.Datalabeling.V1beta1.BigQuerySource.t() | nil},
-          data_type: Google.Cloud.Datalabeling.V1beta1.DataType.t(),
-          annotation_type: Google.Cloud.Datalabeling.V1beta1.AnnotationType.t(),
-          classification_metadata:
-            Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata.t() | nil
-        }
-
-  defstruct data_type_metadata: nil,
-            source: nil,
-            data_type: :DATA_TYPE_UNSPECIFIED,
-            annotation_type: :ANNOTATION_TYPE_UNSPECIFIED,
-            classification_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :data_type_metadata, 0
   oneof :source, 1
@@ -101,67 +63,32 @@ defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.TextMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language_code: String.t()
-        }
-
-  defstruct language_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          is_multi_label: boolean
-        }
-
-  defstruct is_multi_label: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :is_multi_label, 1, type: :bool, json_name: "isMultiLabel"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_uri: String.t(),
-          mime_type: String.t()
-        }
-
-  defstruct input_uri: "",
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.BigQuerySource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_uri: String.t()
-        }
-
-  defstruct input_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.OutputConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:gcs_destination, Google.Cloud.Datalabeling.V1beta1.GcsDestination.t() | nil}
-            | {:gcs_folder_destination,
-               Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination.t() | nil}
-        }
-
-  defstruct destination: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -177,45 +104,20 @@ defmodule Google.Cloud.Datalabeling.V1beta1.OutputConfig do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_uri: String.t(),
-          mime_type: String.t()
-        }
-
-  defstruct output_uri: "",
-            mime_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_uri, 1, type: :string, json_name: "outputUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_folder_uri: String.t()
-        }
-
-  defstruct output_folder_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_folder_uri, 1, type: :string, json_name: "outputFolderUri"
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.DataItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:image_payload, Google.Cloud.Datalabeling.V1beta1.ImagePayload.t() | nil}
-            | {:text_payload, Google.Cloud.Datalabeling.V1beta1.TextPayload.t() | nil}
-            | {:video_payload, Google.Cloud.Datalabeling.V1beta1.VideoPayload.t() | nil},
-          name: String.t()
-        }
-
-  defstruct payload: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -238,33 +140,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DataItem do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          annotation_source: Google.Cloud.Datalabeling.V1beta1.AnnotationSource.t(),
-          annotation_type: Google.Cloud.Datalabeling.V1beta1.AnnotationType.t(),
-          example_count: integer,
-          completed_example_count: integer,
-          label_stats: Google.Cloud.Datalabeling.V1beta1.LabelStats.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          metadata: Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata.t() | nil,
-          blocking_resources: [String.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            annotation_source: :ANNOTATION_SOURCE_UNSPECIFIED,
-            annotation_type: :ANNOTATION_TYPE_UNSPECIFIED,
-            example_count: 0,
-            completed_example_count: 0,
-            label_stats: nil,
-            create_time: nil,
-            metadata: nil,
-            blocking_resources: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -293,28 +169,14 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats.ExampleCountEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: integer
-        }
-
-  defstruct key: "",
-            value: 0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          example_count: %{String.t() => integer}
-        }
-
-  defstruct example_count: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :example_count, 1,
     repeated: true,
@@ -324,34 +186,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          annotation_request_config:
-            {:image_classification_config,
-             Google.Cloud.Datalabeling.V1beta1.ImageClassificationConfig.t() | nil}
-            | {:bounding_poly_config,
-               Google.Cloud.Datalabeling.V1beta1.BoundingPolyConfig.t() | nil}
-            | {:polyline_config, Google.Cloud.Datalabeling.V1beta1.PolylineConfig.t() | nil}
-            | {:segmentation_config,
-               Google.Cloud.Datalabeling.V1beta1.SegmentationConfig.t() | nil}
-            | {:video_classification_config,
-               Google.Cloud.Datalabeling.V1beta1.VideoClassificationConfig.t() | nil}
-            | {:object_detection_config,
-               Google.Cloud.Datalabeling.V1beta1.ObjectDetectionConfig.t() | nil}
-            | {:object_tracking_config,
-               Google.Cloud.Datalabeling.V1beta1.ObjectTrackingConfig.t() | nil}
-            | {:event_config, Google.Cloud.Datalabeling.V1beta1.EventConfig.t() | nil}
-            | {:text_classification_config,
-               Google.Cloud.Datalabeling.V1beta1.TextClassificationConfig.t() | nil}
-            | {:text_entity_extraction_config,
-               Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionConfig.t() | nil},
-          human_annotation_config:
-            Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig.t() | nil
-        }
-
-  defstruct annotation_request_config: nil,
-            human_annotation_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :annotation_request_config, 0
 
@@ -411,20 +246,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.Example do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload:
-            {:image_payload, Google.Cloud.Datalabeling.V1beta1.ImagePayload.t() | nil}
-            | {:text_payload, Google.Cloud.Datalabeling.V1beta1.TextPayload.t() | nil}
-            | {:video_payload, Google.Cloud.Datalabeling.V1beta1.VideoPayload.t() | nil},
-          name: String.t(),
-          annotations: [Google.Cloud.Datalabeling.V1beta1.Annotation.t()]
-        }
-
-  defstruct payload: nil,
-            name: "",
-            annotations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload, 0
 

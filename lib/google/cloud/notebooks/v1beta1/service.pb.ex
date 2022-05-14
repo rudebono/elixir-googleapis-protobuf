@@ -1,26 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_message: String.t(),
-          requested_cancellation: boolean,
-          api_version: String.t(),
-          endpoint: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_message: "",
-            requested_cancellation: false,
-            api_version: "",
-            endpoint: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -33,17 +13,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.OperationMetadata do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -51,17 +21,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.ListInstancesRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instances: [Google.Cloud.Notebooks.V1beta1.Instance.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct instances: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Notebooks.V1beta1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -69,29 +29,13 @@ defmodule Google.Cloud.Notebooks.V1beta1.ListInstancesResponse do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.CreateInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          instance_id: String.t(),
-          instance: Google.Cloud.Notebooks.V1beta1.Instance.t() | nil
-        }
-
-  defstruct parent: "",
-            instance_id: "",
-            instance: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -99,32 +43,14 @@ defmodule Google.Cloud.Notebooks.V1beta1.CreateInstanceRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.RegisterInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          instance_id: String.t()
-        }
-
-  defstruct parent: "",
-            instance_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceAcceleratorRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType.t(),
-          core_count: integer
-        }
-
-  defstruct name: "",
-            type: :ACCELERATOR_TYPE_UNSPECIFIED,
-            core_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -137,45 +63,21 @@ defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceAcceleratorRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceMachineTypeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          machine_type: String.t()
-        }
-
-  defstruct name: "",
-            machine_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :machine_type, 2, type: :string, json_name: "machineType", deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceLabelsRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceLabelsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -186,80 +88,38 @@ defmodule Google.Cloud.Notebooks.V1beta1.SetInstanceLabelsRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.StartInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.StopInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ResetInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ReportInstanceInfoRequest.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ReportInstanceInfoRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          vm_id: String.t(),
-          metadata: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            vm_id: "",
-            metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
@@ -271,29 +131,13 @@ defmodule Google.Cloud.Notebooks.V1beta1.ReportInstanceInfoRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          notebook_instance: String.t()
-        }
-
-  defstruct notebook_instance: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :notebook_instance, 1, type: :string, json_name: "notebookInstance", deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          upgradeable: boolean,
-          upgrade_version: String.t(),
-          upgrade_info: String.t()
-        }
-
-  defstruct upgradeable: false,
-            upgrade_version: "",
-            upgrade_info: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :upgradeable, 1, type: :bool
   field :upgrade_version, 2, type: :string, json_name: "upgradeVersion"
@@ -301,44 +145,20 @@ defmodule Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableResponse do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.UpgradeInstanceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.UpgradeInstanceInternalRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          vm_id: String.t()
-        }
-
-  defstruct name: "",
-            vm_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ListEnvironmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -346,17 +166,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.ListEnvironmentsRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.ListEnvironmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environments: [Google.Cloud.Notebooks.V1beta1.Environment.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct environments: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environments, 1, repeated: true, type: Google.Cloud.Notebooks.V1beta1.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -364,29 +174,13 @@ defmodule Google.Cloud.Notebooks.V1beta1.ListEnvironmentsResponse do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.CreateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          environment_id: String.t(),
-          environment: Google.Cloud.Notebooks.V1beta1.Environment.t() | nil
-        }
-
-  defstruct parent: "",
-            environment_id: "",
-            environment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :environment_id, 2, type: :string, json_name: "environmentId", deprecated: false
@@ -394,19 +188,15 @@ defmodule Google.Cloud.Notebooks.V1beta1.CreateEnvironmentRequest do
 end
 defmodule Google.Cloud.Notebooks.V1beta1.DeleteEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Notebooks.V1beta1.NotebookService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.notebooks.v1beta1.NotebookService"
+  use GRPC.Service,
+    name: "google.cloud.notebooks.v1beta1.NotebookService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListInstances,
       Google.Cloud.Notebooks.V1beta1.ListInstancesRequest,

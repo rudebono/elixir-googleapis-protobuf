@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Tasks.V2beta3.Task.View do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VIEW_UNSPECIFIED | :BASIC | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,34 +8,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Task.View do
 end
 defmodule Google.Cloud.Tasks.V2beta3.Task do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          payload_type:
-            {:app_engine_http_request, Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest.t() | nil}
-            | {:http_request, Google.Cloud.Tasks.V2beta3.HttpRequest.t() | nil}
-            | {:pull_message, Google.Cloud.Tasks.V2beta3.PullMessage.t() | nil},
-          name: String.t(),
-          schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          dispatch_deadline: Google.Protobuf.Duration.t() | nil,
-          dispatch_count: integer,
-          response_count: integer,
-          first_attempt: Google.Cloud.Tasks.V2beta3.Attempt.t() | nil,
-          last_attempt: Google.Cloud.Tasks.V2beta3.Attempt.t() | nil,
-          view: Google.Cloud.Tasks.V2beta3.Task.View.t()
-        }
-
-  defstruct payload_type: nil,
-            name: "",
-            schedule_time: nil,
-            create_time: nil,
-            dispatch_deadline: nil,
-            dispatch_count: 0,
-            response_count: 0,
-            first_attempt: nil,
-            last_attempt: nil,
-            view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :payload_type, 0
 
@@ -69,19 +40,7 @@ defmodule Google.Cloud.Tasks.V2beta3.Task do
 end
 defmodule Google.Cloud.Tasks.V2beta3.Attempt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schedule_time: Google.Protobuf.Timestamp.t() | nil,
-          dispatch_time: Google.Protobuf.Timestamp.t() | nil,
-          response_time: Google.Protobuf.Timestamp.t() | nil,
-          response_status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct schedule_time: nil,
-            dispatch_time: nil,
-            response_time: nil,
-            response_status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :dispatch_time, 2, type: Google.Protobuf.Timestamp, json_name: "dispatchTime"

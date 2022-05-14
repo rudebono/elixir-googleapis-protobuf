@@ -1,30 +1,6 @@
 defmodule Google.Api.Servicecontrol.V1.CheckError.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ERROR_CODE_UNSPECIFIED
-          | :NOT_FOUND
-          | :PERMISSION_DENIED
-          | :RESOURCE_EXHAUSTED
-          | :SERVICE_NOT_ACTIVATED
-          | :BILLING_DISABLED
-          | :PROJECT_DELETED
-          | :PROJECT_INVALID
-          | :CONSUMER_INVALID
-          | :IP_ADDRESS_BLOCKED
-          | :REFERER_BLOCKED
-          | :CLIENT_APP_BLOCKED
-          | :API_TARGET_BLOCKED
-          | :API_KEY_INVALID
-          | :API_KEY_EXPIRED
-          | :API_KEY_NOT_FOUND
-          | :INVALID_CREDENTIAL
-          | :NAMESPACE_LOOKUP_UNAVAILABLE
-          | :SERVICE_STATUS_UNAVAILABLE
-          | :BILLING_STATUS_UNAVAILABLE
-          | :CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :NOT_FOUND, 5
@@ -50,19 +26,7 @@ defmodule Google.Api.Servicecontrol.V1.CheckError.Code do
 end
 defmodule Google.Api.Servicecontrol.V1.CheckError do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Api.Servicecontrol.V1.CheckError.Code.t(),
-          subject: String.t(),
-          detail: String.t(),
-          status: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct code: :ERROR_CODE_UNSPECIFIED,
-            subject: "",
-            detail: "",
-            status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.CheckError.Code, enum: true
   field :subject, 4, type: :string

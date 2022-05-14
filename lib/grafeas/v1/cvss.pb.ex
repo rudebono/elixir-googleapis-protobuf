@@ -1,14 +1,6 @@
 defmodule Grafeas.V1.CVSSv3.AttackVector do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTACK_VECTOR_UNSPECIFIED
-          | :ATTACK_VECTOR_NETWORK
-          | :ATTACK_VECTOR_ADJACENT
-          | :ATTACK_VECTOR_LOCAL
-          | :ATTACK_VECTOR_PHYSICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTACK_VECTOR_UNSPECIFIED, 0
   field :ATTACK_VECTOR_NETWORK, 1
@@ -18,13 +10,7 @@ defmodule Grafeas.V1.CVSSv3.AttackVector do
 end
 defmodule Grafeas.V1.CVSSv3.AttackComplexity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTACK_COMPLEXITY_UNSPECIFIED
-          | :ATTACK_COMPLEXITY_LOW
-          | :ATTACK_COMPLEXITY_HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTACK_COMPLEXITY_UNSPECIFIED, 0
   field :ATTACK_COMPLEXITY_LOW, 1
@@ -32,14 +18,7 @@ defmodule Grafeas.V1.CVSSv3.AttackComplexity do
 end
 defmodule Grafeas.V1.CVSSv3.PrivilegesRequired do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PRIVILEGES_REQUIRED_UNSPECIFIED
-          | :PRIVILEGES_REQUIRED_NONE
-          | :PRIVILEGES_REQUIRED_LOW
-          | :PRIVILEGES_REQUIRED_HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIVILEGES_REQUIRED_UNSPECIFIED, 0
   field :PRIVILEGES_REQUIRED_NONE, 1
@@ -48,13 +27,7 @@ defmodule Grafeas.V1.CVSSv3.PrivilegesRequired do
 end
 defmodule Grafeas.V1.CVSSv3.UserInteraction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :USER_INTERACTION_UNSPECIFIED
-          | :USER_INTERACTION_NONE
-          | :USER_INTERACTION_REQUIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :USER_INTERACTION_UNSPECIFIED, 0
   field :USER_INTERACTION_NONE, 1
@@ -62,9 +35,7 @@ defmodule Grafeas.V1.CVSSv3.UserInteraction do
 end
 defmodule Grafeas.V1.CVSSv3.Scope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCOPE_UNSPECIFIED | :SCOPE_UNCHANGED | :SCOPE_CHANGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCOPE_UNSPECIFIED, 0
   field :SCOPE_UNCHANGED, 1
@@ -72,9 +43,7 @@ defmodule Grafeas.V1.CVSSv3.Scope do
 end
 defmodule Grafeas.V1.CVSSv3.Impact do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :IMPACT_UNSPECIFIED | :IMPACT_HIGH | :IMPACT_LOW | :IMPACT_NONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IMPACT_UNSPECIFIED, 0
   field :IMPACT_HIGH, 1
@@ -83,15 +52,7 @@ defmodule Grafeas.V1.CVSSv3.Impact do
 end
 defmodule Grafeas.V1.CVSS.AttackVector do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTACK_VECTOR_UNSPECIFIED
-          | :ATTACK_VECTOR_NETWORK
-          | :ATTACK_VECTOR_ADJACENT
-          | :ATTACK_VECTOR_LOCAL
-          | :ATTACK_VECTOR_PHYSICAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTACK_VECTOR_UNSPECIFIED, 0
   field :ATTACK_VECTOR_NETWORK, 1
@@ -101,13 +62,7 @@ defmodule Grafeas.V1.CVSS.AttackVector do
 end
 defmodule Grafeas.V1.CVSS.AttackComplexity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ATTACK_COMPLEXITY_UNSPECIFIED
-          | :ATTACK_COMPLEXITY_LOW
-          | :ATTACK_COMPLEXITY_HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ATTACK_COMPLEXITY_UNSPECIFIED, 0
   field :ATTACK_COMPLEXITY_LOW, 1
@@ -115,14 +70,7 @@ defmodule Grafeas.V1.CVSS.AttackComplexity do
 end
 defmodule Grafeas.V1.CVSS.Authentication do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :AUTHENTICATION_UNSPECIFIED
-          | :AUTHENTICATION_MULTIPLE
-          | :AUTHENTICATION_SINGLE
-          | :AUTHENTICATION_NONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUTHENTICATION_UNSPECIFIED, 0
   field :AUTHENTICATION_MULTIPLE, 1
@@ -131,14 +79,7 @@ defmodule Grafeas.V1.CVSS.Authentication do
 end
 defmodule Grafeas.V1.CVSS.PrivilegesRequired do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :PRIVILEGES_REQUIRED_UNSPECIFIED
-          | :PRIVILEGES_REQUIRED_NONE
-          | :PRIVILEGES_REQUIRED_LOW
-          | :PRIVILEGES_REQUIRED_HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :PRIVILEGES_REQUIRED_UNSPECIFIED, 0
   field :PRIVILEGES_REQUIRED_NONE, 1
@@ -147,13 +88,7 @@ defmodule Grafeas.V1.CVSS.PrivilegesRequired do
 end
 defmodule Grafeas.V1.CVSS.UserInteraction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :USER_INTERACTION_UNSPECIFIED
-          | :USER_INTERACTION_NONE
-          | :USER_INTERACTION_REQUIRED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :USER_INTERACTION_UNSPECIFIED, 0
   field :USER_INTERACTION_NONE, 1
@@ -161,9 +96,7 @@ defmodule Grafeas.V1.CVSS.UserInteraction do
 end
 defmodule Grafeas.V1.CVSS.Scope do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCOPE_UNSPECIFIED | :SCOPE_UNCHANGED | :SCOPE_CHANGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCOPE_UNSPECIFIED, 0
   field :SCOPE_UNCHANGED, 1
@@ -171,9 +104,7 @@ defmodule Grafeas.V1.CVSS.Scope do
 end
 defmodule Grafeas.V1.CVSS.Impact do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :IMPACT_UNSPECIFIED | :IMPACT_HIGH | :IMPACT_LOW | :IMPACT_NONE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :IMPACT_UNSPECIFIED, 0
   field :IMPACT_HIGH, 1
@@ -182,33 +113,7 @@ defmodule Grafeas.V1.CVSS.Impact do
 end
 defmodule Grafeas.V1.CVSSv3 do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          base_score: float | :infinity | :negative_infinity | :nan,
-          exploitability_score: float | :infinity | :negative_infinity | :nan,
-          impact_score: float | :infinity | :negative_infinity | :nan,
-          attack_vector: Grafeas.V1.CVSSv3.AttackVector.t(),
-          attack_complexity: Grafeas.V1.CVSSv3.AttackComplexity.t(),
-          privileges_required: Grafeas.V1.CVSSv3.PrivilegesRequired.t(),
-          user_interaction: Grafeas.V1.CVSSv3.UserInteraction.t(),
-          scope: Grafeas.V1.CVSSv3.Scope.t(),
-          confidentiality_impact: Grafeas.V1.CVSSv3.Impact.t(),
-          integrity_impact: Grafeas.V1.CVSSv3.Impact.t(),
-          availability_impact: Grafeas.V1.CVSSv3.Impact.t()
-        }
-
-  defstruct base_score: 0.0,
-            exploitability_score: 0.0,
-            impact_score: 0.0,
-            attack_vector: :ATTACK_VECTOR_UNSPECIFIED,
-            attack_complexity: :ATTACK_COMPLEXITY_UNSPECIFIED,
-            privileges_required: :PRIVILEGES_REQUIRED_UNSPECIFIED,
-            user_interaction: :USER_INTERACTION_UNSPECIFIED,
-            scope: :SCOPE_UNSPECIFIED,
-            confidentiality_impact: :IMPACT_UNSPECIFIED,
-            integrity_impact: :IMPACT_UNSPECIFIED,
-            availability_impact: :IMPACT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :base_score, 1, type: :float, json_name: "baseScore"
   field :exploitability_score, 2, type: :float, json_name: "exploitabilityScore"
@@ -253,35 +158,7 @@ defmodule Grafeas.V1.CVSSv3 do
 end
 defmodule Grafeas.V1.CVSS do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          base_score: float | :infinity | :negative_infinity | :nan,
-          exploitability_score: float | :infinity | :negative_infinity | :nan,
-          impact_score: float | :infinity | :negative_infinity | :nan,
-          attack_vector: Grafeas.V1.CVSS.AttackVector.t(),
-          attack_complexity: Grafeas.V1.CVSS.AttackComplexity.t(),
-          authentication: Grafeas.V1.CVSS.Authentication.t(),
-          privileges_required: Grafeas.V1.CVSS.PrivilegesRequired.t(),
-          user_interaction: Grafeas.V1.CVSS.UserInteraction.t(),
-          scope: Grafeas.V1.CVSS.Scope.t(),
-          confidentiality_impact: Grafeas.V1.CVSS.Impact.t(),
-          integrity_impact: Grafeas.V1.CVSS.Impact.t(),
-          availability_impact: Grafeas.V1.CVSS.Impact.t()
-        }
-
-  defstruct base_score: 0.0,
-            exploitability_score: 0.0,
-            impact_score: 0.0,
-            attack_vector: :ATTACK_VECTOR_UNSPECIFIED,
-            attack_complexity: :ATTACK_COMPLEXITY_UNSPECIFIED,
-            authentication: :AUTHENTICATION_UNSPECIFIED,
-            privileges_required: :PRIVILEGES_REQUIRED_UNSPECIFIED,
-            user_interaction: :USER_INTERACTION_UNSPECIFIED,
-            scope: :SCOPE_UNSPECIFIED,
-            confidentiality_impact: :IMPACT_UNSPECIFIED,
-            integrity_impact: :IMPACT_UNSPECIFIED,
-            availability_impact: :IMPACT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :base_score, 1, type: :float, json_name: "baseScore"
   field :exploitability_score, 2, type: :float, json_name: "exploitabilityScore"

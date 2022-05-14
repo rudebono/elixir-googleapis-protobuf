@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListChangelogsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -21,52 +9,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListChangelogsRequest do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListChangelogsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          changelogs: [Google.Cloud.Dialogflow.Cx.V3beta1.Changelog.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct changelogs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :changelogs, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Changelog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetChangelogRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Changelog do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          user_email: String.t(),
-          display_name: String.t(),
-          action: String.t(),
-          type: String.t(),
-          resource: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            user_email: "",
-            display_name: "",
-            action: "",
-            type: "",
-            resource: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :user_email, 2, type: :string, json_name: "userEmail"
@@ -78,7 +34,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Changelog do
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Changelogs.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.cx.v3beta1.Changelogs"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.cx.v3beta1.Changelogs",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListChangelogs,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListChangelogsRequest,

@@ -1,24 +1,12 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.AvroSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema: String.t()
-        }
-
-  defstruct schema: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schema, 1, type: :string
 end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.AvroRows do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          serialized_binary_rows: binary
-        }
-
-  defstruct serialized_binary_rows: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :serialized_binary_rows, 1, type: :bytes, json_name: "serializedBinaryRows"
 end

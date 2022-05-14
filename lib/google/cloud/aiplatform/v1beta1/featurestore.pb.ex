@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :STABLE | :UPDATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STABLE, 1
@@ -10,31 +8,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.State do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.Scaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_node_count: integer,
-          max_node_count: integer
-        }
-
-  defstruct min_node_count: 0,
-            max_node_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fixed_node_count: integer,
-          scaling:
-            Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.Scaling.t() | nil
-        }
-
-  defstruct fixed_node_count: 0,
-            scaling: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fixed_node_count, 2, type: :int32, json_name: "fixedNodeCount"
 
@@ -43,43 +24,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig do
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Featurestore do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          etag: String.t(),
-          labels: %{String.t() => String.t()},
-          online_serving_config:
-            Google.Cloud.Aiplatform.V1beta1.Featurestore.OnlineServingConfig.t() | nil,
-          state: Google.Cloud.Aiplatform.V1beta1.Featurestore.State.t(),
-          encryption_spec: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            etag: "",
-            labels: %{},
-            online_serving_config: nil,
-            state: :STATE_UNSPECIFIED,
-            encryption_spec: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

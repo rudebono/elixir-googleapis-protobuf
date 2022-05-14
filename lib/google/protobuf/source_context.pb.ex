@@ -1,12 +1,6 @@
 defmodule Google.Protobuf.SourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_name: String.t()
-        }
-
-  defstruct file_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_name, 1, type: :string, json_name: "fileName"
 end

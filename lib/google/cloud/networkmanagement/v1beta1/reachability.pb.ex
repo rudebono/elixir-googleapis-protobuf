@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -24,17 +10,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resources: [Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.t()],
-          next_page_token: String.t(),
-          unreachable: [String.t()]
-        }
-
-  defstruct resources: [],
-            next_page_token: "",
-            unreachable: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resources, 1,
     repeated: true,
@@ -45,29 +21,13 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse d
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.GetConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          test_id: String.t(),
-          resource: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.t() | nil
-        }
-
-  defstruct parent: "",
-            test_id: "",
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :test_id, 2, type: :string, json_name: "testId", deprecated: false
@@ -78,15 +38,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest d
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          resource: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            resource: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -99,49 +51,19 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest d
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeleteConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.RerunConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t(),
-          status_detail: String.t(),
-          cancel_requested: boolean,
-          api_version: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: "",
-            status_detail: "",
-            cancel_requested: false,
-            api_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -153,7 +75,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.networkmanagement.v1beta1.ReachabilityService"
+  use GRPC.Service,
+    name: "google.cloud.networkmanagement.v1beta1.ReachabilityService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListConnectivityTests,
       Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest,

@@ -1,8 +1,6 @@
 defmodule Google.Api.Property.PropertyType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :INT64 | :BOOL | :STRING | :DOUBLE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :INT64, 1
@@ -12,29 +10,13 @@ defmodule Google.Api.Property.PropertyType do
 end
 defmodule Google.Api.ProjectProperties do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          properties: [Google.Api.Property.t()]
-        }
-
-  defstruct properties: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :properties, 1, repeated: true, type: Google.Api.Property
 end
 defmodule Google.Api.Property do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: Google.Api.Property.PropertyType.t(),
-          description: String.t()
-        }
-
-  defstruct name: "",
-            type: :UNSPECIFIED,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Api.Property.PropertyType, enum: true

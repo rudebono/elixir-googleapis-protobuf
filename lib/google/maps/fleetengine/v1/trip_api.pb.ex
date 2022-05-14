@@ -1,27 +1,13 @@
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest.SolutionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SOLUTION_TYPE_UNSPECIFIED | :ON_DEMAND_RIDESHARING_AND_DELIVERIES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SOLUTION_TYPE_UNSPECIFIED, 0
   field :ON_DEMAND_RIDESHARING_AND_DELIVERIES, 1
 end
 defmodule Maps.Fleetengine.V1.CreateTripRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          parent: String.t(),
-          trip_id: String.t(),
-          trip: Maps.Fleetengine.V1.Trip.t() | nil
-        }
-
-  defstruct header: nil,
-            parent: "",
-            trip_id: "",
-            trip: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -30,27 +16,7 @@ defmodule Maps.Fleetengine.V1.CreateTripRequest do
 end
 defmodule Maps.Fleetengine.V1.GetTripRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          view: Maps.Fleetengine.V1.TripView.t(),
-          current_route_segment_version: Google.Protobuf.Timestamp.t() | nil,
-          remaining_waypoints_version: Google.Protobuf.Timestamp.t() | nil,
-          route_format_type: Maps.Fleetengine.V1.PolylineFormatType.t(),
-          current_route_segment_traffic_version: Google.Protobuf.Timestamp.t() | nil,
-          remaining_waypoints_route_version: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct header: nil,
-            name: "",
-            view: :TRIP_VIEW_UNSPECIFIED,
-            current_route_segment_version: nil,
-            remaining_waypoints_version: nil,
-            route_format_type: :UNKNOWN_FORMAT_TYPE,
-            current_route_segment_traffic_version: nil,
-            remaining_waypoints_route_version: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -79,21 +45,7 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
 end
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          country_code: String.t(),
-          platform: Maps.Fleetengine.V1.BillingPlatformIdentifier.t(),
-          related_ids: [String.t()],
-          solution_type: Maps.Fleetengine.V1.ReportBillableTripRequest.SolutionType.t()
-        }
-
-  defstruct name: "",
-            country_code: "",
-            platform: :BILLING_PLATFORM_IDENTIFIER_UNSPECIFIED,
-            related_ids: [],
-            solution_type: :SOLUTION_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 2, type: :string, deprecated: false
   field :country_code, 3, type: :string, json_name: "countryCode", deprecated: false
@@ -107,19 +59,7 @@ defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
 end
 defmodule Maps.Fleetengine.V1.UpdateTripRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          trip: Maps.Fleetengine.V1.Trip.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct header: nil,
-            name: "",
-            trip: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -132,25 +72,7 @@ defmodule Maps.Fleetengine.V1.UpdateTripRequest do
 end
 defmodule Maps.Fleetengine.V1.SearchTripsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          parent: String.t(),
-          vehicle_id: String.t(),
-          active_trips_only: boolean,
-          page_size: integer,
-          page_token: String.t(),
-          minimum_staleness: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct header: nil,
-            parent: "",
-            vehicle_id: "",
-            active_trips_only: false,
-            page_size: 0,
-            page_token: "",
-            minimum_staleness: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -162,22 +84,14 @@ defmodule Maps.Fleetengine.V1.SearchTripsRequest do
 end
 defmodule Maps.Fleetengine.V1.SearchTripsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          trips: [Maps.Fleetengine.V1.Trip.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct trips: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :trips, 1, repeated: true, type: Maps.Fleetengine.V1.Trip
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Maps.Fleetengine.V1.TripService.Service do
   @moduledoc false
-  use GRPC.Service, name: "maps.fleetengine.v1.TripService"
+  use GRPC.Service, name: "maps.fleetengine.v1.TripService", protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTrip, Maps.Fleetengine.V1.CreateTripRequest, Maps.Fleetengine.V1.Trip
 

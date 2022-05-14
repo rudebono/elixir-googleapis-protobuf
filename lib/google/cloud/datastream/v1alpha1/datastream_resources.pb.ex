@@ -1,17 +1,13 @@
 defmodule Google.Cloud.Datastream.V1alpha1.GcsFileFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :GCS_FILE_FORMAT_UNSPECIFIED | :AVRO
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :GCS_FILE_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
 end
 defmodule Google.Cloud.Datastream.V1alpha1.SchemaFileFormat do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCHEMA_FILE_FORMAT_UNSPECIFIED | :NO_SCHEMA_FILE | :AVRO_SCHEMA_FILE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCHEMA_FILE_FORMAT_UNSPECIFIED, 0
   field :NO_SCHEMA_FILE, 1
@@ -19,9 +15,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.SchemaFileFormat do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnection.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :CREATED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -30,9 +24,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnection.State do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.JsonFileFormat.JsonCompression do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :JSON_COMPRESSION_UNSPECIFIED | :NO_COMPRESSION | :GZIP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :JSON_COMPRESSION_UNSPECIFIED, 0
   field :NO_COMPRESSION, 1
@@ -40,19 +32,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.JsonFileFormat.JsonCompression do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Stream.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :CREATED
-          | :RUNNING
-          | :PAUSED
-          | :MAINTENANCE
-          | :FAILED
-          | :FAILED_PERMANENTLY
-          | :STARTING
-          | :DRAINING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -66,9 +46,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.Stream.State do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Validation.Status do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATUS_UNSPECIFIED | :NOT_EXECUTED | :FAILED | :PASSED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :NOT_EXECUTED, 1
@@ -77,9 +55,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.Validation.Status do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ValidationMessage.Level do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :LEVEL_UNSPECIFIED | :WARNING | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :LEVEL_UNSPECIFIED, 0
   field :WARNING, 1
@@ -87,38 +63,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.ValidationMessage.Level do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleProfile.ConnectionAttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hostname: String.t(),
-          port: integer,
-          username: String.t(),
-          password: String.t(),
-          database_service: String.t(),
-          connection_attributes: %{String.t() => String.t()}
-        }
-
-  defstruct hostname: "",
-            port: 0,
-            username: "",
-            password: "",
-            database_service: "",
-            connection_attributes: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -134,21 +86,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.OracleProfile do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hostname: String.t(),
-          port: integer,
-          username: String.t(),
-          password: String.t(),
-          ssl_config: Google.Cloud.Datastream.V1alpha1.MysqlSslConfig.t() | nil
-        }
-
-  defstruct hostname: "",
-            port: 0,
-            username: "",
-            password: "",
-            ssl_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -161,50 +99,22 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlProfile do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.GcsProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bucket_name: String.t(),
-          root_path: String.t()
-        }
-
-  defstruct bucket_name: "",
-            root_path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
   field :root_path, 2, type: :string, json_name: "rootPath"
 end
 defmodule Google.Cloud.Datastream.V1alpha1.NoConnectivitySettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datastream.V1alpha1.StaticServiceIpConnectivity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ForwardSshTunnelConnectivity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          authentication_method: {:password, String.t()} | {:private_key, String.t()},
-          hostname: String.t(),
-          username: String.t(),
-          port: integer
-        }
-
-  defstruct authentication_method: nil,
-            hostname: "",
-            username: "",
-            port: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -216,57 +126,21 @@ defmodule Google.Cloud.Datastream.V1alpha1.ForwardSshTunnelConnectivity do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.VpcPeeringConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vpc_name: String.t(),
-          subnet: String.t()
-        }
-
-  defstruct vpc_name: "",
-            subnet: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vpc_name, 1, type: :string, json_name: "vpcName", deprecated: false
   field :subnet, 2, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnection.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          state: Google.Cloud.Datastream.V1alpha1.PrivateConnection.State.t(),
-          error: Google.Cloud.Datastream.V1alpha1.Error.t() | nil,
-          vpc_peering_config: Google.Cloud.Datastream.V1alpha1.VpcPeeringConfig.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            state: :STATE_UNSPECIFIED,
-            error: nil,
-            vpc_peering_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -300,13 +174,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnection do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnectivity do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          private_connection_name: String.t()
-        }
-
-  defstruct private_connection_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :private_connection_name, 1,
     type: :string,
@@ -315,40 +183,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.PrivateConnectivity do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Route.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Route do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          destination_address: String.t(),
-          destination_port: integer
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            destination_address: "",
-            destination_port: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -373,23 +215,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.Route do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlSslConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          client_key: String.t(),
-          client_key_set: boolean,
-          client_certificate: String.t(),
-          client_certificate_set: boolean,
-          ca_certificate: String.t(),
-          ca_certificate_set: boolean
-        }
-
-  defstruct client_key: "",
-            client_key_set: false,
-            client_certificate: "",
-            client_certificate_set: false,
-            ca_certificate: "",
-            ca_certificate_set: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :client_key, 11, type: :string, json_name: "clientKey", deprecated: false
   field :client_key_set, 12, type: :bool, json_name: "clientKeySet", deprecated: false
@@ -405,50 +231,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlSslConfig do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ConnectionProfile.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ConnectionProfile do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          profile:
-            {:oracle_profile, Google.Cloud.Datastream.V1alpha1.OracleProfile.t() | nil}
-            | {:gcs_profile, Google.Cloud.Datastream.V1alpha1.GcsProfile.t() | nil}
-            | {:mysql_profile, Google.Cloud.Datastream.V1alpha1.MysqlProfile.t() | nil},
-          connectivity:
-            {:no_connectivity, Google.Cloud.Datastream.V1alpha1.NoConnectivitySettings.t() | nil}
-            | {:static_service_ip_connectivity,
-               Google.Cloud.Datastream.V1alpha1.StaticServiceIpConnectivity.t() | nil}
-            | {:forward_ssh_connectivity,
-               Google.Cloud.Datastream.V1alpha1.ForwardSshTunnelConnectivity.t() | nil}
-            | {:private_connectivity,
-               Google.Cloud.Datastream.V1alpha1.PrivateConnectivity.t() | nil},
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t()
-        }
-
-  defstruct profile: nil,
-            connectivity: nil,
-            name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :profile, 0
   oneof :connectivity, 1
@@ -509,29 +299,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.ConnectionProfile do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleColumn do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          column_name: String.t(),
-          data_type: String.t(),
-          length: integer,
-          precision: integer,
-          scale: integer,
-          encoding: String.t(),
-          primary_key: boolean,
-          nullable: boolean,
-          ordinal_position: integer
-        }
-
-  defstruct column_name: "",
-            data_type: "",
-            length: 0,
-            precision: 0,
-            scale: 0,
-            encoding: "",
-            primary_key: false,
-            nullable: false,
-            ordinal_position: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -545,15 +313,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.OracleColumn do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleTable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          oracle_columns: [Google.Cloud.Datastream.V1alpha1.OracleColumn.t()]
-        }
-
-  defstruct table_name: "",
-            oracle_columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName"
 
@@ -564,15 +324,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.OracleTable do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleSchema do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema_name: String.t(),
-          oracle_tables: [Google.Cloud.Datastream.V1alpha1.OracleTable.t()]
-        }
-
-  defstruct schema_name: "",
-            oracle_tables: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schema_name, 1, type: :string, json_name: "schemaName"
 
@@ -583,13 +335,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.OracleSchema do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleRdbms do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          oracle_schemas: [Google.Cloud.Datastream.V1alpha1.OracleSchema.t()]
-        }
-
-  defstruct oracle_schemas: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :oracle_schemas, 1,
     repeated: true,
@@ -598,40 +344,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.OracleRdbms do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.OracleSourceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowlist: Google.Cloud.Datastream.V1alpha1.OracleRdbms.t() | nil,
-          rejectlist: Google.Cloud.Datastream.V1alpha1.OracleRdbms.t() | nil
-        }
-
-  defstruct allowlist: nil,
-            rejectlist: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowlist, 1, type: Google.Cloud.Datastream.V1alpha1.OracleRdbms
   field :rejectlist, 2, type: Google.Cloud.Datastream.V1alpha1.OracleRdbms
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlColumn do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          column_name: String.t(),
-          data_type: String.t(),
-          length: integer,
-          collation: String.t(),
-          primary_key: boolean,
-          nullable: boolean,
-          ordinal_position: integer
-        }
-
-  defstruct column_name: "",
-            data_type: "",
-            length: 0,
-            collation: "",
-            primary_key: false,
-            nullable: false,
-            ordinal_position: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -643,15 +363,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlColumn do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlTable do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          table_name: String.t(),
-          mysql_columns: [Google.Cloud.Datastream.V1alpha1.MysqlColumn.t()]
-        }
-
-  defstruct table_name: "",
-            mysql_columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName"
 
@@ -662,15 +374,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlTable do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlDatabase do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database_name: String.t(),
-          mysql_tables: [Google.Cloud.Datastream.V1alpha1.MysqlTable.t()]
-        }
-
-  defstruct database_name: "",
-            mysql_tables: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database_name, 1, type: :string, json_name: "databaseName"
 
@@ -681,13 +385,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlDatabase do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlRdbms do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mysql_databases: [Google.Cloud.Datastream.V1alpha1.MysqlDatabase.t()]
-        }
-
-  defstruct mysql_databases: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mysql_databases, 1,
     repeated: true,
@@ -696,32 +394,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.MysqlRdbms do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.MysqlSourceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowlist: Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil,
-          rejectlist: Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil
-        }
-
-  defstruct allowlist: nil,
-            rejectlist: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowlist, 1, type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms
   field :rejectlist, 2, type: Google.Cloud.Datastream.V1alpha1.MysqlRdbms
 end
 defmodule Google.Cloud.Datastream.V1alpha1.SourceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_stream_config:
-            {:oracle_source_config, Google.Cloud.Datastream.V1alpha1.OracleSourceConfig.t() | nil}
-            | {:mysql_source_config, Google.Cloud.Datastream.V1alpha1.MysqlSourceConfig.t() | nil},
-          source_connection_profile_name: String.t()
-        }
-
-  defstruct source_stream_config: nil,
-            source_connection_profile_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_stream_config, 0
 
@@ -742,23 +422,11 @@ defmodule Google.Cloud.Datastream.V1alpha1.SourceConfig do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.AvroFileFormat do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datastream.V1alpha1.JsonFileFormat do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema_file_format: Google.Cloud.Datastream.V1alpha1.SchemaFileFormat.t(),
-          compression: Google.Cloud.Datastream.V1alpha1.JsonFileFormat.JsonCompression.t()
-        }
-
-  defstruct schema_file_format: :SCHEMA_FILE_FORMAT_UNSPECIFIED,
-            compression: :JSON_COMPRESSION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schema_file_format, 1,
     type: Google.Cloud.Datastream.V1alpha1.SchemaFileFormat,
@@ -771,23 +439,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.JsonFileFormat do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.GcsDestinationConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_format:
-            {:avro_file_format, Google.Cloud.Datastream.V1alpha1.AvroFileFormat.t() | nil}
-            | {:json_file_format, Google.Cloud.Datastream.V1alpha1.JsonFileFormat.t() | nil},
-          path: String.t(),
-          gcs_file_format: Google.Cloud.Datastream.V1alpha1.GcsFileFormat.t(),
-          file_rotation_mb: integer,
-          file_rotation_interval: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct file_format: nil,
-            path: "",
-            gcs_file_format: :GCS_FILE_FORMAT_UNSPECIFIED,
-            file_rotation_mb: 0,
-            file_rotation_interval: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :file_format, 0
 
@@ -817,17 +469,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.GcsDestinationConfig do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.DestinationConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination_stream_config:
-            {:gcs_destination_config,
-             Google.Cloud.Datastream.V1alpha1.GcsDestinationConfig.t() | nil},
-          destination_connection_profile_name: String.t()
-        }
-
-  defstruct destination_stream_config: nil,
-            destination_connection_profile_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination_stream_config, 0
 
@@ -843,15 +485,7 @@ defmodule Google.Cloud.Datastream.V1alpha1.DestinationConfig do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Stream.BackfillAllStrategy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          excluded_objects:
-            {:oracle_excluded_objects, Google.Cloud.Datastream.V1alpha1.OracleRdbms.t() | nil}
-            | {:mysql_excluded_objects, Google.Cloud.Datastream.V1alpha1.MysqlRdbms.t() | nil}
-        }
-
-  defstruct excluded_objects: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :excluded_objects, 0
 
@@ -867,57 +501,18 @@ defmodule Google.Cloud.Datastream.V1alpha1.Stream.BackfillAllStrategy do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Stream.BackfillNoneStrategy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Stream.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Stream do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backfill_strategy:
-            {:backfill_all, Google.Cloud.Datastream.V1alpha1.Stream.BackfillAllStrategy.t() | nil}
-            | {:backfill_none,
-               Google.Cloud.Datastream.V1alpha1.Stream.BackfillNoneStrategy.t() | nil},
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          labels: %{String.t() => String.t()},
-          display_name: String.t(),
-          source_config: Google.Cloud.Datastream.V1alpha1.SourceConfig.t() | nil,
-          destination_config: Google.Cloud.Datastream.V1alpha1.DestinationConfig.t() | nil,
-          state: Google.Cloud.Datastream.V1alpha1.Stream.State.t(),
-          errors: [Google.Cloud.Datastream.V1alpha1.Error.t()]
-        }
-
-  defstruct backfill_strategy: nil,
-            name: "",
-            create_time: nil,
-            update_time: nil,
-            labels: %{},
-            display_name: "",
-            source_config: nil,
-            destination_config: nil,
-            state: :STATE_UNSPECIFIED,
-            errors: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :backfill_strategy, 0
 
@@ -969,36 +564,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.Stream do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Error.DetailsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Error do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reason: String.t(),
-          error_uuid: String.t(),
-          message: String.t(),
-          error_time: Google.Protobuf.Timestamp.t() | nil,
-          details: %{String.t() => String.t()}
-        }
-
-  defstruct reason: "",
-            error_uuid: "",
-            message: "",
-            error_time: nil,
-            details: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reason, 1, type: :string
   field :error_uuid, 2, type: :string, json_name: "errorUuid"
@@ -1012,31 +585,13 @@ defmodule Google.Cloud.Datastream.V1alpha1.Error do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ValidationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          validations: [Google.Cloud.Datastream.V1alpha1.Validation.t()]
-        }
-
-  defstruct validations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :validations, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Validation
 end
 defmodule Google.Cloud.Datastream.V1alpha1.Validation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          description: String.t(),
-          status: Google.Cloud.Datastream.V1alpha1.Validation.Status.t(),
-          message: [Google.Cloud.Datastream.V1alpha1.ValidationMessage.t()],
-          code: String.t()
-        }
-
-  defstruct description: "",
-            status: :STATUS_UNSPECIFIED,
-            message: [],
-            code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :description, 1, type: :string
   field :status, 2, type: Google.Cloud.Datastream.V1alpha1.Validation.Status, enum: true
@@ -1045,34 +600,14 @@ defmodule Google.Cloud.Datastream.V1alpha1.Validation do
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ValidationMessage.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Datastream.V1alpha1.ValidationMessage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          message: String.t(),
-          level: Google.Cloud.Datastream.V1alpha1.ValidationMessage.Level.t(),
-          metadata: %{String.t() => String.t()},
-          code: String.t()
-        }
-
-  defstruct message: "",
-            level: :LEVEL_UNSPECIFIED,
-            metadata: %{},
-            code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :level, 2, type: Google.Cloud.Datastream.V1alpha1.ValidationMessage.Level, enum: true

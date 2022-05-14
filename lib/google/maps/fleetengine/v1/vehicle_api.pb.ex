@@ -1,15 +1,6 @@
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_VEHICLE_MATCH_ORDER
-          | :PICKUP_POINT_ETA
-          | :PICKUP_POINT_DISTANCE
-          | :DROPOFF_POINT_ETA
-          | :PICKUP_POINT_STRAIGHT_DISTANCE
-          | :COST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_VEHICLE_MATCH_ORDER, 0
   field :PICKUP_POINT_ETA, 1
@@ -20,9 +11,7 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder do
 end
 defmodule Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :EXCLUSIVE | :BACK_TO_BACK | :CARPOOL | :CARPOOL_BACK_TO_BACK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :EXCLUSIVE, 1
@@ -32,19 +21,7 @@ defmodule Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType do
 end
 defmodule Maps.Fleetengine.V1.CreateVehicleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          parent: String.t(),
-          vehicle_id: String.t(),
-          vehicle: Maps.Fleetengine.V1.Vehicle.t() | nil
-        }
-
-  defstruct header: nil,
-            parent: "",
-            vehicle_id: "",
-            vehicle: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -53,19 +30,7 @@ defmodule Maps.Fleetengine.V1.CreateVehicleRequest do
 end
 defmodule Maps.Fleetengine.V1.GetVehicleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          current_route_segment_version: Google.Protobuf.Timestamp.t() | nil,
-          waypoints_version: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct header: nil,
-            name: "",
-            current_route_segment_version: nil,
-            waypoints_version: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -78,19 +43,7 @@ defmodule Maps.Fleetengine.V1.GetVehicleRequest do
 end
 defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          vehicle: Maps.Fleetengine.V1.Vehicle.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct header: nil,
-            name: "",
-            vehicle: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -103,19 +56,7 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
 end
 defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
   @moduledoc false
-  use Protobuf, deprecated: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          current_location: Maps.Fleetengine.V1.VehicleLocation.t() | nil,
-          current_state: Maps.Fleetengine.V1.VehicleState.t()
-        }
-
-  defstruct header: nil,
-            name: "",
-            current_location: nil,
-            current_state: :UNKNOWN_VEHICLE_STATE
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -132,17 +73,7 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
 end
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          name: String.t(),
-          attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()]
-        }
-
-  defstruct header: nil,
-            name: "",
-            attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -154,13 +85,7 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
 end
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()]
-        }
-
-  defstruct attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :attributes, 1,
     repeated: true,
@@ -169,43 +94,7 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesResponse do
 end
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          parent: String.t(),
-          pickup_point: Maps.Fleetengine.V1.TerminalLocation.t() | nil,
-          dropoff_point: Maps.Fleetengine.V1.TerminalLocation.t() | nil,
-          pickup_radius_meters: integer,
-          count: integer,
-          minimum_capacity: integer,
-          trip_types: [Maps.Fleetengine.V1.TripType.t()],
-          maximum_staleness: Google.Protobuf.Duration.t() | nil,
-          vehicle_types: [Maps.Fleetengine.V1.Vehicle.VehicleType.t()],
-          required_attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()],
-          required_one_of_attributes: [Maps.Fleetengine.V1.VehicleAttributeList.t()],
-          required_one_of_attribute_sets: [Maps.Fleetengine.V1.VehicleAttributeList.t()],
-          order_by: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder.t(),
-          include_back_to_back: boolean,
-          trip_id: String.t()
-        }
-
-  defstruct header: nil,
-            parent: "",
-            pickup_point: nil,
-            dropoff_point: nil,
-            pickup_radius_meters: 0,
-            count: 0,
-            minimum_capacity: 0,
-            trip_types: [],
-            maximum_staleness: nil,
-            vehicle_types: [],
-            required_attributes: [],
-            required_one_of_attributes: [],
-            required_one_of_attribute_sets: [],
-            order_by: :UNKNOWN_VEHICLE_MATCH_ORDER,
-            include_back_to_back: false,
-            trip_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -261,49 +150,13 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
 end
 defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          matches: [Maps.Fleetengine.V1.VehicleMatch.t()]
-        }
-
-  defstruct matches: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :matches, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleMatch
 end
 defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          header: Maps.Fleetengine.V1.RequestHeader.t() | nil,
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          minimum_capacity: Google.Protobuf.Int32Value.t() | nil,
-          trip_types: [Maps.Fleetengine.V1.TripType.t()],
-          maximum_staleness: Google.Protobuf.Duration.t() | nil,
-          vehicle_type_categories: [Maps.Fleetengine.V1.Vehicle.VehicleType.Category.t()],
-          required_attributes: [String.t()],
-          required_one_of_attributes: [String.t()],
-          required_one_of_attribute_sets: [String.t()],
-          vehicle_state: Maps.Fleetengine.V1.VehicleState.t(),
-          on_trip_only: boolean
-        }
-
-  defstruct header: nil,
-            parent: "",
-            page_size: 0,
-            page_token: "",
-            minimum_capacity: nil,
-            trip_types: [],
-            maximum_staleness: nil,
-            vehicle_type_categories: [],
-            required_attributes: [],
-            required_one_of_attributes: [],
-            required_one_of_attribute_sets: [],
-            vehicle_state: :UNKNOWN_VEHICLE_STATE,
-            on_trip_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :header, 12, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 1, type: :string, deprecated: false
@@ -347,17 +200,7 @@ defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
 end
 defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vehicles: [Maps.Fleetengine.V1.Vehicle.t()],
-          next_page_token: String.t(),
-          total_size: integer
-        }
-
-  defstruct vehicles: [],
-            next_page_token: "",
-            total_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vehicles, 1, repeated: true, type: Maps.Fleetengine.V1.Vehicle
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -365,48 +208,14 @@ defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
 end
 defmodule Maps.Fleetengine.V1.Waypoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          lat_lng: Google.Type.LatLng.t() | nil,
-          eta: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct lat_lng: nil,
-            eta: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :eta, 2, type: Google.Protobuf.Timestamp
 end
 defmodule Maps.Fleetengine.V1.VehicleMatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          vehicle: Maps.Fleetengine.V1.Vehicle.t() | nil,
-          vehicle_pickup_eta: Google.Protobuf.Timestamp.t() | nil,
-          vehicle_pickup_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          vehicle_pickup_straight_line_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          vehicle_dropoff_eta: Google.Protobuf.Timestamp.t() | nil,
-          vehicle_pickup_to_dropoff_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          trip_type: Maps.Fleetengine.V1.TripType.t(),
-          vehicle_trips_waypoints: [Maps.Fleetengine.V1.Waypoint.t()],
-          vehicle_match_type: Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType.t(),
-          requested_ordered_by: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder.t(),
-          ordered_by: Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder.t()
-        }
-
-  defstruct vehicle: nil,
-            vehicle_pickup_eta: nil,
-            vehicle_pickup_distance_meters: nil,
-            vehicle_pickup_straight_line_distance_meters: nil,
-            vehicle_dropoff_eta: nil,
-            vehicle_pickup_to_dropoff_distance_meters: nil,
-            trip_type: :UNKNOWN_TRIP_TYPE,
-            vehicle_trips_waypoints: [],
-            vehicle_match_type: :UNKNOWN,
-            requested_ordered_by: :UNKNOWN_VEHICLE_MATCH_ORDER,
-            ordered_by: :UNKNOWN_VEHICLE_MATCH_ORDER
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :vehicle, 1, type: Maps.Fleetengine.V1.Vehicle, deprecated: false
   field :vehicle_pickup_eta, 2, type: Google.Protobuf.Timestamp, json_name: "vehiclePickupEta"
@@ -454,19 +263,15 @@ defmodule Maps.Fleetengine.V1.VehicleMatch do
 end
 defmodule Maps.Fleetengine.V1.VehicleAttributeList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()]
-        }
-
-  defstruct attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :attributes, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
 end
 defmodule Maps.Fleetengine.V1.VehicleService.Service do
   @moduledoc false
-  use GRPC.Service, name: "maps.fleetengine.v1.VehicleService"
+  use GRPC.Service,
+    name: "maps.fleetengine.v1.VehicleService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateVehicle, Maps.Fleetengine.V1.CreateVehicleRequest, Maps.Fleetengine.V1.Vehicle
 

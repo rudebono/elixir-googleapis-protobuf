@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE | :INACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.State do
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.Severity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEVERITY_UNSPECIFIED | :CRITICAL | :HIGH | :MEDIUM | :LOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -22,50 +18,14 @@ defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.Severity do
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.SourcePropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          parent: String.t(),
-          resource_name: String.t(),
-          state: Google.Cloud.Securitycenter.V1p1beta1.Finding.State.t(),
-          category: String.t(),
-          external_uri: String.t(),
-          source_properties: %{String.t() => Google.Protobuf.Value.t() | nil},
-          security_marks: Google.Cloud.Securitycenter.V1p1beta1.SecurityMarks.t() | nil,
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          severity: Google.Cloud.Securitycenter.V1p1beta1.Finding.Severity.t(),
-          canonical_name: String.t()
-        }
-
-  defstruct name: "",
-            parent: "",
-            resource_name: "",
-            state: :STATE_UNSPECIFIED,
-            category: "",
-            external_uri: "",
-            source_properties: %{},
-            security_marks: nil,
-            event_time: nil,
-            create_time: nil,
-            severity: :SEVERITY_UNSPECIFIED,
-            canonical_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 2, type: :string

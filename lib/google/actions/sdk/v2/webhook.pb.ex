@@ -1,43 +1,19 @@
 defmodule Google.Actions.Sdk.V2.Webhook.Handler do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          base_url: String.t(),
-          http_headers: %{String.t() => String.t()},
-          endpoint_api_version: integer
-        }
-
-  defstruct base_url: "",
-            http_headers: %{},
-            endpoint_api_version: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :base_url, 1, type: :string, json_name: "baseUrl"
 
@@ -51,30 +27,13 @@ defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
 end
 defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execute_function: String.t()
-        }
-
-  defstruct execute_function: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execute_function, 1, type: :string, json_name: "executeFunction"
 end
 defmodule Google.Actions.Sdk.V2.Webhook do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          webhook_type:
-            {:https_endpoint, Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.t() | nil}
-            | {:inline_cloud_function,
-               Google.Actions.Sdk.V2.Webhook.InlineCloudFunction.t() | nil},
-          handlers: [Google.Actions.Sdk.V2.Webhook.Handler.t()]
-        }
-
-  defstruct webhook_type: nil,
-            handlers: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :webhook_type, 0
 

@@ -1,18 +1,6 @@
 defmodule Google.Monitoring.Metricsscope.V1.MetricsScope do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          monitored_projects: [Google.Monitoring.Metricsscope.V1.MonitoredProject.t()]
-        }
-
-  defstruct name: "",
-            create_time: nil,
-            update_time: nil,
-            monitored_projects: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -34,15 +22,7 @@ defmodule Google.Monitoring.Metricsscope.V1.MetricsScope do
 end
 defmodule Google.Monitoring.Metricsscope.V1.MonitoredProject do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

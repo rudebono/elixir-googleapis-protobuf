@@ -1,21 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Enums.AssetSetTypeEnum.AssetSetType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :PAGE_FEED
-          | :DYNAMIC_EDUCATION
-          | :MERCHANT_CENTER_FEED
-          | :DYNAMIC_REAL_ESTATE
-          | :DYNAMIC_CUSTOM
-          | :DYNAMIC_HOTELS_AND_RENTALS
-          | :DYNAMIC_FLIGHTS
-          | :DYNAMIC_TRAVEL
-          | :DYNAMIC_LOCAL
-          | :DYNAMIC_JOBS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -32,9 +17,5 @@ defmodule Google.Ads.Googleads.V10.Enums.AssetSetTypeEnum.AssetSetType do
 end
 defmodule Google.Ads.Googleads.V10.Enums.AssetSetTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

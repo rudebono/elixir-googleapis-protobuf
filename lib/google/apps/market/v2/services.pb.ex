@@ -1,33 +1,13 @@
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseGetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          application_id: String.t(),
-          customer_id: String.t()
-        }
-
-  defstruct application_id: "",
-            customer_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :customer_id, 2, type: :string, json_name: "customerId"
 end
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          application_id: String.t(),
-          max_results: non_neg_integer,
-          start_token: String.t(),
-          timestamp: non_neg_integer
-        }
-
-  defstruct application_id: "",
-            max_results: 0,
-            start_token: "",
-            timestamp: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -36,22 +16,16 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest do
 end
 defmodule Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          application_id: String.t(),
-          user_id: String.t()
-        }
-
-  defstruct application_id: "",
-            user_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :application_id, 1, type: :string, json_name: "applicationId"
   field :user_id, 2, type: :string, json_name: "userId"
 end
 defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Service do
   @moduledoc false
-  use GRPC.Service, name: "ccc.hosted.marketplace.v2.CustomerLicenseService"
+  use GRPC.Service,
+    name: "ccc.hosted.marketplace.v2.CustomerLicenseService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Get,
       Ccc.Hosted.Marketplace.V2.CustomerLicenseGetRequest,
@@ -64,7 +38,9 @@ defmodule Ccc.Hosted.Marketplace.V2.CustomerLicenseService.Stub do
 end
 defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Service do
   @moduledoc false
-  use GRPC.Service, name: "ccc.hosted.marketplace.v2.LicenseNotificationService"
+  use GRPC.Service,
+    name: "ccc.hosted.marketplace.v2.LicenseNotificationService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :List,
       Ccc.Hosted.Marketplace.V2.LicenseNotificationListRequest,
@@ -77,7 +53,9 @@ defmodule Ccc.Hosted.Marketplace.V2.LicenseNotificationService.Stub do
 end
 defmodule Ccc.Hosted.Marketplace.V2.UserLicenseService.Service do
   @moduledoc false
-  use GRPC.Service, name: "ccc.hosted.marketplace.v2.UserLicenseService"
+  use GRPC.Service,
+    name: "ccc.hosted.marketplace.v2.UserLicenseService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Get, Ccc.Hosted.Marketplace.V2.UserLicenseGetRequest, Ccc.Hosted.Marketplace.V2.UserLicense
 end

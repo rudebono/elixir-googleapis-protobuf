@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Tactic do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TACTIC_UNSPECIFIED
-          | :RECONNAISSANCE
-          | :RESOURCE_DEVELOPMENT
-          | :INITIAL_ACCESS
-          | :EXECUTION
-          | :PERSISTENCE
-          | :PRIVILEGE_ESCALATION
-          | :DEFENSE_EVASION
-          | :CREDENTIAL_ACCESS
-          | :DISCOVERY
-          | :LATERAL_MOVEMENT
-          | :COLLECTION
-          | :COMMAND_AND_CONTROL
-          | :EXFILTRATION
-          | :IMPACT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TACTIC_UNSPECIFIED, 0
   field :RECONNAISSANCE, 1
@@ -38,41 +20,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Tactic do
 end
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TECHNIQUE_UNSPECIFIED
-          | :ACTIVE_SCANNING
-          | :SCANNING_IP_BLOCKS
-          | :INGRESS_TOOL_TRANSFER
-          | :NATIVE_API
-          | :SHARED_MODULES
-          | :COMMAND_AND_SCRIPTING_INTERPRETER
-          | :UNIX_SHELL
-          | :RESOURCE_HIJACKING
-          | :PROXY
-          | :EXTERNAL_PROXY
-          | :MULTI_HOP_PROXY
-          | :DYNAMIC_RESOLUTION
-          | :UNSECURED_CREDENTIALS
-          | :VALID_ACCOUNTS
-          | :LOCAL_ACCOUNTS
-          | :CLOUD_ACCOUNTS
-          | :NETWORK_DENIAL_OF_SERVICE
-          | :PERMISSION_GROUPS_DISCOVERY
-          | :CLOUD_GROUPS
-          | :EXFILTRATION_OVER_WEB_SERVICE
-          | :EXFILTRATION_TO_CLOUD_STORAGE
-          | :ACCOUNT_MANIPULATION
-          | :SSH_AUTHORIZED_KEYS
-          | :CREATE_OR_MODIFY_SYSTEM_PROCESS
-          | :STEAL_WEB_SESSION_COOKIE
-          | :MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE
-          | :EXPLOIT_PUBLIC_FACING_APPLICATION
-          | :MODIFY_AUTHENTICATION_PROCESS
-          | :DATA_DESTRUCTION
-          | :DOMAIN_POLICY_MODIFICATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TECHNIQUE_UNSPECIFIED, 0
   field :ACTIVE_SCANNING, 1
@@ -108,21 +56,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
 end
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          primary_tactic: Google.Cloud.Securitycenter.V1.MitreAttack.Tactic.t(),
-          primary_techniques: [Google.Cloud.Securitycenter.V1.MitreAttack.Technique.t()],
-          additional_tactics: [Google.Cloud.Securitycenter.V1.MitreAttack.Tactic.t()],
-          additional_techniques: [Google.Cloud.Securitycenter.V1.MitreAttack.Technique.t()],
-          version: String.t()
-        }
-
-  defstruct primary_tactic: :TACTIC_UNSPECIFIED,
-            primary_techniques: [],
-            additional_tactics: [],
-            additional_techniques: [],
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :primary_tactic, 1,
     type: Google.Cloud.Securitycenter.V1.MitreAttack.Tactic,

@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Sql.V1.User.SqlUserType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :BUILT_IN | :CLOUD_IAM_USER | :CLOUD_IAM_SERVICE_ACCOUNT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BUILT_IN, 0
   field :CLOUD_IAM_USER, 1
@@ -10,19 +8,7 @@ defmodule Google.Cloud.Sql.V1.User.SqlUserType do
 end
 defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          host: String.t(),
-          instance: String.t(),
-          name: String.t(),
-          project: String.t()
-        }
-
-  defstruct host: "",
-            instance: "",
-            name: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :host, 1, type: :string
   field :instance, 2, type: :string
@@ -31,17 +17,7 @@ defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1.User.t() | nil
-        }
-
-  defstruct instance: "",
-            project: "",
-            body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -49,36 +25,14 @@ defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
 end
 defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instance: String.t(),
-          project: String.t()
-        }
-
-  defstruct instance: "",
-            project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
 end
 defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          host: String.t(),
-          instance: String.t(),
-          name: String.t(),
-          project: String.t(),
-          body: Google.Cloud.Sql.V1.User.t() | nil
-        }
-
-  defstruct host: "",
-            instance: "",
-            name: "",
-            project: "",
-            body: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :host, 1, type: :string, deprecated: false
   field :instance, 2, type: :string
@@ -88,30 +42,7 @@ defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
 end
 defmodule Google.Cloud.Sql.V1.User do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_details:
-            {:sqlserver_user_details, Google.Cloud.Sql.V1.SqlServerUserDetails.t() | nil},
-          kind: String.t(),
-          password: String.t(),
-          etag: String.t(),
-          name: String.t(),
-          host: String.t(),
-          instance: String.t(),
-          project: String.t(),
-          type: Google.Cloud.Sql.V1.User.SqlUserType.t()
-        }
-
-  defstruct user_details: nil,
-            kind: "",
-            password: "",
-            etag: "",
-            name: "",
-            host: "",
-            instance: "",
-            project: "",
-            type: :BUILT_IN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :user_details, 0
 
@@ -131,32 +62,14 @@ defmodule Google.Cloud.Sql.V1.User do
 end
 defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disabled: boolean,
-          server_roles: [String.t()]
-        }
-
-  defstruct disabled: false,
-            server_roles: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disabled, 1, type: :bool
   field :server_roles, 2, repeated: true, type: :string, json_name: "serverRoles"
 end
 defmodule Google.Cloud.Sql.V1.UsersListResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: String.t(),
-          items: [Google.Cloud.Sql.V1.User.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct kind: "",
-            items: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.User
@@ -164,7 +77,9 @@ defmodule Google.Cloud.Sql.V1.UsersListResponse do
 end
 defmodule Google.Cloud.Sql.V1.SqlUsersService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.sql.v1.SqlUsersService"
+  use GRPC.Service,
+    name: "google.cloud.sql.v1.SqlUsersService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlUsersDeleteRequest, Google.Cloud.Sql.V1.Operation
 

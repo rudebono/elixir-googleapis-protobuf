@@ -1,33 +1,12 @@
 defmodule Google.Ads.Googleads.V9.Services.GetSmartCampaignSettingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V9.Services.SmartCampaignSettingOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean,
-          response_content_type:
-            Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            partial_failure: false,
-            validate_only: false,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -46,30 +25,14 @@ defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingsRequest do
 end
 defmodule Google.Ads.Googleads.V9.Services.SmartCampaignSettingOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update: Google.Ads.Googleads.V9.Resources.SmartCampaignSetting.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct update: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update, 1, type: Google.Ads.Googleads.V9.Resources.SmartCampaignSetting
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partial_failure_error: Google.Rpc.Status.t() | nil,
-          results: [Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingResult.t()]
-        }
-
-  defstruct partial_failure_error: nil,
-            results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -79,15 +42,7 @@ defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingsResponse d
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          smart_campaign_setting: Google.Ads.Googleads.V9.Resources.SmartCampaignSetting.t() | nil
-        }
-
-  defstruct resource_name: "",
-            smart_campaign_setting: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
@@ -97,7 +52,9 @@ defmodule Google.Ads.Googleads.V9.Services.MutateSmartCampaignSettingResult do
 end
 defmodule Google.Ads.Googleads.V9.Services.SmartCampaignSettingService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v9.services.SmartCampaignSettingService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v9.services.SmartCampaignSettingService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetSmartCampaignSetting,
       Google.Ads.Googleads.V9.Services.GetSmartCampaignSettingRequest,

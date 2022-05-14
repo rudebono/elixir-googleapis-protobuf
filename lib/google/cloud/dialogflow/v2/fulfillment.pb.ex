@@ -1,44 +1,20 @@
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :SMALLTALK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SMALLTALK, 1
 end
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService.RequestHeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          username: String.t(),
-          password: String.t(),
-          request_headers: %{String.t() => String.t()},
-          is_cloud_function: boolean
-        }
-
-  defstruct uri: "",
-            username: "",
-            password: "",
-            request_headers: %{},
-            is_cloud_function: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :username, 2, type: :string, deprecated: false
@@ -55,35 +31,13 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService do
 end
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment.Feature do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2.Fulfillment.Feature.Type, enum: true
 end
 defmodule Google.Cloud.Dialogflow.V2.Fulfillment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fulfillment:
-            {:generic_web_service,
-             Google.Cloud.Dialogflow.V2.Fulfillment.GenericWebService.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          enabled: boolean,
-          features: [Google.Cloud.Dialogflow.V2.Fulfillment.Feature.t()]
-        }
-
-  defstruct fulfillment: nil,
-            name: "",
-            display_name: "",
-            enabled: false,
-            features: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :fulfillment, 0
 
@@ -104,27 +58,13 @@ defmodule Google.Cloud.Dialogflow.V2.Fulfillment do
 end
 defmodule Google.Cloud.Dialogflow.V2.GetFulfillmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2.UpdateFulfillmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fulfillment: Google.Cloud.Dialogflow.V2.Fulfillment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct fulfillment: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fulfillment, 1, type: Google.Cloud.Dialogflow.V2.Fulfillment, deprecated: false
 
@@ -135,7 +75,9 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateFulfillmentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2.Fulfillments.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2.Fulfillments"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2.Fulfillments",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetFulfillment,
       Google.Cloud.Dialogflow.V2.GetFulfillmentRequest,

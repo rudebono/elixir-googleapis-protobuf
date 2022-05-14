@@ -1,16 +1,6 @@
 defmodule Google.Genomics.V1.Range do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reference_name: String.t(),
-          start: integer,
-          end: integer
-        }
-
-  defstruct reference_name: "",
-            start: 0,
-            end: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reference_name, 1, type: :string, json_name: "referenceName"
   field :start, 2, type: :int64

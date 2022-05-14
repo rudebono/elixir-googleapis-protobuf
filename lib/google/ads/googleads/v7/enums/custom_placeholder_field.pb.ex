@@ -1,31 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.CustomPlaceholderFieldEnum.CustomPlaceholderField do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :ID
-          | :ID2
-          | :ITEM_TITLE
-          | :ITEM_SUBTITLE
-          | :ITEM_DESCRIPTION
-          | :ITEM_ADDRESS
-          | :PRICE
-          | :FORMATTED_PRICE
-          | :SALE_PRICE
-          | :FORMATTED_SALE_PRICE
-          | :IMAGE_URL
-          | :ITEM_CATEGORY
-          | :FINAL_URLS
-          | :FINAL_MOBILE_URLS
-          | :TRACKING_URL
-          | :CONTEXTUAL_KEYWORDS
-          | :ANDROID_APP_LINK
-          | :SIMILAR_IDS
-          | :IOS_APP_LINK
-          | :IOS_APP_STORE_ID
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -52,9 +27,5 @@ defmodule Google.Ads.Googleads.V7.Enums.CustomPlaceholderFieldEnum.CustomPlaceho
 end
 defmodule Google.Ads.Googleads.V7.Enums.CustomPlaceholderFieldEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

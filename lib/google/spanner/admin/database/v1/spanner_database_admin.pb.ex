@@ -1,17 +1,13 @@
 defmodule Google.Spanner.Admin.Database.V1.RestoreSourceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :BACKUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :BACKUP, 1
 end
 defmodule Google.Spanner.Admin.Database.V1.Database.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY | :READY_OPTIMIZING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -20,14 +16,7 @@ defmodule Google.Spanner.Admin.Database.V1.Database.State do
 end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.EncryptionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ENCRYPTION_TYPE_UNSPECIFIED
-          | :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION
-          | :GOOGLE_DEFAULT_ENCRYPTION
-          | :CUSTOMER_MANAGED_ENCRYPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION, 1
@@ -36,15 +25,7 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.Encry
 end
 defmodule Google.Spanner.Admin.Database.V1.RestoreInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_info: {:backup_info, Google.Spanner.Admin.Database.V1.BackupInfo.t() | nil},
-          source_type: Google.Spanner.Admin.Database.V1.RestoreSourceType.t()
-        }
-
-  defstruct source_info: nil,
-            source_type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -60,31 +41,7 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreInfo do
 end
 defmodule Google.Spanner.Admin.Database.V1.Database do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          state: Google.Spanner.Admin.Database.V1.Database.State.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          restore_info: Google.Spanner.Admin.Database.V1.RestoreInfo.t() | nil,
-          encryption_config: Google.Spanner.Admin.Database.V1.EncryptionConfig.t() | nil,
-          encryption_info: [Google.Spanner.Admin.Database.V1.EncryptionInfo.t()],
-          version_retention_period: String.t(),
-          earliest_version_time: Google.Protobuf.Timestamp.t() | nil,
-          default_leader: String.t(),
-          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
-        }
-
-  defstruct name: "",
-            state: :STATE_UNSPECIFIED,
-            create_time: nil,
-            restore_info: nil,
-            encryption_config: nil,
-            encryption_info: [],
-            version_retention_period: "",
-            earliest_version_time: nil,
-            default_leader: "",
-            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -134,17 +91,7 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
 end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
@@ -152,36 +99,14 @@ defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
 end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          databases: [Google.Spanner.Admin.Database.V1.Database.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct databases: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :databases, 1, repeated: true, type: Google.Spanner.Admin.Database.V1.Database
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          create_statement: String.t(),
-          extra_statements: [String.t()],
-          encryption_config: Google.Spanner.Admin.Database.V1.EncryptionConfig.t() | nil,
-          database_dialect: Google.Spanner.Admin.Database.V1.DatabaseDialect.t()
-        }
-
-  defstruct parent: "",
-            create_statement: "",
-            extra_statements: [],
-            encryption_config: nil,
-            database_dialect: :DATABASE_DIALECT_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :create_statement, 2, type: :string, json_name: "createStatement", deprecated: false
@@ -205,41 +130,19 @@ defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
 end
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t()
-        }
-
-  defstruct database: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t(),
-          statements: [String.t()],
-          operation_id: String.t()
-        }
-
-  defstruct database: "",
-            statements: [],
-            operation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :statements, 2, repeated: true, type: :string, deprecated: false
@@ -247,21 +150,7 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
 end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t(),
-          statements: [String.t()],
-          commit_timestamps: [Google.Protobuf.Timestamp.t()],
-          throttled: boolean,
-          progress: [Google.Spanner.Admin.Database.V1.OperationProgress.t()]
-        }
-
-  defstruct database: "",
-            statements: [],
-            commit_timestamps: [],
-            throttled: false,
-            progress: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :statements, 2, repeated: true, type: :string
@@ -276,55 +165,25 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlMetadata do
 end
 defmodule Google.Spanner.Admin.Database.V1.DropDatabaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t()
-        }
-
-  defstruct database: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseDdlRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          database: String.t()
-        }
-
-  defstruct database: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseDdlResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          statements: [String.t()]
-        }
-
-  defstruct statements: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :statements, 1, repeated: true, type: :string
 end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -333,35 +192,14 @@ defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsRequest do
 end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operations: [Google.Longrunning.Operation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct operations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:backup, String.t()},
-          parent: String.t(),
-          database_id: String.t(),
-          encryption_config:
-            Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.t() | nil
-        }
-
-  defstruct source: nil,
-            parent: "",
-            database_id: "",
-            encryption_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -376,16 +214,7 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseRequest do
 end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          encryption_type:
-            Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.EncryptionType.t(),
-          kms_key_name: String.t()
-        }
-
-  defstruct encryption_type: :ENCRYPTION_TYPE_UNSPECIFIED,
-            kms_key_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.EncryptionType,
@@ -397,23 +226,7 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig do
 end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_info: {:backup_info, Google.Spanner.Admin.Database.V1.BackupInfo.t() | nil},
-          name: String.t(),
-          source_type: Google.Spanner.Admin.Database.V1.RestoreSourceType.t(),
-          progress: Google.Spanner.Admin.Database.V1.OperationProgress.t() | nil,
-          cancel_time: Google.Protobuf.Timestamp.t() | nil,
-          optimize_database_operation_name: String.t()
-        }
-
-  defstruct source_info: nil,
-            name: "",
-            source_type: :TYPE_UNSPECIFIED,
-            progress: nil,
-            cancel_time: nil,
-            optimize_database_operation_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -438,22 +251,16 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseMetadata do
 end
 defmodule Google.Spanner.Admin.Database.V1.OptimizeRestoredDatabaseMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          progress: Google.Spanner.Admin.Database.V1.OperationProgress.t() | nil
-        }
-
-  defstruct name: "",
-            progress: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
 end
 defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.spanner.admin.database.v1.DatabaseAdmin"
+  use GRPC.Service,
+    name: "google.spanner.admin.database.v1.DatabaseAdmin",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListDatabases,
       Google.Spanner.Admin.Database.V1.ListDatabasesRequest,

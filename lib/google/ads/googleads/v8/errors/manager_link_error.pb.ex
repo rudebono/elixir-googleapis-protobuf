@@ -1,28 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Errors.ManagerLinkErrorEnum.ManagerLinkError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :ACCOUNTS_NOT_COMPATIBLE_FOR_LINKING
-          | :TOO_MANY_MANAGERS
-          | :TOO_MANY_INVITES
-          | :ALREADY_INVITED_BY_THIS_MANAGER
-          | :ALREADY_MANAGED_BY_THIS_MANAGER
-          | :ALREADY_MANAGED_IN_HIERARCHY
-          | :DUPLICATE_CHILD_FOUND
-          | :CLIENT_HAS_NO_ADMIN_USER
-          | :MAX_DEPTH_EXCEEDED
-          | :CYCLE_NOT_ALLOWED
-          | :TOO_MANY_ACCOUNTS
-          | :TOO_MANY_ACCOUNTS_AT_MANAGER
-          | :NON_OWNER_USER_CANNOT_MODIFY_LINK
-          | :SUSPENDED_ACCOUNT_CANNOT_ADD_CLIENTS
-          | :CLIENT_OUTSIDE_TREE
-          | :INVALID_STATUS_CHANGE
-          | :INVALID_CHANGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -46,9 +24,5 @@ defmodule Google.Ads.Googleads.V8.Errors.ManagerLinkErrorEnum.ManagerLinkError d
 end
 defmodule Google.Ads.Googleads.V8.Errors.ManagerLinkErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

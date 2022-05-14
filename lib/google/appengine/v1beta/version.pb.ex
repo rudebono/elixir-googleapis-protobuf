@@ -1,18 +1,6 @@
 defmodule Google.Appengine.V1beta.InboundServiceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :INBOUND_SERVICE_UNSPECIFIED
-          | :INBOUND_SERVICE_MAIL
-          | :INBOUND_SERVICE_MAIL_BOUNCE
-          | :INBOUND_SERVICE_XMPP_ERROR
-          | :INBOUND_SERVICE_XMPP_MESSAGE
-          | :INBOUND_SERVICE_XMPP_SUBSCRIBE
-          | :INBOUND_SERVICE_XMPP_PRESENCE
-          | :INBOUND_SERVICE_CHANNEL_PRESENCE
-          | :INBOUND_SERVICE_WARMUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :INBOUND_SERVICE_UNSPECIFIED, 0
   field :INBOUND_SERVICE_MAIL, 1
@@ -26,9 +14,7 @@ defmodule Google.Appengine.V1beta.InboundServiceType do
 end
 defmodule Google.Appengine.V1beta.ServingStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SERVING_STATUS_UNSPECIFIED | :SERVING | :STOPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SERVING_STATUS_UNSPECIFIED, 0
   field :SERVING, 1
@@ -36,9 +22,7 @@ defmodule Google.Appengine.V1beta.ServingStatus do
 end
 defmodule Google.Appengine.V1beta.EndpointsApiService.RolloutStrategy do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED_ROLLOUT_STRATEGY | :FIXED | :MANAGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED_ROLLOUT_STRATEGY, 0
   field :FIXED, 1
@@ -46,135 +30,28 @@ defmodule Google.Appengine.V1beta.EndpointsApiService.RolloutStrategy do
 end
 defmodule Google.Appengine.V1beta.Version.BetaSettingsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Appengine.V1beta.Version.EnvVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Appengine.V1beta.Version.BuildEnvVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Appengine.V1beta.Version do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scaling:
-            {:automatic_scaling, Google.Appengine.V1beta.AutomaticScaling.t() | nil}
-            | {:basic_scaling, Google.Appengine.V1beta.BasicScaling.t() | nil}
-            | {:manual_scaling, Google.Appengine.V1beta.ManualScaling.t() | nil},
-          name: String.t(),
-          id: String.t(),
-          inbound_services: [Google.Appengine.V1beta.InboundServiceType.t()],
-          instance_class: String.t(),
-          network: Google.Appengine.V1beta.Network.t() | nil,
-          zones: [String.t()],
-          resources: Google.Appengine.V1beta.Resources.t() | nil,
-          runtime: String.t(),
-          runtime_channel: String.t(),
-          threadsafe: boolean,
-          vm: boolean,
-          app_engine_apis: boolean,
-          beta_settings: %{String.t() => String.t()},
-          env: String.t(),
-          serving_status: Google.Appengine.V1beta.ServingStatus.t(),
-          created_by: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          disk_usage_bytes: integer,
-          runtime_api_version: String.t(),
-          runtime_main_executable_path: String.t(),
-          service_account: String.t(),
-          handlers: [Google.Appengine.V1beta.UrlMap.t()],
-          error_handlers: [Google.Appengine.V1beta.ErrorHandler.t()],
-          libraries: [Google.Appengine.V1beta.Library.t()],
-          api_config: Google.Appengine.V1beta.ApiConfigHandler.t() | nil,
-          env_variables: %{String.t() => String.t()},
-          build_env_variables: %{String.t() => String.t()},
-          default_expiration: Google.Protobuf.Duration.t() | nil,
-          health_check: Google.Appengine.V1beta.HealthCheck.t() | nil,
-          readiness_check: Google.Appengine.V1beta.ReadinessCheck.t() | nil,
-          liveness_check: Google.Appengine.V1beta.LivenessCheck.t() | nil,
-          nobuild_files_regex: String.t(),
-          deployment: Google.Appengine.V1beta.Deployment.t() | nil,
-          version_url: String.t(),
-          endpoints_api_service: Google.Appengine.V1beta.EndpointsApiService.t() | nil,
-          entrypoint: Google.Appengine.V1beta.Entrypoint.t() | nil,
-          vpc_access_connector: Google.Appengine.V1beta.VpcAccessConnector.t() | nil
-        }
-
-  defstruct scaling: nil,
-            name: "",
-            id: "",
-            inbound_services: [],
-            instance_class: "",
-            network: nil,
-            zones: [],
-            resources: nil,
-            runtime: "",
-            runtime_channel: "",
-            threadsafe: false,
-            vm: false,
-            app_engine_apis: false,
-            beta_settings: %{},
-            env: "",
-            serving_status: :SERVING_STATUS_UNSPECIFIED,
-            created_by: "",
-            create_time: nil,
-            disk_usage_bytes: 0,
-            runtime_api_version: "",
-            runtime_main_executable_path: "",
-            service_account: "",
-            handlers: [],
-            error_handlers: [],
-            libraries: [],
-            api_config: nil,
-            env_variables: %{},
-            build_env_variables: %{},
-            default_expiration: nil,
-            health_check: nil,
-            readiness_check: nil,
-            liveness_check: nil,
-            nobuild_files_regex: "",
-            deployment: nil,
-            version_url: "",
-            endpoints_api_service: nil,
-            entrypoint: nil,
-            vpc_access_connector: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :scaling, 0
 
@@ -280,19 +157,7 @@ defmodule Google.Appengine.V1beta.Version do
 end
 defmodule Google.Appengine.V1beta.EndpointsApiService do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          config_id: String.t(),
-          rollout_strategy: Google.Appengine.V1beta.EndpointsApiService.RolloutStrategy.t(),
-          disable_trace_sampling: boolean
-        }
-
-  defstruct name: "",
-            config_id: "",
-            rollout_strategy: :UNSPECIFIED_ROLLOUT_STRATEGY,
-            disable_trace_sampling: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :config_id, 2, type: :string, json_name: "configId"
@@ -306,39 +171,7 @@ defmodule Google.Appengine.V1beta.EndpointsApiService do
 end
 defmodule Google.Appengine.V1beta.AutomaticScaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cool_down_period: Google.Protobuf.Duration.t() | nil,
-          cpu_utilization: Google.Appengine.V1beta.CpuUtilization.t() | nil,
-          max_concurrent_requests: integer,
-          max_idle_instances: integer,
-          max_total_instances: integer,
-          max_pending_latency: Google.Protobuf.Duration.t() | nil,
-          min_idle_instances: integer,
-          min_total_instances: integer,
-          min_pending_latency: Google.Protobuf.Duration.t() | nil,
-          request_utilization: Google.Appengine.V1beta.RequestUtilization.t() | nil,
-          disk_utilization: Google.Appengine.V1beta.DiskUtilization.t() | nil,
-          network_utilization: Google.Appengine.V1beta.NetworkUtilization.t() | nil,
-          custom_metrics: [Google.Appengine.V1beta.CustomMetric.t()],
-          standard_scheduler_settings: Google.Appengine.V1beta.StandardSchedulerSettings.t() | nil
-        }
-
-  defstruct cool_down_period: nil,
-            cpu_utilization: nil,
-            max_concurrent_requests: 0,
-            max_idle_instances: 0,
-            max_total_instances: 0,
-            max_pending_latency: nil,
-            min_idle_instances: 0,
-            min_total_instances: 0,
-            min_pending_latency: nil,
-            request_utilization: nil,
-            disk_utilization: nil,
-            network_utilization: nil,
-            custom_metrics: [],
-            standard_scheduler_settings: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cool_down_period, 1, type: Google.Protobuf.Duration, json_name: "coolDownPeriod"
 
@@ -377,42 +210,20 @@ defmodule Google.Appengine.V1beta.AutomaticScaling do
 end
 defmodule Google.Appengine.V1beta.BasicScaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          idle_timeout: Google.Protobuf.Duration.t() | nil,
-          max_instances: integer
-        }
-
-  defstruct idle_timeout: nil,
-            max_instances: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :idle_timeout, 1, type: Google.Protobuf.Duration, json_name: "idleTimeout"
   field :max_instances, 2, type: :int32, json_name: "maxInstances"
 end
 defmodule Google.Appengine.V1beta.ManualScaling do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          instances: integer
-        }
-
-  defstruct instances: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :instances, 1, type: :int32
 end
 defmodule Google.Appengine.V1beta.CpuUtilization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aggregation_window_length: Google.Protobuf.Duration.t() | nil,
-          target_utilization: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct aggregation_window_length: nil,
-            target_utilization: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aggregation_window_length, 1,
     type: Google.Protobuf.Duration,
@@ -422,15 +233,7 @@ defmodule Google.Appengine.V1beta.CpuUtilization do
 end
 defmodule Google.Appengine.V1beta.RequestUtilization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_request_count_per_second: integer,
-          target_concurrent_requests: integer
-        }
-
-  defstruct target_request_count_per_second: 0,
-            target_concurrent_requests: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_request_count_per_second, 1,
     type: :int32,
@@ -440,19 +243,7 @@ defmodule Google.Appengine.V1beta.RequestUtilization do
 end
 defmodule Google.Appengine.V1beta.DiskUtilization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_write_bytes_per_second: integer,
-          target_write_ops_per_second: integer,
-          target_read_bytes_per_second: integer,
-          target_read_ops_per_second: integer
-        }
-
-  defstruct target_write_bytes_per_second: 0,
-            target_write_ops_per_second: 0,
-            target_read_bytes_per_second: 0,
-            target_read_ops_per_second: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_write_bytes_per_second, 14, type: :int32, json_name: "targetWriteBytesPerSecond"
   field :target_write_ops_per_second, 15, type: :int32, json_name: "targetWriteOpsPerSecond"
@@ -461,19 +252,7 @@ defmodule Google.Appengine.V1beta.DiskUtilization do
 end
 defmodule Google.Appengine.V1beta.NetworkUtilization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_sent_bytes_per_second: integer,
-          target_sent_packets_per_second: integer,
-          target_received_bytes_per_second: integer,
-          target_received_packets_per_second: integer
-        }
-
-  defstruct target_sent_bytes_per_second: 0,
-            target_sent_packets_per_second: 0,
-            target_received_bytes_per_second: 0,
-            target_received_packets_per_second: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_sent_bytes_per_second, 1, type: :int32, json_name: "targetSentBytesPerSecond"
   field :target_sent_packets_per_second, 11, type: :int32, json_name: "targetSentPacketsPerSecond"
@@ -488,21 +267,7 @@ defmodule Google.Appengine.V1beta.NetworkUtilization do
 end
 defmodule Google.Appengine.V1beta.CustomMetric do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_spec:
-            {:target_utilization, float | :infinity | :negative_infinity | :nan}
-            | {:single_instance_assignment, float | :infinity | :negative_infinity | :nan},
-          metric_name: String.t(),
-          target_type: String.t(),
-          filter: String.t()
-        }
-
-  defstruct target_spec: nil,
-            metric_name: "",
-            target_type: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target_spec, 0
 
@@ -519,19 +284,7 @@ defmodule Google.Appengine.V1beta.CustomMetric do
 end
 defmodule Google.Appengine.V1beta.StandardSchedulerSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target_cpu_utilization: float | :infinity | :negative_infinity | :nan,
-          target_throughput_utilization: float | :infinity | :negative_infinity | :nan,
-          min_instances: integer,
-          max_instances: integer
-        }
-
-  defstruct target_cpu_utilization: 0.0,
-            target_throughput_utilization: 0.0,
-            min_instances: 0,
-            max_instances: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :target_cpu_utilization, 1, type: :double, json_name: "targetCpuUtilization"
   field :target_throughput_utilization, 2, type: :double, json_name: "targetThroughputUtilization"
@@ -540,21 +293,7 @@ defmodule Google.Appengine.V1beta.StandardSchedulerSettings do
 end
 defmodule Google.Appengine.V1beta.Network do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          forwarded_ports: [String.t()],
-          instance_tag: String.t(),
-          name: String.t(),
-          subnetwork_name: String.t(),
-          session_affinity: boolean
-        }
-
-  defstruct forwarded_ports: [],
-            instance_tag: "",
-            name: "",
-            subnetwork_name: "",
-            session_affinity: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :forwarded_ports, 1, repeated: true, type: :string, json_name: "forwardedPorts"
   field :instance_tag, 2, type: :string, json_name: "instanceTag"
@@ -564,17 +303,7 @@ defmodule Google.Appengine.V1beta.Network do
 end
 defmodule Google.Appengine.V1beta.Volume do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          volume_type: String.t(),
-          size_gb: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct name: "",
-            volume_type: "",
-            size_gb: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :volume_type, 2, type: :string, json_name: "volumeType"
@@ -582,21 +311,7 @@ defmodule Google.Appengine.V1beta.Volume do
 end
 defmodule Google.Appengine.V1beta.Resources do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          cpu: float | :infinity | :negative_infinity | :nan,
-          disk_gb: float | :infinity | :negative_infinity | :nan,
-          memory_gb: float | :infinity | :negative_infinity | :nan,
-          volumes: [Google.Appengine.V1beta.Volume.t()],
-          kms_key_reference: String.t()
-        }
-
-  defstruct cpu: 0.0,
-            disk_gb: 0.0,
-            memory_gb: 0.0,
-            volumes: [],
-            kms_key_reference: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu, 1, type: :double
   field :disk_gb, 2, type: :double, json_name: "diskGb"
@@ -606,25 +321,13 @@ defmodule Google.Appengine.V1beta.Resources do
 end
 defmodule Google.Appengine.V1beta.VpcAccessConnector do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Appengine.V1beta.Entrypoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          command: {:shell, String.t()}
-        }
-
-  defstruct command: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :command, 0
 

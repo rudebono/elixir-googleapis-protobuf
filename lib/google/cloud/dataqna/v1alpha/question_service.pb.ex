@@ -1,44 +1,20 @@
 defmodule Google.Cloud.Dataqna.V1alpha.GetQuestionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct name: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
 defmodule Google.Cloud.Dataqna.V1alpha.CreateQuestionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          question: Google.Cloud.Dataqna.V1alpha.Question.t() | nil
-        }
-
-  defstruct parent: "",
-            question: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :question, 2, type: Google.Cloud.Dataqna.V1alpha.Question, deprecated: false
 end
 defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          interpretation_index: integer
-        }
-
-  defstruct name: "",
-            interpretation_index: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -49,27 +25,13 @@ defmodule Google.Cloud.Dataqna.V1alpha.ExecuteQuestionRequest do
 end
 defmodule Google.Cloud.Dataqna.V1alpha.GetUserFeedbackRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          user_feedback: Google.Cloud.Dataqna.V1alpha.UserFeedback.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct user_feedback: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :user_feedback, 1,
     type: Google.Cloud.Dataqna.V1alpha.UserFeedback,
@@ -80,7 +42,9 @@ defmodule Google.Cloud.Dataqna.V1alpha.UpdateUserFeedbackRequest do
 end
 defmodule Google.Cloud.Dataqna.V1alpha.QuestionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dataqna.v1alpha.QuestionService"
+  use GRPC.Service,
+    name: "google.cloud.dataqna.v1alpha.QuestionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetQuestion,
       Google.Cloud.Dataqna.V1alpha.GetQuestionRequest,

@@ -1,33 +1,12 @@
 defmodule Google.Ads.Googleads.V7.Services.GetCampaignExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V7.Services.CampaignExperimentOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean,
-          response_content_type:
-            Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            partial_failure: false,
-            validate_only: false,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -46,17 +25,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.CampaignExperimentOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:update, Google.Ads.Googleads.V7.Resources.CampaignExperiment.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -66,15 +35,7 @@ defmodule Google.Ads.Googleads.V7.Services.CampaignExperimentOperation do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partial_failure_error: Google.Rpc.Status.t() | nil,
-          results: [Google.Ads.Googleads.V7.Services.MutateCampaignExperimentResult.t()]
-        }
-
-  defstruct partial_failure_error: nil,
-            results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -84,15 +45,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentsResponse do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          campaign_experiment: Google.Ads.Googleads.V7.Resources.CampaignExperiment.t() | nil
-        }
-
-  defstruct resource_name: "",
-            campaign_experiment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
@@ -102,17 +55,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateCampaignExperimentResult do
 end
 defmodule Google.Ads.Googleads.V7.Services.CreateCampaignExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          campaign_experiment: Google.Ads.Googleads.V7.Resources.CampaignExperiment.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            campaign_experiment: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -125,29 +68,13 @@ defmodule Google.Ads.Googleads.V7.Services.CreateCampaignExperimentRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.CreateCampaignExperimentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          campaign_experiment: String.t()
-        }
-
-  defstruct campaign_experiment: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment"
 end
 defmodule Google.Ads.Googleads.V7.Services.GraduateCampaignExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          campaign_experiment: String.t(),
-          campaign_budget: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct campaign_experiment: "",
-            campaign_budget: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
   field :campaign_budget, 2, type: :string, json_name: "campaignBudget", deprecated: false
@@ -155,59 +82,27 @@ defmodule Google.Ads.Googleads.V7.Services.GraduateCampaignExperimentRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.GraduateCampaignExperimentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          graduated_campaign: String.t()
-        }
-
-  defstruct graduated_campaign: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :graduated_campaign, 1, type: :string, json_name: "graduatedCampaign"
 end
 defmodule Google.Ads.Googleads.V7.Services.PromoteCampaignExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          campaign_experiment: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct campaign_experiment: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
 end
 defmodule Google.Ads.Googleads.V7.Services.EndCampaignExperimentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          campaign_experiment: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct campaign_experiment: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :campaign_experiment, 1, type: :string, json_name: "campaignExperiment", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
 end
 defmodule Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct resource_name: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -215,22 +110,16 @@ defmodule Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsRequ
 end
 defmodule Google.Ads.Googleads.V7.Services.ListCampaignExperimentAsyncErrorsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          errors: [Google.Rpc.Status.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct errors: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Ads.Googleads.V7.Services.CampaignExperimentService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v7.services.CampaignExperimentService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v7.services.CampaignExperimentService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetCampaignExperiment,
       Google.Ads.Googleads.V7.Services.GetCampaignExperimentRequest,

@@ -1,32 +1,12 @@
 defmodule Google.Devtools.Resultstore.V2.GetInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          page_size: integer,
-          query: String.t(),
-          project_id: String.t(),
-          exact_match: boolean
-        }
-
-  defstruct page_start: nil,
-            page_size: 0,
-            query: "",
-            project_id: "",
-            exact_match: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -39,32 +19,14 @@ defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocations: [Google.Devtools.Resultstore.V2.Invocation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct invocations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Invocation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          name: String.t(),
-          page_size: integer
-        }
-
-  defstruct page_start: nil,
-            name: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -75,25 +37,7 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          invocation: Google.Devtools.Resultstore.V2.Invocation.t() | nil,
-          targets: [Google.Devtools.Resultstore.V2.Target.t()],
-          configurations: [Google.Devtools.Resultstore.V2.Configuration.t()],
-          configured_targets: [Google.Devtools.Resultstore.V2.ConfiguredTarget.t()],
-          actions: [Google.Devtools.Resultstore.V2.Action.t()],
-          file_sets: [Google.Devtools.Resultstore.V2.FileSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct invocation: nil,
-            targets: [],
-            configurations: [],
-            configured_targets: [],
-            actions: [],
-            file_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :invocation, 1, type: Google.Devtools.Resultstore.V2.Invocation
   field :targets, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Target
@@ -115,43 +59,19 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.GetConfigurationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -163,46 +83,20 @@ defmodule Google.Devtools.Resultstore.V2.ListConfigurationsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configurations: [Google.Devtools.Resultstore.V2.Configuration.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct configurations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :configurations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Configuration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Resultstore.V2.GetTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ListTargetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -214,46 +108,20 @@ defmodule Google.Devtools.Resultstore.V2.ListTargetsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ListTargetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          targets: [Google.Devtools.Resultstore.V2.Target.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct targets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :targets, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Resultstore.V2.GetConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -265,15 +133,7 @@ defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configured_targets: [Google.Devtools.Resultstore.V2.ConfiguredTarget.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct configured_targets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :configured_targets, 1,
     repeated: true,
@@ -284,23 +144,7 @@ defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          query: String.t(),
-          project_id: String.t(),
-          exact_match: boolean
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            query: "",
-            project_id: "",
-            exact_match: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -314,15 +158,7 @@ defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          configured_targets: [Google.Devtools.Resultstore.V2.ConfiguredTarget.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct configured_targets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :configured_targets, 1,
     repeated: true,
@@ -333,31 +169,13 @@ defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.GetActionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ListActionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -369,36 +187,14 @@ defmodule Google.Devtools.Resultstore.V2.ListActionsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ListActionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          actions: [Google.Devtools.Resultstore.V2.Action.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct actions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          configured_targets: [String.t()],
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            configured_targets: [],
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -411,17 +207,7 @@ defmodule Google.Devtools.Resultstore.V2.BatchListActionsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          actions: [Google.Devtools.Resultstore.V2.Action.t()],
-          next_page_token: String.t(),
-          not_found: [String.t()]
-        }
-
-  defstruct actions: [],
-            next_page_token: "",
-            not_found: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -429,31 +215,13 @@ defmodule Google.Devtools.Resultstore.V2.BatchListActionsResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.GetFileSetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t()
-        }
-
-  defstruct page_start: nil,
-            parent: "",
-            page_size: 0,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -465,15 +233,7 @@ defmodule Google.Devtools.Resultstore.V2.ListFileSetsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_sets: [Google.Devtools.Resultstore.V2.FileSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct file_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_sets, 1,
     repeated: true,
@@ -484,17 +244,7 @@ defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_start: {:page_token, String.t()} | {:offset, integer},
-          name: String.t(),
-          page_size: integer
-        }
-
-  defstruct page_start: nil,
-            name: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -505,15 +255,7 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          file_sets: [Google.Devtools.Resultstore.V2.FileSet.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct file_sets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :file_sets, 1,
     repeated: true,
@@ -524,7 +266,9 @@ defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
 end
 defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreDownload"
+  use GRPC.Service,
+    name: "google.devtools.resultstore.v2.ResultStoreDownload",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetInvocation,
       Google.Devtools.Resultstore.V2.GetInvocationRequest,

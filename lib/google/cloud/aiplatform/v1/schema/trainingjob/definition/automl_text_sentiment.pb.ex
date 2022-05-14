@@ -1,27 +1,13 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentiment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inputs:
-            Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs.t()
-            | nil
-        }
-
-  defstruct inputs: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs
 end
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextSentimentInputs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sentiment_max: integer
-        }
-
-  defstruct sentiment_max: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sentiment_max, 1, type: :int32, json_name: "sentimentMax"
 end

@@ -1,14 +1,6 @@
 defmodule Google.Actions.Type.DateRange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start: Google.Type.Date.t() | nil,
-          end: Google.Type.Date.t() | nil
-        }
-
-  defstruct start: nil,
-            end: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start, 1, type: Google.Type.Date
   field :end, 2, type: Google.Type.Date

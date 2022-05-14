@@ -1,22 +1,6 @@
 defmodule Google.Api.MonitoredResourceDescriptor do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          type: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          labels: [Google.Api.LabelDescriptor.t()],
-          launch_stage: Google.Api.LaunchStage.t()
-        }
-
-  defstruct name: "",
-            type: "",
-            display_name: "",
-            description: "",
-            labels: [],
-            launch_stage: :LAUNCH_STAGE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 5, type: :string
   field :type, 1, type: :string
@@ -27,60 +11,28 @@ defmodule Google.Api.MonitoredResourceDescriptor do
 end
 defmodule Google.Api.MonitoredResource.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.MonitoredResource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: String.t(),
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct type: "",
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Api.MonitoredResource.LabelsEntry, map: true
 end
 defmodule Google.Api.MonitoredResourceMetadata.UserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Api.MonitoredResourceMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          system_labels: Google.Protobuf.Struct.t() | nil,
-          user_labels: %{String.t() => String.t()}
-        }
-
-  defstruct system_labels: nil,
-            user_labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :system_labels, 1, type: Google.Protobuf.Struct, json_name: "systemLabels"
 

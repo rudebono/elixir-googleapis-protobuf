@@ -1,22 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :BUSINESS_NAME
-          | :ADDRESS_LINE_1
-          | :ADDRESS_LINE_2
-          | :CITY
-          | :PROVINCE
-          | :POSTAL_CODE
-          | :COUNTRY_CODE
-          | :PHONE_NUMBER
-          | :LANGUAGE_CODE
-          | :CHAIN_ID
-          | :CHAIN_NAME
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -34,9 +18,5 @@ defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationPlaceholderFieldEnum.Af
 end
 defmodule Google.Ads.Googleads.V7.Enums.AffiliateLocationPlaceholderFieldEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

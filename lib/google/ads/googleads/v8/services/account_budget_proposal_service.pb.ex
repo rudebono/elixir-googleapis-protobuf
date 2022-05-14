@@ -1,28 +1,12 @@
 defmodule Google.Ads.Googleads.V8.Services.GetAccountBudgetProposalRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operation: Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation.t() | nil,
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operation: nil,
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -34,17 +18,7 @@ defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalRequest do
 end
 defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V8.Resources.AccountBudgetProposal.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -54,31 +28,21 @@ defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalOperation do
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult.t() | nil
-        }
-
-  defstruct result: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 2, type: Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult
 end
 defmodule Google.Ads.Googleads.V8.Services.MutateAccountBudgetProposalResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V8.Services.AccountBudgetProposalService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v8.services.AccountBudgetProposalService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v8.services.AccountBudgetProposalService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetAccountBudgetProposal,
       Google.Ads.Googleads.V8.Services.GetAccountBudgetProposalRequest,

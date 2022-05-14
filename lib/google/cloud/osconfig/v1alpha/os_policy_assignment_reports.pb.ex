@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.ComplianceState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :COMPLIANT | :NON_COMPLIANT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :COMPLIANT, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.ComplianceState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :COMPLIANT | :NON_COMPLIANT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :COMPLIANT, 1
@@ -20,15 +16,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.OSPolicyResourceConfigStep.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :VALIDATION
-          | :DESIRED_STATE_CHECK
-          | :DESIRED_STATE_ENFORCEMENT
-          | :DESIRED_STATE_CHECK_POST_ENFORCEMENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -38,31 +26,13 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.GetOSPolicyAssignmentReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          filter: String.t(),
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            filter: "",
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -71,17 +41,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsRequest do
 end
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          os_policy_assignment_reports: [
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.t()
-          ],
-          next_page_token: String.t()
-        }
-
-  defstruct os_policy_assignment_reports: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :os_policy_assignment_reports, 1,
     repeated: true,
@@ -92,16 +52,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentReportsResponse do
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.OSPolicyResourceConfigStep do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.OSPolicyResourceConfigStep.Type.t(),
-          error_message: String.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            error_message: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type:
@@ -112,39 +63,13 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enforcement_output: binary
-        }
-
-  defstruct enforcement_output: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enforcement_output, 2, type: :bytes, json_name: "enforcementOutput"
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output:
-            {:exec_resource_output,
-             Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.ExecResourceOutput.t()
-             | nil},
-          os_policy_resource_id: String.t(),
-          config_steps: [
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.OSPolicyResourceConfigStep.t()
-          ],
-          compliance_state:
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.ComplianceState.t(),
-          compliance_state_reason: String.t()
-        }
-
-  defstruct output: nil,
-            os_policy_resource_id: "",
-            config_steps: [],
-            compliance_state: :UNKNOWN,
-            compliance_state_reason: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -172,22 +97,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          os_policy_id: String.t(),
-          compliance_state:
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.ComplianceState.t(),
-          compliance_state_reason: String.t(),
-          os_policy_resource_compliances: [
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.OSPolicyResourceCompliance.t()
-          ]
-        }
-
-  defstruct os_policy_id: "",
-            compliance_state: :UNKNOWN,
-            compliance_state_reason: "",
-            os_policy_resource_compliances: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
 
@@ -207,25 +117,7 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyComplia
 end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          instance: String.t(),
-          os_policy_assignment: String.t(),
-          os_policy_compliances: [
-            Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentReport.OSPolicyCompliance.t()
-          ],
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          last_run_id: String.t()
-        }
-
-  defstruct name: "",
-            instance: "",
-            os_policy_assignment: "",
-            os_policy_compliances: [],
-            update_time: nil,
-            last_run_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :instance, 2, type: :string

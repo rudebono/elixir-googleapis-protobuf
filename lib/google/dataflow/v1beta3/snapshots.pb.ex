@@ -1,8 +1,6 @@
 defmodule Google.Dataflow.V1beta3.SnapshotState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN_SNAPSHOT_STATE | :PENDING | :RUNNING | :READY | :FAILED | :DELETED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_SNAPSHOT_STATE, 0
   field :PENDING, 1
@@ -13,17 +11,7 @@ defmodule Google.Dataflow.V1beta3.SnapshotState do
 end
 defmodule Google.Dataflow.V1beta3.PubsubSnapshotMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic_name: String.t(),
-          snapshot_name: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct topic_name: "",
-            snapshot_name: "",
-            expire_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic_name, 1, type: :string, json_name: "topicName"
   field :snapshot_name, 2, type: :string, json_name: "snapshotName"
@@ -31,31 +19,7 @@ defmodule Google.Dataflow.V1beta3.PubsubSnapshotMetadata do
 end
 defmodule Google.Dataflow.V1beta3.Snapshot do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          project_id: String.t(),
-          source_job_id: String.t(),
-          creation_time: Google.Protobuf.Timestamp.t() | nil,
-          ttl: Google.Protobuf.Duration.t() | nil,
-          state: Google.Dataflow.V1beta3.SnapshotState.t(),
-          pubsub_metadata: [Google.Dataflow.V1beta3.PubsubSnapshotMetadata.t()],
-          description: String.t(),
-          disk_size_bytes: integer,
-          region: String.t()
-        }
-
-  defstruct id: "",
-            project_id: "",
-            source_job_id: "",
-            creation_time: nil,
-            ttl: nil,
-            state: :UNKNOWN_SNAPSHOT_STATE,
-            pubsub_metadata: [],
-            description: "",
-            disk_size_bytes: 0,
-            region: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -75,17 +39,7 @@ defmodule Google.Dataflow.V1beta3.Snapshot do
 end
 defmodule Google.Dataflow.V1beta3.GetSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          snapshot_id: String.t(),
-          location: String.t()
-        }
-
-  defstruct project_id: "",
-            snapshot_id: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
@@ -93,17 +47,7 @@ defmodule Google.Dataflow.V1beta3.GetSnapshotRequest do
 end
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          snapshot_id: String.t(),
-          location: String.t()
-        }
-
-  defstruct project_id: "",
-            snapshot_id: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
@@ -111,25 +55,11 @@ defmodule Google.Dataflow.V1beta3.DeleteSnapshotRequest do
 end
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Dataflow.V1beta3.ListSnapshotsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          job_id: String.t(),
-          location: String.t()
-        }
-
-  defstruct project_id: "",
-            job_id: "",
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 3, type: :string, json_name: "jobId"
@@ -137,19 +67,15 @@ defmodule Google.Dataflow.V1beta3.ListSnapshotsRequest do
 end
 defmodule Google.Dataflow.V1beta3.ListSnapshotsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshots: [Google.Dataflow.V1beta3.Snapshot.t()]
-        }
-
-  defstruct snapshots: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshots, 1, repeated: true, type: Google.Dataflow.V1beta3.Snapshot
 end
 defmodule Google.Dataflow.V1beta3.SnapshotsV1Beta3.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.dataflow.v1beta3.SnapshotsV1Beta3"
+  use GRPC.Service,
+    name: "google.dataflow.v1beta3.SnapshotsV1Beta3",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetSnapshot, Google.Dataflow.V1beta3.GetSnapshotRequest, Google.Dataflow.V1beta3.Snapshot
 

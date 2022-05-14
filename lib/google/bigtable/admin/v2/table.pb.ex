@@ -1,33 +1,20 @@
 defmodule Google.Bigtable.Admin.V2.RestoreSourceType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RESTORE_SOURCE_TYPE_UNSPECIFIED | :BACKUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RESTORE_SOURCE_TYPE_UNSPECIFIED, 0
   field :BACKUP, 1
 end
 defmodule Google.Bigtable.Admin.V2.Table.TimestampGranularity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TIMESTAMP_GRANULARITY_UNSPECIFIED | :MILLIS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TIMESTAMP_GRANULARITY_UNSPECIFIED, 0
   field :MILLIS, 1
 end
 defmodule Google.Bigtable.Admin.V2.Table.View do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :VIEW_UNSPECIFIED
-          | :NAME_ONLY
-          | :SCHEMA_VIEW
-          | :REPLICATION_VIEW
-          | :ENCRYPTION_VIEW
-          | :FULL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :NAME_ONLY, 1
@@ -38,16 +25,7 @@ defmodule Google.Bigtable.Admin.V2.Table.View do
 end
 defmodule Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_NOT_KNOWN
-          | :INITIALIZING
-          | :PLANNED_MAINTENANCE
-          | :UNPLANNED_MAINTENANCE
-          | :READY
-          | :READY_OPTIMIZING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :INITIALIZING, 1
@@ -58,13 +36,7 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState do
 end
 defmodule Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ENCRYPTION_TYPE_UNSPECIFIED
-          | :GOOGLE_DEFAULT_ENCRYPTION
-          | :CUSTOMER_MANAGED_ENCRYPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :GOOGLE_DEFAULT_ENCRYPTION, 1
@@ -72,9 +44,7 @@ defmodule Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType do
 end
 defmodule Google.Bigtable.Admin.V2.Snapshot.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_NOT_KNOWN | :READY | :CREATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
@@ -82,9 +52,7 @@ defmodule Google.Bigtable.Admin.V2.Snapshot.State do
 end
 defmodule Google.Bigtable.Admin.V2.Backup.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :CREATING | :READY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -92,15 +60,7 @@ defmodule Google.Bigtable.Admin.V2.Backup.State do
 end
 defmodule Google.Bigtable.Admin.V2.RestoreInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source_info: {:backup_info, Google.Bigtable.Admin.V2.BackupInfo.t() | nil},
-          source_type: Google.Bigtable.Admin.V2.RestoreSourceType.t()
-        }
-
-  defstruct source_info: nil,
-            source_type: :RESTORE_SOURCE_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -116,15 +76,7 @@ defmodule Google.Bigtable.Admin.V2.RestoreInfo do
 end
 defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          replication_state: Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState.t(),
-          encryption_info: [Google.Bigtable.Admin.V2.EncryptionInfo.t()]
-        }
-
-  defstruct replication_state: :STATE_NOT_KNOWN,
-            encryption_info: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :replication_state, 1,
     type: Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState,
@@ -139,51 +91,21 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
 end
 defmodule Google.Bigtable.Admin.V2.Table.ClusterStatesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Bigtable.Admin.V2.Table.ClusterState.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.Admin.V2.Table.ClusterState
 end
 defmodule Google.Bigtable.Admin.V2.Table.ColumnFamiliesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Bigtable.Admin.V2.ColumnFamily.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.Admin.V2.ColumnFamily
 end
 defmodule Google.Bigtable.Admin.V2.Table do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          cluster_states: %{String.t() => Google.Bigtable.Admin.V2.Table.ClusterState.t() | nil},
-          column_families: %{String.t() => Google.Bigtable.Admin.V2.ColumnFamily.t() | nil},
-          granularity: Google.Bigtable.Admin.V2.Table.TimestampGranularity.t(),
-          restore_info: Google.Bigtable.Admin.V2.RestoreInfo.t() | nil
-        }
-
-  defstruct name: "",
-            cluster_states: %{},
-            column_families: %{},
-            granularity: :TIMESTAMP_GRANULARITY_UNSPECIFIED,
-            restore_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -204,53 +126,25 @@ defmodule Google.Bigtable.Admin.V2.Table do
 end
 defmodule Google.Bigtable.Admin.V2.ColumnFamily do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gc_rule: Google.Bigtable.Admin.V2.GcRule.t() | nil
-        }
-
-  defstruct gc_rule: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gc_rule, 1, type: Google.Bigtable.Admin.V2.GcRule, json_name: "gcRule"
 end
 defmodule Google.Bigtable.Admin.V2.GcRule.Intersection do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rules: [Google.Bigtable.Admin.V2.GcRule.t()]
-        }
-
-  defstruct rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Bigtable.Admin.V2.GcRule
 end
 defmodule Google.Bigtable.Admin.V2.GcRule.Union do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rules: [Google.Bigtable.Admin.V2.GcRule.t()]
-        }
-
-  defstruct rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Bigtable.Admin.V2.GcRule
 end
 defmodule Google.Bigtable.Admin.V2.GcRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rule:
-            {:max_num_versions, integer}
-            | {:max_age, Google.Protobuf.Duration.t() | nil}
-            | {:intersection, Google.Bigtable.Admin.V2.GcRule.Intersection.t() | nil}
-            | {:union, Google.Bigtable.Admin.V2.GcRule.Union.t() | nil}
-        }
-
-  defstruct rule: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :rule, 0
 
@@ -261,17 +155,7 @@ defmodule Google.Bigtable.Admin.V2.GcRule do
 end
 defmodule Google.Bigtable.Admin.V2.EncryptionInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          encryption_type: Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType.t(),
-          encryption_status: Google.Rpc.Status.t() | nil,
-          kms_key_version: String.t()
-        }
-
-  defstruct encryption_type: :ENCRYPTION_TYPE_UNSPECIFIED,
-            encryption_status: nil,
-            kms_key_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :encryption_type, 3,
     type: Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType,
@@ -288,25 +172,7 @@ defmodule Google.Bigtable.Admin.V2.EncryptionInfo do
 end
 defmodule Google.Bigtable.Admin.V2.Snapshot do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          source_table: Google.Bigtable.Admin.V2.Table.t() | nil,
-          data_size_bytes: integer,
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          delete_time: Google.Protobuf.Timestamp.t() | nil,
-          state: Google.Bigtable.Admin.V2.Snapshot.State.t(),
-          description: String.t()
-        }
-
-  defstruct name: "",
-            source_table: nil,
-            data_size_bytes: 0,
-            create_time: nil,
-            delete_time: nil,
-            state: :STATE_NOT_KNOWN,
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_table, 2, type: Google.Bigtable.Admin.V2.Table, json_name: "sourceTable"
@@ -318,27 +184,7 @@ defmodule Google.Bigtable.Admin.V2.Snapshot do
 end
 defmodule Google.Bigtable.Admin.V2.Backup do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          source_table: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil,
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          size_bytes: integer,
-          state: Google.Bigtable.Admin.V2.Backup.State.t(),
-          encryption_info: Google.Bigtable.Admin.V2.EncryptionInfo.t() | nil
-        }
-
-  defstruct name: "",
-            source_table: "",
-            expire_time: nil,
-            start_time: nil,
-            end_time: nil,
-            size_bytes: 0,
-            state: :STATE_UNSPECIFIED,
-            encryption_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_table, 2, type: :string, json_name: "sourceTable", deprecated: false
@@ -360,19 +206,7 @@ defmodule Google.Bigtable.Admin.V2.Backup do
 end
 defmodule Google.Bigtable.Admin.V2.BackupInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          backup: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          source_table: String.t()
-        }
-
-  defstruct backup: "",
-            start_time: nil,
-            end_time: nil,
-            source_table: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :backup, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false

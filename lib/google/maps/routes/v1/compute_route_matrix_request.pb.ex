@@ -1,20 +1,6 @@
 defmodule Google.Maps.Routes.V1.ComputeRouteMatrixRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          origins: [Google.Maps.Routes.V1.RouteMatrixOrigin.t()],
-          destinations: [Google.Maps.Routes.V1.RouteMatrixDestination.t()],
-          travel_mode: Google.Maps.Routes.V1.RouteTravelMode.t(),
-          routing_preference: Google.Maps.Routes.V1.RoutingPreference.t(),
-          departure_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct origins: [],
-            destinations: [],
-            travel_mode: :TRAVEL_MODE_UNSPECIFIED,
-            routing_preference: :ROUTING_PREFERENCE_UNSPECIFIED,
-            departure_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :origins, 1,
     repeated: true,
@@ -45,15 +31,7 @@ defmodule Google.Maps.Routes.V1.ComputeRouteMatrixRequest do
 end
 defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          waypoint: Google.Maps.Routes.V1.Waypoint.t() | nil,
-          route_modifiers: Google.Maps.Routes.V1.RouteModifiers.t() | nil
-        }
-
-  defstruct waypoint: nil,
-            route_modifiers: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 
@@ -64,13 +42,7 @@ defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
 end
 defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          waypoint: Google.Maps.Routes.V1.Waypoint.t() | nil
-        }
-
-  defstruct waypoint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 end

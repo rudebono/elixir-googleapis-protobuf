@@ -1,26 +1,6 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hostname: String.t(),
-          long_name: String.t(),
-          short_name: String.t(),
-          version: String.t(),
-          architecture: String.t(),
-          kernel_version: String.t(),
-          kernel_release: String.t(),
-          osconfig_agent_version: String.t()
-        }
-
-  defstruct hostname: "",
-            long_name: "",
-            short_name: "",
-            version: "",
-            architecture: "",
-            kernel_version: "",
-            kernel_release: "",
-            osconfig_agent_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hostname, 1, type: :string
   field :long_name, 2, type: :string, json_name: "longName"
@@ -33,32 +13,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          details:
-            {:yum_package,
-             Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.t() | nil}
-            | {:apt_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.t() | nil}
-            | {:zypper_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.t() | nil}
-            | {:googet_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.t() | nil}
-            | {:zypper_patch,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch.t() | nil}
-            | {:wua_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.t() | nil}
-            | {:qfe_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage.t()
-               | nil}
-            | {:cos_package,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.t() | nil}
-            | {:windows_application,
-               Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication.t() | nil}
-        }
-
-  defstruct details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -109,17 +64,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          package_name: String.t(),
-          architecture: String.t(),
-          version: String.t()
-        }
-
-  defstruct package_name: "",
-            architecture: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :package_name, 1, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
@@ -127,19 +72,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          patch_name: String.t(),
-          category: String.t(),
-          severity: String.t(),
-          summary: String.t()
-        }
-
-  defstruct patch_name: "",
-            category: "",
-            severity: "",
-            summary: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :patch_name, 1, type: :string, json_name: "patchName"
   field :category, 2, type: :string
@@ -148,46 +81,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          name: String.t()
-        }
-
-  defstruct id: "",
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          title: String.t(),
-          description: String.t(),
-          categories: [
-            Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory.t()
-          ],
-          kb_article_ids: [String.t()],
-          support_url: String.t(),
-          more_info_urls: [String.t()],
-          update_id: String.t(),
-          revision_number: integer,
-          last_deployment_change_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct title: "",
-            description: "",
-            categories: [],
-            kb_article_ids: [],
-            support_url: "",
-            more_info_urls: [],
-            update_id: "",
-            revision_number: 0,
-            last_deployment_change_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -209,19 +110,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage 
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          caption: String.t(),
-          description: String.t(),
-          hot_fix_id: String.t(),
-          install_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct caption: "",
-            description: "",
-            hot_fix_id: "",
-            install_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :caption, 1, type: :string
   field :description, 2, type: :string
@@ -230,21 +119,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngine
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          display_version: String.t(),
-          publisher: String.t(),
-          install_date: Google.Type.Date.t() | nil,
-          help_link: String.t()
-        }
-
-  defstruct display_name: "",
-            display_version: "",
-            publisher: "",
-            install_date: nil,
-            help_link: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :display_version, 2, type: :string, json_name: "displayVersion"
@@ -254,21 +129,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          os_info: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo.t() | nil,
-          installed_packages: [
-            Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage.t()
-          ],
-          available_packages: [
-            Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage.t()
-          ]
-        }
-
-  defstruct os_info: nil,
-            installed_packages: [],
-            available_packages: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :os_info, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo,

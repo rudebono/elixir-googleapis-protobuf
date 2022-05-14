@@ -1,128 +1,60 @@
 defmodule Google.Area120.Tables.V1alpha1.View do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :VIEW_UNSPECIFIED | :COLUMN_ID_VIEW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :COLUMN_ID_VIEW, 1
 end
 defmodule Google.Area120.Tables.V1alpha1.GetTableRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Area120.Tables.V1alpha1.ListTablesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
 end
 defmodule Google.Area120.Tables.V1alpha1.ListTablesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tables: [Google.Area120.Tables.V1alpha1.Table.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct tables: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tables, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Table
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Area120.Tables.V1alpha1.GetWorkspaceRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
 end
 defmodule Google.Area120.Tables.V1alpha1.ListWorkspacesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          workspaces: [Google.Area120.Tables.V1alpha1.Workspace.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct workspaces: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :workspaces, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Workspace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Area120.Tables.V1alpha1.GetRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          view: Google.Area120.Tables.V1alpha1.View.t()
-        }
-
-  defstruct name: "",
-            view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Area120.Tables.V1alpha1.View, enum: true, deprecated: false
 end
 defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          view: Google.Area120.Tables.V1alpha1.View.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: "",
-            view: :VIEW_UNSPECIFIED,
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -132,32 +64,14 @@ defmodule Google.Area120.Tables.V1alpha1.ListRowsRequest do
 end
 defmodule Google.Area120.Tables.V1alpha1.ListRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rows: [Google.Area120.Tables.V1alpha1.Row.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct rows: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          row: Google.Area120.Tables.V1alpha1.Row.t() | nil,
-          view: Google.Area120.Tables.V1alpha1.View.t()
-        }
-
-  defstruct parent: "",
-            row: nil,
-            view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :row, 2, type: Google.Area120.Tables.V1alpha1.Row, deprecated: false
@@ -165,15 +79,7 @@ defmodule Google.Area120.Tables.V1alpha1.CreateRowRequest do
 end
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          requests: [Google.Area120.Tables.V1alpha1.CreateRowRequest.t()]
-        }
-
-  defstruct parent: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -184,29 +90,13 @@ defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsRequest do
 end
 defmodule Google.Area120.Tables.V1alpha1.BatchCreateRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rows: [Google.Area120.Tables.V1alpha1.Row.t()]
-        }
-
-  defstruct rows: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
 end
 defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          row: Google.Area120.Tables.V1alpha1.Row.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          view: Google.Area120.Tables.V1alpha1.View.t()
-        }
-
-  defstruct row: nil,
-            update_mask: nil,
-            view: :VIEW_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :row, 1, type: Google.Area120.Tables.V1alpha1.Row, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -214,15 +104,7 @@ defmodule Google.Area120.Tables.V1alpha1.UpdateRowRequest do
 end
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          requests: [Google.Area120.Tables.V1alpha1.UpdateRowRequest.t()]
-        }
-
-  defstruct parent: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -233,56 +115,26 @@ defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsRequest do
 end
 defmodule Google.Area120.Tables.V1alpha1.BatchUpdateRowsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rows: [Google.Area120.Tables.V1alpha1.Row.t()]
-        }
-
-  defstruct rows: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rows, 1, repeated: true, type: Google.Area120.Tables.V1alpha1.Row
 end
 defmodule Google.Area120.Tables.V1alpha1.DeleteRowRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Area120.Tables.V1alpha1.BatchDeleteRowsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          names: [String.t()]
-        }
-
-  defstruct parent: "",
-            names: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string, deprecated: false
 end
 defmodule Google.Area120.Tables.V1alpha1.Table do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          columns: [Google.Area120.Tables.V1alpha1.ColumnDescription.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            columns: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -290,23 +142,7 @@ defmodule Google.Area120.Tables.V1alpha1.Table do
 end
 defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          data_type: String.t(),
-          id: String.t(),
-          labels: [Google.Area120.Tables.V1alpha1.LabeledItem.t()],
-          relationship_details: Google.Area120.Tables.V1alpha1.RelationshipDetails.t() | nil,
-          lookup_details: Google.Area120.Tables.V1alpha1.LookupDetails.t() | nil
-        }
-
-  defstruct name: "",
-            data_type: "",
-            id: "",
-            labels: [],
-            relationship_details: nil,
-            lookup_details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -329,72 +165,34 @@ defmodule Google.Area120.Tables.V1alpha1.ColumnDescription do
 end
 defmodule Google.Area120.Tables.V1alpha1.LabeledItem do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t()
-        }
-
-  defstruct name: "",
-            id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
 end
 defmodule Google.Area120.Tables.V1alpha1.RelationshipDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          linked_table: String.t()
-        }
-
-  defstruct linked_table: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :linked_table, 1, type: :string, json_name: "linkedTable"
 end
 defmodule Google.Area120.Tables.V1alpha1.LookupDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          relationship_column: String.t(),
-          relationship_column_id: String.t()
-        }
-
-  defstruct relationship_column: "",
-            relationship_column_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :relationship_column, 1, type: :string, json_name: "relationshipColumn"
   field :relationship_column_id, 2, type: :string, json_name: "relationshipColumnId"
 end
 defmodule Google.Area120.Tables.V1alpha1.Row.ValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Area120.Tables.V1alpha1.Row do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          values: %{String.t() => Google.Protobuf.Value.t() | nil}
-        }
-
-  defstruct name: "",
-            values: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -405,17 +203,7 @@ defmodule Google.Area120.Tables.V1alpha1.Row do
 end
 defmodule Google.Area120.Tables.V1alpha1.Workspace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          tables: [Google.Area120.Tables.V1alpha1.Table.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            tables: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -423,7 +211,9 @@ defmodule Google.Area120.Tables.V1alpha1.Workspace do
 end
 defmodule Google.Area120.Tables.V1alpha1.TablesService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.area120.tables.v1alpha1.TablesService"
+  use GRPC.Service,
+    name: "google.area120.tables.v1alpha1.TablesService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetTable,
       Google.Area120.Tables.V1alpha1.GetTableRequest,

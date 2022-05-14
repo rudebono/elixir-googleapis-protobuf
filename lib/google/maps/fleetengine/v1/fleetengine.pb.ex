@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.V1.TripType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN_TRIP_TYPE | :SHARED | :EXCLUSIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_TRIP_TYPE, 0
   field :SHARED, 1
@@ -10,14 +8,7 @@ defmodule Maps.Fleetengine.V1.TripType do
 end
 defmodule Maps.Fleetengine.V1.WaypointType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_WAYPOINT_TYPE
-          | :PICKUP_WAYPOINT_TYPE
-          | :DROP_OFF_WAYPOINT_TYPE
-          | :INTERMEDIATE_DESTINATION_WAYPOINT_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_WAYPOINT_TYPE, 0
   field :PICKUP_WAYPOINT_TYPE, 1
@@ -26,9 +17,7 @@ defmodule Maps.Fleetengine.V1.WaypointType do
 end
 defmodule Maps.Fleetengine.V1.PolylineFormatType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN_FORMAT_TYPE | :LAT_LNG_LIST_TYPE | :ENCODED_POLYLINE_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_FORMAT_TYPE, 0
   field :LAT_LNG_LIST_TYPE, 1
@@ -36,15 +25,7 @@ defmodule Maps.Fleetengine.V1.PolylineFormatType do
 end
 defmodule Maps.Fleetengine.V1.NavigationStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_NAVIGATION_STATUS
-          | :NO_GUIDANCE
-          | :ENROUTE_TO_DESTINATION
-          | :OFF_ROUTE
-          | :ARRIVED_AT_DESTINATION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_NAVIGATION_STATUS, 0
   field :NO_GUIDANCE, 1
@@ -54,16 +35,7 @@ defmodule Maps.Fleetengine.V1.NavigationStatus do
 end
 defmodule Maps.Fleetengine.V1.LocationSensor do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_SENSOR
-          | :GPS
-          | :NETWORK
-          | :PASSIVE
-          | :ROAD_SNAPPED_LOCATION_PROVIDER
-          | :FUSED_LOCATION_PROVIDER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_SENSOR, 0
   field :GPS, 1
@@ -74,15 +46,7 @@ defmodule Maps.Fleetengine.V1.LocationSensor do
 end
 defmodule Maps.Fleetengine.V1.TerminalPointId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          Id: {:place_id, String.t()} | {:generated_id, String.t()},
-          value: String.t()
-        }
-
-  defstruct Id: nil,
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :Id, 0
 
@@ -92,21 +56,7 @@ defmodule Maps.Fleetengine.V1.TerminalPointId do
 end
 defmodule Maps.Fleetengine.V1.TerminalLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          point: Google.Type.LatLng.t() | nil,
-          terminal_point_id: Maps.Fleetengine.V1.TerminalPointId.t() | nil,
-          access_point_id: String.t(),
-          trip_id: String.t(),
-          terminal_location_type: Maps.Fleetengine.V1.WaypointType.t()
-        }
-
-  defstruct point: nil,
-            terminal_point_id: nil,
-            access_point_id: "",
-            trip_id: "",
-            terminal_location_type: :UNKNOWN_WAYPOINT_TYPE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :point, 1, type: Google.Type.LatLng, deprecated: false
 
@@ -126,29 +76,7 @@ defmodule Maps.Fleetengine.V1.TerminalLocation do
 end
 defmodule Maps.Fleetengine.V1.TripWaypoint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: Maps.Fleetengine.V1.TerminalLocation.t() | nil,
-          trip_id: String.t(),
-          waypoint_type: Maps.Fleetengine.V1.WaypointType.t(),
-          path_to_waypoint: [Google.Type.LatLng.t()],
-          encoded_path_to_waypoint: String.t(),
-          traffic_to_waypoint: Maps.Fleetengine.V1.ConsumableTrafficPolyline.t() | nil,
-          distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          eta: Google.Protobuf.Timestamp.t() | nil,
-          duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct location: nil,
-            trip_id: "",
-            waypoint_type: :UNKNOWN_WAYPOINT_TYPE,
-            path_to_waypoint: [],
-            encoded_path_to_waypoint: "",
-            traffic_to_waypoint: nil,
-            distance_meters: nil,
-            eta: nil,
-            duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: Maps.Fleetengine.V1.TerminalLocation
   field :trip_id, 2, type: :string, json_name: "tripId"
@@ -175,82 +103,14 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
 end
 defmodule Maps.Fleetengine.V1.VehicleAttribute do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Maps.Fleetengine.V1.VehicleLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location: Google.Type.LatLng.t() | nil,
-          horizontal_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          latlng_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          heading: Google.Protobuf.Int32Value.t() | nil,
-          bearing_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          heading_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          altitude: Google.Protobuf.DoubleValue.t() | nil,
-          vertical_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          altitude_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          speed_kmph: Google.Protobuf.Int32Value.t() | nil,
-          speed: Google.Protobuf.DoubleValue.t() | nil,
-          speed_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          server_time: Google.Protobuf.Timestamp.t() | nil,
-          location_sensor: Maps.Fleetengine.V1.LocationSensor.t(),
-          is_road_snapped: Google.Protobuf.BoolValue.t() | nil,
-          is_gps_sensor_enabled: Google.Protobuf.BoolValue.t() | nil,
-          time_since_update: Google.Protobuf.Int32Value.t() | nil,
-          num_stale_updates: Google.Protobuf.Int32Value.t() | nil,
-          raw_location: Google.Type.LatLng.t() | nil,
-          raw_location_time: Google.Protobuf.Timestamp.t() | nil,
-          raw_location_sensor: Maps.Fleetengine.V1.LocationSensor.t(),
-          raw_location_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          supplemental_location: Google.Type.LatLng.t() | nil,
-          supplemental_location_time: Google.Protobuf.Timestamp.t() | nil,
-          supplemental_location_sensor: Maps.Fleetengine.V1.LocationSensor.t(),
-          supplemental_location_accuracy: Google.Protobuf.DoubleValue.t() | nil,
-          road_snapped: boolean
-        }
-
-  defstruct location: nil,
-            horizontal_accuracy: nil,
-            latlng_accuracy: nil,
-            heading: nil,
-            bearing_accuracy: nil,
-            heading_accuracy: nil,
-            altitude: nil,
-            vertical_accuracy: nil,
-            altitude_accuracy: nil,
-            speed_kmph: nil,
-            speed: nil,
-            speed_accuracy: nil,
-            update_time: nil,
-            server_time: nil,
-            location_sensor: :UNKNOWN_SENSOR,
-            is_road_snapped: nil,
-            is_gps_sensor_enabled: nil,
-            time_since_update: nil,
-            num_stale_updates: nil,
-            raw_location: nil,
-            raw_location_time: nil,
-            raw_location_sensor: :UNKNOWN_SENSOR,
-            raw_location_accuracy: nil,
-            supplemental_location: nil,
-            supplemental_location_time: nil,
-            supplemental_location_sensor: :UNKNOWN_SENSOR,
-            supplemental_location_accuracy: nil,
-            road_snapped: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng
 

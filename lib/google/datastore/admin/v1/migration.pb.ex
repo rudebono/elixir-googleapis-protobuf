@@ -1,8 +1,6 @@
 defmodule Google.Datastore.Admin.V1.MigrationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MIGRATION_STATE_UNSPECIFIED | :RUNNING | :PAUSED | :COMPLETE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MIGRATION_STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -11,18 +9,7 @@ defmodule Google.Datastore.Admin.V1.MigrationState do
 end
 defmodule Google.Datastore.Admin.V1.MigrationStep do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MIGRATION_STEP_UNSPECIFIED
-          | :PREPARE
-          | :START
-          | :APPLY_WRITES_SYNCHRONOUSLY
-          | :COPY_AND_VERIFY
-          | :REDIRECT_EVENTUALLY_CONSISTENT_READS
-          | :REDIRECT_STRONGLY_CONSISTENT_READS
-          | :REDIRECT_WRITES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MIGRATION_STEP_UNSPECIFIED, 0
   field :PREPARE, 6
@@ -35,9 +22,7 @@ defmodule Google.Datastore.Admin.V1.MigrationStep do
 end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CONCURRENCY_MODE_UNSPECIFIED | :PESSIMISTIC | :OPTIMISTIC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :PESSIMISTIC, 1
@@ -45,25 +30,13 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode do
 end
 defmodule Google.Datastore.Admin.V1.MigrationStateEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Datastore.Admin.V1.MigrationState.t()
-        }
-
-  defstruct state: :MIGRATION_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Datastore.Admin.V1.MigrationState, enum: true
 end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          concurrency_mode: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode.t()
-        }
-
-  defstruct concurrency_mode: :CONCURRENCY_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
@@ -72,13 +45,7 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails do
 end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          concurrency_mode: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode.t()
-        }
-
-  defstruct concurrency_mode: :CONCURRENCY_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
@@ -87,20 +54,7 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDet
 end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          step_details:
-            {:prepare_step_details,
-             Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails.t() | nil}
-            | {:redirect_writes_step_details,
-               Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDetails.t()
-               | nil},
-          step: Google.Datastore.Admin.V1.MigrationStep.t()
-        }
-
-  defstruct step_details: nil,
-            step: :MIGRATION_STEP_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :step_details, 0
 

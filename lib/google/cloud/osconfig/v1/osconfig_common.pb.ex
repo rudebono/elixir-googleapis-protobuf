@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1.FixedOrPercent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mode: {:fixed, integer} | {:percent, integer}
-        }
-
-  defstruct mode: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mode, 0
 

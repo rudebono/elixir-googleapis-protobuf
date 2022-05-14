@@ -1,22 +1,6 @@
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          dimensions: [Google.Analytics.Data.V1beta.Dimension.t()],
-          metrics: [Google.Analytics.Data.V1beta.Metric.t()],
-          dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          compatibility_filter: Google.Analytics.Data.V1beta.Compatibility.t()
-        }
-
-  defstruct property: "",
-            dimensions: [],
-            metrics: [],
-            dimension_filter: nil,
-            metric_filter: nil,
-            compatibility_filter: :COMPATIBILITY_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -37,15 +21,7 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
 end
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dimension_compatibilities: [Google.Analytics.Data.V1beta.DimensionCompatibility.t()],
-          metric_compatibilities: [Google.Analytics.Data.V1beta.MetricCompatibility.t()]
-        }
-
-  defstruct dimension_compatibilities: [],
-            metric_compatibilities: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dimension_compatibilities, 1,
     repeated: true,
@@ -59,17 +35,7 @@ defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
 end
 defmodule Google.Analytics.Data.V1beta.Metadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          dimensions: [Google.Analytics.Data.V1beta.DimensionMetadata.t()],
-          metrics: [Google.Analytics.Data.V1beta.MetricMetadata.t()]
-        }
-
-  defstruct name: "",
-            dimensions: [],
-            metrics: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
@@ -77,39 +43,7 @@ defmodule Google.Analytics.Data.V1beta.Metadata do
 end
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          dimensions: [Google.Analytics.Data.V1beta.Dimension.t()],
-          metrics: [Google.Analytics.Data.V1beta.Metric.t()],
-          date_ranges: [Google.Analytics.Data.V1beta.DateRange.t()],
-          dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          offset: integer,
-          limit: integer,
-          metric_aggregations: [Google.Analytics.Data.V1beta.MetricAggregation.t()],
-          order_bys: [Google.Analytics.Data.V1beta.OrderBy.t()],
-          currency_code: String.t(),
-          cohort_spec: Google.Analytics.Data.V1beta.CohortSpec.t() | nil,
-          keep_empty_rows: boolean,
-          return_property_quota: boolean
-        }
-
-  defstruct property: "",
-            dimensions: [],
-            metrics: [],
-            date_ranges: [],
-            dimension_filter: nil,
-            metric_filter: nil,
-            offset: 0,
-            limit: 0,
-            metric_aggregations: [],
-            order_bys: [],
-            currency_code: "",
-            cohort_spec: nil,
-            keep_empty_rows: false,
-            return_property_quota: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -149,31 +83,7 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
 end
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dimension_headers: [Google.Analytics.Data.V1beta.DimensionHeader.t()],
-          metric_headers: [Google.Analytics.Data.V1beta.MetricHeader.t()],
-          rows: [Google.Analytics.Data.V1beta.Row.t()],
-          totals: [Google.Analytics.Data.V1beta.Row.t()],
-          maximums: [Google.Analytics.Data.V1beta.Row.t()],
-          minimums: [Google.Analytics.Data.V1beta.Row.t()],
-          row_count: integer,
-          metadata: Google.Analytics.Data.V1beta.ResponseMetaData.t() | nil,
-          property_quota: Google.Analytics.Data.V1beta.PropertyQuota.t() | nil,
-          kind: String.t()
-        }
-
-  defstruct dimension_headers: [],
-            metric_headers: [],
-            rows: [],
-            totals: [],
-            maximums: [],
-            minimums: [],
-            row_count: 0,
-            metadata: nil,
-            property_quota: nil,
-            kind: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -200,33 +110,7 @@ defmodule Google.Analytics.Data.V1beta.RunReportResponse do
 end
 defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          dimensions: [Google.Analytics.Data.V1beta.Dimension.t()],
-          metrics: [Google.Analytics.Data.V1beta.Metric.t()],
-          date_ranges: [Google.Analytics.Data.V1beta.DateRange.t()],
-          pivots: [Google.Analytics.Data.V1beta.Pivot.t()],
-          dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          currency_code: String.t(),
-          cohort_spec: Google.Analytics.Data.V1beta.CohortSpec.t() | nil,
-          keep_empty_rows: boolean,
-          return_property_quota: boolean
-        }
-
-  defstruct property: "",
-            dimensions: [],
-            metrics: [],
-            date_ranges: [],
-            pivots: [],
-            dimension_filter: nil,
-            metric_filter: nil,
-            currency_code: "",
-            cohort_spec: nil,
-            keep_empty_rows: false,
-            return_property_quota: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -254,27 +138,7 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
 end
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pivot_headers: [Google.Analytics.Data.V1beta.PivotHeader.t()],
-          dimension_headers: [Google.Analytics.Data.V1beta.DimensionHeader.t()],
-          metric_headers: [Google.Analytics.Data.V1beta.MetricHeader.t()],
-          rows: [Google.Analytics.Data.V1beta.Row.t()],
-          aggregates: [Google.Analytics.Data.V1beta.Row.t()],
-          metadata: Google.Analytics.Data.V1beta.ResponseMetaData.t() | nil,
-          property_quota: Google.Analytics.Data.V1beta.PropertyQuota.t() | nil,
-          kind: String.t()
-        }
-
-  defstruct pivot_headers: [],
-            dimension_headers: [],
-            metric_headers: [],
-            rows: [],
-            aggregates: [],
-            metadata: nil,
-            property_quota: nil,
-            kind: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pivot_headers, 1,
     repeated: true,
@@ -303,60 +167,28 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
 end
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          requests: [Google.Analytics.Data.V1beta.RunReportRequest.t()]
-        }
-
-  defstruct property: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunReportRequest
 end
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reports: [Google.Analytics.Data.V1beta.RunReportResponse.t()],
-          kind: String.t()
-        }
-
-  defstruct reports: [],
-            kind: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Analytics.Data.V1beta.RunReportResponse
   field :kind, 2, type: :string
 end
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          requests: [Google.Analytics.Data.V1beta.RunPivotReportRequest.t()]
-        }
-
-  defstruct property: "",
-            requests: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunPivotReportRequest
 end
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          pivot_reports: [Google.Analytics.Data.V1beta.RunPivotReportResponse.t()],
-          kind: String.t()
-        }
-
-  defstruct pivot_reports: [],
-            kind: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :pivot_reports, 1,
     repeated: true,
@@ -367,43 +199,13 @@ defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
 end
 defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          property: String.t(),
-          dimensions: [Google.Analytics.Data.V1beta.Dimension.t()],
-          metrics: [Google.Analytics.Data.V1beta.Metric.t()],
-          dimension_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          metric_filter: Google.Analytics.Data.V1beta.FilterExpression.t() | nil,
-          limit: integer,
-          metric_aggregations: [Google.Analytics.Data.V1beta.MetricAggregation.t()],
-          order_bys: [Google.Analytics.Data.V1beta.OrderBy.t()],
-          return_property_quota: boolean,
-          minute_ranges: [Google.Analytics.Data.V1beta.MinuteRange.t()]
-        }
-
-  defstruct property: "",
-            dimensions: [],
-            metrics: [],
-            dimension_filter: nil,
-            metric_filter: nil,
-            limit: 0,
-            metric_aggregations: [],
-            order_bys: [],
-            return_property_quota: false,
-            minute_ranges: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -439,29 +241,7 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
 end
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dimension_headers: [Google.Analytics.Data.V1beta.DimensionHeader.t()],
-          metric_headers: [Google.Analytics.Data.V1beta.MetricHeader.t()],
-          rows: [Google.Analytics.Data.V1beta.Row.t()],
-          totals: [Google.Analytics.Data.V1beta.Row.t()],
-          maximums: [Google.Analytics.Data.V1beta.Row.t()],
-          minimums: [Google.Analytics.Data.V1beta.Row.t()],
-          row_count: integer,
-          property_quota: Google.Analytics.Data.V1beta.PropertyQuota.t() | nil,
-          kind: String.t()
-        }
-
-  defstruct dimension_headers: [],
-            metric_headers: [],
-            rows: [],
-            totals: [],
-            maximums: [],
-            minimums: [],
-            row_count: 0,
-            property_quota: nil,
-            kind: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -487,7 +267,9 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
 end
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.analytics.data.v1beta.BetaAnalyticsData"
+  use GRPC.Service,
+    name: "google.analytics.data.v1beta.BetaAnalyticsData",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :RunReport,
       Google.Analytics.Data.V1beta.RunReportRequest,

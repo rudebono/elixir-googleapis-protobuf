@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :DEFAULT | :ENABLED | :DISABLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -11,14 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFea
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.Baseline do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :BASELINE_UNSPECIFIED
-          | :LATEST_STATS
-          | :MOST_RECENT_SNAPSHOT_STATS
-          | :PREVIOUS_IMPORT_FEATURES_STATS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :BASELINE_UNSPECIFIED, 0
   field :LATEST_STATS, 1
@@ -27,19 +18,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFea
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          disabled: boolean,
-          monitoring_interval: Google.Protobuf.Duration.t() | nil,
-          monitoring_interval_days: integer,
-          staleness_days: integer
-        }
-
-  defstruct disabled: false,
-            monitoring_interval: nil,
-            monitoring_interval_days: 0,
-            staleness_days: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :disabled, 1, type: :bool
 
@@ -53,17 +32,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotA
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.State.t(),
-          anomaly_detection_baseline:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.Baseline.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            anomaly_detection_baseline: :BASELINE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type:
@@ -78,13 +47,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFea
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ThresholdConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          threshold: {:value, float | :infinity | :negative_infinity | :nan}
-        }
-
-  defstruct threshold: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :threshold, 0
 
@@ -92,25 +55,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.Threshold
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          snapshot_analysis:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis.t()
-            | nil,
-          import_features_analysis:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.t()
-            | nil,
-          numerical_threshold_config:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ThresholdConfig.t() | nil,
-          categorical_threshold_config:
-            Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ThresholdConfig.t() | nil
-        }
-
-  defstruct snapshot_analysis: nil,
-            import_features_analysis: nil,
-            numerical_threshold_config: nil,
-            categorical_threshold_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :snapshot_analysis, 1,
     type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis,

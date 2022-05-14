@@ -1,56 +1,20 @@
 defmodule Google.Cloud.Retail.V2beta.PredictRequest.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Retail.V2beta.PredictRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Retail.V2beta.PredictRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          placement: String.t(),
-          user_event: Google.Cloud.Retail.V2beta.UserEvent.t() | nil,
-          page_size: integer,
-          page_token: String.t(),
-          filter: String.t(),
-          validate_only: boolean,
-          params: %{String.t() => Google.Protobuf.Value.t() | nil},
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct placement: "",
-            user_event: nil,
-            page_size: 0,
-            page_token: "",
-            filter: "",
-            validate_only: false,
-            params: %{},
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :placement, 1, type: :string, deprecated: false
 
@@ -76,30 +40,14 @@ defmodule Google.Cloud.Retail.V2beta.PredictRequest do
 end
 defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Protobuf.Value.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
 defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          metadata: %{String.t() => Google.Protobuf.Value.t() | nil}
-        }
-
-  defstruct id: "",
-            metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -110,19 +58,7 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult do
 end
 defmodule Google.Cloud.Retail.V2beta.PredictResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Cloud.Retail.V2beta.PredictResponse.PredictionResult.t()],
-          attribution_token: String.t(),
-          missing_ids: [String.t()],
-          validate_only: boolean
-        }
-
-  defstruct results: [],
-            attribution_token: "",
-            missing_ids: [],
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -134,7 +70,9 @@ defmodule Google.Cloud.Retail.V2beta.PredictResponse do
 end
 defmodule Google.Cloud.Retail.V2beta.PredictionService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.retail.v2beta.PredictionService"
+  use GRPC.Service,
+    name: "google.cloud.retail.v2beta.PredictionService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Predict,
       Google.Cloud.Retail.V2beta.PredictRequest,

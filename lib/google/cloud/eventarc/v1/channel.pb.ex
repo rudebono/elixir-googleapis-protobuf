@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Eventarc.V1.Channel.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :PENDING | :ACTIVE | :INACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -11,27 +9,7 @@ defmodule Google.Cloud.Eventarc.V1.Channel.State do
 end
 defmodule Google.Cloud.Eventarc.V1.Channel do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transport: {:pubsub_topic, String.t()},
-          name: String.t(),
-          uid: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          provider: String.t(),
-          state: Google.Cloud.Eventarc.V1.Channel.State.t(),
-          activation_token: String.t()
-        }
-
-  defstruct transport: nil,
-            name: "",
-            uid: "",
-            create_time: nil,
-            update_time: nil,
-            provider: "",
-            state: :STATE_UNSPECIFIED,
-            activation_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :transport, 0
 

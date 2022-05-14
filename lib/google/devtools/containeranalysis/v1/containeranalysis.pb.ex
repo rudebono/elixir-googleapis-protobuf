@@ -1,33 +1,13 @@
 defmodule Google.Devtools.Containeranalysis.V1.GetVulnerabilityOccurrencesSummaryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t()
-        }
-
-  defstruct parent: "",
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
 end
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_uri: String.t(),
-          severity: Grafeas.V1.Severity.t(),
-          fixable_count: integer,
-          total_count: integer
-        }
-
-  defstruct resource_uri: "",
-            severity: :SEVERITY_UNSPECIFIED,
-            fixable_count: 0,
-            total_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_uri, 1, type: :string, json_name: "resourceUri"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
@@ -36,15 +16,7 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.F
 end
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          counts: [
-            Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest.t()
-          ]
-        }
-
-  defstruct counts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :counts, 1,
     repeated: true,
@@ -53,7 +25,9 @@ defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary d
 end
 defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.containeranalysis.v1.ContainerAnalysis"
+  use GRPC.Service,
+    name: "google.devtools.containeranalysis.v1.ContainerAnalysis",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 

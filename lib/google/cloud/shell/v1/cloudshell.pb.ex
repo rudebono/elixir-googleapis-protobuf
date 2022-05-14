@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Shell.V1.Environment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :SUSPENDED | :PENDING | :RUNNING | :DELETING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUSPENDED, 1
@@ -12,15 +10,7 @@ defmodule Google.Cloud.Shell.V1.Environment.State do
 end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :STARTING
-          | :UNARCHIVING_DISK
-          | :AWAITING_COMPUTE_RESOURCES
-          | :FINISHED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -30,15 +20,7 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata.State do
 end
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CLOUD_SHELL_ERROR_CODE_UNSPECIFIED
-          | :IMAGE_UNAVAILABLE
-          | :CLOUD_SHELL_DISABLED
-          | :TOS_VIOLATION
-          | :QUOTA_EXCEEDED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CLOUD_SHELL_ERROR_CODE_UNSPECIFIED, 0
   field :IMAGE_UNAVAILABLE, 1
@@ -48,29 +30,7 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
 end
 defmodule Google.Cloud.Shell.V1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          docker_image: String.t(),
-          state: Google.Cloud.Shell.V1.Environment.State.t(),
-          web_host: String.t(),
-          ssh_username: String.t(),
-          ssh_host: String.t(),
-          ssh_port: integer,
-          public_keys: [String.t()]
-        }
-
-  defstruct name: "",
-            id: "",
-            docker_image: "",
-            state: :STATE_UNSPECIFIED,
-            web_host: "",
-            ssh_username: "",
-            ssh_host: "",
-            ssh_port: 0,
-            public_keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -84,45 +44,21 @@ defmodule Google.Cloud.Shell.V1.Environment do
 end
 defmodule Google.Cloud.Shell.V1.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Shell.V1.CreateEnvironmentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.DeleteEnvironmentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          access_token: String.t(),
-          public_keys: [String.t()]
-        }
-
-  defstruct name: "",
-            access_token: "",
-            public_keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
@@ -130,19 +66,7 @@ defmodule Google.Cloud.Shell.V1.StartEnvironmentRequest do
 end
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          access_token: String.t(),
-          id_token: String.t(),
-          expire_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            access_token: "",
-            id_token: "",
-            expire_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
@@ -151,119 +75,59 @@ defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest do
 end
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Shell.V1.StartEnvironmentMetadata.State.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Shell.V1.StartEnvironmentMetadata.State, enum: true
 end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: Google.Cloud.Shell.V1.Environment.t() | nil
-        }
-
-  defstruct environment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: Google.Cloud.Shell.V1.Environment
 end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: String.t(),
-          key: String.t()
-        }
-
-  defstruct environment: "",
-            key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
 end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t()
-        }
-
-  defstruct key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: String.t(),
-          key: String.t()
-        }
-
-  defstruct environment: "",
-            key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
 end
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode.t()
-        }
-
-  defstruct code: :CLOUD_SHELL_ERROR_CODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode,
@@ -271,7 +135,9 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
 end
 defmodule Google.Cloud.Shell.V1.CloudShellService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.shell.v1.CloudShellService"
+  use GRPC.Service,
+    name: "google.cloud.shell.v1.CloudShellService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetEnvironment,
       Google.Cloud.Shell.V1.GetEnvironmentRequest,

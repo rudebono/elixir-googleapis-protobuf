@@ -1,25 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.ExperimentArmErrorEnum.ExperimentArmError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :EXPERIMENT_ARM_COUNT_LIMIT_EXCEEDED
-          | :INVALID_CAMPAIGN_STATUS
-          | :DUPLICATE_EXPERIMENT_ARM_NAME
-          | :CANNOT_SET_TREATMENT_ARM_CAMPAIGN
-          | :CANNOT_MODIFY_CAMPAIGN_IDS
-          | :CANNOT_MODIFY_CAMPAIGN_WITHOUT_SUFFIX_SET
-          | :CANNOT_MUTATE_TRAFFIC_SPLIT_AFTER_START
-          | :CANNOT_ADD_CAMPAIGN_WITH_SHARED_BUDGET
-          | :CANNOT_ADD_CAMPAIGN_WITH_CUSTOM_BUDGET
-          | :CANNOT_ADD_CAMPAIGNS_WITH_DYNAMIC_ASSETS_ENABLED
-          | :UNSUPPORTED_CAMPAIGN_ADVERTISING_CHANNEL_SUB_TYPE
-          | :CANNOT_ADD_BASE_CAMPAIGN_WITH_DATE_RANGE
-          | :BIDDING_STRATEGY_NOT_SUPPORTED_IN_EXPERIMENTS
-          | :TRAFFIC_SPLIT_NOT_SUPPORTED_FOR_CHANNEL_TYPE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -40,9 +21,5 @@ defmodule Google.Ads.Googleads.V10.Errors.ExperimentArmErrorEnum.ExperimentArmEr
 end
 defmodule Google.Ads.Googleads.V10.Errors.ExperimentArmErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

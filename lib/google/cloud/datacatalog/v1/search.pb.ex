@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.SearchResultType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SEARCH_RESULT_TYPE_UNSPECIFIED | :ENTRY | :TAG_TEMPLATE | :ENTRY_GROUP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SEARCH_RESULT_TYPE_UNSPECIFIED, 0
   field :ENTRY, 1
@@ -11,31 +9,7 @@ defmodule Google.Cloud.Datacatalog.V1.SearchResultType do
 end
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          system:
-            {:integrated_system, Google.Cloud.Datacatalog.V1.IntegratedSystem.t()}
-            | {:user_specified_system, String.t()},
-          search_result_type: Google.Cloud.Datacatalog.V1.SearchResultType.t(),
-          search_result_subtype: String.t(),
-          relative_resource_name: String.t(),
-          linked_resource: String.t(),
-          modify_time: Google.Protobuf.Timestamp.t() | nil,
-          fully_qualified_name: String.t(),
-          display_name: String.t(),
-          description: String.t()
-        }
-
-  defstruct system: nil,
-            search_result_type: :SEARCH_RESULT_TYPE_UNSPECIFIED,
-            search_result_subtype: "",
-            relative_resource_name: "",
-            linked_resource: "",
-            modify_time: nil,
-            fully_qualified_name: "",
-            display_name: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :system, 0
 

@@ -1,19 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation.t()],
-          validate_only: boolean,
-          response_content_type:
-            Google.Ads.Googleads.V9.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            validate_only: false,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -31,16 +18,7 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRe
 end
 defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:update, Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig.t() | nil},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -49,13 +27,7 @@ defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigOperation
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigResult.t()]
-        }
-
-  defstruct results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -63,16 +35,7 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRe
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          conversion_goal_campaign_config:
-            Google.Ads.Googleads.V9.Resources.ConversionGoalCampaignConfig.t() | nil
-        }
-
-  defstruct resource_name: "",
-            conversion_goal_campaign_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
@@ -82,7 +45,9 @@ defmodule Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigRes
 end
 defmodule Google.Ads.Googleads.V9.Services.ConversionGoalCampaignConfigService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v9.services.ConversionGoalCampaignConfigService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v9.services.ConversionGoalCampaignConfigService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :MutateConversionGoalCampaignConfigs,
       Google.Ads.Googleads.V9.Services.MutateConversionGoalCampaignConfigsRequest,

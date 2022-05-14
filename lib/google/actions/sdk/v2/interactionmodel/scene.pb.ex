@@ -1,20 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Scene do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          on_enter: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil,
-          intent_events: [Google.Actions.Sdk.V2.Interactionmodel.IntentEvent.t()],
-          conditional_events: [Google.Actions.Sdk.V2.Interactionmodel.ConditionalEvent.t()],
-          slots: [Google.Actions.Sdk.V2.Interactionmodel.Slot.t()],
-          on_slot_updated: Google.Actions.Sdk.V2.Interactionmodel.EventHandler.t() | nil
-        }
-
-  defstruct on_enter: nil,
-            intent_events: [],
-            conditional_events: [],
-            slots: [],
-            on_slot_updated: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :on_enter, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,

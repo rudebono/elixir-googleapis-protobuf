@@ -1,33 +1,19 @@
 defmodule Google.Api.Visibility do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          rules: [Google.Api.VisibilityRule.t()]
-        }
-
-  defstruct rules: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Api.VisibilityRule
 end
 defmodule Google.Api.VisibilityRule do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          selector: String.t(),
-          restriction: String.t()
-        }
-
-  defstruct selector: "",
-            restriction: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :restriction, 2, type: :string
 end
 defmodule Google.Api.PbExtension do
   @moduledoc false
-  use Protobuf, syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   extend Google.Protobuf.EnumOptions, :enum_visibility, 72_295_727,
     optional: true,

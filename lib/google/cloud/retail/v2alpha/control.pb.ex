@@ -1,24 +1,6 @@
 defmodule Google.Cloud.Retail.V2alpha.Control do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          control:
-            {:facet_spec, Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.t() | nil}
-            | {:rule, Google.Cloud.Retail.V2alpha.Rule.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          associated_serving_config_ids: [String.t()],
-          solution_types: [Google.Cloud.Retail.V2alpha.SolutionType.t()],
-          search_solution_use_case: [Google.Cloud.Retail.V2alpha.SearchSolutionUseCase.t()]
-        }
-
-  defstruct control: nil,
-            name: "",
-            display_name: "",
-            associated_serving_config_ids: [],
-            solution_types: [],
-            search_solution_use_case: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :control, 0
 

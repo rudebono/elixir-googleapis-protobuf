@@ -1,26 +1,6 @@
 defmodule Google.Rpc.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OK
-          | :CANCELLED
-          | :UNKNOWN
-          | :INVALID_ARGUMENT
-          | :DEADLINE_EXCEEDED
-          | :NOT_FOUND
-          | :ALREADY_EXISTS
-          | :PERMISSION_DENIED
-          | :UNAUTHENTICATED
-          | :RESOURCE_EXHAUSTED
-          | :FAILED_PRECONDITION
-          | :ABORTED
-          | :OUT_OF_RANGE
-          | :UNIMPLEMENTED
-          | :INTERNAL
-          | :UNAVAILABLE
-          | :DATA_LOSS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OK, 0
   field :CANCELLED, 1

@@ -1,25 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          query: String.t(),
-          page_token: String.t(),
-          page_size: integer,
-          validate_only: boolean,
-          return_total_results_count: boolean,
-          summary_row_setting:
-            Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting.t()
-        }
-
-  defstruct customer_id: "",
-            query: "",
-            page_token: "",
-            page_size: 0,
-            validate_only: false,
-            return_total_results_count: false,
-            summary_row_setting: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -35,21 +16,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V7.Services.GoogleAdsRow.t()],
-          next_page_token: String.t(),
-          total_results_count: integer,
-          field_mask: Google.Protobuf.FieldMask.t() | nil,
-          summary_row: Google.Ads.Googleads.V7.Services.GoogleAdsRow.t() | nil
-        }
-
-  defstruct results: [],
-            next_page_token: "",
-            total_results_count: 0,
-            field_mask: nil,
-            summary_row: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V7.Services.GoogleAdsRow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -62,18 +29,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsResponse do
 end
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          query: String.t(),
-          summary_row_setting:
-            Google.Ads.Googleads.V7.Enums.SummaryRowSettingEnum.SummaryRowSetting.t()
-        }
-
-  defstruct customer_id: "",
-            query: "",
-            summary_row_setting: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -85,19 +41,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V7.Services.GoogleAdsRow.t()],
-          field_mask: Google.Protobuf.FieldMask.t() | nil,
-          summary_row: Google.Ads.Googleads.V7.Services.GoogleAdsRow.t() | nil,
-          request_id: String.t()
-        }
-
-  defstruct results: [],
-            field_mask: nil,
-            summary_row: nil,
-            request_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V7.Services.GoogleAdsRow
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
@@ -110,274 +54,7 @@ defmodule Google.Ads.Googleads.V7.Services.SearchGoogleAdsStreamResponse do
 end
 defmodule Google.Ads.Googleads.V7.Services.GoogleAdsRow do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          account_budget: Google.Ads.Googleads.V7.Resources.AccountBudget.t() | nil,
-          account_budget_proposal:
-            Google.Ads.Googleads.V7.Resources.AccountBudgetProposal.t() | nil,
-          account_link: Google.Ads.Googleads.V7.Resources.AccountLink.t() | nil,
-          ad_group: Google.Ads.Googleads.V7.Resources.AdGroup.t() | nil,
-          ad_group_ad: Google.Ads.Googleads.V7.Resources.AdGroupAd.t() | nil,
-          ad_group_ad_asset_view: Google.Ads.Googleads.V7.Resources.AdGroupAdAssetView.t() | nil,
-          ad_group_ad_label: Google.Ads.Googleads.V7.Resources.AdGroupAdLabel.t() | nil,
-          ad_group_asset: Google.Ads.Googleads.V7.Resources.AdGroupAsset.t() | nil,
-          ad_group_audience_view: Google.Ads.Googleads.V7.Resources.AdGroupAudienceView.t() | nil,
-          ad_group_bid_modifier: Google.Ads.Googleads.V7.Resources.AdGroupBidModifier.t() | nil,
-          ad_group_criterion: Google.Ads.Googleads.V7.Resources.AdGroupCriterion.t() | nil,
-          ad_group_criterion_label:
-            Google.Ads.Googleads.V7.Resources.AdGroupCriterionLabel.t() | nil,
-          ad_group_criterion_simulation:
-            Google.Ads.Googleads.V7.Resources.AdGroupCriterionSimulation.t() | nil,
-          ad_group_extension_setting:
-            Google.Ads.Googleads.V7.Resources.AdGroupExtensionSetting.t() | nil,
-          ad_group_feed: Google.Ads.Googleads.V7.Resources.AdGroupFeed.t() | nil,
-          ad_group_label: Google.Ads.Googleads.V7.Resources.AdGroupLabel.t() | nil,
-          ad_group_simulation: Google.Ads.Googleads.V7.Resources.AdGroupSimulation.t() | nil,
-          ad_parameter: Google.Ads.Googleads.V7.Resources.AdParameter.t() | nil,
-          age_range_view: Google.Ads.Googleads.V7.Resources.AgeRangeView.t() | nil,
-          ad_schedule_view: Google.Ads.Googleads.V7.Resources.AdScheduleView.t() | nil,
-          domain_category: Google.Ads.Googleads.V7.Resources.DomainCategory.t() | nil,
-          asset: Google.Ads.Googleads.V7.Resources.Asset.t() | nil,
-          batch_job: Google.Ads.Googleads.V7.Resources.BatchJob.t() | nil,
-          bidding_strategy: Google.Ads.Googleads.V7.Resources.BiddingStrategy.t() | nil,
-          bidding_strategy_simulation:
-            Google.Ads.Googleads.V7.Resources.BiddingStrategySimulation.t() | nil,
-          billing_setup: Google.Ads.Googleads.V7.Resources.BillingSetup.t() | nil,
-          call_view: Google.Ads.Googleads.V7.Resources.CallView.t() | nil,
-          campaign_budget: Google.Ads.Googleads.V7.Resources.CampaignBudget.t() | nil,
-          campaign: Google.Ads.Googleads.V7.Resources.Campaign.t() | nil,
-          campaign_asset: Google.Ads.Googleads.V7.Resources.CampaignAsset.t() | nil,
-          campaign_audience_view:
-            Google.Ads.Googleads.V7.Resources.CampaignAudienceView.t() | nil,
-          campaign_bid_modifier: Google.Ads.Googleads.V7.Resources.CampaignBidModifier.t() | nil,
-          campaign_criterion: Google.Ads.Googleads.V7.Resources.CampaignCriterion.t() | nil,
-          campaign_criterion_simulation:
-            Google.Ads.Googleads.V7.Resources.CampaignCriterionSimulation.t() | nil,
-          campaign_draft: Google.Ads.Googleads.V7.Resources.CampaignDraft.t() | nil,
-          campaign_experiment: Google.Ads.Googleads.V7.Resources.CampaignExperiment.t() | nil,
-          campaign_extension_setting:
-            Google.Ads.Googleads.V7.Resources.CampaignExtensionSetting.t() | nil,
-          campaign_feed: Google.Ads.Googleads.V7.Resources.CampaignFeed.t() | nil,
-          campaign_label: Google.Ads.Googleads.V7.Resources.CampaignLabel.t() | nil,
-          campaign_shared_set: Google.Ads.Googleads.V7.Resources.CampaignSharedSet.t() | nil,
-          campaign_simulation: Google.Ads.Googleads.V7.Resources.CampaignSimulation.t() | nil,
-          carrier_constant: Google.Ads.Googleads.V7.Resources.CarrierConstant.t() | nil,
-          change_event: Google.Ads.Googleads.V7.Resources.ChangeEvent.t() | nil,
-          change_status: Google.Ads.Googleads.V7.Resources.ChangeStatus.t() | nil,
-          combined_audience: Google.Ads.Googleads.V7.Resources.CombinedAudience.t() | nil,
-          conversion_action: Google.Ads.Googleads.V7.Resources.ConversionAction.t() | nil,
-          conversion_custom_variable:
-            Google.Ads.Googleads.V7.Resources.ConversionCustomVariable.t() | nil,
-          click_view: Google.Ads.Googleads.V7.Resources.ClickView.t() | nil,
-          currency_constant: Google.Ads.Googleads.V7.Resources.CurrencyConstant.t() | nil,
-          custom_audience: Google.Ads.Googleads.V7.Resources.CustomAudience.t() | nil,
-          custom_interest: Google.Ads.Googleads.V7.Resources.CustomInterest.t() | nil,
-          customer: Google.Ads.Googleads.V7.Resources.Customer.t() | nil,
-          customer_asset: Google.Ads.Googleads.V7.Resources.CustomerAsset.t() | nil,
-          customer_manager_link: Google.Ads.Googleads.V7.Resources.CustomerManagerLink.t() | nil,
-          customer_client_link: Google.Ads.Googleads.V7.Resources.CustomerClientLink.t() | nil,
-          customer_client: Google.Ads.Googleads.V7.Resources.CustomerClient.t() | nil,
-          customer_extension_setting:
-            Google.Ads.Googleads.V7.Resources.CustomerExtensionSetting.t() | nil,
-          customer_feed: Google.Ads.Googleads.V7.Resources.CustomerFeed.t() | nil,
-          customer_label: Google.Ads.Googleads.V7.Resources.CustomerLabel.t() | nil,
-          customer_negative_criterion:
-            Google.Ads.Googleads.V7.Resources.CustomerNegativeCriterion.t() | nil,
-          customer_user_access: Google.Ads.Googleads.V7.Resources.CustomerUserAccess.t() | nil,
-          customer_user_access_invitation:
-            Google.Ads.Googleads.V7.Resources.CustomerUserAccessInvitation.t() | nil,
-          detail_placement_view: Google.Ads.Googleads.V7.Resources.DetailPlacementView.t() | nil,
-          display_keyword_view: Google.Ads.Googleads.V7.Resources.DisplayKeywordView.t() | nil,
-          distance_view: Google.Ads.Googleads.V7.Resources.DistanceView.t() | nil,
-          dynamic_search_ads_search_term_view:
-            Google.Ads.Googleads.V7.Resources.DynamicSearchAdsSearchTermView.t() | nil,
-          expanded_landing_page_view:
-            Google.Ads.Googleads.V7.Resources.ExpandedLandingPageView.t() | nil,
-          extension_feed_item: Google.Ads.Googleads.V7.Resources.ExtensionFeedItem.t() | nil,
-          feed: Google.Ads.Googleads.V7.Resources.Feed.t() | nil,
-          feed_item: Google.Ads.Googleads.V7.Resources.FeedItem.t() | nil,
-          feed_item_set: Google.Ads.Googleads.V7.Resources.FeedItemSet.t() | nil,
-          feed_item_set_link: Google.Ads.Googleads.V7.Resources.FeedItemSetLink.t() | nil,
-          feed_item_target: Google.Ads.Googleads.V7.Resources.FeedItemTarget.t() | nil,
-          feed_mapping: Google.Ads.Googleads.V7.Resources.FeedMapping.t() | nil,
-          feed_placeholder_view: Google.Ads.Googleads.V7.Resources.FeedPlaceholderView.t() | nil,
-          gender_view: Google.Ads.Googleads.V7.Resources.GenderView.t() | nil,
-          geo_target_constant: Google.Ads.Googleads.V7.Resources.GeoTargetConstant.t() | nil,
-          geographic_view: Google.Ads.Googleads.V7.Resources.GeographicView.t() | nil,
-          group_placement_view: Google.Ads.Googleads.V7.Resources.GroupPlacementView.t() | nil,
-          hotel_group_view: Google.Ads.Googleads.V7.Resources.HotelGroupView.t() | nil,
-          hotel_performance_view:
-            Google.Ads.Googleads.V7.Resources.HotelPerformanceView.t() | nil,
-          income_range_view: Google.Ads.Googleads.V7.Resources.IncomeRangeView.t() | nil,
-          keyword_view: Google.Ads.Googleads.V7.Resources.KeywordView.t() | nil,
-          keyword_plan: Google.Ads.Googleads.V7.Resources.KeywordPlan.t() | nil,
-          keyword_plan_campaign: Google.Ads.Googleads.V7.Resources.KeywordPlanCampaign.t() | nil,
-          keyword_plan_campaign_keyword:
-            Google.Ads.Googleads.V7.Resources.KeywordPlanCampaignKeyword.t() | nil,
-          keyword_plan_ad_group: Google.Ads.Googleads.V7.Resources.KeywordPlanAdGroup.t() | nil,
-          keyword_plan_ad_group_keyword:
-            Google.Ads.Googleads.V7.Resources.KeywordPlanAdGroupKeyword.t() | nil,
-          label: Google.Ads.Googleads.V7.Resources.Label.t() | nil,
-          landing_page_view: Google.Ads.Googleads.V7.Resources.LandingPageView.t() | nil,
-          language_constant: Google.Ads.Googleads.V7.Resources.LanguageConstant.t() | nil,
-          location_view: Google.Ads.Googleads.V7.Resources.LocationView.t() | nil,
-          managed_placement_view:
-            Google.Ads.Googleads.V7.Resources.ManagedPlacementView.t() | nil,
-          media_file: Google.Ads.Googleads.V7.Resources.MediaFile.t() | nil,
-          mobile_app_category_constant:
-            Google.Ads.Googleads.V7.Resources.MobileAppCategoryConstant.t() | nil,
-          mobile_device_constant:
-            Google.Ads.Googleads.V7.Resources.MobileDeviceConstant.t() | nil,
-          offline_user_data_job: Google.Ads.Googleads.V7.Resources.OfflineUserDataJob.t() | nil,
-          operating_system_version_constant:
-            Google.Ads.Googleads.V7.Resources.OperatingSystemVersionConstant.t() | nil,
-          paid_organic_search_term_view:
-            Google.Ads.Googleads.V7.Resources.PaidOrganicSearchTermView.t() | nil,
-          parental_status_view: Google.Ads.Googleads.V7.Resources.ParentalStatusView.t() | nil,
-          product_bidding_category_constant:
-            Google.Ads.Googleads.V7.Resources.ProductBiddingCategoryConstant.t() | nil,
-          product_group_view: Google.Ads.Googleads.V7.Resources.ProductGroupView.t() | nil,
-          recommendation: Google.Ads.Googleads.V7.Resources.Recommendation.t() | nil,
-          search_term_view: Google.Ads.Googleads.V7.Resources.SearchTermView.t() | nil,
-          shared_criterion: Google.Ads.Googleads.V7.Resources.SharedCriterion.t() | nil,
-          shared_set: Google.Ads.Googleads.V7.Resources.SharedSet.t() | nil,
-          shopping_performance_view:
-            Google.Ads.Googleads.V7.Resources.ShoppingPerformanceView.t() | nil,
-          third_party_app_analytics_link:
-            Google.Ads.Googleads.V7.Resources.ThirdPartyAppAnalyticsLink.t() | nil,
-          topic_view: Google.Ads.Googleads.V7.Resources.TopicView.t() | nil,
-          user_interest: Google.Ads.Googleads.V7.Resources.UserInterest.t() | nil,
-          life_event: Google.Ads.Googleads.V7.Resources.LifeEvent.t() | nil,
-          user_list: Google.Ads.Googleads.V7.Resources.UserList.t() | nil,
-          user_location_view: Google.Ads.Googleads.V7.Resources.UserLocationView.t() | nil,
-          remarketing_action: Google.Ads.Googleads.V7.Resources.RemarketingAction.t() | nil,
-          topic_constant: Google.Ads.Googleads.V7.Resources.TopicConstant.t() | nil,
-          video: Google.Ads.Googleads.V7.Resources.Video.t() | nil,
-          webpage_view: Google.Ads.Googleads.V7.Resources.WebpageView.t() | nil,
-          metrics: Google.Ads.Googleads.V7.Common.Metrics.t() | nil,
-          segments: Google.Ads.Googleads.V7.Common.Segments.t() | nil
-        }
-
-  defstruct account_budget: nil,
-            account_budget_proposal: nil,
-            account_link: nil,
-            ad_group: nil,
-            ad_group_ad: nil,
-            ad_group_ad_asset_view: nil,
-            ad_group_ad_label: nil,
-            ad_group_asset: nil,
-            ad_group_audience_view: nil,
-            ad_group_bid_modifier: nil,
-            ad_group_criterion: nil,
-            ad_group_criterion_label: nil,
-            ad_group_criterion_simulation: nil,
-            ad_group_extension_setting: nil,
-            ad_group_feed: nil,
-            ad_group_label: nil,
-            ad_group_simulation: nil,
-            ad_parameter: nil,
-            age_range_view: nil,
-            ad_schedule_view: nil,
-            domain_category: nil,
-            asset: nil,
-            batch_job: nil,
-            bidding_strategy: nil,
-            bidding_strategy_simulation: nil,
-            billing_setup: nil,
-            call_view: nil,
-            campaign_budget: nil,
-            campaign: nil,
-            campaign_asset: nil,
-            campaign_audience_view: nil,
-            campaign_bid_modifier: nil,
-            campaign_criterion: nil,
-            campaign_criterion_simulation: nil,
-            campaign_draft: nil,
-            campaign_experiment: nil,
-            campaign_extension_setting: nil,
-            campaign_feed: nil,
-            campaign_label: nil,
-            campaign_shared_set: nil,
-            campaign_simulation: nil,
-            carrier_constant: nil,
-            change_event: nil,
-            change_status: nil,
-            combined_audience: nil,
-            conversion_action: nil,
-            conversion_custom_variable: nil,
-            click_view: nil,
-            currency_constant: nil,
-            custom_audience: nil,
-            custom_interest: nil,
-            customer: nil,
-            customer_asset: nil,
-            customer_manager_link: nil,
-            customer_client_link: nil,
-            customer_client: nil,
-            customer_extension_setting: nil,
-            customer_feed: nil,
-            customer_label: nil,
-            customer_negative_criterion: nil,
-            customer_user_access: nil,
-            customer_user_access_invitation: nil,
-            detail_placement_view: nil,
-            display_keyword_view: nil,
-            distance_view: nil,
-            dynamic_search_ads_search_term_view: nil,
-            expanded_landing_page_view: nil,
-            extension_feed_item: nil,
-            feed: nil,
-            feed_item: nil,
-            feed_item_set: nil,
-            feed_item_set_link: nil,
-            feed_item_target: nil,
-            feed_mapping: nil,
-            feed_placeholder_view: nil,
-            gender_view: nil,
-            geo_target_constant: nil,
-            geographic_view: nil,
-            group_placement_view: nil,
-            hotel_group_view: nil,
-            hotel_performance_view: nil,
-            income_range_view: nil,
-            keyword_view: nil,
-            keyword_plan: nil,
-            keyword_plan_campaign: nil,
-            keyword_plan_campaign_keyword: nil,
-            keyword_plan_ad_group: nil,
-            keyword_plan_ad_group_keyword: nil,
-            label: nil,
-            landing_page_view: nil,
-            language_constant: nil,
-            location_view: nil,
-            managed_placement_view: nil,
-            media_file: nil,
-            mobile_app_category_constant: nil,
-            mobile_device_constant: nil,
-            offline_user_data_job: nil,
-            operating_system_version_constant: nil,
-            paid_organic_search_term_view: nil,
-            parental_status_view: nil,
-            product_bidding_category_constant: nil,
-            product_group_view: nil,
-            recommendation: nil,
-            search_term_view: nil,
-            shared_criterion: nil,
-            shared_set: nil,
-            shopping_performance_view: nil,
-            third_party_app_analytics_link: nil,
-            topic_view: nil,
-            user_interest: nil,
-            life_event: nil,
-            user_list: nil,
-            user_location_view: nil,
-            remarketing_action: nil,
-            topic_constant: nil,
-            video: nil,
-            webpage_view: nil,
-            metrics: nil,
-            segments: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :account_budget, 42,
     type: Google.Ads.Googleads.V7.Resources.AccountBudget,
@@ -820,22 +497,7 @@ defmodule Google.Ads.Googleads.V7.Services.GoogleAdsRow do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          mutate_operations: [Google.Ads.Googleads.V7.Services.MutateOperation.t()],
-          partial_failure: boolean,
-          validate_only: boolean,
-          response_content_type:
-            Google.Ads.Googleads.V7.Enums.ResponseContentTypeEnum.ResponseContentType.t()
-        }
-
-  defstruct customer_id: "",
-            mutate_operations: [],
-            partial_failure: false,
-            validate_only: false,
-            response_content_type: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -855,17 +517,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsRequest do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partial_failure_error: Google.Rpc.Status.t() | nil,
-          mutate_operation_responses: [
-            Google.Ads.Googleads.V7.Services.MutateOperationResponse.t()
-          ]
-        }
-
-  defstruct partial_failure_error: nil,
-            mutate_operation_responses: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -876,106 +528,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateGoogleAdsResponse do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:ad_group_ad_label_operation,
-             Google.Ads.Googleads.V7.Services.AdGroupAdLabelOperation.t() | nil}
-            | {:ad_group_ad_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupAdOperation.t() | nil}
-            | {:ad_group_asset_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupAssetOperation.t() | nil}
-            | {:ad_group_bid_modifier_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupBidModifierOperation.t() | nil}
-            | {:ad_group_criterion_label_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupCriterionLabelOperation.t() | nil}
-            | {:ad_group_criterion_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupCriterionOperation.t() | nil}
-            | {:ad_group_extension_setting_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupExtensionSettingOperation.t() | nil}
-            | {:ad_group_feed_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupFeedOperation.t() | nil}
-            | {:ad_group_label_operation,
-               Google.Ads.Googleads.V7.Services.AdGroupLabelOperation.t() | nil}
-            | {:ad_group_operation, Google.Ads.Googleads.V7.Services.AdGroupOperation.t() | nil}
-            | {:ad_operation, Google.Ads.Googleads.V7.Services.AdOperation.t() | nil}
-            | {:ad_parameter_operation,
-               Google.Ads.Googleads.V7.Services.AdParameterOperation.t() | nil}
-            | {:asset_operation, Google.Ads.Googleads.V7.Services.AssetOperation.t() | nil}
-            | {:bidding_strategy_operation,
-               Google.Ads.Googleads.V7.Services.BiddingStrategyOperation.t() | nil}
-            | {:campaign_asset_operation,
-               Google.Ads.Googleads.V7.Services.CampaignAssetOperation.t() | nil}
-            | {:campaign_bid_modifier_operation,
-               Google.Ads.Googleads.V7.Services.CampaignBidModifierOperation.t() | nil}
-            | {:campaign_budget_operation,
-               Google.Ads.Googleads.V7.Services.CampaignBudgetOperation.t() | nil}
-            | {:campaign_criterion_operation,
-               Google.Ads.Googleads.V7.Services.CampaignCriterionOperation.t() | nil}
-            | {:campaign_draft_operation,
-               Google.Ads.Googleads.V7.Services.CampaignDraftOperation.t() | nil}
-            | {:campaign_experiment_operation,
-               Google.Ads.Googleads.V7.Services.CampaignExperimentOperation.t() | nil}
-            | {:campaign_extension_setting_operation,
-               Google.Ads.Googleads.V7.Services.CampaignExtensionSettingOperation.t() | nil}
-            | {:campaign_feed_operation,
-               Google.Ads.Googleads.V7.Services.CampaignFeedOperation.t() | nil}
-            | {:campaign_label_operation,
-               Google.Ads.Googleads.V7.Services.CampaignLabelOperation.t() | nil}
-            | {:campaign_operation, Google.Ads.Googleads.V7.Services.CampaignOperation.t() | nil}
-            | {:campaign_shared_set_operation,
-               Google.Ads.Googleads.V7.Services.CampaignSharedSetOperation.t() | nil}
-            | {:conversion_action_operation,
-               Google.Ads.Googleads.V7.Services.ConversionActionOperation.t() | nil}
-            | {:conversion_custom_variable_operation,
-               Google.Ads.Googleads.V7.Services.ConversionCustomVariableOperation.t() | nil}
-            | {:customer_asset_operation,
-               Google.Ads.Googleads.V7.Services.CustomerAssetOperation.t() | nil}
-            | {:customer_extension_setting_operation,
-               Google.Ads.Googleads.V7.Services.CustomerExtensionSettingOperation.t() | nil}
-            | {:customer_feed_operation,
-               Google.Ads.Googleads.V7.Services.CustomerFeedOperation.t() | nil}
-            | {:customer_label_operation,
-               Google.Ads.Googleads.V7.Services.CustomerLabelOperation.t() | nil}
-            | {:customer_negative_criterion_operation,
-               Google.Ads.Googleads.V7.Services.CustomerNegativeCriterionOperation.t() | nil}
-            | {:customer_operation, Google.Ads.Googleads.V7.Services.CustomerOperation.t() | nil}
-            | {:extension_feed_item_operation,
-               Google.Ads.Googleads.V7.Services.ExtensionFeedItemOperation.t() | nil}
-            | {:feed_item_operation, Google.Ads.Googleads.V7.Services.FeedItemOperation.t() | nil}
-            | {:feed_item_set_operation,
-               Google.Ads.Googleads.V7.Services.FeedItemSetOperation.t() | nil}
-            | {:feed_item_set_link_operation,
-               Google.Ads.Googleads.V7.Services.FeedItemSetLinkOperation.t() | nil}
-            | {:feed_item_target_operation,
-               Google.Ads.Googleads.V7.Services.FeedItemTargetOperation.t() | nil}
-            | {:feed_mapping_operation,
-               Google.Ads.Googleads.V7.Services.FeedMappingOperation.t() | nil}
-            | {:feed_operation, Google.Ads.Googleads.V7.Services.FeedOperation.t() | nil}
-            | {:keyword_plan_ad_group_operation,
-               Google.Ads.Googleads.V7.Services.KeywordPlanAdGroupOperation.t() | nil}
-            | {:keyword_plan_ad_group_keyword_operation,
-               Google.Ads.Googleads.V7.Services.KeywordPlanAdGroupKeywordOperation.t() | nil}
-            | {:keyword_plan_campaign_keyword_operation,
-               Google.Ads.Googleads.V7.Services.KeywordPlanCampaignKeywordOperation.t() | nil}
-            | {:keyword_plan_campaign_operation,
-               Google.Ads.Googleads.V7.Services.KeywordPlanCampaignOperation.t() | nil}
-            | {:keyword_plan_operation,
-               Google.Ads.Googleads.V7.Services.KeywordPlanOperation.t() | nil}
-            | {:label_operation, Google.Ads.Googleads.V7.Services.LabelOperation.t() | nil}
-            | {:media_file_operation,
-               Google.Ads.Googleads.V7.Services.MediaFileOperation.t() | nil}
-            | {:remarketing_action_operation,
-               Google.Ads.Googleads.V7.Services.RemarketingActionOperation.t() | nil}
-            | {:shared_criterion_operation,
-               Google.Ads.Googleads.V7.Services.SharedCriterionOperation.t() | nil}
-            | {:shared_set_operation,
-               Google.Ads.Googleads.V7.Services.SharedSetOperation.t() | nil}
-            | {:user_list_operation, Google.Ads.Googleads.V7.Services.UserListOperation.t() | nil}
-        }
-
-  defstruct operation: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -1236,106 +789,7 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperation do
 end
 defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          response:
-            {:ad_group_ad_label_result,
-             Google.Ads.Googleads.V7.Services.MutateAdGroupAdLabelResult.t() | nil}
-            | {:ad_group_ad_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupAdResult.t() | nil}
-            | {:ad_group_asset_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupAssetResult.t() | nil}
-            | {:ad_group_bid_modifier_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupBidModifierResult.t() | nil}
-            | {:ad_group_criterion_label_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupCriterionLabelResult.t() | nil}
-            | {:ad_group_criterion_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupCriterionResult.t() | nil}
-            | {:ad_group_extension_setting_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupExtensionSettingResult.t() | nil}
-            | {:ad_group_feed_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupFeedResult.t() | nil}
-            | {:ad_group_label_result,
-               Google.Ads.Googleads.V7.Services.MutateAdGroupLabelResult.t() | nil}
-            | {:ad_group_result, Google.Ads.Googleads.V7.Services.MutateAdGroupResult.t() | nil}
-            | {:ad_parameter_result,
-               Google.Ads.Googleads.V7.Services.MutateAdParameterResult.t() | nil}
-            | {:ad_result, Google.Ads.Googleads.V7.Services.MutateAdResult.t() | nil}
-            | {:asset_result, Google.Ads.Googleads.V7.Services.MutateAssetResult.t() | nil}
-            | {:bidding_strategy_result,
-               Google.Ads.Googleads.V7.Services.MutateBiddingStrategyResult.t() | nil}
-            | {:campaign_asset_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignAssetResult.t() | nil}
-            | {:campaign_bid_modifier_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignBidModifierResult.t() | nil}
-            | {:campaign_budget_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignBudgetResult.t() | nil}
-            | {:campaign_criterion_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignCriterionResult.t() | nil}
-            | {:campaign_draft_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignDraftResult.t() | nil}
-            | {:campaign_experiment_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignExperimentResult.t() | nil}
-            | {:campaign_extension_setting_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignExtensionSettingResult.t() | nil}
-            | {:campaign_feed_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignFeedResult.t() | nil}
-            | {:campaign_label_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignLabelResult.t() | nil}
-            | {:campaign_result, Google.Ads.Googleads.V7.Services.MutateCampaignResult.t() | nil}
-            | {:campaign_shared_set_result,
-               Google.Ads.Googleads.V7.Services.MutateCampaignSharedSetResult.t() | nil}
-            | {:conversion_action_result,
-               Google.Ads.Googleads.V7.Services.MutateConversionActionResult.t() | nil}
-            | {:conversion_custom_variable_result,
-               Google.Ads.Googleads.V7.Services.MutateConversionCustomVariableResult.t() | nil}
-            | {:customer_asset_result,
-               Google.Ads.Googleads.V7.Services.MutateCustomerAssetResult.t() | nil}
-            | {:customer_extension_setting_result,
-               Google.Ads.Googleads.V7.Services.MutateCustomerExtensionSettingResult.t() | nil}
-            | {:customer_feed_result,
-               Google.Ads.Googleads.V7.Services.MutateCustomerFeedResult.t() | nil}
-            | {:customer_label_result,
-               Google.Ads.Googleads.V7.Services.MutateCustomerLabelResult.t() | nil}
-            | {:customer_negative_criterion_result,
-               Google.Ads.Googleads.V7.Services.MutateCustomerNegativeCriteriaResult.t() | nil}
-            | {:customer_result, Google.Ads.Googleads.V7.Services.MutateCustomerResult.t() | nil}
-            | {:extension_feed_item_result,
-               Google.Ads.Googleads.V7.Services.MutateExtensionFeedItemResult.t() | nil}
-            | {:feed_item_result, Google.Ads.Googleads.V7.Services.MutateFeedItemResult.t() | nil}
-            | {:feed_item_set_result,
-               Google.Ads.Googleads.V7.Services.MutateFeedItemSetResult.t() | nil}
-            | {:feed_item_set_link_result,
-               Google.Ads.Googleads.V7.Services.MutateFeedItemSetLinkResult.t() | nil}
-            | {:feed_item_target_result,
-               Google.Ads.Googleads.V7.Services.MutateFeedItemTargetResult.t() | nil}
-            | {:feed_mapping_result,
-               Google.Ads.Googleads.V7.Services.MutateFeedMappingResult.t() | nil}
-            | {:feed_result, Google.Ads.Googleads.V7.Services.MutateFeedResult.t() | nil}
-            | {:keyword_plan_ad_group_result,
-               Google.Ads.Googleads.V7.Services.MutateKeywordPlanAdGroupResult.t() | nil}
-            | {:keyword_plan_campaign_result,
-               Google.Ads.Googleads.V7.Services.MutateKeywordPlanCampaignResult.t() | nil}
-            | {:keyword_plan_ad_group_keyword_result,
-               Google.Ads.Googleads.V7.Services.MutateKeywordPlanAdGroupKeywordResult.t() | nil}
-            | {:keyword_plan_campaign_keyword_result,
-               Google.Ads.Googleads.V7.Services.MutateKeywordPlanCampaignKeywordResult.t() | nil}
-            | {:keyword_plan_result,
-               Google.Ads.Googleads.V7.Services.MutateKeywordPlansResult.t() | nil}
-            | {:label_result, Google.Ads.Googleads.V7.Services.MutateLabelResult.t() | nil}
-            | {:media_file_result,
-               Google.Ads.Googleads.V7.Services.MutateMediaFileResult.t() | nil}
-            | {:remarketing_action_result,
-               Google.Ads.Googleads.V7.Services.MutateRemarketingActionResult.t() | nil}
-            | {:shared_criterion_result,
-               Google.Ads.Googleads.V7.Services.MutateSharedCriterionResult.t() | nil}
-            | {:shared_set_result,
-               Google.Ads.Googleads.V7.Services.MutateSharedSetResult.t() | nil}
-            | {:user_list_result, Google.Ads.Googleads.V7.Services.MutateUserListResult.t() | nil}
-        }
-
-  defstruct response: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -1596,7 +1050,9 @@ defmodule Google.Ads.Googleads.V7.Services.MutateOperationResponse do
 end
 defmodule Google.Ads.Googleads.V7.Services.GoogleAdsService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v7.services.GoogleAdsService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v7.services.GoogleAdsService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Search,
       Google.Ads.Googleads.V7.Services.SearchGoogleAdsRequest,

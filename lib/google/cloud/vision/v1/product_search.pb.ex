@@ -1,18 +1,6 @@
 defmodule Google.Cloud.Vision.V1.ProductSearchParams do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bounding_poly: Google.Cloud.Vision.V1.BoundingPoly.t() | nil,
-          product_set: String.t(),
-          product_categories: [String.t()],
-          filter: String.t()
-        }
-
-  defstruct bounding_poly: nil,
-            product_set: "",
-            product_categories: [],
-            filter: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bounding_poly, 9, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
   field :product_set, 6, type: :string, json_name: "productSet", deprecated: false
@@ -21,17 +9,7 @@ defmodule Google.Cloud.Vision.V1.ProductSearchParams do
 end
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.Result do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          product: Google.Cloud.Vision.V1.Product.t() | nil,
-          score: float | :infinity | :negative_infinity | :nan,
-          image: String.t()
-        }
-
-  defstruct product: nil,
-            score: 0.0,
-            image: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Vision.V1.Product
   field :score, 2, type: :float
@@ -39,19 +17,7 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.Result do
 end
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mid: String.t(),
-          language_code: String.t(),
-          name: String.t(),
-          score: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct mid: "",
-            language_code: "",
-            name: "",
-            score: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mid, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -60,17 +26,7 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation do
 end
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          bounding_poly: Google.Cloud.Vision.V1.BoundingPoly.t() | nil,
-          results: [Google.Cloud.Vision.V1.ProductSearchResults.Result.t()],
-          object_annotations: [Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation.t()]
-        }
-
-  defstruct bounding_poly: nil,
-            results: [],
-            object_annotations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :bounding_poly, 1, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
   field :results, 2, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result
@@ -82,17 +38,7 @@ defmodule Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult do
 end
 defmodule Google.Cloud.Vision.V1.ProductSearchResults do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          index_time: Google.Protobuf.Timestamp.t() | nil,
-          results: [Google.Cloud.Vision.V1.ProductSearchResults.Result.t()],
-          product_grouped_results: [Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult.t()]
-        }
-
-  defstruct index_time: nil,
-            results: [],
-            product_grouped_results: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :index_time, 2, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :results, 5, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result

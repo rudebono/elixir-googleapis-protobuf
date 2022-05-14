@@ -1,8 +1,6 @@
 defmodule Google.Datastore.V1.CommitRequest.Mode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MODE_UNSPECIFIED | :TRANSACTIONAL | :NON_TRANSACTIONAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :TRANSACTIONAL, 1
@@ -10,9 +8,7 @@ defmodule Google.Datastore.V1.CommitRequest.Mode do
 end
 defmodule Google.Datastore.V1.ReadOptions.ReadConsistency do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :READ_CONSISTENCY_UNSPECIFIED | :STRONG | :EVENTUAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :READ_CONSISTENCY_UNSPECIFIED, 0
   field :STRONG, 1
@@ -20,17 +16,7 @@ defmodule Google.Datastore.V1.ReadOptions.ReadConsistency do
 end
 defmodule Google.Datastore.V1.LookupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          read_options: Google.Datastore.V1.ReadOptions.t() | nil,
-          keys: [Google.Datastore.V1.Key.t()]
-        }
-
-  defstruct project_id: "",
-            read_options: nil,
-            keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
@@ -38,19 +24,7 @@ defmodule Google.Datastore.V1.LookupRequest do
 end
 defmodule Google.Datastore.V1.LookupResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          found: [Google.Datastore.V1.EntityResult.t()],
-          missing: [Google.Datastore.V1.EntityResult.t()],
-          deferred: [Google.Datastore.V1.Key.t()],
-          read_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct found: [],
-            missing: [],
-            deferred: [],
-            read_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :found, 1, repeated: true, type: Google.Datastore.V1.EntityResult
   field :missing, 2, repeated: true, type: Google.Datastore.V1.EntityResult
@@ -59,21 +33,7 @@ defmodule Google.Datastore.V1.LookupResponse do
 end
 defmodule Google.Datastore.V1.RunQueryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query_type:
-            {:query, Google.Datastore.V1.Query.t() | nil}
-            | {:gql_query, Google.Datastore.V1.GqlQuery.t() | nil},
-          project_id: String.t(),
-          partition_id: Google.Datastore.V1.PartitionId.t() | nil,
-          read_options: Google.Datastore.V1.ReadOptions.t() | nil
-        }
-
-  defstruct query_type: nil,
-            project_id: "",
-            partition_id: nil,
-            read_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :query_type, 0
 
@@ -85,30 +45,14 @@ defmodule Google.Datastore.V1.RunQueryRequest do
 end
 defmodule Google.Datastore.V1.RunQueryResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          batch: Google.Datastore.V1.QueryResultBatch.t() | nil,
-          query: Google.Datastore.V1.Query.t() | nil
-        }
-
-  defstruct batch: nil,
-            query: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :batch, 1, type: Google.Datastore.V1.QueryResultBatch
   field :query, 2, type: Google.Datastore.V1.Query
 end
 defmodule Google.Datastore.V1.BeginTransactionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          transaction_options: Google.Datastore.V1.TransactionOptions.t() | nil
-        }
-
-  defstruct project_id: "",
-            transaction_options: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
 
@@ -118,54 +62,24 @@ defmodule Google.Datastore.V1.BeginTransactionRequest do
 end
 defmodule Google.Datastore.V1.BeginTransactionResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transaction: binary
-        }
-
-  defstruct transaction: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transaction, 1, type: :bytes
 end
 defmodule Google.Datastore.V1.RollbackRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          transaction: binary
-        }
-
-  defstruct project_id: "",
-            transaction: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
   field :transaction, 1, type: :bytes, deprecated: false
 end
 defmodule Google.Datastore.V1.RollbackResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Datastore.V1.CommitRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transaction_selector: {:transaction, binary},
-          project_id: String.t(),
-          mode: Google.Datastore.V1.CommitRequest.Mode.t(),
-          mutations: [Google.Datastore.V1.Mutation.t()]
-        }
-
-  defstruct transaction_selector: nil,
-            project_id: "",
-            mode: :MODE_UNSPECIFIED,
-            mutations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :transaction_selector, 0
 
@@ -176,17 +90,7 @@ defmodule Google.Datastore.V1.CommitRequest do
 end
 defmodule Google.Datastore.V1.CommitResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mutation_results: [Google.Datastore.V1.MutationResult.t()],
-          index_updates: integer,
-          commit_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct mutation_results: [],
-            index_updates: 0,
-            commit_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :mutation_results, 3,
     repeated: true,
@@ -198,44 +102,20 @@ defmodule Google.Datastore.V1.CommitResponse do
 end
 defmodule Google.Datastore.V1.AllocateIdsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          keys: [Google.Datastore.V1.Key.t()]
-        }
-
-  defstruct project_id: "",
-            keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
   field :keys, 1, repeated: true, type: Google.Datastore.V1.Key, deprecated: false
 end
 defmodule Google.Datastore.V1.AllocateIdsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          keys: [Google.Datastore.V1.Key.t()]
-        }
-
-  defstruct keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Datastore.V1.Key
 end
 defmodule Google.Datastore.V1.ReserveIdsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          database_id: String.t(),
-          keys: [Google.Datastore.V1.Key.t()]
-        }
-
-  defstruct project_id: "",
-            database_id: "",
-            keys: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
   field :database_id, 9, type: :string, json_name: "databaseId"
@@ -243,28 +123,11 @@ defmodule Google.Datastore.V1.ReserveIdsRequest do
 end
 defmodule Google.Datastore.V1.ReserveIdsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Datastore.V1.Mutation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:insert, Google.Datastore.V1.Entity.t() | nil}
-            | {:update, Google.Datastore.V1.Entity.t() | nil}
-            | {:upsert, Google.Datastore.V1.Entity.t() | nil}
-            | {:delete, Google.Datastore.V1.Key.t() | nil},
-          conflict_detection_strategy:
-            {:base_version, integer} | {:update_time, Google.Protobuf.Timestamp.t() | nil}
-        }
-
-  defstruct operation: nil,
-            conflict_detection_strategy: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
   oneof :conflict_detection_strategy, 1
@@ -278,19 +141,7 @@ defmodule Google.Datastore.V1.Mutation do
 end
 defmodule Google.Datastore.V1.MutationResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: Google.Datastore.V1.Key.t() | nil,
-          version: integer,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          conflict_detected: boolean
-        }
-
-  defstruct key: nil,
-            version: 0,
-            update_time: nil,
-            conflict_detected: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 3, type: Google.Datastore.V1.Key
   field :version, 4, type: :int64
@@ -299,16 +150,7 @@ defmodule Google.Datastore.V1.MutationResult do
 end
 defmodule Google.Datastore.V1.ReadOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          consistency_type:
-            {:read_consistency, Google.Datastore.V1.ReadOptions.ReadConsistency.t()}
-            | {:transaction, binary}
-            | {:read_time, Google.Protobuf.Timestamp.t() | nil}
-        }
-
-  defstruct consistency_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :consistency_type, 0
 
@@ -323,39 +165,19 @@ defmodule Google.Datastore.V1.ReadOptions do
 end
 defmodule Google.Datastore.V1.TransactionOptions.ReadWrite do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          previous_transaction: binary
-        }
-
-  defstruct previous_transaction: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :previous_transaction, 1, type: :bytes, json_name: "previousTransaction"
 end
 defmodule Google.Datastore.V1.TransactionOptions.ReadOnly do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          read_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct read_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
 defmodule Google.Datastore.V1.TransactionOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          mode:
-            {:read_write, Google.Datastore.V1.TransactionOptions.ReadWrite.t() | nil}
-            | {:read_only, Google.Datastore.V1.TransactionOptions.ReadOnly.t() | nil}
-        }
-
-  defstruct mode: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -371,7 +193,7 @@ defmodule Google.Datastore.V1.TransactionOptions do
 end
 defmodule Google.Datastore.V1.Datastore.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.datastore.v1.Datastore"
+  use GRPC.Service, name: "google.datastore.v1.Datastore", protoc_gen_elixir_version: "0.10.0"
 
   rpc :Lookup, Google.Datastore.V1.LookupRequest, Google.Datastore.V1.LookupResponse
 

@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :NEW | :ENROUTE | :ARRIVED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NEW, 1
@@ -11,31 +9,7 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.State do
 end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          last_location: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation.t() | nil,
-          navigation_status: Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus.t(),
-          current_route_segment: binary,
-          current_route_segment_end_point: Google.Type.LatLng.t() | nil,
-          remaining_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          remaining_duration: Google.Protobuf.Duration.t() | nil,
-          remaining_vehicle_journey_segments: [
-            Maps.Fleetengine.Delivery.V1.VehicleJourneySegment.t()
-          ],
-          attributes: [Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute.t()]
-        }
-
-  defstruct name: "",
-            last_location: nil,
-            navigation_status: :UNKNOWN_NAVIGATION_STATUS,
-            current_route_segment: "",
-            current_route_segment_end_point: nil,
-            remaining_distance_meters: nil,
-            remaining_duration: nil,
-            remaining_vehicle_journey_segments: [],
-            attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -71,31 +45,13 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
 end
 defmodule Maps.Fleetengine.Delivery.V1.LocationInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          point: Google.Type.LatLng.t() | nil
-        }
-
-  defstruct point: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :point, 1, type: Google.Type.LatLng
 end
 defmodule Maps.Fleetengine.Delivery.V1.VehicleJourneySegment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          stop: Maps.Fleetengine.Delivery.V1.VehicleStop.t() | nil,
-          driving_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          driving_duration: Google.Protobuf.Duration.t() | nil,
-          path: [Google.Type.LatLng.t()]
-        }
-
-  defstruct stop: nil,
-            driving_distance_meters: nil,
-            driving_duration: nil,
-            path: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :stop, 1, type: Maps.Fleetengine.Delivery.V1.VehicleStop
 
@@ -113,32 +69,14 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleJourneySegment do
 end
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task_id: String.t(),
-          task_duration: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct task_id: "",
-            task_duration: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :task_id, 1, type: :string, json_name: "taskId"
   field :task_duration, 2, type: Google.Protobuf.Duration, json_name: "taskDuration"
 end
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          planned_location: Maps.Fleetengine.Delivery.V1.LocationInfo.t() | nil,
-          tasks: [Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo.t()],
-          state: Maps.Fleetengine.Delivery.V1.VehicleStop.State.t()
-        }
-
-  defstruct planned_location: nil,
-            tasks: [],
-            state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :planned_location, 1,
     type: Maps.Fleetengine.Delivery.V1.LocationInfo,

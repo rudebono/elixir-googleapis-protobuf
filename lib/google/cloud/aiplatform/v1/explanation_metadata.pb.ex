@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Encoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ENCODING_UNSPECIFIED
-          | :IDENTITY
-          | :BAG_OF_FEATURES
-          | :BAG_OF_FEATURES_SPARSE
-          | :INDICATOR
-          | :COMBINED_EMBEDDING
-          | :CONCAT_EMBEDDING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :IDENTITY, 1
@@ -22,9 +12,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Encoding 
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PIXELS | :OUTLINES
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PIXELS, 1
@@ -32,9 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualiza
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Polarity do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :POLARITY_UNSPECIFIED | :POSITIVE | :NEGATIVE | :BOTH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :POLARITY_UNSPECIFIED, 0
   field :POSITIVE, 1
@@ -43,17 +29,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualiza
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.ColorMap do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :COLOR_MAP_UNSPECIFIED
-          | :PINK_GREEN
-          | :VIRIDIS
-          | :RED
-          | :GREEN
-          | :RED_GREEN
-          | :PINK_WHITE_GREEN
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COLOR_MAP_UNSPECIFIED, 0
   field :PINK_GREEN, 1
@@ -65,9 +41,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualiza
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.OverlayType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OVERLAY_TYPE_UNSPECIFIED | :NONE | :ORIGINAL | :GRAYSCALE | :MASK_BLACK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OVERLAY_TYPE_UNSPECIFIED, 0
   field :NONE, 1
@@ -77,19 +51,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualiza
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.FeatureValueDomain do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_value: float | :infinity | :negative_infinity | :nan,
-          max_value: float | :infinity | :negative_infinity | :nan,
-          original_mean: float | :infinity | :negative_infinity | :nan,
-          original_stddev: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct min_value: 0.0,
-            max_value: 0.0,
-            original_mean: 0.0,
-            original_stddev: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_value, 1, type: :float, json_name: "minValue"
   field :max_value, 2, type: :float, json_name: "maxValue"
@@ -98,27 +60,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.FeatureVa
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Type.t(),
-          polarity:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Polarity.t(),
-          color_map:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.t(),
-          clip_percent_upperbound: float | :infinity | :negative_infinity | :nan,
-          clip_percent_lowerbound: float | :infinity | :negative_infinity | :nan,
-          overlay_type:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.t()
-        }
-
-  defstruct type: :TYPE_UNSPECIFIED,
-            polarity: :POLARITY_UNSPECIFIED,
-            color_map: :COLOR_MAP_UNSPECIFIED,
-            clip_percent_upperbound: 0.0,
-            clip_percent_lowerbound: 0.0,
-            overlay_type: :OVERLAY_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Type,
@@ -143,38 +85,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualiza
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_baselines: [Google.Protobuf.Value.t()],
-          input_tensor_name: String.t(),
-          encoding: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Encoding.t(),
-          modality: String.t(),
-          feature_value_domain:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.FeatureValueDomain.t()
-            | nil,
-          indices_tensor_name: String.t(),
-          dense_shape_tensor_name: String.t(),
-          index_feature_mapping: [String.t()],
-          encoded_tensor_name: String.t(),
-          encoded_baselines: [Google.Protobuf.Value.t()],
-          visualization:
-            Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.t() | nil,
-          group_name: String.t()
-        }
-
-  defstruct input_baselines: [],
-            input_tensor_name: "",
-            encoding: :ENCODING_UNSPECIFIED,
-            modality: "",
-            feature_value_domain: nil,
-            indices_tensor_name: "",
-            dense_shape_tensor_name: "",
-            index_feature_mapping: [],
-            encoded_tensor_name: "",
-            encoded_baselines: [],
-            visualization: nil,
-            group_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_baselines, 1,
     repeated: true,
@@ -210,17 +121,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name_mapping:
-            {:index_display_name_mapping, Google.Protobuf.Value.t() | nil}
-            | {:display_name_mapping_key, String.t()},
-          output_tensor_name: String.t()
-        }
-
-  defstruct display_name_mapping: nil,
-            output_tensor_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :display_name_mapping, 0
 
@@ -234,51 +135,21 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata do
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inputs: %{
-            String.t() => Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.t() | nil
-          },
-          outputs: %{
-            String.t() => Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata.t() | nil
-          },
-          feature_attributions_schema_uri: String.t()
-        }
-
-  defstruct inputs: %{},
-            outputs: %{},
-            feature_attributions_schema_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inputs, 1,
     repeated: true,

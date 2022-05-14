@@ -1,8 +1,6 @@
 defmodule Google.Maps.Playablelocations.V3.Sample.SpacingOptions.PointType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :POINT_TYPE_UNSPECIFIED | :CENTER_POINT | :SNAPPED_POINT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :POINT_TYPE_UNSPECIFIED, 0
   field :CENTER_POINT, 1
@@ -10,21 +8,7 @@ defmodule Google.Maps.Playablelocations.V3.Sample.SpacingOptions.PointType do
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.PlayableLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location_id: {:place_id, String.t()} | {:plus_code, String.t()},
-          name: String.t(),
-          types: [String.t()],
-          center_point: Google.Type.LatLng.t() | nil,
-          snapped_point: Google.Type.LatLng.t() | nil
-        }
-
-  defstruct location_id: nil,
-            name: "",
-            types: [],
-            center_point: nil,
-            snapped_point: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :location_id, 0
 
@@ -37,15 +21,7 @@ defmodule Google.Maps.Playablelocations.V3.Sample.PlayableLocation do
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.SpacingOptions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_spacing_meters: float | :infinity | :negative_infinity | :nan,
-          point_type: Google.Maps.Playablelocations.V3.Sample.SpacingOptions.PointType.t()
-        }
-
-  defstruct min_spacing_meters: 0.0,
-            point_type: :POINT_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_spacing_meters, 1, type: :double, json_name: "minSpacingMeters", deprecated: false
 
@@ -56,17 +32,7 @@ defmodule Google.Maps.Playablelocations.V3.Sample.SpacingOptions do
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.Filter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          max_location_count: integer,
-          spacing: Google.Maps.Playablelocations.V3.Sample.SpacingOptions.t() | nil,
-          included_types: [String.t()]
-        }
-
-  defstruct max_location_count: 0,
-            spacing: nil,
-            included_types: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :max_location_count, 1, type: :int32, json_name: "maxLocationCount"
   field :spacing, 2, type: Google.Maps.Playablelocations.V3.Sample.SpacingOptions
@@ -74,17 +40,7 @@ defmodule Google.Maps.Playablelocations.V3.Sample.Filter do
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.Criterion do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          game_object_type: integer,
-          filter: Google.Maps.Playablelocations.V3.Sample.Filter.t() | nil,
-          fields_to_return: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct game_object_type: 0,
-            filter: nil,
-            fields_to_return: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :game_object_type, 1, type: :int32, json_name: "gameObjectType", deprecated: false
   field :filter, 2, type: Google.Maps.Playablelocations.V3.Sample.Filter
@@ -92,25 +48,13 @@ defmodule Google.Maps.Playablelocations.V3.Sample.Criterion do
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.AreaFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          s2_cell_id: non_neg_integer
-        }
-
-  defstruct s2_cell_id: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :s2_cell_id, 1, type: :fixed64, json_name: "s2CellId", deprecated: false
 end
 defmodule Google.Maps.Playablelocations.V3.Sample.PlayableLocationList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          locations: [Google.Maps.Playablelocations.V3.Sample.PlayableLocation.t()]
-        }
-
-  defstruct locations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :locations, 1,
     repeated: true,

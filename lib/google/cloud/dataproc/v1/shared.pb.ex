@@ -1,22 +1,6 @@
 defmodule Google.Cloud.Dataproc.V1.Component do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :COMPONENT_UNSPECIFIED
-          | :ANACONDA
-          | :DOCKER
-          | :DRUID
-          | :FLINK
-          | :HBASE
-          | :HIVE_WEBHCAT
-          | :JUPYTER
-          | :PRESTO
-          | :RANGER
-          | :SOLR
-          | :ZEPPELIN
-          | :ZOOKEEPER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :COMPONENT_UNSPECIFIED, 0
   field :ANACONDA, 5
@@ -34,9 +18,7 @@ defmodule Google.Cloud.Dataproc.V1.Component do
 end
 defmodule Google.Cloud.Dataproc.V1.FailureAction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FAILURE_ACTION_UNSPECIFIED | :NO_ACTION | :DELETE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FAILURE_ACTION_UNSPECIFIED, 0
   field :NO_ACTION, 1
@@ -44,10 +26,7 @@ defmodule Google.Cloud.Dataproc.V1.FailureAction do
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget.Role do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer | :ROLE_UNSPECIFIED | :DEFAULT | :CONTROLLER | :SPARK_DRIVER | :SPARK_EXECUTOR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -57,32 +36,14 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget.Role do
 end
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          version: String.t(),
-          container_image: String.t(),
-          properties: %{String.t() => String.t()}
-        }
-
-  defstruct version: "",
-            container_image: "",
-            properties: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :container_image, 2, type: :string, json_name: "containerImage", deprecated: false
@@ -95,15 +56,7 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          execution_config: Google.Cloud.Dataproc.V1.ExecutionConfig.t() | nil,
-          peripherals_config: Google.Cloud.Dataproc.V1.PeripheralsConfig.t() | nil
-        }
-
-  defstruct execution_config: nil,
-            peripherals_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :execution_config, 1,
     type: Google.Cloud.Dataproc.V1.ExecutionConfig,
@@ -117,19 +70,7 @@ defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          network: {:network_uri, String.t()} | {:subnetwork_uri, String.t()},
-          service_account: String.t(),
-          network_tags: [String.t()],
-          kms_key: String.t()
-        }
-
-  defstruct network: nil,
-            service_account: "",
-            network_tags: [],
-            kms_key: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :network, 0
 
@@ -147,27 +88,13 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataproc_cluster: String.t()
-        }
-
-  defstruct dataproc_cluster: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster", deprecated: false
 end
 defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          metastore_service: String.t(),
-          spark_history_server_config: Google.Cloud.Dataproc.V1.SparkHistoryServerConfig.t() | nil
-        }
-
-  defstruct metastore_service: "",
-            spark_history_server_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :metastore_service, 1, type: :string, json_name: "metastoreService", deprecated: false
 
@@ -178,32 +105,14 @@ defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          endpoints: %{String.t() => String.t()},
-          output_uri: String.t(),
-          diagnostic_output_uri: String.t()
-        }
-
-  defstruct endpoints: %{},
-            output_uri: "",
-            diagnostic_output_uri: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :endpoints, 1,
     repeated: true,
@@ -220,15 +129,7 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
 end
 defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gke_cluster_target: String.t(),
-          node_pool_target: [Google.Cloud.Dataproc.V1.GkeNodePoolTarget.t()]
-        }
-
-  defstruct gke_cluster_target: "",
-            node_pool_target: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gke_cluster_target, 2, type: :string, json_name: "gkeClusterTarget", deprecated: false
 
@@ -240,17 +141,7 @@ defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.KubernetesClusterConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config: {:gke_cluster_config, Google.Cloud.Dataproc.V1.GkeClusterConfig.t() | nil},
-          kubernetes_namespace: String.t(),
-          kubernetes_software_config: Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig.t() | nil
-        }
-
-  defstruct config: nil,
-            kubernetes_namespace: "",
-            kubernetes_software_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -272,45 +163,21 @@ defmodule Google.Cloud.Dataproc.V1.KubernetesClusterConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig.ComponentVersionEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          component_version: %{String.t() => String.t()},
-          properties: %{String.t() => String.t()}
-        }
-
-  defstruct component_version: %{},
-            properties: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :component_version, 1,
     repeated: true,
@@ -325,17 +192,7 @@ defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          node_pool: String.t(),
-          roles: [Google.Cloud.Dataproc.V1.GkeNodePoolTarget.Role.t()],
-          node_pool_config: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.t() | nil
-        }
-
-  defstruct node_pool: "",
-            roles: [],
-            node_pool_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :node_pool, 1, type: :string, json_name: "nodePool", deprecated: false
 
@@ -352,23 +209,7 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget do
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          machine_type: String.t(),
-          preemptible: boolean,
-          local_ssd_count: integer,
-          accelerators: [
-            Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAcceleratorConfig.t()
-          ],
-          min_cpu_platform: String.t()
-        }
-
-  defstruct machine_type: "",
-            preemptible: false,
-            local_ssd_count: 0,
-            accelerators: [],
-            min_cpu_platform: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
   field :preemptible, 10, type: :bool, deprecated: false
@@ -383,48 +224,21 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig do
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAcceleratorConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          accelerator_count: integer,
-          accelerator_type: String.t()
-        }
-
-  defstruct accelerator_count: 0,
-            accelerator_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
   field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          min_node_count: integer,
-          max_node_count: integer
-        }
-
-  defstruct min_node_count: 0,
-            max_node_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
   field :max_node_count, 3, type: :int32, json_name: "maxNodeCount"
 end
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          config: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig.t() | nil,
-          locations: [String.t()],
-          autoscaling:
-            Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig.t() | nil
-        }
-
-  defstruct config: nil,
-            locations: [],
-            autoscaling: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :config, 2,
     type: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig,

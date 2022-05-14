@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :SKIPPED | :VALIDATION_PASSED | :IN_PROGRESS | :ERROR
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SKIPPED, 1
@@ -12,17 +10,7 @@ defmodule Google.Cloud.Documentai.V1.HumanReviewStatus.State do
 end
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :WAITING
-          | :RUNNING
-          | :SUCCEEDED
-          | :CANCELLING
-          | :CANCELLED
-          | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :WAITING, 1
@@ -34,28 +22,14 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
 end
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DEFAULT | :URGENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :URGENT, 1
 end
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:inline_document, Google.Cloud.Documentai.V1.Document.t() | nil}
-            | {:raw_document, Google.Cloud.Documentai.V1.RawDocument.t() | nil},
-          name: String.t(),
-          skip_human_review: boolean
-        }
-
-  defstruct source: nil,
-            name: "",
-            skip_human_review: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -74,17 +48,7 @@ defmodule Google.Cloud.Documentai.V1.ProcessRequest do
 end
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Documentai.V1.HumanReviewStatus.State.t(),
-          state_message: String.t(),
-          human_review_operation: String.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            state_message: "",
-            human_review_operation: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1.HumanReviewStatus.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -92,15 +56,7 @@ defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
 end
 defmodule Google.Cloud.Documentai.V1.ProcessResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          document: Google.Cloud.Documentai.V1.Document.t() | nil,
-          human_review_status: Google.Cloud.Documentai.V1.HumanReviewStatus.t() | nil
-        }
-
-  defstruct document: nil,
-            human_review_status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Documentai.V1.Document
 
@@ -110,19 +66,7 @@ defmodule Google.Cloud.Documentai.V1.ProcessResponse do
 end
 defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          input_documents: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig.t() | nil,
-          document_output_config: Google.Cloud.Documentai.V1.DocumentOutputConfig.t() | nil,
-          skip_human_review: boolean
-        }
-
-  defstruct name: "",
-            input_documents: nil,
-            document_output_config: nil,
-            skip_human_review: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -138,27 +82,11 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
 end
 defmodule Google.Cloud.Documentai.V1.BatchProcessResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          input_gcs_source: String.t(),
-          status: Google.Rpc.Status.t() | nil,
-          output_gcs_destination: String.t(),
-          human_review_status: Google.Cloud.Documentai.V1.HumanReviewStatus.t() | nil
-        }
-
-  defstruct input_gcs_source: "",
-            status: nil,
-            output_gcs_destination: "",
-            human_review_status: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
@@ -170,23 +98,7 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatu
 end
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Documentai.V1.BatchProcessMetadata.State.t(),
-          state_message: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          individual_process_statuses: [
-            Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatus.t()
-          ]
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            state_message: "",
-            create_time: nil,
-            update_time: nil,
-            individual_process_statuses: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1.BatchProcessMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -200,19 +112,7 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
 end
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source: {:inline_document, Google.Cloud.Documentai.V1.Document.t() | nil},
-          human_review_config: String.t(),
-          enable_schema_validation: boolean,
-          priority: Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority.t()
-        }
-
-  defstruct source: nil,
-            human_review_config: "",
-            enable_schema_validation: false,
-            priority: :DEFAULT
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -227,27 +127,13 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
 end
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_destination: String.t()
-        }
-
-  defstruct gcs_destination: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
 end
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          common_metadata: Google.Cloud.Documentai.V1.CommonOperationMetadata.t() | nil,
-          question_id: String.t()
-        }
-
-  defstruct common_metadata: nil,
-            question_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -257,7 +143,9 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
 end
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.documentai.v1.DocumentProcessorService"
+  use GRPC.Service,
+    name: "google.cloud.documentai.v1.DocumentProcessorService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ProcessDocument,
       Google.Cloud.Documentai.V1.ProcessRequest,

@@ -1,22 +1,13 @@
 defmodule Google.Cloud.Apigeeconnect.V1.Action do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ACTION_UNSPECIFIED | :OPEN_NEW_STREAM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :OPEN_NEW_STREAM, 1
 end
 defmodule Google.Cloud.Apigeeconnect.V1.TetherEndpoint do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TETHER_ENDPOINT_UNSPECIFIED
-          | :APIGEE_MART
-          | :APIGEE_RUNTIME
-          | :APIGEE_MINT_RATING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TETHER_ENDPOINT_UNSPECIFIED, 0
   field :APIGEE_MART, 1
@@ -25,32 +16,14 @@ defmodule Google.Cloud.Apigeeconnect.V1.TetherEndpoint do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.Scheme do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCHEME_UNSPECIFIED | :HTTPS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCHEME_UNSPECIFIED, 0
   field :HTTPS, 1
 end
 defmodule Google.Cloud.Apigeeconnect.V1.EgressRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          payload: Google.Cloud.Apigeeconnect.V1.Payload.t() | nil,
-          endpoint: Google.Cloud.Apigeeconnect.V1.TetherEndpoint.t(),
-          project: String.t(),
-          trace_id: String.t(),
-          timeout: Google.Protobuf.Duration.t() | nil
-        }
-
-  defstruct id: "",
-            payload: nil,
-            endpoint: :TETHER_ENDPOINT_UNSPECIFIED,
-            project: "",
-            trace_id: "",
-            timeout: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :payload, 2, type: Google.Cloud.Apigeeconnect.V1.Payload
@@ -61,16 +34,7 @@ defmodule Google.Cloud.Apigeeconnect.V1.EgressRequest do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.Payload do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind:
-            {:http_request, Google.Cloud.Apigeeconnect.V1.HttpRequest.t() | nil}
-            | {:stream_info, Google.Cloud.Apigeeconnect.V1.StreamInfo.t() | nil}
-            | {:action, Google.Cloud.Apigeeconnect.V1.Action.t()}
-        }
-
-  defstruct kind: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -88,37 +52,13 @@ defmodule Google.Cloud.Apigeeconnect.V1.Payload do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.StreamInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t()
-        }
-
-  defstruct id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 defmodule Google.Cloud.Apigeeconnect.V1.EgressResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          http_response: Google.Cloud.Apigeeconnect.V1.HttpResponse.t() | nil,
-          status: Google.Rpc.Status.t() | nil,
-          project: String.t(),
-          trace_id: String.t(),
-          endpoint: Google.Cloud.Apigeeconnect.V1.TetherEndpoint.t(),
-          name: String.t()
-        }
-
-  defstruct id: "",
-            http_response: nil,
-            status: nil,
-            project: "",
-            trace_id: "",
-            endpoint: :TETHER_ENDPOINT_UNSPECIFIED,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -134,21 +74,7 @@ defmodule Google.Cloud.Apigeeconnect.V1.EgressResponse do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.HttpRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          method: String.t(),
-          url: Google.Cloud.Apigeeconnect.V1.Url.t() | nil,
-          headers: [Google.Cloud.Apigeeconnect.V1.Header.t()],
-          body: binary
-        }
-
-  defstruct id: "",
-            method: "",
-            url: nil,
-            headers: [],
-            body: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -158,17 +84,7 @@ defmodule Google.Cloud.Apigeeconnect.V1.HttpRequest do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.Url do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          scheme: Google.Cloud.Apigeeconnect.V1.Scheme.t(),
-          host: String.t(),
-          path: String.t()
-        }
-
-  defstruct scheme: :SCHEME_UNSPECIFIED,
-            host: "",
-            path: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :scheme, 1, type: Google.Cloud.Apigeeconnect.V1.Scheme, enum: true
   field :host, 2, type: :string
@@ -176,38 +92,14 @@ defmodule Google.Cloud.Apigeeconnect.V1.Url do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.Header do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          values: [String.t()]
-        }
-
-  defstruct key: "",
-            values: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :values, 2, repeated: true, type: :string
 end
 defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          status: String.t(),
-          status_code: integer,
-          body: binary,
-          headers: [Google.Cloud.Apigeeconnect.V1.Header.t()],
-          content_length: integer
-        }
-
-  defstruct id: "",
-            status: "",
-            status_code: 0,
-            body: "",
-            headers: [],
-            content_length: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :status, 2, type: :string
@@ -218,7 +110,9 @@ defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
 end
 defmodule Google.Cloud.Apigeeconnect.V1.Tether.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.apigeeconnect.v1.Tether"
+  use GRPC.Service,
+    name: "google.cloud.apigeeconnect.v1.Tether",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Egress,
       stream(Google.Cloud.Apigeeconnect.V1.EgressResponse),

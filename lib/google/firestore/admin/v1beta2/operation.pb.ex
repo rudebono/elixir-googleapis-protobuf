@@ -1,17 +1,6 @@
 defmodule Google.Firestore.Admin.V1beta2.OperationState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :OPERATION_STATE_UNSPECIFIED
-          | :INITIALIZING
-          | :PROCESSING
-          | :CANCELLING
-          | :FINALIZING
-          | :SUCCESSFUL
-          | :FAILED
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPERATION_STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -24,9 +13,7 @@ defmodule Google.Firestore.Admin.V1beta2.OperationState do
 end
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :CHANGE_TYPE_UNSPECIFIED | :ADD | :REMOVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -34,23 +21,7 @@ defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta
 end
 defmodule Google.Firestore.Admin.V1beta2.IndexOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          index: String.t(),
-          state: Google.Firestore.Admin.V1beta2.OperationState.t(),
-          progress_documents: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          progress_bytes: Google.Firestore.Admin.V1beta2.Progress.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            index: "",
-            state: :OPERATION_STATE_UNSPECIFIED,
-            progress_documents: nil,
-            progress_bytes: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -67,16 +38,7 @@ defmodule Google.Firestore.Admin.V1beta2.IndexOperationMetadata do
 end
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          change_type:
-            Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.ChangeType.t(),
-          index: Google.Firestore.Admin.V1beta2.Index.t() | nil
-        }
-
-  defstruct change_type: :CHANGE_TYPE_UNSPECIFIED,
-            index: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :change_type, 1,
     type: Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.ChangeType,
@@ -87,27 +49,7 @@ defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta
 end
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          field: String.t(),
-          index_config_deltas: [
-            Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.t()
-          ],
-          state: Google.Firestore.Admin.V1beta2.OperationState.t(),
-          document_progress: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          bytes_progress: Google.Firestore.Admin.V1beta2.Progress.t() | nil
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            field: "",
-            index_config_deltas: [],
-            state: :OPERATION_STATE_UNSPECIFIED,
-            document_progress: nil,
-            bytes_progress: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -130,25 +72,7 @@ defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata do
 end
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          operation_state: Google.Firestore.Admin.V1beta2.OperationState.t(),
-          progress_documents: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          progress_bytes: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          collection_ids: [String.t()],
-          output_uri_prefix: String.t()
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            operation_state: :OPERATION_STATE_UNSPECIFIED,
-            progress_documents: nil,
-            progress_bytes: nil,
-            collection_ids: [],
-            output_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -171,25 +95,7 @@ defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsMetadata do
 end
 defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          operation_state: Google.Firestore.Admin.V1beta2.OperationState.t(),
-          progress_documents: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          progress_bytes: Google.Firestore.Admin.V1beta2.Progress.t() | nil,
-          collection_ids: [String.t()],
-          input_uri_prefix: String.t()
-        }
-
-  defstruct start_time: nil,
-            end_time: nil,
-            operation_state: :OPERATION_STATE_UNSPECIFIED,
-            progress_documents: nil,
-            progress_bytes: nil,
-            collection_ids: [],
-            input_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -212,27 +118,13 @@ defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsMetadata do
 end
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          output_uri_prefix: String.t()
-        }
-
-  defstruct output_uri_prefix: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
 end
 defmodule Google.Firestore.Admin.V1beta2.Progress do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          estimated_work: integer,
-          completed_work: integer
-        }
-
-  defstruct estimated_work: 0,
-            completed_work: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :estimated_work, 1, type: :int64, json_name: "estimatedWork"
   field :completed_work, 2, type: :int64, json_name: "completedWork"

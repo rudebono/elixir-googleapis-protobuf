@@ -1,25 +1,13 @@
 defmodule Google.Firestore.Bundle.BundledQuery.LimitType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FIRST | :LAST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FIRST, 0
   field :LAST, 1
 end
 defmodule Google.Firestore.Bundle.BundledQuery do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          query_type: {:structured_query, Google.Firestore.V1.StructuredQuery.t() | nil},
-          parent: String.t(),
-          limit_type: Google.Firestore.Bundle.BundledQuery.LimitType.t()
-        }
-
-  defstruct query_type: nil,
-            parent: "",
-            limit_type: :FIRST
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :query_type, 0
 
@@ -37,17 +25,7 @@ defmodule Google.Firestore.Bundle.BundledQuery do
 end
 defmodule Google.Firestore.Bundle.NamedQuery do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          bundled_query: Google.Firestore.Bundle.BundledQuery.t() | nil,
-          read_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct name: "",
-            bundled_query: nil,
-            read_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :bundled_query, 2, type: Google.Firestore.Bundle.BundledQuery, json_name: "bundledQuery"
@@ -55,19 +33,7 @@ defmodule Google.Firestore.Bundle.NamedQuery do
 end
 defmodule Google.Firestore.Bundle.BundledDocumentMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          read_time: Google.Protobuf.Timestamp.t() | nil,
-          exists: boolean,
-          queries: [String.t()]
-        }
-
-  defstruct name: "",
-            read_time: nil,
-            exists: false,
-            queries: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
@@ -76,21 +42,7 @@ defmodule Google.Firestore.Bundle.BundledDocumentMetadata do
 end
 defmodule Google.Firestore.Bundle.BundleMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          version: non_neg_integer,
-          total_documents: non_neg_integer,
-          total_bytes: non_neg_integer
-        }
-
-  defstruct id: "",
-            create_time: nil,
-            version: 0,
-            total_documents: 0,
-            total_bytes: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -100,17 +52,7 @@ defmodule Google.Firestore.Bundle.BundleMetadata do
 end
 defmodule Google.Firestore.Bundle.BundleElement do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          element_type:
-            {:metadata, Google.Firestore.Bundle.BundleMetadata.t() | nil}
-            | {:named_query, Google.Firestore.Bundle.NamedQuery.t() | nil}
-            | {:document_metadata, Google.Firestore.Bundle.BundledDocumentMetadata.t() | nil}
-            | {:document, Google.Firestore.V1.Document.t() | nil}
-        }
-
-  defstruct element_type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :element_type, 0
 

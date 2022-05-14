@@ -1,34 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Errors.RequestErrorEnum.RequestError do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNSPECIFIED
-          | :UNKNOWN
-          | :RESOURCE_NAME_MISSING
-          | :RESOURCE_NAME_MALFORMED
-          | :BAD_RESOURCE_ID
-          | :INVALID_CUSTOMER_ID
-          | :OPERATION_REQUIRED
-          | :RESOURCE_NOT_FOUND
-          | :INVALID_PAGE_TOKEN
-          | :EXPIRED_PAGE_TOKEN
-          | :INVALID_PAGE_SIZE
-          | :REQUIRED_FIELD_MISSING
-          | :IMMUTABLE_FIELD
-          | :TOO_MANY_MUTATE_OPERATIONS
-          | :CANNOT_BE_EXECUTED_BY_MANAGER_ACCOUNT
-          | :CANNOT_MODIFY_FOREIGN_FIELD
-          | :INVALID_ENUM_VALUE
-          | :DEVELOPER_TOKEN_PARAMETER_MISSING
-          | :LOGIN_CUSTOMER_ID_PARAMETER_MISSING
-          | :VALIDATE_ONLY_REQUEST_HAS_PAGE_TOKEN
-          | :CANNOT_RETURN_SUMMARY_ROW_FOR_REQUEST_WITHOUT_METRICS
-          | :CANNOT_RETURN_SUMMARY_ROW_FOR_VALIDATE_ONLY_REQUESTS
-          | :INCONSISTENT_RETURN_SUMMARY_ROW_VALUE
-          | :TOTAL_RESULTS_COUNT_NOT_ORIGINALLY_REQUESTED
-          | :RPC_DEADLINE_TOO_SHORT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -58,9 +30,5 @@ defmodule Google.Ads.Googleads.V9.Errors.RequestErrorEnum.RequestError do
 end
 defmodule Google.Ads.Googleads.V9.Errors.RequestErrorEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

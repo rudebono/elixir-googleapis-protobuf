@@ -1,12 +1,6 @@
 defmodule Google.Cloud.Gkehub.Cloudauditlogging.V1alpha.FeatureSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          allowlisted_service_accounts: [String.t()]
-        }
-
-  defstruct allowlisted_service_accounts: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :allowlisted_service_accounts, 1,
     repeated: true,

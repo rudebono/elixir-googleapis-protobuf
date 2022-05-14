@@ -1,18 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.GetFileRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          read_offset: integer,
-          read_limit: integer,
-          archive_entry: String.t()
-        }
-
-  defstruct uri: "",
-            read_offset: 0,
-            read_limit: 0,
-            archive_entry: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
@@ -21,31 +9,13 @@ defmodule Google.Devtools.Resultstore.V2.GetFileRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data: binary
-        }
-
-  defstruct data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 end
 defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          read_offset: integer,
-          read_limit: integer,
-          archive_entry: String.t()
-        }
-
-  defstruct uri: "",
-            read_offset: 0,
-            read_limit: 0,
-            archive_entry: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
@@ -54,19 +24,15 @@ defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
 end
 defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data: binary
-        }
-
-  defstruct data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 end
 defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.resultstore.v2.ResultStoreFileDownload"
+  use GRPC.Service,
+    name: "google.devtools.resultstore.v2.ResultStoreFileDownload",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetFile,
       Google.Devtools.Resultstore.V2.GetFileRequest,

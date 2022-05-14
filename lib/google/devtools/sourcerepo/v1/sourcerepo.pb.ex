@@ -1,18 +1,6 @@
 defmodule Google.Devtools.Sourcerepo.V1.Repo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          size: integer,
-          url: String.t(),
-          mirror_config: Google.Devtools.Sourcerepo.V1.MirrorConfig.t() | nil
-        }
-
-  defstruct name: "",
-            size: 0,
-            url: "",
-            mirror_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :size, 2, type: :int64
@@ -24,17 +12,7 @@ defmodule Google.Devtools.Sourcerepo.V1.Repo do
 end
 defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          webhook_id: String.t(),
-          deploy_key_id: String.t()
-        }
-
-  defstruct url: "",
-            webhook_id: "",
-            deploy_key_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :webhook_id, 2, type: :string, json_name: "webhookId"
@@ -42,29 +20,13 @@ defmodule Google.Devtools.Sourcerepo.V1.MirrorConfig do
 end
 defmodule Google.Devtools.Sourcerepo.V1.GetRepoRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -72,49 +34,29 @@ defmodule Google.Devtools.Sourcerepo.V1.ListReposRequest do
 end
 defmodule Google.Devtools.Sourcerepo.V1.ListReposResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          repos: [Google.Devtools.Sourcerepo.V1.Repo.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct repos: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :repos, 1, repeated: true, type: Google.Devtools.Sourcerepo.V1.Repo
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Devtools.Sourcerepo.V1.CreateRepoRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          repo: Google.Devtools.Sourcerepo.V1.Repo.t() | nil
-        }
-
-  defstruct parent: "",
-            repo: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :repo, 2, type: Google.Devtools.Sourcerepo.V1.Repo
 end
 defmodule Google.Devtools.Sourcerepo.V1.DeleteRepoRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 defmodule Google.Devtools.Sourcerepo.V1.SourceRepo.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.sourcerepo.v1.SourceRepo"
+  use GRPC.Service,
+    name: "google.devtools.sourcerepo.v1.SourceRepo",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListRepos,
       Google.Devtools.Sourcerepo.V1.ListReposRequest,

@@ -1,20 +1,6 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          annotation_specs: [Google.Cloud.Datalabeling.V1beta1.AnnotationSpec.t()],
-          blocking_resources: [String.t()]
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            annotation_specs: [],
-            blocking_resources: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -29,15 +15,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSpecSet do
 end
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          display_name: String.t(),
-          description: String.t()
-        }
-
-  defstruct display_name: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string

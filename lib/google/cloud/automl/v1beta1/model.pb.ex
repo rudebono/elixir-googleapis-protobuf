@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Automl.V1beta1.Model.DeploymentState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DEPLOYMENT_STATE_UNSPECIFIED | :DEPLOYED | :UNDEPLOYED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DEPLOYMENT_STATE_UNSPECIFIED, 0
   field :DEPLOYED, 1
@@ -10,42 +8,7 @@ defmodule Google.Cloud.Automl.V1beta1.Model.DeploymentState do
 end
 defmodule Google.Cloud.Automl.V1beta1.Model do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_metadata:
-            {:translation_model_metadata,
-             Google.Cloud.Automl.V1beta1.TranslationModelMetadata.t() | nil}
-            | {:image_classification_model_metadata,
-               Google.Cloud.Automl.V1beta1.ImageClassificationModelMetadata.t() | nil}
-            | {:text_classification_model_metadata,
-               Google.Cloud.Automl.V1beta1.TextClassificationModelMetadata.t() | nil}
-            | {:image_object_detection_model_metadata,
-               Google.Cloud.Automl.V1beta1.ImageObjectDetectionModelMetadata.t() | nil}
-            | {:video_classification_model_metadata,
-               Google.Cloud.Automl.V1beta1.VideoClassificationModelMetadata.t() | nil}
-            | {:video_object_tracking_model_metadata,
-               Google.Cloud.Automl.V1beta1.VideoObjectTrackingModelMetadata.t() | nil}
-            | {:text_extraction_model_metadata,
-               Google.Cloud.Automl.V1beta1.TextExtractionModelMetadata.t() | nil}
-            | {:tables_model_metadata, Google.Cloud.Automl.V1beta1.TablesModelMetadata.t() | nil}
-            | {:text_sentiment_model_metadata,
-               Google.Cloud.Automl.V1beta1.TextSentimentModelMetadata.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          dataset_id: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          deployment_state: Google.Cloud.Automl.V1beta1.Model.DeploymentState.t()
-        }
-
-  defstruct model_metadata: nil,
-            name: "",
-            display_name: "",
-            dataset_id: "",
-            create_time: nil,
-            update_time: nil,
-            deployment_state: :DEPLOYMENT_STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :model_metadata, 0
 

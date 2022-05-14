@@ -1,27 +1,6 @@
 defmodule Grafeas.V1beta1.Image.Layer.Directive do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DIRECTIVE_UNSPECIFIED
-          | :MAINTAINER
-          | :RUN
-          | :CMD
-          | :LABEL
-          | :EXPOSE
-          | :ENV
-          | :ADD
-          | :COPY
-          | :ENTRYPOINT
-          | :VOLUME
-          | :USER
-          | :WORKDIR
-          | :ARG
-          | :ONBUILD
-          | :STOPSIGNAL
-          | :HEALTHCHECK
-          | :SHELL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIRECTIVE_UNSPECIFIED, 0
   field :MAINTAINER, 1
@@ -44,32 +23,14 @@ defmodule Grafeas.V1beta1.Image.Layer.Directive do
 end
 defmodule Grafeas.V1beta1.Image.Layer do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          directive: Grafeas.V1beta1.Image.Layer.Directive.t(),
-          arguments: String.t()
-        }
-
-  defstruct directive: :DIRECTIVE_UNSPECIFIED,
-            arguments: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :directive, 1, type: Grafeas.V1beta1.Image.Layer.Directive, enum: true
   field :arguments, 2, type: :string
 end
 defmodule Grafeas.V1beta1.Image.Fingerprint do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          v1_name: String.t(),
-          v2_blob: [String.t()],
-          v2_name: String.t()
-        }
-
-  defstruct v1_name: "",
-            v2_blob: [],
-            v2_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :v1_name, 1, type: :string, json_name: "v1Name"
   field :v2_blob, 2, repeated: true, type: :string, json_name: "v2Blob"
@@ -77,46 +38,20 @@ defmodule Grafeas.V1beta1.Image.Fingerprint do
 end
 defmodule Grafeas.V1beta1.Image.Basis do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_url: String.t(),
-          fingerprint: Grafeas.V1beta1.Image.Fingerprint.t() | nil
-        }
-
-  defstruct resource_url: "",
-            fingerprint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_url, 1, type: :string, json_name: "resourceUrl"
   field :fingerprint, 2, type: Grafeas.V1beta1.Image.Fingerprint
 end
 defmodule Grafeas.V1beta1.Image.Details do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          derived_image: Grafeas.V1beta1.Image.Derived.t() | nil
-        }
-
-  defstruct derived_image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :derived_image, 1, type: Grafeas.V1beta1.Image.Derived, json_name: "derivedImage"
 end
 defmodule Grafeas.V1beta1.Image.Derived do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          fingerprint: Grafeas.V1beta1.Image.Fingerprint.t() | nil,
-          distance: integer,
-          layer_info: [Grafeas.V1beta1.Image.Layer.t()],
-          base_resource_url: String.t()
-        }
-
-  defstruct fingerprint: nil,
-            distance: 0,
-            layer_info: [],
-            base_resource_url: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fingerprint, 1, type: Grafeas.V1beta1.Image.Fingerprint
   field :distance, 2, type: :int32

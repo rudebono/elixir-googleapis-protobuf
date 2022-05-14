@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Environment.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :STOPPED | :LOADING | :RUNNING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STOPPED, 1
@@ -11,25 +9,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Environment.State do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Environment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          agent_version: String.t(),
-          state: Google.Cloud.Dialogflow.V2beta1.Environment.State.t(),
-          update_time: Google.Protobuf.Timestamp.t() | nil,
-          text_to_speech_settings: Google.Cloud.Dialogflow.V2beta1.TextToSpeechSettings.t() | nil,
-          fulfillment: Google.Cloud.Dialogflow.V2beta1.Fulfillment.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            agent_version: "",
-            state: :STATE_UNSPECIFIED,
-            update_time: nil,
-            text_to_speech_settings: nil,
-            fulfillment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -54,36 +34,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Environment do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.TextToSpeechSettings.SynthesizeSpeechConfigsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.TextToSpeechSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          enable_text_to_speech: boolean,
-          output_audio_encoding: Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding.t(),
-          sample_rate_hertz: integer,
-          synthesize_speech_configs: %{
-            String.t() => Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig.t() | nil
-          }
-        }
-
-  defstruct enable_text_to_speech: false,
-            output_audio_encoding: :OUTPUT_AUDIO_ENCODING_UNSPECIFIED,
-            sample_rate_hertz: 0,
-            synthesize_speech_configs: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :enable_text_to_speech, 1, type: :bool, json_name: "enableTextToSpeech", deprecated: false
 
@@ -104,17 +62,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.TextToSpeechSettings do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListEnvironmentsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -122,44 +70,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListEnvironmentsRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListEnvironmentsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environments: [Google.Cloud.Dialogflow.V2beta1.Environment.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct environments: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          environment: Google.Cloud.Dialogflow.V2beta1.Environment.t() | nil,
-          environment_id: String.t()
-        }
-
-  defstruct parent: "",
-            environment: nil,
-            environment_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :environment, 2, type: Google.Cloud.Dialogflow.V2beta1.Environment, deprecated: false
@@ -167,17 +91,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.CreateEnvironmentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          environment: Google.Cloud.Dialogflow.V2beta1.Environment.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          allow_load_to_draft_and_discard_changes: boolean
-        }
-
-  defstruct environment: nil,
-            update_mask: nil,
-            allow_load_to_draft_and_discard_changes: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :environment, 1, type: Google.Cloud.Dialogflow.V2beta1.Environment, deprecated: false
 
@@ -193,29 +107,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateEnvironmentRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteEnvironmentRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetEnvironmentHistoryRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -223,17 +121,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GetEnvironmentHistoryRequest do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.EnvironmentHistory.Entry do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          agent_version: String.t(),
-          description: String.t(),
-          create_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct agent_version: "",
-            description: "",
-            create_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :agent_version, 1, type: :string, json_name: "agentVersion"
   field :description, 2, type: :string
@@ -241,17 +129,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.EnvironmentHistory.Entry do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.EnvironmentHistory do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          entries: [Google.Cloud.Dialogflow.V2beta1.EnvironmentHistory.Entry.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct parent: "",
-            entries: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -264,7 +142,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.EnvironmentHistory do
 end
 defmodule Google.Cloud.Dialogflow.V2beta1.Environments.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.dialogflow.v2beta1.Environments"
+  use GRPC.Service,
+    name: "google.cloud.dialogflow.v2beta1.Environments",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListEnvironments,
       Google.Cloud.Dialogflow.V2beta1.ListEnvironmentsRequest,

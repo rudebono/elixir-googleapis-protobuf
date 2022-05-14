@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Channel.V1.CustomerEvent.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TYPE_UNSPECIFIED | :PRIMARY_DOMAIN_CHANGED | :PRIMARY_DOMAIN_VERIFIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRIMARY_DOMAIN_CHANGED, 1
@@ -10,23 +8,7 @@ defmodule Google.Cloud.Channel.V1.CustomerEvent.Type do
 end
 defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNSPECIFIED
-          | :CREATED
-          | :PRICE_PLAN_SWITCHED
-          | :COMMITMENT_CHANGED
-          | :RENEWED
-          | :SUSPENDED
-          | :ACTIVATED
-          | :CANCELLED
-          | :SKU_CHANGED
-          | :RENEWAL_SETTING_CHANGED
-          | :PAID_SERVICE_STARTED
-          | :LICENSE_ASSIGNMENT_CHANGED
-          | :LICENSE_CAP_CHANGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -44,15 +26,7 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
 end
 defmodule Google.Cloud.Channel.V1.CustomerEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer: String.t(),
-          event_type: Google.Cloud.Channel.V1.CustomerEvent.Type.t()
-        }
-
-  defstruct customer: "",
-            event_type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer, 1, type: :string, deprecated: false
 
@@ -63,15 +37,7 @@ defmodule Google.Cloud.Channel.V1.CustomerEvent do
 end
 defmodule Google.Cloud.Channel.V1.EntitlementEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entitlement: String.t(),
-          event_type: Google.Cloud.Channel.V1.EntitlementEvent.Type.t()
-        }
-
-  defstruct entitlement: "",
-            event_type: :TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entitlement, 1, type: :string, deprecated: false
 
@@ -82,15 +48,7 @@ defmodule Google.Cloud.Channel.V1.EntitlementEvent do
 end
 defmodule Google.Cloud.Channel.V1.SubscriberEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event:
-            {:customer_event, Google.Cloud.Channel.V1.CustomerEvent.t() | nil}
-            | {:entitlement_event, Google.Cloud.Channel.V1.EntitlementEvent.t() | nil}
-        }
-
-  defstruct event: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :event, 0
 

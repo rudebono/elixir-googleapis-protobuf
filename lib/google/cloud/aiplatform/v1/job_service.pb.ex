@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.CreateCustomJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          custom_job: Google.Cloud.Aiplatform.V1.CustomJob.t() | nil
-        }
-
-  defstruct parent: "",
-            custom_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,33 +11,13 @@ defmodule Google.Cloud.Aiplatform.V1.CreateCustomJobRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetCustomJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -55,15 +27,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          custom_jobs: [Google.Cloud.Aiplatform.V1.CustomJob.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct custom_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :custom_jobs, 1,
     repeated: true,
@@ -74,39 +38,19 @@ defmodule Google.Cloud.Aiplatform.V1.ListCustomJobsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteCustomJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CancelCustomJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          data_labeling_job: Google.Cloud.Aiplatform.V1.DataLabelingJob.t() | nil
-        }
-
-  defstruct parent: "",
-            data_labeling_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,35 +61,13 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDataLabelingJobRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil,
-          order_by: String.t()
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil,
-            order_by: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -156,15 +78,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_labeling_jobs: [Google.Cloud.Aiplatform.V1.DataLabelingJob.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct data_labeling_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_labeling_jobs, 1,
     repeated: true,
@@ -175,39 +89,19 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataLabelingJobsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CancelDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          hyperparameter_tuning_job: Google.Cloud.Aiplatform.V1.HyperparameterTuningJob.t() | nil
-        }
-
-  defstruct parent: "",
-            hyperparameter_tuning_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -218,33 +112,13 @@ defmodule Google.Cloud.Aiplatform.V1.CreateHyperparameterTuningJobRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -254,15 +128,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          hyperparameter_tuning_jobs: [Google.Cloud.Aiplatform.V1.HyperparameterTuningJob.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct hyperparameter_tuning_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :hyperparameter_tuning_jobs, 1,
     repeated: true,
@@ -273,39 +139,19 @@ defmodule Google.Cloud.Aiplatform.V1.ListHyperparameterTuningJobsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          batch_prediction_job: Google.Cloud.Aiplatform.V1.BatchPredictionJob.t() | nil
-        }
-
-  defstruct parent: "",
-            batch_prediction_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -316,33 +162,13 @@ defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.GetBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -352,15 +178,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          batch_prediction_jobs: [Google.Cloud.Aiplatform.V1.BatchPredictionJob.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct batch_prediction_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :batch_prediction_jobs, 1,
     repeated: true,
@@ -371,40 +189,19 @@ defmodule Google.Cloud.Aiplatform.V1.ListBatchPredictionJobsResponse do
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CancelBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          model_deployment_monitoring_job:
-            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t() | nil
-        }
-
-  defstruct parent: "",
-            model_deployment_monitoring_job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -415,15 +212,7 @@ defmodule Google.Cloud.Aiplatform.V1.CreateModelDeploymentMonitoringJobRequest d
 end
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType.t(),
-          top_feature_count: integer
-        }
-
-  defstruct type: :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED,
-            top_feature_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,
@@ -433,29 +222,7 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
 end
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_deployment_monitoring_job: String.t(),
-          deployed_model_id: String.t(),
-          feature_display_name: String.t(),
-          objectives: [
-            Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective.t()
-          ],
-          page_size: integer,
-          page_token: String.t(),
-          start_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil
-        }
-
-  defstruct model_deployment_monitoring_job: "",
-            deployed_model_id: "",
-            feature_display_name: "",
-            objectives: [],
-            page_size: 0,
-            page_token: "",
-            start_time: nil,
-            end_time: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_deployment_monitoring_job, 1,
     type: :string,
@@ -478,15 +245,7 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
 end
 defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomaliesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          monitoring_stats: [Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct monitoring_stats: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :monitoring_stats, 1,
     repeated: true,
@@ -497,33 +256,13 @@ defmodule Google.Cloud.Aiplatform.V1.SearchModelDeploymentMonitoringStatsAnomali
 end
 defmodule Google.Cloud.Aiplatform.V1.GetModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          filter: String.t(),
-          page_size: integer,
-          page_token: String.t(),
-          read_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct parent: "",
-            filter: "",
-            page_size: 0,
-            page_token: "",
-            read_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -533,17 +272,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsRequest do
 end
 defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_deployment_monitoring_jobs: [
-            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t()
-          ],
-          next_page_token: String.t()
-        }
-
-  defstruct model_deployment_monitoring_jobs: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_deployment_monitoring_jobs, 1,
     repeated: true,
@@ -554,16 +283,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelDeploymentMonitoringJobsResponse d
 end
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          model_deployment_monitoring_job:
-            Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct model_deployment_monitoring_job: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model_deployment_monitoring_job, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob,
@@ -577,49 +297,25 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobRequest d
 end
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.PauseModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ResumeModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          generic_metadata: Google.Cloud.Aiplatform.V1.GenericOperationMetadata.t() | nil
-        }
-
-  defstruct generic_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -627,7 +323,9 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelDeploymentMonitoringJobOperation
 end
 defmodule Google.Cloud.Aiplatform.V1.JobService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.aiplatform.v1.JobService"
+  use GRPC.Service,
+    name: "google.cloud.aiplatform.v1.JobService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateCustomJob,
       Google.Cloud.Aiplatform.V1.CreateCustomJobRequest,

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CODE_UNSPECIFIED
-          | :INSUFFICIENT_CRAWL_RESULTS
-          | :TOO_MANY_CRAWL_RESULTS
-          | :TOO_MANY_FUZZ_TASKS
-          | :BLOCKED_BY_IAP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :INSUFFICIENT_CRAWL_RESULTS, 1
@@ -18,13 +10,7 @@ defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code do
 end
 defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code.t()
-        }
-
-  defstruct code: :CODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Websecurityscanner.V1beta.ScanRunWarningTrace.Code,

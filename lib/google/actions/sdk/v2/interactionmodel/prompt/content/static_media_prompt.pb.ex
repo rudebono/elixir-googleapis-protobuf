@@ -1,8 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.MediaType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MEDIA_TYPE_UNSPECIFIED | :AUDIO | :MEDIA_STATUS_ACK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
@@ -10,9 +8,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.MediaT
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.OptionalMediaControls do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED | :PAUSED | :STOPPED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -20,9 +16,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.Option
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.RepeatMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :REPEAT_MODE_UNSPECIFIED | :OFF | :ALL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REPEAT_MODE_UNSPECIFIED, 0
   field :OFF, 1
@@ -30,25 +24,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.Repeat
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          media_type:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.MediaType.t(),
-          start_offset: Google.Protobuf.Duration.t() | nil,
-          optional_media_controls: [
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.OptionalMediaControls.t()
-          ],
-          media_objects: [Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject.t()],
-          repeat_mode:
-            Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.RepeatMode.t()
-        }
-
-  defstruct media_type: :MEDIA_TYPE_UNSPECIFIED,
-            start_offset: nil,
-            optional_media_controls: [],
-            media_objects: [],
-            repeat_mode: :REPEAT_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :media_type, 8,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt.MediaType,
@@ -75,19 +51,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticMediaPrompt do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          url: String.t(),
-          image: Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaImage.t() | nil
-        }
-
-  defstruct name: "",
-            description: "",
-            url: "",
-            image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -96,15 +60,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaObject do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.MediaImage do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image:
-            {:large, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil}
-            | {:icon, Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticImagePrompt.t() | nil}
-        }
-
-  defstruct image: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :image, 0
 

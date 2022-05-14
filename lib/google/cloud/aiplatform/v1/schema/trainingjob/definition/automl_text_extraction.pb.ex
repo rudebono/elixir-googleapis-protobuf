@@ -1,23 +1,11 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtraction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          inputs:
-            Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtractionInputs.t()
-            | nil
-        }
-
-  defstruct inputs: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtractionInputs
 end
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTextExtractionInputs do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

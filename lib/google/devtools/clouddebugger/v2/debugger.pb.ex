@@ -1,16 +1,6 @@
 defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          debuggee_id: String.t(),
-          breakpoint: Google.Devtools.Clouddebugger.V2.Breakpoint.t() | nil,
-          client_version: String.t()
-        }
-
-  defstruct debuggee_id: "",
-            breakpoint: nil,
-            client_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :debuggee_id, 1, type: :string, json_name: "debuggeeId", deprecated: false
   field :breakpoint, 2, type: Google.Devtools.Clouddebugger.V2.Breakpoint, deprecated: false
@@ -18,29 +8,13 @@ defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointRequest do
 end
 defmodule Google.Devtools.Clouddebugger.V2.SetBreakpointResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          breakpoint: Google.Devtools.Clouddebugger.V2.Breakpoint.t() | nil
-        }
-
-  defstruct breakpoint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :breakpoint, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint
 end
 defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          debuggee_id: String.t(),
-          breakpoint_id: String.t(),
-          client_version: String.t()
-        }
-
-  defstruct debuggee_id: "",
-            breakpoint_id: "",
-            client_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :debuggee_id, 1, type: :string, json_name: "debuggeeId", deprecated: false
   field :breakpoint_id, 2, type: :string, json_name: "breakpointId", deprecated: false
@@ -48,29 +22,13 @@ defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointRequest do
 end
 defmodule Google.Devtools.Clouddebugger.V2.GetBreakpointResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          breakpoint: Google.Devtools.Clouddebugger.V2.Breakpoint.t() | nil
-        }
-
-  defstruct breakpoint: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :breakpoint, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint
 end
 defmodule Google.Devtools.Clouddebugger.V2.DeleteBreakpointRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          debuggee_id: String.t(),
-          breakpoint_id: String.t(),
-          client_version: String.t()
-        }
-
-  defstruct debuggee_id: "",
-            breakpoint_id: "",
-            client_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :debuggee_id, 1, type: :string, json_name: "debuggeeId", deprecated: false
   field :breakpoint_id, 2, type: :string, json_name: "breakpointId", deprecated: false
@@ -78,39 +36,13 @@ defmodule Google.Devtools.Clouddebugger.V2.DeleteBreakpointRequest do
 end
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest.BreakpointActionValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          value: Google.Devtools.Clouddebugger.V2.Breakpoint.Action.t()
-        }
-
-  defstruct value: :CAPTURE
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :value, 1, type: Google.Devtools.Clouddebugger.V2.Breakpoint.Action, enum: true
 end
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          debuggee_id: String.t(),
-          include_all_users: boolean,
-          include_inactive: boolean,
-          action:
-            Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest.BreakpointActionValue.t()
-            | nil,
-          strip_results: boolean,
-          wait_token: String.t(),
-          client_version: String.t()
-        }
-
-  defstruct debuggee_id: "",
-            include_all_users: false,
-            include_inactive: false,
-            action: nil,
-            strip_results: false,
-            wait_token: "",
-            client_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :debuggee_id, 1, type: :string, json_name: "debuggeeId", deprecated: false
   field :include_all_users, 2, type: :bool, json_name: "includeAllUsers"
@@ -125,32 +57,14 @@ defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsRequest do
 end
 defmodule Google.Devtools.Clouddebugger.V2.ListBreakpointsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          breakpoints: [Google.Devtools.Clouddebugger.V2.Breakpoint.t()],
-          next_wait_token: String.t()
-        }
-
-  defstruct breakpoints: [],
-            next_wait_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :breakpoints, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Breakpoint
   field :next_wait_token, 2, type: :string, json_name: "nextWaitToken"
 end
 defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project: String.t(),
-          include_inactive: boolean,
-          client_version: String.t()
-        }
-
-  defstruct project: "",
-            include_inactive: false,
-            client_version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project, 2, type: :string, deprecated: false
   field :include_inactive, 3, type: :bool, json_name: "includeInactive"
@@ -158,19 +72,15 @@ defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesRequest do
 end
 defmodule Google.Devtools.Clouddebugger.V2.ListDebuggeesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          debuggees: [Google.Devtools.Clouddebugger.V2.Debuggee.t()]
-        }
-
-  defstruct debuggees: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :debuggees, 1, repeated: true, type: Google.Devtools.Clouddebugger.V2.Debuggee
 end
 defmodule Google.Devtools.Clouddebugger.V2.Debugger2.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.devtools.clouddebugger.v2.Debugger2"
+  use GRPC.Service,
+    name: "google.devtools.clouddebugger.v2.Debugger2",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :SetBreakpoint,
       Google.Devtools.Clouddebugger.V2.SetBreakpointRequest,

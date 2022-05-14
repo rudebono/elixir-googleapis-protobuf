@@ -1,17 +1,13 @@
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVENT_TYPE_UNSPECIFIED | :END_OF_UTTERANCE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :FLAC
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -19,9 +15,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :ENCODING_UNSPECIFIED | :LINEAR16 | :MP3 | :OPUS_IN_OGG
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -30,9 +24,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SCREEN_MODE_UNSPECIFIED | :OFF | :PLAYING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SCREEN_MODE_UNSPECIFIED, 0
   field :OFF, 1
@@ -40,18 +32,14 @@ defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut.Format do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :FORMAT_UNSPECIFIED | :HTML
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :HTML, 1
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :MICROPHONE_MODE_UNSPECIFIED | :CLOSE_MICROPHONE | :DIALOG_FOLLOW_ON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MICROPHONE_MODE_UNSPECIFIED, 0
   field :CLOSE_MICROPHONE, 1
@@ -59,15 +47,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:config, Google.Assistant.Embedded.V1alpha2.AssistConfig.t() | nil}
-            | {:audio_in, binary}
-        }
-
-  defstruct type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -76,25 +56,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistRequest do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_type: Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType.t(),
-          audio_out: Google.Assistant.Embedded.V1alpha2.AudioOut.t() | nil,
-          screen_out: Google.Assistant.Embedded.V1alpha2.ScreenOut.t() | nil,
-          device_action: Google.Assistant.Embedded.V1alpha2.DeviceAction.t() | nil,
-          speech_results: [Google.Assistant.Embedded.V1alpha2.SpeechRecognitionResult.t()],
-          dialog_state_out: Google.Assistant.Embedded.V1alpha2.DialogStateOut.t() | nil,
-          debug_info: Google.Assistant.Embedded.V1alpha2.DebugInfo.t() | nil
-        }
-
-  defstruct event_type: :EVENT_TYPE_UNSPECIFIED,
-            audio_out: nil,
-            screen_out: nil,
-            device_action: nil,
-            speech_results: [],
-            dialog_state_out: nil,
-            debug_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :event_type, 1,
     type: Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType,
@@ -121,37 +83,13 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DebugInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          aog_agent_to_assistant_json: String.t()
-        }
-
-  defstruct aog_agent_to_assistant_json: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :aog_agent_to_assistant_json, 1, type: :string, json_name: "aogAgentToAssistantJson"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type:
-            {:audio_in_config, Google.Assistant.Embedded.V1alpha2.AudioInConfig.t() | nil}
-            | {:text_query, String.t()},
-          audio_out_config: Google.Assistant.Embedded.V1alpha2.AudioOutConfig.t() | nil,
-          screen_out_config: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.t() | nil,
-          dialog_state_in: Google.Assistant.Embedded.V1alpha2.DialogStateIn.t() | nil,
-          device_config: Google.Assistant.Embedded.V1alpha2.DeviceConfig.t() | nil,
-          debug_config: Google.Assistant.Embedded.V1alpha2.DebugConfig.t() | nil
-        }
-
-  defstruct type: nil,
-            audio_out_config: nil,
-            screen_out_config: nil,
-            dialog_state_in: nil,
-            device_config: nil,
-            debug_config: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -184,32 +122,14 @@ defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          encoding: Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding.t(),
-          sample_rate_hertz: integer
-        }
-
-  defstruct encoding: :ENCODING_UNSPECIFIED,
-            sample_rate_hertz: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          encoding: Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding.t(),
-          sample_rate_hertz: integer,
-          volume_percentage: integer
-        }
-
-  defstruct encoding: :ENCODING_UNSPECIFIED,
-            sample_rate_hertz: 0,
-            volume_percentage: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
@@ -217,13 +137,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          screen_mode: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode.t()
-        }
-
-  defstruct screen_mode: :SCREEN_MODE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :screen_mode, 1,
     type: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode,
@@ -232,19 +146,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          conversation_state: binary,
-          language_code: String.t(),
-          device_location: Google.Assistant.Embedded.V1alpha2.DeviceLocation.t() | nil,
-          is_new_conversation: boolean
-        }
-
-  defstruct conversation_state: "",
-            language_code: "",
-            device_location: nil,
-            is_new_conversation: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :conversation_state, 1, type: :bytes, json_name: "conversationState"
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -257,88 +159,40 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_id: String.t(),
-          device_model_id: String.t()
-        }
-
-  defstruct device_id: "",
-            device_model_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_id, 1, type: :string, json_name: "deviceId"
   field :device_model_id, 3, type: :string, json_name: "deviceModelId"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOut do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          audio_data: binary
-        }
-
-  defstruct audio_data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :audio_data, 1, type: :bytes, json_name: "audioData"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          format: Google.Assistant.Embedded.V1alpha2.ScreenOut.Format.t(),
-          data: binary
-        }
-
-  defstruct format: :FORMAT_UNSPECIFIED,
-            data: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :format, 1, type: Google.Assistant.Embedded.V1alpha2.ScreenOut.Format, enum: true
   field :data, 2, type: :bytes
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceAction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          device_request_json: String.t()
-        }
-
-  defstruct device_request_json: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :device_request_json, 1, type: :string, json_name: "deviceRequestJson"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.SpeechRecognitionResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          transcript: String.t(),
-          stability: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct transcript: "",
-            stability: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :transcript, 1, type: :string
   field :stability, 2, type: :float
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          supplemental_display_text: String.t(),
-          conversation_state: binary,
-          microphone_mode: Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode.t(),
-          volume_percentage: integer
-        }
-
-  defstruct supplemental_display_text: "",
-            conversation_state: "",
-            microphone_mode: :MICROPHONE_MODE_UNSPECIFIED,
-            volume_percentage: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :supplemental_display_text, 1, type: :string, json_name: "supplementalDisplayText"
   field :conversation_state, 2, type: :bytes, json_name: "conversationState"
@@ -352,25 +206,13 @@ defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DebugConfig do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          return_debug_info: boolean
-        }
-
-  defstruct return_debug_info: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :return_debug_info, 6, type: :bool, json_name: "returnDebugInfo"
 end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          type: {:coordinates, Google.Type.LatLng.t() | nil}
-        }
-
-  defstruct type: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -378,7 +220,9 @@ defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
 end
 defmodule Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.assistant.embedded.v1alpha2.EmbeddedAssistant"
+  use GRPC.Service,
+    name: "google.assistant.embedded.v1alpha2.EmbeddedAssistant",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :Assist,
       stream(Google.Assistant.Embedded.V1alpha2.AssistRequest),

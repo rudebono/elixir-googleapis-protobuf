@@ -1,17 +1,13 @@
 defmodule Google.Appengine.V1beta.SslSettings.SslManagementType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :AUTOMATIC | :MANUAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :AUTOMATIC, 0
   field :MANUAL, 1
 end
 defmodule Google.Appengine.V1beta.ResourceRecord.RecordType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :A | :AAAA | :CNAME
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :A, 0
   field :AAAA, 1
@@ -19,19 +15,7 @@ defmodule Google.Appengine.V1beta.ResourceRecord.RecordType do
 end
 defmodule Google.Appengine.V1beta.DomainMapping do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          ssl_settings: Google.Appengine.V1beta.SslSettings.t() | nil,
-          resource_records: [Google.Appengine.V1beta.ResourceRecord.t()]
-        }
-
-  defstruct name: "",
-            id: "",
-            ssl_settings: nil,
-            resource_records: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -44,17 +28,7 @@ defmodule Google.Appengine.V1beta.DomainMapping do
 end
 defmodule Google.Appengine.V1beta.SslSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_id: String.t(),
-          ssl_management_type: Google.Appengine.V1beta.SslSettings.SslManagementType.t(),
-          pending_managed_certificate_id: String.t()
-        }
-
-  defstruct certificate_id: "",
-            ssl_management_type: :AUTOMATIC,
-            pending_managed_certificate_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_id, 1, type: :string, json_name: "certificateId"
 
@@ -69,17 +43,7 @@ defmodule Google.Appengine.V1beta.SslSettings do
 end
 defmodule Google.Appengine.V1beta.ResourceRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          rrdata: String.t(),
-          type: Google.Appengine.V1beta.ResourceRecord.RecordType.t()
-        }
-
-  defstruct name: "",
-            rrdata: "",
-            type: :A
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :rrdata, 2, type: :string

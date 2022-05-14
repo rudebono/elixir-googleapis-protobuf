@@ -1,14 +1,6 @@
 defmodule Google.Protobuf.Duration do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          seconds: integer,
-          nanos: integer
-        }
-
-  defstruct seconds: 0,
-            nanos: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :seconds, 1, type: :int64
   field :nanos, 2, type: :int32

@@ -1,19 +1,6 @@
 defmodule Google.Ads.Googleads.V7.Resources.CustomerExtensionSetting do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          extension_type: Google.Ads.Googleads.V7.Enums.ExtensionTypeEnum.ExtensionType.t(),
-          extension_feed_items: [String.t()],
-          device:
-            Google.Ads.Googleads.V7.Enums.ExtensionSettingDeviceEnum.ExtensionSettingDevice.t()
-        }
-
-  defstruct resource_name: "",
-            extension_type: :UNSPECIFIED,
-            extension_feed_items: [],
-            device: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 

@@ -1,8 +1,6 @@
 defmodule Maps.Fleetengine.V1.VehicleState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN_VEHICLE_STATE | :OFFLINE | :ONLINE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_VEHICLE_STATE, 0
   field :OFFLINE, 1
@@ -10,16 +8,7 @@ defmodule Maps.Fleetengine.V1.VehicleState do
 end
 defmodule Maps.Fleetengine.V1.LocationPowerSaveMode do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_LOCATION_POWER_SAVE_MODE
-          | :LOCATION_MODE_NO_CHANGE
-          | :LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF
-          | :LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF
-          | :LOCATION_MODE_FOREGROUND_ONLY
-          | :LOCATION_MODE_THROTTLE_REQUESTS_WHEN_SCREEN_OFF
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_LOCATION_POWER_SAVE_MODE, 0
   field :LOCATION_MODE_NO_CHANGE, 1
@@ -30,16 +19,7 @@ defmodule Maps.Fleetengine.V1.LocationPowerSaveMode do
 end
 defmodule Maps.Fleetengine.V1.BatteryStatus do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_BATTERY_STATUS
-          | :BATTERY_STATUS_CHARGING
-          | :BATTERY_STATUS_DISCHARGING
-          | :BATTERY_STATUS_FULL
-          | :BATTERY_STATUS_NOT_CHARGING
-          | :BATTERY_STATUS_POWER_LOW
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_BATTERY_STATUS, 0
   field :BATTERY_STATUS_CHARGING, 1
@@ -50,15 +30,7 @@ defmodule Maps.Fleetengine.V1.BatteryStatus do
 end
 defmodule Maps.Fleetengine.V1.PowerSource do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_POWER_SOURCE
-          | :POWER_SOURCE_AC
-          | :POWER_SOURCE_USB
-          | :POWER_SOURCE_WIRELESS
-          | :POWER_SOURCE_UNPLUGGED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_POWER_SOURCE, 0
   field :POWER_SOURCE_AC, 1
@@ -68,9 +40,7 @@ defmodule Maps.Fleetengine.V1.PowerSource do
 end
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :AUTO | :TAXI | :TRUCK | :TWO_WHEELER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :AUTO, 1
@@ -80,9 +50,7 @@ defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
 end
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STYLE_UNSPECIFIED | :SLOWER_TRAFFIC | :TRAFFIC_JAM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STYLE_UNSPECIFIED, 0
   field :SLOWER_TRAFFIC, 1
@@ -90,67 +58,13 @@ defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.S
 end
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          category: Maps.Fleetengine.V1.Vehicle.VehicleType.Category.t()
-        }
-
-  defstruct category: :UNKNOWN
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :category, 1, type: Maps.Fleetengine.V1.Vehicle.VehicleType.Category, enum: true
 end
 defmodule Maps.Fleetengine.V1.Vehicle do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          vehicle_state: Maps.Fleetengine.V1.VehicleState.t(),
-          supported_trip_types: [Maps.Fleetengine.V1.TripType.t()],
-          current_trips: [String.t()],
-          last_location: Maps.Fleetengine.V1.VehicleLocation.t() | nil,
-          maximum_capacity: integer,
-          attributes: [Maps.Fleetengine.V1.VehicleAttribute.t()],
-          vehicle_type: Maps.Fleetengine.V1.Vehicle.VehicleType.t() | nil,
-          license_plate: Maps.Fleetengine.V1.LicensePlate.t() | nil,
-          route: [Maps.Fleetengine.V1.TerminalLocation.t()],
-          current_route_segment: String.t(),
-          current_route_segment_traffic: Maps.Fleetengine.V1.TrafficPolylineData.t() | nil,
-          current_route_segment_version: Google.Protobuf.Timestamp.t() | nil,
-          current_route_segment_end_point: Maps.Fleetengine.V1.TripWaypoint.t() | nil,
-          remaining_distance_meters: Google.Protobuf.Int32Value.t() | nil,
-          eta_to_first_waypoint: Google.Protobuf.Timestamp.t() | nil,
-          remaining_time_seconds: Google.Protobuf.Int32Value.t() | nil,
-          waypoints: [Maps.Fleetengine.V1.TripWaypoint.t()],
-          waypoints_version: Google.Protobuf.Timestamp.t() | nil,
-          back_to_back_enabled: boolean,
-          navigation_status: Maps.Fleetengine.V1.NavigationStatus.t(),
-          device_settings: Maps.Fleetengine.V1.DeviceSettings.t() | nil
-        }
-
-  defstruct name: "",
-            vehicle_state: :UNKNOWN_VEHICLE_STATE,
-            supported_trip_types: [],
-            current_trips: [],
-            last_location: nil,
-            maximum_capacity: 0,
-            attributes: [],
-            vehicle_type: nil,
-            license_plate: nil,
-            route: [],
-            current_route_segment: "",
-            current_route_segment_traffic: nil,
-            current_route_segment_version: nil,
-            current_route_segment_end_point: nil,
-            remaining_distance_meters: nil,
-            eta_to_first_waypoint: nil,
-            remaining_time_seconds: nil,
-            waypoints: [],
-            waypoints_version: nil,
-            back_to_back_enabled: false,
-            navigation_status: :UNKNOWN_NAVIGATION_STATUS,
-            device_settings: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -227,17 +141,7 @@ defmodule Maps.Fleetengine.V1.Vehicle do
 end
 defmodule Maps.Fleetengine.V1.BatteryInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          battery_status: Maps.Fleetengine.V1.BatteryStatus.t(),
-          power_source: Maps.Fleetengine.V1.PowerSource.t(),
-          battery_percentage: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct battery_status: :UNKNOWN_BATTERY_STATUS,
-            power_source: :UNKNOWN_POWER_SOURCE,
-            battery_percentage: 0.0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :battery_status, 1,
     type: Maps.Fleetengine.V1.BatteryStatus,
@@ -253,19 +157,7 @@ defmodule Maps.Fleetengine.V1.BatteryInfo do
 end
 defmodule Maps.Fleetengine.V1.DeviceSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          location_power_save_mode: Maps.Fleetengine.V1.LocationPowerSaveMode.t(),
-          is_power_save_mode: boolean,
-          is_interactive: boolean,
-          battery_info: Maps.Fleetengine.V1.BatteryInfo.t() | nil
-        }
-
-  defstruct location_power_save_mode: :UNKNOWN_LOCATION_POWER_SAVE_MODE,
-            is_power_save_mode: false,
-            is_interactive: false,
-            battery_info: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :location_power_save_mode, 1,
     type: Maps.Fleetengine.V1.LocationPowerSaveMode,
@@ -278,32 +170,14 @@ defmodule Maps.Fleetengine.V1.DeviceSettings do
 end
 defmodule Maps.Fleetengine.V1.LicensePlate do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          country_code: String.t(),
-          last_character: String.t()
-        }
-
-  defstruct country_code: "",
-            last_character: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :country_code, 1, type: :string, json_name: "countryCode", deprecated: false
   field :last_character, 2, type: :string, json_name: "lastCharacter"
 end
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          style: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style.t(),
-          offset_meters: integer,
-          length_meters: integer
-        }
-
-  defstruct style: :STYLE_UNSPECIFIED,
-            offset_meters: 0,
-            length_meters: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :style, 1,
     type: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style,
@@ -315,13 +189,7 @@ defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch d
 end
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          road_stretch: [Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.t()]
-        }
-
-  defstruct road_stretch: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :road_stretch, 1,
     repeated: true,
@@ -331,13 +199,7 @@ defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering do
 end
 defmodule Maps.Fleetengine.V1.TrafficPolylineData do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          traffic_rendering: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.t() | nil
-        }
-
-  defstruct traffic_rendering: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :traffic_rendering, 1,
     type: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering,

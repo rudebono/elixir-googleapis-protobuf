@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :EVENT_SOURCE_UNSPECIFIED | :AUTOML | :ECOMMERCE | :BATCH_UPLOAD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :EVENT_SOURCE_UNSPECIFIED, 0
   field :AUTOML, 1
@@ -11,24 +9,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          event_type: String.t(),
-          user_info: Google.Cloud.Recommendationengine.V1beta1.UserInfo.t() | nil,
-          event_detail: Google.Cloud.Recommendationengine.V1beta1.EventDetail.t() | nil,
-          product_event_detail:
-            Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail.t() | nil,
-          event_time: Google.Protobuf.Timestamp.t() | nil,
-          event_source: Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource.t()
-        }
-
-  defstruct event_type: "",
-            user_info: nil,
-            event_detail: nil,
-            product_event_detail: nil,
-            event_time: nil,
-            event_source: :EVENT_SOURCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
 
@@ -57,21 +38,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          visitor_id: String.t(),
-          user_id: String.t(),
-          ip_address: String.t(),
-          user_agent: String.t(),
-          direct_user_request: boolean
-        }
-
-  defstruct visitor_id: "",
-            user_id: "",
-            ip_address: "",
-            user_agent: "",
-            direct_user_request: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :visitor_id, 1, type: :string, json_name: "visitorId", deprecated: false
   field :user_id, 2, type: :string, json_name: "userId", deprecated: false
@@ -81,23 +48,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.UserInfo do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.EventDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          uri: String.t(),
-          referrer_uri: String.t(),
-          page_view_id: String.t(),
-          experiment_ids: [String.t()],
-          recommendation_token: String.t(),
-          event_attributes: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.t() | nil
-        }
-
-  defstruct uri: "",
-            referrer_uri: "",
-            page_view_id: "",
-            experiment_ids: [],
-            recommendation_token: "",
-            event_attributes: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :referrer_uri, 6, type: :string, json_name: "referrerUri", deprecated: false
@@ -121,26 +72,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.EventDetail do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          search_query: String.t(),
-          page_categories: [
-            Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy.t()
-          ],
-          product_details: [Google.Cloud.Recommendationengine.V1beta1.ProductDetail.t()],
-          list_id: String.t(),
-          cart_id: String.t(),
-          purchase_transaction:
-            Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.t() | nil
-        }
-
-  defstruct search_query: "",
-            page_categories: [],
-            product_details: [],
-            list_id: "",
-            cart_id: "",
-            purchase_transaction: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :search_query, 1, type: :string, json_name: "searchQuery"
 
@@ -164,51 +96,21 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.TaxesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct key: "",
-            value: 0.0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.CostsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: float | :infinity | :negative_infinity | :nan
-        }
-
-  defstruct key: "",
-            value: 0.0
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          revenue: float | :infinity | :negative_infinity | :nan,
-          taxes: %{String.t() => float | :infinity | :negative_infinity | :nan},
-          costs: %{String.t() => float | :infinity | :negative_infinity | :nan},
-          currency_code: String.t()
-        }
-
-  defstruct id: "",
-            revenue: 0.0,
-            taxes: %{},
-            costs: %{},
-            currency_code: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :revenue, 2, type: :float, deprecated: false
@@ -229,28 +131,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction do
 end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductDetail do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          currency_code: String.t(),
-          original_price: float | :infinity | :negative_infinity | :nan,
-          display_price: float | :infinity | :negative_infinity | :nan,
-          stock_state:
-            Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.StockState.t(),
-          quantity: integer,
-          available_quantity: integer,
-          item_attributes: Google.Cloud.Recommendationengine.V1beta1.FeatureMap.t() | nil
-        }
-
-  defstruct id: "",
-            currency_code: "",
-            original_price: 0.0,
-            display_price: 0.0,
-            stock_state: :STOCK_STATE_UNSPECIFIED,
-            quantity: 0,
-            available_quantity: 0,
-            item_attributes: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :currency_code, 2, type: :string, json_name: "currencyCode", deprecated: false

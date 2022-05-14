@@ -1,28 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.Aggregation.Aligner do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ALIGN_NONE
-          | :ALIGN_DELTA
-          | :ALIGN_RATE
-          | :ALIGN_INTERPOLATE
-          | :ALIGN_NEXT_OLDER
-          | :ALIGN_MIN
-          | :ALIGN_MAX
-          | :ALIGN_MEAN
-          | :ALIGN_COUNT
-          | :ALIGN_SUM
-          | :ALIGN_STDDEV
-          | :ALIGN_COUNT_TRUE
-          | :ALIGN_COUNT_FALSE
-          | :ALIGN_FRACTION_TRUE
-          | :ALIGN_PERCENTILE_99
-          | :ALIGN_PERCENTILE_95
-          | :ALIGN_PERCENTILE_50
-          | :ALIGN_PERCENTILE_05
-          | :ALIGN_PERCENT_CHANGE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ALIGN_NONE, 0
   field :ALIGN_DELTA, 1
@@ -46,24 +24,7 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation.Aligner do
 end
 defmodule Google.Monitoring.Dashboard.V1.Aggregation.Reducer do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :REDUCE_NONE
-          | :REDUCE_MEAN
-          | :REDUCE_MIN
-          | :REDUCE_MAX
-          | :REDUCE_SUM
-          | :REDUCE_STDDEV
-          | :REDUCE_COUNT
-          | :REDUCE_COUNT_TRUE
-          | :REDUCE_COUNT_FALSE
-          | :REDUCE_FRACTION_TRUE
-          | :REDUCE_PERCENTILE_99
-          | :REDUCE_PERCENTILE_95
-          | :REDUCE_PERCENTILE_50
-          | :REDUCE_PERCENTILE_05
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :REDUCE_NONE, 0
   field :REDUCE_MEAN, 1
@@ -82,16 +43,7 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation.Reducer do
 end
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :METHOD_UNSPECIFIED
-          | :METHOD_MEAN
-          | :METHOD_MAX
-          | :METHOD_MIN
-          | :METHOD_SUM
-          | :METHOD_LATEST
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :METHOD_MEAN, 1
@@ -102,9 +54,7 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method do
 end
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DIRECTION_UNSPECIFIED | :TOP | :BOTTOM
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :TOP, 1
@@ -112,28 +62,14 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction do
 end
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METHOD_UNSPECIFIED | :METHOD_CLUSTER_OUTLIER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :METHOD_CLUSTER_OUTLIER, 1
 end
 defmodule Google.Monitoring.Dashboard.V1.Aggregation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          alignment_period: Google.Protobuf.Duration.t() | nil,
-          per_series_aligner: Google.Monitoring.Dashboard.V1.Aggregation.Aligner.t(),
-          cross_series_reducer: Google.Monitoring.Dashboard.V1.Aggregation.Reducer.t(),
-          group_by_fields: [String.t()]
-        }
-
-  defstruct alignment_period: nil,
-            per_series_aligner: :ALIGN_NONE,
-            cross_series_reducer: :REDUCE_NONE,
-            group_by_fields: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 
@@ -151,17 +87,7 @@ defmodule Google.Monitoring.Dashboard.V1.Aggregation do
 end
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ranking_method: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method.t(),
-          num_time_series: integer,
-          direction: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction.t()
-        }
-
-  defstruct ranking_method: :METHOD_UNSPECIFIED,
-            num_time_series: 0,
-            direction: :DIRECTION_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method,
@@ -176,15 +102,7 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
 end
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          ranking_method: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method.t(),
-          num_time_series: integer
-        }
-
-  defstruct ranking_method: :METHOD_UNSPECIFIED,
-            num_time_series: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method,

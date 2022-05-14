@@ -1,8 +1,6 @@
 defmodule Google.Ads.Googleads.V8.Enums.CustomInterestTypeEnum.CustomInterestType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNSPECIFIED | :UNKNOWN | :CUSTOM_AFFINITY | :CUSTOM_INTENT
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -11,9 +9,5 @@ defmodule Google.Ads.Googleads.V8.Enums.CustomInterestTypeEnum.CustomInterestTyp
 end
 defmodule Google.Ads.Googleads.V8.Enums.CustomInterestTypeEnum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

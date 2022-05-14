@@ -1,42 +1,20 @@
 defmodule Google.Gapic.Metadata.GapicMetadata.ServicesEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport
 end
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.ServiceAsClient
 end
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          clients: %{String.t() => Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.t() | nil}
-        }
-
-  defstruct clients: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :clients, 1,
     repeated: true,
@@ -45,30 +23,14 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
 end
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: Google.Gapic.Metadata.GapicMetadata.MethodList.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Gapic.Metadata.GapicMetadata.MethodList
 end
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          library_client: String.t(),
-          rpcs: %{String.t() => Google.Gapic.Metadata.GapicMetadata.MethodList.t() | nil}
-        }
-
-  defstruct library_client: "",
-            rpcs: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :library_client, 1, type: :string, json_name: "libraryClient"
 
@@ -79,37 +41,13 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient do
 end
 defmodule Google.Gapic.Metadata.GapicMetadata.MethodList do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          methods: [String.t()]
-        }
-
-  defstruct methods: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :methods, 1, repeated: true, type: :string
 end
 defmodule Google.Gapic.Metadata.GapicMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          schema: String.t(),
-          comment: String.t(),
-          language: String.t(),
-          proto_package: String.t(),
-          library_package: String.t(),
-          services: %{
-            String.t() => Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.t() | nil
-          }
-        }
-
-  defstruct schema: "",
-            comment: "",
-            language: "",
-            proto_package: "",
-            library_package: "",
-            services: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :schema, 1, type: :string
   field :comment, 2, type: :string

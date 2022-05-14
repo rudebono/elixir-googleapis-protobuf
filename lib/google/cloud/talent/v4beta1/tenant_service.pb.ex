@@ -1,70 +1,32 @@
 defmodule Google.Cloud.Talent.V4beta1.CreateTenantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          tenant: Google.Cloud.Talent.V4beta1.Tenant.t() | nil
-        }
-
-  defstruct parent: "",
-            tenant: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tenant, 2, type: Google.Cloud.Talent.V4beta1.Tenant, deprecated: false
 end
 defmodule Google.Cloud.Talent.V4beta1.GetTenantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Talent.V4beta1.UpdateTenantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tenant: Google.Cloud.Talent.V4beta1.Tenant.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct tenant: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tenant, 1, type: Google.Cloud.Talent.V4beta1.Tenant, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 defmodule Google.Cloud.Talent.V4beta1.DeleteTenantRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Talent.V4beta1.ListTenantsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_token: String.t(),
-          page_size: integer
-        }
-
-  defstruct parent: "",
-            page_token: "",
-            page_size: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -72,17 +34,7 @@ defmodule Google.Cloud.Talent.V4beta1.ListTenantsRequest do
 end
 defmodule Google.Cloud.Talent.V4beta1.ListTenantsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          tenants: [Google.Cloud.Talent.V4beta1.Tenant.t()],
-          next_page_token: String.t(),
-          metadata: Google.Cloud.Talent.V4beta1.ResponseMetadata.t() | nil
-        }
-
-  defstruct tenants: [],
-            next_page_token: "",
-            metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :tenants, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Tenant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -90,7 +42,9 @@ defmodule Google.Cloud.Talent.V4beta1.ListTenantsResponse do
 end
 defmodule Google.Cloud.Talent.V4beta1.TenantService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.talent.v4beta1.TenantService"
+  use GRPC.Service,
+    name: "google.cloud.talent.v4beta1.TenantService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTenant,
       Google.Cloud.Talent.V4beta1.CreateTenantRequest,

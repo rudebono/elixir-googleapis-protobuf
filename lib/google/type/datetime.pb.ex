@@ -1,28 +1,6 @@
 defmodule Google.Type.DateTime do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          time_offset:
-            {:utc_offset, Google.Protobuf.Duration.t() | nil}
-            | {:time_zone, Google.Type.TimeZone.t() | nil},
-          year: integer,
-          month: integer,
-          day: integer,
-          hours: integer,
-          minutes: integer,
-          seconds: integer,
-          nanos: integer
-        }
-
-  defstruct time_offset: nil,
-            year: 0,
-            month: 0,
-            day: 0,
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-            nanos: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :time_offset, 0
 
@@ -38,15 +16,7 @@ defmodule Google.Type.DateTime do
 end
 defmodule Google.Type.TimeZone do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id: String.t(),
-          version: String.t()
-        }
-
-  defstruct id: "",
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :version, 2, type: :string

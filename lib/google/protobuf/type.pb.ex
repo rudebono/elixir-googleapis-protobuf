@@ -1,37 +1,13 @@
 defmodule Google.Protobuf.Syntax do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SYNTAX_PROTO2 | :SYNTAX_PROTO3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SYNTAX_PROTO2, 0
   field :SYNTAX_PROTO3, 1
 end
 defmodule Google.Protobuf.Field.Kind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :TYPE_UNKNOWN
-          | :TYPE_DOUBLE
-          | :TYPE_FLOAT
-          | :TYPE_INT64
-          | :TYPE_UINT64
-          | :TYPE_INT32
-          | :TYPE_FIXED64
-          | :TYPE_FIXED32
-          | :TYPE_BOOL
-          | :TYPE_STRING
-          | :TYPE_GROUP
-          | :TYPE_MESSAGE
-          | :TYPE_BYTES
-          | :TYPE_UINT32
-          | :TYPE_ENUM
-          | :TYPE_SFIXED32
-          | :TYPE_SFIXED64
-          | :TYPE_SINT32
-          | :TYPE_SINT64
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TYPE_UNKNOWN, 0
   field :TYPE_DOUBLE, 1
@@ -55,14 +31,7 @@ defmodule Google.Protobuf.Field.Kind do
 end
 defmodule Google.Protobuf.Field.Cardinality do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CARDINALITY_UNKNOWN
-          | :CARDINALITY_OPTIONAL
-          | :CARDINALITY_REQUIRED
-          | :CARDINALITY_REPEATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CARDINALITY_UNKNOWN, 0
   field :CARDINALITY_OPTIONAL, 1
@@ -71,23 +40,7 @@ defmodule Google.Protobuf.Field.Cardinality do
 end
 defmodule Google.Protobuf.Type do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          fields: [Google.Protobuf.Field.t()],
-          oneofs: [String.t()],
-          options: [Google.Protobuf.Option.t()],
-          source_context: Google.Protobuf.SourceContext.t() | nil,
-          syntax: Google.Protobuf.Syntax.t()
-        }
-
-  defstruct name: "",
-            fields: [],
-            oneofs: [],
-            options: [],
-            source_context: nil,
-            syntax: :SYNTAX_PROTO2
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Protobuf.Field
@@ -98,31 +51,7 @@ defmodule Google.Protobuf.Type do
 end
 defmodule Google.Protobuf.Field do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: Google.Protobuf.Field.Kind.t(),
-          cardinality: Google.Protobuf.Field.Cardinality.t(),
-          number: integer,
-          name: String.t(),
-          type_url: String.t(),
-          oneof_index: integer,
-          packed: boolean,
-          options: [Google.Protobuf.Option.t()],
-          json_name: String.t(),
-          default_value: String.t()
-        }
-
-  defstruct kind: :TYPE_UNKNOWN,
-            cardinality: :CARDINALITY_UNKNOWN,
-            number: 0,
-            name: "",
-            type_url: "",
-            oneof_index: 0,
-            packed: false,
-            options: [],
-            json_name: "",
-            default_value: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: Google.Protobuf.Field.Kind, enum: true
   field :cardinality, 2, type: Google.Protobuf.Field.Cardinality, enum: true
@@ -137,21 +66,7 @@ defmodule Google.Protobuf.Field do
 end
 defmodule Google.Protobuf.Enum do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          enumvalue: [Google.Protobuf.EnumValue.t()],
-          options: [Google.Protobuf.Option.t()],
-          source_context: Google.Protobuf.SourceContext.t() | nil,
-          syntax: Google.Protobuf.Syntax.t()
-        }
-
-  defstruct name: "",
-            enumvalue: [],
-            options: [],
-            source_context: nil,
-            syntax: :SYNTAX_PROTO2
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :enumvalue, 2, repeated: true, type: Google.Protobuf.EnumValue
@@ -161,17 +76,7 @@ defmodule Google.Protobuf.Enum do
 end
 defmodule Google.Protobuf.EnumValue do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          number: integer,
-          options: [Google.Protobuf.Option.t()]
-        }
-
-  defstruct name: "",
-            number: 0,
-            options: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :number, 2, type: :int32
@@ -179,15 +84,7 @@ defmodule Google.Protobuf.EnumValue do
 end
 defmodule Google.Protobuf.Option do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          value: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct name: "",
-            value: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any

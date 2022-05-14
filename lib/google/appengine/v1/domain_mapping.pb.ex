@@ -1,8 +1,6 @@
 defmodule Google.Appengine.V1.SslSettings.SslManagementType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :SSL_MANAGEMENT_TYPE_UNSPECIFIED | :AUTOMATIC | :MANUAL
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :SSL_MANAGEMENT_TYPE_UNSPECIFIED, 0
   field :AUTOMATIC, 1
@@ -10,9 +8,7 @@ defmodule Google.Appengine.V1.SslSettings.SslManagementType do
 end
 defmodule Google.Appengine.V1.ResourceRecord.RecordType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :RECORD_TYPE_UNSPECIFIED | :A | :AAAA | :CNAME
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :RECORD_TYPE_UNSPECIFIED, 0
   field :A, 1
@@ -21,19 +17,7 @@ defmodule Google.Appengine.V1.ResourceRecord.RecordType do
 end
 defmodule Google.Appengine.V1.DomainMapping do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          id: String.t(),
-          ssl_settings: Google.Appengine.V1.SslSettings.t() | nil,
-          resource_records: [Google.Appengine.V1.ResourceRecord.t()]
-        }
-
-  defstruct name: "",
-            id: "",
-            ssl_settings: nil,
-            resource_records: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -46,17 +30,7 @@ defmodule Google.Appengine.V1.DomainMapping do
 end
 defmodule Google.Appengine.V1.SslSettings do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          certificate_id: String.t(),
-          ssl_management_type: Google.Appengine.V1.SslSettings.SslManagementType.t(),
-          pending_managed_certificate_id: String.t()
-        }
-
-  defstruct certificate_id: "",
-            ssl_management_type: :SSL_MANAGEMENT_TYPE_UNSPECIFIED,
-            pending_managed_certificate_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :certificate_id, 1, type: :string, json_name: "certificateId"
 
@@ -71,17 +45,7 @@ defmodule Google.Appengine.V1.SslSettings do
 end
 defmodule Google.Appengine.V1.ResourceRecord do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          rrdata: String.t(),
-          type: Google.Appengine.V1.ResourceRecord.RecordType.t()
-        }
-
-  defstruct name: "",
-            rrdata: "",
-            type: :RECORD_TYPE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :rrdata, 2, type: :string

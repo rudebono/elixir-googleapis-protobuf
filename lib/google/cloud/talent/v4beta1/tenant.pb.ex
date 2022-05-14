@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Talent.V4beta1.Tenant.DataUsageType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :DATA_USAGE_TYPE_UNSPECIFIED | :AGGREGATED | :ISOLATED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DATA_USAGE_TYPE_UNSPECIFIED, 0
   field :AGGREGATED, 1
@@ -10,19 +8,7 @@ defmodule Google.Cloud.Talent.V4beta1.Tenant.DataUsageType do
 end
 defmodule Google.Cloud.Talent.V4beta1.Tenant do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          external_id: String.t(),
-          usage_type: Google.Cloud.Talent.V4beta1.Tenant.DataUsageType.t(),
-          keyword_searchable_profile_custom_attributes: [String.t()]
-        }
-
-  defstruct name: "",
-            external_id: "",
-            usage_type: :DATA_USAGE_TYPE_UNSPECIFIED,
-            keyword_searchable_profile_custom_attributes: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :external_id, 2, type: :string, json_name: "externalId", deprecated: false

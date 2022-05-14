@@ -1,33 +1,13 @@
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :ACTIVE
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          primary_contact: String.t(),
-          documentation: String.t(),
-          listing_count: integer,
-          icon: binary
-        }
-
-  defstruct name: "",
-            display_name: "",
-            description: "",
-            primary_contact: "",
-            documentation: "",
-            listing_count: 0,
-            icon: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -39,82 +19,35 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DataProvider do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          primary_contact: String.t()
-        }
-
-  defstruct name: "",
-            primary_contact: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :primary_contact, 2, type: :string, json_name: "primaryContact", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.Publisher do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          primary_contact: String.t()
-        }
-
-  defstruct name: "",
-            primary_contact: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :primary_contact, 2, type: :string, json_name: "primaryContact", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDatasetReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_id: String.t(),
-          project_id: String.t()
-        }
-
-  defstruct dataset_id: "",
-            project_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDataset.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDataset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset_reference:
-            Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDatasetReference.t() | nil,
-          friendly_name: Google.Protobuf.StringValue.t() | nil,
-          description: Google.Protobuf.StringValue.t() | nil,
-          labels: %{String.t() => String.t()},
-          location: String.t()
-        }
-
-  defstruct dataset_reference: nil,
-            friendly_name: nil,
-            description: nil,
-            labels: %{},
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset_reference, 1,
     type: Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDatasetReference,
@@ -138,49 +71,13 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDataset do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.BigQueryDatasetSource do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          dataset: String.t()
-        }
-
-  defstruct dataset: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          source:
-            {:bigquery_dataset,
-             Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.BigQueryDatasetSource.t() | nil},
-          name: String.t(),
-          display_name: String.t(),
-          description: String.t(),
-          primary_contact: String.t(),
-          documentation: String.t(),
-          state: Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.State.t(),
-          icon: binary,
-          data_provider: Google.Cloud.Bigquery.Dataexchange.V1beta1.DataProvider.t() | nil,
-          categories: [Google.Cloud.Bigquery.Dataexchange.Common.Category.t()],
-          publisher: Google.Cloud.Bigquery.Dataexchange.V1beta1.Publisher.t() | nil,
-          request_access: String.t()
-        }
-
-  defstruct source: nil,
-            name: "",
-            display_name: "",
-            description: "",
-            primary_contact: "",
-            documentation: "",
-            state: :STATE_UNSPECIFIED,
-            icon: "",
-            data_provider: nil,
-            categories: [],
-            publisher: nil,
-            request_access: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -222,17 +119,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListDataExchangesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -240,15 +127,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListDataExchangesRequest do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListDataExchangesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_exchanges: [Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct data_exchanges: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_exchanges, 1,
     repeated: true,
@@ -259,17 +138,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListDataExchangesResponse d
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListOrgDataExchangesRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          organization: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct organization: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :organization, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -277,15 +146,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListOrgDataExchangesRequest
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListOrgDataExchangesResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          data_exchanges: [Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct data_exchanges: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :data_exchanges, 1,
     repeated: true,
@@ -296,29 +157,13 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListOrgDataExchangesRespons
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.GetDataExchangeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.CreateDataExchangeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          data_exchange_id: String.t(),
-          data_exchange: Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange.t() | nil
-        }
-
-  defstruct parent: "",
-            data_exchange_id: "",
-            data_exchange: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_exchange_id, 2, type: :string, json_name: "dataExchangeId", deprecated: false
@@ -330,15 +175,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.CreateDataExchangeRequest d
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.UpdateDataExchangeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          data_exchange: Google.Cloud.Bigquery.Dataexchange.V1beta1.DataExchange.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            data_exchange: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -352,29 +189,13 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.UpdateDataExchangeRequest d
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DeleteDataExchangeRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListListingsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -382,44 +203,20 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListListingsRequest do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.ListListingsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          listings: [Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct listings: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :listings, 1, repeated: true, type: Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.GetListingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.CreateListingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          listing_id: String.t(),
-          listing: Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.t() | nil
-        }
-
-  defstruct parent: "",
-            listing_id: "",
-            listing: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :listing_id, 2, type: :string, json_name: "listingId", deprecated: false
@@ -427,15 +224,7 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.CreateListingRequest do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.UpdateListingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          update_mask: Google.Protobuf.FieldMask.t() | nil,
-          listing: Google.Cloud.Bigquery.Dataexchange.V1beta1.Listing.t() | nil
-        }
-
-  defstruct update_mask: nil,
-            listing: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -446,29 +235,13 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.UpdateListingRequest do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.DeleteListingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.SubscribeListingRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          destination:
-            {:destination_dataset,
-             Google.Cloud.Bigquery.Dataexchange.V1beta1.DestinationDataset.t() | nil},
-          name: String.t()
-        }
-
-  defstruct destination: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -481,15 +254,13 @@ defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.SubscribeListingRequest do
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.SubscribeListingResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Bigquery.Dataexchange.V1beta1.AnalyticsHubService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.bigquery.dataexchange.v1beta1.AnalyticsHubService"
+  use GRPC.Service,
+    name: "google.cloud.bigquery.dataexchange.v1beta1.AnalyticsHubService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :ListDataExchanges,
       Google.Cloud.Bigquery.Dataexchange.V1beta1.ListDataExchangesRequest,

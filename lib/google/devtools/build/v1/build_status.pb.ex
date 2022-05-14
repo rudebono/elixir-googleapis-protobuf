@@ -1,18 +1,6 @@
 defmodule Google.Devtools.Build.V1.BuildStatus.Result do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :UNKNOWN_STATUS
-          | :COMMAND_SUCCEEDED
-          | :COMMAND_FAILED
-          | :USER_ERROR
-          | :SYSTEM_ERROR
-          | :RESOURCE_EXHAUSTED
-          | :INVOCATION_DEADLINE_EXCEEDED
-          | :REQUEST_DEADLINE_EXCEEDED
-          | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN_STATUS, 0
   field :COMMAND_SUCCEEDED, 1
@@ -26,19 +14,7 @@ defmodule Google.Devtools.Build.V1.BuildStatus.Result do
 end
 defmodule Google.Devtools.Build.V1.BuildStatus do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          result: Google.Devtools.Build.V1.BuildStatus.Result.t(),
-          final_invocation_id: String.t(),
-          build_tool_exit_code: Google.Protobuf.Int32Value.t() | nil,
-          details: Google.Protobuf.Any.t() | nil
-        }
-
-  defstruct result: :UNKNOWN_STATUS,
-            final_invocation_id: "",
-            build_tool_exit_code: nil,
-            details: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :result, 1, type: Google.Devtools.Build.V1.BuildStatus.Result, enum: true
   field :final_invocation_id, 3, type: :string, json_name: "finalInvocationId"

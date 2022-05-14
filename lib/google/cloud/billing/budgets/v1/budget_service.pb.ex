@@ -1,29 +1,13 @@
 defmodule Google.Cloud.Billing.Budgets.V1.CreateBudgetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          budget: Google.Cloud.Billing.Budgets.V1.Budget.t() | nil
-        }
-
-  defstruct parent: "",
-            budget: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :budget, 2, type: Google.Cloud.Billing.Budgets.V1.Budget, deprecated: false
 end
 defmodule Google.Cloud.Billing.Budgets.V1.UpdateBudgetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          budget: Google.Cloud.Billing.Budgets.V1.Budget.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct budget: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :budget, 1, type: Google.Cloud.Billing.Budgets.V1.Budget, deprecated: false
 
@@ -34,29 +18,13 @@ defmodule Google.Cloud.Billing.Budgets.V1.UpdateBudgetRequest do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.GetBudgetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -64,34 +32,22 @@ defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsRequest do
 end
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          budgets: [Google.Cloud.Billing.Budgets.V1.Budget.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct budgets: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :budgets, 1, repeated: true, type: Google.Cloud.Billing.Budgets.V1.Budget
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Billing.Budgets.V1.DeleteBudgetRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Billing.Budgets.V1.BudgetService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.billing.budgets.v1.BudgetService"
+  use GRPC.Service,
+    name: "google.cloud.billing.budgets.v1.BudgetService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateBudget,
       Google.Cloud.Billing.Budgets.V1.CreateBudgetRequest,

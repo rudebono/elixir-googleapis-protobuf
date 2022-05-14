@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :NAMED_TARGET_UNSPECIFIED | :TAIL | :HEAD
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :NAMED_TARGET_UNSPECIFIED, 0
   field :TAIL, 1
@@ -10,17 +8,7 @@ defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget do
 end
 defmodule Google.Cloud.Pubsublite.V1.CreateTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          topic: Google.Cloud.Pubsublite.V1.Topic.t() | nil,
-          topic_id: String.t()
-        }
-
-  defstruct parent: "",
-            topic: nil,
-            topic_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :topic, 2, type: Google.Cloud.Pubsublite.V1.Topic, deprecated: false
@@ -28,53 +16,25 @@ defmodule Google.Cloud.Pubsublite.V1.CreateTopicRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.GetTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.GetTopicPartitionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.TopicPartitions do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          partition_count: integer
-        }
-
-  defstruct partition_count: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :partition_count, 1, type: :int64, json_name: "partitionCount"
 end
 defmodule Google.Cloud.Pubsublite.V1.ListTopicsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -82,30 +42,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.ListTopicsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topics: [Google.Cloud.Pubsublite.V1.Topic.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct topics: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topics, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Topic
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Pubsublite.V1.UpdateTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topic: Google.Cloud.Pubsublite.V1.Topic.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct topic: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topic, 1, type: Google.Cloud.Pubsublite.V1.Topic, deprecated: false
 
@@ -116,29 +60,13 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateTopicRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.DeleteTopicRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -146,34 +74,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.ListTopicSubscriptionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscriptions: [String.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct subscriptions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Pubsublite.V1.CreateSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          subscription: Google.Cloud.Pubsublite.V1.Subscription.t() | nil,
-          subscription_id: String.t(),
-          skip_backlog: boolean
-        }
-
-  defstruct parent: "",
-            subscription: nil,
-            subscription_id: "",
-            skip_backlog: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :subscription, 2, type: Google.Cloud.Pubsublite.V1.Subscription, deprecated: false
@@ -182,29 +90,13 @@ defmodule Google.Cloud.Pubsublite.V1.CreateSubscriptionRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.GetSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -212,30 +104,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.ListSubscriptionsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscriptions: [Google.Cloud.Pubsublite.V1.Subscription.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct subscriptions: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Subscription
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Pubsublite.V1.UpdateSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          subscription: Google.Cloud.Pubsublite.V1.Subscription.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct subscription: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :subscription, 1, type: Google.Cloud.Pubsublite.V1.Subscription, deprecated: false
 
@@ -246,29 +122,13 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateSubscriptionRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.DeleteSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          target:
-            {:named_target, Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest.NamedTarget.t()}
-            | {:time_target, Google.Cloud.Pubsublite.V1.TimeTarget.t() | nil},
-          name: String.t()
-        }
-
-  defstruct target: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -287,27 +147,11 @@ defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.SeekSubscriptionResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{}
-
-  defstruct []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Pubsublite.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          create_time: Google.Protobuf.Timestamp.t() | nil,
-          end_time: Google.Protobuf.Timestamp.t() | nil,
-          target: String.t(),
-          verb: String.t()
-        }
-
-  defstruct create_time: nil,
-            end_time: nil,
-            target: "",
-            verb: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -316,17 +160,7 @@ defmodule Google.Cloud.Pubsublite.V1.OperationMetadata do
 end
 defmodule Google.Cloud.Pubsublite.V1.CreateReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          reservation: Google.Cloud.Pubsublite.V1.Reservation.t() | nil,
-          reservation_id: String.t()
-        }
-
-  defstruct parent: "",
-            reservation: nil,
-            reservation_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :reservation, 2, type: Google.Cloud.Pubsublite.V1.Reservation, deprecated: false
@@ -334,29 +168,13 @@ defmodule Google.Cloud.Pubsublite.V1.CreateReservationRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.GetReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.ListReservationsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parent: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct parent: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -364,30 +182,14 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.ListReservationsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reservations: [Google.Cloud.Pubsublite.V1.Reservation.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct reservations: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reservations, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.Reservation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Pubsublite.V1.UpdateReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          reservation: Google.Cloud.Pubsublite.V1.Reservation.t() | nil,
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct reservation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :reservation, 1, type: Google.Cloud.Pubsublite.V1.Reservation, deprecated: false
 
@@ -398,29 +200,13 @@ defmodule Google.Cloud.Pubsublite.V1.UpdateReservationRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.DeleteReservationRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t()
-        }
-
-  defstruct name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          page_size: integer,
-          page_token: String.t()
-        }
-
-  defstruct name: "",
-            page_size: 0,
-            page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -428,22 +214,16 @@ defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsRequest do
 end
 defmodule Google.Cloud.Pubsublite.V1.ListReservationTopicsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          topics: [String.t()],
-          next_page_token: String.t()
-        }
-
-  defstruct topics: [],
-            next_page_token: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :topics, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 defmodule Google.Cloud.Pubsublite.V1.AdminService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.pubsublite.v1.AdminService"
+  use GRPC.Service,
+    name: "google.cloud.pubsublite.v1.AdminService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateTopic,
       Google.Cloud.Pubsublite.V1.CreateTopicRequest,

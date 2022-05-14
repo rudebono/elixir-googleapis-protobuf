@@ -1,8 +1,6 @@
 defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :KIND_UNSPECIFIED | :FIXED | :MOVABLE | :OTHER
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :FIXED, 1
@@ -11,33 +9,14 @@ defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
 end
 defmodule Grafeas.V1beta1.Source.SourceContext.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Grafeas.V1beta1.Source.SourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          context:
-            {:cloud_repo, Grafeas.V1beta1.Source.CloudRepoSourceContext.t() | nil}
-            | {:gerrit, Grafeas.V1beta1.Source.GerritSourceContext.t() | nil}
-            | {:git, Grafeas.V1beta1.Source.GitSourceContext.t() | nil},
-          labels: %{String.t() => String.t()}
-        }
-
-  defstruct context: nil,
-            labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :context, 0
 
@@ -56,32 +35,14 @@ defmodule Grafeas.V1beta1.Source.SourceContext do
 end
 defmodule Grafeas.V1beta1.Source.AliasContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          kind: Grafeas.V1beta1.Source.AliasContext.Kind.t(),
-          name: String.t()
-        }
-
-  defstruct kind: :KIND_UNSPECIFIED,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :kind, 1, type: Grafeas.V1beta1.Source.AliasContext.Kind, enum: true
   field :name, 2, type: :string
 end
 defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision:
-            {:revision_id, String.t()}
-            | {:alias_context, Grafeas.V1beta1.Source.AliasContext.t() | nil},
-          repo_id: Grafeas.V1beta1.Source.RepoId.t() | nil
-        }
-
-  defstruct revision: nil,
-            repo_id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -95,19 +56,7 @@ defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
 end
 defmodule Grafeas.V1beta1.Source.GerritSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          revision:
-            {:revision_id, String.t()}
-            | {:alias_context, Grafeas.V1beta1.Source.AliasContext.t() | nil},
-          host_uri: String.t(),
-          gerrit_project: String.t()
-        }
-
-  defstruct revision: nil,
-            host_uri: "",
-            gerrit_project: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -122,30 +71,14 @@ defmodule Grafeas.V1beta1.Source.GerritSourceContext do
 end
 defmodule Grafeas.V1beta1.Source.GitSourceContext do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          url: String.t(),
-          revision_id: String.t()
-        }
-
-  defstruct url: "",
-            revision_id: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
 end
 defmodule Grafeas.V1beta1.Source.RepoId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          id:
-            {:project_repo_id, Grafeas.V1beta1.Source.ProjectRepoId.t() | nil}
-            | {:uid, String.t()}
-        }
-
-  defstruct id: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :id, 0
 
@@ -158,15 +91,7 @@ defmodule Grafeas.V1beta1.Source.RepoId do
 end
 defmodule Grafeas.V1beta1.Source.ProjectRepoId do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          repo_name: String.t()
-        }
-
-  defstruct project_id: "",
-            repo_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"

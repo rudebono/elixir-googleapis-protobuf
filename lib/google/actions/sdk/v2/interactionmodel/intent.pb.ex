@@ -1,26 +1,12 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_set: String.t()
-        }
-
-  defstruct entity_set: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_set, 1, type: :string, json_name: "entitySet", deprecated: false
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          entity_set_references: [
-            Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.EntitySetReference.t()
-          ]
-        }
-
-  defstruct entity_set_references: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :entity_set_references, 1,
     repeated: true,
@@ -31,19 +17,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySe
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameter_type:
-            {:type, Google.Actions.Sdk.V2.Interactionmodel.Type.ClassReference.t() | nil}
-            | {:entity_set_references,
-               Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.EntitySetReferences.t()
-               | nil},
-          name: String.t()
-        }
-
-  defstruct parameter_type: nil,
-            name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :parameter_type, 0
 
@@ -62,15 +36,7 @@ defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter do
 end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Intent do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameters: [Google.Actions.Sdk.V2.Interactionmodel.Intent.IntentParameter.t()],
-          training_phrases: [String.t()]
-        }
-
-  defstruct parameters: [],
-            training_phrases: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,

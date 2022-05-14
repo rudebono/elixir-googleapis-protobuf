@@ -1,16 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :CODE_UNSPECIFIED
-          | :INTERNAL_ERROR
-          | :SCAN_CONFIG_ISSUE
-          | :AUTHENTICATION_CONFIG_ISSUE
-          | :TIMED_OUT_WHILE_SCANNING
-          | :TOO_MANY_REDIRECTS
-          | :TOO_MANY_HTTP_ERRORS
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :INTERNAL_ERROR, 1
@@ -22,17 +12,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code do
 end
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          code: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code.t(),
-          scan_config_error: Google.Cloud.Websecurityscanner.V1.ScanConfigError.t() | nil,
-          most_common_http_error_code: integer
-        }
-
-  defstruct code: :CODE_UNSPECIFIED,
-            scan_config_error: nil,
-            most_common_http_error_code: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Websecurityscanner.V1.ScanRunErrorTrace.Code, enum: true
 

@@ -1,18 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.AssetSetAsset do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t(),
-          asset_set: String.t(),
-          asset: String.t(),
-          status: Google.Ads.Googleads.V10.Enums.AssetSetAssetStatusEnum.AssetSetAssetStatus.t()
-        }
-
-  defstruct resource_name: "",
-            asset_set: "",
-            asset: "",
-            status: :UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :asset_set, 2, type: :string, json_name: "assetSet", deprecated: false

@@ -1,14 +1,6 @@
 defmodule Google.Cloud.Policytroubleshooter.V1.AccessState do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ACCESS_STATE_UNSPECIFIED
-          | :GRANTED
-          | :NOT_GRANTED
-          | :UNKNOWN_CONDITIONAL
-          | :UNKNOWN_INFO_DENIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ACCESS_STATE_UNSPECIFIED, 0
   field :GRANTED, 1
@@ -18,9 +10,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessState do
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :HEURISTIC_RELEVANCE_UNSPECIFIED | :NORMAL | :HIGH
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :HEURISTIC_RELEVANCE_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -28,14 +18,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance do
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :ROLE_PERMISSION_UNSPECIFIED
-          | :ROLE_PERMISSION_INCLUDED
-          | :ROLE_PERMISSION_NOT_INCLUDED
-          | :ROLE_PERMISSION_UNKNOWN_INFO_DENIED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :ROLE_PERMISSION_UNSPECIFIED, 0
   field :ROLE_PERMISSION_INCLUDED, 1
@@ -44,15 +27,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :MEMBERSHIP_UNSPECIFIED
-          | :MEMBERSHIP_INCLUDED
-          | :MEMBERSHIP_NOT_INCLUDED
-          | :MEMBERSHIP_UNKNOWN_INFO_DENIED
-          | :MEMBERSHIP_UNKNOWN_UNSUPPORTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :MEMBERSHIP_UNSPECIFIED, 0
   field :MEMBERSHIP_INCLUDED, 1
@@ -62,17 +37,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          principal: String.t(),
-          full_resource_name: String.t(),
-          permission: String.t()
-        }
-
-  defstruct principal: "",
-            full_resource_name: "",
-            permission: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :principal, 1, type: :string, deprecated: false
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName", deprecated: false
@@ -80,21 +45,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access: Google.Cloud.Policytroubleshooter.V1.AccessState.t(),
-          full_resource_name: String.t(),
-          policy: Google.Iam.V1.Policy.t() | nil,
-          binding_explanations: [Google.Cloud.Policytroubleshooter.V1.BindingExplanation.t()],
-          relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t()
-        }
-
-  defstruct access: :ACCESS_STATE_UNSPECIFIED,
-            full_resource_name: "",
-            policy: nil,
-            binding_explanations: [],
-            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
@@ -109,15 +60,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          membership: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership.t(),
-          relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t()
-        }
-
-  defstruct membership: :MEMBERSHIP_UNSPECIFIED,
-            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :membership, 1,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership,
@@ -127,16 +70,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembe
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value:
-            Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership.t() | nil
-        }
-
-  defstruct key: "",
-            value: nil
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -145,30 +79,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEnt
 end
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          access: Google.Cloud.Policytroubleshooter.V1.AccessState.t(),
-          role: String.t(),
-          role_permission:
-            Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission.t(),
-          role_permission_relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t(),
-          memberships: %{
-            String.t() =>
-              Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership.t()
-              | nil
-          },
-          relevance: Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance.t(),
-          condition: Google.Type.Expr.t() | nil
-        }
-
-  defstruct access: :ACCESS_STATE_UNSPECIFIED,
-            role: "",
-            role_permission: :ROLE_PERMISSION_UNSPECIFIED,
-            role_permission_relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED,
-            memberships: %{},
-            relevance: :HEURISTIC_RELEVANCE_UNSPECIFIED,
-            condition: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :access, 1,
     type: Google.Cloud.Policytroubleshooter.V1.AccessState,

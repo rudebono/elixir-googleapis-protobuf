@@ -1,19 +1,6 @@
 defmodule Google.Dataflow.V1beta3.ParameterType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :DEFAULT
-          | :TEXT
-          | :GCS_READ_BUCKET
-          | :GCS_WRITE_BUCKET
-          | :GCS_READ_FILE
-          | :GCS_WRITE_FILE
-          | :GCS_READ_FOLDER
-          | :GCS_WRITE_FOLDER
-          | :PUBSUB_TOPIC
-          | :PUBSUB_SUBSCRIPTION
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :TEXT, 1
@@ -28,9 +15,7 @@ defmodule Google.Dataflow.V1beta3.ParameterType do
 end
 defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :JAVA | :PYTHON
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :JAVA, 1
@@ -38,17 +23,13 @@ defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
 end
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :METADATA_ONLY
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :METADATA_ONLY, 0
 end
 defmodule Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :UNKNOWN | :LEGACY | :FLEX
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :LEGACY, 1
@@ -56,31 +37,13 @@ defmodule Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType do
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job: Google.Dataflow.V1beta3.Job.t() | nil
-        }
-
-  defstruct job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
 end
 defmodule Google.Dataflow.V1beta3.ContainerSpec do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          image: String.t(),
-          metadata: Google.Dataflow.V1beta3.TemplateMetadata.t() | nil,
-          sdk_info: Google.Dataflow.V1beta3.SDKInfo.t() | nil,
-          default_environment: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.t() | nil
-        }
-
-  defstruct image: "",
-            metadata: nil,
-            sdk_info: nil,
-            default_environment: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :image, 1, type: :string
   field :metadata, 2, type: Google.Dataflow.V1beta3.TemplateMetadata
@@ -92,72 +55,28 @@ defmodule Google.Dataflow.V1beta3.ContainerSpec do
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.LaunchOptionsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.TransformNameMappingsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          template:
-            {:container_spec, Google.Dataflow.V1beta3.ContainerSpec.t() | nil}
-            | {:container_spec_gcs_path, String.t()},
-          job_name: String.t(),
-          parameters: %{String.t() => String.t()},
-          launch_options: %{String.t() => String.t()},
-          environment: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.t() | nil,
-          update: boolean,
-          transform_name_mappings: %{String.t() => String.t()}
-        }
-
-  defstruct template: nil,
-            job_name: "",
-            parameters: %{},
-            launch_options: %{},
-            environment: nil,
-            update: false,
-            transform_name_mappings: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -192,72 +111,14 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
 end
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.AdditionalUserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_workers: integer,
-          max_workers: integer,
-          zone: String.t(),
-          service_account_email: String.t(),
-          temp_location: String.t(),
-          machine_type: String.t(),
-          additional_experiments: [String.t()],
-          network: String.t(),
-          subnetwork: String.t(),
-          additional_user_labels: %{String.t() => String.t()},
-          kms_key_name: String.t(),
-          ip_configuration: Google.Dataflow.V1beta3.WorkerIPAddressConfiguration.t(),
-          worker_region: String.t(),
-          worker_zone: String.t(),
-          enable_streaming_engine: boolean,
-          flexrs_goal: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal.t(),
-          staging_location: String.t(),
-          sdk_container_image: String.t(),
-          disk_size_gb: integer,
-          autoscaling_algorithm: Google.Dataflow.V1beta3.AutoscalingAlgorithm.t(),
-          dump_heap_on_oom: boolean,
-          save_heap_dumps_to_gcs_path: String.t(),
-          launcher_machine_type: String.t()
-        }
-
-  defstruct num_workers: 0,
-            max_workers: 0,
-            zone: "",
-            service_account_email: "",
-            temp_location: "",
-            machine_type: "",
-            additional_experiments: [],
-            network: "",
-            subnetwork: "",
-            additional_user_labels: %{},
-            kms_key_name: "",
-            ip_configuration: :WORKER_IP_UNSPECIFIED,
-            worker_region: "",
-            worker_zone: "",
-            enable_streaming_engine: false,
-            flexrs_goal: :FLEXRS_UNSPECIFIED,
-            staging_location: "",
-            sdk_container_image: "",
-            disk_size_gb: 0,
-            autoscaling_algorithm: :AUTOSCALING_ALGORITHM_UNKNOWN,
-            dump_heap_on_oom: false,
-            save_heap_dumps_to_gcs_path: "",
-            launcher_machine_type: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_workers, 1, type: :int32, json_name: "numWorkers"
   field :max_workers, 2, type: :int32, json_name: "maxWorkers"
@@ -311,19 +172,7 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
 end
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          project_id: String.t(),
-          launch_parameter: Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.t() | nil,
-          location: String.t(),
-          validate_only: boolean
-        }
-
-  defstruct project_id: "",
-            launch_parameter: nil,
-            location: "",
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
 
@@ -336,58 +185,14 @@ defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
 end
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment.AdditionalUserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          num_workers: integer,
-          max_workers: integer,
-          zone: String.t(),
-          service_account_email: String.t(),
-          temp_location: String.t(),
-          bypass_temp_dir_validation: boolean,
-          machine_type: String.t(),
-          additional_experiments: [String.t()],
-          network: String.t(),
-          subnetwork: String.t(),
-          additional_user_labels: %{String.t() => String.t()},
-          kms_key_name: String.t(),
-          ip_configuration: Google.Dataflow.V1beta3.WorkerIPAddressConfiguration.t(),
-          worker_region: String.t(),
-          worker_zone: String.t(),
-          enable_streaming_engine: boolean
-        }
-
-  defstruct num_workers: 0,
-            max_workers: 0,
-            zone: "",
-            service_account_email: "",
-            temp_location: "",
-            bypass_temp_dir_validation: false,
-            machine_type: "",
-            additional_experiments: [],
-            network: "",
-            subnetwork: "",
-            additional_user_labels: %{},
-            kms_key_name: "",
-            ip_configuration: :WORKER_IP_UNSPECIFIED,
-            worker_region: "",
-            worker_zone: "",
-            enable_streaming_engine: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :num_workers, 11, type: :int32, json_name: "numWorkers"
   field :max_workers, 1, type: :int32, json_name: "maxWorkers"
@@ -424,40 +229,14 @@ defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
 end
 defmodule Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.ParameterMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          label: String.t(),
-          help_text: String.t(),
-          is_optional: boolean,
-          regexes: [String.t()],
-          param_type: Google.Dataflow.V1beta3.ParameterType.t(),
-          custom_metadata: %{String.t() => String.t()}
-        }
-
-  defstruct name: "",
-            label: "",
-            help_text: "",
-            is_optional: false,
-            regexes: [],
-            param_type: :DEFAULT,
-            custom_metadata: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :label, 2, type: :string
@@ -478,17 +257,7 @@ defmodule Google.Dataflow.V1beta3.ParameterMetadata do
 end
 defmodule Google.Dataflow.V1beta3.TemplateMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          name: String.t(),
-          description: String.t(),
-          parameters: [Google.Dataflow.V1beta3.ParameterMetadata.t()]
-        }
-
-  defstruct name: "",
-            description: "",
-            parameters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -496,68 +265,28 @@ defmodule Google.Dataflow.V1beta3.TemplateMetadata do
 end
 defmodule Google.Dataflow.V1beta3.SDKInfo do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          language: Google.Dataflow.V1beta3.SDKInfo.Language.t(),
-          version: String.t()
-        }
-
-  defstruct language: :UNKNOWN,
-            version: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :language, 1, type: Google.Dataflow.V1beta3.SDKInfo.Language, enum: true
   field :version, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.RuntimeMetadata do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          sdk_info: Google.Dataflow.V1beta3.SDKInfo.t() | nil,
-          parameters: [Google.Dataflow.V1beta3.ParameterMetadata.t()]
-        }
-
-  defstruct sdk_info: nil,
-            parameters: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :sdk_info, 1, type: Google.Dataflow.V1beta3.SDKInfo, json_name: "sdkInfo"
   field :parameters, 2, repeated: true, type: Google.Dataflow.V1beta3.ParameterMetadata
 end
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          template: {:gcs_path, String.t()},
-          project_id: String.t(),
-          job_name: String.t(),
-          parameters: %{String.t() => String.t()},
-          environment: Google.Dataflow.V1beta3.RuntimeEnvironment.t() | nil,
-          location: String.t()
-        }
-
-  defstruct template: nil,
-            project_id: "",
-            job_name: "",
-            parameters: %{},
-            environment: nil,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -575,19 +304,7 @@ defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
 end
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          template: {:gcs_path, String.t()},
-          project_id: String.t(),
-          view: Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView.t(),
-          location: String.t()
-        }
-
-  defstruct template: nil,
-            project_id: "",
-            view: :METADATA_ONLY,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -598,19 +315,7 @@ defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
 end
 defmodule Google.Dataflow.V1beta3.GetTemplateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          status: Google.Rpc.Status.t() | nil,
-          metadata: Google.Dataflow.V1beta3.TemplateMetadata.t() | nil,
-          template_type: Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType.t(),
-          runtime_metadata: Google.Dataflow.V1beta3.RuntimeMetadata.t() | nil
-        }
-
-  defstruct status: nil,
-            metadata: nil,
-            template_type: :UNKNOWN,
-            runtime_metadata: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :metadata, 2, type: Google.Dataflow.V1beta3.TemplateMetadata
@@ -626,51 +331,21 @@ defmodule Google.Dataflow.V1beta3.GetTemplateResponse do
 end
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.TransformNameMappingEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job_name: String.t(),
-          parameters: %{String.t() => String.t()},
-          environment: Google.Dataflow.V1beta3.RuntimeEnvironment.t() | nil,
-          update: boolean,
-          transform_name_mapping: %{String.t() => String.t()}
-        }
-
-  defstruct job_name: "",
-            parameters: %{},
-            environment: nil,
-            update: false,
-            transform_name_mapping: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName"
 
@@ -690,23 +365,7 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
 end
 defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          template:
-            {:gcs_path, String.t()}
-            | {:dynamic_template, Google.Dataflow.V1beta3.DynamicTemplateLaunchParams.t() | nil},
-          project_id: String.t(),
-          validate_only: boolean,
-          launch_parameters: Google.Dataflow.V1beta3.LaunchTemplateParameters.t() | nil,
-          location: String.t()
-        }
-
-  defstruct template: nil,
-            project_id: "",
-            validate_only: false,
-            launch_parameters: nil,
-            location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -727,42 +386,20 @@ defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
 end
 defmodule Google.Dataflow.V1beta3.LaunchTemplateResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          job: Google.Dataflow.V1beta3.Job.t() | nil
-        }
-
-  defstruct job: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
 end
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameter: String.t(),
-          description: String.t()
-        }
-
-  defstruct parameter: "",
-            description: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameter, 1, type: :string
   field :description, 2, type: :string
 end
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          parameter_violations: [
-            Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation.t()
-          ]
-        }
-
-  defstruct parameter_violations: []
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parameter_violations, 1,
     repeated: true,
@@ -771,22 +408,16 @@ defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters do
 end
 defmodule Google.Dataflow.V1beta3.DynamicTemplateLaunchParams do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          gcs_path: String.t(),
-          staging_location: String.t()
-        }
-
-  defstruct gcs_path: "",
-            staging_location: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath"
   field :staging_location, 2, type: :string, json_name: "stagingLocation"
 end
 defmodule Google.Dataflow.V1beta3.TemplatesService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.dataflow.v1beta3.TemplatesService"
+  use GRPC.Service,
+    name: "google.dataflow.v1beta3.TemplatesService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :CreateJobFromTemplate,
       Google.Dataflow.V1beta3.CreateJobFromTemplateRequest,
@@ -807,7 +438,9 @@ defmodule Google.Dataflow.V1beta3.TemplatesService.Stub do
 end
 defmodule Google.Dataflow.V1beta3.FlexTemplatesService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.dataflow.v1beta3.FlexTemplatesService"
+  use GRPC.Service,
+    name: "google.dataflow.v1beta3.FlexTemplatesService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :LaunchFlexTemplate,
       Google.Dataflow.V1beta3.LaunchFlexTemplateRequest,

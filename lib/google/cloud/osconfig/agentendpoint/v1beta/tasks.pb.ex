@@ -1,8 +1,6 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TASK_DIRECTIVE_UNSPECIFIED | :CONTINUE | :STOP
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TASK_DIRECTIVE_UNSPECIFIED, 0
   field :CONTINUE, 1
@@ -10,9 +8,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :TASK_TYPE_UNSPECIFIED | :APPLY_PATCHES | :EXEC_STEP_TASK
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :TASK_TYPE_UNSPECIFIED, 0
   field :APPLY_PATCHES, 1
@@ -20,15 +16,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t ::
-          integer
-          | :STATE_UNSPECIFIED
-          | :STARTED
-          | :DOWNLOADING_PATCHES
-          | :APPLYING_PATCHES
-          | :REBOOTING
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 4
@@ -38,9 +26,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.St
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :SUCCEEDED | :SUCCEEDED_REBOOT_REQUIRED | :FAILED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -49,18 +35,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.Stat
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :STARTED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, syntax: :proto3
-
-  @type t :: integer | :STATE_UNSPECIFIED | :COMPLETED | :TIMED_OUT | :CANCELLED
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :COMPLETED, 1
@@ -69,39 +51,14 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task.ServiceLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          key: String.t(),
-          value: String.t()
-        }
-
-  defstruct key: "",
-            value: ""
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          task_details:
-            {:apply_patches_task,
-             Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask.t() | nil}
-            | {:exec_step_task, Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTask.t() | nil},
-          task_id: String.t(),
-          task_type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskType.t(),
-          task_directive: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective.t(),
-          service_labels: %{String.t() => String.t()}
-        }
-
-  defstruct task_details: nil,
-            task_id: "",
-            task_type: :TASK_TYPE_UNSPECIFIED,
-            task_directive: :TASK_DIRECTIVE_UNSPECIFIED,
-            service_labels: %{}
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :task_details, 0
 
@@ -135,15 +92,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Task do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          patch_config: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.t() | nil,
-          dry_run: boolean
-        }
-
-  defstruct patch_config: nil,
-            dry_run: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :patch_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig,
@@ -153,13 +102,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTask do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress.State,
@@ -168,13 +111,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskProgress do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput.State,
@@ -183,13 +120,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ApplyPatchesTaskOutput do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTask do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          exec_step: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep.t() | nil
-        }
-
-  defstruct exec_step: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :exec_step, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep,
@@ -197,13 +128,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTask do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State.t()
-        }
-
-  defstruct state: :STATE_UNSPECIFIED
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress.State,
@@ -212,15 +137,7 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskProgress do
 end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          state: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State.t(),
-          exit_code: integer
-        }
-
-  defstruct state: :STATE_UNSPECIFIED,
-            exit_code: 0
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepTaskOutput.State,

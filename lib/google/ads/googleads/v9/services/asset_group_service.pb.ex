@@ -1,28 +1,12 @@
 defmodule Google.Ads.Googleads.V9.Services.GetAssetGroupRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsRequest do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          customer_id: String.t(),
-          operations: [Google.Ads.Googleads.V9.Services.AssetGroupOperation.t()],
-          validate_only: boolean
-        }
-
-  defstruct customer_id: "",
-            operations: [],
-            validate_only: false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -35,18 +19,7 @@ defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsRequest do
 end
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupOperation do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          operation:
-            {:create, Google.Ads.Googleads.V9.Resources.AssetGroup.t() | nil}
-            | {:update, Google.Ads.Googleads.V9.Resources.AssetGroup.t() | nil}
-            | {:remove, String.t()},
-          update_mask: Google.Protobuf.FieldMask.t() | nil
-        }
-
-  defstruct operation: nil,
-            update_mask: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -57,34 +30,22 @@ defmodule Google.Ads.Googleads.V9.Services.AssetGroupOperation do
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupsResponse do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          results: [Google.Ads.Googleads.V9.Services.MutateAssetGroupResult.t()],
-          partial_failure_error: Google.Rpc.Status.t() | nil
-        }
-
-  defstruct results: [],
-            partial_failure_error: nil
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V9.Services.MutateAssetGroupResult
   field :partial_failure_error, 2, type: Google.Rpc.Status, json_name: "partialFailureError"
 end
 defmodule Google.Ads.Googleads.V9.Services.MutateAssetGroupResult do
   @moduledoc false
-  use Protobuf, syntax: :proto3
-
-  @type t :: %__MODULE__{
-          resource_name: String.t()
-        }
-
-  defstruct resource_name: ""
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
 defmodule Google.Ads.Googleads.V9.Services.AssetGroupService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.ads.googleads.v9.services.AssetGroupService"
+  use GRPC.Service,
+    name: "google.ads.googleads.v9.services.AssetGroupService",
+    protoc_gen_elixir_version: "0.10.0"
 
   rpc :GetAssetGroup,
       Google.Ads.Googleads.V9.Services.GetAssetGroupRequest,
