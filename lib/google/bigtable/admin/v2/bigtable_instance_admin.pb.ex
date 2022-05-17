@@ -1,3 +1,13 @@
+defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata.TableProgress.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :COPYING, 2
+  field :COMPLETED, 3
+  field :CANCELLED, 4
+end
 defmodule Google.Bigtable.Admin.V2.CreateInstanceRequest.ClustersEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -114,6 +124,24 @@ defmodule Google.Bigtable.Admin.V2.UpdateInstanceMetadata do
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
 end
+defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata.TableProgress do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :estimated_size_bytes, 2, type: :int64, json_name: "estimatedSizeBytes"
+  field :estimated_copied_bytes, 3, type: :int64, json_name: "estimatedCopiedBytes"
+
+  field :state, 4,
+    type: Google.Bigtable.Admin.V2.CreateClusterMetadata.TableProgress.State,
+    enum: true
+end
+defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata.TablesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Bigtable.Admin.V2.CreateClusterMetadata.TableProgress
+end
 defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -124,6 +152,11 @@ defmodule Google.Bigtable.Admin.V2.CreateClusterMetadata do
 
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+
+  field :tables, 4,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.CreateClusterMetadata.TablesEntry,
+    map: true
 end
 defmodule Google.Bigtable.Admin.V2.UpdateClusterMetadata do
   @moduledoc false

@@ -35,7 +35,7 @@ defmodule Google.Bigtable.Admin.V2.Instance do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string, deprecated: false
+  field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true
   field :type, 4, type: Google.Bigtable.Admin.V2.Instance.Type, enum: true
@@ -93,7 +93,7 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
 
   oneof :config, 0
 
-  field :name, 1, type: :string, deprecated: false
+  field :name, 1, type: :string
   field :location, 2, type: :string, deprecated: false
   field :state, 3, type: Google.Bigtable.Admin.V2.Cluster.State, enum: true, deprecated: false
   field :serve_nodes, 4, type: :int32, json_name: "serveNodes"
@@ -106,7 +106,8 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
   field :default_storage_type, 5,
     type: Google.Bigtable.Admin.V2.StorageType,
     json_name: "defaultStorageType",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :encryption_config, 6,
     type: Google.Bigtable.Admin.V2.Cluster.EncryptionConfig,
