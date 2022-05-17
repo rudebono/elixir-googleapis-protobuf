@@ -81,7 +81,8 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
   field :replication_state, 1,
     type: Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState,
     json_name: "replicationState",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :encryption_info, 2,
     repeated: true,
@@ -113,7 +114,8 @@ defmodule Google.Bigtable.Admin.V2.Table do
     repeated: true,
     type: Google.Bigtable.Admin.V2.Table.ClusterStatesEntry,
     json_name: "clusterStates",
-    map: true
+    map: true,
+    deprecated: false
 
   field :column_families, 3,
     repeated: true,
@@ -121,8 +123,15 @@ defmodule Google.Bigtable.Admin.V2.Table do
     json_name: "columnFamilies",
     map: true
 
-  field :granularity, 4, type: Google.Bigtable.Admin.V2.Table.TimestampGranularity, enum: true
-  field :restore_info, 6, type: Google.Bigtable.Admin.V2.RestoreInfo, json_name: "restoreInfo"
+  field :granularity, 4,
+    type: Google.Bigtable.Admin.V2.Table.TimestampGranularity,
+    enum: true,
+    deprecated: false
+
+  field :restore_info, 6,
+    type: Google.Bigtable.Admin.V2.RestoreInfo,
+    json_name: "restoreInfo",
+    deprecated: false
 end
 defmodule Google.Bigtable.Admin.V2.ColumnFamily do
   @moduledoc false
@@ -186,7 +195,7 @@ defmodule Google.Bigtable.Admin.V2.Backup do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string, deprecated: false
+  field :name, 1, type: :string
   field :source_table, 2, type: :string, json_name: "sourceTable", deprecated: false
 
   field :expire_time, 3,

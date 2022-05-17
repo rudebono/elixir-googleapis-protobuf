@@ -1,3 +1,21 @@
+defmodule Google.Pubsub.V1.Subscription.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :RESOURCE_ERROR, 2
+end
+defmodule Google.Pubsub.V1.BigQueryConfig.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :PERMISSION_DENIED, 2
+  field :NOT_FOUND, 3
+  field :SCHEMA_MISMATCH, 4
+end
 defmodule Google.Pubsub.V1.MessageStoragePolicy do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -167,6 +185,7 @@ defmodule Google.Pubsub.V1.Subscription do
   field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
   field :push_config, 4, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
+  field :bigquery_config, 18, type: Google.Pubsub.V1.BigQueryConfig, json_name: "bigqueryConfig"
   field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds"
   field :retain_acked_messages, 7, type: :bool, json_name: "retainAckedMessages"
 
@@ -195,6 +214,8 @@ defmodule Google.Pubsub.V1.Subscription do
     type: Google.Protobuf.Duration,
     json_name: "topicMessageRetentionDuration",
     deprecated: false
+
+  field :state, 19, type: Google.Pubsub.V1.Subscription.State, enum: true, deprecated: false
 end
 defmodule Google.Pubsub.V1.RetryPolicy do
   @moduledoc false
@@ -247,6 +268,16 @@ defmodule Google.Pubsub.V1.PushConfig do
     type: Google.Pubsub.V1.PushConfig.OidcToken,
     json_name: "oidcToken",
     oneof: 0
+end
+defmodule Google.Pubsub.V1.BigQueryConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :table, 1, type: :string
+  field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema"
+  field :write_metadata, 3, type: :bool, json_name: "writeMetadata"
+  field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields"
+  field :state, 5, type: Google.Pubsub.V1.BigQueryConfig.State, enum: true, deprecated: false
 end
 defmodule Google.Pubsub.V1.ReceivedMessage do
   @moduledoc false
