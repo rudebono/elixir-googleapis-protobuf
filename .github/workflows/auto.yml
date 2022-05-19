@@ -13,6 +13,11 @@ jobs:
       - name: install nix
         uses: cachix/install-nix-action@v13
 
+      - name: Prepare (Cachix)
+        uses: cachix/cachix-action@v10
+        with:
+          name: jechol
+
       - name: remove lib
         run: |
           rm -rf lib
@@ -20,7 +25,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          nix-env -i -f default.nix
+          nix-env -i -f shell.nix -A buildInputs
           mix local.rebar --force
           mix local.hex --force
           mix do deps.get compile
