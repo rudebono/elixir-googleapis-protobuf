@@ -18,9 +18,10 @@ jobs:
         with:
           name: jechol
 
-      - name: remove lib
+      - name: remove lib and mix.lock
         run: |
           rm -rf lib
+          rm mix.lock
           mkdir lib
 
       - name: install dependencies
