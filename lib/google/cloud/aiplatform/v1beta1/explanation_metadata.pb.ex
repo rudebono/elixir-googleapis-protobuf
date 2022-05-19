@@ -169,4 +169,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplanationMetadata do
   field :feature_attributions_schema_uri, 3,
     type: :string,
     json_name: "featureAttributionsSchemaUri"
+
+  field :latent_space_source, 5, type: :string, json_name: "latentSpaceSource"
 end
