@@ -95,6 +95,30 @@ defmodule Google.Cloud.Eventarc.V1.DeleteChannelRequest do
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
 end
+defmodule Google.Cloud.Eventarc.V1.GetProviderRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Eventarc.V1.ListProvidersRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
+end
+defmodule Google.Cloud.Eventarc.V1.ListProvidersResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :providers, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Provider
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
 defmodule Google.Cloud.Eventarc.V1.GetChannelConnectionRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -191,6 +215,12 @@ defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do
   rpc :UpdateChannel, Google.Cloud.Eventarc.V1.UpdateChannelRequest, Google.Longrunning.Operation
 
   rpc :DeleteChannel, Google.Cloud.Eventarc.V1.DeleteChannelRequest, Google.Longrunning.Operation
+
+  rpc :GetProvider, Google.Cloud.Eventarc.V1.GetProviderRequest, Google.Cloud.Eventarc.V1.Provider
+
+  rpc :ListProviders,
+      Google.Cloud.Eventarc.V1.ListProvidersRequest,
+      Google.Cloud.Eventarc.V1.ListProvidersResponse
 
   rpc :GetChannelConnection,
       Google.Cloud.Eventarc.V1.GetChannelConnectionRequest,
