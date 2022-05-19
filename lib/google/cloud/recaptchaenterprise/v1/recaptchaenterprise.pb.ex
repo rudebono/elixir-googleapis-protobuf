@@ -148,6 +148,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
   field :account_defender_assessment, 6,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment,
     json_name: "accountDefenderAssessment"
+
+  field :private_password_leak_verification, 7,
+    type: Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification,
+    json_name: "privatePasswordLeakVerification"
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   @moduledoc false
@@ -194,6 +198,28 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel,
     enum: true
+end
+defmodule Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :lookup_hash_prefix, 1, type: :bytes, json_name: "lookupHashPrefix", deprecated: false
+
+  field :encrypted_user_credentials_hash, 2,
+    type: :bytes,
+    json_name: "encryptedUserCredentialsHash",
+    deprecated: false
+
+  field :encrypted_leak_match_prefixes, 3,
+    repeated: true,
+    type: :bytes,
+    json_name: "encryptedLeakMatchPrefixes",
+    deprecated: false
+
+  field :reencrypted_user_credentials_hash, 4,
+    type: :bytes,
+    json_name: "reencryptedUserCredentialsHash",
+    deprecated: false
 end
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
   @moduledoc false
