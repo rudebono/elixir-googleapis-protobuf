@@ -13,9 +13,6 @@ jobs:
       - name: install nix
         uses: cachix/install-nix-action@v17
 
-      - name: install cachix
-        uses: cachix/cachix-action@v10
-
       - name: remove lib
         run: |
           rm -rf lib
