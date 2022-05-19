@@ -20,7 +20,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          nix-shell -p default.nix
+          nix-env -i -f default.nix
           mix local.rebar --force
           mix local.hex --force
           mix do deps.get compile
