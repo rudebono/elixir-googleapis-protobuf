@@ -72,7 +72,13 @@ defmodule Google.Cloud.Asset.V1.Asset do
     oneof: 0
 
   field :os_inventory, 12, type: Google.Cloud.Osconfig.V1.Inventory, json_name: "osInventory"
-  field :related_assets, 13, type: Google.Cloud.Asset.V1.RelatedAssets, json_name: "relatedAssets"
+
+  field :related_assets, 13,
+    type: Google.Cloud.Asset.V1.RelatedAssets,
+    json_name: "relatedAssets",
+    deprecated: true
+
+  field :related_asset, 15, type: Google.Cloud.Asset.V1.RelatedAsset, json_name: "relatedAsset"
   field :ancestors, 10, repeated: true, type: :string
 end
 defmodule Google.Cloud.Asset.V1.Resource do
@@ -89,7 +95,7 @@ defmodule Google.Cloud.Asset.V1.Resource do
 end
 defmodule Google.Cloud.Asset.V1.RelatedAssets do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1.RelationshipAttributes,
@@ -99,7 +105,7 @@ defmodule Google.Cloud.Asset.V1.RelatedAssets do
 end
 defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
@@ -113,6 +119,7 @@ defmodule Google.Cloud.Asset.V1.RelatedAsset do
   field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"
   field :ancestors, 3, repeated: true, type: :string
+  field :relationship_type, 4, type: :string, json_name: "relationshipType"
 end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   @moduledoc false
@@ -169,6 +176,9 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     type: Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry,
     map: true
 
+  field :tag_keys, 23, repeated: true, type: :string, json_name: "tagKeys"
+  field :tag_values, 25, repeated: true, type: :string, json_name: "tagValues"
+  field :tag_value_ids, 26, repeated: true, type: :string, json_name: "tagValueIds"
   field :parent_asset_type, 103, type: :string, json_name: "parentAssetType"
 end
 defmodule Google.Cloud.Asset.V1.VersionedResource do

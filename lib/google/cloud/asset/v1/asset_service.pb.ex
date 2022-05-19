@@ -388,6 +388,11 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest do
     json_name: "analysisQuery",
     deprecated: false
 
+  field :saved_analysis_query, 3,
+    type: :string,
+    json_name: "savedAnalysisQuery",
+    deprecated: false
+
   field :execution_timeout, 2,
     type: Google.Protobuf.Duration,
     json_name: "executionTimeout",
@@ -473,6 +478,11 @@ defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest do
     json_name: "analysisQuery",
     deprecated: false
 
+  field :saved_analysis_query, 3,
+    type: :string,
+    json_name: "savedAnalysisQuery",
+    deprecated: false
+
   field :output_config, 2,
     type: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig,
     json_name: "outputConfig",
@@ -481,6 +491,106 @@ end
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Asset.V1.SavedQuery.QueryContent do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :query_content, 0
+
+  field :iam_policy_analysis_query, 1,
+    type: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery,
+    json_name: "iamPolicyAnalysisQuery",
+    oneof: 0
+end
+defmodule Google.Cloud.Asset.V1.SavedQuery.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+defmodule Google.Cloud.Asset.V1.SavedQuery do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :description, 2, type: :string
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :creator, 4, type: :string, deprecated: false
+
+  field :last_update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastUpdateTime",
+    deprecated: false
+
+  field :last_updater, 6, type: :string, json_name: "lastUpdater", deprecated: false
+  field :labels, 7, repeated: true, type: Google.Cloud.Asset.V1.SavedQuery.LabelsEntry, map: true
+  field :content, 8, type: Google.Cloud.Asset.V1.SavedQuery.QueryContent
+end
+defmodule Google.Cloud.Asset.V1.CreateSavedQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :saved_query, 2,
+    type: Google.Cloud.Asset.V1.SavedQuery,
+    json_name: "savedQuery",
+    deprecated: false
+
+  field :saved_query_id, 3, type: :string, json_name: "savedQueryId", deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.GetSavedQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.ListSavedQueriesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.ListSavedQueriesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :saved_queries, 1,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.SavedQuery,
+    json_name: "savedQueries"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Asset.V1.UpdateSavedQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :saved_query, 1,
+    type: Google.Cloud.Asset.V1.SavedQuery,
+    json_name: "savedQuery",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.DeleteSavedQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest do
   @moduledoc false
@@ -521,6 +631,39 @@ defmodule Google.Cloud.Asset.V1.MoveImpact do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :detail, 1, type: :string
+end
+defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :scope, 1, type: :string, deprecated: false
+  field :names, 3, repeated: true, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :attached_resource, 1, type: :string, json_name: "attachedResource"
+  field :policy, 2, type: Google.Iam.V1.Policy
+end
+defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+
+  field :policies, 2,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy.PolicyInfo
+end
+defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :policy_results, 2,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse.EffectiveIamPolicy,
+    json_name: "policyResults"
 end
 defmodule Google.Cloud.Asset.V1.AssetService.Service do
   @moduledoc false
@@ -567,6 +710,26 @@ defmodule Google.Cloud.Asset.V1.AssetService.Service do
   rpc :AnalyzeMove,
       Google.Cloud.Asset.V1.AnalyzeMoveRequest,
       Google.Cloud.Asset.V1.AnalyzeMoveResponse
+
+  rpc :CreateSavedQuery,
+      Google.Cloud.Asset.V1.CreateSavedQueryRequest,
+      Google.Cloud.Asset.V1.SavedQuery
+
+  rpc :GetSavedQuery, Google.Cloud.Asset.V1.GetSavedQueryRequest, Google.Cloud.Asset.V1.SavedQuery
+
+  rpc :ListSavedQueries,
+      Google.Cloud.Asset.V1.ListSavedQueriesRequest,
+      Google.Cloud.Asset.V1.ListSavedQueriesResponse
+
+  rpc :UpdateSavedQuery,
+      Google.Cloud.Asset.V1.UpdateSavedQueryRequest,
+      Google.Cloud.Asset.V1.SavedQuery
+
+  rpc :DeleteSavedQuery, Google.Cloud.Asset.V1.DeleteSavedQueryRequest, Google.Protobuf.Empty
+
+  rpc :BatchGetEffectiveIamPolicies,
+      Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesRequest,
+      Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse
 end
 
 defmodule Google.Cloud.Asset.V1.AssetService.Stub do
