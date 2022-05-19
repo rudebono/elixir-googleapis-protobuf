@@ -39,3 +39,6 @@ elixir_googleapis_protobuf-*.tar
 
 # https://github.com/protocolbuffers/protobuf.git
 /protobuf/
+
+# use new version dependencies
+mix.lock
