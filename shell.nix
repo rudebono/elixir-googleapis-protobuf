@@ -14,8 +14,8 @@ in nixpkgs.mkShell {
   buildInputs = with nixpkgs;
     [
       # OTP
-      erlang
-      elixir
-      protobuf
+      erlang # 24.1.6
+      elixir # 1.13.1
+      protobuf # 3.19.0
     ] ++ platform;
 }
