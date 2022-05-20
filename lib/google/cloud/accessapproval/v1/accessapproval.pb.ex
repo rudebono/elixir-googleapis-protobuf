@@ -13,6 +13,8 @@ defmodule Google.Cloud.Accessapproval.V1.AccessReason.Type do
   field :CUSTOMER_INITIATED_SUPPORT, 1
   field :GOOGLE_INITIATED_SERVICE, 2
   field :GOOGLE_INITIATED_REVIEW, 3
+  field :THIRD_PARTY_DATA_REQUEST, 4
+  field :GOOGLE_RESPONSE_TO_PRODUCTION_ALERT, 5
 end
 defmodule Google.Cloud.Accessapproval.V1.AccessLocations do
   @moduledoc false
@@ -31,12 +33,29 @@ defmodule Google.Cloud.Accessapproval.V1.AccessReason do
   field :type, 1, type: Google.Cloud.Accessapproval.V1.AccessReason.Type, enum: true
   field :detail, 2, type: :string
 end
+defmodule Google.Cloud.Accessapproval.V1.SignatureInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :verification_info, 0
+
+  field :signature, 1, type: :bytes
+  field :google_public_key_pem, 2, type: :string, json_name: "googlePublicKeyPem", oneof: 0
+  field :customer_kms_key_version, 3, type: :string, json_name: "customerKmsKeyVersion", oneof: 0
+end
 defmodule Google.Cloud.Accessapproval.V1.ApproveDecision do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :approve_time, 1, type: Google.Protobuf.Timestamp, json_name: "approveTime"
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+  field :invalidate_time, 3, type: Google.Protobuf.Timestamp, json_name: "invalidateTime"
+
+  field :signature_info, 4,
+    type: Google.Cloud.Accessapproval.V1.SignatureInfo,
+    json_name: "signatureInfo"
+
+  field :auto_approved, 5, type: :bool, json_name: "autoApproved"
 end
 defmodule Google.Cloud.Accessapproval.V1.DismissDecision do
   @moduledoc false
@@ -105,6 +124,21 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
     json_name: "enrolledServices"
 
   field :enrolled_ancestor, 4, type: :bool, json_name: "enrolledAncestor", deprecated: false
+  field :active_key_version, 6, type: :string, json_name: "activeKeyVersion"
+
+  field :ancestor_has_active_key_version, 7,
+    type: :bool,
+    json_name: "ancestorHasActiveKeyVersion",
+    deprecated: false
+
+  field :invalid_key_version, 8, type: :bool, json_name: "invalidKeyVersion", deprecated: false
+end
+defmodule Google.Cloud.Accessapproval.V1.AccessApprovalServiceAccount do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :account_email, 2, type: :string, json_name: "accountEmail"
 end
 defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage do
   @moduledoc false
@@ -145,6 +179,12 @@ defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Accessapproval.V1.InvalidateApprovalRequestMessage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
 defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -163,6 +203,12 @@ defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalServiceAccountMessage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string
 end
 defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
   @moduledoc false
@@ -186,6 +232,10 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
       Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage,
       Google.Cloud.Accessapproval.V1.ApprovalRequest
 
+  rpc :InvalidateApprovalRequest,
+      Google.Cloud.Accessapproval.V1.InvalidateApprovalRequestMessage,
+      Google.Cloud.Accessapproval.V1.ApprovalRequest
+
   rpc :GetAccessApprovalSettings,
       Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage,
       Google.Cloud.Accessapproval.V1.AccessApprovalSettings
@@ -197,6 +247,10 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
   rpc :DeleteAccessApprovalSettings,
       Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage,
       Google.Protobuf.Empty
+
+  rpc :GetAccessApprovalServiceAccount,
+      Google.Cloud.Accessapproval.V1.GetAccessApprovalServiceAccountMessage,
+      Google.Cloud.Accessapproval.V1.AccessApprovalServiceAccount
 end
 
 defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Stub do
