@@ -49,6 +49,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   field :SUCCEEDED, 3
   field :FAILED, 4
   field :PENDING, 5
+  field :STOPPED, 6
 end
 defmodule Google.Cloud.Video.Livestream.V1.Input.SecurityRule do
   @moduledoc false
