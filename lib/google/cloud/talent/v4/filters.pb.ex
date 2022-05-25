@@ -5,6 +5,7 @@ defmodule Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference do
   field :TELECOMMUTE_PREFERENCE_UNSPECIFIED, 0
   field :TELECOMMUTE_EXCLUDED, 1
   field :TELECOMMUTE_ALLOWED, 2
+  field :TELECOMMUTE_JOBS_EXCLUDED, 3
 end
 defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
   @moduledoc false

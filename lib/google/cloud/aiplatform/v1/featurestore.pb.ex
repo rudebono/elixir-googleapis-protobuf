@@ -6,11 +6,19 @@ defmodule Google.Cloud.Aiplatform.V1.Featurestore.State do
   field :STABLE, 1
   field :UPDATING, 2
 end
+defmodule Google.Cloud.Aiplatform.V1.Featurestore.OnlineServingConfig.Scaling do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
+  field :max_node_count, 2, type: :int32, json_name: "maxNodeCount"
+end
 defmodule Google.Cloud.Aiplatform.V1.Featurestore.OnlineServingConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :fixed_node_count, 2, type: :int32, json_name: "fixedNodeCount"
+  field :scaling, 4, type: Google.Cloud.Aiplatform.V1.Featurestore.OnlineServingConfig.Scaling
 end
 defmodule Google.Cloud.Aiplatform.V1.Featurestore.LabelsEntry do
   @moduledoc false
