@@ -47,6 +47,11 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig do
     type: Google.Cloud.Aiplatform.V1.PipelineJob.RuntimeConfig.ParameterValuesEntry,
     json_name: "parameterValues",
     map: true
+
+  field :failure_policy, 4,
+    type: Google.Cloud.Aiplatform.V1.PipelineFailurePolicy,
+    json_name: "failurePolicy",
+    enum: true
 end
 defmodule Google.Cloud.Aiplatform.V1.PipelineJob.LabelsEntry do
   @moduledoc false
@@ -100,6 +105,18 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
 
   field :service_account, 17, type: :string, json_name: "serviceAccount"
   field :network, 18, type: :string, deprecated: false
+  field :template_uri, 19, type: :string, json_name: "templateUri"
+
+  field :template_metadata, 20,
+    type: Google.Cloud.Aiplatform.V1.PipelineTemplateMetadata,
+    json_name: "templateMetadata",
+    deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.PipelineTemplateMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :version, 3, type: :string
 end
 defmodule Google.Cloud.Aiplatform.V1.PipelineJobDetail do
   @moduledoc false

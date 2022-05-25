@@ -47,6 +47,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
     type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParameterValuesEntry,
     json_name: "parameterValues",
     map: true
+
+  field :failure_policy, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineFailurePolicy,
+    json_name: "failurePolicy",
+    enum: true
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.LabelsEntry do
   @moduledoc false
