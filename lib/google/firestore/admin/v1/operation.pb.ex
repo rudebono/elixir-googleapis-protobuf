@@ -19,6 +19,14 @@ defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.IndexConfigDelta.Chan
   field :ADD, 1
   field :REMOVE, 2
 end
+defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta.ChangeType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :CHANGE_TYPE_UNSPECIFIED, 0
+  field :ADD, 1
+  field :REMOVE, 2
+end
 defmodule Google.Firestore.Admin.V1.IndexOperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -45,6 +53,15 @@ defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.IndexConfigDelta do
 
   field :index, 2, type: Google.Firestore.Admin.V1.Index
 end
+defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :change_type, 1,
+    type: Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta.ChangeType,
+    json_name: "changeType",
+    enum: true
+end
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -65,6 +82,10 @@ defmodule Google.Firestore.Admin.V1.FieldOperationMetadata do
     json_name: "progressDocuments"
 
   field :progress_bytes, 7, type: Google.Firestore.Admin.V1.Progress, json_name: "progressBytes"
+
+  field :ttl_config_delta, 8,
+    type: Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta,
+    json_name: "ttlConfigDelta"
 end
 defmodule Google.Firestore.Admin.V1.ExportDocumentsMetadata do
   @moduledoc false

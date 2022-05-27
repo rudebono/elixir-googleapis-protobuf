@@ -102,6 +102,18 @@ defmodule Google.Cloud.Gkehub.V1beta1.MembershipEndpoint do
     oneof: 0,
     deprecated: false
 
+  field :edge_cluster, 9,
+    type: Google.Cloud.Gkehub.V1beta1.EdgeCluster,
+    json_name: "edgeCluster",
+    oneof: 0,
+    deprecated: false
+
+  field :appliance_cluster, 10,
+    type: Google.Cloud.Gkehub.V1beta1.ApplianceCluster,
+    json_name: "applianceCluster",
+    oneof: 0,
+    deprecated: false
+
   field :kubernetes_metadata, 5,
     type: Google.Cloud.Gkehub.V1beta1.KubernetesMetadata,
     json_name: "kubernetesMetadata",
@@ -174,6 +186,18 @@ defmodule Google.Cloud.Gkehub.V1beta1.MultiCloudCluster do
 
   field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
   field :cluster_missing, 2, type: :bool, json_name: "clusterMissing", deprecated: false
+end
+defmodule Google.Cloud.Gkehub.V1beta1.EdgeCluster do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
+end
+defmodule Google.Cloud.Gkehub.V1beta1.ApplianceCluster do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1beta1.KubernetesMetadata do
   @moduledoc false
