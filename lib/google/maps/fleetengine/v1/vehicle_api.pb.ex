@@ -9,6 +9,14 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder do
   field :PICKUP_POINT_STRAIGHT_DISTANCE, 4
   field :COST, 5
 end
+defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.CurrentTripsPresent do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :CURRENT_TRIPS_PRESENT_UNSPECIFIED, 0
+  field :NONE, 1
+  field :ANY, 2
+end
 defmodule Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -147,6 +155,11 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
 
   field :include_back_to_back, 18, type: :bool, json_name: "includeBackToBack"
   field :trip_id, 19, type: :string, json_name: "tripId"
+
+  field :current_trips_present, 21,
+    type: Maps.Fleetengine.V1.SearchVehiclesRequest.CurrentTripsPresent,
+    json_name: "currentTripsPresent",
+    enum: true
 end
 defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
   @moduledoc false

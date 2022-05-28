@@ -62,8 +62,7 @@ defmodule Maps.Fleetengine.V1.TerminalLocation do
 
   field :terminal_point_id, 2,
     type: Maps.Fleetengine.V1.TerminalPointId,
-    json_name: "terminalPointId",
-    deprecated: false
+    json_name: "terminalPointId"
 
   field :access_point_id, 3, type: :string, json_name: "accessPointId", deprecated: true
   field :trip_id, 4, type: :string, json_name: "tripId", deprecated: true
