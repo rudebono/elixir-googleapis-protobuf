@@ -27,6 +27,7 @@ defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode do
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :PESSIMISTIC, 1
   field :OPTIMISTIC, 2
+  field :OPTIMISTIC_WITH_ENTITY_GROUPS, 3
 end
 defmodule Google.Datastore.Admin.V1.MigrationStateEvent do
   @moduledoc false

@@ -105,7 +105,10 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :access, 26, type: Google.Cloud.Securitycenter.V1.Access
   field :connections, 31, repeated: true, type: Google.Cloud.Securitycenter.V1.Connection
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
+  field :processes, 30, repeated: true, type: Google.Cloud.Securitycenter.V1.Process
+  field :compliances, 34, repeated: true, type: Google.Cloud.Securitycenter.V1.Compliance
   field :description, 37, type: :string
+  field :exfiltration, 38, type: Google.Cloud.Securitycenter.V1.Exfiltration
 
   field :iam_bindings, 39,
     repeated: true,
