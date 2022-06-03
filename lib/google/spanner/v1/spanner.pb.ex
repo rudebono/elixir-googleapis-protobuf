@@ -59,6 +59,8 @@ defmodule Google.Spanner.V1.Session do
     type: Google.Protobuf.Timestamp,
     json_name: "approximateLastUseTime",
     deprecated: false
+
+  field :creator_role, 5, type: :string, json_name: "creatorRole"
 end
 defmodule Google.Spanner.V1.GetSessionRequest do
   @moduledoc false
