@@ -172,6 +172,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringScheduleConfi
     type: Google.Protobuf.Duration,
     json_name: "monitorInterval",
     deprecated: false
+
+  field :monitor_window, 2, type: Google.Protobuf.Duration, json_name: "monitorWindow"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies do
   @moduledoc false

@@ -26,6 +26,14 @@ defmodule Google.Cloud.Functions.V1.CloudFunction.IngressSettings do
   field :ALLOW_INTERNAL_ONLY, 2
   field :ALLOW_INTERNAL_AND_GCLB, 3
 end
+defmodule Google.Cloud.Functions.V1.CloudFunction.DockerRegistry do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :DOCKER_REGISTRY_UNSPECIFIED, 0
+  field :CONTAINER_REGISTRY, 1
+  field :ARTIFACT_REGISTRY, 2
+end
 defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -150,6 +158,11 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
 
   field :source_token, 31, type: :string, json_name: "sourceToken", deprecated: false
   field :docker_repository, 34, type: :string, json_name: "dockerRepository", deprecated: false
+
+  field :docker_registry, 35,
+    type: Google.Cloud.Functions.V1.CloudFunction.DockerRegistry,
+    json_name: "dockerRegistry",
+    enum: true
 end
 defmodule Google.Cloud.Functions.V1.SourceRepository do
   @moduledoc false
@@ -280,6 +293,7 @@ defmodule Google.Cloud.Functions.V1.GenerateUploadUrlRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 defmodule Google.Cloud.Functions.V1.GenerateUploadUrlResponse do
   @moduledoc false

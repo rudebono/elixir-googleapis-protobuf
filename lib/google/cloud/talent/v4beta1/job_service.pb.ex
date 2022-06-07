@@ -24,6 +24,15 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.DiversificationLevel do
   field :DISABLED, 1
   field :SIMPLE, 2
 end
+defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.KeywordMatchMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :KEYWORD_MATCH_MODE_UNSPECIFIED, 0
+  field :KEYWORD_MATCH_DISABLED, 1
+  field :KEYWORD_MATCH_ALL, 2
+  field :KEYWORD_MATCH_TITLE_ONLY, 3
+end
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest.CustomRankingInfo.ImportanceLevel do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -117,7 +126,11 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
 
   field :job_query, 4, type: Google.Cloud.Talent.V4beta1.JobQuery, json_name: "jobQuery"
   field :enable_broadening, 5, type: :bool, json_name: "enableBroadening"
-  field :require_precise_result_size, 6, type: :bool, json_name: "requirePreciseResultSize"
+
+  field :require_precise_result_size, 6,
+    type: :bool,
+    json_name: "requirePreciseResultSize",
+    deprecated: true
 
   field :histogram_queries, 7,
     repeated: true,
@@ -140,6 +153,11 @@ defmodule Google.Cloud.Talent.V4beta1.SearchJobsRequest do
     json_name: "customRankingInfo"
 
   field :disable_keyword_match, 16, type: :bool, json_name: "disableKeywordMatch"
+
+  field :keyword_match_mode, 18,
+    type: Google.Cloud.Talent.V4beta1.SearchJobsRequest.KeywordMatchMode,
+    json_name: "keywordMatchMode",
+    enum: true
 end
 defmodule Google.Cloud.Talent.V4beta1.SearchJobsResponse.MatchingJob do
   @moduledoc false
