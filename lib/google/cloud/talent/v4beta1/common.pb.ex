@@ -123,15 +123,6 @@ defmodule Google.Cloud.Talent.V4beta1.Visibility do
   field :SHARED_WITH_GOOGLE, 2
   field :SHARED_WITH_PUBLIC, 3
 end
-defmodule Google.Cloud.Talent.V4beta1.ContactInfoUsage do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :CONTACT_INFO_USAGE_UNSPECIFIED, 0
-  field :PERSONAL, 1
-  field :WORK, 2
-  field :SCHOOL, 3
-end
 defmodule Google.Cloud.Talent.V4beta1.HtmlSanitization do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -149,38 +140,6 @@ defmodule Google.Cloud.Talent.V4beta1.CommuteMethod do
   field :TRANSIT, 2
   field :WALKING, 3
   field :CYCLING, 4
-end
-defmodule Google.Cloud.Talent.V4beta1.SkillProficiencyLevel do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :SKILL_PROFICIENCY_LEVEL_UNSPECIFIED, 0
-  field :UNSKILLED, 6
-  field :FUNDAMENTAL_AWARENESS, 1
-  field :NOVICE, 2
-  field :INTERMEDIATE, 3
-  field :ADVANCED, 4
-  field :EXPERT, 5
-end
-defmodule Google.Cloud.Talent.V4beta1.Outcome do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :OUTCOME_UNSPECIFIED, 0
-  field :POSITIVE, 1
-  field :NEUTRAL, 2
-  field :NEGATIVE, 3
-  field :OUTCOME_NOT_AVAILABLE, 4
-end
-defmodule Google.Cloud.Talent.V4beta1.AvailabilitySignalType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :AVAILABILITY_SIGNAL_TYPE_UNSPECIFIED, 0
-  field :JOB_APPLICATION, 1
-  field :RESUME_UPDATE, 2
-  field :CANDIDATE_UPDATE, 3
-  field :CLIENT_SUBMISSION, 4
 end
 defmodule Google.Cloud.Talent.V4beta1.Location.LocationType do
   @moduledoc false
@@ -303,6 +262,7 @@ defmodule Google.Cloud.Talent.V4beta1.CustomAttribute do
   field :string_values, 1, repeated: true, type: :string, json_name: "stringValues"
   field :long_values, 2, repeated: true, type: :int64, json_name: "longValues"
   field :filterable, 3, type: :bool
+  field :keyword_searchable, 4, type: :bool, json_name: "keywordSearchable"
 end
 defmodule Google.Cloud.Talent.V4beta1.SpellingCorrection do
   @moduledoc false
@@ -352,42 +312,6 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationInfo do
     type: Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange,
     json_name: "annualizedTotalCompensationRange",
     deprecated: false
-end
-defmodule Google.Cloud.Talent.V4beta1.Certification do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :display_name, 1, type: :string, json_name: "displayName"
-  field :acquire_date, 2, type: Google.Type.Date, json_name: "acquireDate"
-  field :expire_date, 3, type: Google.Type.Date, json_name: "expireDate"
-  field :authority, 4, type: :string
-  field :description, 5, type: :string
-end
-defmodule Google.Cloud.Talent.V4beta1.Skill do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :display_name, 1, type: :string, json_name: "displayName"
-  field :last_used_date, 2, type: Google.Type.Date, json_name: "lastUsedDate"
-  field :level, 3, type: Google.Cloud.Talent.V4beta1.SkillProficiencyLevel, enum: true
-  field :context, 4, type: :string
-  field :skill_name_snippet, 5, type: :string, json_name: "skillNameSnippet", deprecated: false
-end
-defmodule Google.Cloud.Talent.V4beta1.Interview do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :rating, 6, type: Google.Cloud.Talent.V4beta1.Rating
-  field :outcome, 7, type: Google.Cloud.Talent.V4beta1.Outcome, enum: true, deprecated: false
-end
-defmodule Google.Cloud.Talent.V4beta1.Rating do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :overall, 1, type: :double
-  field :min, 2, type: :double
-  field :max, 3, type: :double
-  field :interval, 4, type: :double
 end
 defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata do
   @moduledoc false

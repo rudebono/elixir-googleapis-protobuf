@@ -19,15 +19,6 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent.JobEventType do
   field :SENT_CV, 14
   field :INTERVIEW_GRANTED, 15
 end
-defmodule Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :PROFILE_EVENT_TYPE_UNSPECIFIED, 0
-  field :IMPRESSION, 1
-  field :VIEW, 2
-  field :BOOKMARK, 3
-end
 defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -43,12 +34,6 @@ defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
     deprecated: false
 
   field :job_event, 5, type: Google.Cloud.Talent.V4beta1.JobEvent, json_name: "jobEvent", oneof: 0
-
-  field :profile_event, 6,
-    type: Google.Cloud.Talent.V4beta1.ProfileEvent,
-    json_name: "profileEvent",
-    oneof: 0
-
   field :event_notes, 9, type: :string, json_name: "eventNotes"
 end
 defmodule Google.Cloud.Talent.V4beta1.JobEvent do
@@ -62,16 +47,4 @@ defmodule Google.Cloud.Talent.V4beta1.JobEvent do
 
   field :jobs, 2, repeated: true, type: :string, deprecated: false
   field :profile, 3, type: :string
-end
-defmodule Google.Cloud.Talent.V4beta1.ProfileEvent do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :type, 1,
-    type: Google.Cloud.Talent.V4beta1.ProfileEvent.ProfileEventType,
-    enum: true,
-    deprecated: false
-
-  field :profiles, 2, repeated: true, type: :string, deprecated: false
-  field :jobs, 6, repeated: true, type: :string
 end
