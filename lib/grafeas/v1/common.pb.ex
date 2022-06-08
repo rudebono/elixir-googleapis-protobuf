@@ -43,3 +43,23 @@ defmodule Grafeas.V1.EnvelopeSignature do
   field :sig, 1, type: :bytes
   field :keyid, 2, type: :string
 end
+defmodule Grafeas.V1.FileLocation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :file_path, 1, type: :string, json_name: "filePath"
+end
+defmodule Grafeas.V1.License do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :expression, 1, type: :string
+  field :comments, 2, type: :string
+end
+defmodule Grafeas.V1.Digest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :algo, 1, type: :string
+  field :digest_bytes, 2, type: :bytes, json_name: "digestBytes"
+end

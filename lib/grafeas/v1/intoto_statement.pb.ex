@@ -13,6 +13,11 @@ defmodule Grafeas.V1.InTotoStatement do
     type: Grafeas.V1.SlsaProvenance,
     json_name: "slsaProvenance",
     oneof: 0
+
+  field :slsa_provenance_zero_two, 6,
+    type: Grafeas.V1.SlsaProvenanceZeroTwo,
+    json_name: "slsaProvenanceZeroTwo",
+    oneof: 0
 end
 defmodule Grafeas.V1.Subject.DigestEntry do
   @moduledoc false

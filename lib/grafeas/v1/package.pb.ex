@@ -19,7 +19,7 @@ defmodule Grafeas.V1.Distribution do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :cpe_uri, 1, type: :string, json_name: "cpeUri"
+  field :cpe_uri, 1, type: :string, json_name: "cpeUri", deprecated: false
   field :architecture, 2, type: Grafeas.V1.Architecture, enum: true
   field :latest_version, 3, type: Grafeas.V1.Version, json_name: "latestVersion"
   field :maintainer, 4, type: :string
@@ -38,15 +38,29 @@ defmodule Grafeas.V1.PackageNote do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :distribution, 10, repeated: true, type: Grafeas.V1.Distribution
+  field :package_type, 11, type: :string, json_name: "packageType"
+  field :cpe_uri, 12, type: :string, json_name: "cpeUri"
+  field :architecture, 13, type: Grafeas.V1.Architecture, enum: true
+  field :version, 14, type: Grafeas.V1.Version
+  field :maintainer, 15, type: :string
+  field :url, 16, type: :string
+  field :description, 17, type: :string
+  field :license, 18, type: Grafeas.V1.License
+  field :digest, 19, repeated: true, type: Grafeas.V1.Digest
 end
 defmodule Grafeas.V1.PackageOccurrence do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :location, 2, repeated: true, type: Grafeas.V1.Location
+  field :package_type, 3, type: :string, json_name: "packageType", deprecated: false
+  field :cpe_uri, 4, type: :string, json_name: "cpeUri", deprecated: false
+  field :architecture, 5, type: Grafeas.V1.Architecture, enum: true, deprecated: false
+  field :license, 6, type: Grafeas.V1.License
+  field :version, 7, type: Grafeas.V1.Version, deprecated: false
 end
 defmodule Grafeas.V1.Version do
   @moduledoc false
