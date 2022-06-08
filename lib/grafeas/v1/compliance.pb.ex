@@ -29,6 +29,7 @@ defmodule Grafeas.V1.ComplianceVersion do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
+  field :benchmark_document, 3, type: :string, json_name: "benchmarkDocument"
   field :version, 2, type: :string
 end
 defmodule Grafeas.V1.ComplianceOccurrence do
