@@ -122,6 +122,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ContainerSpec do
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :command, 2, repeated: true, type: :string
   field :args, 3, repeated: true, type: :string
+  field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.EnvVar
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.PythonPackageSpec do
   @moduledoc false
@@ -137,6 +138,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PythonPackageSpec do
 
   field :python_module, 3, type: :string, json_name: "pythonModule", deprecated: false
   field :args, 4, repeated: true, type: :string
+  field :env, 5, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.EnvVar
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling do
   @moduledoc false
