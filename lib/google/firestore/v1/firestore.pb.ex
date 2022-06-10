@@ -176,6 +176,7 @@ defmodule Google.Firestore.V1.PartitionQueryRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   oneof :query_type, 0
+  oneof :consistency_selector, 1
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -187,6 +188,7 @@ defmodule Google.Firestore.V1.PartitionQueryRequest do
   field :partition_count, 3, type: :int64, json_name: "partitionCount"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :page_size, 5, type: :int32, json_name: "pageSize"
+  field :read_time, 6, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
 end
 defmodule Google.Firestore.V1.PartitionQueryResponse do
   @moduledoc false
@@ -323,9 +325,12 @@ defmodule Google.Firestore.V1.ListCollectionIdsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
+  oneof :consistency_selector, 0
+
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
 end
 defmodule Google.Firestore.V1.ListCollectionIdsResponse do
   @moduledoc false
