@@ -1,3 +1,11 @@
+defmodule Google.Cloud.Aiplatform.V1.ExamplesOverride.DataFormat do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :INSTANCES, 1
+  field :EMBEDDINGS, 2
+end
 defmodule Google.Cloud.Aiplatform.V1.Explanation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -5,6 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1.Explanation do
   field :attributions, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Attribution,
+    deprecated: false
+
+  field :neighbors, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Neighbor,
     deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ModelExplanation do
@@ -45,6 +58,13 @@ defmodule Google.Cloud.Aiplatform.V1.Attribution do
   field :output_display_name, 5, type: :string, json_name: "outputDisplayName", deprecated: false
   field :approximation_error, 6, type: :double, json_name: "approximationError", deprecated: false
   field :output_name, 7, type: :string, json_name: "outputName", deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.Neighbor do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :neighbor_id, 1, type: :string, json_name: "neighborId", deprecated: false
+  field :neighbor_distance, 2, type: :double, json_name: "neighborDistance", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpec do
   @moduledoc false
@@ -154,6 +174,10 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationSpecOverride do
 
   field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters
   field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride
+
+  field :examples_override, 3,
+    type: Google.Cloud.Aiplatform.V1.ExamplesOverride,
+    json_name: "examplesOverride"
 end
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOverride do
   @moduledoc false
@@ -182,4 +206,30 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride do
     type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputsEntry,
     map: true,
     deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.ExamplesOverride do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :neighbor_count, 1, type: :int32, json_name: "neighborCount"
+  field :crowding_count, 2, type: :int32, json_name: "crowdingCount"
+
+  field :restrictions, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ExamplesRestrictionsNamespace
+
+  field :return_embeddings, 4, type: :bool, json_name: "returnEmbeddings"
+
+  field :data_format, 5,
+    type: Google.Cloud.Aiplatform.V1.ExamplesOverride.DataFormat,
+    json_name: "dataFormat",
+    enum: true
+end
+defmodule Google.Cloud.Aiplatform.V1.ExamplesRestrictionsNamespace do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :namespace_name, 1, type: :string, json_name: "namespaceName"
+  field :allow, 2, repeated: true, type: :string
+  field :deny, 3, repeated: true, type: :string
 end
