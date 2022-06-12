@@ -39,8 +39,22 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string
+  field :version_id, 28, type: :string, json_name: "versionId", deprecated: false
+  field :version_aliases, 29, repeated: true, type: :string, json_name: "versionAliases"
+
+  field :version_create_time, 31,
+    type: Google.Protobuf.Timestamp,
+    json_name: "versionCreateTime",
+    deprecated: false
+
+  field :version_update_time, 32,
+    type: Google.Protobuf.Timestamp,
+    json_name: "versionUpdateTime",
+    deprecated: false
+
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
+  field :version_description, 30, type: :string, json_name: "versionDescription"
 
   field :predict_schemata, 4,
     type: Google.Cloud.Aiplatform.V1.PredictSchemata,

@@ -3,6 +3,8 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :parent_model, 4, type: :string, json_name: "parentModel", deprecated: false
+  field :model_id, 5, type: :string, json_name: "modelId", deprecated: false
   field :model, 2, type: Google.Cloud.Aiplatform.V1.Model, deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.UploadModelOperationMetadata do
@@ -43,6 +45,23 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelsResponse do
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+defmodule Google.Cloud.Aiplatform.V1.ListModelVersionsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+end
+defmodule Google.Cloud.Aiplatform.V1.ListModelVersionsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Model
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -59,6 +78,24 @@ defmodule Google.Cloud.Aiplatform.V1.DeleteModelRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.DeleteModelVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.MergeVersionAliasesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :version_aliases, 2,
+    repeated: true,
+    type: :string,
+    json_name: "versionAliases",
+    deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig do
   @moduledoc false
@@ -188,11 +225,23 @@ defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
       Google.Cloud.Aiplatform.V1.ListModelsRequest,
       Google.Cloud.Aiplatform.V1.ListModelsResponse
 
+  rpc :ListModelVersions,
+      Google.Cloud.Aiplatform.V1.ListModelVersionsRequest,
+      Google.Cloud.Aiplatform.V1.ListModelVersionsResponse
+
   rpc :UpdateModel,
       Google.Cloud.Aiplatform.V1.UpdateModelRequest,
       Google.Cloud.Aiplatform.V1.Model
 
   rpc :DeleteModel, Google.Cloud.Aiplatform.V1.DeleteModelRequest, Google.Longrunning.Operation
+
+  rpc :DeleteModelVersion,
+      Google.Cloud.Aiplatform.V1.DeleteModelVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :MergeVersionAliases,
+      Google.Cloud.Aiplatform.V1.MergeVersionAliasesRequest,
+      Google.Cloud.Aiplatform.V1.Model
 
   rpc :ExportModel, Google.Cloud.Aiplatform.V1.ExportModelRequest, Google.Longrunning.Operation
 

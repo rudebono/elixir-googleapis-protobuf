@@ -100,6 +100,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
     type: Google.Cloud.Bigquery.Migration.V2.VerticaDialect,
     json_name: "verticaDialect",
     oneof: 0
+
+  field :sql_server_dialect, 11,
+    type: Google.Cloud.Bigquery.Migration.V2.SQLServerDialect,
+    json_name: "sqlServerDialect",
+    oneof: 0
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.BigQueryDialect do
   @moduledoc false
@@ -140,6 +145,10 @@ defmodule Google.Cloud.Bigquery.Migration.V2.AzureSynapseDialect do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.VerticaDialect do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Bigquery.Migration.V2.SQLServerDialect do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end

@@ -4,7 +4,6 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy do
 
   field :STITCHING_POLICY_UNSPECIFIED, 0
   field :COMPLETE_AD, 1
-  field :COMPLETE_POD, 2
   field :CUT_CURRENT, 3
 end
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
@@ -43,6 +42,8 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
   field :manifest_options, 9,
     type: Google.Cloud.Video.Stitcher.V1.ManifestOptions,
     json_name: "manifestOptions"
+
+  field :asset_id, 10, type: :string, json_name: "assetId", deprecated: false
 end
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
   @moduledoc false
@@ -137,6 +138,8 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
   field :manifest_options, 10,
     type: Google.Cloud.Video.Stitcher.V1.ManifestOptions,
     json_name: "manifestOptions"
+
+  field :stream_id, 11, type: :string, json_name: "streamId", deprecated: false
 end
 defmodule Google.Cloud.Video.Stitcher.V1.AdTag do
   @moduledoc false

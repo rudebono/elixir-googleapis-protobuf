@@ -32,6 +32,8 @@ defmodule Google.Cloud.Aiplatform.V1.TrainingPipeline do
     deprecated: false
 
   field :model_to_upload, 7, type: Google.Cloud.Aiplatform.V1.Model, json_name: "modelToUpload"
+  field :model_id, 22, type: :string, json_name: "modelId", deprecated: false
+  field :parent_model, 21, type: :string, json_name: "parentModel", deprecated: false
   field :state, 9, type: Google.Cloud.Aiplatform.V1.PipelineState, enum: true, deprecated: false
   field :error, 10, type: Google.Rpc.Status, deprecated: false
 
