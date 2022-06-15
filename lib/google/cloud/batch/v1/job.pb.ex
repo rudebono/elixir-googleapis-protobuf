@@ -46,7 +46,7 @@ defmodule Google.Cloud.Batch.V1.Job do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :priority, 3, type: :int64
 
@@ -62,8 +62,17 @@ defmodule Google.Cloud.Batch.V1.Job do
 
   field :labels, 8, repeated: true, type: Google.Cloud.Batch.V1.Job.LabelsEntry, map: true
   field :status, 9, type: Google.Cloud.Batch.V1.JobStatus, deprecated: false
-  field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :logs_policy, 13, type: Google.Cloud.Batch.V1.LogsPolicy, json_name: "logsPolicy"
   field :notifications, 14, repeated: true, type: Google.Cloud.Batch.V1.JobNotification
 end
