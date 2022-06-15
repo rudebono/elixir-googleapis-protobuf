@@ -24,7 +24,7 @@ defmodule Google.Cloud.Batch.V1alpha.PD do
 
   field :disk, 1, type: :string
   field :device, 2, type: :string
-  field :existing, 3, type: :bool
+  field :existing, 3, type: :bool, deprecated: true
 end
 defmodule Google.Cloud.Batch.V1alpha.GCS do
   @moduledoc false

@@ -20,6 +20,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig do
   field :enable_continuous_run, 2, type: :bool, json_name: "enableContinuousRun"
   field :enable_predeployment_run, 3, type: :bool, json_name: "enablePredeploymentRun"
 end
+defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.WebhookConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :webhook_overrides, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.Webhook,
+    json_name: "webhookOverrides"
+end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -42,6 +51,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Environment do
   field :test_cases_config, 7,
     type: Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig,
     json_name: "testCasesConfig"
+
+  field :webhook_config, 10,
+    type: Google.Cloud.Dialogflow.Cx.V3.Environment.WebhookConfig,
+    json_name: "webhookConfig"
 end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsRequest do
   @moduledoc false
