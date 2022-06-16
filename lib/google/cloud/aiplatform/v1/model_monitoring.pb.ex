@@ -62,6 +62,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPred
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.TrainingPredictionSkewDetectionConfig.AttributionScoreSkewThresholdsEntry,
     json_name: "attributionScoreSkewThresholds",
     map: true
+
+  field :default_skew_threshold, 6,
+    type: Google.Cloud.Aiplatform.V1.ThresholdConfig,
+    json_name: "defaultSkewThreshold"
 end
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.DriftThresholdsEntry do
   @moduledoc false
@@ -94,6 +98,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDr
       Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.PredictionDriftDetectionConfig.AttributionScoreDriftThresholdsEntry,
     json_name: "attributionScoreDriftThresholds",
     map: true
+
+  field :default_drift_threshold, 5,
+    type: Google.Cloud.Aiplatform.V1.ThresholdConfig,
+    json_name: "defaultDriftThreshold"
 end
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringObjectiveConfig.ExplanationConfig.ExplanationBaseline do
   @moduledoc false
