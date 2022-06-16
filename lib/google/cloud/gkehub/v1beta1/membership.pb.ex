@@ -6,6 +6,16 @@ defmodule Google.Cloud.Gkehub.V1beta1.Membership.InfrastructureType do
   field :ON_PREM, 1
   field :MULTI_CLOUD, 2
 end
+defmodule Google.Cloud.Gkehub.V1beta1.OnPremCluster.ClusterType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :CLUSTERTYPE_UNSPECIFIED, 0
+  field :BOOTSTRAP, 1
+  field :HYBRID, 2
+  field :STANDALONE, 3
+  field :USER, 4
+end
 defmodule Google.Cloud.Gkehub.V1beta1.MembershipState.Code do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -179,6 +189,12 @@ defmodule Google.Cloud.Gkehub.V1beta1.OnPremCluster do
   field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
   field :cluster_missing, 2, type: :bool, json_name: "clusterMissing", deprecated: false
   field :admin_cluster, 3, type: :bool, json_name: "adminCluster", deprecated: false
+
+  field :cluster_type, 4,
+    type: Google.Cloud.Gkehub.V1beta1.OnPremCluster.ClusterType,
+    json_name: "clusterType",
+    enum: true,
+    deprecated: false
 end
 defmodule Google.Cloud.Gkehub.V1beta1.MultiCloudCluster do
   @moduledoc false

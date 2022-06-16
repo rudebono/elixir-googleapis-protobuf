@@ -149,7 +149,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment,
     json_name: "accountDefenderAssessment"
 
-  field :private_password_leak_verification, 7,
+  field :private_password_leak_verification, 8,
     type: Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification,
     json_name: "privatePasswordLeakVerification"
 end
