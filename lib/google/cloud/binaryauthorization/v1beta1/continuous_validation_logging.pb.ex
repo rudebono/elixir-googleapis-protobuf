@@ -30,6 +30,7 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
+  field :pod_namespace, 7, type: :string, json_name: "podNamespace"
   field :pod, 1, type: :string
   field :deploy_time, 2, type: Google.Protobuf.Timestamp, json_name: "deployTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
