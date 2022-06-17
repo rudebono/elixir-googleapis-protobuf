@@ -24,6 +24,13 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.FadeType do
   field :FADE_IN, 1
   field :FADE_OUT, 2
 end
+defmodule Google.Cloud.Video.Transcoder.V1.Job.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
 defmodule Google.Cloud.Video.Transcoder.V1.Job do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -53,7 +60,20 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
 
   field :end_time, 14, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :ttl_after_completion_days, 15, type: :int32, json_name: "ttlAfterCompletionDays"
+
+  field :labels, 16,
+    repeated: true,
+    type: Google.Cloud.Video.Transcoder.V1.Job.LabelsEntry,
+    map: true
+
   field :error, 17, type: Google.Rpc.Status, deprecated: false
+end
+defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
   @moduledoc false
@@ -61,6 +81,11 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Video.Transcoder.V1.JobConfig
+
+  field :labels, 3,
+    repeated: true,
+    type: Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry,
+    map: true
 end
 defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
   @moduledoc false

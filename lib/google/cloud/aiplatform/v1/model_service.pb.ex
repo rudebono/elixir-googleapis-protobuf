@@ -20,6 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1.UploadModelResponse do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
+  field :model_version_id, 2, type: :string, json_name: "modelVersionId", deprecated: false
 end
 defmodule Google.Cloud.Aiplatform.V1.GetModelRequest do
   @moduledoc false
