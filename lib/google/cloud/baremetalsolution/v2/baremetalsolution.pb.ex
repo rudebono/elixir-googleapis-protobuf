@@ -1,347 +1,3 @@
-defmodule Google.Cloud.Baremetalsolution.V2.Volume.StorageType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STORAGE_TYPE_UNSPECIFIED, 0
-  field :SSD, 1
-  field :HDD, 2
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Volume.State do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STATE_UNSPECIFIED, 0
-  field :CREATING, 1
-  field :READY, 2
-  field :DELETING, 3
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED, 0
-  field :DISABLED, 1
-  field :OLDEST_FIRST, 2
-  field :NEWEST_FIRST, 3
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Lun.State do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STATE_UNSPECIFIED, 0
-  field :CREATING, 1
-  field :UPDATING, 2
-  field :READY, 3
-  field :DELETING, 4
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :MULTIPROTOCOL_TYPE_UNSPECIFIED, 0
-  field :LINUX, 1
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Lun.StorageType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STORAGE_TYPE_UNSPECIFIED, 0
-  field :SSD, 1
-  field :HDD, 2
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Network.Type do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :TYPE_UNSPECIFIED, 0
-  field :CLIENT, 1
-  field :PRIVATE, 2
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Network.State do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STATE_UNSPECIFIED, 0
-  field :PROVISIONING, 1
-  field :PROVISIONED, 2
-end
-defmodule Google.Cloud.Baremetalsolution.V2.VRF.State do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STATE_UNSPECIFIED, 0
-  field :PROVISIONING, 1
-  field :PROVISIONED, 2
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Instance.State do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :STATE_UNSPECIFIED, 0
-  field :PROVISIONING, 1
-  field :RUNNING, 2
-  field :DELETED, 3
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :reserved_space_gib, 1, type: :int64, json_name: "reservedSpaceGib"
-  field :reserved_space_used_percent, 2, type: :int32, json_name: "reservedSpaceUsedPercent"
-  field :reserved_space_remaining_gib, 3, type: :int64, json_name: "reservedSpaceRemainingGib"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Volume do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-
-  field :storage_type, 2,
-    type: Google.Cloud.Baremetalsolution.V2.Volume.StorageType,
-    json_name: "storageType",
-    enum: true
-
-  field :state, 3, type: Google.Cloud.Baremetalsolution.V2.Volume.State, enum: true
-  field :requested_size_gib, 4, type: :int64, json_name: "requestedSizeGib"
-  field :current_size_gib, 5, type: :int64, json_name: "currentSizeGib"
-  field :auto_grown_size_gib, 6, type: :int64, json_name: "autoGrownSizeGib"
-  field :remaining_space_gib, 7, type: :int64, json_name: "remainingSpaceGib"
-
-  field :snapshot_reservation_detail, 8,
-    type: Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail,
-    json_name: "snapshotReservationDetail"
-
-  field :snapshot_auto_delete_behavior, 9,
-    type: Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior,
-    json_name: "snapshotAutoDeleteBehavior",
-    enum: true
-
-  field :snapshot_schedule_policy, 10,
-    type: :string,
-    json_name: "snapshotSchedulePolicy",
-    deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListVolumesResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :volumes, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Volume
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Lun do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :state, 2, type: Google.Cloud.Baremetalsolution.V2.Lun.State, enum: true
-  field :size_gb, 3, type: :int64, json_name: "sizeGb"
-
-  field :multiprotocol_type, 4,
-    type: Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType,
-    json_name: "multiprotocolType",
-    enum: true
-
-  field :storage_volume, 5, type: :string, json_name: "storageVolume", deprecated: false
-  field :shareable, 6, type: :bool
-  field :boot_lun, 7, type: :bool, json_name: "bootLun"
-
-  field :storage_type, 8,
-    type: Google.Cloud.Baremetalsolution.V2.Lun.StorageType,
-    json_name: "storageType",
-    enum: true
-
-  field :wwid, 9, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Network do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 5, type: :string, deprecated: false
-  field :network, 1, type: :string
-  field :type, 2, type: Google.Cloud.Baremetalsolution.V2.Network.Type, enum: true
-  field :ip_address, 3, type: :string, json_name: "ipAddress"
-  field :mac_address, 4, repeated: true, type: :string, json_name: "macAddress"
-  field :state, 6, type: Google.Cloud.Baremetalsolution.V2.Network.State, enum: true
-  field :vlan_id, 7, type: :string, json_name: "vlanId"
-  field :cidr, 8, type: :string
-  field :vrf, 9, type: Google.Cloud.Baremetalsolution.V2.VRF
-end
-defmodule Google.Cloud.Baremetalsolution.V2.VRF.QosPolicy do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :bandwidth_gbps, 1, type: :double, json_name: "bandwidthGbps"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :peer_vlan_id, 1, type: :int64, json_name: "peerVlanId"
-  field :peer_ip, 2, type: :string, json_name: "peerIp"
-  field :router_ip, 3, type: :string, json_name: "routerIp"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.VRF do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string
-  field :state, 5, type: Google.Cloud.Baremetalsolution.V2.VRF.State, enum: true
-
-  field :qos_policy, 6,
-    type: Google.Cloud.Baremetalsolution.V2.VRF.QosPolicy,
-    json_name: "qosPolicy"
-
-  field :vlan_attachments, 7,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment,
-    json_name: "vlanAttachments"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListNetworksResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :networks, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Network
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetNetworkRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetSnapshotSchedulePolicyRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Instance.LabelsEntry do
-  @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.Instance do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-
-  field :create_time, 2,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 3,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :machine_type, 4, type: :string, json_name: "machineType"
-  field :state, 5, type: Google.Cloud.Baremetalsolution.V2.Instance.State, enum: true
-  field :hyperthreading_enabled, 6, type: :bool, json_name: "hyperthreadingEnabled"
-
-  field :labels, 7,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.Instance.LabelsEntry,
-    map: true
-
-  field :luns, 8, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
-  field :networks, 9, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Network
-
-  field :interactive_serial_console_enabled, 10,
-    type: :bool,
-    json_name: "interactiveSerialConsoleEnabled"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListInstancesResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :instances, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Instance
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetInstanceRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeSnapshotRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :volume_snapshots, 1,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.VolumeSnapshot,
-    json_name: "volumeSnapshots"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.DeleteVolumeSnapshotRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
 defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -363,140 +19,9 @@ defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
-defmodule Google.Cloud.Baremetalsolution.V2.VolumeSnapshot do
+defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :description, 2, type: :string
-  field :size_bytes, 3, type: :int64, json_name: "sizeBytes"
-
-  field :create_time, 4,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :storage_volume, 5, type: :string, json_name: "storageVolume", deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.Schedule do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :crontab_spec, 1, type: :string, json_name: "crontabSpec"
-  field :retention_count, 2, type: :int32, json_name: "retentionCount"
-  field :prefix, 3, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :description, 2, type: :string
-
-  field :schedules, 3,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy.Schedule
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :snapshot_schedule_policies, 1,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy,
-    json_name: "snapshotSchedulePolicies"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.CreateSnapshotSchedulePolicyRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-
-  field :snapshot_schedule_policy, 2,
-    type: Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy,
-    json_name: "snapshotSchedulePolicy",
-    deprecated: false
-
-  field :snapshot_schedule_policy_id, 3,
-    type: :string,
-    json_name: "snapshotSchedulePolicyId",
-    deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.UpdateSnapshotSchedulePolicyRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :snapshot_schedule_policy, 1,
-    type: Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy,
-    json_name: "snapshotSchedulePolicy",
-    deprecated: false
-
-  field :update_mask, 2,
-    type: Google.Protobuf.FieldMask,
-    json_name: "updateMask",
-    deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.DeleteSnapshotSchedulePolicyRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.UpdateVolumeRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :volume, 1, type: Google.Cloud.Baremetalsolution.V2.Volume, deprecated: false
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.GetLunRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListLunsRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-defmodule Google.Cloud.Baremetalsolution.V2.ListLunsResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :luns, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-defmodule Google.Cloud.Baremetalsolution.V2.CreateVolumeSnapshotRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-
-  field :volume_snapshot, 2,
-    type: Google.Cloud.Baremetalsolution.V2.VolumeSnapshot,
-    json_name: "volumeSnapshot",
-    deprecated: false
-end
-defmodule Google.Cloud.Baremetalsolution.V2.RestoreVolumeSnapshotRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
-
-  field :volume_snapshot, 1, type: :string, json_name: "volumeSnapshot", deprecated: false
 end
 defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
   @moduledoc false
@@ -512,9 +37,23 @@ defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
       Google.Cloud.Baremetalsolution.V2.GetInstanceRequest,
       Google.Cloud.Baremetalsolution.V2.Instance
 
+  rpc :UpdateInstance,
+      Google.Cloud.Baremetalsolution.V2.UpdateInstanceRequest,
+      Google.Longrunning.Operation
+
   rpc :ResetInstance,
       Google.Cloud.Baremetalsolution.V2.ResetInstanceRequest,
       Google.Longrunning.Operation
+
+  rpc :StartInstance,
+      Google.Cloud.Baremetalsolution.V2.StartInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopInstance,
+      Google.Cloud.Baremetalsolution.V2.StopInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DetachLun, Google.Cloud.Baremetalsolution.V2.DetachLunRequest, Google.Longrunning.Operation
 
   rpc :ListVolumes,
       Google.Cloud.Baremetalsolution.V2.ListVolumesRequest,
@@ -528,53 +67,25 @@ defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
       Google.Cloud.Baremetalsolution.V2.UpdateVolumeRequest,
       Google.Longrunning.Operation
 
+  rpc :ResizeVolume,
+      Google.Cloud.Baremetalsolution.V2.ResizeVolumeRequest,
+      Google.Longrunning.Operation
+
   rpc :ListNetworks,
       Google.Cloud.Baremetalsolution.V2.ListNetworksRequest,
       Google.Cloud.Baremetalsolution.V2.ListNetworksResponse
+
+  rpc :ListNetworkUsage,
+      Google.Cloud.Baremetalsolution.V2.ListNetworkUsageRequest,
+      Google.Cloud.Baremetalsolution.V2.ListNetworkUsageResponse
 
   rpc :GetNetwork,
       Google.Cloud.Baremetalsolution.V2.GetNetworkRequest,
       Google.Cloud.Baremetalsolution.V2.Network
 
-  rpc :ListSnapshotSchedulePolicies,
-      Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesRequest,
-      Google.Cloud.Baremetalsolution.V2.ListSnapshotSchedulePoliciesResponse
-
-  rpc :GetSnapshotSchedulePolicy,
-      Google.Cloud.Baremetalsolution.V2.GetSnapshotSchedulePolicyRequest,
-      Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy
-
-  rpc :CreateSnapshotSchedulePolicy,
-      Google.Cloud.Baremetalsolution.V2.CreateSnapshotSchedulePolicyRequest,
-      Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy
-
-  rpc :UpdateSnapshotSchedulePolicy,
-      Google.Cloud.Baremetalsolution.V2.UpdateSnapshotSchedulePolicyRequest,
-      Google.Cloud.Baremetalsolution.V2.SnapshotSchedulePolicy
-
-  rpc :DeleteSnapshotSchedulePolicy,
-      Google.Cloud.Baremetalsolution.V2.DeleteSnapshotSchedulePolicyRequest,
-      Google.Protobuf.Empty
-
-  rpc :CreateVolumeSnapshot,
-      Google.Cloud.Baremetalsolution.V2.CreateVolumeSnapshotRequest,
-      Google.Cloud.Baremetalsolution.V2.VolumeSnapshot
-
-  rpc :RestoreVolumeSnapshot,
-      Google.Cloud.Baremetalsolution.V2.RestoreVolumeSnapshotRequest,
+  rpc :UpdateNetwork,
+      Google.Cloud.Baremetalsolution.V2.UpdateNetworkRequest,
       Google.Longrunning.Operation
-
-  rpc :DeleteVolumeSnapshot,
-      Google.Cloud.Baremetalsolution.V2.DeleteVolumeSnapshotRequest,
-      Google.Protobuf.Empty
-
-  rpc :GetVolumeSnapshot,
-      Google.Cloud.Baremetalsolution.V2.GetVolumeSnapshotRequest,
-      Google.Cloud.Baremetalsolution.V2.VolumeSnapshot
-
-  rpc :ListVolumeSnapshots,
-      Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsRequest,
-      Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsResponse
 
   rpc :GetLun,
       Google.Cloud.Baremetalsolution.V2.GetLunRequest,
@@ -583,6 +94,18 @@ defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
   rpc :ListLuns,
       Google.Cloud.Baremetalsolution.V2.ListLunsRequest,
       Google.Cloud.Baremetalsolution.V2.ListLunsResponse
+
+  rpc :GetNfsShare,
+      Google.Cloud.Baremetalsolution.V2.GetNfsShareRequest,
+      Google.Cloud.Baremetalsolution.V2.NfsShare
+
+  rpc :ListNfsShares,
+      Google.Cloud.Baremetalsolution.V2.ListNfsSharesRequest,
+      Google.Cloud.Baremetalsolution.V2.ListNfsSharesResponse
+
+  rpc :UpdateNfsShare,
+      Google.Cloud.Baremetalsolution.V2.UpdateNfsShareRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Stub do
