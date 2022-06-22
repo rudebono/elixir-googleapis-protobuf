@@ -70,6 +70,21 @@ defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
 
   field :include_tolls, 4, type: :bool, json_name: "includeTolls", deprecated: false
 end
+defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
+end
+defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :dataset_info, 1,
+    type: Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo,
+    json_name: "datasetInfo",
+    deprecated: false
+end
 defmodule Google.Maps.Routes.V1.RouteObjective do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -80,4 +95,9 @@ defmodule Google.Maps.Routes.V1.RouteObjective do
     type: Google.Maps.Routes.V1.RouteObjective.RateCard,
     json_name: "rateCard",
     oneof: 0
+
+  field :custom_layer, 2,
+    type: Google.Maps.Routes.V1.RouteObjective.CustomLayer,
+    json_name: "customLayer",
+    deprecated: false
 end

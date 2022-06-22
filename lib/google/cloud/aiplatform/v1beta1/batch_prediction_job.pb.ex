@@ -155,4 +155,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :model_monitoring_config, 26,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringConfig,
+    json_name: "modelMonitoringConfig"
 end
