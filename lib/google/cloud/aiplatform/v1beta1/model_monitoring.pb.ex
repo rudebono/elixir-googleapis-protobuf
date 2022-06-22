@@ -6,6 +6,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.Explana
   field :JSONL, 2
   field :BIGQUERY, 3
 end
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :objective_configs, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig,
+    json_name: "objectiveConfigs"
+
+  field :alert_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertConfig,
+    json_name: "alertConfig"
+
+  field :analysis_instance_schema_uri, 4, type: :string, json_name: "analysisInstanceSchemaUri"
+end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingDataset do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3

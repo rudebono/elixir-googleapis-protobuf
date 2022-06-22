@@ -47,6 +47,11 @@ defmodule Google.Maps.Routes.V1.Route do
   field :travel_advisory, 9,
     type: Google.Maps.Routes.V1.RouteTravelAdvisory,
     json_name: "travelAdvisory"
+
+  field :optimized_intermediate_waypoint_index, 10,
+    repeated: true,
+    type: :int32,
+    json_name: "optimizedIntermediateWaypointIndex"
 end
 defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
   @moduledoc false
@@ -62,6 +67,10 @@ defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
     repeated: true,
     type: Google.Maps.Routes.V1.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
+
+  field :custom_layer_info, 4,
+    type: Google.Maps.Routes.V1.CustomLayerInfo,
+    json_name: "customLayerInfo"
 end
 defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
   @moduledoc false
@@ -73,6 +82,10 @@ defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
     repeated: true,
     type: Google.Maps.Routes.V1.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
+
+  field :custom_layer_info, 3,
+    type: Google.Maps.Routes.V1.CustomLayerInfo,
+    json_name: "customLayerInfo"
 end
 defmodule Google.Maps.Routes.V1.RouteLegStepTravelAdvisory do
   @moduledoc false
@@ -154,4 +167,21 @@ defmodule Google.Maps.Routes.V1.SpeedReadingInterval do
   field :start_polyline_point_index, 1, type: :int32, json_name: "startPolylinePointIndex"
   field :end_polyline_point_index, 2, type: :int32, json_name: "endPolylinePointIndex"
   field :speed, 3, type: Google.Maps.Routes.V1.SpeedReadingInterval.Speed, enum: true
+end
+defmodule Google.Maps.Routes.V1.CustomLayerInfo.AreaInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :area_id, 1, type: :string, json_name: "areaId"
+  field :distance_in_area_meters, 2, type: :float, json_name: "distanceInAreaMeters"
+  field :duration_in_area, 3, type: Google.Protobuf.Duration, json_name: "durationInArea"
+end
+defmodule Google.Maps.Routes.V1.CustomLayerInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :area_info, 1,
+    repeated: true,
+    type: Google.Maps.Routes.V1.CustomLayerInfo.AreaInfo,
+    json_name: "areaInfo"
 end

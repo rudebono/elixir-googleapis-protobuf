@@ -13,6 +13,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
   field :OFFSET_ALREADY_EXISTS, 8
   field :OFFSET_OUT_OF_RANGE, 9
 end
+defmodule Google.Cloud.Bigquery.Storage.V1.RowError.RowErrorCode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :ROW_ERROR_CODE_UNSPECIFIED, 0
+  field :FIELDS_ERROR, 1
+end
 defmodule Google.Cloud.Bigquery.Storage.V1.CreateReadSessionRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -166,6 +173,11 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse do
   field :updated_schema, 3,
     type: Google.Cloud.Bigquery.Storage.V1.TableSchema,
     json_name: "updatedSchema"
+
+  field :row_errors, 4,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Storage.V1.RowError,
+    json_name: "rowErrors"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.GetWriteStreamRequest do
   @moduledoc false
@@ -228,6 +240,14 @@ defmodule Google.Cloud.Bigquery.Storage.V1.StorageError do
   field :code, 1, type: Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode, enum: true
   field :entity, 2, type: :string
   field :error_message, 3, type: :string, json_name: "errorMessage"
+end
+defmodule Google.Cloud.Bigquery.Storage.V1.RowError do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :index, 1, type: :int64
+  field :code, 2, type: Google.Cloud.Bigquery.Storage.V1.RowError.RowErrorCode, enum: true
+  field :message, 3, type: :string
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.BigQueryRead.Service do
   @moduledoc false

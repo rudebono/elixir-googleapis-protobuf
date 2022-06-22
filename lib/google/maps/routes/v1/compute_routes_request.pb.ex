@@ -63,6 +63,7 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
 
   field :language_code, 10, type: :string, json_name: "languageCode"
   field :units, 11, type: Google.Maps.Routes.V1.Units, enum: true
+  field :optimize_waypoint_order, 13, type: :bool, json_name: "optimizeWaypointOrder"
 end
 defmodule Google.Maps.Routes.V1.RouteModifiers do
   @moduledoc false
