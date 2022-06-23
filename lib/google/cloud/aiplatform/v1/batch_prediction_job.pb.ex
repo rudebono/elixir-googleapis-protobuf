@@ -71,6 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :model, 3, type: :string, deprecated: false
+  field :model_version_id, 30, type: :string, json_name: "modelVersionId", deprecated: false
 
   field :unmanaged_container_model, 28,
     type: Google.Cloud.Aiplatform.V1.UnmanagedContainerModel,

@@ -87,6 +87,7 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
 
   field :id, 1, type: :string, deprecated: false
   field :model, 2, type: :string, deprecated: false
+  field :model_version_id, 18, type: :string, json_name: "modelVersionId", deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
 
   field :create_time, 6,
