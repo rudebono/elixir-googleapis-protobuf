@@ -138,7 +138,8 @@ defmodule Google.Cloud.Batch.V1alpha.TaskSpec do
   field :environments, 6,
     repeated: true,
     type: Google.Cloud.Batch.V1alpha.TaskSpec.EnvironmentsEntry,
-    map: true
+    map: true,
+    deprecated: true
 
   field :volumes, 7, repeated: true, type: Google.Cloud.Batch.V1alpha.Volume
   field :environment, 10, type: Google.Cloud.Batch.V1alpha.Environment

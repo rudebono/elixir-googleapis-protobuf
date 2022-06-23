@@ -158,6 +158,28 @@ defmodule Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest do
     json_name: "modelEvaluation",
     deprecated: false
 end
+defmodule Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :model_evaluation_slices, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice,
+    json_name: "modelEvaluationSlices",
+    deprecated: false
+end
+defmodule Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :imported_model_evaluation_slices, 1,
+    repeated: true,
+    type: :string,
+    json_name: "importedModelEvaluationSlices",
+    deprecated: false
+end
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -249,6 +271,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
   rpc :ImportModelEvaluation,
       Google.Cloud.Aiplatform.V1.ImportModelEvaluationRequest,
       Google.Cloud.Aiplatform.V1.ModelEvaluation
+
+  rpc :BatchImportModelEvaluationSlices,
+      Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesRequest,
+      Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesResponse
 
   rpc :GetModelEvaluation,
       Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest,
