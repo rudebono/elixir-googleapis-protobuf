@@ -128,6 +128,28 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
+end
+defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :saved_queries, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.SavedQuery,
+    json_name: "savedQueries"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -186,6 +208,10 @@ defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   rpc :ListDataItems,
       Google.Cloud.Aiplatform.V1.ListDataItemsRequest,
       Google.Cloud.Aiplatform.V1.ListDataItemsResponse
+
+  rpc :ListSavedQueries,
+      Google.Cloud.Aiplatform.V1.ListSavedQueriesRequest,
+      Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse
 
   rpc :GetAnnotationSpec,
       Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest,
