@@ -116,6 +116,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.InputDataConfig do
   field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
   field :annotations_filter, 6, type: :string, json_name: "annotationsFilter"
   field :annotation_schema_uri, 9, type: :string, json_name: "annotationSchemaUri"
+  field :saved_query_id, 7, type: :string, json_name: "savedQueryId"
 end
 defmodule Google.Cloud.Aiplatform.V1beta1.FractionSplit do
   @moduledoc false
