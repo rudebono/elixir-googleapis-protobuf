@@ -412,6 +412,11 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo do
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1.AbortInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
+
+  field :projects_missing_permission, 3,
+    repeated: true,
+    type: :string,
+    json_name: "projectsMissingPermission"
 end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo do
   @moduledoc false

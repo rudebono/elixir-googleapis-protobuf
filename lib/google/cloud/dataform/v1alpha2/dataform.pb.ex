@@ -25,6 +25,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation.Relati
   field :TABLE, 1
   field :VIEW, 2
   field :INCREMENTAL_TABLE, 3
+  field :MATERIALIZED_VIEW, 4
 end
 defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocation.State do
   @moduledoc false
@@ -35,6 +36,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocation.State do
   field :SUCCEEDED, 2
   field :CANCELLED, 3
   field :FAILED, 4
+  field :CANCELING, 5
 end
 defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction.State do
   @moduledoc false
@@ -398,6 +400,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.CompilationResult.CodeCompilationConfig
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase", deprecated: false
   field :default_schema, 2, type: :string, json_name: "defaultSchema", deprecated: false
+  field :default_location, 8, type: :string, json_name: "defaultLocation", deprecated: false
   field :assertion_schema, 3, type: :string, json_name: "assertionSchema", deprecated: false
 
   field :vars, 4,
@@ -543,6 +546,13 @@ defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation.Increm
     type: :string,
     json_name: "incrementalPostOperations"
 end
+defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation.AdditionalOptionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
 defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -574,6 +584,14 @@ defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation do
 
   field :partition_expression, 10, type: :string, json_name: "partitionExpression"
   field :cluster_expressions, 11, repeated: true, type: :string, json_name: "clusterExpressions"
+  field :partition_expiration_days, 12, type: :int32, json_name: "partitionExpirationDays"
+  field :require_partition_filter, 13, type: :bool, json_name: "requirePartitionFilter"
+
+  field :additional_options, 14,
+    repeated: true,
+    type: Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Relation.AdditionalOptionsEntry,
+    json_name: "additionalOptions",
+    map: true
 end
 defmodule Google.Cloud.Dataform.V1alpha2.CompilationResultAction.Operations do
   @moduledoc false
@@ -663,10 +681,10 @@ defmodule Google.Cloud.Dataform.V1alpha2.QueryCompilationResultActionsResponse d
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :action_compilation_results, 1,
+  field :compilation_result_actions, 1,
     repeated: true,
     type: Google.Cloud.Dataform.V1alpha2.CompilationResultAction,
-    json_name: "actionCompilationResults"
+    json_name: "compilationResultActions"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
@@ -771,6 +789,12 @@ defmodule Google.Cloud.Dataform.V1alpha2.CancelWorkflowInvocationRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction.BigQueryAction do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :sql_script, 1, type: :string, json_name: "sqlScript", deprecated: false
+end
 defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -790,6 +814,11 @@ defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction do
   field :invocation_timing, 5,
     type: Google.Type.Interval,
     json_name: "invocationTiming",
+    deprecated: false
+
+  field :bigquery_action, 6,
+    type: Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction.BigQueryAction,
+    json_name: "bigqueryAction",
     deprecated: false
 end
 defmodule Google.Cloud.Dataform.V1alpha2.QueryWorkflowInvocationActionsRequest do
@@ -858,6 +887,10 @@ defmodule Google.Cloud.Dataform.V1alpha2.Dataform.Service do
       Google.Cloud.Dataform.V1alpha2.DeleteWorkspaceRequest,
       Google.Protobuf.Empty
 
+  rpc :InstallNpmPackages,
+      Google.Cloud.Dataform.V1alpha2.InstallNpmPackagesRequest,
+      Google.Cloud.Dataform.V1alpha2.InstallNpmPackagesResponse
+
   rpc :PullGitCommits, Google.Cloud.Dataform.V1alpha2.PullGitCommitsRequest, Google.Protobuf.Empty
 
   rpc :PushGitCommits, Google.Cloud.Dataform.V1alpha2.PushGitCommitsRequest, Google.Protobuf.Empty
@@ -911,10 +944,6 @@ defmodule Google.Cloud.Dataform.V1alpha2.Dataform.Service do
   rpc :WriteFile,
       Google.Cloud.Dataform.V1alpha2.WriteFileRequest,
       Google.Cloud.Dataform.V1alpha2.WriteFileResponse
-
-  rpc :InstallNpmPackages,
-      Google.Cloud.Dataform.V1alpha2.InstallNpmPackagesRequest,
-      Google.Cloud.Dataform.V1alpha2.InstallNpmPackagesResponse
 
   rpc :ListCompilationResults,
       Google.Cloud.Dataform.V1alpha2.ListCompilationResultsRequest,
