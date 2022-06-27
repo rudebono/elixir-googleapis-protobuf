@@ -127,6 +127,42 @@ defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest do
 
   field :etag, 3, type: :string, deprecated: false
 end
+defmodule Google.Cloud.Recommender.V1.GetRecommenderConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Recommender.V1.UpdateRecommenderConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :recommender_config, 1,
+    type: Google.Cloud.Recommender.V1.RecommenderConfig,
+    json_name: "recommenderConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
+defmodule Google.Cloud.Recommender.V1.GetInsightTypeConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Recommender.V1.UpdateInsightTypeConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :insight_type_config, 1,
+    type: Google.Cloud.Recommender.V1.InsightTypeConfig,
+    json_name: "insightTypeConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
 defmodule Google.Cloud.Recommender.V1.Recommender.Service do
   @moduledoc false
   use GRPC.Service,
@@ -164,6 +200,22 @@ defmodule Google.Cloud.Recommender.V1.Recommender.Service do
   rpc :MarkRecommendationFailed,
       Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest,
       Google.Cloud.Recommender.V1.Recommendation
+
+  rpc :GetRecommenderConfig,
+      Google.Cloud.Recommender.V1.GetRecommenderConfigRequest,
+      Google.Cloud.Recommender.V1.RecommenderConfig
+
+  rpc :UpdateRecommenderConfig,
+      Google.Cloud.Recommender.V1.UpdateRecommenderConfigRequest,
+      Google.Cloud.Recommender.V1.RecommenderConfig
+
+  rpc :GetInsightTypeConfig,
+      Google.Cloud.Recommender.V1.GetInsightTypeConfigRequest,
+      Google.Cloud.Recommender.V1.InsightTypeConfig
+
+  rpc :UpdateInsightTypeConfig,
+      Google.Cloud.Recommender.V1.UpdateInsightTypeConfigRequest,
+      Google.Cloud.Recommender.V1.InsightTypeConfig
 end
 
 defmodule Google.Cloud.Recommender.V1.Recommender.Stub do
