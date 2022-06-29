@@ -51,6 +51,10 @@ defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :cpu_utilization_percent, 2, type: :int32, json_name: "cpuUtilizationPercent"
+
+  field :storage_utilization_gib_per_node, 3,
+    type: :int32,
+    json_name: "storageUtilizationGibPerNode"
 end
 defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
   @moduledoc false
