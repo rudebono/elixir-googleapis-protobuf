@@ -102,6 +102,20 @@ defmodule Google.Bigtable.Admin.V2.DeleteTableRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Bigtable.Admin.V2.UndeleteTableRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Bigtable.Admin.V2.UndeleteTableMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -284,6 +298,8 @@ defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   rpc :GetTable, Google.Bigtable.Admin.V2.GetTableRequest, Google.Bigtable.Admin.V2.Table
 
   rpc :DeleteTable, Google.Bigtable.Admin.V2.DeleteTableRequest, Google.Protobuf.Empty
+
+  rpc :UndeleteTable, Google.Bigtable.Admin.V2.UndeleteTableRequest, Google.Longrunning.Operation
 
   rpc :ModifyColumnFamilies,
       Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest,
