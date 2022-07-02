@@ -50,6 +50,13 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.V1.ExternalSystem
 end
+defmodule Google.Cloud.Securitycenter.V1.Finding.ContactsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Securitycenter.V1.ContactDetails
+end
 defmodule Google.Cloud.Securitycenter.V1.Finding do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -106,6 +113,13 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :connections, 31, repeated: true, type: Google.Cloud.Securitycenter.V1.Connection
   field :mute_initiator, 28, type: :string, json_name: "muteInitiator"
   field :processes, 30, repeated: true, type: Google.Cloud.Securitycenter.V1.Process
+
+  field :contacts, 33,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.Finding.ContactsEntry,
+    map: true,
+    deprecated: false
+
   field :compliances, 34, repeated: true, type: Google.Cloud.Securitycenter.V1.Compliance
   field :description, 37, type: :string
   field :exfiltration, 38, type: Google.Cloud.Securitycenter.V1.Exfiltration

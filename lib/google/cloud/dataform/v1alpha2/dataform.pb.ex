@@ -828,7 +828,6 @@ defmodule Google.Cloud.Dataform.V1alpha2.QueryWorkflowInvocationActionsRequest d
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
-  field :filter, 4, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Dataform.V1alpha2.QueryWorkflowInvocationActionsResponse do
   @moduledoc false
