@@ -2,6 +2,7 @@ defmodule Google.Cloud.Securitycenter.V1.Process do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
+  field :name, 12, type: :string
   field :binary, 3, type: Google.Cloud.Securitycenter.V1.File
   field :libraries, 4, repeated: true, type: Google.Cloud.Securitycenter.V1.File
   field :script, 5, type: Google.Cloud.Securitycenter.V1.File
