@@ -60,6 +60,16 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
     map: true
 
   field :endpoint_uris, 8, repeated: true, type: :string, json_name: "endpointUris"
+
+  field :create_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest do
   @moduledoc false
