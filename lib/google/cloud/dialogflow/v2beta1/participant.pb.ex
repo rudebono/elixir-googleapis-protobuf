@@ -125,6 +125,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.UpdateParticipantRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Google.Cloud.Dialogflow.V2beta1.AudioInput do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :config, 1, type: Google.Cloud.Dialogflow.V2beta1.InputAudioConfig
+  field :audio, 2, type: :bytes
+end
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudio do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -202,6 +209,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
     json_name: "textInput",
     oneof: 0
 
+  field :audio_input, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.AudioInput,
+    json_name: "audioInput",
+    oneof: 0
+
   field :event_input, 8,
     type: Google.Cloud.Dialogflow.V2beta1.EventInput,
     json_name: "eventInput",
@@ -220,6 +232,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
     json_name: "assistQueryParams"
 
   field :cx_parameters, 18, type: Google.Protobuf.Struct, json_name: "cxParameters"
+  field :cx_current_page, 20, type: :string, json_name: "cxCurrentPage"
   field :message_send_time, 10, type: Google.Protobuf.Timestamp, json_name: "messageSendTime"
   field :request_id, 11, type: :string, json_name: "requestId"
 end
@@ -305,6 +318,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
     json_name: "assistQueryParams"
 
   field :cx_parameters, 13, type: Google.Protobuf.Struct, json_name: "cxParameters"
+  field :cx_current_page, 15, type: :string, json_name: "cxCurrentPage"
 
   field :enable_partial_automated_agent_reply, 12,
     type: :bool,
