@@ -441,17 +441,8 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget do
 
   oneof :target_proxy, 0
 
-  field :target_https_proxy, 1,
-    type: :string,
-    json_name: "targetHttpsProxy",
-    oneof: 0,
-    deprecated: false
-
-  field :target_ssl_proxy, 3,
-    type: :string,
-    json_name: "targetSslProxy",
-    oneof: 0,
-    deprecated: false
+  field :target_https_proxy, 1, type: :string, json_name: "targetHttpsProxy", oneof: 0
+  field :target_ssl_proxy, 3, type: :string, json_name: "targetSslProxy", oneof: 0
 
   field :ip_configs, 2,
     repeated: true,

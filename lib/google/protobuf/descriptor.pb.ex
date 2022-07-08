@@ -83,6 +83,7 @@ defmodule Google.Protobuf.FileDescriptorProto do
   field :options, 8, optional: true, type: Google.Protobuf.FileOptions
   field :source_code_info, 9, optional: true, type: Google.Protobuf.SourceCodeInfo
   field :syntax, 12, optional: true, type: :string
+  field :edition, 13, optional: true, type: :string
 end
 defmodule Google.Protobuf.DescriptorProto.ExtensionRange do
   @moduledoc false
