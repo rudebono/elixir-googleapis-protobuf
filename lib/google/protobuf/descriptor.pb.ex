@@ -61,6 +61,14 @@ defmodule Google.Protobuf.MethodOptions.IdempotencyLevel do
   field :NO_SIDE_EFFECTS, 1
   field :IDEMPOTENT, 2
 end
+defmodule Google.Protobuf.GeneratedCodeInfo.Annotation.Semantic do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto2
+
+  field :NONE, 0
+  field :SET, 1
+  field :ALIAS, 2
+end
 defmodule Google.Protobuf.FileDescriptorSet do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto2
@@ -361,6 +369,11 @@ defmodule Google.Protobuf.GeneratedCodeInfo.Annotation do
   field :source_file, 2, optional: true, type: :string
   field :begin, 3, optional: true, type: :int32
   field :end, 4, optional: true, type: :int32
+
+  field :semantic, 5,
+    optional: true,
+    type: Google.Protobuf.GeneratedCodeInfo.Annotation.Semantic,
+    enum: true
 end
 defmodule Google.Protobuf.GeneratedCodeInfo do
   @moduledoc false
