@@ -95,6 +95,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.ListRepositoriesResponse do
 
   field :repositories, 1, repeated: true, type: Google.Cloud.Dataform.V1alpha2.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dataform.V1alpha2.GetRepositoryRequest do
   @moduledoc false
@@ -162,6 +163,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.ListWorkspacesResponse do
 
   field :workspaces, 1, repeated: true, type: Google.Cloud.Dataform.V1alpha2.Workspace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dataform.V1alpha2.GetWorkspaceRequest do
   @moduledoc false
@@ -470,6 +472,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.ListCompilationResultsResponse do
     json_name: "compilationResults"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dataform.V1alpha2.GetCompilationResultRequest do
   @moduledoc false
@@ -759,6 +762,7 @@ defmodule Google.Cloud.Dataform.V1alpha2.ListWorkflowInvocationsResponse do
     json_name: "workflowInvocations"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 defmodule Google.Cloud.Dataform.V1alpha2.GetWorkflowInvocationRequest do
   @moduledoc false
@@ -810,6 +814,8 @@ defmodule Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction do
     type: Google.Cloud.Dataform.V1alpha2.WorkflowInvocationAction.State,
     enum: true,
     deprecated: false
+
+  field :failure_reason, 7, type: :string, json_name: "failureReason", deprecated: false
 
   field :invocation_timing, 5,
     type: Google.Type.Interval,

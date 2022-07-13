@@ -62,6 +62,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
   field :NEXT_HOP_INTERNET_GATEWAY, 8
   field :NEXT_HOP_BLACKHOLE, 9
   field :NEXT_HOP_ILB, 10
+  field :NEXT_HOP_ROUTER_APPLIANCE, 11
 end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType do
   @moduledoc false
@@ -141,6 +142,7 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :MISMATCHED_SOURCE_NETWORK, 12
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
+  field :UNSUPPORTED, 15
 end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   @moduledoc false

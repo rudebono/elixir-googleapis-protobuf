@@ -107,6 +107,74 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
   field :BIG_QUERY_COLUMNS, 4
   field :ALL_COLUMNS, 5
 end
+defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :LOCATION_UNSPECIFIED, 0
+  field :GLOBAL, 1
+  field :ARGENTINA, 2
+  field :AUSTRALIA, 3
+  field :BELGIUM, 4
+  field :BRAZIL, 5
+  field :CANADA, 6
+  field :CHILE, 7
+  field :CHINA, 8
+  field :COLOMBIA, 9
+  field :DENMARK, 10
+  field :FRANCE, 11
+  field :FINLAND, 12
+  field :GERMANY, 13
+  field :HONG_KONG, 14
+  field :INDIA, 15
+  field :INDONESIA, 16
+  field :IRELAND, 17
+  field :ISRAEL, 18
+  field :ITALY, 19
+  field :JAPAN, 20
+  field :KOREA, 21
+  field :MEXICO, 22
+  field :THE_NETHERLANDS, 23
+  field :NORWAY, 24
+  field :PARAGUAY, 25
+  field :PERU, 26
+  field :POLAND, 27
+  field :PORTUGAL, 28
+  field :SINGAPORE, 29
+  field :SOUTH_AFRICA, 30
+  field :SPAIN, 31
+  field :SWEDEN, 32
+  field :TAIWAN, 33
+  field :THAILAND, 34
+  field :TURKEY, 35
+  field :UNITED_KINGDOM, 36
+  field :UNITED_STATES, 37
+  field :URUGUAY, 38
+  field :VENEZUELA, 39
+  field :INTERNAL, 40
+end
+defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.IndustryCategory do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :INDUSTRY_UNSPECIFIED, 0
+  field :FINANCE, 1
+  field :HEALTH, 2
+  field :TELECOMMUNICATIONS, 3
+end
+defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.TypeCategory do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :PII, 1
+  field :SPII, 2
+  field :DEMOGRAPHIC, 3
+  field :CREDENTIAL, 4
+  field :GOVERNMENT_ID, 5
+  field :DOCUMENT, 6
+  field :CONTEXTUAL_INFORMATION, 7
+end
 defmodule Google.Privacy.Dlp.V2.TimePartConfig.TimePart do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -713,6 +781,31 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
     enum: true
 
   field :description, 4, type: :string
+  field :categories, 10, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeCategory
+end
+defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :category, 0
+
+  field :location_category, 1,
+    type: Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory,
+    json_name: "locationCategory",
+    enum: true,
+    oneof: 0
+
+  field :industry_category, 2,
+    type: Google.Privacy.Dlp.V2.InfoTypeCategory.IndustryCategory,
+    json_name: "industryCategory",
+    enum: true,
+    oneof: 0
+
+  field :type_category, 3,
+    type: Google.Privacy.Dlp.V2.InfoTypeCategory.TypeCategory,
+    json_name: "typeCategory",
+    enum: true,
+    oneof: 0
 end
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesRequest do
   @moduledoc false
