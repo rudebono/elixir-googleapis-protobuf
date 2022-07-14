@@ -105,6 +105,16 @@ defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
     type: Google.Cloud.Bigquery.Migration.V2.SQLServerDialect,
     json_name: "sqlServerDialect",
     oneof: 0
+
+  field :postgresql_dialect, 12,
+    type: Google.Cloud.Bigquery.Migration.V2.PostgresqlDialect,
+    json_name: "postgresqlDialect",
+    oneof: 0
+
+  field :presto_dialect, 13,
+    type: Google.Cloud.Bigquery.Migration.V2.PrestoDialect,
+    json_name: "prestoDialect",
+    oneof: 0
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.BigQueryDialect do
   @moduledoc false
@@ -149,6 +159,14 @@ defmodule Google.Cloud.Bigquery.Migration.V2.VerticaDialect do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
 defmodule Google.Cloud.Bigquery.Migration.V2.SQLServerDialect do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Bigquery.Migration.V2.PostgresqlDialect do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Bigquery.Migration.V2.PrestoDialect do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 end
