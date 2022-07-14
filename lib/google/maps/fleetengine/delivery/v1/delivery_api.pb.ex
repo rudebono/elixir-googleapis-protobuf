@@ -57,6 +57,24 @@ defmodule Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest do
     json_name: "updateMask",
     deprecated: false
 end
+defmodule Maps.Fleetengine.Delivery.V1.BatchCreateTasksRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
+  field :parent, 3, type: :string, deprecated: false
+
+  field :requests, 4,
+    repeated: true,
+    type: Maps.Fleetengine.Delivery.V1.CreateTaskRequest,
+    deprecated: false
+end
+defmodule Maps.Fleetengine.Delivery.V1.BatchCreateTasksResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :tasks, 1, repeated: true, type: Maps.Fleetengine.Delivery.V1.Task
+end
 defmodule Maps.Fleetengine.Delivery.V1.CreateTaskRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -137,6 +155,10 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
   rpc :UpdateDeliveryVehicle,
       Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest,
       Maps.Fleetengine.Delivery.V1.DeliveryVehicle
+
+  rpc :BatchCreateTasks,
+      Maps.Fleetengine.Delivery.V1.BatchCreateTasksRequest,
+      Maps.Fleetengine.Delivery.V1.BatchCreateTasksResponse
 
   rpc :CreateTask,
       Maps.Fleetengine.Delivery.V1.CreateTaskRequest,
