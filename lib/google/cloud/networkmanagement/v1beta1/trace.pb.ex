@@ -8,6 +8,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :START_FROM_PRIVATE_NETWORK, 3
   field :START_FROM_GKE_MASTER, 21
   field :START_FROM_CLOUD_SQL_INSTANCE, 22
+  field :START_FROM_CLOUD_FUNCTION, 23
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -18,6 +19,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :ARRIVE_AT_EXTERNAL_LOAD_BALANCER, 11
   field :ARRIVE_AT_VPN_GATEWAY, 12
   field :ARRIVE_AT_VPN_TUNNEL, 13
+  field :ARRIVE_AT_VPC_CONNECTOR, 24
   field :NAT, 14
   field :PROXY_CONNECTION, 15
   field :DELIVER, 16
@@ -34,6 +36,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType d
   field :HIERARCHICAL_FIREWALL_POLICY_RULE, 1
   field :VPC_FIREWALL_RULE, 2
   field :IMPLIED_VPC_FIREWALL_RULE, 3
+  field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
   @moduledoc false
@@ -62,6 +65,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
   field :NEXT_HOP_INTERNET_GATEWAY, 8
   field :NEXT_HOP_BLACKHOLE, 9
   field :NEXT_HOP_ILB, 10
+  field :NEXT_HOP_ROUTER_APPLIANCE, 11
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerType do
   @moduledoc false
@@ -109,6 +113,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   field :GOOGLE_API, 3
   field :GKE_MASTER, 4
   field :CLOUD_SQL_INSTANCE, 5
+  field :PSC_PUBLISHED_SERVICE, 6
+  field :PSC_GOOGLE_API, 7
+  field :PSC_VPC_SC, 8
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   @moduledoc false
@@ -141,6 +148,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
   field :MISMATCHED_SOURCE_NETWORK, 12
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
+  field :UNSUPPORTED, 15
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   @moduledoc false
@@ -168,6 +176,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :DROPPED_INSIDE_CLOUD_SQL_SERVICE, 19
   field :GOOGLE_MANAGED_SERVICE_NO_PEERING, 20
   field :CLOUD_SQL_INSTANCE_NO_IP_ADDRESS, 21
+  field :CLOUD_FUNCTION_NOT_ACTIVE, 22
+  field :VPC_CONNECTOR_NOT_SET, 23
+  field :VPC_CONNECTOR_NOT_RUNNING, 24
+  field :FORWARDING_RULE_REGION_MISMATCH, 25
+  field :PSC_CONNECTION_NOT_ACCEPTED, 26
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Trace do
   @moduledoc false
@@ -209,6 +222,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
     json_name: "vpnTunnel",
     oneof: 0
 
+  field :vpc_connector, 21,
+    type: Google.Cloud.Networkmanagement.V1beta1.VpcConnectorInfo,
+    json_name: "vpcConnector",
+    oneof: 0
+
   field :deliver, 12, type: Google.Cloud.Networkmanagement.V1beta1.DeliverInfo, oneof: 0
   field :forward, 13, type: Google.Cloud.Networkmanagement.V1beta1.ForwardInfo, oneof: 0
   field :abort, 14, type: Google.Cloud.Networkmanagement.V1beta1.AbortInfo, oneof: 0
@@ -229,6 +247,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
   field :cloud_sql_instance, 19,
     type: Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo,
     json_name: "cloudSqlInstance",
+    oneof: 0
+
+  field :cloud_function, 20,
+    type: Google.Cloud.Networkmanagement.V1beta1.CloudFunctionInfo,
+    json_name: "cloudFunction",
     oneof: 0
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
@@ -394,6 +417,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.EndpointInfo do
   field :destination_port, 5, type: :int32, json_name: "destinationPort"
   field :source_network_uri, 6, type: :string, json_name: "sourceNetworkUri"
   field :destination_network_uri, 7, type: :string, json_name: "destinationNetworkUri"
+  field :source_agent_uri, 8, type: :string, json_name: "sourceAgentUri"
 end
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo do
   @moduledoc false
@@ -447,4 +471,21 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo do
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :region, 7, type: :string
+end
+defmodule Google.Cloud.Networkmanagement.V1beta1.CloudFunctionInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 3, type: :string
+  field :version_id, 4, type: :int64, json_name: "versionId"
+end
+defmodule Google.Cloud.Networkmanagement.V1beta1.VpcConnectorInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 3, type: :string
 end
