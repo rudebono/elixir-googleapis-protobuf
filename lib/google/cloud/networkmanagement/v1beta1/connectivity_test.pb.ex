@@ -78,6 +78,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest do
     json_name: "probingDetails",
     deprecated: false
 end
+defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudFunctionEndpoint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -87,6 +93,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   field :instance, 3, type: :string
   field :gke_master_cluster, 7, type: :string, json_name: "gkeMasterCluster"
   field :cloud_sql_instance, 8, type: :string, json_name: "cloudSqlInstance"
+
+  field :cloud_function, 10,
+    type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudFunctionEndpoint,
+    json_name: "cloudFunction"
+
   field :network, 4, type: :string
 
   field :network_type, 5,
@@ -124,6 +135,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution do
     type: Google.Cloud.Networkmanagement.V1beta1.LatencyPercentile,
     json_name: "latencyPercentiles"
 end
+defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.EdgeLocation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :metropolitan_area, 1, type: :string, json_name: "metropolitanArea"
+end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -150,4 +167,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails do
   field :probing_latency, 8,
     type: Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution,
     json_name: "probingLatency"
+
+  field :destination_egress_location, 9,
+    type: Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.EdgeLocation,
+    json_name: "destinationEgressLocation"
 end
