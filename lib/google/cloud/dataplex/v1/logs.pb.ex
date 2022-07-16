@@ -91,6 +91,11 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
   field :partition, 1, type: :string
   field :entity, 2, type: :string
   field :type, 3, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType, enum: true
+
+  field :sampled_data_locations, 4,
+    repeated: true,
+    type: :string,
+    json_name: "sampledDataLocations"
 end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails do
   @moduledoc false

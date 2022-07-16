@@ -43,6 +43,7 @@ defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
+  field :image, 1, type: :string, deprecated: false
   field :java_jars, 2, repeated: true, type: :string, json_name: "javaJars", deprecated: false
 
   field :python_packages, 3,
@@ -128,11 +129,14 @@ defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec do
     deprecated: false
 
   field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
+  field :project, 7, type: :string, deprecated: false
 
   field :max_job_execution_lifetime, 8,
     type: Google.Protobuf.Duration,
     json_name: "maxJobExecutionLifetime",
     deprecated: false
+
+  field :kms_key, 9, type: :string, json_name: "kmsKey", deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
   @moduledoc false
@@ -156,6 +160,20 @@ defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
   field :infrastructure_spec, 6,
     type: Google.Cloud.Dataplex.V1.Task.InfrastructureSpec,
     json_name: "infrastructureSpec",
+    deprecated: false
+end
+defmodule Google.Cloud.Dataplex.V1.Task.ExecutionStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :latest_job, 9,
+    type: Google.Cloud.Dataplex.V1.Job,
+    json_name: "latestJob",
     deprecated: false
 end
 defmodule Google.Cloud.Dataplex.V1.Task.LabelsEntry do
@@ -202,6 +220,11 @@ defmodule Google.Cloud.Dataplex.V1.Task do
   field :execution_spec, 101,
     type: Google.Cloud.Dataplex.V1.Task.ExecutionSpec,
     json_name: "executionSpec",
+    deprecated: false
+
+  field :execution_status, 201,
+    type: Google.Cloud.Dataplex.V1.Task.ExecutionStatus,
+    json_name: "executionStatus",
     deprecated: false
 
   field :spark, 300, type: Google.Cloud.Dataplex.V1.Task.SparkTaskConfig, oneof: 0

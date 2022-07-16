@@ -77,6 +77,14 @@ defmodule Google.Cloud.Dataplex.V1.ContentService.Service do
 
   rpc :GetContent, Google.Cloud.Dataplex.V1.GetContentRequest, Google.Cloud.Dataplex.V1.Content
 
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
   rpc :ListContent,
       Google.Cloud.Dataplex.V1.ListContentRequest,
       Google.Cloud.Dataplex.V1.ListContentResponse
