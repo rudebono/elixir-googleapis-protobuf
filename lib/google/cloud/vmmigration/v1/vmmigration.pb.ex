@@ -6,6 +6,14 @@ defmodule Google.Cloud.Vmmigration.V1.UtilizationReportView do
   field :BASIC, 1
   field :FULL, 2
 end
+defmodule Google.Cloud.Vmmigration.V1.MigratingVmView do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :MIGRATING_VM_VIEW_UNSPECIFIED, 0
+  field :MIGRATING_VM_VIEW_BASIC, 1
+  field :MIGRATING_VM_VIEW_FULL, 2
+end
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineDiskType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -83,6 +91,15 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   field :OFFLINE, 2
   field :FAILED, 3
   field :ACTIVE, 4
+end
+defmodule Google.Cloud.Vmmigration.V1.UpgradeStatus.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :FAILED, 2
+  field :SUCCEEDED, 3
 end
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.PowerState do
   @moduledoc false
@@ -165,6 +182,7 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   field :CLONE_ERROR, 6
   field :CUTOVER_ERROR, 7
   field :UTILIZATION_REPORT_ERROR, 8
+  field :APPLIANCE_UPGRADE_ERROR, 9
 end
 defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle do
   @moduledoc false
@@ -240,7 +258,19 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
     type: Google.Cloud.Vmmigration.V1.MigratingVm.LabelsEntry,
     map: true
 
+  field :recent_clone_jobs, 17,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.CloneJob,
+    json_name: "recentCloneJobs",
+    deprecated: false
+
   field :error, 19, type: Google.Rpc.Status, deprecated: false
+
+  field :recent_cutover_jobs, 20,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.CutoverJob,
+    json_name: "recentCutoverJobs",
+    deprecated: false
 end
 defmodule Google.Cloud.Vmmigration.V1.CloneJob do
   @moduledoc false
@@ -259,7 +289,8 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob do
     json_name: "createTime",
     deprecated: false
 
-  field :name, 3, type: :string
+  field :end_time, 22, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :name, 3, type: :string, deprecated: false
 
   field :state, 12,
     type: Google.Cloud.Vmmigration.V1.CloneJob.State,
@@ -290,6 +321,7 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
     json_name: "createTime",
     deprecated: false
 
+  field :end_time, 16, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :name, 3, type: :string, deprecated: false
 
   field :state, 5,
@@ -424,6 +456,57 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
 
   field :state_time, 8, type: Google.Protobuf.Timestamp, json_name: "stateTime", deprecated: false
   field :error, 11, type: Google.Rpc.Status, deprecated: false
+
+  field :appliance_infrastructure_version, 13,
+    type: :string,
+    json_name: "applianceInfrastructureVersion",
+    deprecated: false
+
+  field :appliance_software_version, 14,
+    type: :string,
+    json_name: "applianceSoftwareVersion",
+    deprecated: false
+
+  field :available_versions, 15,
+    type: Google.Cloud.Vmmigration.V1.AvailableUpdates,
+    json_name: "availableVersions",
+    deprecated: false
+
+  field :upgrade_status, 16,
+    type: Google.Cloud.Vmmigration.V1.UpgradeStatus,
+    json_name: "upgradeStatus",
+    deprecated: false
+end
+defmodule Google.Cloud.Vmmigration.V1.UpgradeStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :version, 1, type: :string
+  field :state, 2, type: Google.Cloud.Vmmigration.V1.UpgradeStatus.State, enum: true
+  field :error, 3, type: Google.Rpc.Status
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :previous_version, 5, type: :string, json_name: "previousVersion"
+end
+defmodule Google.Cloud.Vmmigration.V1.AvailableUpdates do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :new_deployable_appliance, 1,
+    type: Google.Cloud.Vmmigration.V1.ApplianceVersion,
+    json_name: "newDeployableAppliance"
+
+  field :in_place_update, 2,
+    type: Google.Cloud.Vmmigration.V1.ApplianceVersion,
+    json_name: "inPlaceUpdate"
+end
+defmodule Google.Cloud.Vmmigration.V1.ApplianceVersion do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :version, 1, type: :string
+  field :uri, 2, type: :string
+  field :critical, 3, type: :bool
+  field :release_notes_uri, 4, type: :string, json_name: "releaseNotesUri"
 end
 defmodule Google.Cloud.Vmmigration.V1.ListSourcesRequest do
   @moduledoc false
@@ -522,8 +605,7 @@ defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
   field :vmware_vms, 1,
     type: Google.Cloud.Vmmigration.V1.VmwareVmsDetails,
     json_name: "vmwareVms",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :update_time, 2,
     type: Google.Protobuf.Timestamp,
@@ -702,6 +784,21 @@ defmodule Google.Cloud.Vmmigration.V1.DeleteDatacenterConnectorRequest do
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
+defmodule Google.Cloud.Vmmigration.V1.UpgradeApplianceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :datacenter_connector, 1,
+    type: :string,
+    json_name: "datacenterConnector",
+    deprecated: false
+
+  field :request_id, 2, type: :string, json_name: "requestId"
+end
+defmodule Google.Cloud.Vmmigration.V1.UpgradeApplianceResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
 defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -780,6 +877,9 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.MetadataEntry,
     map: true
+
+  field :additional_licenses, 17, repeated: true, type: :string, json_name: "additionalLicenses"
+  field :hostname, 18, type: :string
 end
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.LabelsEntry do
   @moduledoc false
@@ -847,6 +947,9 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
     repeated: true,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.MetadataEntry,
     map: true
+
+  field :additional_licenses, 17, repeated: true, type: :string, json_name: "additionalLicenses"
+  field :hostname, 18, type: :string
 end
 defmodule Google.Cloud.Vmmigration.V1.NetworkInterface do
   @moduledoc false
@@ -927,6 +1030,7 @@ defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+  field :view, 6, type: Google.Cloud.Vmmigration.V1.MigratingVmView, enum: true, deprecated: false
 end
 defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsResponse do
   @moduledoc false
@@ -946,6 +1050,7 @@ defmodule Google.Cloud.Vmmigration.V1.GetMigratingVmRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Cloud.Vmmigration.V1.MigratingVmView, enum: true, deprecated: false
 end
 defmodule Google.Cloud.Vmmigration.V1.UpdateMigratingVmRequest do
   @moduledoc false
@@ -1010,7 +1115,7 @@ defmodule Google.Cloud.Vmmigration.V1.TargetProject do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :project, 2, type: :string
   field :description, 3, type: :string
 
@@ -1091,7 +1196,7 @@ defmodule Google.Cloud.Vmmigration.V1.Group do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :create_time, 2,
     type: Google.Protobuf.Timestamp,
@@ -1329,6 +1434,10 @@ defmodule Google.Cloud.Vmmigration.V1.VmMigration.Service do
 
   rpc :DeleteDatacenterConnector,
       Google.Cloud.Vmmigration.V1.DeleteDatacenterConnectorRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpgradeAppliance,
+      Google.Cloud.Vmmigration.V1.UpgradeApplianceRequest,
       Google.Longrunning.Operation
 
   rpc :CreateMigratingVm,
