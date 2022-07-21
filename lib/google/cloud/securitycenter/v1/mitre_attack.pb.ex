@@ -54,6 +54,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
   field :DATA_DESTRUCTION, 29
   field :DOMAIN_POLICY_MODIFICATION, 30
   field :IMPAIR_DEFENSES, 31
+  field :NETWORK_SERVICE_DISCOVERY, 32
 end
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack do
   @moduledoc false
