@@ -130,4 +130,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     json_name: "iamBindings"
 
   field :next_steps, 40, type: :string, json_name: "nextSteps"
+  field :containers, 42, repeated: true, type: Google.Cloud.Securitycenter.V1.Container
+  field :kubernetes, 43, type: Google.Cloud.Securitycenter.V1.Kubernetes
 end

@@ -256,6 +256,31 @@ defmodule Google.Spanner.Admin.Database.V1.OptimizeRestoredDatabaseMetadata do
   field :name, 1, type: :string, deprecated: false
   field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
 end
+defmodule Google.Spanner.Admin.Database.V1.DatabaseRole do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Spanner.Admin.Database.V1.ListDatabaseRolesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :database_roles, 1,
+    repeated: true,
+    type: Google.Spanner.Admin.Database.V1.DatabaseRole,
+    json_name: "databaseRoles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   @moduledoc false
   use GRPC.Service,
@@ -325,6 +350,10 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   rpc :ListBackupOperations,
       Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest,
       Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse
+
+  rpc :ListDatabaseRoles,
+      Google.Spanner.Admin.Database.V1.ListDatabaseRolesRequest,
+      Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Stub do
