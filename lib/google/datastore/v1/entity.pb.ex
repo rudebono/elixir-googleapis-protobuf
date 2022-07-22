@@ -3,6 +3,7 @@ defmodule Google.Datastore.V1.PartitionId do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 2, type: :string, json_name: "projectId"
+  field :database_id, 3, type: :string, json_name: "databaseId"
   field :namespace_id, 4, type: :string, json_name: "namespaceId"
 end
 defmodule Google.Datastore.V1.Key.PathElement do
