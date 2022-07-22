@@ -19,6 +19,7 @@ defmodule Google.Datastore.V1.LookupRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
   field :keys, 3, repeated: true, type: Google.Datastore.V1.Key, deprecated: false
 end
@@ -38,6 +39,7 @@ defmodule Google.Datastore.V1.RunQueryRequest do
   oneof :query_type, 0
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
   field :partition_id, 2, type: Google.Datastore.V1.PartitionId, json_name: "partitionId"
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
   field :query, 3, type: Google.Datastore.V1.Query, oneof: 0
@@ -55,6 +57,7 @@ defmodule Google.Datastore.V1.BeginTransactionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
 
   field :transaction_options, 10,
     type: Google.Datastore.V1.TransactionOptions,
@@ -71,6 +74,7 @@ defmodule Google.Datastore.V1.RollbackRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
   field :transaction, 1, type: :bytes, deprecated: false
 end
 defmodule Google.Datastore.V1.RollbackResponse do
@@ -84,6 +88,7 @@ defmodule Google.Datastore.V1.CommitRequest do
   oneof :transaction_selector, 0
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
   field :mode, 5, type: Google.Datastore.V1.CommitRequest.Mode, enum: true
   field :transaction, 1, type: :bytes, oneof: 0
   field :mutations, 6, repeated: true, type: Google.Datastore.V1.Mutation
@@ -105,6 +110,7 @@ defmodule Google.Datastore.V1.AllocateIdsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
   field :keys, 1, repeated: true, type: Google.Datastore.V1.Key, deprecated: false
 end
 defmodule Google.Datastore.V1.AllocateIdsResponse do
