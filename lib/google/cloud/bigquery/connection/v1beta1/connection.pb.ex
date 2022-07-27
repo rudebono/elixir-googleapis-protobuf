@@ -118,6 +118,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlProperties do
   field :credential, 4,
     type: Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential,
     deprecated: false
+
+  field :service_account_id, 5, type: :string, json_name: "serviceAccountId", deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Connection.V1beta1.CloudSqlCredential do
   @moduledoc false
