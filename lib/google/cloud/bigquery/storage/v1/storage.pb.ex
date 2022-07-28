@@ -32,6 +32,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.CreateReadSessionRequest do
     deprecated: false
 
   field :max_stream_count, 3, type: :int32, json_name: "maxStreamCount"
+  field :preferred_min_stream_count, 4, type: :int32, json_name: "preferredMinStreamCount"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadRowsRequest do
   @moduledoc false
@@ -178,6 +179,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse do
     repeated: true,
     type: Google.Cloud.Bigquery.Storage.V1.RowError,
     json_name: "rowErrors"
+
+  field :write_stream, 5, type: :string, json_name: "writeStream"
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.GetWriteStreamRequest do
   @moduledoc false
