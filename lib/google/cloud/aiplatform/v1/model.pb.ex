@@ -5,6 +5,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model.DeploymentResourcesType do
   field :DEPLOYMENT_RESOURCES_TYPE_UNSPECIFIED, 0
   field :DEDICATED_RESOURCES, 1
   field :AUTOMATIC_RESOURCES, 2
+  field :SHARED_RESOURCES, 3
 end
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat.ExportableContent do
   @moduledoc false
