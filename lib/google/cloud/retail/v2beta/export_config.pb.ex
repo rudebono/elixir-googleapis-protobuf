@@ -22,6 +22,10 @@ defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
   field :errors_config, 2,
     type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
     json_name: "errorsConfig"
+
+  field :output_result, 3,
+    type: Google.Cloud.Retail.V2beta.OutputResult,
+    json_name: "outputResult"
 end
 defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
   @moduledoc false
@@ -32,4 +36,24 @@ defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
   field :errors_config, 2,
     type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
     json_name: "errorsConfig"
+
+  field :output_result, 3,
+    type: Google.Cloud.Retail.V2beta.OutputResult,
+    json_name: "outputResult"
+end
+defmodule Google.Cloud.Retail.V2beta.OutputResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :bigquery_result, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.BigQueryOutputResult,
+    json_name: "bigqueryResult"
+end
+defmodule Google.Cloud.Retail.V2beta.BigQueryOutputResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :table_id, 2, type: :string, json_name: "tableId"
 end
