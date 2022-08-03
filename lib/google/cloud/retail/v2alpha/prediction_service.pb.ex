@@ -24,7 +24,7 @@ defmodule Google.Cloud.Retail.V2alpha.PredictRequest do
     deprecated: false
 
   field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: true
   field :filter, 5, type: :string
   field :validate_only, 6, type: :bool, json_name: "validateOnly"
 
