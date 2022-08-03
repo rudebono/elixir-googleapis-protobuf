@@ -69,6 +69,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
     oneof: 0
 
   field :aws, 8, type: Google.Cloud.Bigquery.Connection.V1.AwsProperties, oneof: 0
+  field :azure, 11, type: Google.Cloud.Bigquery.Connection.V1.AzureProperties, oneof: 0
 
   field :cloud_spanner, 21,
     type: Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties,
@@ -124,7 +125,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsProperties do
   field :cross_account_role, 2,
     type: Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole,
     json_name: "crossAccountRole",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :access_role, 3,
     type: Google.Cloud.Bigquery.Connection.V1.AwsAccessRole,
@@ -145,6 +147,22 @@ defmodule Google.Cloud.Bigquery.Connection.V1.AwsAccessRole do
 
   field :iam_role_id, 1, type: :string, json_name: "iamRoleId"
   field :identity, 2, type: :string
+end
+defmodule Google.Cloud.Bigquery.Connection.V1.AzureProperties do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :application, 1, type: :string, deprecated: false
+  field :client_id, 2, type: :string, json_name: "clientId", deprecated: false
+  field :object_id, 3, type: :string, json_name: "objectId", deprecated: false
+  field :customer_tenant_id, 4, type: :string, json_name: "customerTenantId"
+  field :redirect_uri, 5, type: :string, json_name: "redirectUri"
+
+  field :federated_application_client_id, 6,
+    type: :string,
+    json_name: "federatedApplicationClientId"
+
+  field :identity, 7, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties do
   @moduledoc false
