@@ -66,6 +66,11 @@ defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute do
     type: Google.Cloud.Retail.V2alpha.CatalogAttribute.SearchableOption,
     json_name: "searchableOption",
     enum: true
+
+  field :recommendations_filtering_option, 8,
+    type: Google.Cloud.Retail.V2alpha.RecommendationsFilteringOption,
+    json_name: "recommendationsFilteringOption",
+    enum: true
 end
 defmodule Google.Cloud.Retail.V2alpha.AttributesConfig.CatalogAttributesEntry do
   @moduledoc false

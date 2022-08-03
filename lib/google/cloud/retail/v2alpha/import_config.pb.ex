@@ -74,6 +74,7 @@ defmodule Google.Cloud.Retail.V2alpha.ImportProductsRequest do
     enum: true
 
   field :notification_pubsub_topic, 7, type: :string, json_name: "notificationPubsubTopic"
+  field :skip_default_branch_protection, 8, type: :bool, json_name: "skipDefaultBranchProtection"
 end
 defmodule Google.Cloud.Retail.V2alpha.ImportUserEventsRequest do
   @moduledoc false
