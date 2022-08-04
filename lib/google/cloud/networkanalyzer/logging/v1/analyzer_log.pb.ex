@@ -74,9 +74,29 @@ defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportGroup do
   field :HYBRID_CONNECTIVITY, 4
   field :MANAGED_SERVICES, 5
 end
+defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo.SubnetIpUtilization do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :subnet_uri, 1, type: :string, json_name: "subnetUri"
+  field :secondary_range_name, 2, type: :string, json_name: "secondaryRangeName"
+  field :total_usable_addresses, 3, type: :uint64, json_name: "totalUsableAddresses"
+  field :allocation_ratio, 4, type: :double, json_name: "allocationRatio"
+end
+defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :subnet_ip_utilization, 1,
+    repeated: true,
+    type: Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo.SubnetIpUtilization,
+    json_name: "subnetIpUtilization"
+end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :content, 0
 
   field :id, 1, type: :string
   field :priority, 2, type: Google.Cloud.Networkanalyzer.Logging.V1.Report.Priority, enum: true
@@ -98,4 +118,9 @@ defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report do
     type: Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportGroup,
     json_name: "reportGroups",
     enum: true
+
+  field :ip_utilization_info, 19,
+    type: Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo,
+    json_name: "ipUtilizationInfo",
+    oneof: 0
 end
