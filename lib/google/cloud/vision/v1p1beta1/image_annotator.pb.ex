@@ -258,6 +258,8 @@ defmodule Google.Cloud.Vision.V1p1beta1.TextDetectionParams do
   field :enable_text_detection_confidence_score, 9,
     type: :bool,
     json_name: "enableTextDetectionConfidenceScore"
+
+  field :advanced_ocr_options, 11, repeated: true, type: :string, json_name: "advancedOcrOptions"
 end
 defmodule Google.Cloud.Vision.V1p1beta1.ImageContext do
   @moduledoc false
