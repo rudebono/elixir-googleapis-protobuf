@@ -1,3 +1,53 @@
+defmodule Google.Analytics.Admin.V1alpha.RunAccessReportRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :entity, 1, type: :string
+  field :dimensions, 2, repeated: true, type: Google.Analytics.Admin.V1alpha.AccessDimension
+  field :metrics, 3, repeated: true, type: Google.Analytics.Admin.V1alpha.AccessMetric
+
+  field :date_ranges, 4,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessDateRange,
+    json_name: "dateRanges"
+
+  field :dimension_filter, 5,
+    type: Google.Analytics.Admin.V1alpha.AccessFilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 6,
+    type: Google.Analytics.Admin.V1alpha.AccessFilterExpression,
+    json_name: "metricFilter"
+
+  field :offset, 7, type: :int64
+  field :limit, 8, type: :int64
+  field :time_zone, 9, type: :string, json_name: "timeZone"
+
+  field :order_bys, 10,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessOrderBy,
+    json_name: "orderBys"
+
+  field :return_entity_quota, 11, type: :bool, json_name: "returnEntityQuota"
+end
+defmodule Google.Analytics.Admin.V1alpha.RunAccessReportResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :dimension_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessDimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessMetricHeader,
+    json_name: "metricHeaders"
+
+  field :rows, 3, repeated: true, type: Google.Analytics.Admin.V1alpha.AccessRow
+  field :row_count, 4, type: :int32, json_name: "rowCount"
+  field :quota, 5, type: Google.Analytics.Admin.V1alpha.AccessQuota
+end
 defmodule Google.Analytics.Admin.V1alpha.GetAccountRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -820,6 +870,71 @@ defmodule Google.Analytics.Admin.V1alpha.GetDataStreamRequest do
 
   field :name, 1, type: :string, deprecated: false
 end
+defmodule Google.Analytics.Admin.V1alpha.GetAudienceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.ListAudiencesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Analytics.Admin.V1alpha.ListAudiencesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :audiences, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Audience
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Analytics.Admin.V1alpha.CreateAudienceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :audience, 2, type: Google.Analytics.Admin.V1alpha.Audience, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.UpdateAudienceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :audience, 1, type: Google.Analytics.Admin.V1alpha.Audience, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.ArchiveAudienceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.GetAttributionSettingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Analytics.Admin.V1alpha.UpdateAttributionSettingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :attribution_settings, 1,
+    type: Google.Analytics.Admin.V1alpha.AttributionSettings,
+    json_name: "attributionSettings",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -1105,6 +1220,38 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :GetDataStream,
       Google.Analytics.Admin.V1alpha.GetDataStreamRequest,
       Google.Analytics.Admin.V1alpha.DataStream
+
+  rpc :GetAudience,
+      Google.Analytics.Admin.V1alpha.GetAudienceRequest,
+      Google.Analytics.Admin.V1alpha.Audience
+
+  rpc :ListAudiences,
+      Google.Analytics.Admin.V1alpha.ListAudiencesRequest,
+      Google.Analytics.Admin.V1alpha.ListAudiencesResponse
+
+  rpc :CreateAudience,
+      Google.Analytics.Admin.V1alpha.CreateAudienceRequest,
+      Google.Analytics.Admin.V1alpha.Audience
+
+  rpc :UpdateAudience,
+      Google.Analytics.Admin.V1alpha.UpdateAudienceRequest,
+      Google.Analytics.Admin.V1alpha.Audience
+
+  rpc :ArchiveAudience,
+      Google.Analytics.Admin.V1alpha.ArchiveAudienceRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetAttributionSettings,
+      Google.Analytics.Admin.V1alpha.GetAttributionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.AttributionSettings
+
+  rpc :UpdateAttributionSettings,
+      Google.Analytics.Admin.V1alpha.UpdateAttributionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.AttributionSettings
+
+  rpc :RunAccessReport,
+      Google.Analytics.Admin.V1alpha.RunAccessReportRequest,
+      Google.Analytics.Admin.V1alpha.RunAccessReportResponse
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

@@ -73,7 +73,9 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :DATA_RETENTION_SETTINGS, 13
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK, 14
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL, 15
+  field :SEARCH_ADS_360_LINK, 16
   field :DATA_STREAM, 18
+  field :ATTRIBUTION_SETTINGS, 20
 end
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
   @moduledoc false
@@ -110,6 +112,15 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalState do
   field :DECLINED, 4
   field :EXPIRED, 5
   field :OBSOLETE, 6
+end
+defmodule Google.Analytics.Admin.V1alpha.PropertyType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :PROPERTY_TYPE_UNSPECIFIED, 0
+  field :PROPERTY_TYPE_ORDINARY, 1
+  field :PROPERTY_TYPE_SUBPROPERTY, 2
+  field :PROPERTY_TYPE_ROLLUP, 3
 end
 defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
   @moduledoc false
@@ -170,6 +181,36 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration
   field :THIRTY_EIGHT_MONTHS, 5
   field :FIFTY_MONTHS, 6
 end
+defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED, 0
+  field :ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_7_DAYS, 1
+  field :ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS, 2
+end
+defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.OtherConversionEventLookbackWindow do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_UNSPECIFIED, 0
+  field :OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_30_DAYS, 1
+  field :OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_60_DAYS, 2
+  field :OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_90_DAYS, 3
+end
+defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributionModel do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED, 0
+  field :CROSS_CHANNEL_DATA_DRIVEN, 1
+  field :CROSS_CHANNEL_LAST_CLICK, 2
+  field :CROSS_CHANNEL_FIRST_CLICK, 3
+  field :CROSS_CHANNEL_LINEAR, 4
+  field :CROSS_CHANNEL_POSITION_BASED, 5
+  field :CROSS_CHANNEL_TIME_DECAY, 6
+  field :ADS_PREFERRED_LAST_CLICK, 7
+end
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -195,6 +236,12 @@ defmodule Google.Analytics.Admin.V1alpha.Property do
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :property_type, 14,
+    type: Google.Analytics.Admin.V1alpha.PropertyType,
+    json_name: "propertyType",
+    enum: true,
+    deprecated: false
 
   field :create_time, 3,
     type: Google.Protobuf.Timestamp,
@@ -403,6 +450,13 @@ defmodule Google.Analytics.Admin.V1alpha.PropertySummary do
 
   field :property, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :property_type, 3,
+    type: Google.Analytics.Admin.V1alpha.PropertyType,
+    json_name: "propertyType",
+    enum: true
+
+  field :parent, 4, type: :string
 end
 defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
   @moduledoc false
@@ -490,6 +544,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :data_stream, 18,
     type: Google.Analytics.Admin.V1alpha.DataStream,
     json_name: "dataStream",
+    oneof: 0
+
+  field :attribution_settings, 20,
+    type: Google.Analytics.Admin.V1alpha.AttributionSettings,
+    json_name: "attributionSettings",
     oneof: 0
 end
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -670,4 +729,29 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
     enum: true
 
   field :reset_user_data_on_new_activity, 3, type: :bool, json_name: "resetUserDataOnNewActivity"
+end
+defmodule Google.Analytics.Admin.V1alpha.AttributionSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :acquisition_conversion_event_lookback_window, 2,
+    type:
+      Google.Analytics.Admin.V1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow,
+    json_name: "acquisitionConversionEventLookbackWindow",
+    enum: true,
+    deprecated: false
+
+  field :other_conversion_event_lookback_window, 3,
+    type: Google.Analytics.Admin.V1alpha.AttributionSettings.OtherConversionEventLookbackWindow,
+    json_name: "otherConversionEventLookbackWindow",
+    enum: true,
+    deprecated: false
+
+  field :reporting_attribution_model, 4,
+    type: Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributionModel,
+    json_name: "reportingAttributionModel",
+    enum: true,
+    deprecated: false
 end

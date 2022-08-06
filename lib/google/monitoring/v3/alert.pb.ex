@@ -7,6 +7,15 @@ defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   field :OR, 2
   field :AND_WITH_MATCHING_RESOURCE, 3
 end
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :EVALUATION_MISSING_DATA_UNSPECIFIED, 0
+  field :EVALUATION_MISSING_DATA_INACTIVE, 1
+  field :EVALUATION_MISSING_DATA_ACTIVE, 2
+  field :EVALUATION_MISSING_DATA_NO_OP, 3
+end
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -40,6 +49,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
   field :threshold_value, 5, type: :double, json_name: "thresholdValue"
   field :duration, 6, type: Google.Protobuf.Duration
   field :trigger, 7, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
+
+  field :evaluation_missing_data, 11,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData,
+    json_name: "evaluationMissingData",
+    enum: true
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
   @moduledoc false
@@ -76,6 +90,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCond
   field :query, 1, type: :string
   field :duration, 2, type: Google.Protobuf.Duration
   field :trigger, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
+
+  field :evaluation_missing_data, 4,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData,
+    json_name: "evaluationMissingData",
+    enum: true
 end
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   @moduledoc false
