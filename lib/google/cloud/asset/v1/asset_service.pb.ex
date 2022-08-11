@@ -632,6 +632,97 @@ defmodule Google.Cloud.Asset.V1.MoveImpact do
 
   field :detail, 1, type: :string
 end
+defmodule Google.Cloud.Asset.V1.QueryAssetsOutputConfig.BigQueryDestination do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :dataset, 1, type: :string, deprecated: false
+  field :table, 2, type: :string, deprecated: false
+  field :write_disposition, 3, type: :string, json_name: "writeDisposition"
+end
+defmodule Google.Cloud.Asset.V1.QueryAssetsOutputConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :bigquery_destination, 1,
+    type: Google.Cloud.Asset.V1.QueryAssetsOutputConfig.BigQueryDestination,
+    json_name: "bigqueryDestination"
+end
+defmodule Google.Cloud.Asset.V1.QueryAssetsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :query, 0
+  oneof :time, 1
+
+  field :parent, 1, type: :string, deprecated: false
+  field :statement, 2, type: :string, oneof: 0, deprecated: false
+  field :job_reference, 3, type: :string, json_name: "jobReference", oneof: 0, deprecated: false
+  field :page_size, 4, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 5, type: :string, json_name: "pageToken", deprecated: false
+  field :timeout, 6, type: Google.Protobuf.Duration, deprecated: false
+
+  field :read_time_window, 7,
+    type: Google.Cloud.Asset.V1.TimeWindow,
+    json_name: "readTimeWindow",
+    oneof: 1,
+    deprecated: false
+
+  field :read_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "readTime",
+    oneof: 1,
+    deprecated: false
+
+  field :output_config, 9,
+    type: Google.Cloud.Asset.V1.QueryAssetsOutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+end
+defmodule Google.Cloud.Asset.V1.QueryAssetsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :response, 0
+
+  field :job_reference, 1, type: :string, json_name: "jobReference"
+  field :done, 2, type: :bool
+  field :error, 3, type: Google.Rpc.Status, oneof: 0
+
+  field :query_result, 4,
+    type: Google.Cloud.Asset.V1.QueryResult,
+    json_name: "queryResult",
+    oneof: 0
+
+  field :output_config, 5,
+    type: Google.Cloud.Asset.V1.QueryAssetsOutputConfig,
+    json_name: "outputConfig",
+    oneof: 0
+end
+defmodule Google.Cloud.Asset.V1.QueryResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :rows, 1, repeated: true, type: Google.Protobuf.Struct
+  field :schema, 2, type: Google.Cloud.Asset.V1.TableSchema
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+  field :total_rows, 4, type: :int64, json_name: "totalRows"
+end
+defmodule Google.Cloud.Asset.V1.TableSchema do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :fields, 1, repeated: true, type: Google.Cloud.Asset.V1.TableFieldSchema
+end
+defmodule Google.Cloud.Asset.V1.TableFieldSchema do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :field, 1, type: :string
+  field :type, 2, type: :string
+  field :mode, 3, type: :string
+  field :fields, 4, repeated: true, type: Google.Cloud.Asset.V1.TableFieldSchema
+end
 defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -710,6 +801,10 @@ defmodule Google.Cloud.Asset.V1.AssetService.Service do
   rpc :AnalyzeMove,
       Google.Cloud.Asset.V1.AnalyzeMoveRequest,
       Google.Cloud.Asset.V1.AnalyzeMoveResponse
+
+  rpc :QueryAssets,
+      Google.Cloud.Asset.V1.QueryAssetsRequest,
+      Google.Cloud.Asset.V1.QueryAssetsResponse
 
   rpc :CreateSavedQuery,
       Google.Cloud.Asset.V1.CreateSavedQueryRequest,
