@@ -27,6 +27,14 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest.Priority do
   field :DEFAULT, 0
   field :URGENT, 1
 end
+defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentResponse.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :REJECTED, 1
+  field :SUCCEEDED, 2
+end
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -57,6 +65,7 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   field :name, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Documentai.V1beta3.Document, deprecated: true
   field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"
+  field :field_mask, 6, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
 end
 defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
   @moduledoc false
@@ -171,6 +180,25 @@ defmodule Google.Cloud.Documentai.V1beta3.FetchProcessorTypesResponse do
     type: Google.Cloud.Documentai.V1beta3.ProcessorType,
     json_name: "processorTypes"
 end
+defmodule Google.Cloud.Documentai.V1beta3.ListProcessorTypesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Cloud.Documentai.V1beta3.ListProcessorTypesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :processor_types, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.ProcessorType,
+    json_name: "processorTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
 defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -185,6 +213,87 @@ defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsResponse do
 
   field :processors, 1, repeated: true, type: Google.Cloud.Documentai.V1beta3.Processor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Documentai.V1beta3.GetProcessorRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.GetProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.ListProcessorVersionsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+defmodule Google.Cloud.Documentai.V1beta3.ListProcessorVersionsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :processor_versions, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.ProcessorVersion,
+    json_name: "processorVersions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.DeleteProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+end
+defmodule Google.Cloud.Documentai.V1beta3.DeployProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.DeployProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Documentai.V1beta3.DeployProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+end
+defmodule Google.Cloud.Documentai.V1beta3.UndeployProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.UndeployProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Documentai.V1beta3.UndeployProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
 end
 defmodule Google.Cloud.Documentai.V1beta3.CreateProcessorRequest do
   @moduledoc false
@@ -243,6 +352,29 @@ defmodule Google.Cloud.Documentai.V1beta3.DisableProcessorMetadata do
     type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
     json_name: "commonMetadata"
 end
+defmodule Google.Cloud.Documentai.V1beta3.SetDefaultProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :processor, 1, type: :string, deprecated: false
+
+  field :default_processor_version, 2,
+    type: :string,
+    json_name: "defaultProcessorVersion",
+    deprecated: false
+end
+defmodule Google.Cloud.Documentai.V1beta3.SetDefaultProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+end
+defmodule Google.Cloud.Documentai.V1beta3.SetDefaultProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+end
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -261,12 +393,18 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest do
   field :priority, 5,
     type: Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest.Priority,
     enum: true
+
+  field :document_schema, 6,
+    type: Google.Cloud.Documentai.V1beta3.DocumentSchema,
+    json_name: "documentSchema"
 end
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
 
   field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
+  field :state, 2, type: Google.Cloud.Documentai.V1beta3.ReviewDocumentResponse.State, enum: true
+  field :rejection_reason, 3, type: :string, json_name: "rejectionReason"
 end
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata do
   @moduledoc false
@@ -304,9 +442,37 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
       Google.Cloud.Documentai.V1beta3.FetchProcessorTypesRequest,
       Google.Cloud.Documentai.V1beta3.FetchProcessorTypesResponse
 
+  rpc :ListProcessorTypes,
+      Google.Cloud.Documentai.V1beta3.ListProcessorTypesRequest,
+      Google.Cloud.Documentai.V1beta3.ListProcessorTypesResponse
+
   rpc :ListProcessors,
       Google.Cloud.Documentai.V1beta3.ListProcessorsRequest,
       Google.Cloud.Documentai.V1beta3.ListProcessorsResponse
+
+  rpc :GetProcessor,
+      Google.Cloud.Documentai.V1beta3.GetProcessorRequest,
+      Google.Cloud.Documentai.V1beta3.Processor
+
+  rpc :GetProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.GetProcessorVersionRequest,
+      Google.Cloud.Documentai.V1beta3.ProcessorVersion
+
+  rpc :ListProcessorVersions,
+      Google.Cloud.Documentai.V1beta3.ListProcessorVersionsRequest,
+      Google.Cloud.Documentai.V1beta3.ListProcessorVersionsResponse
+
+  rpc :DeleteProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.DeleteProcessorVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeployProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.DeployProcessorVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :UndeployProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.UndeployProcessorVersionRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateProcessor,
       Google.Cloud.Documentai.V1beta3.CreateProcessorRequest,
@@ -322,6 +488,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
 
   rpc :DisableProcessor,
       Google.Cloud.Documentai.V1beta3.DisableProcessorRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetDefaultProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.SetDefaultProcessorVersionRequest,
       Google.Longrunning.Operation
 
   rpc :ReviewDocument,

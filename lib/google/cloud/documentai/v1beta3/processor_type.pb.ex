@@ -18,4 +18,5 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
     json_name: "availableLocations"
 
   field :allow_creation, 6, type: :bool, json_name: "allowCreation"
+  field :launch_stage, 8, type: Google.Api.LaunchStage, json_name: "launchStage", enum: true
 end
