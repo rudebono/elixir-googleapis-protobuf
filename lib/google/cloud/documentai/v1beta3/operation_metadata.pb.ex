@@ -15,6 +15,7 @@ defmodule Google.Cloud.Documentai.V1beta3.CommonOperationMetadata do
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
+  field :resource, 5, type: :string
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end

@@ -1329,6 +1329,16 @@ defmodule Google.Ads.Googleads.V11.Services.MutateOperationResponse do
     json_name: "customizerAttributeResult",
     oneof: 0
 
+  field :experiment_result, 81,
+    type: Google.Ads.Googleads.V11.Services.MutateExperimentResult,
+    json_name: "experimentResult",
+    oneof: 0
+
+  field :experiment_arm_result, 82,
+    type: Google.Ads.Googleads.V11.Services.MutateExperimentArmResult,
+    json_name: "experimentArmResult",
+    oneof: 0
+
   field :extension_feed_item_result, 36,
     type: Google.Ads.Googleads.V11.Services.MutateExtensionFeedItemResult,
     json_name: "extensionFeedItemResult",
