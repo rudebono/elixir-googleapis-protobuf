@@ -271,7 +271,16 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.FormField do
     json_name: "valueDetectedLanguages"
 
   field :value_type, 5, type: :string, json_name: "valueType"
+  field :corrected_key_text, 6, type: :string, json_name: "correctedKeyText"
+  field :corrected_value_text, 7, type: :string, json_name: "correctedValueText"
   field :provenance, 8, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+end
+defmodule Google.Cloud.Documentai.V1beta3.Document.Page.DetectedBarcode do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
+  field :barcode, 2, type: Google.Cloud.Documentai.V1beta3.Barcode
 end
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage do
   @moduledoc false
@@ -321,6 +330,12 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page do
     json_name: "formFields"
 
   field :symbols, 12, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Page.Symbol
+
+  field :detected_barcodes, 15,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedBarcode,
+    json_name: "detectedBarcodes"
+
   field :provenance, 16, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
 end
 defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.NormalizedValue do
@@ -334,6 +349,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.NormalizedValue do
   field :datetime_value, 4, type: Google.Type.DateTime, json_name: "datetimeValue", oneof: 0
   field :address_value, 5, type: Google.Type.PostalAddress, json_name: "addressValue", oneof: 0
   field :boolean_value, 6, type: :bool, json_name: "booleanValue", oneof: 0
+  field :integer_value, 7, type: :int32, json_name: "integerValue", oneof: 0
+  field :float_value, 8, type: :float, json_name: "floatValue", oneof: 0
   field :text, 1, type: :string, deprecated: false
 end
 defmodule Google.Cloud.Documentai.V1beta3.Document.Entity do
@@ -468,7 +485,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Revision do
   field :agent, 4, type: :string, oneof: 0
   field :processor, 5, type: :string, oneof: 0
   field :id, 1, type: :string
-  field :parent, 2, repeated: true, type: :int32
+  field :parent, 2, repeated: true, type: :int32, deprecated: true
+  field :parent_ids, 7, repeated: true, type: :string, json_name: "parentIds"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
   field :human_review, 6,

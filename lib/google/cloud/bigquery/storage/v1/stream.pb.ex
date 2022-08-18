@@ -42,6 +42,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
     json_name: "arrowSerializationOptions",
     oneof: 0,
     deprecated: false
+
+  field :avro_serialization_options, 4,
+    type: Google.Cloud.Bigquery.Storage.V1.AvroSerializationOptions,
+    json_name: "avroSerializationOptions",
+    oneof: 0,
+    deprecated: false
 end
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
   @moduledoc false

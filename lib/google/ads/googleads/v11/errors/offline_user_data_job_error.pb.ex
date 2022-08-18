@@ -38,6 +38,10 @@ defmodule Google.Ads.Googleads.V11.Errors.OfflineUserDataJobErrorEnum.OfflineUse
   field :LAST_PURCHASE_TIME_LESS_THAN_ACQUISITION_TIME, 38
   field :CUSTOMER_IDENTIFIER_NOT_ALLOWED, 39
   field :INVALID_ITEM_ID, 40
+  field :FIRST_PURCHASE_TIME_GREATER_THAN_LAST_PURCHASE_TIME, 42
+  field :INVALID_LIFECYCLE_STAGE, 43
+  field :INVALID_EVENT_VALUE, 44
+  field :EVENT_ATTRIBUTE_ALL_FIELDS_ARE_REQUIRED, 45
 end
 defmodule Google.Ads.Googleads.V11.Errors.OfflineUserDataJobErrorEnum do
   @moduledoc false

@@ -26,6 +26,8 @@ defmodule Google.Ads.Googleads.V11.Enums.RecommendationTypeEnum.RecommendationTy
   field :RESPONSIVE_SEARCH_AD_ASSET, 21
   field :UPGRADE_SMART_SHOPPING_CAMPAIGN_TO_PERFORMANCE_MAX, 22
   field :RESPONSIVE_SEARCH_AD_IMPROVE_AD_STRENGTH, 23
+  field :DISPLAY_EXPANSION_OPT_IN, 24
+  field :UPGRADE_LOCAL_CAMPAIGN_TO_PERFORMANCE_MAX, 25
 end
 defmodule Google.Ads.Googleads.V11.Enums.RecommendationTypeEnum do
   @moduledoc false

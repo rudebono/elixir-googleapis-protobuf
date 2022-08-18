@@ -15,4 +15,10 @@ defmodule Google.Ads.Googleads.V11.Resources.AssetGroup do
 
   field :path1, 7, type: :string
   field :path2, 8, type: :string
+
+  field :ad_strength, 10,
+    type: Google.Ads.Googleads.V11.Enums.AdStrengthEnum.AdStrength,
+    json_name: "adStrength",
+    enum: true,
+    deprecated: false
 end
