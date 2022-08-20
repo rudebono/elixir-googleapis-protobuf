@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Pubsublite.V1.ExportConfig.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
+  
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :PAUSED, 2
