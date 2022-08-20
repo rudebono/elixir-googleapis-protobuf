@@ -1,13 +1,14 @@
 defmodule Google.Partner.Aistreams.V1alpha1.Cluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.Cluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -29,9 +30,10 @@ defmodule Google.Partner.Aistreams.V1alpha1.Cluster do
   field :certificate, 5, type: :string, deprecated: false
   field :service_endpoint, 6, type: :string, json_name: "serviceEndpoint", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.ListClustersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -39,32 +41,36 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListClustersRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.ListClustersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Partner.Aistreams.V1alpha1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.GetClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.CreateClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
   field :cluster, 3, type: Google.Partner.Aistreams.V1alpha1.Cluster, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.UpdateClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -74,23 +80,26 @@ defmodule Google.Partner.Aistreams.V1alpha1.UpdateClusterRequest do
   field :cluster, 2, type: Google.Partner.Aistreams.V1alpha1.Cluster, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.DeleteClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.Stream.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.Stream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -109,9 +118,10 @@ defmodule Google.Partner.Aistreams.V1alpha1.Stream do
     type: Google.Partner.Aistreams.V1alpha1.Stream.LabelsEntry,
     map: true
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -119,32 +129,36 @@ defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.ListStreamsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Partner.Aistreams.V1alpha1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.GetStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.CreateStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
   field :stream, 3, type: Google.Partner.Aistreams.V1alpha1.Stream, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.UpdateStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -154,16 +168,18 @@ defmodule Google.Partner.Aistreams.V1alpha1.UpdateStreamRequest do
   field :stream, 2, type: Google.Partner.Aistreams.V1alpha1.Stream, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.DeleteStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -182,11 +198,12 @@ defmodule Google.Partner.Aistreams.V1alpha1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Partner.Aistreams.V1alpha1.AIStreams.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.partner.aistreams.v1alpha1.AIStreams",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListClusters,
       Google.Partner.Aistreams.V1alpha1.ListClustersRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dataplex.V1.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Dataplex.V1.State do
   field :DELETING, 3
   field :ACTION_REQUIRED, 4
 end
+
 defmodule Google.Cloud.Dataplex.V1.Lake.MetastoreStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NONE, 1
@@ -18,75 +19,84 @@ defmodule Google.Cloud.Dataplex.V1.Lake.MetastoreStatus.State do
   field :UPDATING, 3
   field :ERROR, 4
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :RAW, 1
   field :CURATED, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.ResourceSpec.LocationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOCATION_TYPE_UNSPECIFIED, 0
   field :SINGLE_REGION, 1
   field :MULTI_REGION, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.Category do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :RESOURCE_MANAGEMENT, 1
   field :SECURITY_POLICY, 2
   field :DATA_DISCOVERY, 3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.IncompatibleDataSchema.SchemaChange do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SCHEMA_CHANGE_UNSPECIFIED, 0
   field :INCOMPATIBLE, 1
   field :MODIFIED, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.InvalidDataPartition.PartitionStructure do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PARTITION_STRUCTURE_UNSPECIFIED, 0
   field :CONSISTENT_KEYS, 1
   field :HIVE_STYLE_KEYS, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.SecurityStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
   field :APPLYING, 2
   field :ERROR, 3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STORAGE_BUCKET, 1
   field :BIGQUERY_DATASET, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
   field :ERROR, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SCHEDULED, 1
@@ -94,31 +104,35 @@ defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.State do
   field :PAUSED, 3
   field :DISABLED, 5
 end
+
 defmodule Google.Cloud.Dataplex.V1.Lake.Metastore do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Lake.MetastoreStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataplex.V1.Lake.MetastoreStatus.State, enum: true
   field :message, 2, type: :string
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :endpoint, 4, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.Lake.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.Lake do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -155,9 +169,10 @@ defmodule Google.Cloud.Dataplex.V1.Lake do
     json_name: "metastoreStatus",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.AssetStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :active_assets, 2, type: :int32, json_name: "activeAssets"
@@ -166,9 +181,10 @@ defmodule Google.Cloud.Dataplex.V1.AssetStatus do
     type: :int32,
     json_name: "securityPolicyApplyingAssets"
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.ResourceSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location_type, 1,
     type: Google.Cloud.Dataplex.V1.Zone.ResourceSpec.LocationType,
@@ -176,9 +192,10 @@ defmodule Google.Cloud.Dataplex.V1.Zone.ResourceSpec do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec.CsvOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :header_rows, 1, type: :int32, json_name: "headerRows", deprecated: false
   field :delimiter, 2, type: :string, deprecated: false
@@ -189,9 +206,10 @@ defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec.CsvOptions do
     json_name: "disableTypeInference",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec.JsonOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
 
@@ -200,9 +218,10 @@ defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec.JsonOptions do
     json_name: "disableTypeInference",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :trigger, 0
 
@@ -232,16 +251,18 @@ defmodule Google.Cloud.Dataplex.V1.Zone.DiscoverySpec do
 
   field :schedule, 10, type: :string, oneof: 0, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.Zone do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -282,23 +303,27 @@ defmodule Google.Cloud.Dataplex.V1.Zone do
     json_name: "assetStatus",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.MissingResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.UnauthorizedResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.FailedSecurityPolicyApply do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :asset, 1, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.InvalidDataFormat do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sampled_data_locations, 1,
     repeated: true,
@@ -308,9 +333,10 @@ defmodule Google.Cloud.Dataplex.V1.Action.InvalidDataFormat do
   field :expected_format, 2, type: :string, json_name: "expectedFormat"
   field :new_format, 3, type: :string, json_name: "newFormat"
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.IncompatibleDataSchema do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :existing_schema, 2, type: :string, json_name: "existingSchema"
@@ -326,26 +352,30 @@ defmodule Google.Cloud.Dataplex.V1.Action.IncompatibleDataSchema do
     json_name: "schemaChange",
     enum: true
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.InvalidDataPartition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :expected_structure, 1,
     type: Google.Cloud.Dataplex.V1.Action.InvalidDataPartition.PartitionStructure,
     json_name: "expectedStructure",
     enum: true
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.MissingData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action.InvalidDataOrganization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Dataplex.V1.Action do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -398,17 +428,19 @@ defmodule Google.Cloud.Dataplex.V1.Action do
     json_name: "invalidDataOrganization",
     oneof: 0
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.SecurityStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataplex.V1.Asset.SecurityStatus.State, enum: true
   field :message, 2, type: :string
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec.CsvOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :header_rows, 1, type: :int32, json_name: "headerRows", deprecated: false
   field :delimiter, 2, type: :string, deprecated: false
@@ -419,9 +451,10 @@ defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec.CsvOptions do
     json_name: "disableTypeInference",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec.JsonOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
 
@@ -430,9 +463,10 @@ defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec.JsonOptions do
     json_name: "disableTypeInference",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :trigger, 0
 
@@ -462,9 +496,10 @@ defmodule Google.Cloud.Dataplex.V1.Asset.DiscoverySpec do
 
   field :schedule, 10, type: :string, oneof: 0, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -473,26 +508,29 @@ defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataplex.V1.Asset.ResourceStatus.State, enum: true
   field :message, 2, type: :string
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.Stats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_items, 1, type: :int64, json_name: "dataItems"
   field :data_size, 2, type: :int64, json_name: "dataSize"
   field :tables, 3, type: :int64
   field :filesets, 4, type: :int64
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.State, enum: true
   field :message, 2, type: :string
@@ -501,16 +539,18 @@ defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus do
   field :stats, 6, type: Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.Stats
   field :last_run_duration, 7, type: Google.Protobuf.Duration, json_name: "lastRunDuration"
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.Asset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROLLOUT_STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -8,18 +8,20 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.RolloutState do
   field :CANCELLED, 3
   field :SUCCEEDED, 4
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.APIMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :API_METHOD_UNSPECIFIED, 0
   field :CREATE, 1
   field :UPDATE, 2
   field :DELETE, 3
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.RolloutState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROLLOUT_STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -27,32 +29,36 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata.Roll
   field :CANCELLED, 3
   field :SUCCEEDED, 4
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.LabelSet.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter.Inventory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_short_name, 1, type: :string, json_name: "osShortName", deprecated: false
   field :os_version, 2, type: :string, json_name: "osVersion"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :all, 1, type: :bool
 
@@ -76,9 +82,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter do
     repeated: true,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.InstanceFilter.Inventory
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :disruption_budget, 1,
     type: Google.Cloud.Osconfig.V1alpha.FixedOrPercent,
@@ -90,9 +97,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment.Rollout do
     json_name: "minWaitDuration",
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -132,9 +140,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment do
   field :reconciling, 12, type: :bool, deprecated: false
   field :uid, 13, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policy_assignment, 1,
     type: :string,
@@ -154,9 +163,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyAssignmentOperationMetadata do
   field :rollout_start_time, 4, type: Google.Protobuf.Timestamp, json_name: "rolloutStartTime"
   field :rollout_update_time, 5, type: Google.Protobuf.Timestamp, json_name: "rolloutUpdateTime"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.CreateOSPolicyAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -170,9 +180,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.CreateOSPolicyAssignmentRequest do
     json_name: "osPolicyAssignmentId",
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.UpdateOSPolicyAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policy_assignment, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicyAssignment,
@@ -184,23 +195,26 @@ defmodule Google.Cloud.Osconfig.V1alpha.UpdateOSPolicyAssignmentRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.GetOSPolicyAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policy_assignments, 1,
     repeated: true,
@@ -209,17 +223,19 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policy_assignments, 1,
     repeated: true,
@@ -228,9 +244,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.ListOSPolicyAssignmentRevisionsResponse 
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.DeleteOSPolicyAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

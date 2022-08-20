@@ -1,15 +1,16 @@
 defmodule Google.Devtools.Resultstore.V2.File.HashType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :MD5, 1
   field :SHA1, 2
   field :SHA256, 3
 end
+
 defmodule Google.Devtools.Resultstore.V2.File do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uid, 1, type: :string
   field :uri, 2, type: :string
@@ -30,9 +31,10 @@ defmodule Google.Devtools.Resultstore.V2.File do
     json_name: "hashType",
     enum: true
 end
+
 defmodule Google.Devtools.Resultstore.V2.ArchiveEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :length, 2, type: Google.Protobuf.Int64Value

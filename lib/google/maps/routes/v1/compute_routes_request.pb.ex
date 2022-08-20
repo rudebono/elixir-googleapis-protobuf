@@ -1,6 +1,6 @@
 defmodule Google.Maps.Routes.V1.RouteTravelMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
   field :DRIVE, 1
@@ -9,26 +9,29 @@ defmodule Google.Maps.Routes.V1.RouteTravelMode do
   field :TWO_WHEELER, 4
   field :TAXI, 5
 end
+
 defmodule Google.Maps.Routes.V1.RoutingPreference do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROUTING_PREFERENCE_UNSPECIFIED, 0
   field :TRAFFIC_UNAWARE, 1
   field :TRAFFIC_AWARE, 2
   field :TRAFFIC_AWARE_OPTIMAL, 3
 end
+
 defmodule Google.Maps.Routes.V1.Units do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNITS_UNSPECIFIED, 0
   field :METRIC, 1
   field :IMPERIAL, 2
 end
+
 defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint
@@ -65,9 +68,10 @@ defmodule Google.Maps.Routes.V1.ComputeRoutesRequest do
   field :units, 11, type: Google.Maps.Routes.V1.Units, enum: true
   field :optimize_waypoint_order, 13, type: :bool, json_name: "optimizeWaypointOrder"
 end
+
 defmodule Google.Maps.Routes.V1.RouteModifiers do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :avoid_tolls, 1, type: :bool, json_name: "avoidTolls"
   field :avoid_highways, 2, type: :bool, json_name: "avoidHighways"
@@ -81,9 +85,10 @@ defmodule Google.Maps.Routes.V1.RouteModifiers do
     json_name: "tollPasses",
     enum: true
 end
+
 defmodule Google.Maps.Routes.V1.VehicleInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :license_plate_last_character, 1, type: :string, json_name: "licensePlateLastCharacter"
 

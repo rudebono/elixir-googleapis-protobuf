@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Functions.V2.Environment do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENVIRONMENT_UNSPECIFIED, 0
   field :GEN_1, 1
   field :GEN_2, 2
 end
+
 defmodule Google.Cloud.Functions.V2.Function.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -17,43 +18,48 @@ defmodule Google.Cloud.Functions.V2.Function.State do
   field :DELETING, 4
   field :UNKNOWN, 5
 end
+
 defmodule Google.Cloud.Functions.V2.StateMessage.Severity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
   field :WARNING, 2
   field :INFO, 3
 end
+
 defmodule Google.Cloud.Functions.V2.ServiceConfig.VpcConnectorEgressSettings do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED, 0
   field :PRIVATE_RANGES_ONLY, 1
   field :ALL_TRAFFIC, 2
 end
+
 defmodule Google.Cloud.Functions.V2.ServiceConfig.IngressSettings do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INGRESS_SETTINGS_UNSPECIFIED, 0
   field :ALLOW_ALL, 1
   field :ALLOW_INTERNAL_ONLY, 2
   field :ALLOW_INTERNAL_AND_GCLB, 3
 end
+
 defmodule Google.Cloud.Functions.V2.EventTrigger.RetryPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RETRY_POLICY_UNSPECIFIED, 0
   field :RETRY_POLICY_DO_NOT_RETRY, 1
   field :RETRY_POLICY_RETRY, 2
 end
+
 defmodule Google.Cloud.Functions.V2.ListRuntimesResponse.RuntimeStage do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RUNTIME_STAGE_UNSPECIFIED, 0
   field :DEVELOPMENT, 1
@@ -63,9 +69,10 @@ defmodule Google.Cloud.Functions.V2.ListRuntimesResponse.RuntimeStage do
   field :DEPRECATED, 5
   field :DECOMMISSIONED, 6
 end
+
 defmodule Google.Cloud.Functions.V2.Stage.Name do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :NAME_UNSPECIFIED, 0
   field :ARTIFACT_REGISTRY, 1
@@ -75,25 +82,28 @@ defmodule Google.Cloud.Functions.V2.Stage.Name do
   field :SERVICE_ROLLBACK, 5
   field :TRIGGER_ROLLBACK, 6
 end
+
 defmodule Google.Cloud.Functions.V2.Stage.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NOT_STARTED, 1
   field :IN_PROGRESS, 2
   field :COMPLETE, 3
 end
+
 defmodule Google.Cloud.Functions.V2.Function.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.Function do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :environment, 10, type: Google.Cloud.Functions.V2.Environment, enum: true
@@ -123,25 +133,28 @@ defmodule Google.Cloud.Functions.V2.Function do
     json_name: "stateMessages",
     deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.StateMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :severity, 1, type: Google.Cloud.Functions.V2.StateMessage.Severity, enum: true
   field :type, 2, type: :string
   field :message, 3, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.StorageSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
 end
+
 defmodule Google.Cloud.Functions.V2.RepoSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -153,9 +166,10 @@ defmodule Google.Cloud.Functions.V2.RepoSource do
   field :dir, 6, type: :string
   field :invert_regex, 7, type: :bool, json_name: "invertRegex"
 end
+
 defmodule Google.Cloud.Functions.V2.Source do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -169,9 +183,10 @@ defmodule Google.Cloud.Functions.V2.Source do
     json_name: "repoSource",
     oneof: 0
 end
+
 defmodule Google.Cloud.Functions.V2.SourceProvenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resolved_storage_source, 1,
     type: Google.Cloud.Functions.V2.StorageSource,
@@ -181,16 +196,18 @@ defmodule Google.Cloud.Functions.V2.SourceProvenance do
     type: Google.Cloud.Functions.V2.RepoSource,
     json_name: "resolvedRepoSource"
 end
+
 defmodule Google.Cloud.Functions.V2.BuildConfig.EnvironmentVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.BuildConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :build, 1, type: :string, deprecated: false
   field :runtime, 2, type: :string
@@ -212,16 +229,18 @@ defmodule Google.Cloud.Functions.V2.BuildConfig do
 
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.ServiceConfig.EnvironmentVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.ServiceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds"
@@ -263,34 +282,38 @@ defmodule Google.Cloud.Functions.V2.ServiceConfig do
 
   field :revision, 18, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.SecretEnvVar do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
   field :secret, 3, type: :string
   field :version, 4, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.SecretVolume.SecretVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :path, 2, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.SecretVolume do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :mount_path, 1, type: :string, json_name: "mountPath"
   field :project_id, 2, type: :string, json_name: "projectId"
   field :secret, 3, type: :string
   field :versions, 4, repeated: true, type: Google.Cloud.Functions.V2.SecretVolume.SecretVersion
 end
+
 defmodule Google.Cloud.Functions.V2.EventTrigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :trigger, 1, type: :string, deprecated: false
   field :trigger_region, 2, type: :string, json_name: "triggerRegion"
@@ -316,23 +339,26 @@ defmodule Google.Cloud.Functions.V2.EventTrigger do
 
   field :channel, 8, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.EventFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attribute, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
   field :operator, 3, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.GetFunctionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.ListFunctionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -340,44 +366,50 @@ defmodule Google.Cloud.Functions.V2.ListFunctionsRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Functions.V2.ListFunctionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :functions, 1, repeated: true, type: Google.Cloud.Functions.V2.Function
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.CreateFunctionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :function, 2, type: Google.Cloud.Functions.V2.Function, deprecated: false
   field :function_id, 3, type: :string, json_name: "functionId"
 end
+
 defmodule Google.Cloud.Functions.V2.UpdateFunctionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :function, 1, type: Google.Cloud.Functions.V2.Function, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Functions.V2.DeleteFunctionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.GenerateUploadUrlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.GenerateUploadUrlResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :upload_url, 1, type: :string, json_name: "uploadUrl"
 
@@ -385,28 +417,32 @@ defmodule Google.Cloud.Functions.V2.GenerateUploadUrlResponse do
     type: Google.Cloud.Functions.V2.StorageSource,
     json_name: "storageSource"
 end
+
 defmodule Google.Cloud.Functions.V2.GenerateDownloadUrlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Functions.V2.GenerateDownloadUrlResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :download_url, 1, type: :string, json_name: "downloadUrl"
 end
+
 defmodule Google.Cloud.Functions.V2.ListRuntimesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
 end
+
 defmodule Google.Cloud.Functions.V2.ListRuntimesResponse.Runtime do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 5, type: :string, json_name: "displayName"
@@ -414,15 +450,17 @@ defmodule Google.Cloud.Functions.V2.ListRuntimesResponse.Runtime do
   field :warnings, 3, repeated: true, type: :string
   field :environment, 4, type: Google.Cloud.Functions.V2.Environment, enum: true
 end
+
 defmodule Google.Cloud.Functions.V2.ListRuntimesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :runtimes, 1, repeated: true, type: Google.Cloud.Functions.V2.ListRuntimesResponse.Runtime
 end
+
 defmodule Google.Cloud.Functions.V2.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -434,9 +472,10 @@ defmodule Google.Cloud.Functions.V2.OperationMetadata do
   field :request_resource, 8, type: Google.Protobuf.Any, json_name: "requestResource"
   field :stages, 9, repeated: true, type: Google.Cloud.Functions.V2.Stage
 end
+
 defmodule Google.Cloud.Functions.V2.Stage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: Google.Cloud.Functions.V2.Stage.Name, enum: true
   field :message, 2, type: :string
@@ -449,11 +488,12 @@ defmodule Google.Cloud.Functions.V2.Stage do
     type: Google.Cloud.Functions.V2.StateMessage,
     json_name: "stateMessages"
 end
+
 defmodule Google.Cloud.Functions.V2.FunctionService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.functions.v2.FunctionService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetFunction,
       Google.Cloud.Functions.V2.GetFunctionRequest,

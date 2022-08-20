@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2.ConversationModel.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,17 +12,19 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationModel.State do
   field :FAILED, 7
   field :PENDING, 8
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ConversationModel.ModelType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :SMART_REPLY_DUAL_ENCODER_MODEL, 2
   field :SMART_REPLY_BERT_MODEL, 6
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelOperationMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -32,9 +34,10 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelOperationMetadata.St
   field :CANCELLING, 5
   field :TRAINING, 6
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationOperationMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -43,9 +46,10 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationOperationM
   field :SUCCEEDED, 4
   field :FAILED, 5
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ConversationModel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :model_metadata, 0
 
@@ -79,9 +83,10 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationModel do
     json_name: "smartReplyModelMetadata",
     oneof: 0
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ConversationModelEvaluation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metrics, 0
 
@@ -104,23 +109,26 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationModelEvaluation do
     oneof: 0,
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.EvaluationConfig.SmartReplyConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :allowlist_document, 1, type: :string, json_name: "allowlistDocument", deprecated: false
   field :max_result_count, 2, type: :int32, json_name: "maxResultCount", deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.EvaluationConfig.SmartComposeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :allowlist_document, 1, type: :string, json_name: "allowlistDocument", deprecated: false
   field :max_result_count, 2, type: :int32, json_name: "maxResultCount", deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.EvaluationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :model_specific_config, 0
 
@@ -139,15 +147,17 @@ defmodule Google.Cloud.Dialogflow.V2.EvaluationConfig do
     json_name: "smartComposeConfig",
     oneof: 0
 end
+
 defmodule Google.Cloud.Dialogflow.V2.InputDataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ArticleSuggestionModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_model_type, 3,
     type: Google.Cloud.Dialogflow.V2.ConversationModel.ModelType,
@@ -155,9 +165,10 @@ defmodule Google.Cloud.Dialogflow.V2.ArticleSuggestionModelMetadata do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.SmartReplyModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_model_type, 6,
     type: Google.Cloud.Dialogflow.V2.ConversationModel.ModelType,
@@ -165,16 +176,18 @@ defmodule Google.Cloud.Dialogflow.V2.SmartReplyModelMetadata do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.SmartReplyMetrics.TopNMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :n, 1, type: :int32
   field :recall, 2, type: :float
 end
+
 defmodule Google.Cloud.Dialogflow.V2.SmartReplyMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :allowlist_coverage, 1, type: :float, json_name: "allowlistCoverage"
 
@@ -185,9 +198,10 @@ defmodule Google.Cloud.Dialogflow.V2.SmartReplyMetrics do
 
   field :conversation_count, 3, type: :int64, json_name: "conversationCount"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
 
@@ -196,23 +210,26 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelRequest do
     json_name: "conversationModel",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.GetConversationModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListConversationModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListConversationModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_models, 1,
     repeated: true,
@@ -221,41 +238,47 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationModelsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeleteConversationModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeployConversationModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.UndeployConversationModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.GetConversationModelEvaluationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListConversationModelEvaluationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListConversationModelEvaluationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model_evaluations, 1,
     repeated: true,
@@ -264,9 +287,10 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationModelEvaluationsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -275,9 +299,10 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationRequest do
     json_name: "conversationModelEvaluation",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model, 1, type: :string, json_name: "conversationModel"
 
@@ -287,30 +312,34 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelOperationMetadata do
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeployConversationModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model, 1, type: :string, json_name: "conversationModel"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.UndeployConversationModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model, 1, type: :string, json_name: "conversationModel"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeleteConversationModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model, 1, type: :string, json_name: "conversationModel"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation_model_evaluation, 1, type: :string, json_name: "conversationModelEvaluation"
   field :conversation_model, 4, type: :string, json_name: "conversationModel"
@@ -321,11 +350,12 @@ defmodule Google.Cloud.Dialogflow.V2.CreateConversationModelEvaluationOperationM
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ConversationModels.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.ConversationModels",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateConversationModel,
       Google.Cloud.Dialogflow.V2.CreateConversationModelRequest,

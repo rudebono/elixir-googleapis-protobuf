@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Iot.V1.CreateDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -9,21 +9,24 @@ defmodule Google.Cloud.Iot.V1.CreateDeviceRegistryRequest do
     json_name: "deviceRegistry",
     deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.GetDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :device_registry, 1,
     type: Google.Cloud.Iot.V1.DeviceRegistry,
@@ -35,17 +38,19 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRegistryRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :device_registries, 1,
     repeated: true,
@@ -54,23 +59,26 @@ defmodule Google.Cloud.Iot.V1.ListDeviceRegistriesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Iot.V1.CreateDeviceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :device, 2, type: Google.Cloud.Iot.V1.Device, deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.GetDeviceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
 end
+
 defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :device, 2, type: Google.Cloud.Iot.V1.Device, deprecated: false
 
@@ -79,15 +87,17 @@ defmodule Google.Cloud.Iot.V1.UpdateDeviceRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.DeleteDeviceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :device_num_ids, 2, repeated: true, type: :uint64, json_name: "deviceNumIds"
@@ -101,9 +111,10 @@ defmodule Google.Cloud.Iot.V1.ListDevicesRequest do
   field :page_size, 100, type: :int32, json_name: "pageSize"
   field :page_token, 101, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Iot.V1.GatewayListOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :filter, 0
 
@@ -116,92 +127,105 @@ defmodule Google.Cloud.Iot.V1.GatewayListOptions do
   field :associations_gateway_id, 2, type: :string, json_name: "associationsGatewayId", oneof: 0
   field :associations_device_id, 3, type: :string, json_name: "associationsDeviceId", oneof: 0
 end
+
 defmodule Google.Cloud.Iot.V1.ListDevicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :devices, 1, repeated: true, type: Google.Cloud.Iot.V1.Device
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Iot.V1.ModifyCloudToDeviceConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version_to_update, 2, type: :int64, json_name: "versionToUpdate"
   field :binary_data, 3, type: :bytes, json_name: "binaryData", deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :num_versions, 2, type: :int32, json_name: "numVersions"
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceConfigVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :device_configs, 1,
     repeated: true,
     type: Google.Cloud.Iot.V1.DeviceConfig,
     json_name: "deviceConfigs"
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :num_states, 2, type: :int32, json_name: "numStates"
 end
+
 defmodule Google.Cloud.Iot.V1.ListDeviceStatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :device_states, 1,
     repeated: true,
     type: Google.Cloud.Iot.V1.DeviceState,
     json_name: "deviceStates"
 end
+
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :binary_data, 2, type: :bytes, json_name: "binaryData", deprecated: false
   field :subfolder, 3, type: :string
 end
+
 defmodule Google.Cloud.Iot.V1.SendCommandToDeviceResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
   field :device_id, 3, type: :string, json_name: "deviceId", deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.BindDeviceToGatewayResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
   field :device_id, 3, type: :string, json_name: "deviceId", deprecated: false
 end
+
 defmodule Google.Cloud.Iot.V1.UnbindDeviceFromGatewayResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Iot.V1.DeviceManager.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.iot.v1.DeviceManager", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.cloud.iot.v1.DeviceManager", protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateDeviceRegistry,
       Google.Cloud.Iot.V1.CreateDeviceRegistryRequest,

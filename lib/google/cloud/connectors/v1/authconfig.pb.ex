@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Connectors.V1.AuthType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUTH_TYPE_UNSPECIFIED, 0
   field :USER_PASSWORD, 1
@@ -8,24 +8,27 @@ defmodule Google.Cloud.Connectors.V1.AuthType do
   field :OAUTH2_CLIENT_CREDENTIALS, 3
   field :SSH_PUBLIC_KEY, 4
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig.UserPassword do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: Google.Cloud.Connectors.V1.Secret
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig.Oauth2JwtBearer.JwtClaims do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issuer, 1, type: :string
   field :subject, 2, type: :string
   field :audience, 3, type: :string
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig.Oauth2JwtBearer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :client_key, 1, type: Google.Cloud.Connectors.V1.Secret, json_name: "clientKey"
 
@@ -33,16 +36,18 @@ defmodule Google.Cloud.Connectors.V1.AuthConfig.Oauth2JwtBearer do
     type: Google.Cloud.Connectors.V1.AuthConfig.Oauth2JwtBearer.JwtClaims,
     json_name: "jwtClaims"
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig.Oauth2ClientCredentials do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :client_id, 1, type: :string, json_name: "clientId"
   field :client_secret, 2, type: Google.Cloud.Connectors.V1.Secret, json_name: "clientSecret"
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig.SshPublicKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: Google.Cloud.Connectors.V1.Secret
@@ -53,9 +58,10 @@ defmodule Google.Cloud.Connectors.V1.AuthConfig.SshPublicKey do
     type: Google.Cloud.Connectors.V1.Secret,
     json_name: "sshClientCertPass"
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -89,9 +95,10 @@ defmodule Google.Cloud.Connectors.V1.AuthConfig do
     type: Google.Cloud.Connectors.V1.ConfigVariable,
     json_name: "additionalVariables"
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthConfigTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :auth_type, 1,
     type: Google.Cloud.Connectors.V1.AuthType,

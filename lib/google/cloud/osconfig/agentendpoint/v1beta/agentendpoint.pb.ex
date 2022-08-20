@@ -1,29 +1,33 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.StartNextTaskResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Task
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :progress, 0
 
@@ -46,18 +50,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressRequest d
     json_name: "execStepTaskProgress",
     oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskProgressResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_directive, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.TaskDirective,
     json_name: "taskDirective",
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -82,13 +88,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteRequest d
     json_name: "execStepTaskOutput",
     oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ReportTaskCompleteResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
@@ -104,15 +112,17 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentRequest do
   field :os_version, 6, type: :string, json_name: "osVersion"
   field :os_architecture, 7, type: :string, json_name: "osArchitecture"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RegisterAgentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AgentEndpointService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.osconfig.agentendpoint.v1beta.AgentEndpointService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ReceiveTaskNotification,
       Google.Cloud.Osconfig.Agentendpoint.V1beta.ReceiveTaskNotificationRequest,

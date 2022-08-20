@@ -1,15 +1,16 @@
 defmodule Google.Devtools.Cloudtrace.V2.BatchWriteSpansRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :spans, 2, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudtrace.V2.TraceService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.devtools.cloudtrace.v2.TraceService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :BatchWriteSpans,
       Google.Devtools.Cloudtrace.V2.BatchWriteSpansRequest,

@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Medium do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MEDIUM_UNSPECIFIED, 0
   field :PHONE_CALL, 1
   field :CHAT, 2
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Entity.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PERSON, 1
@@ -24,17 +25,19 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Entity.Type do
   field :NUMBER, 12
   field :PRICE, 13
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.EntityMentionData.MentionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MENTION_TYPE_UNSPECIFIED, 0
   field :PROPER, 1
   field :COMMON, 2
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :UNDEPLOYED, 1
@@ -43,34 +46,38 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.State do
   field :UNDEPLOYING, 4
   field :DELETING, 5
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher.PhraseMatcherType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PHRASE_MATCHER_TYPE_UNSPECIFIED, 0
   field :ALL_OF, 1
   field :ANY_OF, 2
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup.PhraseMatchRuleGroupType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PHRASE_MATCH_RULE_GROUP_TYPE_UNSPECIFIED, 0
   field :ALL_OF, 1
   field :ANY_OF, 2
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback.CorrectnessLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CORRECTNESS_LEVEL_UNSPECIFIED, 0
   field :NOT_CORRECT, 1
   field :PARTIALLY_CORRECT, 2
   field :FULLY_CORRECT, 3
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :HUMAN_AGENT, 1
@@ -78,31 +85,35 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role do
   field :END_USER, 3
   field :ANY_AGENT, 4
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_channel, 1, type: :int32, json_name: "customerChannel"
   field :agent_channel, 2, type: :int32, json_name: "agentChannel"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.WordInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
   field :word, 3, type: :string
   field :confidence, 4, type: :float
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.DialogflowSegmentMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :smart_reply_allowlist_covered, 1, type: :bool, json_name: "smartReplyAllowlistCovered"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :message_time, 6, type: Google.Protobuf.Timestamp, json_name: "messageTime"
   field :text, 1, type: :string
@@ -126,34 +137,39 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.Transcri
 
   field :sentiment, 11, type: Google.Cloud.Contactcenterinsights.V1.SentimentData
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :transcript_segments, 1,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment,
     json_name: "transcriptSegments"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.DialogflowIntentsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.DialogflowIntent
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metadata, 0
+
   oneof :expiration, 1
 
   field :call_metadata, 7,
@@ -220,9 +236,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
 
   field :obfuscated_user_id, 21, type: :string, json_name: "obfuscatedUserId"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Analysis do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -241,9 +258,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Analysis do
     json_name: "analysisResult",
     deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationDataSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -257,16 +275,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationDataSource do
     json_name: "dialogflowSource",
     oneof: 0
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :audio_uri, 1, type: :string, json_name: "audioUri"
   field :transcript_uri, 2, type: :string, json_name: "transcriptUri", deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dialogflow_conversation, 1,
     type: :string,
@@ -275,30 +295,34 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowSource do
 
   field :audio_uri, 3, type: :string, json_name: "audioUri"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetadata.EntitiesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.Entity
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetadata.IntentsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.Intent
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetadata.PhraseMatchersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.PhraseMatchData
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :annotations, 2,
     repeated: true,
@@ -329,9 +353,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetad
     type: Google.Cloud.Contactcenterinsights.V1.IssueModelResult,
     json_name: "issueModelResult"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -342,16 +367,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult do
 
   field :end_time, 1, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issue_model, 1, type: :string, json_name: "issueModel", deprecated: false
   field :issues, 2, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.IssueAssignment
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :channel_tag, 1, type: :int32, json_name: "channelTag"
 
@@ -359,17 +386,19 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment do
     type: Google.Cloud.Contactcenterinsights.V1.SentimentData,
     json_name: "sentimentData"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueAssignment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issue, 1, type: :string
   field :score, 2, type: :double
   field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CallAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -418,25 +447,28 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CallAnnotation do
     type: Google.Cloud.Contactcenterinsights.V1.AnnotationBoundary,
     json_name: "annotationEndBoundary"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnnotationBoundary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :detailed_boundary, 0
 
   field :word_index, 3, type: :int32, json_name: "wordIndex", oneof: 0
   field :transcript_index, 1, type: :int32, json_name: "transcriptIndex"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Entity.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Entity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :type, 2, type: Google.Cloud.Contactcenterinsights.V1.Entity.Type, enum: true
@@ -449,41 +481,48 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Entity do
   field :salience, 4, type: :float
   field :sentiment, 5, type: Google.Cloud.Contactcenterinsights.V1.SentimentData
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Intent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :phrase_matcher, 1, type: :string, json_name: "phraseMatcher"
   field :display_name, 2, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowIntent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.InterruptionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SilenceData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.HoldData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.EntityMentionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :entity_unique_id, 1, type: :string, json_name: "entityUniqueId"
 
@@ -493,22 +532,25 @@ defmodule Google.Cloud.Contactcenterinsights.V1.EntityMentionData do
 
   field :sentiment, 3, type: Google.Cloud.Contactcenterinsights.V1.SentimentData
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IntentMatchData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :intent_unique_id, 1, type: :string, json_name: "intentUniqueId"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SentimentData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :magnitude, 1, type: :float
   field :score, 2, type: :float
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :medium, 1,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium,
@@ -522,9 +564,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig do
 
   field :filter, 3, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -553,9 +596,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
     json_name: "trainingStats",
     deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Issue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -570,24 +614,27 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Issue do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issue, 1, type: :string
   field :labeled_conversations_count, 2, type: :int64, json_name: "labeledConversationsCount"
   field :display_name, 3, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStatsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :analyzed_conversations_count, 1, type: :int64, json_name: "analyzedConversationsCount"
 
@@ -601,9 +648,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats do
     json_name: "issueStats",
     map: true
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -643,9 +691,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup.PhraseMatchRuleGroupType,
@@ -657,17 +706,19 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup do
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatchRule,
     json_name: "phraseMatchRules"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :negated, 2, type: :bool
   field :config, 3, type: Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleConfig
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -676,30 +727,34 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleConfig do
     json_name: "exactMatchConfig",
     oneof: 0
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ExactMatchConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :case_sensitive, 1, type: :bool, json_name: "caseSensitive"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Settings.AnalysisConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :runtime_integration_analysis_percentage, 1,
     type: :double,
     json_name: "runtimeIntegrationAnalysisPercentage"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Settings.PubsubNotificationSettingsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -726,9 +781,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
     type: Google.Cloud.Contactcenterinsights.V1.Settings.AnalysisConfig,
     json_name: "analysisConfig"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -772,9 +828,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
     type: Google.Cloud.Contactcenterinsights.V1.AnswerFeedback,
     json_name: "answerFeedback"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :correctness_level, 1,
     type: Google.Cloud.Contactcenterinsights.V1.AnswerFeedback.CorrectnessLevel,
@@ -784,16 +841,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback do
   field :clicked, 2, type: :bool
   field :displayed, 3, type: :bool
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ArticleSuggestionData.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ArticleSuggestionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :uri, 2, type: :string
@@ -807,16 +866,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ArticleSuggestionData do
   field :query_record, 5, type: :string, json_name: "queryRecord"
   field :source, 6, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.FaqAnswerData.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.FaqAnswerData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :answer, 1, type: :string
   field :confidence_score, 2, type: :float, json_name: "confidenceScore"
@@ -830,16 +891,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.FaqAnswerData do
   field :query_record, 5, type: :string, json_name: "queryRecord"
   field :source, 6, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SmartReplyData.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SmartReplyData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reply, 1, type: :string
   field :confidence_score, 2, type: :double, json_name: "confidenceScore"
@@ -851,16 +914,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.SmartReplyData do
 
   field :query_record, 4, type: :string, json_name: "queryRecord"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SmartComposeSuggestionData.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.SmartComposeSuggestionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
   field :confidence_score, 2, type: :double, json_name: "confidenceScore"
@@ -872,16 +937,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.SmartComposeSuggestionData do
 
   field :query_record, 4, type: :string, json_name: "queryRecord"
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowInteractionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dialogflow_intent_id, 1, type: :string, json_name: "dialogflowIntentId"
   field :confidence, 2, type: :float
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :participant, 0
 
@@ -904,9 +971,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
     type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
     enum: true
 end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.View do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"

@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Talent.V4beta1.LocationFilter.TelecommutePreference do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TELECOMMUTE_PREFERENCE_UNSPECIFIED, 0
   field :TELECOMMUTE_EXCLUDED, 1
   field :TELECOMMUTE_ALLOWED, 2
   field :TELECOMMUTE_JOBS_EXCLUDED, 3
 end
+
 defmodule Google.Cloud.Talent.V4beta1.CompensationFilter.FilterType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FILTER_TYPE_UNSPECIFIED, 0
   field :UNIT_ONLY, 1
@@ -17,17 +18,19 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationFilter.FilterType do
   field :ANNUALIZED_BASE_AMOUNT, 3
   field :ANNUALIZED_TOTAL_AMOUNT, 4
 end
+
 defmodule Google.Cloud.Talent.V4beta1.CommuteFilter.RoadTraffic do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROAD_TRAFFIC_UNSPECIFIED, 0
   field :TRAFFIC_FREE, 1
   field :BUSY_HOUR, 2
 end
+
 defmodule Google.Cloud.Talent.V4beta1.JobQuery do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_language_code, 14, type: :string, json_name: "queryLanguageCode"
@@ -71,9 +74,10 @@ defmodule Google.Cloud.Talent.V4beta1.JobQuery do
 
   field :excluded_jobs, 13, repeated: true, type: :string, json_name: "excludedJobs"
 end
+
 defmodule Google.Cloud.Talent.V4beta1.LocationFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :address, 1, type: :string
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -87,9 +91,10 @@ defmodule Google.Cloud.Talent.V4beta1.LocationFilter do
 
   field :negated, 6, type: :bool
 end
+
 defmodule Google.Cloud.Talent.V4beta1.CompensationFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4beta1.CompensationFilter.FilterType,
@@ -108,9 +113,10 @@ defmodule Google.Cloud.Talent.V4beta1.CompensationFilter do
     type: :bool,
     json_name: "includeJobsWithUnspecifiedCompensationRange"
 end
+
 defmodule Google.Cloud.Talent.V4beta1.CommuteFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :traffic_option, 0
 

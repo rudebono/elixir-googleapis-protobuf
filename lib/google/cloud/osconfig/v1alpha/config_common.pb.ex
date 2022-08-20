@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED, 0
   field :COMPLIANT, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyComplianceState do
   field :UNKNOWN, 3
   field :NO_OS_POLICIES_APPLICABLE, 4
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -18,17 +19,19 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type do
   field :DESIRED_STATE_ENFORCEMENT, 3
   field :DESIRED_STATE_CHECK_POST_ENFORCEMENT, 4
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Outcome do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :FAILED, 2
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep.Type, enum: true
 
@@ -38,15 +41,17 @@ defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceConfigStep do
 
   field :error_message, 3, type: :string, json_name: "errorMessage"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enforcement_output, 2, type: :bytes, json_name: "enforcementOutput"
 end
+
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicyResourceCompliance do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output, 0
 

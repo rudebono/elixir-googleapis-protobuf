@@ -1,31 +1,34 @@
 defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.NextTasksExecutionPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :NEXT_TASKS_EXECUTION_POLICY_UNSPECIFIED, 0
   field :RUN_ALL_MATCH, 1
   field :RUN_FIRST_MATCH, 2
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.TaskExecutionStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TASK_EXECUTION_STRATEGY_UNSPECIFIED, 0
   field :WHEN_ALL_SUCCEED, 1
   field :WHEN_ANY_SUCCEED, 2
   field :WHEN_ALL_TASKS_AND_CONDITIONS_SUCCEED, 3
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy.FinalState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FINAL_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :SUSPENDED, 2
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy.RetryStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RETRY_STRATEGY_UNSPECIFIED, 0
   field :IGNORE, 1
@@ -36,16 +39,18 @@ defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy.RetryStrategy do
   field :EXPONENTIAL_BACKOFF, 6
   field :RESTART_INTEGRATION_WITH_BACKOFF, 7
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task, 1, type: :string, deprecated: false
   field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
@@ -97,18 +102,20 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :final_state, 1,
     type: Google.Cloud.Integrations.V1alpha.SuccessPolicy.FinalState,
     json_name: "finalState",
     enum: true
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :retry_strategy, 1,
     type: Google.Cloud.Integrations.V1alpha.FailurePolicy.RetryStrategy,
@@ -118,9 +125,10 @@ defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy do
   field :max_retries, 2, type: :int32, json_name: "maxRetries"
   field :interval_time, 3, type: Google.Protobuf.Timestamp, json_name: "intervalTime"
 end
+
 defmodule Google.Cloud.Integrations.V1alpha.NextTask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_config_id, 1, type: :string, json_name: "taskConfigId"
   field :task_id, 2, type: :string, json_name: "taskId"

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Redis.V1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,79 +12,89 @@ defmodule Google.Cloud.Redis.V1.Instance.State do
   field :IMPORTING, 8
   field :FAILING_OVER, 9
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.Tier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :BASIC, 1
   field :STANDARD_HA, 3
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.ConnectMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CONNECT_MODE_UNSPECIFIED, 0
   field :DIRECT_PEERING, 1
   field :PRIVATE_SERVICE_ACCESS, 2
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.TransitEncryptionMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, 0
   field :SERVER_AUTHENTICATION, 1
   field :DISABLED, 2
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :READ_REPLICAS_MODE_UNSPECIFIED, 0
   field :READ_REPLICAS_DISABLED, 1
   field :READ_REPLICAS_ENABLED, 2
 end
+
 defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest.RescheduleType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESCHEDULE_TYPE_UNSPECIFIED, 0
   field :IMMEDIATE, 1
   field :NEXT_AVAILABLE_WINDOW, 2
   field :SPECIFIC_TIME, 3
 end
+
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest.DataProtectionMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_PROTECTION_MODE_UNSPECIFIED, 0
   field :LIMITED_DATA_LOSS, 1
   field :FORCE_DATA_LOSS, 2
 end
+
 defmodule Google.Cloud.Redis.V1.NodeInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :zone, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Redis.V1.Instance.RedisConfigsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Redis.V1.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -168,9 +178,10 @@ defmodule Google.Cloud.Redis.V1.Instance do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -185,9 +196,10 @@ defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest do
     json_name: "scheduleTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.MaintenancePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -207,17 +219,19 @@ defmodule Google.Cloud.Redis.V1.MaintenancePolicy do
     json_name: "weeklyMaintenanceWindow",
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.WeeklyMaintenanceWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
   field :duration, 3, type: Google.Protobuf.Duration, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.MaintenanceSchedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -228,51 +242,58 @@ defmodule Google.Cloud.Redis.V1.MaintenanceSchedule do
     json_name: "scheduleDeadlineTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Redis.V1.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Redis.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Redis.V1.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.GetInstanceAuthStringRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.InstanceAuthString do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :auth_string, 1, type: :string, json_name: "authString"
 end
+
 defmodule Google.Cloud.Redis.V1.CreateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
   field :instance, 3, type: Google.Cloud.Redis.V1.Instance, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.UpdateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -281,36 +302,41 @@ defmodule Google.Cloud.Redis.V1.UpdateInstanceRequest do
 
   field :instance, 2, type: Google.Cloud.Redis.V1.Instance, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.UpgradeInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :redis_version, 2, type: :string, json_name: "redisVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.InputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
   field :gcs_source, 1, type: Google.Cloud.Redis.V1.GcsSource, json_name: "gcsSource", oneof: 0
 end
+
 defmodule Google.Cloud.Redis.V1.ImportInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -319,15 +345,17 @@ defmodule Google.Cloud.Redis.V1.ImportInstanceRequest do
     json_name: "inputConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.GcsDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.OutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -336,9 +364,10 @@ defmodule Google.Cloud.Redis.V1.OutputConfig do
     json_name: "gcsDestination",
     oneof: 0
 end
+
 defmodule Google.Cloud.Redis.V1.ExportInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -347,9 +376,10 @@ defmodule Google.Cloud.Redis.V1.ExportInstanceRequest do
     json_name: "outputConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -359,9 +389,10 @@ defmodule Google.Cloud.Redis.V1.FailoverInstanceRequest do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -371,16 +402,18 @@ defmodule Google.Cloud.Redis.V1.OperationMetadata do
   field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
   field :api_version, 7, type: :string, json_name: "apiVersion"
 end
+
 defmodule Google.Cloud.Redis.V1.LocationMetadata.AvailableZonesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Redis.V1.ZoneMetadata
 end
+
 defmodule Google.Cloud.Redis.V1.LocationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :available_zones, 1,
     repeated: true,
@@ -389,13 +422,15 @@ defmodule Google.Cloud.Redis.V1.LocationMetadata do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Redis.V1.ZoneMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Redis.V1.TlsCertificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :serial_number, 1, type: :string, json_name: "serialNumber"
   field :cert, 2, type: :string
@@ -412,9 +447,10 @@ defmodule Google.Cloud.Redis.V1.TlsCertificate do
 
   field :sha1_fingerprint, 5, type: :string, json_name: "sha1Fingerprint"
 end
+
 defmodule Google.Cloud.Redis.V1.CloudRedis.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.redis.v1.CloudRedis", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.cloud.redis.v1.CloudRedis", protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListInstances,
       Google.Cloud.Redis.V1.ListInstancesRequest,

@@ -1,20 +1,22 @@
 defmodule Google.Cloud.Automl.V1.ClassificationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CLASSIFICATION_TYPE_UNSPECIFIED, 0
   field :MULTICLASS, 1
   field :MULTILABEL, 2
 end
+
 defmodule Google.Cloud.Automl.V1.ClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :score, 1, type: :float
 end
+
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :position_threshold, 14, type: :int32, json_name: "positionThreshold"
@@ -31,15 +33,17 @@ defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetri
   field :false_negative_count, 12, type: :int64, json_name: "falseNegativeCount"
   field :true_negative_count, 13, type: :int64, json_name: "trueNegativeCount"
 end
+
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :example_count, 1, repeated: true, type: :int32, json_name: "exampleCount"
 end
+
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :annotation_spec_id, 1, repeated: true, type: :string, json_name: "annotationSpecId"
   field :display_name, 3, repeated: true, type: :string, json_name: "displayName"
@@ -48,9 +52,10 @@ defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix
     repeated: true,
     type: Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.Row
 end
+
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
   field :au_roc, 6, type: :float, json_name: "auRoc"

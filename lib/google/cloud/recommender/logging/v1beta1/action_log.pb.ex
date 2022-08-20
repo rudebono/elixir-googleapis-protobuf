@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :actor, 1, type: :string
 
@@ -23,16 +24,18 @@ defmodule Google.Cloud.Recommender.Logging.V1beta1.ActionLog do
 
   field :recommendation_name, 4, type: :string, json_name: "recommendationName"
 end
+
 defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Recommender.Logging.V1beta1.InsightActionLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :actor, 1, type: :string, deprecated: false
 

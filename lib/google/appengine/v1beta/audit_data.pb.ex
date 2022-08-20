@@ -1,6 +1,6 @@
 defmodule Google.Appengine.V1beta.AuditData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :method, 0
 
@@ -14,15 +14,17 @@ defmodule Google.Appengine.V1beta.AuditData do
     json_name: "createVersion",
     oneof: 0
 end
+
 defmodule Google.Appengine.V1beta.UpdateServiceMethod do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :request, 1, type: Google.Appengine.V1beta.UpdateServiceRequest
 end
+
 defmodule Google.Appengine.V1beta.CreateVersionMethod do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :request, 1, type: Google.Appengine.V1beta.CreateVersionRequest
 end

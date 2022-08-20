@@ -1,14 +1,15 @@
 defmodule Google.Datastore.V1.PartitionId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 2, type: :string, json_name: "projectId"
   field :database_id, 3, type: :string, json_name: "databaseId"
   field :namespace_id, 4, type: :string, json_name: "namespaceId"
 end
+
 defmodule Google.Datastore.V1.Key.PathElement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :id_type, 0
 
@@ -16,22 +17,25 @@ defmodule Google.Datastore.V1.Key.PathElement do
   field :id, 2, type: :int64, oneof: 0
   field :name, 3, type: :string, oneof: 0
 end
+
 defmodule Google.Datastore.V1.Key do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partition_id, 1, type: Google.Datastore.V1.PartitionId, json_name: "partitionId"
   field :path, 2, repeated: true, type: Google.Datastore.V1.Key.PathElement
 end
+
 defmodule Google.Datastore.V1.ArrayValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Datastore.V1.Value
 end
+
 defmodule Google.Datastore.V1.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -59,16 +63,18 @@ defmodule Google.Datastore.V1.Value do
   field :meaning, 14, type: :int32
   field :exclude_from_indexes, 19, type: :bool, json_name: "excludeFromIndexes"
 end
+
 defmodule Google.Datastore.V1.Entity.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1.Value
 end
+
 defmodule Google.Datastore.V1.Entity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: Google.Datastore.V1.Key
 

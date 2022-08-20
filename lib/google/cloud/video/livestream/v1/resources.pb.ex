@@ -1,23 +1,25 @@
 defmodule Google.Cloud.Video.Livestream.V1.Input.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :RTMP_PUSH, 1
   field :SRT_PUSH, 2
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Input.Tier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :SD, 1
   field :HD, 2
   field :UHD, 3
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STREAMING_STATE_UNSPECIFIED, 0
   field :STREAMING, 1
@@ -28,9 +30,10 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
   field :STARTING, 7
   field :STOPPING, 8
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOG_SEVERITY_UNSPECIFIED, 0
   field :OFF, 1
@@ -39,9 +42,10 @@ defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
   field :WARNING, 400
   field :ERROR, 500
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SCHEDULED, 1
@@ -51,22 +55,25 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   field :PENDING, 5
   field :STOPPED, 6
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Input.SecurityRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ip_ranges, 1, repeated: true, type: :string, json_name: "ipRanges"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Input.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Input do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -102,22 +109,25 @@ defmodule Google.Cloud.Video.Livestream.V1.Input do
     json_name: "inputStreamProperty",
     deprecated: false
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Channel.Output do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Channel.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Channel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -174,18 +184,20 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
 
   field :log_config, 19, type: Google.Cloud.Video.Livestream.V1.LogConfig, json_name: "logConfig"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :log_severity, 1,
     type: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity,
     json_name: "logSeverity",
     enum: true
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :last_establish_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastEstablishTime"
 
@@ -199,9 +211,10 @@ defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
     type: Google.Cloud.Video.Livestream.V1.AudioStreamProperty,
     json_name: "audioStreams"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.VideoStreamProperty do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -209,18 +222,20 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStreamProperty do
     type: Google.Cloud.Video.Livestream.V1.VideoFormat,
     json_name: "videoFormat"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.VideoFormat do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :width_pixels, 2, type: :int32, json_name: "widthPixels"
   field :height_pixels, 3, type: :int32, json_name: "heightPixels"
   field :frame_rate, 4, type: :double, json_name: "frameRate"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.AudioStreamProperty do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -228,23 +243,26 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStreamProperty do
     type: Google.Cloud.Video.Livestream.V1.AudioFormat,
     json_name: "audioFormat"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.AudioFormat do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :channel_count, 2, type: :int32, json_name: "channelCount"
   field :channel_layout, 3, repeated: true, type: :string, json_name: "channelLayout"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.InputAttachment.AutomaticFailover do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :input_keys, 1, repeated: true, type: :string, json_name: "inputKeys"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :input, 2, type: :string, deprecated: false
@@ -253,22 +271,25 @@ defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
     type: Google.Cloud.Video.Livestream.V1.InputAttachment.AutomaticFailover,
     json_name: "automaticFailover"
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.AdBreakTask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :task, 0
 

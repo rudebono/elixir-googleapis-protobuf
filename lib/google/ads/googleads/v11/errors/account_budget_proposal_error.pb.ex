@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Errors.AccountBudgetProposalErrorEnum.AccountBudgetProposalError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -29,7 +29,8 @@ defmodule Google.Ads.Googleads.V11.Errors.AccountBudgetProposalErrorEnum.Account
   field :OVERLAPS_EXISTING_BUDGET, 24
   field :CANNOT_CREATE_BUDGET_THROUGH_API, 25
 end
+
 defmodule Google.Ads.Googleads.V11.Errors.AccountBudgetProposalErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

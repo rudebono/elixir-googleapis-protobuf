@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PROCESSING_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -8,32 +8,36 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingState do
   field :SUCCEEDED, 3
   field :FAILED, 4
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MANIFEST_TYPE_UNSPECIFIED, 0
   field :HLS, 1
   field :DASH, 2
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.FadeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FADE_TYPE_UNSPECIFIED, 0
   field :FADE_IN, 1
   field :FADE_OUT, 2
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Job.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :job_config, 0
 
@@ -68,16 +72,18 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
 
   field :error, 17, type: Google.Rpc.Status, deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Video.Transcoder.V1.JobConfig
@@ -87,9 +93,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate do
     type: Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :inputs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Input
 
@@ -127,9 +134,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
 
   field :overlays, 10, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Overlay
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Input do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :uri, 2, type: :string
@@ -138,30 +146,34 @@ defmodule Google.Cloud.Video.Transcoder.V1.Input do
     type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig,
     json_name: "preprocessingConfig"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Output do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.EditAtom do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :inputs, 2, repeated: true, type: :string
   field :end_time_offset, 3, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
   field :start_time_offset, 4, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.AdBreak do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :elementary_stream, 0
 
@@ -182,9 +194,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
     json_name: "textStream",
     oneof: 0
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :file_name, 2, type: :string, json_name: "fileName"
@@ -195,9 +208,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
     type: Google.Cloud.Video.Transcoder.V1.SegmentSettings,
     json_name: "segmentSettings"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_name, 1, type: :string, json_name: "fileName"
 
@@ -208,15 +222,17 @@ defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
 
   field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams", deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PubsubDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :topic, 1, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.SpriteSheet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :extraction_strategy, 0
 
@@ -232,31 +248,35 @@ defmodule Google.Cloud.Video.Transcoder.V1.SpriteSheet do
   field :interval, 10, type: Google.Protobuf.Duration, oneof: 0
   field :quality, 11, type: :int32
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :x, 1, type: :double
   field :y, 2, type: :double
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Image do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :resolution, 2, type: Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate
   field :alpha, 3, type: :double
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationStatic do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :xy, 1, type: Google.Cloud.Video.Transcoder.V1.Overlay.NormalizedCoordinate
   field :start_time_offset, 2, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationFade do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fade_type, 1,
     type: Google.Cloud.Video.Transcoder.V1.Overlay.FadeType,
@@ -268,15 +288,17 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationFade do
   field :start_time_offset, 3, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 4, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.AnimationEnd do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Animation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :animation_type, 0
 
@@ -295,64 +317,72 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.Animation do
     json_name: "animationEnd",
     oneof: 0
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :image, 1, type: Google.Cloud.Video.Transcoder.V1.Overlay.Image
   field :animations, 2, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Overlay.Animation
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Color do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :saturation, 1, type: :double
   field :contrast, 2, type: :double
   field :brightness, 3, type: :double
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Denoise do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :strength, 1, type: :double
   field :tune, 2, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deblock do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :strength, 1, type: :double
   field :enabled, 2, type: :bool
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Audio do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :lufs, 1, type: :double
   field :high_boost, 2, type: :bool, json_name: "highBoost"
   field :low_boost, 3, type: :bool, json_name: "lowBoost"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
   field :left_pixels, 3, type: :int32, json_name: "leftPixels"
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :color, 1, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Color
   field :denoise, 2, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Denoise
@@ -361,9 +391,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   field :crop, 5, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop
   field :pad, 6, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :gop_mode, 0
 
@@ -388,9 +419,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   field :tune, 19, type: :string
   field :preset, 20, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :gop_mode, 0
 
@@ -414,9 +446,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
   field :tune, 18, type: :string
   field :preset, 19, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :gop_mode, 0
 
@@ -431,9 +464,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
   field :gop_duration, 9, type: Google.Protobuf.Duration, json_name: "gopDuration", oneof: 0
   field :profile, 10, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :codec_settings, 0
 
@@ -441,9 +475,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream do
   field :h265, 2, type: Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings, oneof: 0
   field :vp9, 3, type: Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings, oneof: 0
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :atom_key, 1, type: :string, json_name: "atomKey", deprecated: false
   field :input_key, 2, type: :string, json_name: "inputKey", deprecated: false
@@ -452,9 +487,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping do
   field :output_channel, 5, type: :int32, json_name: "outputChannel", deprecated: false
   field :gain_db, 6, type: :double, json_name: "gainDb"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :bitrate_bps, 2, type: :int32, json_name: "bitrateBps", deprecated: false
@@ -467,24 +503,27 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
 
   field :sample_rate_hertz, 6, type: :int32, json_name: "sampleRateHertz"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :atom_key, 1, type: :string, json_name: "atomKey", deprecated: false
   field :input_key, 2, type: :string, json_name: "inputKey", deprecated: false
   field :input_track, 3, type: :int32, json_name: "inputTrack", deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.TextStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :mapping, 3, repeated: true, type: Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
   field :individual_segments, 3, type: :bool, json_name: "individualSegments", deprecated: false

@@ -1,23 +1,25 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TASK_DIRECTIVE_UNSPECIFIED, 0
   field :CONTINUE, 1
   field :STOP, 2
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.TaskType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TASK_TYPE_UNSPECIFIED, 0
   field :APPLY_PATCHES, 1
   field :EXEC_STEP_TASK, 2
   field :APPLY_CONFIG_TASK, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 4
@@ -25,58 +27,65 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress.State 
   field :APPLYING_PATCHES, 2
   field :REBOOTING, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :SUCCEEDED_REBOOT_REQUIRED, 2
   field :FAILED, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :COMPLETED, 1
   field :TIMED_OUT, 2
   field :CANCELLED, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
   field :APPLYING_CONFIG, 2
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :FAILED, 2
   field :CANCELLED, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task.ServiceLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :task_details, 0
 
@@ -113,9 +122,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Task do
     json_name: "serviceLabels",
     map: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :patch_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.PatchConfig,
@@ -123,44 +133,49 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTask do
 
   field :dry_run, 3, type: :bool, json_name: "dryRun"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskProgress.State,
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyPatchesTaskOutput.State,
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :exec_step, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStep,
     json_name: "execStep"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskProgress.State,
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput.State,
@@ -169,9 +184,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ExecStepTaskOutput do
 
   field :exit_code, 2, type: :int32, json_name: "exitCode", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :mode, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Mode, enum: true
@@ -185,26 +201,29 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy do
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicy.Resource
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policies, 1,
     repeated: true,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTask.OSPolicy,
     json_name: "osPolicies"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskProgress.State,
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
 
@@ -218,9 +237,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.OSPolicyR
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance,
     json_name: "osPolicyResourceCompliances"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.ApplyConfigTaskOutput.State,

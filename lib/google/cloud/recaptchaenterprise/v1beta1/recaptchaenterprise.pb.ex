@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Annotation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ANNOTATION_UNSPECIFIED, 0
   field :LEGITIMATE, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Ann
   field :PASSWORD_CORRECT, 3
   field :PASSWORD_INCORRECT, 4
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :CHARGEBACK, 1
@@ -23,9 +24,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest.Rea
   field :CORRECT_PASSWORD, 5
   field :INCORRECT_PASSWORD, 6
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CLASSIFICATION_REASON_UNSPECIFIED, 0
   field :AUTOMATION, 1
@@ -34,9 +36,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReas
   field :UNEXPECTED_USAGE_PATTERNS, 4
   field :LOW_CONFIDENCE_SCORE, 5
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INVALID_REASON_UNSPECIFIED, 0
   field :UNKNOWN_INVALID_REASON, 1
@@ -47,9 +50,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason
   field :MISSING, 6
   field :BROWSER_ERROR, 7
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment.AccountDefenderLabel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACCOUNT_DEFENDER_LABEL_UNSPECIFIED, 0
   field :PROFILE_MATCH, 1
@@ -57,9 +61,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment.Acc
   field :SUSPICIOUS_ACCOUNT_CREATION, 3
   field :RELATED_ACCOUNTS_NUMBER_HIGH, 4
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateAssessmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -67,9 +72,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.CreateAssessmentRequest do
     type: Google.Cloud.Recaptchaenterprise.V1beta1.Assessment,
     deprecated: false
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -86,13 +92,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentRequest do
 
   field :hashed_account_id, 4, type: :bytes, json_name: "hashedAccountId", deprecated: false
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AnnotateAssessmentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.PasswordLeakVerification do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :hashed_user_credentials, 1,
     type: :bytes,
@@ -106,9 +114,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.PasswordLeakVerification do
     json_name: "canonicalizedUsername",
     deprecated: false
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1beta1.Event
@@ -133,9 +142,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment do
     type: Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment,
     json_name: "accountDefenderAssessment"
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :token, 1, type: :string, deprecated: false
   field :site_key, 2, type: :string, json_name: "siteKey", deprecated: false
@@ -144,9 +154,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event do
   field :expected_action, 5, type: :string, json_name: "expectedAction", deprecated: false
   field :hashed_account_id, 6, type: :bytes, json_name: "hashedAccountId", deprecated: false
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :valid, 1, type: :bool
 
@@ -159,20 +170,22 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties do
   field :hostname, 4, type: :string
   field :action, 5, type: :string
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment.AccountDefenderLabel,
     enum: true
 end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.RecaptchaEnterpriseServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateAssessment,
       Google.Cloud.Recaptchaenterprise.V1beta1.CreateAssessmentRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :verification_info, 0
 
@@ -16,9 +16,10 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
 
   field :tenant_id, 4, type: :string, json_name: "tenantId"
 end
+
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :auxiliary_auth_info, 0
 
@@ -30,9 +31,10 @@ defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
     json_name: "phoneAuthInfo",
     oneof: 0
 end
+
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :sign_in_info, 0
 
@@ -50,9 +52,10 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
 
   field :tenant_id, 5, type: :string, json_name: "tenantId"
 end
+
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :response_info, 0
 
@@ -61,11 +64,12 @@ defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
     json_name: "phoneResponseInfo",
     oneof: 0
 end
+
 defmodule Google.Cloud.Identitytoolkit.V2.AuthenticationService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.identitytoolkit.v2.AuthenticationService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :FinalizeMfaSignIn,
       Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest,

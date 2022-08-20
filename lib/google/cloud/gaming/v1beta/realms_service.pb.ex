@@ -2,7 +2,7 @@ defmodule Google.Cloud.Gaming.V1beta.RealmsService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.gaming.v1beta.RealmsService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListRealms,
       Google.Cloud.Gaming.V1beta.ListRealmsRequest,

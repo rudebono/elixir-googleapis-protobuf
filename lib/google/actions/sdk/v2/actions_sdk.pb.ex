@@ -1,13 +1,14 @@
 defmodule Google.Actions.Sdk.V2.WriteDraftRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :files, 4, type: Google.Actions.Sdk.V2.Files, deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.Draft do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -15,25 +16,29 @@ defmodule Google.Actions.Sdk.V2.Draft do
     type: Google.Actions.Sdk.V2.ValidationResults,
     json_name: "validationResults"
 end
+
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromDraft do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.ContentFromSubmittedVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest.PreviewSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sandbox, 1, type: Google.Protobuf.BoolValue
 end
+
 defmodule Google.Actions.Sdk.V2.WritePreviewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -51,9 +56,10 @@ defmodule Google.Actions.Sdk.V2.WritePreviewRequest do
     json_name: "previewSettings",
     deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.Preview do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -63,17 +69,19 @@ defmodule Google.Actions.Sdk.V2.Preview do
 
   field :simulator_url, 3, type: :string, json_name: "simulatorUrl"
 end
+
 defmodule Google.Actions.Sdk.V2.CreateVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :files, 5, type: Google.Actions.Sdk.V2.Files, deprecated: false
   field :release_channel, 4, type: :string, json_name: "releaseChannel", deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.ReadDraftRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -82,15 +90,17 @@ defmodule Google.Actions.Sdk.V2.ReadDraftRequest do
     json_name: "clientSecretEncryptionKeyVersion",
     deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.ReadDraftResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :files, 3, type: Google.Actions.Sdk.V2.Files
 end
+
 defmodule Google.Actions.Sdk.V2.ReadVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -99,51 +109,58 @@ defmodule Google.Actions.Sdk.V2.ReadVersionRequest do
     json_name: "clientSecretEncryptionKeyVersion",
     deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.ReadVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :files, 1, type: Google.Actions.Sdk.V2.Files
 end
+
 defmodule Google.Actions.Sdk.V2.EncryptSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :client_secret, 1, type: :string, json_name: "clientSecret", deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.EncryptSecretResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :account_linking_secret, 1,
     type: Google.Actions.Sdk.V2.AccountLinkingSecret,
     json_name: "accountLinkingSecret"
 end
+
 defmodule Google.Actions.Sdk.V2.DecryptSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :encrypted_client_secret, 1,
     type: :bytes,
     json_name: "encryptedClientSecret",
     deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.DecryptSecretResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :client_secret, 1, type: :string, json_name: "clientSecret"
 end
+
 defmodule Google.Actions.Sdk.V2.ListSampleProjectsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sample_projects, 1,
     repeated: true,
@@ -152,25 +169,28 @@ defmodule Google.Actions.Sdk.V2.ListSampleProjectsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Actions.Sdk.V2.SampleProject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :hosted_url, 2, type: :string, json_name: "hostedUrl"
   field :description, 3, type: :string
 end
+
 defmodule Google.Actions.Sdk.V2.ListReleaseChannelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Actions.Sdk.V2.ListReleaseChannelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :release_channels, 1,
     repeated: true,
@@ -179,24 +199,27 @@ defmodule Google.Actions.Sdk.V2.ListReleaseChannelsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Actions.Sdk.V2.ListVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Actions.Sdk.V2.ListVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Actions.Sdk.V2.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Actions.Sdk.V2.ActionsSdk.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.actions.sdk.v2.ActionsSdk", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.actions.sdk.v2.ActionsSdk", protoc_gen_elixir_version: "0.11.0"
 
   rpc :WriteDraft, stream(Google.Actions.Sdk.V2.WriteDraftRequest), Google.Actions.Sdk.V2.Draft
 

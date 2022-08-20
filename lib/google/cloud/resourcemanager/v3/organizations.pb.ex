@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Resourcemanager.V3.Organization.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :DELETE_REQUESTED, 2
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.Organization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :owner, 0
 
@@ -43,40 +44,46 @@ defmodule Google.Cloud.Resourcemanager.V3.Organization do
 
   field :etag, 8, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.GetOrganizationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
   field :query, 3, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.SearchOrganizationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :organizations, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Organization
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.DeleteOrganizationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteOrganizationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.Organizations.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.resourcemanager.v3.Organizations",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetOrganization,
       Google.Cloud.Resourcemanager.V3.GetOrganizationRequest,

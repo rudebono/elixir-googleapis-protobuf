@@ -1,6 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable.TableDataSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :time_series_query, 1,
     type: Google.Monitoring.Dashboard.V1.TimeSeriesQuery,
@@ -19,9 +19,10 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable.TableDataSet do
     json_name: "tableDisplayOptions",
     deprecated: false
 end
+
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_sets, 1,
     repeated: true,

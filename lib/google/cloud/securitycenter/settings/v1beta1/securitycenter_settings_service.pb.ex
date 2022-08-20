@@ -1,25 +1,28 @@
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetServiceAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ServiceAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :service_account, 2, type: :string, json_name: "serviceAccount"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :settings, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings,
@@ -27,35 +30,40 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateSettingsRequest do
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchGetSettingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :settings, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -63,21 +71,24 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSe
     repeated: true,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveSettingsRequest
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.BatchCalculateEffectiveSettingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :settings, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Settings
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.GetComponentSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateComponentSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :component_settings, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings,
@@ -86,55 +97,62 @@ defmodule Google.Cloud.Securitycenter.Settings.V1beta1.UpdateComponentSettingsRe
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ResetComponentSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.CalculateEffectiveComponentSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListDetectorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :detectors, 1, repeated: true, type: Google.Cloud.Securitycenter.Settings.V1beta1.Detector
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ListComponentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :components, 1, repeated: true, type: :string
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityCenterSettingsService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetServiceAccount,
       Google.Cloud.Securitycenter.Settings.V1beta1.GetServiceAccountRequest,

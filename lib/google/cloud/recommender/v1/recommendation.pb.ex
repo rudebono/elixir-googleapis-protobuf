@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Recommender.V1.Recommendation.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :P4, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Recommender.V1.Recommendation.Priority do
   field :P2, 3
   field :P1, 4
 end
+
 defmodule Google.Cloud.Recommender.V1.Impact.Category do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :COST, 1
@@ -18,9 +19,10 @@ defmodule Google.Cloud.Recommender.V1.Impact.Category do
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
 end
+
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -29,15 +31,17 @@ defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
   field :FAILED, 4
   field :DISMISSED, 5
 end
+
 defmodule Google.Cloud.Recommender.V1.Recommendation.InsightReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :insight, 1, type: :string
 end
+
 defmodule Google.Cloud.Recommender.V1.Recommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -66,9 +70,10 @@ defmodule Google.Cloud.Recommender.V1.Recommendation do
 
   field :xor_group_id, 18, type: :string, json_name: "xorGroupId"
 end
+
 defmodule Google.Cloud.Recommender.V1.RecommendationContent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :operation_groups, 2,
     repeated: true,
@@ -77,29 +82,33 @@ defmodule Google.Cloud.Recommender.V1.RecommendationContent do
 
   field :overview, 3, type: Google.Protobuf.Struct
 end
+
 defmodule Google.Cloud.Recommender.V1.OperationGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Cloud.Recommender.V1.Operation
 end
+
 defmodule Google.Cloud.Recommender.V1.Operation.PathFiltersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Recommender.V1.Operation.PathValueMatchersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Recommender.V1.ValueMatcher
 end
+
 defmodule Google.Cloud.Recommender.V1.Operation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :path_value, 0
 
@@ -128,30 +137,34 @@ defmodule Google.Cloud.Recommender.V1.Operation do
     json_name: "pathValueMatchers",
     map: true
 end
+
 defmodule Google.Cloud.Recommender.V1.ValueMatcher do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :match_variant, 0
 
   field :matches_pattern, 1, type: :string, json_name: "matchesPattern", oneof: 0
 end
+
 defmodule Google.Cloud.Recommender.V1.CostProjection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cost, 1, type: Google.Type.Money
   field :duration, 2, type: Google.Protobuf.Duration
 end
+
 defmodule Google.Cloud.Recommender.V1.SecurityProjection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 2, type: Google.Protobuf.Struct
 end
+
 defmodule Google.Cloud.Recommender.V1.Impact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :projection, 0
 
@@ -167,16 +180,18 @@ defmodule Google.Cloud.Recommender.V1.Impact do
     json_name: "securityProjection",
     oneof: 0
 end
+
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Recommender.V1.RecommendationStateInfo.State, enum: true
 

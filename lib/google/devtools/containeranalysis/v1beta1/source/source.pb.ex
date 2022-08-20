@@ -1,22 +1,24 @@
 defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :FIXED, 1
   field :MOVABLE, 2
   field :OTHER, 4
 end
+
 defmodule Grafeas.V1beta1.Source.SourceContext.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Grafeas.V1beta1.Source.SourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :context, 0
 
@@ -33,16 +35,18 @@ defmodule Grafeas.V1beta1.Source.SourceContext do
     type: Grafeas.V1beta1.Source.SourceContext.LabelsEntry,
     map: true
 end
+
 defmodule Grafeas.V1beta1.Source.AliasContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kind, 1, type: Grafeas.V1beta1.Source.AliasContext.Kind, enum: true
   field :name, 2, type: :string
 end
+
 defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -54,9 +58,10 @@ defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
     json_name: "aliasContext",
     oneof: 0
 end
+
 defmodule Grafeas.V1beta1.Source.GerritSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -69,16 +74,18 @@ defmodule Grafeas.V1beta1.Source.GerritSourceContext do
     json_name: "aliasContext",
     oneof: 0
 end
+
 defmodule Grafeas.V1beta1.Source.GitSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
 end
+
 defmodule Grafeas.V1beta1.Source.RepoId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :id, 0
 
@@ -89,9 +96,10 @@ defmodule Grafeas.V1beta1.Source.RepoId do
 
   field :uid, 2, type: :string, oneof: 0
 end
+
 defmodule Grafeas.V1beta1.Source.ProjectRepoId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"

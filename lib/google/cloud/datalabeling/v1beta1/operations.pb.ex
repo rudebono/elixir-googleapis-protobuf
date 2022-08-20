@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
   field :import_count, 3, type: :int32, json_name: "importCount"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: :string
   field :total_count, 2, type: :int32, json_name: "totalCount"
@@ -22,9 +23,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationResponse do
     type: Google.Cloud.Datalabeling.V1beta1.OutputConfig,
     json_name: "outputConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: :string
 
@@ -35,9 +37,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataOperationMetadata do
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: :string
 
@@ -48,9 +51,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataOperationMetadata do
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -123,105 +127,118 @@ defmodule Google.Cloud.Datalabeling.V1beta1.LabelOperationMetadata do
 
   field :create_time, 16, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingBoxOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageOrientedBoundingBoxOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageBoundingPolyOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImagePolylineOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageSegmentationOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectDetectionOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoObjectTrackingOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoEventOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextClassificationOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextEntityExtractionOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :basic_config, 1,
     type: Google.Cloud.Datalabeling.V1beta1.HumanAnnotationConfig,
     json_name: "basicConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instruction, 1, type: :string
 

@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Channel.V1.RebillingBasis do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REBILLING_BASIS_UNSPECIFIED, 0
   field :COST_AT_LIST, 1
   field :DIRECT_CUSTOMER_COST, 2
 end
+
 defmodule Google.Cloud.Channel.V1.CustomerRepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -22,9 +23,10 @@ defmodule Google.Cloud.Channel.V1.CustomerRepricingConfig do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -38,19 +40,22 @@ defmodule Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Channel.V1.RepricingConfig.EntitlementGranularity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :entitlement, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Channel.V1.RepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :granularity, 0
 
@@ -77,9 +82,10 @@ defmodule Google.Cloud.Channel.V1.RepricingConfig do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :adjustment, 0
 
@@ -88,9 +94,10 @@ defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
     json_name: "percentageAdjustment",
     oneof: 0
 end
+
 defmodule Google.Cloud.Channel.V1.PercentageAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :percentage, 2, type: Google.Type.Decimal
 end

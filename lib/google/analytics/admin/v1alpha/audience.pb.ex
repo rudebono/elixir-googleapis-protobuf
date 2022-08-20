@@ -1,15 +1,16 @@
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUDIENCE_FILTER_SCOPE_UNSPECIFIED, 0
   field :AUDIENCE_FILTER_SCOPE_WITHIN_SAME_EVENT, 1
   field :AUDIENCE_FILTER_SCOPE_WITHIN_SAME_SESSION, 2
   field :AUDIENCE_FILTER_SCOPE_ACROSS_ALL_SESSIONS, 3
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringFilter.MatchType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -19,9 +20,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringF
   field :FULL_REGEXP, 5
   field :PARTIAL_REGEXP, 6
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericFilter.Operation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :EQUAL, 1
@@ -30,33 +32,37 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.Numeric
   field :GREATER_THAN, 4
   field :GREATER_THAN_OR_EQUAL, 5
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterClause.AudienceClauseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUDIENCE_CLAUSE_TYPE_UNSPECIFIED, 0
   field :INCLUDE, 1
   field :EXCLUDE, 2
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceEventTrigger.LogCondition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOG_CONDITION_UNSPECIFIED, 0
   field :AUDIENCE_JOINED, 1
   field :AUDIENCE_MEMBERSHIP_RENEWED, 2
 end
+
 defmodule Google.Analytics.Admin.V1alpha.Audience.AudienceExclusionDurationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUDIENCE_EXCLUSION_DURATION_MODE_UNSPECIFIED, 0
   field :EXCLUDE_TEMPORARILY, 1
   field :EXCLUDE_PERMANENTLY, 2
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringFilter.MatchType,
@@ -67,25 +73,28 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringF
   field :value, 2, type: :string, deprecated: false
   field :case_sensitive, 3, type: :bool, json_name: "caseSensitive", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.InListFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
   field :case_sensitive, 2, type: :bool, json_name: "caseSensitive", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :one_value, 0
 
   field :int64_value, 1, type: :int64, json_name: "int64Value", oneof: 0
   field :double_value, 2, type: :double, json_name: "doubleValue", oneof: 0
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :operation, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericFilter.Operation,
@@ -96,9 +105,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.Numeric
     type: Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericValue,
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.BetweenFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :from_value, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericValue,
@@ -110,9 +120,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.Between
     json_name: "toValue",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -140,9 +151,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter do
   field :at_any_point_in_time, 6, type: :bool, json_name: "atAnyPointInTime", deprecated: false
   field :in_any_n_day_period, 7, type: :int32, json_name: "inAnyNDayPeriod", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceEventFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :event_name, 1, type: :string, json_name: "eventName", deprecated: false
 
@@ -151,9 +163,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceEventFilter do
     json_name: "eventParameterFilterExpression",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -182,18 +195,20 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceFilterExpression do
     json_name: "eventFilter",
     oneof: 0
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :filter_expressions, 1,
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.AudienceFilterExpression,
     json_name: "filterExpressions"
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceSimpleFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :scope, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceFilterScope,
@@ -205,9 +220,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceSimpleFilter do
     json_name: "filterExpression",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceSequenceFilter.AudienceSequenceStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :scope, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceFilterScope,
@@ -226,9 +242,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceSequenceFilter.AudienceSequence
     json_name: "filterExpression",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceSequenceFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :scope, 1,
     type: Google.Analytics.Admin.V1alpha.AudienceFilterScope,
@@ -246,9 +263,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceSequenceFilter do
     json_name: "sequenceSteps",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterClause do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :filter, 0
 
@@ -268,9 +286,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceFilterClause do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.AudienceEventTrigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :event_name, 1, type: :string, json_name: "eventName", deprecated: false
 
@@ -280,9 +299,10 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceEventTrigger do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1alpha.Audience do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

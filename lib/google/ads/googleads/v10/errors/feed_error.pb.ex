@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum.FeedError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -28,7 +28,8 @@ defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum.FeedError do
   field :CANNOT_HAVE_LOCATION_AND_AFFILIATE_LOCATION_FEEDS, 23
   field :LEGACY_EXTENSION_TYPE_READ_ONLY, 24
 end
+
 defmodule Google.Ads.Googleads.V10.Errors.FeedErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

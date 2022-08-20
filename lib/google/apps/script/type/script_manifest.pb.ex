@@ -1,15 +1,16 @@
 defmodule Google.Apps.Script.Type.HttpAuthorizationHeader do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :HTTP_AUTHORIZATION_HEADER_UNSPECIFIED, 0
   field :SYSTEM_ID_TOKEN, 1
   field :USER_ID_TOKEN, 2
   field :NONE, 3
 end
+
 defmodule Google.Apps.Script.Type.CommonAddOnManifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :logo_url, 2, type: :string, json_name: "logoUrl"
@@ -37,16 +38,18 @@ defmodule Google.Apps.Script.Type.CommonAddOnManifest do
     type: Google.Protobuf.ListValue,
     json_name: "openLinkUrlPrefixes"
 end
+
 defmodule Google.Apps.Script.Type.LayoutProperties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :primary_color, 1, type: :string, json_name: "primaryColor"
   field :secondary_color, 2, type: :string, json_name: "secondaryColor"
 end
+
 defmodule Google.Apps.Script.Type.HttpOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :authorization_header, 1,
     type: Google.Apps.Script.Type.HttpAuthorizationHeader,

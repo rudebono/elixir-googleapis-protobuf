@@ -1,23 +1,25 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.DeploymentResourcesType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DEPLOYMENT_RESOURCES_TYPE_UNSPECIFIED, 0
   field :DEDICATED_RESOURCES, 1
   field :AUTOMATIC_RESOURCES, 2
   field :SHARED_RESOURCES, 3
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.ExportFormat.ExportableContent do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EXPORTABLE_CONTENT_UNSPECIFIED, 0
   field :ARTIFACT, 1
   field :IMAGE, 2
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.ExportFormat do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -28,16 +30,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model.ExportFormat do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version_id, 28, type: :string, json_name: "versionId", deprecated: false
@@ -129,9 +133,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictSchemata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_schema_uri, 1, type: :string, json_name: "instanceSchemaUri", deprecated: false
 
@@ -145,9 +150,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictSchemata do
     json_name: "predictionSchemaUri",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :command, 2, repeated: true, type: :string, deprecated: false
@@ -157,9 +163,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec do
   field :predict_route, 6, type: :string, json_name: "predictRoute", deprecated: false
   field :health_route, 7, type: :string, json_name: "healthRoute", deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Port do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :container_port, 3, type: :int32, json_name: "containerPort"
 end

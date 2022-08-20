@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTrainingPipelineRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -9,15 +9,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateTrainingPipelineRequest do
     json_name: "trainingPipeline",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetTrainingPipelineRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -25,9 +27,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesRequest do
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_pipelines, 1,
     repeated: true,
@@ -36,21 +39,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListTrainingPipelinesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTrainingPipelineRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelTrainingPipelineRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreatePipelineJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -61,15 +67,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreatePipelineJobRequest do
 
   field :pipeline_job_id, 3, type: :string, json_name: "pipelineJobId"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPipelineJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -77,9 +85,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsRequest do
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :pipeline_jobs, 1,
     repeated: true,
@@ -88,23 +97,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListPipelineJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeletePipelineJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.PipelineService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateTrainingPipeline,
       Google.Cloud.Aiplatform.V1beta1.CreateTrainingPipelineRequest,

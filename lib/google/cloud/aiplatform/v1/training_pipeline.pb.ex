@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Aiplatform.V1.TrainingPipeline.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Aiplatform.V1.TrainingPipeline do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -63,11 +64,13 @@ defmodule Google.Cloud.Aiplatform.V1.TrainingPipeline do
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.InputDataConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :split, 0
+
   oneof :destination, 1
 
   field :fraction_split, 2,
@@ -110,40 +113,45 @@ defmodule Google.Cloud.Aiplatform.V1.InputDataConfig do
   field :annotation_schema_uri, 9, type: :string, json_name: "annotationSchemaUri"
   field :saved_query_id, 7, type: :string, json_name: "savedQueryId"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.FractionSplit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_fraction, 1, type: :double, json_name: "trainingFraction"
   field :validation_fraction, 2, type: :double, json_name: "validationFraction"
   field :test_fraction, 3, type: :double, json_name: "testFraction"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.FilterSplit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_filter, 1, type: :string, json_name: "trainingFilter", deprecated: false
   field :validation_filter, 2, type: :string, json_name: "validationFilter", deprecated: false
   field :test_filter, 3, type: :string, json_name: "testFilter", deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.PredefinedSplit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.TimestampSplit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_fraction, 1, type: :double, json_name: "trainingFraction"
   field :validation_fraction, 2, type: :double, json_name: "validationFraction"
   field :test_fraction, 3, type: :double, json_name: "testFraction"
   field :key, 4, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.StratifiedSplit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_fraction, 1, type: :double, json_name: "trainingFraction"
   field :validation_fraction, 2, type: :double, json_name: "validationFraction"

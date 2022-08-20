@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Services.MutateCustomInterestsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -11,9 +11,10 @@ defmodule Google.Ads.Googleads.V11.Services.MutateCustomInterestsRequest do
 
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.CustomInterestOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -21,25 +22,28 @@ defmodule Google.Ads.Googleads.V11.Services.CustomInterestOperation do
   field :create, 1, type: Google.Ads.Googleads.V11.Resources.CustomInterest, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V11.Resources.CustomInterest, oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateCustomInterestsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 2,
     repeated: true,
     type: Google.Ads.Googleads.V11.Services.MutateCustomInterestResult
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateCustomInterestResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V11.Services.CustomInterestService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v11.services.CustomInterestService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :MutateCustomInterests,
       Google.Ads.Googleads.V11.Services.MutateCustomInterestsRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Enums.PriceExtensionTypeEnum.PriceExtensionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -14,7 +14,8 @@ defmodule Google.Ads.Googleads.V11.Enums.PriceExtensionTypeEnum.PriceExtensionTy
   field :SERVICE_CATEGORIES, 9
   field :SERVICE_TIERS, 10
 end
+
 defmodule Google.Ads.Googleads.V11.Enums.PriceExtensionTypeEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

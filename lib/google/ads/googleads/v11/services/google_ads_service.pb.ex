@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -14,9 +14,10 @@ defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsRequest do
     json_name: "summaryRowSetting",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V11.Services.GoogleAdsRow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -27,9 +28,10 @@ defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsResponse do
     type: Google.Ads.Googleads.V11.Services.GoogleAdsRow,
     json_name: "summaryRow"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -39,9 +41,10 @@ defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsStreamRequest do
     json_name: "summaryRowSetting",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsStreamResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V11.Services.GoogleAdsRow
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
@@ -52,9 +55,10 @@ defmodule Google.Ads.Googleads.V11.Services.SearchGoogleAdsStreamResponse do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.GoogleAdsRow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :account_budget, 42,
     type: Google.Ads.Googleads.V11.Resources.AccountBudget,
@@ -631,9 +635,10 @@ defmodule Google.Ads.Googleads.V11.Services.GoogleAdsRow do
   field :metrics, 4, type: Google.Ads.Googleads.V11.Common.Metrics
   field :segments, 102, type: Google.Ads.Googleads.V11.Common.Segments
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateGoogleAdsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -651,9 +656,10 @@ defmodule Google.Ads.Googleads.V11.Services.MutateGoogleAdsRequest do
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateGoogleAdsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -662,9 +668,10 @@ defmodule Google.Ads.Googleads.V11.Services.MutateGoogleAdsResponse do
     type: Google.Ads.Googleads.V11.Services.MutateOperationResponse,
     json_name: "mutateOperationResponses"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -1048,9 +1055,10 @@ defmodule Google.Ads.Googleads.V11.Services.MutateOperation do
     json_name: "userListOperation",
     oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateOperationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -1434,11 +1442,12 @@ defmodule Google.Ads.Googleads.V11.Services.MutateOperationResponse do
     json_name: "userListResult",
     oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V11.Services.GoogleAdsService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v11.services.GoogleAdsService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :Search,
       Google.Ads.Googleads.V11.Services.SearchGoogleAdsRequest,

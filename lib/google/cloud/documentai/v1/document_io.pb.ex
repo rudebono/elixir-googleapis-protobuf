@@ -1,32 +1,36 @@
 defmodule Google.Cloud.Documentai.V1.RawDocument do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
+
 defmodule Google.Cloud.Documentai.V1.GcsDocument do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
+
 defmodule Google.Cloud.Documentai.V1.GcsDocuments do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Cloud.Documentai.V1.GcsDocument
 end
+
 defmodule Google.Cloud.Documentai.V1.GcsPrefix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_uri_prefix, 1, type: :string, json_name: "gcsUriPrefix"
 end
+
 defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -40,15 +44,17 @@ defmodule Google.Cloud.Documentai.V1.BatchDocumentsInputConfig do
     json_name: "gcsDocuments",
     oneof: 0
 end
+
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
 end
+
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :destination, 0
 

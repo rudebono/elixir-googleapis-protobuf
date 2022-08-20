@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUTOSCALER_STATE_UNSPECIFIED, 0
   field :COOLDOWN, 1
@@ -10,9 +10,10 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerState do
   field :FAILED, 4
   field :INITIALIZING, 5
 end
+
 defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SCALING_DECISION_TYPE_UNSPECIFIED, 0
   field :SCALE_UP, 1
@@ -20,48 +21,54 @@ defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
   field :NO_SCALE, 3
   field :MIXED, 4
 end
+
 defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CONSTRAINING_FACTOR_UNSPECIFIED, 0
   field :SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA, 1
   field :REACHED_MAXIMUM_CLUSTER_SIZE, 2
   field :REACHED_MINIMUM_CLUSTER_SIZE, 3
 end
+
 defmodule Google.Cloud.Dataproc.Logging.ClusterSize do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :primary_worker_count, 1, type: :int32, json_name: "primaryWorkerCount"
   field :secondary_worker_count, 2, type: :int32, json_name: "secondaryWorkerCount"
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerStatus
   field :recommendation, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerState, enum: true
   field :details, 2, type: :string
   field :update_cluster_operation_id, 3, type: :string, json_name: "updateClusterOperationId"
   field :error, 4, type: :string
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs.ClusterMetricsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cluster_metrics, 1,
     repeated: true,
@@ -81,9 +88,10 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs do
     type: Google.Cloud.Dataproc.Logging.ClusterSize,
     json_name: "maxWorkerCounts"
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :decision, 1, type: Google.Cloud.Dataproc.Logging.ScalingDecisionType, enum: true
 
@@ -108,9 +116,10 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
 
   field :recommendation_id, 6, type: :string, json_name: "recommendationId"
 end
+
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :inputs, 1, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Inputs
   field :outputs, 2, type: Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs

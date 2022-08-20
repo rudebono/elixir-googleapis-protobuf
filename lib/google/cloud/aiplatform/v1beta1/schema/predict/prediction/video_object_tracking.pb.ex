@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult.Frame do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :x_min, 2, type: Google.Protobuf.FloatValue, json_name: "xMin"
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.VideoObjectT
   field :y_min, 4, type: Google.Protobuf.FloatValue, json_name: "yMin"
   field :y_max, 5, type: Google.Protobuf.FloatValue, json_name: "yMax"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Predict.Prediction.VideoObjectTrackingPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

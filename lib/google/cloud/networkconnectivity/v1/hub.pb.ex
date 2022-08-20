@@ -1,30 +1,33 @@
 defmodule Google.Cloud.Networkconnectivity.V1.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :ACTIVE, 2
   field :DELETING, 3
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOCATION_FEATURE_UNSPECIFIED, 0
   field :SITE_TO_CLOUD_SPOKES, 1
   field :SITE_TO_SITE_SPOKES, 2
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.Hub do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -52,9 +55,10 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
     type: Google.Cloud.Networkconnectivity.V1.RoutingVPC,
     json_name: "routingVpcs"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -63,16 +67,18 @@ defmodule Google.Cloud.Networkconnectivity.V1.RoutingVPC do
     json_name: "requiredForNewSiteToSiteDataTransferSpokes",
     deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -109,9 +115,10 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
   field :unique_id, 11, type: :string, json_name: "uniqueId", deprecated: false
   field :state, 15, type: Google.Cloud.Networkconnectivity.V1.State, enum: true, deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -119,32 +126,36 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :hubs, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1.Hub
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.GetHubRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.CreateHubRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :hub_id, 2, type: :string, json_name: "hubId", deprecated: false
   field :hub, 3, type: Google.Cloud.Networkconnectivity.V1.Hub, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateHubRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -154,16 +165,18 @@ defmodule Google.Cloud.Networkconnectivity.V1.UpdateHubRequest do
   field :hub, 2, type: Google.Cloud.Networkconnectivity.V1.Hub, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteHubRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -171,32 +184,36 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :spokes, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1.Spoke
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.GetSpokeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.CreateSpokeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :spoke_id, 2, type: :string, json_name: "spokeId", deprecated: false
   field :spoke, 3, type: Google.Cloud.Networkconnectivity.V1.Spoke, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateSpokeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -206,30 +223,34 @@ defmodule Google.Cloud.Networkconnectivity.V1.UpdateSpokeRequest do
   field :spoke, 2, type: Google.Cloud.Networkconnectivity.V1.Spoke, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteSpokeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instances, 1,
     repeated: true,
@@ -237,16 +258,18 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
 
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :virtual_machine, 1, type: :string, json_name: "virtualMachine", deprecated: false
   field :ip_address, 3, type: :string, json_name: "ipAddress"
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.LocationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location_features, 1,
     repeated: true,
@@ -254,11 +277,12 @@ defmodule Google.Cloud.Networkconnectivity.V1.LocationMetadata do
     json_name: "locationFeatures",
     enum: true
 end
+
 defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1.HubService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListHubs,
       Google.Cloud.Networkconnectivity.V1.ListHubsRequest,

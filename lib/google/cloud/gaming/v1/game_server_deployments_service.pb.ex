@@ -2,7 +2,7 @@ defmodule Google.Cloud.Gaming.V1.GameServerDeploymentsService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.gaming.v1.GameServerDeploymentsService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListGameServerDeployments,
       Google.Cloud.Gaming.V1.ListGameServerDeploymentsRequest,

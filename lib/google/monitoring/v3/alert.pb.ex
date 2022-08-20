@@ -1,40 +1,44 @@
 defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMBINE_UNSPECIFIED, 0
   field :AND, 1
   field :OR, 2
   field :AND_WITH_MATCHING_RESOURCE, 3
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EVALUATION_MISSING_DATA_UNSPECIFIED, 0
   field :EVALUATION_MISSING_DATA_INACTIVE, 1
   field :EVALUATION_MISSING_DATA_ACTIVE, 2
   field :EVALUATION_MISSING_DATA_NO_OP, 3
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
   field :count, 1, type: :int32, oneof: 0
   field :percent, 2, type: :double, oneof: 0
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :filter, 2, type: :string, deprecated: false
   field :aggregations, 8, repeated: true, type: Google.Monitoring.V3.Aggregation
@@ -55,25 +59,28 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
     json_name: "evaluationMissingData",
     enum: true
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricAbsence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :aggregations, 5, repeated: true, type: Google.Monitoring.V3.Aggregation
   field :duration, 2, type: Google.Protobuf.Duration
   field :trigger, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.Trigger
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch.LabelExtractorsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
 
@@ -83,9 +90,10 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.LogMatch do
     json_name: "labelExtractors",
     map: true
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :duration, 2, type: Google.Protobuf.Duration
@@ -96,9 +104,10 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCond
     json_name: "evaluationMissingData",
     enum: true
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :condition, 0
 
@@ -125,15 +134,17 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
     json_name: "conditionMonitoringQueryLanguage",
     oneof: 0
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :period, 1, type: Google.Protobuf.Duration
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :notification_rate_limit, 1,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit,
@@ -141,16 +152,18 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
 
   field :auto_close, 3, type: Google.Protobuf.Duration, json_name: "autoClose"
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Monitoring.V3.AlertPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

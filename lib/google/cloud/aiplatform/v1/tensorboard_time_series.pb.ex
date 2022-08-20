@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :SCALAR, 1
   field :TENSOR, 2
   field :BLOB_SEQUENCE, 3
 end
+
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.Metadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_step, 1, type: :int64, json_name: "maxStep", deprecated: false
 
@@ -23,9 +24,10 @@ defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries.Metadata do
     json_name: "maxBlobSequenceLength",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.TensorboardTimeSeries do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

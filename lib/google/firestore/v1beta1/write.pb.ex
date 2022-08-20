@@ -1,13 +1,14 @@
 defmodule Google.Firestore.V1beta1.DocumentTransform.FieldTransform.ServerValue do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVER_VALUE_UNSPECIFIED, 0
   field :REQUEST_TIME, 1
 end
+
 defmodule Google.Firestore.V1beta1.Write do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -25,9 +26,10 @@ defmodule Google.Firestore.V1beta1.Write do
     type: Google.Firestore.V1beta1.Precondition,
     json_name: "currentDocument"
 end
+
 defmodule Google.Firestore.V1beta1.DocumentTransform.FieldTransform do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :transform_type, 0
 
@@ -53,9 +55,10 @@ defmodule Google.Firestore.V1beta1.DocumentTransform.FieldTransform do
     json_name: "removeAllFromArray",
     oneof: 0
 end
+
 defmodule Google.Firestore.V1beta1.DocumentTransform do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: :string
 
@@ -64,9 +67,10 @@ defmodule Google.Firestore.V1beta1.DocumentTransform do
     type: Google.Firestore.V1beta1.DocumentTransform.FieldTransform,
     json_name: "fieldTransforms"
 end
+
 defmodule Google.Firestore.V1beta1.WriteResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -75,33 +79,37 @@ defmodule Google.Firestore.V1beta1.WriteResult do
     type: Google.Firestore.V1beta1.Value,
     json_name: "transformResults"
 end
+
 defmodule Google.Firestore.V1beta1.DocumentChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: Google.Firestore.V1beta1.Document
   field :target_ids, 5, repeated: true, type: :int32, json_name: "targetIds"
   field :removed_target_ids, 6, repeated: true, type: :int32, json_name: "removedTargetIds"
 end
+
 defmodule Google.Firestore.V1beta1.DocumentDelete do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 6, repeated: true, type: :int32, json_name: "removedTargetIds"
   field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
+
 defmodule Google.Firestore.V1beta1.DocumentRemove do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 2, repeated: true, type: :int32, json_name: "removedTargetIds"
   field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
+
 defmodule Google.Firestore.V1beta1.ExistenceFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_id, 1, type: :int32, json_name: "targetId"
   field :count, 2, type: :int32

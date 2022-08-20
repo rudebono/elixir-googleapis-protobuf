@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer.MatchConfidenceLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MATCH_CONFIDENCE_LEVEL_UNSPECIFIED, 0
   field :LOW, 1
   field :MEDIUM, 2
   field :HIGH, 3
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
   field :TRANSCRIPT, 1
@@ -17,9 +18,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType
   field :END_OF_SINGLE_UTTERANCE, 2
   field :PARTIAL_DTMF_DIGITS, 4
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -42,9 +44,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest do
 
   field :input_audio, 5, type: :bytes, json_name: "inputAudio"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -64,16 +67,18 @@ defmodule Google.Cloud.Dialogflow.V2beta1.DetectIntentResponse do
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
     json_name: "outputAudioConfig"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters.WebhookHeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :time_zone, 1, type: :string, json_name: "timeZone"
   field :geo_location, 2, type: Google.Type.LatLng, json_name: "geoLocation"
@@ -103,9 +108,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryParameters do
     json_name: "webhookHeaders",
     map: true
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryInput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :input, 0
 
@@ -118,9 +124,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryInput do
   field :event, 3, type: Google.Cloud.Dialogflow.V2beta1.EventInput, oneof: 0
   field :dtmf, 4, type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents, oneof: 0
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query_text, 1, type: :string, json_name: "queryText"
   field :language_code, 15, type: :string, json_name: "languageCode"
@@ -156,9 +163,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.QueryResult do
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers,
     json_name: "knowledgeAnswers"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string, deprecated: false
   field :faq_question, 2, type: :string, json_name: "faqQuestion"
@@ -171,15 +179,17 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer do
 
   field :match_confidence, 5, type: :float, json_name: "matchConfidence"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :answers, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAnswers.Answer
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -204,9 +214,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentRequest do
 
   field :input_audio, 6, type: :bytes, json_name: "inputAudio"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -230,9 +241,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingDetectIntentResponse do
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
     json_name: "outputAudioConfig"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :message_type, 1,
     type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType,
@@ -256,47 +268,53 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult do
     type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents,
     json_name: "dtmfDigits"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.TextInput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.EventInput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parameters, 2, type: Google.Protobuf.Struct
   field :language_code, 3, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisRequestConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :analyze_query_text_sentiment, 1, type: :bool, json_name: "analyzeQueryTextSentiment"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SentimentAnalysisResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query_text_sentiment, 1,
     type: Google.Cloud.Dialogflow.V2beta1.Sentiment,
     json_name: "queryTextSentiment"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Sentiment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Sessions.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.Sessions",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :DetectIntent,
       Google.Cloud.Dialogflow.V2beta1.DetectIntentRequest,

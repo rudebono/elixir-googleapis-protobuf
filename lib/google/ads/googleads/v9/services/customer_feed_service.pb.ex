@@ -1,12 +1,13 @@
 defmodule Google.Ads.Googleads.V9.Services.GetCustomerFeedRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -23,9 +24,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedsRequest do
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V9.Services.CustomerFeedOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -34,9 +36,10 @@ defmodule Google.Ads.Googleads.V9.Services.CustomerFeedOperation do
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.CustomerFeed, oneof: 0
   field :remove, 3, type: :string, oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -44,9 +47,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedsResponse do
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateCustomerFeedResult
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
@@ -54,11 +58,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCustomerFeedResult do
     type: Google.Ads.Googleads.V9.Resources.CustomerFeed,
     json_name: "customerFeed"
 end
+
 defmodule Google.Ads.Googleads.V9.Services.CustomerFeedService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v9.services.CustomerFeedService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetCustomerFeed,
       Google.Ads.Googleads.V9.Services.GetCustomerFeedRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ekm_connections, 1,
     repeated: true,
@@ -20,15 +21,17 @@ defmodule Google.Cloud.Kms.V1.ListEkmConnectionsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
 end
+
 defmodule Google.Cloud.Kms.V1.GetEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.CreateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :ekm_connection_id, 2, type: :string, json_name: "ekmConnectionId", deprecated: false
@@ -38,9 +41,10 @@ defmodule Google.Cloud.Kms.V1.CreateEkmConnectionRequest do
     json_name: "ekmConnection",
     deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ekm_connection, 1,
     type: Google.Cloud.Kms.V1.EkmConnection,
@@ -52,9 +56,10 @@ defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.Certificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :raw_der, 1, type: :bytes, json_name: "rawDer", deprecated: false
   field :parsed, 2, type: :bool, deprecated: false
@@ -80,9 +85,10 @@ defmodule Google.Cloud.Kms.V1.Certificate do
   field :serial_number, 8, type: :string, json_name: "serialNumber", deprecated: false
   field :sha256_fingerprint, 9, type: :string, json_name: "sha256Fingerprint", deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.EkmConnection.ServiceResolver do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service_directory_service, 1,
     type: :string,
@@ -98,9 +104,10 @@ defmodule Google.Cloud.Kms.V1.EkmConnection.ServiceResolver do
     json_name: "serverCertificates",
     deprecated: false
 end
+
 defmodule Google.Cloud.Kms.V1.EkmConnection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -116,9 +123,10 @@ defmodule Google.Cloud.Kms.V1.EkmConnection do
 
   field :etag, 5, type: :string
 end
+
 defmodule Google.Cloud.Kms.V1.EkmService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.kms.v1.EkmService", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.cloud.kms.v1.EkmService", protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListEkmConnections,
       Google.Cloud.Kms.V1.ListEkmConnectionsRequest,

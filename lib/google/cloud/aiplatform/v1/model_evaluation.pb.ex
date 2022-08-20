@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.ModelEvaluation.ModelEvaluationExplanationSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :explanation_type, 1, type: :string, json_name: "explanationType"
 
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelEvaluation.ModelEvaluationExplanationS
     type: Google.Cloud.Aiplatform.V1.ExplanationSpec,
     json_name: "explanationSpec"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ModelEvaluation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 10, type: :string, json_name: "displayName"

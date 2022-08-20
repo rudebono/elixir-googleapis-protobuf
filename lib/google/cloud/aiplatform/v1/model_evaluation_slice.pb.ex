@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.Slice do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dimension, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ModelEvaluationSlice do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :slice, 2, type: Google.Cloud.Aiplatform.V1.ModelEvaluationSlice.Slice, deprecated: false

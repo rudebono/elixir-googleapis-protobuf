@@ -1,29 +1,32 @@
 defmodule Google.Cloud.Filestore.V1.NetworkConfig.AddressMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ADDRESS_MODE_UNSPECIFIED, 0
   field :MODE_IPV4, 1
 end
+
 defmodule Google.Cloud.Filestore.V1.NfsExportOptions.AccessMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACCESS_MODE_UNSPECIFIED, 0
   field :READ_ONLY, 1
   field :READ_WRITE, 2
 end
+
 defmodule Google.Cloud.Filestore.V1.NfsExportOptions.SquashMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SQUASH_MODE_UNSPECIFIED, 0
   field :NO_ROOT_SQUASH, 1
   field :ROOT_SQUASH, 2
 end
+
 defmodule Google.Cloud.Filestore.V1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -33,9 +36,10 @@ defmodule Google.Cloud.Filestore.V1.Instance.State do
   field :ERROR, 6
   field :RESTORING, 7
 end
+
 defmodule Google.Cloud.Filestore.V1.Instance.Tier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -44,9 +48,10 @@ defmodule Google.Cloud.Filestore.V1.Instance.Tier do
   field :BASIC_SSD, 4
   field :HIGH_SCALE_SSD, 5
 end
+
 defmodule Google.Cloud.Filestore.V1.Backup.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -54,9 +59,10 @@ defmodule Google.Cloud.Filestore.V1.Backup.State do
   field :READY, 3
   field :DELETING, 4
 end
+
 defmodule Google.Cloud.Filestore.V1.NetworkConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :network, 1, type: :string
 
@@ -73,9 +79,10 @@ defmodule Google.Cloud.Filestore.V1.NetworkConfig do
     json_name: "ipAddresses",
     deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.FileShareConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -88,9 +95,10 @@ defmodule Google.Cloud.Filestore.V1.FileShareConfig do
     type: Google.Cloud.Filestore.V1.NfsExportOptions,
     json_name: "nfsExportOptions"
 end
+
 defmodule Google.Cloud.Filestore.V1.NfsExportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ip_ranges, 1, repeated: true, type: :string, json_name: "ipRanges"
 
@@ -107,16 +115,18 @@ defmodule Google.Cloud.Filestore.V1.NfsExportOptions do
   field :anon_uid, 4, type: :int64, json_name: "anonUid"
   field :anon_gid, 5, type: :int64, json_name: "anonGid"
 end
+
 defmodule Google.Cloud.Filestore.V1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -148,30 +158,34 @@ defmodule Google.Cloud.Filestore.V1.Instance do
     json_name: "satisfiesPzs",
     deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.CreateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
   field :instance, 3, type: Google.Cloud.Filestore.V1.Instance, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.UpdateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :instance, 2, type: Google.Cloud.Filestore.V1.Instance
 end
+
 defmodule Google.Cloud.Filestore.V1.RestoreInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -179,15 +193,17 @@ defmodule Google.Cloud.Filestore.V1.RestoreInstanceRequest do
   field :file_share, 2, type: :string, json_name: "fileShare", deprecated: false
   field :source_backup, 3, type: :string, json_name: "sourceBackup", oneof: 0, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -195,24 +211,27 @@ defmodule Google.Cloud.Filestore.V1.ListInstancesRequest do
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Filestore.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.Backup.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.Backup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -242,23 +261,26 @@ defmodule Google.Cloud.Filestore.V1.Backup do
     json_name: "satisfiesPzs",
     deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.CreateBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup, 2, type: Google.Cloud.Filestore.V1.Backup, deprecated: false
   field :backup_id, 3, type: :string, json_name: "backupId", deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.DeleteBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.UpdateBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :backup, 1, type: Google.Cloud.Filestore.V1.Backup, deprecated: false
 
@@ -267,15 +289,17 @@ defmodule Google.Cloud.Filestore.V1.UpdateBackupRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.GetBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Filestore.V1.ListBackupsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -283,19 +307,21 @@ defmodule Google.Cloud.Filestore.V1.ListBackupsRequest do
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.ListBackupsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Filestore.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Filestore.V1.CloudFilestoreManager.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.filestore.v1.CloudFilestoreManager",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListInstances,
       Google.Cloud.Filestore.V1.ListInstancesRequest,

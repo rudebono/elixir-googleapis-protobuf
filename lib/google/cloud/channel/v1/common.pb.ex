@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Channel.V1.EduData.InstituteType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INSTITUTE_TYPE_UNSPECIFIED, 0
   field :K12, 1
   field :UNIVERSITY, 2
 end
+
 defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INSTITUTE_SIZE_UNSPECIFIED, 0
   field :SIZE_1_100, 1
@@ -19,17 +20,19 @@ defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
   field :SIZE_5001_10000, 6
   field :SIZE_10001_OR_MORE, 7
 end
+
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CUSTOMER_TYPE_UNSPECIFIED, 0
   field :DOMAIN, 1
   field :TEAM, 2
 end
+
 defmodule Google.Cloud.Channel.V1.EduData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :institute_type, 1,
     type: Google.Cloud.Channel.V1.EduData.InstituteType,
@@ -43,9 +46,10 @@ defmodule Google.Cloud.Channel.V1.EduData do
 
   field :website, 3, type: :string
 end
+
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_type, 1,
     type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
@@ -60,9 +64,10 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
   field :admin_console_uri, 10, type: :string, json_name: "adminConsoleUri", deprecated: false
   field :edu_data, 22, type: Google.Cloud.Channel.V1.EduData, json_name: "eduData"
 end
+
 defmodule Google.Cloud.Channel.V1.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -72,9 +77,10 @@ defmodule Google.Cloud.Channel.V1.Value do
   field :proto_value, 4, type: Google.Protobuf.Any, json_name: "protoValue", oneof: 0
   field :bool_value, 5, type: :bool, json_name: "boolValue", oneof: 0
 end
+
 defmodule Google.Cloud.Channel.V1.AdminUser do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :given_name, 2, type: :string, json_name: "givenName"

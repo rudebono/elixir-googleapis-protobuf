@@ -1,21 +1,23 @@
 defmodule Google.Cloud.Asset.V1p2beta1.TemporalAsset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Asset.V1p2beta1.TimeWindow
   field :deleted, 2, type: :bool
   field :asset, 3, type: Google.Cloud.Asset.V1p2beta1.Asset
 end
+
 defmodule Google.Cloud.Asset.V1p2beta1.TimeWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
+
 defmodule Google.Cloud.Asset.V1p2beta1.Asset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -23,9 +25,10 @@ defmodule Google.Cloud.Asset.V1p2beta1.Asset do
   field :iam_policy, 4, type: Google.Iam.V1.Policy, json_name: "iamPolicy"
   field :ancestors, 6, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Asset.V1p2beta1.Resource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"

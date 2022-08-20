@@ -1,6 +1,6 @@
 defmodule Google.Devtools.Build.V1.BuildStatus.Result do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_STATUS, 0
   field :COMMAND_SUCCEEDED, 1
@@ -12,9 +12,10 @@ defmodule Google.Devtools.Build.V1.BuildStatus.Result do
   field :REQUEST_DEADLINE_EXCEEDED, 8
   field :CANCELLED, 7
 end
+
 defmodule Google.Devtools.Build.V1.BuildStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :result, 1, type: Google.Devtools.Build.V1.BuildStatus.Result, enum: true
   field :final_invocation_id, 3, type: :string, json_name: "finalInvocationId"

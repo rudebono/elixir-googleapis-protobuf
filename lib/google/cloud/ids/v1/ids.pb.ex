@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :INFORMATIONAL, 1
@@ -9,25 +9,28 @@ defmodule Google.Cloud.Ids.V1.Endpoint.Severity do
   field :HIGH, 4
   field :CRITICAL, 5
 end
+
 defmodule Google.Cloud.Ids.V1.Endpoint.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
   field :DELETING, 3
 end
+
 defmodule Google.Cloud.Ids.V1.Endpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Ids.V1.Endpoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -55,9 +58,10 @@ defmodule Google.Cloud.Ids.V1.Endpoint do
   field :state, 12, type: Google.Cloud.Ids.V1.Endpoint.State, enum: true, deprecated: false
   field :traffic_logs, 13, type: :bool, json_name: "trafficLogs"
 end
+
 defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -65,39 +69,44 @@ defmodule Google.Cloud.Ids.V1.ListEndpointsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Ids.V1.ListEndpointsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Ids.V1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Ids.V1.GetEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Ids.V1.CreateEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
   field :endpoint, 3, type: Google.Cloud.Ids.V1.Endpoint, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Ids.V1.DeleteEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Ids.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -116,9 +125,10 @@ defmodule Google.Cloud.Ids.V1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Ids.V1.IDS.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.ids.v1.IDS", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.cloud.ids.v1.IDS", protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListEndpoints,
       Google.Cloud.Ids.V1.ListEndpointsRequest,

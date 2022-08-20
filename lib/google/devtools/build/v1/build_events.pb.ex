@@ -1,38 +1,42 @@
 defmodule Google.Devtools.Build.V1.ConsoleOutputStream do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :STDOUT, 1
   field :STDERR, 2
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FINISH_TYPE_UNSPECIFIED, 0
   field :FINISHED, 1
   field :EXPIRED, 2
 end
+
 defmodule Google.Devtools.Build.V1.StreamId.BuildComponent do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_COMPONENT, 0
   field :CONTROLLER, 1
   field :WORKER, 2
   field :TOOL, 3
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptStarted do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attempt_number, 1, type: :int64, json_name: "attemptNumber"
   field :details, 2, type: Google.Protobuf.Any
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :invocation_status, 3,
     type: Google.Devtools.Build.V1.BuildStatus,
@@ -40,22 +44,25 @@ defmodule Google.Devtools.Build.V1.BuildEvent.InvocationAttemptFinished do
 
   field :details, 4, type: Google.Protobuf.Any
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildEnqueued do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 1, type: Google.Protobuf.Any
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildFinished do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, type: Google.Devtools.Build.V1.BuildStatus
   field :details, 2, type: Google.Protobuf.Any
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -63,17 +70,19 @@ defmodule Google.Devtools.Build.V1.BuildEvent.ConsoleOutput do
   field :text_output, 2, type: :string, json_name: "textOutput", oneof: 0
   field :binary_output, 3, type: :bytes, json_name: "binaryOutput", oneof: 0
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Devtools.Build.V1.BuildEvent.BuildComponentStreamFinished.FinishType,
     enum: true
 end
+
 defmodule Google.Devtools.Build.V1.BuildEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -121,9 +130,10 @@ defmodule Google.Devtools.Build.V1.BuildEvent do
     json_name: "sourceFetchEvent",
     oneof: 0
 end
+
 defmodule Google.Devtools.Build.V1.StreamId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :build_id, 1, type: :string, json_name: "buildId"
   field :invocation_id, 6, type: :string, json_name: "invocationId"

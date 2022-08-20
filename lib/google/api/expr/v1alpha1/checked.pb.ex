@@ -1,6 +1,6 @@
 defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -10,32 +10,36 @@ defmodule Google.Api.Expr.V1alpha1.Type.PrimitiveType do
   field :STRING, 5
   field :BYTES, 6
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type.WellKnownType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :WELL_KNOWN_TYPE_UNSPECIFIED, 0
   field :ANY, 1
   field :TIMESTAMP, 2
   field :DURATION, 3
 end
+
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.ReferenceMapEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Reference
 end
+
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr.TypeMapEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Type
 end
+
 defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reference_map, 2,
     repeated: true,
@@ -53,29 +57,33 @@ defmodule Google.Api.Expr.V1alpha1.CheckedExpr do
   field :expr_version, 6, type: :string, json_name: "exprVersion"
   field :expr, 4, type: Google.Api.Expr.V1alpha1.Expr
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type.ListType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :elem_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "elemType"
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type.MapType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "keyType"
   field :value_type, 2, type: Google.Api.Expr.V1alpha1.Type, json_name: "valueType"
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type.FunctionType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :result_type, 1, type: Google.Api.Expr.V1alpha1.Type, json_name: "resultType"
   field :arg_types, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type, json_name: "argTypes"
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -84,9 +92,10 @@ defmodule Google.Api.Expr.V1alpha1.Type.AbstractType do
     type: Google.Api.Expr.V1alpha1.Type,
     json_name: "parameterTypes"
 end
+
 defmodule Google.Api.Expr.V1alpha1.Type do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type_kind, 0
 
@@ -118,17 +127,19 @@ defmodule Google.Api.Expr.V1alpha1.Type do
     json_name: "abstractType",
     oneof: 0
 end
+
 defmodule Google.Api.Expr.V1alpha1.Decl.IdentDecl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Api.Expr.V1alpha1.Type
   field :value, 2, type: Google.Api.Expr.V1alpha1.Constant
   field :doc, 3, type: :string
 end
+
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overload_id, 1, type: :string, json_name: "overloadId"
   field :params, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Type
@@ -137,15 +148,17 @@ defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload do
   field :is_instance_function, 5, type: :bool, json_name: "isInstanceFunction"
   field :doc, 6, type: :string
 end
+
 defmodule Google.Api.Expr.V1alpha1.Decl.FunctionDecl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overloads, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl.Overload
 end
+
 defmodule Google.Api.Expr.V1alpha1.Decl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :decl_kind, 0
 
@@ -153,9 +166,10 @@ defmodule Google.Api.Expr.V1alpha1.Decl do
   field :ident, 2, type: Google.Api.Expr.V1alpha1.Decl.IdentDecl, oneof: 0
   field :function, 3, type: Google.Api.Expr.V1alpha1.Decl.FunctionDecl, oneof: 0
 end
+
 defmodule Google.Api.Expr.V1alpha1.Reference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :overload_id, 3, repeated: true, type: :string, json_name: "overloadId"

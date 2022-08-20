@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Managedidentities.V1.OpMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -18,29 +18,33 @@ defmodule Google.Cloud.Managedidentities.V1.OpMetadata do
 
   field :api_version, 6, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.CreateMicrosoftAdDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :domain_name, 2, type: :string, json_name: "domainName", deprecated: false
   field :domain, 3, type: Google.Cloud.Managedidentities.V1.Domain, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ResetAdminPasswordResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :password, 1, type: :string
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ListDomainsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -48,23 +52,26 @@ defmodule Google.Cloud.Managedidentities.V1.ListDomainsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ListDomainsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :domains, 1, repeated: true, type: Google.Cloud.Managedidentities.V1.Domain
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Managedidentities.V1.GetDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.UpdateDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -73,22 +80,25 @@ defmodule Google.Cloud.Managedidentities.V1.UpdateDomainRequest do
 
   field :domain, 2, type: Google.Cloud.Managedidentities.V1.Domain, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.DeleteDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.AttachTrustRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ReconfigureTrustRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_domain_name, 2, type: :string, json_name: "targetDomainName", deprecated: false
@@ -99,25 +109,28 @@ defmodule Google.Cloud.Managedidentities.V1.ReconfigureTrustRequest do
     json_name: "targetDnsIpAddresses",
     deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.DetachTrustRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ValidateTrustRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :trust, 2, type: Google.Cloud.Managedidentities.V1.Trust, deprecated: false
 end
+
 defmodule Google.Cloud.Managedidentities.V1.ManagedIdentitiesService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.managedidentities.v1.ManagedIdentitiesService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateMicrosoftAdDomain,
       Google.Cloud.Managedidentities.V1.CreateMicrosoftAdDomainRequest,

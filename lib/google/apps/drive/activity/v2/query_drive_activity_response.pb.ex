@@ -1,13 +1,14 @@
 defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :activities, 1, repeated: true, type: Google.Apps.Drive.Activity.V2.DriveActivity
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Apps.Drive.Activity.V2.DriveActivity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :time, 0
 

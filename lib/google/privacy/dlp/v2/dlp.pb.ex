@@ -1,6 +1,6 @@
 defmodule Google.Privacy.Dlp.V2.RelationalOperator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RELATIONAL_OPERATOR_UNSPECIFIED, 0
   field :EQUAL_TO, 1
@@ -11,49 +11,55 @@ defmodule Google.Privacy.Dlp.V2.RelationalOperator do
   field :LESS_THAN_OR_EQUALS, 6
   field :EXISTS, 7
 end
+
 defmodule Google.Privacy.Dlp.V2.MatchingType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MATCHING_TYPE_UNSPECIFIED, 0
   field :MATCHING_TYPE_FULL_MATCH, 1
   field :MATCHING_TYPE_PARTIAL_MATCH, 2
   field :MATCHING_TYPE_INVERSE_MATCH, 3
 end
+
 defmodule Google.Privacy.Dlp.V2.ContentOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CONTENT_UNSPECIFIED, 0
   field :CONTENT_TEXT, 1
   field :CONTENT_IMAGE, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.MetadataType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :METADATATYPE_UNSPECIFIED, 0
   field :STORAGE_METADATA, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeSupportedBy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENUM_TYPE_UNSPECIFIED, 0
   field :INSPECT, 1
   field :RISK_ANALYSIS, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.DlpJobType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DLP_JOB_TYPE_UNSPECIFIED, 0
   field :INSPECT_JOB, 1
   field :RISK_ANALYSIS_JOB, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STORED_INFO_TYPE_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -61,25 +67,28 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeState do
   field :FAILED, 3
   field :INVALID, 4
 end
+
 defmodule Google.Privacy.Dlp.V2.ResourceVisibility do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESOURCE_VISIBILITY_UNSPECIFIED, 0
   field :RESOURCE_VISIBILITY_PUBLIC, 10
   field :RESOURCE_VISIBILITY_RESTRICTED, 20
 end
+
 defmodule Google.Privacy.Dlp.V2.EncryptionStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENCRYPTION_STATUS_UNSPECIFIED, 0
   field :ENCRYPTION_GOOGLE_MANAGED, 1
   field :ENCRYPTION_CUSTOMER_MANAGED, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :BYTES_TYPE_UNSPECIFIED, 0
   field :IMAGE, 6
@@ -96,9 +105,10 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   field :CSV, 12
   field :TSV, 13
 end
+
 defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OUTPUT_SCHEMA_UNSPECIFIED, 0
   field :BASIC_COLUMNS, 1
@@ -107,9 +117,10 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
   field :BIG_QUERY_COLUMNS, 4
   field :ALL_COLUMNS, 5
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOCATION_UNSPECIFIED, 0
   field :GLOBAL, 1
@@ -153,18 +164,20 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :VENEZUELA, 39
   field :INTERNAL, 40
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.IndustryCategory do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INDUSTRY_UNSPECIFIED, 0
   field :FINANCE, 1
   field :HEALTH, 2
   field :TELECOMMUNICATIONS, 3
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.TypeCategory do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PII, 1
@@ -175,9 +188,10 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.TypeCategory do
   field :DOCUMENT, 6
   field :CONTEXTUAL_INFORMATION, 7
 end
+
 defmodule Google.Privacy.Dlp.V2.TimePartConfig.TimePart do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TIME_PART_UNSPECIFIED, 0
   field :YEAR, 1
@@ -187,9 +201,10 @@ defmodule Google.Privacy.Dlp.V2.TimePartConfig.TimePart do
   field :WEEK_OF_YEAR, 5
   field :HOUR_OF_DAY, 6
 end
+
 defmodule Google.Privacy.Dlp.V2.CharsToIgnore.CommonCharsToIgnore do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMMON_CHARS_TO_IGNORE_UNSPECIFIED, 0
   field :NUMERIC, 1
@@ -198,9 +213,10 @@ defmodule Google.Privacy.Dlp.V2.CharsToIgnore.CommonCharsToIgnore do
   field :PUNCTUATION, 4
   field :WHITESPACE, 5
 end
+
 defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED, 0
   field :NUMERIC, 1
@@ -208,33 +224,37 @@ defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabe
   field :UPPER_CASE_ALPHA_NUMERIC, 3
   field :ALPHA_NUMERIC, 4
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions.LogicalOperator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOGICAL_OPERATOR_UNSPECIFIED, 0
   field :AND, 1
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationSummary.TransformationResultCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TRANSFORMATION_RESULT_CODE_UNSPECIFIED, 0
   field :SUCCESS, 1
   field :ERROR, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.JobTrigger.Status do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :HEALTHY, 1
   field :PAUSED, 2
   field :CANCELLED, 3
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.EventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :NEW_PROFILE, 1
@@ -242,17 +262,19 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.EventType do
   field :SCORE_INCREASED, 3
   field :ERROR_CHANGED, 4
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DETAIL_LEVEL_UNSPECIFIED, 0
   field :TABLE_PROFILE, 1
   field :RESOURCE_NAME, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :JOB_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -262,60 +284,67 @@ defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   field :FAILED, 5
   field :ACTIVE, 6
 end
+
 defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SENSITIVITY_SCORE_UNSPECIFIED, 0
   field :SENSITIVITY_LOW, 10
   field :SENSITIVITY_MODERATE, 20
   field :SENSITIVITY_HIGH, 30
 end
+
 defmodule Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RISK_SCORE_UNSPECIFIED, 0
   field :RISK_LOW, 10
   field :RISK_MODERATE, 20
   field :RISK_HIGH, 30
 end
+
 defmodule Google.Privacy.Dlp.V2.TableDataProfile.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
   field :DONE, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PROFILE_SCORE_BUCKET_UNSPECIFIED, 0
   field :HIGH, 1
   field :MEDIUM_OR_HIGH, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.PubSubLogicalOperator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOGICAL_OPERATOR_UNSPECIFIED, 0
   field :OR, 1
   field :AND, 2
 end
+
 defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_types, 1,
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoType,
     json_name: "infoTypes"
 end
+
 defmodule Google.Privacy.Dlp.V2.ExclusionRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -332,9 +361,10 @@ defmodule Google.Privacy.Dlp.V2.ExclusionRule do
     json_name: "matchingType",
     enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectionRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -348,9 +378,10 @@ defmodule Google.Privacy.Dlp.V2.InspectionRule do
     json_name: "exclusionRule",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectionRuleSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_types, 1,
     repeated: true,
@@ -359,16 +390,18 @@ defmodule Google.Privacy.Dlp.V2.InspectionRuleSet do
 
   field :rules, 2, repeated: true, type: Google.Privacy.Dlp.V2.InspectionRule
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :max_findings, 2, type: :int32, json_name: "maxFindings"
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_findings_per_item, 1, type: :int32, json_name: "maxFindingsPerItem"
   field :max_findings_per_request, 2, type: :int32, json_name: "maxFindingsPerRequest"
@@ -378,9 +411,10 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits do
     type: Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit,
     json_name: "maxFindingsPerInfoType"
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_types, 1,
     repeated: true,
@@ -412,16 +446,18 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig do
     type: Google.Privacy.Dlp.V2.InspectionRuleSet,
     json_name: "ruleSet"
 end
+
 defmodule Google.Privacy.Dlp.V2.ByteContentItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Privacy.Dlp.V2.ByteContentItem.BytesType, enum: true
   field :data, 2, type: :bytes
 end
+
 defmodule Google.Privacy.Dlp.V2.ContentItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :data_item, 0
 
@@ -433,36 +469,41 @@ defmodule Google.Privacy.Dlp.V2.ContentItem do
     json_name: "byteItem",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.Table.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Privacy.Dlp.V2.Value
 end
+
 defmodule Google.Privacy.Dlp.V2.Table do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :headers, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId
   field :rows, 2, repeated: true, type: Google.Privacy.Dlp.V2.Table.Row
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :findings, 1, repeated: true, type: Google.Privacy.Dlp.V2.Finding
   field :findings_truncated, 2, type: :bool, json_name: "findingsTruncated"
 end
+
 defmodule Google.Privacy.Dlp.V2.Finding.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.Finding do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 14, type: :string
   field :quote, 1, type: :string
@@ -478,9 +519,10 @@ defmodule Google.Privacy.Dlp.V2.Finding do
   field :job_name, 13, type: :string, json_name: "jobName", deprecated: false
   field :finding_id, 15, type: :string, json_name: "findingId"
 end
+
 defmodule Google.Privacy.Dlp.V2.Location do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :byte_range, 1, type: Google.Privacy.Dlp.V2.Range, json_name: "byteRange"
   field :codepoint_range, 2, type: Google.Privacy.Dlp.V2.Range, json_name: "codepointRange"
@@ -492,9 +534,10 @@ defmodule Google.Privacy.Dlp.V2.Location do
 
   field :container, 8, type: Google.Privacy.Dlp.V2.Container
 end
+
 defmodule Google.Privacy.Dlp.V2.ContentLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :location, 0
 
@@ -523,9 +566,10 @@ defmodule Google.Privacy.Dlp.V2.ContentLocation do
   field :container_timestamp, 6, type: Google.Protobuf.Timestamp, json_name: "containerTimestamp"
   field :container_version, 7, type: :string, json_name: "containerVersion"
 end
+
 defmodule Google.Privacy.Dlp.V2.MetadataLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :label, 0
 
@@ -536,35 +580,40 @@ defmodule Google.Privacy.Dlp.V2.MetadataLocation do
     json_name: "storageLabel",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.StorageMetadataLabel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.DocumentLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_offset, 1, type: :int64, json_name: "fileOffset"
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :record_key, 1, type: Google.Privacy.Dlp.V2.RecordKey, json_name: "recordKey"
   field :field_id, 2, type: Google.Privacy.Dlp.V2.FieldId, json_name: "fieldId"
   field :table_location, 3, type: Google.Privacy.Dlp.V2.TableLocation, json_name: "tableLocation"
 end
+
 defmodule Google.Privacy.Dlp.V2.TableLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :row_index, 1, type: :int64, json_name: "rowIndex"
 end
+
 defmodule Google.Privacy.Dlp.V2.Container do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -574,34 +623,38 @@ defmodule Google.Privacy.Dlp.V2.Container do
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :version, 7, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.Range do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
 end
+
 defmodule Google.Privacy.Dlp.V2.ImageLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bounding_boxes, 1,
     repeated: true,
     type: Google.Privacy.Dlp.V2.BoundingBox,
     json_name: "boundingBoxes"
 end
+
 defmodule Google.Privacy.Dlp.V2.BoundingBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :top, 1, type: :int32
   field :left, 2, type: :int32
   field :width, 3, type: :int32
   field :height, 4, type: :int32
 end
+
 defmodule Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -609,9 +662,10 @@ defmodule Google.Privacy.Dlp.V2.RedactImageRequest.ImageRedactionConfig do
   field :redact_all_text, 2, type: :bool, json_name: "redactAllText", oneof: 0
   field :redaction_color, 3, type: Google.Privacy.Dlp.V2.Color, json_name: "redactionColor"
 end
+
 defmodule Google.Privacy.Dlp.V2.RedactImageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :location_id, 8, type: :string, json_name: "locationId"
@@ -625,25 +679,28 @@ defmodule Google.Privacy.Dlp.V2.RedactImageRequest do
   field :include_findings, 6, type: :bool, json_name: "includeFindings"
   field :byte_item, 7, type: Google.Privacy.Dlp.V2.ByteContentItem, json_name: "byteItem"
 end
+
 defmodule Google.Privacy.Dlp.V2.Color do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :red, 1, type: :float
   field :green, 2, type: :float
   field :blue, 3, type: :float
 end
+
 defmodule Google.Privacy.Dlp.V2.RedactImageResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :redacted_image, 1, type: :bytes, json_name: "redactedImage"
   field :extracted_text, 2, type: :string, json_name: "extractedText"
   field :inspect_result, 3, type: Google.Privacy.Dlp.V2.InspectResult, json_name: "inspectResult"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeidentifyContentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -657,16 +714,18 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyContentRequest do
   field :deidentify_template_name, 6, type: :string, json_name: "deidentifyTemplateName"
   field :location_id, 7, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeidentifyContentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
   field :overview, 2, type: Google.Privacy.Dlp.V2.TransformationOverview
 end
+
 defmodule Google.Privacy.Dlp.V2.ReidentifyContentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -680,16 +739,18 @@ defmodule Google.Privacy.Dlp.V2.ReidentifyContentRequest do
   field :reidentify_template_name, 6, type: :string, json_name: "reidentifyTemplateName"
   field :location_id, 7, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ReidentifyContentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
   field :overview, 2, type: Google.Privacy.Dlp.V2.TransformationOverview
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectContentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
@@ -697,15 +758,17 @@ defmodule Google.Privacy.Dlp.V2.InspectContentRequest do
   field :inspect_template_name, 4, type: :string, json_name: "inspectTemplateName"
   field :location_id, 5, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectContentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :result, 1, type: Google.Privacy.Dlp.V2.InspectResult
 end
+
 defmodule Google.Privacy.Dlp.V2.OutputStorageConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -716,16 +779,18 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig do
     json_name: "outputSchema",
     enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :count, 2, type: :int64
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :snapshot_inspect_template, 1,
     type: Google.Privacy.Dlp.V2.InspectTemplate,
@@ -733,9 +798,10 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions do
 
   field :job_config, 3, type: Google.Privacy.Dlp.V2.InspectJobConfig, json_name: "jobConfig"
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :processed_bytes, 1, type: :int64, json_name: "processedBytes"
   field :total_estimated_bytes, 2, type: :int64, json_name: "totalEstimatedBytes"
@@ -749,9 +815,10 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result do
     type: Google.Privacy.Dlp.V2.HybridInspectStatistics,
     json_name: "hybridStats"
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :requested_options, 2,
     type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.RequestedOptions,
@@ -759,17 +826,19 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails do
 
   field :result, 3, type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridInspectStatistics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :processed_count, 1, type: :int64, json_name: "processedCount"
   field :aborted_count, 2, type: :int64, json_name: "abortedCount"
   field :pending_count, 3, type: :int64, json_name: "pendingCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -783,9 +852,10 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   field :description, 4, type: :string
   field :categories, 10, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeCategory
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :category, 0
 
@@ -807,35 +877,39 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
     enum: true,
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 4, type: :string
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :filter, 2, type: :string
   field :location_id, 3, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_types, 1,
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoTypeDescription,
     json_name: "infoTypes"
 end
+
 defmodule Google.Privacy.Dlp.V2.RiskAnalysisJobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :privacy_metric, 1, type: Google.Privacy.Dlp.V2.PrivacyMetric, json_name: "privacyMetric"
   field :source_table, 2, type: Google.Privacy.Dlp.V2.BigQueryTable, json_name: "sourceTable"
   field :actions, 3, repeated: true, type: Google.Privacy.Dlp.V2.Action
 end
+
 defmodule Google.Privacy.Dlp.V2.QuasiId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :tag, 0
 
@@ -844,16 +918,18 @@ defmodule Google.Privacy.Dlp.V2.QuasiId do
   field :custom_tag, 3, type: :string, json_name: "customTag", oneof: 0
   field :inferred, 4, type: Google.Protobuf.Empty, oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.StatisticalTable.QuasiIdentifierField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
   field :custom_tag, 2, type: :string, json_name: "customTag"
 end
+
 defmodule Google.Privacy.Dlp.V2.StatisticalTable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 3, type: Google.Privacy.Dlp.V2.BigQueryTable, deprecated: false
 
@@ -868,28 +944,32 @@ defmodule Google.Privacy.Dlp.V2.StatisticalTable do
     json_name: "relativeFrequency",
     deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.NumericalStatsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.CategoricalStatsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KAnonymityConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId, json_name: "quasiIds"
   field :entity_id, 2, type: Google.Privacy.Dlp.V2.EntityId, json_name: "entityId"
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids, 1, repeated: true, type: Google.Privacy.Dlp.V2.FieldId, json_name: "quasiIds"
 
@@ -897,9 +977,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.LDiversityConfig do
     type: Google.Privacy.Dlp.V2.FieldId,
     json_name: "sensitiveAttribute"
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :tag, 0
 
@@ -908,16 +989,18 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.TaggedField d
   field :custom_tag, 3, type: :string, json_name: "customTag", oneof: 0
   field :inferred, 4, type: Google.Protobuf.Empty, oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable.QuasiIdField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
   field :custom_tag, 2, type: :string, json_name: "customTag"
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 3, type: Google.Privacy.Dlp.V2.BigQueryTable, deprecated: false
 
@@ -932,9 +1015,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTabl
     json_name: "relativeFrequency",
     deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids, 1,
     repeated: true,
@@ -949,9 +1033,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig do
     type: Google.Privacy.Dlp.V2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable,
     json_name: "auxiliaryTables"
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids, 1,
     repeated: true,
@@ -966,9 +1051,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric.DeltaPresenceEstimationConfig do
     type: Google.Privacy.Dlp.V2.StatisticalTable,
     json_name: "auxiliaryTables"
 end
+
 defmodule Google.Privacy.Dlp.V2.PrivacyMetric do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -1002,9 +1088,10 @@ defmodule Google.Privacy.Dlp.V2.PrivacyMetric do
     json_name: "deltaPresenceEstimationConfig",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :min_value, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "minValue"
   field :max_value, 2, type: Google.Privacy.Dlp.V2.Value, json_name: "maxValue"
@@ -1014,9 +1101,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.NumericalStatsResul
     type: Google.Privacy.Dlp.V2.Value,
     json_name: "quantileValues"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :value_frequency_lower_bound, 1, type: :int64, json_name: "valueFrequencyLowerBound"
   field :value_frequency_upper_bound, 2, type: :int64, json_name: "valueFrequencyUpperBound"
@@ -1029,9 +1117,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsRes
 
   field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :value_frequency_histogram_buckets, 5,
     repeated: true,
@@ -1039,9 +1128,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsRes
       Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket,
     json_name: "valueFrequencyHistogramBuckets"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityEquivalenceClass do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids_values, 1,
     repeated: true,
@@ -1050,9 +1140,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KA
 
   field :equivalence_class_size, 2, type: :int64, json_name: "equivalenceClassSize"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :equivalence_class_size_lower_bound, 1,
     type: :int64,
@@ -1072,9 +1163,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KA
 
   field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :equivalence_class_histogram_buckets, 5,
     repeated: true,
@@ -1082,9 +1174,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult do
       Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket,
     json_name: "equivalenceClassHistogramBuckets"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityEquivalenceClass do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids_values, 1,
     repeated: true,
@@ -1099,9 +1192,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LD
     type: Google.Privacy.Dlp.V2.ValueFrequency,
     json_name: "topSensitiveValues"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sensitive_value_frequency_lower_bound, 1,
     type: :int64,
@@ -1121,9 +1215,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LD
 
   field :bucket_value_count, 5, type: :int64, json_name: "bucketValueCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sensitive_value_frequency_histogram_buckets, 5,
     repeated: true,
@@ -1131,9 +1226,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult do
       Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket,
     json_name: "sensitiveValueFrequencyHistogramBuckets"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationQuasiIdValues do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids_values, 1,
     repeated: true,
@@ -1142,9 +1238,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
 
   field :estimated_anonymity, 2, type: :int64, json_name: "estimatedAnonymity"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :min_anonymity, 1, type: :int64, json_name: "minAnonymity"
   field :max_anonymity, 2, type: :int64, json_name: "maxAnonymity"
@@ -1158,9 +1255,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
 
   field :bucket_value_count, 7, type: :int64, json_name: "bucketValueCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :k_map_estimation_histogram, 1,
     repeated: true,
@@ -1168,9 +1266,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResul
       Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket,
     json_name: "kMapEstimationHistogram"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationQuasiIdValues do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :quasi_ids_values, 1,
     repeated: true,
@@ -1179,9 +1278,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
 
   field :estimated_probability, 2, type: :double, json_name: "estimatedProbability"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :min_probability, 1, type: :double, json_name: "minProbability"
   field :max_probability, 2, type: :double, json_name: "maxProbability"
@@ -1195,9 +1295,10 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
 
   field :bucket_value_count, 7, type: :int64, json_name: "bucketValueCount"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :delta_presence_estimation_histogram, 1,
     repeated: true,
@@ -1205,15 +1306,17 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstima
       Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket,
     json_name: "deltaPresenceEstimationHistogram"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalysisOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job_config, 1, type: Google.Privacy.Dlp.V2.RiskAnalysisJobConfig, json_name: "jobConfig"
 end
+
 defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -1259,16 +1362,18 @@ defmodule Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails do
     type: Google.Privacy.Dlp.V2.AnalyzeDataSourceRiskDetails.RequestedRiskAnalysisOptions,
     json_name: "requestedOptions"
 end
+
 defmodule Google.Privacy.Dlp.V2.ValueFrequency do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :value, 1, type: Google.Privacy.Dlp.V2.Value
   field :count, 2, type: :int64
 end
+
 defmodule Google.Privacy.Dlp.V2.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -1291,32 +1396,36 @@ defmodule Google.Privacy.Dlp.V2.Value do
     enum: true,
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.QuoteInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :parsed_quote, 0
 
   field :date_time, 2, type: Google.Privacy.Dlp.V2.DateTime, json_name: "dateTime", oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.DateTime.TimeZone do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :offset_minutes, 1, type: :int32, json_name: "offsetMinutes"
 end
+
 defmodule Google.Privacy.Dlp.V2.DateTime do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :day_of_week, 2, type: Google.Type.DayOfWeek, json_name: "dayOfWeek", enum: true
   field :time, 3, type: Google.Type.TimeOfDay
   field :time_zone, 4, type: Google.Privacy.Dlp.V2.DateTime.TimeZone, json_name: "timeZone"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :transformation, 0
 
@@ -1334,17 +1443,20 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
     type: Google.Privacy.Dlp.V2.TransformationErrorHandling,
     json_name: "transformationErrorHandling"
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.LeaveUntransformed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -1358,9 +1470,10 @@ defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling do
     json_name: "leaveUntransformed",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :transformation, 0
 
@@ -1424,24 +1537,27 @@ defmodule Google.Privacy.Dlp.V2.PrimitiveTransformation do
     json_name: "replaceDictionaryConfig",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.TimePartConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :part_to_extract, 1,
     type: Google.Privacy.Dlp.V2.TimePartConfig.TimePart,
     json_name: "partToExtract",
     enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.CryptoHashConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey"
 end
+
 defmodule Google.Privacy.Dlp.V2.CryptoDeterministicConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :crypto_key, 1, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey"
 
@@ -1451,15 +1567,17 @@ defmodule Google.Privacy.Dlp.V2.CryptoDeterministicConfig do
 
   field :context, 3, type: Google.Privacy.Dlp.V2.FieldId
 end
+
 defmodule Google.Privacy.Dlp.V2.ReplaceValueConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :new_value, 1, type: Google.Privacy.Dlp.V2.Value, json_name: "newValue"
 end
+
 defmodule Google.Privacy.Dlp.V2.ReplaceDictionaryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -1468,17 +1586,20 @@ defmodule Google.Privacy.Dlp.V2.ReplaceDictionaryConfig do
     json_name: "wordList",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.ReplaceWithInfoTypeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.RedactConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.CharsToIgnore do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :characters, 0
 
@@ -1490,9 +1611,10 @@ defmodule Google.Privacy.Dlp.V2.CharsToIgnore do
     enum: true,
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.CharacterMaskConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :masking_character, 1, type: :string, json_name: "maskingCharacter"
   field :number_to_mask, 2, type: :int32, json_name: "numberToMask"
@@ -1503,9 +1625,10 @@ defmodule Google.Privacy.Dlp.V2.CharacterMaskConfig do
     type: Google.Privacy.Dlp.V2.CharsToIgnore,
     json_name: "charactersToIgnore"
 end
+
 defmodule Google.Privacy.Dlp.V2.FixedSizeBucketingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :lower_bound, 1,
     type: Google.Privacy.Dlp.V2.Value,
@@ -1519,9 +1642,10 @@ defmodule Google.Privacy.Dlp.V2.FixedSizeBucketingConfig do
 
   field :bucket_size, 3, type: :double, json_name: "bucketSize", deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.BucketingConfig.Bucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :min, 1, type: Google.Privacy.Dlp.V2.Value
   field :max, 2, type: Google.Privacy.Dlp.V2.Value
@@ -1531,15 +1655,17 @@ defmodule Google.Privacy.Dlp.V2.BucketingConfig.Bucket do
     json_name: "replacementValue",
     deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.BucketingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :buckets, 1, repeated: true, type: Google.Privacy.Dlp.V2.BucketingConfig.Bucket
 end
+
 defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :alphabet, 0
 
@@ -1563,9 +1689,10 @@ defmodule Google.Privacy.Dlp.V2.CryptoReplaceFfxFpeConfig do
     type: Google.Privacy.Dlp.V2.InfoType,
     json_name: "surrogateInfoType"
 end
+
 defmodule Google.Privacy.Dlp.V2.CryptoKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1577,28 +1704,32 @@ defmodule Google.Privacy.Dlp.V2.CryptoKey do
     json_name: "kmsWrapped",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.TransientCryptoKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.UnwrappedCryptoKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :bytes, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.KmsWrappedCryptoKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :wrapped_key, 1, type: :bytes, json_name: "wrappedKey", deprecated: false
   field :crypto_key_name, 2, type: :string, json_name: "cryptoKeyName", deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.DateShiftConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :method, 0
 
@@ -1607,9 +1738,10 @@ defmodule Google.Privacy.Dlp.V2.DateShiftConfig do
   field :context, 3, type: Google.Privacy.Dlp.V2.FieldId
   field :crypto_key, 4, type: Google.Privacy.Dlp.V2.CryptoKey, json_name: "cryptoKey", oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_types, 1,
     repeated: true,
@@ -1621,18 +1753,20 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation d
     json_name: "primitiveTransformation",
     deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeTransformations do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :transformations, 1,
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoTypeTransformations.InfoTypeTransformation,
     deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.FieldTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :transformation, 0
 
@@ -1649,9 +1783,10 @@ defmodule Google.Privacy.Dlp.V2.FieldTransformation do
     json_name: "infoTypeTransformations",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordTransformations do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field_transformations, 1,
     repeated: true,
@@ -1663,15 +1798,17 @@ defmodule Google.Privacy.Dlp.V2.RecordTransformations do
     type: Google.Privacy.Dlp.V2.RecordSuppression,
     json_name: "recordSuppressions"
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordSuppression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :condition, 1, type: Google.Privacy.Dlp.V2.RecordCondition
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Condition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId, deprecated: false
 
@@ -1682,15 +1819,17 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Condition do
 
   field :value, 4, type: Google.Privacy.Dlp.V2.Value
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Conditions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conditions, 1, repeated: true, type: Google.Privacy.Dlp.V2.RecordCondition.Condition
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -1701,15 +1840,17 @@ defmodule Google.Privacy.Dlp.V2.RecordCondition.Expressions do
 
   field :conditions, 3, type: Google.Privacy.Dlp.V2.RecordCondition.Conditions, oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.RecordCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :expressions, 3, type: Google.Privacy.Dlp.V2.RecordCondition.Expressions
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationOverview do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :transformed_bytes, 2, type: :int64, json_name: "transformedBytes"
 
@@ -1718,9 +1859,10 @@ defmodule Google.Privacy.Dlp.V2.TransformationOverview do
     type: Google.Privacy.Dlp.V2.TransformationSummary,
     json_name: "transformationSummaries"
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationSummary.SummaryResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :count, 1, type: :int64
 
@@ -1730,9 +1872,10 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary.SummaryResult do
 
   field :details, 3, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.TransformationSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :field, 2, type: Google.Privacy.Dlp.V2.FieldId
@@ -1753,9 +1896,10 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary do
 
   field :transformed_bytes, 7, type: :int64, json_name: "transformedBytes"
 end
+
 defmodule Google.Privacy.Dlp.V2.Schedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :option, 0
 
@@ -1764,13 +1908,15 @@ defmodule Google.Privacy.Dlp.V2.Schedule do
     json_name: "recurrencePeriodDuration",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.Manual do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1788,9 +1934,10 @@ defmodule Google.Privacy.Dlp.V2.InspectTemplate do
 
   field :inspect_config, 6, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeidentifyTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1810,25 +1957,28 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyTemplate do
     type: Google.Privacy.Dlp.V2.DeidentifyConfig,
     json_name: "deidentifyConfig"
 end
+
 defmodule Google.Privacy.Dlp.V2.Error do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 1, type: Google.Rpc.Status
   field :timestamps, 2, repeated: true, type: Google.Protobuf.Timestamp
 end
+
 defmodule Google.Privacy.Dlp.V2.JobTrigger.Trigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :trigger, 0
 
   field :schedule, 1, type: Google.Privacy.Dlp.V2.Schedule, oneof: 0
   field :manual, 2, type: Google.Privacy.Dlp.V2.Manual, oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.JobTrigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :job, 0
 
@@ -1861,39 +2011,46 @@ defmodule Google.Privacy.Dlp.V2.JobTrigger do
 
   field :status, 10, type: Google.Privacy.Dlp.V2.JobTrigger.Status, enum: true, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.SaveFindings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :output_config, 1,
     type: Google.Privacy.Dlp.V2.OutputStorageConfig,
     json_name: "outputConfig"
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.PublishToPubSub do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :topic, 1, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.PublishSummaryToCscc do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.JobNotificationEmails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.Action.PublishToStackdriver do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.Action do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -1927,9 +2084,10 @@ defmodule Google.Privacy.Dlp.V2.Action do
     json_name: "publishToStackdriver",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.CreateInspectTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1941,9 +2099,10 @@ defmodule Google.Privacy.Dlp.V2.CreateInspectTemplateRequest do
   field :template_id, 3, type: :string, json_name: "templateId"
   field :location_id, 4, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.UpdateInspectTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1953,15 +2112,17 @@ defmodule Google.Privacy.Dlp.V2.UpdateInspectTemplateRequest do
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Privacy.Dlp.V2.GetInspectTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -1969,9 +2130,10 @@ defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesRequest do
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :location_id, 5, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :inspect_templates, 1,
     repeated: true,
@@ -1980,15 +2142,17 @@ defmodule Google.Privacy.Dlp.V2.ListInspectTemplatesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeleteInspectTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.CreateJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -2000,29 +2164,33 @@ defmodule Google.Privacy.Dlp.V2.CreateJobTriggerRequest do
   field :trigger_id, 3, type: :string, json_name: "triggerId"
   field :location_id, 4, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ActivateJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.UpdateJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :job_trigger, 2, type: Google.Privacy.Dlp.V2.JobTrigger, json_name: "jobTrigger"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Privacy.Dlp.V2.GetJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :job, 0
 
@@ -2041,9 +2209,10 @@ defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
   field :job_id, 4, type: :string, json_name: "jobId"
   field :location_id, 5, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListJobTriggersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -2053,9 +2222,10 @@ defmodule Google.Privacy.Dlp.V2.ListJobTriggersRequest do
   field :type, 6, type: Google.Privacy.Dlp.V2.DlpJobType, enum: true
   field :location_id, 7, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListJobTriggersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job_triggers, 1,
     repeated: true,
@@ -2064,30 +2234,34 @@ defmodule Google.Privacy.Dlp.V2.ListJobTriggersResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeleteJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.InspectJobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :storage_config, 1, type: Google.Privacy.Dlp.V2.StorageConfig, json_name: "storageConfig"
   field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
   field :inspect_template_name, 3, type: :string, json_name: "inspectTemplateName"
   field :actions, 4, repeated: true, type: Google.Privacy.Dlp.V2.Action
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.Export do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :profile_table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, json_name: "profileTable"
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
@@ -2101,9 +2275,10 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
     json_name: "detailOfMessage",
     enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -2117,9 +2292,10 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction do
     json_name: "pubSubNotification",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: Google.Privacy.Dlp.V2.DataProfileLocation
   field :project_id, 5, type: :string, json_name: "projectId"
@@ -2130,18 +2306,20 @@ defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
     type: Google.Privacy.Dlp.V2.DataProfileAction,
     json_name: "dataProfileActions"
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :location, 0
 
   field :organization_id, 1, type: :int64, json_name: "organizationId", oneof: 0
   field :folder_id, 2, type: :int64, json_name: "folderId", oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -2165,15 +2343,17 @@ defmodule Google.Privacy.Dlp.V2.DlpJob do
   field :job_trigger_name, 10, type: :string, json_name: "jobTriggerName"
   field :errors, 11, repeated: true, type: Google.Privacy.Dlp.V2.Error
 end
+
 defmodule Google.Privacy.Dlp.V2.GetDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.ListDlpJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :filter, 1, type: :string
@@ -2183,34 +2363,39 @@ defmodule Google.Privacy.Dlp.V2.ListDlpJobsRequest do
   field :order_by, 6, type: :string, json_name: "orderBy"
   field :location_id, 7, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListDlpJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Privacy.Dlp.V2.DlpJob
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Privacy.Dlp.V2.CancelDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.FinishDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.DeleteDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.CreateDeidentifyTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -2222,9 +2407,10 @@ defmodule Google.Privacy.Dlp.V2.CreateDeidentifyTemplateRequest do
   field :template_id, 3, type: :string, json_name: "templateId"
   field :location_id, 4, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.UpdateDeidentifyTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -2234,15 +2420,17 @@ defmodule Google.Privacy.Dlp.V2.UpdateDeidentifyTemplateRequest do
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Privacy.Dlp.V2.GetDeidentifyTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -2250,9 +2438,10 @@ defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesRequest do
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :location_id, 5, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :deidentify_templates, 1,
     repeated: true,
@@ -2261,15 +2450,17 @@ defmodule Google.Privacy.Dlp.V2.ListDeidentifyTemplatesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeleteDeidentifyTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -2285,15 +2476,17 @@ defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryConfig do
     json_name: "bigQueryField",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.LargeCustomDictionaryStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :approx_num_phrases, 1, type: :int64, json_name: "approxNumPhrases"
 end
+
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -2308,9 +2501,10 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeConfig do
   field :dictionary, 4, type: Google.Privacy.Dlp.V2.CustomInfoType.Dictionary, oneof: 0
   field :regex, 5, type: Google.Privacy.Dlp.V2.CustomInfoType.Regex, oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -2319,9 +2513,10 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeStats do
     json_name: "largeCustomDictionary",
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.StoredInfoTypeVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :config, 1, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -2329,9 +2524,10 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoTypeVersion do
   field :errors, 4, repeated: true, type: Google.Privacy.Dlp.V2.Error
   field :stats, 5, type: Google.Privacy.Dlp.V2.StoredInfoTypeStats
 end
+
 defmodule Google.Privacy.Dlp.V2.StoredInfoType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -2344,32 +2540,36 @@ defmodule Google.Privacy.Dlp.V2.StoredInfoType do
     type: Google.Privacy.Dlp.V2.StoredInfoTypeVersion,
     json_name: "pendingVersions"
 end
+
 defmodule Google.Privacy.Dlp.V2.CreateStoredInfoTypeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig, deprecated: false
   field :stored_info_type_id, 3, type: :string, json_name: "storedInfoTypeId"
   field :location_id, 4, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.UpdateStoredInfoTypeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Privacy.Dlp.V2.StoredInfoTypeConfig
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Privacy.Dlp.V2.GetStoredInfoTypeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -2377,9 +2577,10 @@ defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesRequest do
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :location_id, 5, type: :string, json_name: "locationId"
 end
+
 defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :stored_info_types, 1,
     repeated: true,
@@ -2388,29 +2589,33 @@ defmodule Google.Privacy.Dlp.V2.ListStoredInfoTypesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Privacy.Dlp.V2.DeleteStoredInfoTypeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridInspectJobTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem, json_name: "hybridItem"
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :hybrid_item, 3, type: Google.Privacy.Dlp.V2.HybridContentItem, json_name: "hybridItem"
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridContentItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :item, 1, type: Google.Privacy.Dlp.V2.ContentItem
 
@@ -2418,16 +2623,18 @@ defmodule Google.Privacy.Dlp.V2.HybridContentItem do
     type: Google.Privacy.Dlp.V2.HybridFindingDetails,
     json_name: "findingDetails"
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridFindingDetails.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridFindingDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :container_details, 1,
     type: Google.Privacy.Dlp.V2.Container,
@@ -2442,25 +2649,29 @@ defmodule Google.Privacy.Dlp.V2.HybridFindingDetails do
     type: Google.Privacy.Dlp.V2.HybridFindingDetails.LabelsEntry,
     map: true
 end
+
 defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Privacy.Dlp.V2.SensitivityScore do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :score, 1, type: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel, enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.DataRiskLevel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :score, 1, type: Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore, enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :inspect_config, 2, type: Google.Privacy.Dlp.V2.InspectConfig, json_name: "inspectConfig"
 
@@ -2468,16 +2679,18 @@ defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
     type: Google.Privacy.Dlp.V2.DataProfileJobConfig,
     json_name: "dataProfileJob"
 end
+
 defmodule Google.Privacy.Dlp.V2.TableDataProfile.ResourceLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Privacy.Dlp.V2.TableDataProfile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project_data_profile, 2, type: :string, json_name: "projectDataProfile"
@@ -2538,28 +2751,32 @@ defmodule Google.Privacy.Dlp.V2.TableDataProfile do
 
   field :create_time, 23, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Privacy.Dlp.V2.ProfileStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :timestamp, 3, type: Google.Protobuf.Timestamp
 end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
 end
+
 defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -2575,9 +2792,10 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
     enum: true,
     oneof: 0
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :logical_operator, 1,
     type:
@@ -2589,22 +2807,25 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions do
     repeated: true,
     type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :expressions, 1, type: Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions
 end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :profile, 1, type: Google.Privacy.Dlp.V2.TableDataProfile
   field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
 end
+
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.privacy.dlp.v2.DlpService", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.privacy.dlp.v2.DlpService", protoc_gen_elixir_version: "0.11.0"
 
   rpc :InspectContent,
       Google.Privacy.Dlp.V2.InspectContentRequest,

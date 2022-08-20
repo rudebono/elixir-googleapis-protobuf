@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Scheduler.V1.Job.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Scheduler.V1.Job.State do
   field :DISABLED, 3
   field :UPDATE_FAILED, 4
 end
+
 defmodule Google.Cloud.Scheduler.V1.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -42,9 +43,10 @@ defmodule Google.Cloud.Scheduler.V1.Job do
   field :retry_config, 19, type: Google.Cloud.Scheduler.V1.RetryConfig, json_name: "retryConfig"
   field :attempt_deadline, 22, type: Google.Protobuf.Duration, json_name: "attemptDeadline"
 end
+
 defmodule Google.Cloud.Scheduler.V1.RetryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :retry_count, 1, type: :int32, json_name: "retryCount"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"

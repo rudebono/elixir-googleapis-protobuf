@@ -1,22 +1,24 @@
 defmodule Google.Cloud.Gaming.V1.OperationStatus.ErrorCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :INTERNAL_ERROR, 1
   field :PERMISSION_DENIED, 2
   field :CLUSTER_CONNECTION, 3
 end
+
 defmodule Google.Cloud.Gaming.V1.OperationMetadata.OperationStatusEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gaming.V1.OperationStatus
 end
+
 defmodule Google.Cloud.Gaming.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -43,9 +45,10 @@ defmodule Google.Cloud.Gaming.V1.OperationMetadata do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1.OperationStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :done, 1, type: :bool, deprecated: false
 
@@ -56,70 +59,79 @@ defmodule Google.Cloud.Gaming.V1.OperationStatus do
 
   field :error_message, 3, type: :string, json_name: "errorMessage"
 end
+
 defmodule Google.Cloud.Gaming.V1.LabelSelector.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1.LabelSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Gaming.V1.LabelSelector.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Gaming.V1.RealmSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :realms, 1, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1.Schedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :cron_job_duration, 3, type: Google.Protobuf.Duration, json_name: "cronJobDuration"
   field :cron_spec, 4, type: :string, json_name: "cronSpec"
 end
+
 defmodule Google.Cloud.Gaming.V1.SpecSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :game_server_config_name, 1, type: :string, json_name: "gameServerConfigName"
   field :name, 2, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
 end
+
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :spec_source, 2, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
 end
+
 defmodule Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fleet, 1, type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleet
 
   field :autoscaler, 2,
     type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler
 end
+
 defmodule Google.Cloud.Gaming.V1.TargetDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :game_server_cluster_name, 1, type: :string, json_name: "gameServerClusterName"
   field :game_server_deployment_name, 2, type: :string, json_name: "gameServerDeploymentName"
@@ -129,24 +141,27 @@ defmodule Google.Cloud.Gaming.V1.TargetDetails do
     type: Google.Cloud.Gaming.V1.TargetDetails.TargetFleetDetails,
     json_name: "fleetDetails"
 end
+
 defmodule Google.Cloud.Gaming.V1.TargetState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 1, repeated: true, type: Google.Cloud.Gaming.V1.TargetDetails
 end
+
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ready_replicas, 1, type: :int64, json_name: "readyReplicas"
   field :allocated_replicas, 2, type: :int64, json_name: "allocatedReplicas"
   field :reserved_replicas, 3, type: :int64, json_name: "reservedReplicas"
   field :replicas, 4, type: :int64
 end
+
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fleet, 1, type: :string
   field :fleet_spec, 2, type: :string, json_name: "fleetSpec"
@@ -155,17 +170,19 @@ defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet do
   field :status, 5,
     type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus
 end
+
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleetAutoscaler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :autoscaler, 1, type: :string
   field :spec_source, 4, type: Google.Cloud.Gaming.V1.SpecSource, json_name: "specSource"
   field :fleet_autoscaler_spec, 3, type: :string, json_name: "fleetAutoscalerSpec"
 end
+
 defmodule Google.Cloud.Gaming.V1.DeployedFleetDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :deployed_fleet, 1,
     type: Google.Cloud.Gaming.V1.DeployedFleetDetails.DeployedFleet,

@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent.ChangedResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ad, 1, type: Google.Ads.Googleads.V10.Resources.Ad, deprecated: false
 
@@ -85,9 +85,10 @@ defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent.ChangedResource do
     json_name: "campaignAssetSet",
     deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V10.Resources.ChangeEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :change_date_time, 2, type: :string, json_name: "changeDateTime", deprecated: false

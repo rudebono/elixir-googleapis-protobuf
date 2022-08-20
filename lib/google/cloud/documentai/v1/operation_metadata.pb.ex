@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Documentai.V1.CommonOperationMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -9,9 +9,10 @@ defmodule Google.Cloud.Documentai.V1.CommonOperationMetadata.State do
   field :FAILED, 4
   field :CANCELLED, 5
 end
+
 defmodule Google.Cloud.Documentai.V1.CommonOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1.CommonOperationMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"

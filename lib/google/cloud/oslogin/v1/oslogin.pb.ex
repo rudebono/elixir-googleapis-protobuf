@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Oslogin.V1.LoginProfile.SshPublicKeysEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Oslogin.Common.SshPublicKey
 end
+
 defmodule Google.Cloud.Oslogin.V1.LoginProfile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -22,35 +23,40 @@ defmodule Google.Cloud.Oslogin.V1.LoginProfile do
     json_name: "sshPublicKeys",
     map: true
 end
+
 defmodule Google.Cloud.Oslogin.V1.DeletePosixAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Oslogin.V1.DeleteSshPublicKeyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Oslogin.V1.GetLoginProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId"
   field :system_id, 3, type: :string, json_name: "systemId"
 end
+
 defmodule Google.Cloud.Oslogin.V1.GetSshPublicKeyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -61,15 +67,17 @@ defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyRequest do
 
   field :project_id, 3, type: :string, json_name: "projectId"
 end
+
 defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :login_profile, 1, type: Google.Cloud.Oslogin.V1.LoginProfile, json_name: "loginProfile"
 end
+
 defmodule Google.Cloud.Oslogin.V1.UpdateSshPublicKeyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -80,11 +88,12 @@ defmodule Google.Cloud.Oslogin.V1.UpdateSshPublicKeyRequest do
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Oslogin.V1.OsLoginService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.oslogin.v1.OsLoginService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :DeletePosixAccount,
       Google.Cloud.Oslogin.V1.DeletePosixAccountRequest,

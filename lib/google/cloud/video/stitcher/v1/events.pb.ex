@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.Event.EventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :CREATIVE_VIEW, 1
@@ -28,18 +28,20 @@ defmodule Google.Cloud.Video.Stitcher.V1.Event.EventType do
   field :SKIP, 26
   field :ACCEPT_INVITATION, 27
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.Event do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Video.Stitcher.V1.Event.EventType, enum: true
   field :uri, 2, type: :string
   field :id, 3, type: :string
   field :offset, 4, type: Google.Protobuf.Duration
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.ProgressEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :events, 2, repeated: true, type: Google.Cloud.Video.Stitcher.V1.Event

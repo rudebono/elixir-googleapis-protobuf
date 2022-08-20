@@ -1,20 +1,22 @@
 defmodule Google.Cloud.Retail.V2.PredictRequest.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Retail.V2.PredictRequest.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Retail.V2.PredictRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :placement, 1, type: :string, deprecated: false
 
@@ -38,16 +40,18 @@ defmodule Google.Cloud.Retail.V2.PredictRequest do
     type: Google.Cloud.Retail.V2.PredictRequest.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Retail.V2.PredictResponse.PredictionResult.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Retail.V2.PredictResponse.PredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -56,20 +60,22 @@ defmodule Google.Cloud.Retail.V2.PredictResponse.PredictionResult do
     type: Google.Cloud.Retail.V2.PredictResponse.PredictionResult.MetadataEntry,
     map: true
 end
+
 defmodule Google.Cloud.Retail.V2.PredictResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Retail.V2.PredictResponse.PredictionResult
   field :attribution_token, 2, type: :string, json_name: "attributionToken"
   field :missing_ids, 3, repeated: true, type: :string, json_name: "missingIds"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Cloud.Retail.V2.PredictionService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.retail.v2.PredictionService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :Predict, Google.Cloud.Retail.V2.PredictRequest, Google.Cloud.Retail.V2.PredictResponse
 end

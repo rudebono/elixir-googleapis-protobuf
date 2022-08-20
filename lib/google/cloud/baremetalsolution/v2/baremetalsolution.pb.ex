@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -19,15 +19,17 @@ defmodule Google.Cloud.Baremetalsolution.V2.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Baremetalsolution.V2.BareMetalSolution.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.baremetalsolution.v2.BareMetalSolution",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListInstances,
       Google.Cloud.Baremetalsolution.V2.ListInstancesRequest,

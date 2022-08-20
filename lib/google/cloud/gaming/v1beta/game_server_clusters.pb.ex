@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :game_server_clusters, 1,
     repeated: true,
@@ -20,15 +21,17 @@ defmodule Google.Cloud.Gaming.V1beta.ListGameServerClustersResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 4, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.CreateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -42,9 +45,10 @@ defmodule Google.Cloud.Gaming.V1beta.CreateGameServerClusterRequest do
     json_name: "gameServerCluster",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -63,22 +67,25 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterRequest do
     json_name: "previewTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewCreateGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
+
 defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -87,16 +94,18 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterRequest do
     json_name: "previewTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewDeleteGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
+
 defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerCluster,
@@ -108,9 +117,10 @@ defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerClusterRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :game_server_cluster, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerCluster,
@@ -127,16 +137,18 @@ defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterRequest do
     json_name: "previewTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gaming.V1beta.PreviewUpdateGameServerClusterResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
 end
+
 defmodule Google.Cloud.Gaming.V1beta.GameServerClusterConnectionInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :cluster_reference, 0
 
@@ -147,22 +159,25 @@ defmodule Google.Cloud.Gaming.V1beta.GameServerClusterConnectionInfo do
 
   field :namespace, 5, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1beta.GkeClusterReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1beta.GameServerCluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gaming.V1beta.GameServerCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

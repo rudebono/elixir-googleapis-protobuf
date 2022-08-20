@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Tasks.V2beta2.Queue.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
   field :PAUSED, 2
   field :DISABLED, 3
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.Queue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target_type, 0
 
@@ -33,9 +34,10 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
   field :tombstone_ttl, 10, type: Google.Protobuf.Duration, json_name: "tombstoneTtl"
   field :stats, 16, type: Google.Cloud.Tasks.V2beta2.QueueStats, deprecated: false
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_tasks_dispatched_per_second, 1,
     type: :double,
@@ -44,9 +46,10 @@ defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
   field :max_concurrent_tasks, 3, type: :int32, json_name: "maxConcurrentTasks"
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :num_attempts, 0
 
@@ -57,9 +60,10 @@ defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   field :max_backoff, 5, type: Google.Protobuf.Duration, json_name: "maxBackoff"
   field :max_doublings, 6, type: :int32, json_name: "maxDoublings"
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 

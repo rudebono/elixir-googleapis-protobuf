@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1beta1.GcsFilesetSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_patterns, 1,
     repeated: true,
@@ -14,9 +14,10 @@ defmodule Google.Cloud.Datacatalog.V1beta1.GcsFilesetSpec do
     json_name: "sampleGcsFileSpecs",
     deprecated: false
 end
+
 defmodule Google.Cloud.Datacatalog.V1beta1.GcsFileSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_path, 1, type: :string, json_name: "filePath", deprecated: false
 

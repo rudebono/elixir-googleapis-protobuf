@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :CONFIG, 1
@@ -11,25 +11,28 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
   field :PARTITION_UPDATED, 6
   field :PARTITION_DELETED, 7
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
   field :FILESET, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SPARK, 1
   field :NOTEBOOK, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.JobEvent.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -37,56 +40,63 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent.State do
   field :CANCELLED, 3
   field :ABORTED, 4
 end
+
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Service do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :DATAPROC, 1
 end
+
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :START, 1
   field :STOP, 2
   field :QUERY, 3
 end
+
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENGINE_UNSPECIFIED, 0
   field :SPARK_SQL, 1
   field :BIGQUERY, 2
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
     type: Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry,
     map: true
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :entity, 1, type: :string
   field :type, 2, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType, enum: true
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partition, 1, type: :string
   field :entity, 2, type: :string
@@ -97,15 +107,17 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
     type: :string,
     json_name: "sampledDataLocations"
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string
 end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -120,9 +132,10 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
   field :partition, 22, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails, oneof: 0
   field :action, 23, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails, oneof: 0
 end
+
 defmodule Google.Cloud.Dataplex.V1.JobEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -134,9 +147,10 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent do
   field :service, 8, type: Google.Cloud.Dataplex.V1.JobEvent.Service, enum: true
   field :service_job, 9, type: :string, json_name: "serviceJob"
 end
+
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query_id, 1, type: :string, json_name: "queryId"
   field :query_text, 2, type: :string, json_name: "queryText"
@@ -145,9 +159,10 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
   field :result_size_bytes, 5, type: :int64, json_name: "resultSizeBytes"
   field :data_processed_bytes, 6, type: :int64, json_name: "dataProcessedBytes"
 end
+
 defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :detail, 0
 

@@ -1,6 +1,6 @@
 defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :key, 0
 
@@ -15,17 +15,20 @@ defmodule Google.Apps.Drive.Activity.V2.QueryDriveActivityRequest do
   field :page_token, 7, type: :string, json_name: "pageToken"
   field :filter, 8, type: :string
 end
+
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy.NoConsolidation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy.Legacy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Apps.Drive.Activity.V2.ConsolidationStrategy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :strategy, 0
 

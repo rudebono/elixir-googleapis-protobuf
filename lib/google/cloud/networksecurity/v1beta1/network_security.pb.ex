@@ -2,7 +2,7 @@ defmodule Google.Cloud.Networksecurity.V1beta1.NetworkSecurity.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.networksecurity.v1beta1.NetworkSecurity",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListAuthorizationPolicies,
       Google.Cloud.Networksecurity.V1beta1.ListAuthorizationPoliciesRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError.Code do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :OK, 0
@@ -45,9 +45,10 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError.Code do
   field :UNSUPPORTED_FINDING_TYPE, 41
   field :UNSUPPORTED_URL_SCHEME, 42
 end
+
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfigError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Websecurityscanner.V1.ScanConfigError.Code, enum: true
   field :field_name, 2, type: :string, json_name: "fieldName"

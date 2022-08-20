@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :FLEX, 3
@@ -8,35 +8,39 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan
   field :MONTHLY, 2
   field :ANNUAL, 4
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
   field :ACTIVE, 2
   field :FAILED, 3
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :JOB_TYPE_UNSPECIFIED, 0
   field :PIPELINE, 1
   field :QUERY, 2
   field :ML_EXTERNAL, 3
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
   field :ACTIVE, 2
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_capacity, 2, type: :int64, json_name: "slotCapacity"
@@ -55,9 +59,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
 
   field :multi_region_auxiliary, 14, type: :bool, json_name: "multiRegionAuxiliary"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :slot_count, 2, type: :int64, json_name: "slotCount"
@@ -90,51 +95,58 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
 
   field :multi_region_auxiliary, 10, type: :bool, json_name: "multiRegionAuxiliary"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :reservation_id, 2, type: :string, json_name: "reservationId"
   field :reservation, 3, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListReservationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reservations, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -148,17 +160,19 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest d
 
   field :capacity_commitment_id, 5, type: :string, json_name: "capacityCommitmentId"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :capacity_commitments, 1,
     repeated: true,
@@ -167,22 +181,25 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ListCapacityCommitmentsResponse d
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 3, type: :bool
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :capacity_commitment, 1,
     type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment,
@@ -190,23 +207,26 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateCapacityCommitmentRequest d
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :slot_count, 2, type: :int64, json_name: "slotCount"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SplitCapacityCommitmentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :first, 1, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
   field :second, 2, type: Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -215,9 +235,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MergeCapacityCommitmentsRequest d
     type: :string,
     json_name: "capacityCommitmentIds"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :assignee, 4, type: :string
@@ -232,92 +253,104 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :assignment, 2, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :assignment_id, 4, type: :string, json_name: "assignmentId"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ListAssignmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.DeleteAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAssignmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.SearchAllAssignmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :assignments, 1, repeated: true, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_id, 3, type: :string, json_name: "destinationId", deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateAssignmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :assignment, 1, type: Google.Cloud.Bigquery.Reservation.V1.Assignment
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.TableReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
   field :table_id, 3, type: :string, json_name: "tableId"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -333,15 +366,17 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.BiReservation do
     type: Google.Cloud.Bigquery.Reservation.V1.TableReference,
     json_name: "preferredTables"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.GetBiReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bi_reservation, 1,
     type: Google.Cloud.Bigquery.Reservation.V1.BiReservation,
@@ -349,11 +384,12 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateBiReservationRequest do
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.bigquery.reservation.v1.ReservationService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateReservation,
       Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest,

@@ -1,21 +1,23 @@
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.RetentionPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :backup_delete_lock_days, 1, type: :int32, json_name: "backupDeleteLockDays"
   field :backup_retain_days, 2, type: :int32, json_name: "backupRetainDays"
   field :locked, 3, type: :bool
 end
+
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.Schedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cron_schedule, 1, type: :string, json_name: "cronSchedule"
   field :paused, 2, type: :bool
 end
+
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.BackupConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :backup_scope, 0
 
@@ -38,16 +40,18 @@ defmodule Google.Cloud.Gkebackup.V1.BackupPlan.BackupConfig do
     type: Google.Cloud.Gkebackup.V1.EncryptionKey,
     json_name: "encryptionKey"
 end
+
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

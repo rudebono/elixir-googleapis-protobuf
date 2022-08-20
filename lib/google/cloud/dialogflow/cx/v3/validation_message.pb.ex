@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.ResourceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :AGENT, 1
@@ -17,18 +17,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.ResourceType do
   field :PAGES, 13
   field :TRANSITION_ROUTE_GROUP, 7
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.Severity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :INFO, 1
   field :WARNING, 2
   field :ERROR, 3
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.ResourceType,
@@ -45,9 +47,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ValidationMessage do
   field :severity, 3, type: Google.Cloud.Dialogflow.Cx.V3.ValidationMessage.Severity, enum: true
   field :detail, 4, type: :string
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResourceName do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

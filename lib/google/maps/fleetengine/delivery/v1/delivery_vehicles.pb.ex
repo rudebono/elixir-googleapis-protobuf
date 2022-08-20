@@ -1,15 +1,16 @@
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NEW, 1
   field :ENROUTE, 2
   field :ARRIVED, 3
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -43,15 +44,17 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
     repeated: true,
     type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.LocationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :point, 1, type: Google.Type.LatLng
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.VehicleJourneySegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :stop, 1, type: Maps.Fleetengine.Delivery.V1.VehicleStop
 
@@ -67,16 +70,18 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleJourneySegment do
 
   field :path, 5, repeated: true, type: Google.Type.LatLng, deprecated: false
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_id, 1, type: :string, json_name: "taskId"
   field :task_duration, 2, type: Google.Protobuf.Duration, json_name: "taskDuration"
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :planned_location, 1,
     type: Maps.Fleetengine.Delivery.V1.LocationInfo,

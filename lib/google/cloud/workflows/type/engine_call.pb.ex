@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :BEGUN, 1
@@ -8,22 +8,25 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.State do
   field :EXCEPTION_RAISED, 3
   field :EXCEPTION_HANDLED, 4
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.CallArg do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :argument, 1, type: :string
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.Begun.NamedArgsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.Begun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :args, 1, repeated: true, type: Google.Cloud.Workflows.Type.EngineCallLog.CallArg
 
@@ -33,32 +36,36 @@ defmodule Google.Cloud.Workflows.Type.EngineCallLog.Begun do
     json_name: "namedArgs",
     map: true
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.Succeeded do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :call_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "callStartTime"
   field :response, 2, type: :string
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.ExceptionRaised do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :call_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "callStartTime"
   field :exception, 2, type: :string
   field :origin, 3, type: :string
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog.ExceptionHandled do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :call_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "callStartTime"
   field :exception, 2, type: :string
   field :origin, 3, type: :string
 end
+
 defmodule Google.Cloud.Workflows.Type.EngineCallLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :details, 0
 

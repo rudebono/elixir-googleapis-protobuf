@@ -1,42 +1,47 @@
 defmodule Google.Api.Expr.V1beta1.ParsedExpr do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :expr, 2, type: Google.Api.Expr.V1beta1.Expr
   field :source_info, 3, type: Google.Api.Expr.V1beta1.SourceInfo, json_name: "sourceInfo"
   field :syntax_version, 4, type: :string, json_name: "syntaxVersion"
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.Ident do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.Select do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :operand, 1, type: Google.Api.Expr.V1beta1.Expr
   field :field, 2, type: :string
   field :test_only, 3, type: :bool, json_name: "testOnly"
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.Call do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target, 1, type: Google.Api.Expr.V1beta1.Expr
   field :function, 2, type: :string
   field :args, 3, repeated: true, type: Google.Api.Expr.V1beta1.Expr
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.CreateList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1beta1.Expr
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :key_kind, 0
 
@@ -45,16 +50,18 @@ defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry do
   field :map_key, 3, type: Google.Api.Expr.V1beta1.Expr, json_name: "mapKey", oneof: 0
   field :value, 4, type: Google.Api.Expr.V1beta1.Expr
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.CreateStruct do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :entries, 2, repeated: true, type: Google.Api.Expr.V1beta1.Expr.CreateStruct.Entry
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr.Comprehension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
   field :iter_range, 2, type: Google.Api.Expr.V1beta1.Expr, json_name: "iterRange"
@@ -64,9 +71,10 @@ defmodule Google.Api.Expr.V1beta1.Expr.Comprehension do
   field :loop_step, 6, type: Google.Api.Expr.V1beta1.Expr, json_name: "loopStep"
   field :result, 7, type: Google.Api.Expr.V1beta1.Expr
 end
+
 defmodule Google.Api.Expr.V1beta1.Expr do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :expr_kind, 0
 
@@ -101,9 +109,10 @@ defmodule Google.Api.Expr.V1beta1.Expr do
     json_name: "comprehensionExpr",
     oneof: 0
 end
+
 defmodule Google.Api.Expr.V1beta1.Literal do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :constant_kind, 0
 

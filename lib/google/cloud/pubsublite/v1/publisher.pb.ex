@@ -1,29 +1,33 @@
 defmodule Google.Cloud.Pubsublite.V1.InitialPublishRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
 end
+
 defmodule Google.Cloud.Pubsublite.V1.InitialPublishResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Pubsublite.V1.MessagePublishRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.PubSubMessage
 end
+
 defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
 end
+
 defmodule Google.Cloud.Pubsublite.V1.PublishRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :request_type, 0
 
@@ -37,9 +41,10 @@ defmodule Google.Cloud.Pubsublite.V1.PublishRequest do
     json_name: "messagePublishRequest",
     oneof: 0
 end
+
 defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :response_type, 0
 
@@ -53,11 +58,12 @@ defmodule Google.Cloud.Pubsublite.V1.PublishResponse do
     json_name: "messageResponse",
     oneof: 0
 end
+
 defmodule Google.Cloud.Pubsublite.V1.PublisherService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.pubsublite.v1.PublisherService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :Publish,
       stream(Google.Cloud.Pubsublite.V1.PublishRequest),

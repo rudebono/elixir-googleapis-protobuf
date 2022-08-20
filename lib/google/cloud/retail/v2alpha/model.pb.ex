@@ -1,40 +1,44 @@
 defmodule Google.Cloud.Retail.V2alpha.Model.ServingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
   field :ACTIVE, 2
   field :TUNED, 3
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.TrainingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TRAINING_STATE_UNSPECIFIED, 0
   field :PAUSED, 1
   field :TRAINING, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PeriodicTuningState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PERIODIC_TUNING_STATE_UNSPECIFIED, 0
   field :PERIODIC_TUNING_DISABLED, 1
   field :ALL_TUNING_DISABLED, 3
   field :PERIODIC_TUNING_ENABLED, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.DataState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_STATE_UNSPECIFIED, 0
   field :DATA_OK, 1
   field :DATA_ERROR, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Restriction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESTRICTION_UNSPECIFIED, 0
   field :NO_RESTRICTION, 1
@@ -42,17 +46,19 @@ defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Restriction d
   field :UNIQUE_MODEL_RESTRICTION, 3
   field :UNIQUE_MODEL_TYPE_RESTRICTION, 4
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Candidate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :candidate, 0
 
   field :serving_config_id, 1, type: :string, json_name: "servingConfigId", oneof: 0
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Panel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 
@@ -66,9 +72,10 @@ defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Panel do
     json_name: "defaultCandidate",
     deprecated: false
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :page_optimization_event_type, 1,
     type: :string,
@@ -85,9 +92,10 @@ defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.ServingConfigList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :serving_config_ids, 1,
     repeated: true,
@@ -95,9 +103,10 @@ defmodule Google.Cloud.Retail.V2alpha.Model.ServingConfigList do
     json_name: "servingConfigIds",
     deprecated: false
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :training_config, 0
 

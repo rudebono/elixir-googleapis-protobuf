@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.SetParameterAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parameter, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.CaseContent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :cases_or_message, 0
 
@@ -18,9 +19,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.C
     json_name: "additionalCases",
     oneof: 0
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :condition, 1, type: :string
 
@@ -29,17 +31,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case d
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.CaseContent,
     json_name: "caseContent"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cases, 1,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage
   field :webhook, 2, type: :string, deprecated: false

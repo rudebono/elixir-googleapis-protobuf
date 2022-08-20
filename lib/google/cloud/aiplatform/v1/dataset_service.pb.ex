@@ -1,28 +1,31 @@
 defmodule Google.Cloud.Aiplatform.V1.CreateDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: Google.Cloud.Aiplatform.V1.Dataset, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.CreateDatasetOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.GetDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Aiplatform.V1.Dataset, deprecated: false
 
@@ -31,9 +34,10 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListDatasetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -42,22 +46,25 @@ defmodule Google.Cloud.Aiplatform.V1.ListDatasetsRequest do
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListDatasetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.DeleteDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ImportDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -67,21 +74,24 @@ defmodule Google.Cloud.Aiplatform.V1.ImportDataRequest do
     json_name: "importConfigs",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ImportDataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ImportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ExportDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -90,15 +100,17 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataRequest do
     json_name: "exportConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ExportDataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :exported_files, 1, repeated: true, type: :string, json_name: "exportedFiles"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -106,9 +118,10 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
 
   field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListDataItemsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -117,9 +130,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsRequest do
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_items, 1,
     repeated: true,
@@ -128,9 +142,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListDataItemsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -139,9 +154,10 @@ defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesRequest do
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :saved_queries, 1,
     repeated: true,
@@ -150,16 +166,18 @@ defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -168,18 +186,20 @@ defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsRequest do
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.ListAnnotationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.DatasetService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateDataset,
       Google.Cloud.Aiplatform.V1.CreateDatasetRequest,

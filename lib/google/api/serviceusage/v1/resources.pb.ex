@@ -1,23 +1,25 @@
 defmodule Google.Api.Serviceusage.V1.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DISABLED, 1
   field :ENABLED, 2
 end
+
 defmodule Google.Api.Serviceusage.V1.Service do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 5, type: :string
   field :config, 2, type: Google.Api.Serviceusage.V1.ServiceConfig
   field :state, 4, type: Google.Api.Serviceusage.V1.State, enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1.ServiceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -35,9 +37,10 @@ defmodule Google.Api.Serviceusage.V1.ServiceConfig do
 
   field :monitoring, 28, type: Google.Api.Monitoring
 end
+
 defmodule Google.Api.Serviceusage.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_names, 2, repeated: true, type: :string, json_name: "resourceNames"
 end

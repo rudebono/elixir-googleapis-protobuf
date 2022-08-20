@@ -1,6 +1,6 @@
 defmodule Google.Appengine.V1.InboundServiceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INBOUND_SERVICE_UNSPECIFIED, 0
   field :INBOUND_SERVICE_MAIL, 1
@@ -12,54 +12,61 @@ defmodule Google.Appengine.V1.InboundServiceType do
   field :INBOUND_SERVICE_CHANNEL_PRESENCE, 7
   field :INBOUND_SERVICE_WARMUP, 9
 end
+
 defmodule Google.Appengine.V1.ServingStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVING_STATUS_UNSPECIFIED, 0
   field :SERVING, 1
   field :STOPPED, 2
 end
+
 defmodule Google.Appengine.V1.EndpointsApiService.RolloutStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED_ROLLOUT_STRATEGY, 0
   field :FIXED, 1
   field :MANAGED, 2
 end
+
 defmodule Google.Appengine.V1.VpcAccessConnector.EgressSetting do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EGRESS_SETTING_UNSPECIFIED, 0
   field :ALL_TRAFFIC, 1
   field :PRIVATE_IP_RANGES, 2
 end
+
 defmodule Google.Appengine.V1.Version.BetaSettingsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Appengine.V1.Version.EnvVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Appengine.V1.Version.BuildEnvVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Appengine.V1.Version do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :scaling, 0
 
@@ -160,9 +167,10 @@ defmodule Google.Appengine.V1.Version do
     type: Google.Appengine.V1.VpcAccessConnector,
     json_name: "vpcAccessConnector"
 end
+
 defmodule Google.Appengine.V1.EndpointsApiService do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :config_id, 2, type: :string, json_name: "configId"
@@ -174,9 +182,10 @@ defmodule Google.Appengine.V1.EndpointsApiService do
 
   field :disable_trace_sampling, 4, type: :bool, json_name: "disableTraceSampling"
 end
+
 defmodule Google.Appengine.V1.AutomaticScaling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cool_down_period, 1, type: Google.Protobuf.Duration, json_name: "coolDownPeriod"
   field :cpu_utilization, 2, type: Google.Appengine.V1.CpuUtilization, json_name: "cpuUtilization"
@@ -204,22 +213,25 @@ defmodule Google.Appengine.V1.AutomaticScaling do
     type: Google.Appengine.V1.StandardSchedulerSettings,
     json_name: "standardSchedulerSettings"
 end
+
 defmodule Google.Appengine.V1.BasicScaling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :idle_timeout, 1, type: Google.Protobuf.Duration, json_name: "idleTimeout"
   field :max_instances, 2, type: :int32, json_name: "maxInstances"
 end
+
 defmodule Google.Appengine.V1.ManualScaling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instances, 1, type: :int32
 end
+
 defmodule Google.Appengine.V1.CpuUtilization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :aggregation_window_length, 1,
     type: Google.Protobuf.Duration,
@@ -227,9 +239,10 @@ defmodule Google.Appengine.V1.CpuUtilization do
 
   field :target_utilization, 2, type: :double, json_name: "targetUtilization"
 end
+
 defmodule Google.Appengine.V1.RequestUtilization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_request_count_per_second, 1,
     type: :int32,
@@ -237,18 +250,20 @@ defmodule Google.Appengine.V1.RequestUtilization do
 
   field :target_concurrent_requests, 2, type: :int32, json_name: "targetConcurrentRequests"
 end
+
 defmodule Google.Appengine.V1.DiskUtilization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_write_bytes_per_second, 14, type: :int32, json_name: "targetWriteBytesPerSecond"
   field :target_write_ops_per_second, 15, type: :int32, json_name: "targetWriteOpsPerSecond"
   field :target_read_bytes_per_second, 16, type: :int32, json_name: "targetReadBytesPerSecond"
   field :target_read_ops_per_second, 17, type: :int32, json_name: "targetReadOpsPerSecond"
 end
+
 defmodule Google.Appengine.V1.NetworkUtilization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_sent_bytes_per_second, 1, type: :int32, json_name: "targetSentBytesPerSecond"
   field :target_sent_packets_per_second, 11, type: :int32, json_name: "targetSentPacketsPerSecond"
@@ -261,18 +276,20 @@ defmodule Google.Appengine.V1.NetworkUtilization do
     type: :int32,
     json_name: "targetReceivedPacketsPerSecond"
 end
+
 defmodule Google.Appengine.V1.StandardSchedulerSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_cpu_utilization, 1, type: :double, json_name: "targetCpuUtilization"
   field :target_throughput_utilization, 2, type: :double, json_name: "targetThroughputUtilization"
   field :min_instances, 3, type: :int32, json_name: "minInstances"
   field :max_instances, 4, type: :int32, json_name: "maxInstances"
 end
+
 defmodule Google.Appengine.V1.Network do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :forwarded_ports, 1, repeated: true, type: :string, json_name: "forwardedPorts"
   field :instance_tag, 2, type: :string, json_name: "instanceTag"
@@ -280,17 +297,19 @@ defmodule Google.Appengine.V1.Network do
   field :subnetwork_name, 4, type: :string, json_name: "subnetworkName"
   field :session_affinity, 5, type: :bool, json_name: "sessionAffinity"
 end
+
 defmodule Google.Appengine.V1.Volume do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :volume_type, 2, type: :string, json_name: "volumeType"
   field :size_gb, 3, type: :double, json_name: "sizeGb"
 end
+
 defmodule Google.Appengine.V1.Resources do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cpu, 1, type: :double
   field :disk_gb, 2, type: :double, json_name: "diskGb"
@@ -298,9 +317,10 @@ defmodule Google.Appengine.V1.Resources do
   field :volumes, 4, repeated: true, type: Google.Appengine.V1.Volume
   field :kms_key_reference, 5, type: :string, json_name: "kmsKeyReference"
 end
+
 defmodule Google.Appengine.V1.VpcAccessConnector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -309,9 +329,10 @@ defmodule Google.Appengine.V1.VpcAccessConnector do
     json_name: "egressSetting",
     enum: true
 end
+
 defmodule Google.Appengine.V1.Entrypoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :command, 0
 

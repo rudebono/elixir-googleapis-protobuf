@@ -1,24 +1,26 @@
 defmodule Google.Devtools.Testing.V1.DeviceForm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DEVICE_FORM_UNSPECIFIED, 0
   field :VIRTUAL, 1
   field :PHYSICAL, 2
   field :EMULATOR, 3
 end
+
 defmodule Google.Devtools.Testing.V1.DeviceFormFactor do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DEVICE_FORM_FACTOR_UNSPECIFIED, 0
   field :PHONE, 1
   field :TABLET, 2
   field :WEARABLE, 3
 end
+
 defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.EnvironmentType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENVIRONMENT_TYPE_UNSPECIFIED, 0
   field :ANDROID, 1
@@ -27,17 +29,19 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.Environmen
   field :PROVIDED_SOFTWARE, 5
   field :DEVICE_IP_BLOCKS, 6
 end
+
 defmodule Google.Devtools.Testing.V1.DeviceIpBlock do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :block, 1, type: :string
   field :form, 2, type: Google.Devtools.Testing.V1.DeviceForm, enum: true
   field :added_date, 3, type: Google.Type.Date, json_name: "addedDate"
 end
+
 defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :environment_type, 1,
     type: Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.EnvironmentType,
@@ -46,9 +50,10 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest do
 
   field :project_id, 2, type: :string, json_name: "projectId"
 end
+
 defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :environment_catalog, 0
 
@@ -77,18 +82,20 @@ defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
     json_name: "deviceIpBlockCatalog",
     oneof: 0
 end
+
 defmodule Google.Devtools.Testing.V1.DeviceIpBlockCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ip_blocks, 1,
     repeated: true,
     type: Google.Devtools.Testing.V1.DeviceIpBlock,
     json_name: "ipBlocks"
 end
+
 defmodule Google.Devtools.Testing.V1.AndroidDeviceCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Devtools.Testing.V1.AndroidModel
   field :versions, 2, repeated: true, type: Google.Devtools.Testing.V1.AndroidVersion
@@ -97,16 +104,18 @@ defmodule Google.Devtools.Testing.V1.AndroidDeviceCatalog do
     type: Google.Devtools.Testing.V1.AndroidRuntimeConfiguration,
     json_name: "runtimeConfiguration"
 end
+
 defmodule Google.Devtools.Testing.V1.AndroidRuntimeConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :locales, 1, repeated: true, type: Google.Devtools.Testing.V1.Locale
   field :orientations, 2, repeated: true, type: Google.Devtools.Testing.V1.Orientation
 end
+
 defmodule Google.Devtools.Testing.V1.AndroidModel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -129,9 +138,10 @@ defmodule Google.Devtools.Testing.V1.AndroidModel do
   field :tags, 8, repeated: true, type: :string
   field :thumbnail_url, 19, type: :string, json_name: "thumbnailUrl"
 end
+
 defmodule Google.Devtools.Testing.V1.AndroidVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :version_string, 2, type: :string, json_name: "versionString"
@@ -141,16 +151,18 @@ defmodule Google.Devtools.Testing.V1.AndroidVersion do
   field :distribution, 6, type: Google.Devtools.Testing.V1.Distribution
   field :tags, 7, repeated: true, type: :string
 end
+
 defmodule Google.Devtools.Testing.V1.Distribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :measurement_time, 1, type: Google.Protobuf.Timestamp, json_name: "measurementTime"
   field :market_share, 2, type: :double, json_name: "marketShare"
 end
+
 defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Devtools.Testing.V1.IosModel
   field :versions, 2, repeated: true, type: Google.Devtools.Testing.V1.IosVersion
@@ -164,16 +176,18 @@ defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
     type: Google.Devtools.Testing.V1.IosRuntimeConfiguration,
     json_name: "runtimeConfiguration"
 end
+
 defmodule Google.Devtools.Testing.V1.IosRuntimeConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :locales, 1, repeated: true, type: Google.Devtools.Testing.V1.Locale
   field :orientations, 2, repeated: true, type: Google.Devtools.Testing.V1.Orientation
 end
+
 defmodule Google.Devtools.Testing.V1.IosModel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -189,9 +203,10 @@ defmodule Google.Devtools.Testing.V1.IosModel do
     json_name: "formFactor",
     enum: true
 end
+
 defmodule Google.Devtools.Testing.V1.IosVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :major_version, 2, type: :int32, json_name: "majorVersion"
@@ -203,47 +218,53 @@ defmodule Google.Devtools.Testing.V1.IosVersion do
     type: :string,
     json_name: "supportedXcodeVersionIds"
 end
+
 defmodule Google.Devtools.Testing.V1.Locale do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
   field :region, 3, type: :string
   field :tags, 4, repeated: true, type: :string
 end
+
 defmodule Google.Devtools.Testing.V1.Orientation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
   field :tags, 3, repeated: true, type: :string
 end
+
 defmodule Google.Devtools.Testing.V1.XcodeVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :tags, 2, repeated: true, type: :string
 end
+
 defmodule Google.Devtools.Testing.V1.NetworkConfigurationCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :configurations, 1, repeated: true, type: Google.Devtools.Testing.V1.NetworkConfiguration
 end
+
 defmodule Google.Devtools.Testing.V1.NetworkConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :up_rule, 2, type: Google.Devtools.Testing.V1.TrafficRule, json_name: "upRule"
   field :down_rule, 3, type: Google.Devtools.Testing.V1.TrafficRule, json_name: "downRule"
 end
+
 defmodule Google.Devtools.Testing.V1.TrafficRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :delay, 1, type: Google.Protobuf.Duration
   field :packet_loss_ratio, 2, type: :float, json_name: "packetLossRatio"
@@ -251,18 +272,20 @@ defmodule Google.Devtools.Testing.V1.TrafficRule do
   field :bandwidth, 4, type: :float
   field :burst, 5, type: :float
 end
+
 defmodule Google.Devtools.Testing.V1.ProvidedSoftwareCatalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :orchestrator_version, 1, type: :string, json_name: "orchestratorVersion"
   field :androidx_orchestrator_version, 2, type: :string, json_name: "androidxOrchestratorVersion"
 end
+
 defmodule Google.Devtools.Testing.V1.TestEnvironmentDiscoveryService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.devtools.testing.v1.TestEnvironmentDiscoveryService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetTestEnvironmentCatalog,
       Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest,

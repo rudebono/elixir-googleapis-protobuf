@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.DesiredState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :INSTALLED, 1
   field :UPDATED, 2
   field :REMOVED, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MANAGER_UNSPECIFIED, 0
   field :ANY, 1
@@ -18,17 +19,19 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager do
   field :ZYPPER, 4
   field :GOO, 5
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository.ArchiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :DEB, 1
   field :DEB_SRC, 2
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :TAR, 1
@@ -38,17 +41,19 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Extract
   field :TAR_XZ, 5
   field :ZIP, 11
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.Interpreter do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :SHELL, 1
   field :POWERSHELL, 3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -59,9 +64,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.Package do
 
   field :manager, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package.Manager, enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :archive_type, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository.ArchiveType,
@@ -73,34 +79,38 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptRepository do
   field :components, 4, repeated: true, type: :string
   field :gpg_key, 5, type: :string, json_name: "gpgKey"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :base_url, 3, type: :string, json_name: "baseUrl"
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :base_url, 3, type: :string, json_name: "baseUrl"
   field :gpg_keys, 4, repeated: true, type: :string, json_name: "gpgKeys"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :url, 2, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :repository, 0
 
@@ -109,24 +119,27 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository do
   field :zypper, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperRepository, oneof: 0
   field :goo, 4, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.GooRepository, oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Remote do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :checksum, 2, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact.Gcs do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :artifact, 0
 
@@ -142,18 +155,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Artifact do
 
   field :allow_insecure, 4, type: :bool, json_name: "allowInsecure"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.CopyFile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :destination, 2, type: :string
   field :overwrite, 3, type: :bool
   field :permissions, 4, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :destination, 2, type: :string
@@ -163,29 +178,33 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.Extract
       Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExtractArchive.ArchiveType,
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallMsi do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
   field :flags, 2, repeated: true, type: :string
   field :allowed_exit_codes, 3, repeated: true, type: :int32, json_name: "allowedExitCodes"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallDpkg do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.InstallRpm do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_id, 1, type: :string, json_name: "artifactId"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExecFile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :location_type, 0
 
@@ -194,9 +213,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.ExecFil
   field :args, 3, repeated: true, type: :string
   field :allowed_exit_codes, 4, repeated: true, type: :int32, json_name: "allowedExitCodes"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :script, 1, type: :string
   field :allowed_exit_codes, 2, repeated: true, type: :int32, json_name: "allowedExitCodes"
@@ -205,9 +225,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScri
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step.RunScript.Interpreter,
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :step, 0
 
@@ -246,9 +267,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe.Step do
     json_name: "scriptRun",
     oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string
@@ -272,25 +294,28 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe do
     json_name: "desiredState",
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.LookupEffectiveGuestPolicyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :os_short_name, 2, type: :string, json_name: "osShortName"
   field :os_version, 3, type: :string, json_name: "osVersion"
   field :os_architecture, 4, type: :string, json_name: "osArchitecture"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedPackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string
   field :package, 2, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.Package
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedPackageRepository do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string
 
@@ -298,9 +323,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.Source
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PackageRepository,
     json_name: "packageRepository"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.SourcedSoftwareRecipe do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string
 
@@ -308,9 +334,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy.Source
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.SoftwareRecipe,
     json_name: "softwareRecipe"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.EffectiveGuestPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :packages, 1,
     repeated: true,

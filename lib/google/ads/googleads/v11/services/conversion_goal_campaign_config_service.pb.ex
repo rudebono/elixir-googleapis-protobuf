@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -16,9 +16,10 @@ defmodule Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigsR
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V11.Services.ConversionGoalCampaignConfigOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -28,17 +29,19 @@ defmodule Google.Ads.Googleads.V11.Services.ConversionGoalCampaignConfigOperatio
     type: Google.Ads.Googleads.V11.Resources.ConversionGoalCampaignConfig,
     oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigResult
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -46,11 +49,12 @@ defmodule Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigRe
     type: Google.Ads.Googleads.V11.Resources.ConversionGoalCampaignConfig,
     json_name: "conversionGoalCampaignConfig"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.ConversionGoalCampaignConfigService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v11.services.ConversionGoalCampaignConfigService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :MutateConversionGoalCampaignConfigs,
       Google.Ads.Googleads.V11.Services.MutateConversionGoalCampaignConfigsRequest,

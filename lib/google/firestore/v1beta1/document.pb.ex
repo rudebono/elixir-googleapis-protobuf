@@ -1,22 +1,24 @@
 defmodule Google.Firestore.V1beta1.Document.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
 end
+
 defmodule Google.Firestore.V1beta1.Document do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Firestore.V1beta1.Document.FieldsEntry, map: true
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
+
 defmodule Google.Firestore.V1beta1.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -47,22 +49,25 @@ defmodule Google.Firestore.V1beta1.Value do
 
   field :map_value, 6, type: Google.Firestore.V1beta1.MapValue, json_name: "mapValue", oneof: 0
 end
+
 defmodule Google.Firestore.V1beta1.ArrayValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Firestore.V1beta1.Value
 end
+
 defmodule Google.Firestore.V1beta1.MapValue.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1beta1.Value
 end
+
 defmodule Google.Firestore.V1beta1.MapValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Firestore.V1beta1.MapValue.FieldsEntry, map: true
 end

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SCHEDULED, 1
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob.State do
   field :PAUSED, 3
   field :STOPPED, 4
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -27,16 +28,18 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJob do
   field :attempts, 9, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Attempt
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig.BigqueryImportKeysEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :human_annotation_request_config, 0
 
@@ -80,9 +83,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobConfig do
     type: Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig,
     json_name: "evaluationJobAlertConfig"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :email, 1, type: :string
 
@@ -90,9 +94,10 @@ defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationJobAlertConfig do
     type: :double,
     json_name: "minAcceptableMeanAveragePrecision"
 end
+
 defmodule Google.Cloud.Datalabeling.V1beta1.Attempt do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attempt_time, 1, type: Google.Protobuf.Timestamp, json_name: "attemptTime"
 

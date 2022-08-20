@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Tasks.V2beta2.Task.View do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.Task do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :payload_type, 0
 
@@ -29,9 +30,10 @@ defmodule Google.Cloud.Tasks.V2beta2.Task do
   field :status, 7, type: Google.Cloud.Tasks.V2beta2.TaskStatus
   field :view, 8, type: Google.Cloud.Tasks.V2beta2.Task.View, enum: true
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.TaskStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attempt_dispatch_count, 1, type: :int32, json_name: "attemptDispatchCount"
   field :attempt_response_count, 2, type: :int32, json_name: "attemptResponseCount"
@@ -44,9 +46,10 @@ defmodule Google.Cloud.Tasks.V2beta2.TaskStatus do
     type: Google.Cloud.Tasks.V2beta2.AttemptStatus,
     json_name: "lastAttemptStatus"
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.AttemptStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :dispatch_time, 2, type: Google.Protobuf.Timestamp, json_name: "dispatchTime"

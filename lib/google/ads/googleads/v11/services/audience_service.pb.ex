@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Services.MutateAudiencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -17,16 +17,18 @@ defmodule Google.Ads.Googleads.V11.Services.MutateAudiencesRequest do
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateAudiencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V11.Services.MutateAudienceResult
   field :partial_failure_error, 2, type: Google.Rpc.Status, json_name: "partialFailureError"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.AudienceOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -34,18 +36,20 @@ defmodule Google.Ads.Googleads.V11.Services.AudienceOperation do
   field :create, 1, type: Google.Ads.Googleads.V11.Resources.Audience, oneof: 0
   field :update, 2, type: Google.Ads.Googleads.V11.Resources.Audience, oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V11.Services.MutateAudienceResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :audience, 2, type: Google.Ads.Googleads.V11.Resources.Audience
 end
+
 defmodule Google.Ads.Googleads.V11.Services.AudienceService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v11.services.AudienceService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :MutateAudiences,
       Google.Ads.Googleads.V11.Services.MutateAudiencesRequest,

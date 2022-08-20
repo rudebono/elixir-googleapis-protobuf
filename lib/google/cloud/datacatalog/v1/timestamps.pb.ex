@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.SystemTimestamps do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
