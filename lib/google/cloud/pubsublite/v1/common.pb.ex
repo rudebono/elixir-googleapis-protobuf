@@ -6,6 +6,14 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig.DeliveryRequire
   field :DELIVER_IMMEDIATELY, 1
   field :DELIVER_AFTER_STORED, 2
 end
+defmodule Google.Cloud.Pubsublite.V1.ExportConfig.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :PAUSED, 2
+end
 defmodule Google.Cloud.Pubsublite.V1.AttributeValues do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
@@ -125,6 +133,46 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription do
   field :delivery_config, 3,
     type: Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig,
     json_name: "deliveryConfig"
+
+  field :export_config, 4,
+    type: Google.Cloud.Pubsublite.V1.ExportConfig,
+    json_name: "exportConfig"
+end
+defmodule Google.Cloud.Pubsublite.V1.ExportConfig.PartitionStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :partition, 1, type: :int64
+  field :status, 2, type: Google.Rpc.Status
+end
+defmodule Google.Cloud.Pubsublite.V1.ExportConfig.PubSubConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  field :topic, 1, type: :string
+end
+defmodule Google.Cloud.Pubsublite.V1.ExportConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :desired_state, 1,
+    type: Google.Cloud.Pubsublite.V1.ExportConfig.State,
+    json_name: "desiredState",
+    enum: true
+
+  field :statuses, 4,
+    repeated: true,
+    type: Google.Cloud.Pubsublite.V1.ExportConfig.PartitionStatus,
+    deprecated: false
+
+  field :dead_letter_topic, 5, type: :string, json_name: "deadLetterTopic", deprecated: false
+
+  field :pubsub_config, 3,
+    type: Google.Cloud.Pubsublite.V1.ExportConfig.PubSubConfig,
+    json_name: "pubsubConfig",
+    oneof: 0
 end
 defmodule Google.Cloud.Pubsublite.V1.TimeTarget do
   @moduledoc false
