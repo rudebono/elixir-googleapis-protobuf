@@ -1,27 +1,30 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest.RestoreOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESTORE_OPTION_UNSPECIFIED, 0
   field :KEEP, 1
   field :FALLBACK, 2
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SpeechToTextSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_speech_adaptation, 1, type: :bool, json_name: "enableSpeechAdaptation"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -59,50 +62,57 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
     json_name: "advancedSettings"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :agents, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :agent, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :agent, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :agent_uri, 2, type: :string, json_name: "agentUri", deprecated: false
@@ -115,18 +125,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
 
   field :environment, 5, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :agent, 0
 
   field :agent_uri, 1, type: :string, json_name: "agentUri", oneof: 0
   field :agent_content, 2, type: :bytes, json_name: "agentContent", oneof: 0
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :agent, 0
 
@@ -139,23 +151,26 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreAgentRequest do
     json_name: "restoreOption",
     enum: true
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidateAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetAgentValidationResultRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -164,11 +179,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentValidationResult do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.FlowValidationResult,
     json_name: "flowValidationResults"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agents.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Agents",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListAgents,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest,

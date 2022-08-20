@@ -1,6 +1,6 @@
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESOLUTION_STATUS_UNSPECIFIED, 0
   field :OPEN, 1
@@ -8,9 +8,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ResolutionStatus do
   field :RESOLVED, 3
   field :MUTED, 4
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :group_id, 2, type: :string, json_name: "groupId"
@@ -25,15 +26,17 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorGroup do
     json_name: "resolutionStatus",
     enum: true
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.TrackingIssue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime"
 
@@ -44,17 +47,19 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorEvent do
   field :message, 3, type: :string
   field :context, 5, type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ServiceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 2, type: :string
   field :version, 3, type: :string
   field :resource_type, 4, type: :string, json_name: "resourceType"
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :http_request, 1,
     type: Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext,
@@ -66,9 +71,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext do
     type: Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation,
     json_name: "reportLocation"
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :method, 1, type: :string
   field :url, 2, type: :string
@@ -77,9 +83,10 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.HttpRequestContext do
   field :response_status_code, 5, type: :int32, json_name: "responseStatusCode"
   field :remote_ip, 6, type: :string, json_name: "remoteIp"
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.SourceLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_path, 1, type: :string, json_name: "filePath"
   field :line_number, 2, type: :int32, json_name: "lineNumber"

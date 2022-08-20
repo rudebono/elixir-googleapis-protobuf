@@ -1,36 +1,40 @@
 defmodule Google.Cloud.Bigquery.Storage.V1.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
   field :ARROW, 2
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :COMMITTED, 1
   field :PENDING, 2
   field :BUFFERED, 3
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.WriteMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :WRITE_MODE_UNSPECIFIED, 0
   field :INSERT, 1
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableModifiers do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output_format_serialization_options, 0
 
@@ -49,9 +53,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
     oneof: 0,
     deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -104,15 +109,17 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
 
   field :trace_id, 13, type: :string, json_name: "traceId", deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

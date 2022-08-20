@@ -1,6 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Settings.Category do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :BUSINESS_AND_FINANCE, 2
@@ -24,9 +24,10 @@ defmodule Google.Actions.Sdk.V2.Settings.Category do
   field :WEATHER, 18
   field :HOME_CONTROL, 19
 end
+
 defmodule Google.Actions.Sdk.V2.Settings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :default_locale, 2, type: :string, json_name: "defaultLocale"

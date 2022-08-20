@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Eventarc.V1.Trigger.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Eventarc.V1.Trigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -41,17 +42,19 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
   field :channel, 13, type: :string, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.EventFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attribute, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
   field :operator, 3, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.Destination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :descriptor, 0
 
@@ -59,25 +62,28 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
   field :cloud_function, 2, type: :string, json_name: "cloudFunction", oneof: 0, deprecated: false
   field :gke, 3, type: Google.Cloud.Eventarc.V1.GKE, oneof: 0
 end
+
 defmodule Google.Cloud.Eventarc.V1.Transport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :intermediary, 0
 
   field :pubsub, 1, type: Google.Cloud.Eventarc.V1.Pubsub, oneof: 0
 end
+
 defmodule Google.Cloud.Eventarc.V1.CloudRun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
   field :region, 3, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.GKE do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -85,9 +91,10 @@ defmodule Google.Cloud.Eventarc.V1.GKE do
   field :service, 4, type: :string, deprecated: false
   field :path, 5, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.Pubsub do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :subscription, 2, type: :string, deprecated: false

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -10,17 +10,19 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.State do
   field :ERROR, 5
   field :DEGRADED, 6
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate.VolumeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VOLUME_TYPE_UNSPECIFIED, 0
   field :GP2, 1
   field :GP3, 2
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -30,25 +32,28 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.State do
   field :ERROR, 5
   field :DEGRADED, 6
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TENANCY_UNSPECIFIED, 0
   field :DEFAULT, 1
   field :DEDICATED, 2
   field :HOST, 3
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string, deprecated: false
@@ -112,16 +117,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
     json_name: "loggingConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :instance_type, 2, type: :string, json_name: "instanceType", deprecated: false
@@ -185,16 +192,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane do
     json_name: "instancePlacement",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsServicesAuthentication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :role_arn, 1, type: :string, json_name: "roleArn", deprecated: false
   field :role_session_name, 2, type: :string, json_name: "roleSessionName", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsAuthorization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :admin_users, 1,
     repeated: true,
@@ -202,21 +211,24 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsAuthorization do
     json_name: "adminUsers",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterUser do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsDatabaseEncryption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_arn, 1, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :size_gib, 1, type: :int32, json_name: "sizeGib", deprecated: false
 
@@ -229,9 +241,10 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate do
   field :iops, 3, type: :int32, deprecated: false
   field :kms_key_arn, 4, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :vpc_id, 1, type: :string, json_name: "vpcId", deprecated: false
 
@@ -247,16 +260,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking do
     json_name: "serviceAddressCidrBlocks",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 3, type: :string, deprecated: false
@@ -299,23 +314,26 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
     json_name: "maxPodsConstraint",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.TagsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_type, 1, type: :string, json_name: "instanceType", deprecated: false
 
@@ -374,16 +392,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
     json_name: "instancePlacement",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsServerConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -394,34 +414,39 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsServerConfig do
 
   field :supported_aws_regions, 3, repeated: true, type: :string, json_name: "supportedAwsRegions"
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsK8sVersionInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsSshConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ec2_key_pair, 1, type: :string, json_name: "ec2KeyPair", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsProxyConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :secret_arn, 1, type: :string, json_name: "secretArn"
   field :secret_version, 2, type: :string, json_name: "secretVersion"
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsConfigEncryption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_arn, 1, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :tenancy, 1,
     type: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy,

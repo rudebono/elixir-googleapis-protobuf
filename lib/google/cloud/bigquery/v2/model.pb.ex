@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :LINEAR_REGRESSION, 1
@@ -17,25 +17,28 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
   field :AUTOML_CLASSIFIER, 13
   field :ARIMA_PLUS, 19
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.LossType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOSS_TYPE_UNSPECIFIED, 0
   field :MEAN_SQUARED_LOSS, 1
   field :MEAN_LOG_LOSS, 2
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.DistanceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DISTANCE_TYPE_UNSPECIFIED, 0
   field :EUCLIDEAN, 1
   field :COSINE, 2
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.DataSplitMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_SPLIT_METHOD_UNSPECIFIED, 0
   field :RANDOM, 1
@@ -44,9 +47,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataSplitMethod do
   field :NO_SPLIT, 4
   field :AUTO_SPLIT, 5
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_FREQUENCY_UNSPECIFIED, 0
   field :AUTO_FREQUENCY, 1
@@ -58,9 +62,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataFrequency do
   field :HOURLY, 7
   field :PER_MINUTE, 8
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.HolidayRegion do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :HOLIDAY_REGION_UNSPECIFIED, 0
   field :GLOBAL, 1
@@ -132,33 +137,37 @@ defmodule Google.Cloud.Bigquery.V2.Model.HolidayRegion do
   field :VN, 67
   field :ZA, 68
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.LearnRateStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LEARN_RATE_STRATEGY_UNSPECIFIED, 0
   field :LINE_SEARCH, 1
   field :CONSTANT, 2
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.OptimizationStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPTIMIZATION_STRATEGY_UNSPECIFIED, 0
   field :BATCH_GRADIENT_DESCENT, 1
   field :NORMAL_EQUATION, 2
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.FeedbackType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FEEDBACK_TYPE_UNSPECIFIED, 0
   field :IMPLICIT, 1
   field :EXPLICIT, 2
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEASONAL_PERIOD_TYPE_UNSPECIFIED, 0
   field :NO_SEASONALITY, 1
@@ -168,26 +177,30 @@ defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType do
   field :QUARTERLY, 5
   field :YEARLY, 6
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums.KmeansInitializationMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :KMEANS_INITIALIZATION_METHOD_UNSPECIFIED, 0
   field :RANDOM, 1
   field :CUSTOM, 2
   field :KMEANS_PLUS_PLUS, 3
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.RegressionMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :mean_absolute_error, 1, type: Google.Protobuf.DoubleValue, json_name: "meanAbsoluteError"
   field :mean_squared_error, 2, type: Google.Protobuf.DoubleValue, json_name: "meanSquaredError"
@@ -202,9 +215,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.RegressionMetrics do
 
   field :r_squared, 5, type: Google.Protobuf.DoubleValue, json_name: "rSquared"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :precision, 1, type: Google.Protobuf.DoubleValue
   field :recall, 2, type: Google.Protobuf.DoubleValue
@@ -214,9 +228,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics do
   field :log_loss, 6, type: Google.Protobuf.DoubleValue, json_name: "logLoss"
   field :roc_auc, 7, type: Google.Protobuf.DoubleValue, json_name: "rocAuc"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics.BinaryConfusionMatrix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :positive_class_threshold, 1,
     type: Google.Protobuf.DoubleValue,
@@ -231,9 +246,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics.BinaryConfu
   field :f1_score, 8, type: Google.Protobuf.DoubleValue, json_name: "f1Score"
   field :accuracy, 9, type: Google.Protobuf.DoubleValue
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :aggregate_classification_metrics, 1,
     type: Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics,
@@ -247,16 +263,18 @@ defmodule Google.Cloud.Bigquery.V2.Model.BinaryClassificationMetrics do
   field :positive_label, 3, type: :string, json_name: "positiveLabel"
   field :negative_label, 4, type: :string, json_name: "negativeLabel"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :predicted_label, 1, type: :string, json_name: "predictedLabel"
   field :item_count, 2, type: Google.Protobuf.Int64Value, json_name: "itemCount"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :actual_label, 1, type: :string, json_name: "actualLabel"
 
@@ -264,9 +282,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Entry
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :confidence_threshold, 1,
     type: Google.Protobuf.DoubleValue,
@@ -276,9 +295,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.Confusi
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix.Row
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :aggregate_classification_metrics, 1,
     type: Google.Cloud.Bigquery.V2.Model.AggregateClassificationMetrics,
@@ -289,16 +309,18 @@ defmodule Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics do
     type: Google.Cloud.Bigquery.V2.Model.MultiClassClassificationMetrics.ConfusionMatrix,
     json_name: "confusionMatrixList"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :category, 1, type: :string
   field :count, 2, type: Google.Protobuf.Int64Value
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :category_counts, 1,
     repeated: true,
@@ -306,9 +328,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.
       Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue.CategoricalValue.CategoryCount,
     json_name: "categoryCounts"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -324,9 +347,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster.FeatureValue 
     json_name: "categoricalValue",
     oneof: 0
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :centroid_id, 1, type: :int64, json_name: "centroidId"
 
@@ -337,9 +361,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster do
 
   field :count, 3, type: Google.Protobuf.Int64Value
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :davies_bouldin_index, 1,
     type: Google.Protobuf.DoubleValue,
@@ -353,9 +378,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ClusteringMetrics do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.Model.ClusteringMetrics.Cluster
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.RankingMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :mean_average_precision, 1,
     type: Google.Protobuf.DoubleValue,
@@ -369,9 +395,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.RankingMetrics do
 
   field :average_rank, 4, type: Google.Protobuf.DoubleValue, json_name: "averageRank"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :non_seasonal_order, 1,
     type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
@@ -395,9 +422,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleMode
   field :has_spikes_and_dips, 7, type: Google.Protobuf.BoolValue, json_name: "hasSpikesAndDips"
   field :has_step_changes, 8, type: Google.Protobuf.BoolValue, json_name: "hasStepChanges"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :non_seasonal_order, 1,
     repeated: true,
@@ -432,9 +460,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics do
       Google.Cloud.Bigquery.V2.Model.ArimaForecastingMetrics.ArimaSingleModelForecastingMetrics,
     json_name: "arimaSingleModelForecastingMetrics"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.EvaluationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metrics, 0
 
@@ -468,9 +497,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.EvaluationMetrics do
     json_name: "arimaForecastingMetrics",
     oneof: 0
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.DataSplitResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_table, 1,
     type: Google.Cloud.Bigquery.V2.TableReference,
@@ -480,32 +510,36 @@ defmodule Google.Cloud.Bigquery.V2.Model.DataSplitResult do
     type: Google.Cloud.Bigquery.V2.TableReference,
     json_name: "evaluationTable"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaOrder do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :p, 1, type: :int64
   field :d, 2, type: :int64
   field :q, 3, type: :int64
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.ArimaFittingMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :log_likelihood, 1, type: :double, json_name: "logLikelihood"
   field :aic, 2, type: :double
   field :variance, 3, type: :double
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation.Explanation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :feature_name, 1, type: :string, json_name: "featureName"
   field :attribution, 2, type: Google.Protobuf.DoubleValue
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :explanations, 1,
     repeated: true,
@@ -513,16 +547,18 @@ defmodule Google.Cloud.Bigquery.V2.Model.GlobalExplanation do
 
   field :class_label, 2, type: :string, json_name: "classLabel"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions.LabelClassWeightsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_iterations, 1, type: :int64, json_name: "maxIterations"
 
@@ -642,17 +678,19 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   field :adjust_step_changes, 53, type: Google.Protobuf.BoolValue, json_name: "adjustStepChanges"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :centroid_id, 1, type: :int64, json_name: "centroidId"
   field :cluster_radius, 2, type: Google.Protobuf.DoubleValue, json_name: "clusterRadius"
   field :cluster_size, 3, type: Google.Protobuf.Int64Value, json_name: "clusterSize"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult.ArimaCoefficients do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :auto_regressive_coefficients, 1,
     repeated: true,
@@ -666,9 +704,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
 
   field :intercept_coefficient, 3, type: :double, json_name: "interceptCoefficient"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult.ArimaModelInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :non_seasonal_order, 1,
     type: Google.Cloud.Bigquery.V2.Model.ArimaOrder,
@@ -697,9 +736,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
   field :has_spikes_and_dips, 8, type: Google.Protobuf.BoolValue, json_name: "hasSpikesAndDips"
   field :has_step_changes, 9, type: Google.Protobuf.BoolValue, json_name: "hasStepChanges"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :arima_model_info, 1,
     repeated: true,
@@ -712,9 +752,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult
     json_name: "seasonalPeriods",
     enum: true
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :index, 1, type: Google.Protobuf.Int32Value
   field :duration_ms, 4, type: Google.Protobuf.Int64Value, json_name: "durationMs"
@@ -731,9 +772,10 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult do
     type: Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ArimaResult,
     json_name: "arimaResult"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :training_options, 1,
     type: Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions,
@@ -758,16 +800,18 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun do
     type: Google.Cloud.Bigquery.V2.Model.GlobalExplanation,
     json_name: "globalExplanations"
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Bigquery.V2.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :etag, 1, type: :string, deprecated: false
 
@@ -814,52 +858,58 @@ defmodule Google.Cloud.Bigquery.V2.Model do
 
   field :best_trial_id, 19, type: :int64, json_name: "bestTrialId", deprecated: true
 end
+
 defmodule Google.Cloud.Bigquery.V2.GetModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.V2.PatchModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
   field :model, 4, type: Google.Cloud.Bigquery.V2.Model, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.V2.DeleteModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :model_id, 3, type: :string, json_name: "modelId", deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.V2.ListModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :max_results, 3, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Bigquery.V2.ListModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Bigquery.V2.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Bigquery.V2.ModelService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.ModelService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetModel, Google.Cloud.Bigquery.V2.GetModelRequest, Google.Cloud.Bigquery.V2.Model
 

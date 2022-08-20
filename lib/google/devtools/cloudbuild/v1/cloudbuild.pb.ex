@@ -1,6 +1,6 @@
 defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATUS_UNKNOWN, 0
   field :PENDING, 10
@@ -13,18 +13,20 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   field :CANCELLED, 7
   field :EXPIRED, 9
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.Warning.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :INFO, 1
   field :WARNING, 2
   field :ALERT, 3
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FAILURE_TYPE_UNSPECIFIED, 0
   field :PUSH_FAILED, 1
@@ -34,17 +36,19 @@ defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType do
   field :USER_BUILD_STEP, 5
   field :FETCH_SOURCE_FAILED, 6
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :NONE, 0
   field :SHA256, 1
   field :MD5, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -52,17 +56,19 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
   field :REJECTED, 3
   field :CANCELLED, 5
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DECISION_UNSPECIFIED, 0
   field :APPROVED, 1
   field :REJECTED, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OK, 1
@@ -70,32 +76,36 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
   field :TOPIC_DELETED, 3
   field :SUBSCRIPTION_MISCONFIGURED, 4
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OK, 1
   field :SECRET_DELETED, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter.CommentControl do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMMENTS_DISABLED, 0
   field :COMMENTS_ENABLED, 1
   field :COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.VerifyOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :NOT_VERIFIED, 0
   field :VERIFIED, 1
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :N1_HIGHCPU_8, 1
@@ -103,24 +113,27 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
   field :E2_HIGHCPU_8, 5
   field :E2_HIGHCPU_32, 6
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MUST_MATCH, 0
   field :ALLOW_LOOSE, 1
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STREAM_DEFAULT, 0
   field :STREAM_ON, 1
   field :STREAM_OFF, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LOGGING_UNSPECIFIED, 0
   field :LEGACY, 1
@@ -129,9 +142,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
   field :CLOUD_LOGGING_ONLY, 5
   field :NONE, 4
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -139,49 +153,55 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   field :DELETING, 3
   field :DELETED, 4
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EGRESS_OPTION_UNSPECIFIED, 0
   field :NO_PUBLIC_EGRESS, 1
   field :PUBLIC_EGRESS, 2
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.RetryBuildRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :id, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.RunBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
   field :source, 3, type: Google.Devtools.Cloudbuild.V1.RepoSource
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -198,17 +218,19 @@ defmodule Google.Devtools.Cloudbuild.V1.RepoSource do
     type: Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry,
     map: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.StorageSourceManifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Source do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -227,9 +249,10 @@ defmodule Google.Devtools.Cloudbuild.V1.Source do
     json_name: "storageSourceManifest",
     oneof: 0
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :digest, 3, type: :string
@@ -239,9 +262,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
     json_name: "pushTiming",
     deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :env, 2, repeated: true, type: :string
@@ -268,16 +292,18 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
 
   field :script, 19, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Volume do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :path, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Results do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :images, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuiltImage
   field :build_step_images, 3, repeated: true, type: :string, json_name: "buildStepImages"
@@ -289,9 +315,10 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
     type: Google.Devtools.Cloudbuild.V1.TimeSpan,
     json_name: "artifactTiming"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: :string
 
@@ -300,37 +327,42 @@ defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
     type: Google.Devtools.Cloudbuild.V1.FileHashes,
     json_name: "fileHash"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.Warning do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :priority, 2, type: Google.Devtools.Cloudbuild.V1.Build.Warning.Priority, enum: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.FailureInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo.FailureType, enum: true
   field :detail, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.TimingEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.TimeSpan
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 45, type: :string, deprecated: false
   field :id, 1, type: :string, deprecated: false
@@ -404,44 +436,50 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     json_name: "failureInfo",
     deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :paths, 2, repeated: true, type: :string
   field :timing, 3, type: Google.Devtools.Cloudbuild.V1.TimeSpan, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :images, 1, repeated: true, type: :string
   field :objects, 2, type: Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :build, 1, type: Google.Devtools.Cloudbuild.V1.Build
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance.FileHashesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resolved_storage_source, 3,
     type: Google.Devtools.Cloudbuild.V1.StorageSource,
@@ -462,25 +500,28 @@ defmodule Google.Devtools.Cloudbuild.V1.SourceProvenance do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.FileHashes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_hash, 1,
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.Hash,
     json_name: "fileHash"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Hash do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Cloudbuild.V1.Hash.HashType, enum: true
   field :value, 2, type: :bytes
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Secrets do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :secret_manager, 1,
     repeated: true,
@@ -489,16 +530,18 @@ defmodule Google.Devtools.Cloudbuild.V1.Secrets do
 
   field :inline, 2, repeated: true, type: Google.Devtools.Cloudbuild.V1.InlineSecret
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret.EnvMapEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 
@@ -508,23 +551,26 @@ defmodule Google.Devtools.Cloudbuild.V1.InlineSecret do
     json_name: "envMap",
     map: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.SecretManagerSecret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version_name, 1, type: :string, json_name: "versionName", deprecated: false
   field :env, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Secret.SecretEnvEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bytes
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.Secret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 
@@ -534,25 +580,28 @@ defmodule Google.Devtools.Cloudbuild.V1.Secret do
     json_name: "secretEnv",
     map: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :build, 2, type: Google.Devtools.Cloudbuild.V1.Build, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :id, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 9, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
@@ -560,24 +609,27 @@ defmodule Google.Devtools.Cloudbuild.V1.ListBuildsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 8, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :builds, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.Build
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CancelBuildRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :id, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -585,9 +637,10 @@ defmodule Google.Devtools.Cloudbuild.V1.ApproveBuildRequest do
     type: Google.Devtools.Cloudbuild.V1.ApprovalResult,
     json_name: "approvalResult"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Devtools.Cloudbuild.V1.BuildApproval.State,
@@ -597,15 +650,17 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildApproval do
   field :config, 2, type: Google.Devtools.Cloudbuild.V1.ApprovalConfig, deprecated: false
   field :result, 3, type: Google.Devtools.Cloudbuild.V1.ApprovalResult, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :approval_required, 1, type: :bool, json_name: "approvalRequired"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :approver_account, 2, type: :string, json_name: "approverAccount", deprecated: false
 
@@ -622,16 +677,18 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
   field :comment, 5, type: :string, deprecated: false
   field :url, 6, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :build_template, 0
 
@@ -676,9 +733,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :filter, 30, type: :string, deprecated: false
   field :service_account, 33, type: :string, json_name: "serviceAccount", deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -693,9 +751,10 @@ defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do
 
   field :push, 5, type: Google.Devtools.Cloudbuild.V1.PushFilter, oneof: 0
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
@@ -707,18 +766,20 @@ defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig do
 
   field :state, 4, type: Google.Devtools.Cloudbuild.V1.PubsubConfig.State, enum: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.WebhookConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :auth_method, 0
 
   field :secret, 3, type: :string, oneof: 0, deprecated: false
   field :state, 4, type: Google.Devtools.Cloudbuild.V1.WebhookConfig.State, enum: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :git_ref, 0
 
@@ -731,9 +792,10 @@ defmodule Google.Devtools.Cloudbuild.V1.PullRequestFilter do
 
   field :invert_regex, 6, type: :bool, json_name: "invertRegex"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :git_ref, 0
 
@@ -741,63 +803,71 @@ defmodule Google.Devtools.Cloudbuild.V1.PushFilter do
   field :tag, 3, type: :string, oneof: 0
   field :invert_regex, 4, type: :bool, json_name: "invertRegex"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CreateBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger, 2, type: Google.Devtools.Cloudbuild.V1.BuildTrigger, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.GetBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListBuildTriggersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :triggers, 1, repeated: true, type: Google.Devtools.Cloudbuild.V1.BuildTrigger
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.DeleteBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
   field :trigger, 3, type: Google.Devtools.Cloudbuild.V1.BuildTrigger, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source_provenance_hash, 1,
     repeated: true,
@@ -836,9 +906,10 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   field :secret_env, 13, repeated: true, type: :string, json_name: "secretEnv"
   field :volumes, 14, repeated: true, type: Google.Devtools.Cloudbuild.V1.Volume
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 5, type: :string
   field :body, 1, type: Google.Api.HttpBody
@@ -846,20 +917,23 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
   field :trigger, 3, type: :string
   field :secret, 4, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -899,16 +973,18 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool do
 
   field :etag, 11, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType"
   field :disk_size_gb, 2, type: :int64, json_name: "diskSizeGb"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :peered_network, 1, type: :string, json_name: "peeredNetwork", deprecated: false
 
@@ -917,9 +993,10 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
     json_name: "egressOption",
     enum: true
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_config, 1,
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig,
@@ -929,9 +1006,10 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig,
     json_name: "networkConfig"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -943,24 +1021,27 @@ defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
   field :worker_pool_id, 3, type: :string, json_name: "workerPoolId", deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.GetWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pool, 1,
     type: Google.Devtools.Cloudbuild.V1.WorkerPool,
@@ -970,17 +1051,19 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pools, 1,
     repeated: true,
@@ -989,35 +1072,39 @@ defmodule Google.Devtools.Cloudbuild.V1.ListWorkerPoolsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.UpdateWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :complete_time, 3, type: Google.Protobuf.Timestamp, json_name: "completeTime"
 end
+
 defmodule Google.Devtools.Cloudbuild.V1.CloudBuild.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.devtools.cloudbuild.v1.CloudBuild",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateBuild, Google.Devtools.Cloudbuild.V1.CreateBuildRequest, Google.Longrunning.Operation
 

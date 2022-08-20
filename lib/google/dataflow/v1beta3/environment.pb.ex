@@ -1,64 +1,71 @@
 defmodule Google.Dataflow.V1beta3.JobType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :JOB_TYPE_UNKNOWN, 0
   field :JOB_TYPE_BATCH, 1
   field :JOB_TYPE_STREAMING, 2
 end
+
 defmodule Google.Dataflow.V1beta3.FlexResourceSchedulingGoal do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FLEXRS_UNSPECIFIED, 0
   field :FLEXRS_SPEED_OPTIMIZED, 1
   field :FLEXRS_COST_OPTIMIZED, 2
 end
+
 defmodule Google.Dataflow.V1beta3.TeardownPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TEARDOWN_POLICY_UNKNOWN, 0
   field :TEARDOWN_ALWAYS, 1
   field :TEARDOWN_ON_SUCCESS, 2
   field :TEARDOWN_NEVER, 3
 end
+
 defmodule Google.Dataflow.V1beta3.DefaultPackageSet do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DEFAULT_PACKAGE_SET_UNKNOWN, 0
   field :DEFAULT_PACKAGE_SET_NONE, 1
   field :DEFAULT_PACKAGE_SET_JAVA, 2
   field :DEFAULT_PACKAGE_SET_PYTHON, 3
 end
+
 defmodule Google.Dataflow.V1beta3.AutoscalingAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUTOSCALING_ALGORITHM_UNKNOWN, 0
   field :AUTOSCALING_ALGORITHM_NONE, 1
   field :AUTOSCALING_ALGORITHM_BASIC, 2
 end
+
 defmodule Google.Dataflow.V1beta3.WorkerIPAddressConfiguration do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :WORKER_IP_UNSPECIFIED, 0
   field :WORKER_IP_PUBLIC, 1
   field :WORKER_IP_PRIVATE, 2
 end
+
 defmodule Google.Dataflow.V1beta3.ShuffleMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SHUFFLE_MODE_UNSPECIFIED, 0
   field :VM_BASED, 1
   field :SERVICE_BASED, 2
 end
+
 defmodule Google.Dataflow.V1beta3.Environment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :temp_storage_prefix, 1, type: :string, json_name: "tempStoragePrefix"
   field :cluster_manager_api_service, 2, type: :string, json_name: "clusterManagerApiService"
@@ -94,24 +101,27 @@ defmodule Google.Dataflow.V1beta3.Environment do
 
   field :debug_options, 17, type: Google.Dataflow.V1beta3.DebugOptions, json_name: "debugOptions"
 end
+
 defmodule Google.Dataflow.V1beta3.Package do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :location, 2, type: :string
 end
+
 defmodule Google.Dataflow.V1beta3.Disk do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :disk_type, 2, type: :string, json_name: "diskType"
   field :mount_point, 3, type: :string, json_name: "mountPoint"
 end
+
 defmodule Google.Dataflow.V1beta3.WorkerSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :base_url, 1, type: :string, json_name: "baseUrl"
   field :reporting_enabled, 2, type: :bool, json_name: "reportingEnabled"
@@ -120,9 +130,10 @@ defmodule Google.Dataflow.V1beta3.WorkerSettings do
   field :worker_id, 5, type: :string, json_name: "workerId"
   field :temp_storage_prefix, 6, type: :string, json_name: "tempStoragePrefix"
 end
+
 defmodule Google.Dataflow.V1beta3.TaskRunnerSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_user, 1, type: :string, json_name: "taskUser"
   field :task_group, 2, type: :string, json_name: "taskGroup"
@@ -148,32 +159,36 @@ defmodule Google.Dataflow.V1beta3.TaskRunnerSettings do
   field :language_hint, 18, type: :string, json_name: "languageHint"
   field :streaming_worker_main_class, 19, type: :string, json_name: "streamingWorkerMainClass"
 end
+
 defmodule Google.Dataflow.V1beta3.AutoscalingSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :algorithm, 1, type: Google.Dataflow.V1beta3.AutoscalingAlgorithm, enum: true
   field :max_num_workers, 2, type: :int32, json_name: "maxNumWorkers"
 end
+
 defmodule Google.Dataflow.V1beta3.SdkHarnessContainerImage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :container_image, 1, type: :string, json_name: "containerImage"
   field :use_single_core_per_container, 2, type: :bool, json_name: "useSingleCorePerContainer"
   field :environment_id, 3, type: :string, json_name: "environmentId"
   field :capabilities, 4, repeated: true, type: :string
 end
+
 defmodule Google.Dataflow.V1beta3.WorkerPool.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Dataflow.V1beta3.WorkerPool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :num_workers, 2, type: :int32, json_name: "numWorkers"
@@ -236,9 +251,10 @@ defmodule Google.Dataflow.V1beta3.WorkerPool do
     type: Google.Dataflow.V1beta3.SdkHarnessContainerImage,
     json_name: "sdkHarnessContainerImages"
 end
+
 defmodule Google.Dataflow.V1beta3.DebugOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_hot_key_logging, 1, type: :bool, json_name: "enableHotKeyLogging"
 end

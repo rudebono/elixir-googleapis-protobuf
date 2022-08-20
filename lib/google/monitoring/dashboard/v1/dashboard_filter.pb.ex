@@ -1,6 +1,6 @@
 defmodule Google.Monitoring.Dashboard.V1.DashboardFilter.FilterType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FILTER_TYPE_UNSPECIFIED, 0
   field :RESOURCE_LABEL, 1
@@ -9,9 +9,10 @@ defmodule Google.Monitoring.Dashboard.V1.DashboardFilter.FilterType do
   field :SYSTEM_METADATA_LABEL, 4
   field :GROUP, 5
 end
+
 defmodule Google.Monitoring.Dashboard.V1.DashboardFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :default_value, 0
 

@@ -1,63 +1,70 @@
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference.AssetValidationState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ASSET_VALIDATION_STATE_UNSPECIFIED, 0
   field :PENDING, 1
   field :VALID, 2
   field :INVALID, 3
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Catalog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchProductsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.SearchVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Cloud.Privatecatalog.V1beta1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -73,9 +80,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Catalog do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType", deprecated: false
@@ -103,9 +111,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Product do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -150,15 +159,17 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.AssetReference do
 
   field :version, 14, type: :string, deprecated: true
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.Inputs do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parameters, 1, type: Google.Protobuf.Struct, deprecated: false
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath", deprecated: false
   field :generation, 2, type: :int64, deprecated: false
@@ -168,9 +179,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GcsSource do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :ref, 0
 
@@ -180,9 +192,10 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.GitSource do
   field :branch, 4, type: :string, oneof: 0
   field :tag, 5, type: :string, oneof: 0
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -198,11 +211,12 @@ defmodule Google.Cloud.Privatecatalog.V1beta1.Version do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Privatecatalog.V1beta1.PrivateCatalog.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.privatecatalog.v1beta1.PrivateCatalog",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :SearchCatalogs,
       Google.Cloud.Privatecatalog.V1beta1.SearchCatalogsRequest,

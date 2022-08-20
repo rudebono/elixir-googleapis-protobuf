@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Dataplex.V1.CreateLakeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :lake_id, 2, type: :string, json_name: "lakeId", deprecated: false
   field :lake, 3, type: Google.Cloud.Dataplex.V1.Lake, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.UpdateLakeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -19,15 +20,17 @@ defmodule Google.Cloud.Dataplex.V1.UpdateLakeRequest do
   field :lake, 2, type: Google.Cloud.Dataplex.V1.Lake, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.DeleteLakeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListLakesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -35,9 +38,10 @@ defmodule Google.Cloud.Dataplex.V1.ListLakesRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListLakesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :lakes, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Lake
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -47,39 +51,44 @@ defmodule Google.Cloud.Dataplex.V1.ListLakesResponse do
     type: :string,
     json_name: "unreachableLocations"
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListLakeActionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListActionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetLakeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.CreateZoneRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :zone_id, 2, type: :string, json_name: "zoneId", deprecated: false
   field :zone, 3, type: Google.Cloud.Dataplex.V1.Zone, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.UpdateZoneRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -89,15 +98,17 @@ defmodule Google.Cloud.Dataplex.V1.UpdateZoneRequest do
   field :zone, 2, type: Google.Cloud.Dataplex.V1.Zone, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.DeleteZoneRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListZonesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -105,39 +116,44 @@ defmodule Google.Cloud.Dataplex.V1.ListZonesRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListZonesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :zones, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Zone
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListZoneActionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetZoneRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.CreateAssetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :asset_id, 2, type: :string, json_name: "assetId", deprecated: false
   field :asset, 3, type: Google.Cloud.Dataplex.V1.Asset, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.UpdateAssetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -147,15 +163,17 @@ defmodule Google.Cloud.Dataplex.V1.UpdateAssetRequest do
   field :asset, 2, type: Google.Cloud.Dataplex.V1.Asset, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.DeleteAssetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListAssetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -163,30 +181,34 @@ defmodule Google.Cloud.Dataplex.V1.ListAssetsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListAssetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :assets, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Asset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListAssetActionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetAssetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -205,18 +227,20 @@ defmodule Google.Cloud.Dataplex.V1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.CreateTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
   field :task, 3, type: Google.Cloud.Dataplex.V1.Task, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.UpdateTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -226,15 +250,17 @@ defmodule Google.Cloud.Dataplex.V1.UpdateTaskRequest do
   field :task, 2, type: Google.Cloud.Dataplex.V1.Task, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.DeleteTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListTasksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -242,9 +268,10 @@ defmodule Google.Cloud.Dataplex.V1.ListTasksRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListTasksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -254,51 +281,58 @@ defmodule Google.Cloud.Dataplex.V1.ListTasksResponse do
     type: :string,
     json_name: "unreachableLocations"
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.CancelJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.CreateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :environment_id, 2, type: :string, json_name: "environmentId", deprecated: false
   field :environment, 3, type: Google.Cloud.Dataplex.V1.Environment, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.UpdateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -308,15 +342,17 @@ defmodule Google.Cloud.Dataplex.V1.UpdateEnvironmentRequest do
   field :environment, 2, type: Google.Cloud.Dataplex.V1.Environment, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.DeleteEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListEnvironmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -324,40 +360,45 @@ defmodule Google.Cloud.Dataplex.V1.ListEnvironmentsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListEnvironmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListSessionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 4, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dataplex.V1.ListSessionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sessions, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Session
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dataplex.V1.DataplexService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.DataplexService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateLake, Google.Cloud.Dataplex.V1.CreateLakeRequest, Google.Longrunning.Operation
 

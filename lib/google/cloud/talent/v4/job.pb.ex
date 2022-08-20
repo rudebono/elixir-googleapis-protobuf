@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Talent.V4.Job.ApplicationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :emails, 1, repeated: true, type: :string
   field :instruction, 2, type: :string
   field :uris, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Talent.V4.Job.DerivedInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :locations, 1, repeated: true, type: Google.Cloud.Talent.V4.Location
 
@@ -18,9 +19,10 @@ defmodule Google.Cloud.Talent.V4.Job.DerivedInfo do
     json_name: "jobCategories",
     enum: true
 end
+
 defmodule Google.Cloud.Talent.V4.Job.ProcessingOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :disable_street_address_resolution, 1,
     type: :bool,
@@ -31,16 +33,18 @@ defmodule Google.Cloud.Talent.V4.Job.ProcessingOptions do
     json_name: "htmlSanitization",
     enum: true
 end
+
 defmodule Google.Cloud.Talent.V4.Job.CustomAttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Talent.V4.CustomAttribute
 end
+
 defmodule Google.Cloud.Talent.V4.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :company, 2, type: :string, deprecated: false

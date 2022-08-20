@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.GenericOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failures, 1,
     repeated: true,
@@ -18,9 +18,10 @@ defmodule Google.Cloud.Aiplatform.V1.GenericOperationMetadata do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.DeleteOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,

@@ -1,14 +1,15 @@
 defmodule Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CONTINUOUS_ANALYSIS_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :INACTIVE, 2
 end
+
 defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ANALYSIS_STATUS_UNSPECIFIED, 0
   field :PENDING, 1
@@ -17,15 +18,17 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   field :FINISHED_FAILED, 4
   field :FINISHED_UNSUPPORTED, 5
 end
+
 defmodule Grafeas.V1.DiscoveryNote do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :analysis_kind, 1, type: Grafeas.V1.NoteKind, json_name: "analysisKind", enum: true
 end
+
 defmodule Grafeas.V1.DiscoveryOccurrence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :continuous_analysis, 1,
     type: Grafeas.V1.DiscoveryOccurrence.ContinuousAnalysis,

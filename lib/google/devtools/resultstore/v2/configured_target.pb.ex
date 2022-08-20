@@ -1,14 +1,15 @@
 defmodule Google.Devtools.Resultstore.V2.ConfiguredTarget.Id do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
   field :configuration_id, 3, type: :string, json_name: "configurationId"
 end
+
 defmodule Google.Devtools.Resultstore.V2.ConfiguredTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.ConfiguredTarget.Id
@@ -26,9 +27,10 @@ defmodule Google.Devtools.Resultstore.V2.ConfiguredTarget do
   field :properties, 7, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 8, repeated: true, type: Google.Devtools.Resultstore.V2.File
 end
+
 defmodule Google.Devtools.Resultstore.V2.ConfiguredTestAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :total_run_count, 2, type: :int32, json_name: "totalRunCount"
   field :total_shard_count, 3, type: :int32, json_name: "totalShardCount"

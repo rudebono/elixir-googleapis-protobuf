@@ -2,7 +2,7 @@ defmodule Google.Cloud.Iap.V1beta1.IdentityAwareProxyAdminV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.iap.v1beta1.IdentityAwareProxyAdminV1Beta1",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 

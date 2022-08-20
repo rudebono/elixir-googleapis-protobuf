@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Audit.AuditLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service_name, 7, type: :string, json_name: "serviceName"
   field :method_name, 8, type: :string, json_name: "methodName"
@@ -35,9 +35,10 @@ defmodule Google.Cloud.Audit.AuditLog do
   field :metadata, 18, type: Google.Protobuf.Struct
   field :service_data, 15, type: Google.Protobuf.Any, json_name: "serviceData", deprecated: true
 end
+
 defmodule Google.Cloud.Audit.AuthenticationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :authority_selector, 2, type: :string, json_name: "authoritySelector"
@@ -51,9 +52,10 @@ defmodule Google.Cloud.Audit.AuthenticationInfo do
 
   field :principal_subject, 8, type: :string, json_name: "principalSubject"
 end
+
 defmodule Google.Cloud.Audit.AuthorizationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :permission, 2, type: :string
@@ -63,9 +65,10 @@ defmodule Google.Cloud.Audit.AuthorizationInfo do
     type: Google.Rpc.Context.AttributeContext.Resource,
     json_name: "resourceAttributes"
 end
+
 defmodule Google.Cloud.Audit.RequestMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :caller_ip, 1, type: :string, json_name: "callerIp"
   field :caller_supplied_user_agent, 2, type: :string, json_name: "callerSuppliedUserAgent"
@@ -79,29 +82,33 @@ defmodule Google.Cloud.Audit.RequestMetadata do
     type: Google.Rpc.Context.AttributeContext.Peer,
     json_name: "destinationAttributes"
 end
+
 defmodule Google.Cloud.Audit.ResourceLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :current_locations, 1, repeated: true, type: :string, json_name: "currentLocations"
   field :original_locations, 2, repeated: true, type: :string, json_name: "originalLocations"
 end
+
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.FirstPartyPrincipal do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :service_metadata, 2, type: Google.Protobuf.Struct, json_name: "serviceMetadata"
 end
+
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :third_party_claims, 1, type: Google.Protobuf.Struct, json_name: "thirdPartyClaims"
 end
+
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :Authority, 0
 

@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Enums.ExternalConversionSourceEnum.ExternalConversionSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -33,7 +33,8 @@ defmodule Google.Ads.Googleads.V11.Enums.ExternalConversionSourceEnum.ExternalCo
   field :FIREBASE_SEARCH_ADS_360, 33
   field :DISPLAY_AND_VIDEO_360_FLOODLIGHT, 34
 end
+
 defmodule Google.Ads.Googleads.V11.Enums.ExternalConversionSourceEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

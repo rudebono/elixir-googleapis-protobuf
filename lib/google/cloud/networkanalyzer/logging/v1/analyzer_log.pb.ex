@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.ReportCauseCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REPORT_CAUSE_CODE_UNSPECIFIED, 0
   field :ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED, 1
@@ -35,9 +35,10 @@ defmodule Google.Cloud.Networkanalyzer.Logging.V1.ReportCauseCode do
   field :LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_BALANCING_MODE_BREAKS_SESSION_AFFINITY, 1021
   field :LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_HEALTH_CHECK_PORT_MISMATCH, 1024
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -45,27 +46,30 @@ defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.Priority do
   field :MEDIUM, 3
   field :LOW, 4
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REPORT_TYPE_UNSPECIFIED, 0
   field :INFO, 1
   field :WARNING, 2
   field :ERROR, 3
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REPORT_STATUS_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :FIXED, 2
   field :DISMISSED, 3
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportGroup do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :VPC_NETWORK, 1
@@ -74,27 +78,30 @@ defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportGroup do
   field :HYBRID_CONNECTIVITY, 4
   field :MANAGED_SERVICES, 5
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo.SubnetIpUtilization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :subnet_uri, 1, type: :string, json_name: "subnetUri"
   field :secondary_range_name, 2, type: :string, json_name: "secondaryRangeName"
   field :total_usable_addresses, 3, type: :uint64, json_name: "totalUsableAddresses"
   field :allocation_ratio, 4, type: :double, json_name: "allocationRatio"
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :subnet_ip_utilization, 1,
     repeated: true,
     type: Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo.SubnetIpUtilization,
     json_name: "subnetIpUtilization"
 end
+
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :content, 0
 

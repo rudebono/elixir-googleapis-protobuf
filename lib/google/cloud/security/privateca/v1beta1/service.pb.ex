@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :certificate_id, 2, type: :string, json_name: "certificateId", deprecated: false
@@ -11,15 +11,17 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -27,9 +29,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificates, 1,
     repeated: true,
@@ -38,9 +41,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificatesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.RevokeCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -51,9 +55,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.RevokeCertificateRequest do
 
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificate, 1,
     type: Google.Cloud.Security.Privateca.V1beta1.Certificate,
@@ -66,9 +71,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRequest do
 
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ActivateCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :pem_ca_certificate, 2, type: :string, json_name: "pemCaCertificate", deprecated: false
@@ -80,9 +86,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ActivateCertificateAuthorityRe
 
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -98,41 +105,47 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.CreateCertificateAuthorityRequ
 
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.DisableCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.EnableCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.FetchCertificateAuthorityCsrResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :pem_csr, 1, type: :string, json_name: "pemCsr", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -140,9 +153,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesRequ
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificate_authorities, 1,
     repeated: true,
@@ -152,23 +166,26 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateAuthoritiesResp
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.RestoreCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ScheduleDeleteCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateAuthorityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificate_authority, 1,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateAuthority,
@@ -182,15 +199,17 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateAuthorityRequ
 
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetCertificateRevocationListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -198,9 +217,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationLists
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationListsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificate_revocation_lists, 1,
     repeated: true,
@@ -210,9 +230,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListCertificateRevocationLists
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRevocationListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :certificate_revocation_list, 1,
     type: Google.Cloud.Security.Privateca.V1beta1.CertificateRevocationList,
@@ -226,15 +247,17 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.UpdateCertificateRevocationLis
 
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.GetReusableConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -242,9 +265,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reusable_configs, 1,
     repeated: true,
@@ -254,9 +278,10 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.ListReusableConfigsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -275,11 +300,12 @@ defmodule Google.Cloud.Security.Privateca.V1beta1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Security.Privateca.V1beta1.CertificateAuthorityService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.security.privateca.v1beta1.CertificateAuthorityService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateCertificate,
       Google.Cloud.Security.Privateca.V1beta1.CreateCertificateRequest,

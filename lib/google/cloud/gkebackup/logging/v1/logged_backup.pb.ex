@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -9,16 +9,18 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.State do
   field :FAILED, 4
   field :DELETING, 5
 end
+
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,

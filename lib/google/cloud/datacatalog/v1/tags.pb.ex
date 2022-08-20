@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :DOUBLE, 1
@@ -9,16 +9,18 @@ defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   field :TIMESTAMP, 4
   field :RICHTEXT, 5
 end
+
 defmodule Google.Cloud.Datacatalog.V1.Tag.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.TagField
 end
+
 defmodule Google.Cloud.Datacatalog.V1.Tag do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :scope, 0
 
@@ -38,15 +40,17 @@ defmodule Google.Cloud.Datacatalog.V1.Tag do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Datacatalog.V1.TagField.EnumValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Datacatalog.V1.TagField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -68,16 +72,18 @@ defmodule Google.Cloud.Datacatalog.V1.TagField do
   field :richtext_value, 8, type: :string, json_name: "richtextValue", oneof: 0
   field :order, 7, type: :int32, deprecated: false
 end
+
 defmodule Google.Cloud.Datacatalog.V1.TagTemplate.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.TagTemplateField
 end
+
 defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -89,9 +95,10 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Datacatalog.V1.TagTemplateField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
   field :display_name, 1, type: :string, json_name: "displayName"
@@ -100,24 +107,27 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplateField do
   field :description, 4, type: :string
   field :order, 5, type: :int32
 end
+
 defmodule Google.Cloud.Datacatalog.V1.FieldType.EnumType.EnumValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 end
+
 defmodule Google.Cloud.Datacatalog.V1.FieldType.EnumType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :allowed_values, 1,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.FieldType.EnumType.EnumValue,
     json_name: "allowedValues"
 end
+
 defmodule Google.Cloud.Datacatalog.V1.FieldType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type_decl, 0
 

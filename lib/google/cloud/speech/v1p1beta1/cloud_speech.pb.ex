@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig.AudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -13,9 +13,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig.AudioEncoding do
   field :MP3, 8
   field :WEBM_OPUS, 9
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INTERACTION_TYPE_UNSPECIFIED, 0
   field :DISCUSSION, 1
@@ -27,26 +28,29 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType do
   field :VOICE_COMMAND, 7
   field :DICTATION, 8
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.MicrophoneDistance do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MICROPHONE_DISTANCE_UNSPECIFIED, 0
   field :NEARFIELD, 1
   field :MIDFIELD, 2
   field :FARFIELD, 3
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.OriginalMediaType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ORIGINAL_MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
   field :VIDEO, 2
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.RecordingDeviceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RECORDING_DEVICE_TYPE_UNSPECIFIED, 0
   field :SMARTPHONE, 1
@@ -56,23 +60,26 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.RecordingDeviceType 
   field :OTHER_OUTDOOR_DEVICE, 5
   field :OTHER_INDOOR_DEVICE, 6
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SPEECH_EVENT_UNSPECIFIED, 0
   field :END_OF_SINGLE_UTTERANCE, 1
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognizeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig, deprecated: false
   field :audio, 2, type: Google.Cloud.Speech.V1p1beta1.RecognitionAudio, deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig, deprecated: false
   field :audio, 2, type: Google.Cloud.Speech.V1p1beta1.RecognitionAudio, deprecated: false
@@ -82,17 +89,19 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeRequest do
     json_name: "outputConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptOutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output_type, 0
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri", oneof: 0
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :streaming_request, 0
 
@@ -103,17 +112,19 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
 
   field :audio_content, 2, type: :bytes, json_name: "audioContent", oneof: 0
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig, deprecated: false
   field :single_utterance, 2, type: :bool, json_name: "singleUtterance"
   field :interim_results, 3, type: :bool, json_name: "interimResults"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :encoding, 1,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig.AudioEncoding,
@@ -176,18 +187,20 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
   field :model, 13, type: :string
   field :use_enhanced, 14, type: :bool, json_name: "useEnhanced"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.SpeakerDiarizationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_speaker_diarization, 1, type: :bool, json_name: "enableSpeakerDiarization"
   field :min_speaker_count, 2, type: :int32, json_name: "minSpeakerCount"
   field :max_speaker_count, 3, type: :int32, json_name: "maxSpeakerCount"
   field :speaker_tag, 5, type: :int32, json_name: "speakerTag", deprecated: true
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :interaction_type, 1,
     type: Google.Cloud.Speech.V1p1beta1.RecognitionMetadata.InteractionType,
@@ -216,32 +229,36 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognitionMetadata do
   field :obfuscated_id, 9, type: :int64, json_name: "obfuscatedId", deprecated: true
   field :audio_topic, 10, type: :string, json_name: "audioTopic"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :phrases, 1, repeated: true, type: :string
   field :boost, 4, type: :float
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionAudio do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :audio_source, 0
 
   field :content, 1, type: :bytes, oneof: 0
   field :uri, 2, type: :string, oneof: 0
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.RecognizeResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
   field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
   field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
@@ -252,9 +269,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
 
   field :output_error, 7, type: Google.Rpc.Status, json_name: "outputError"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :progress_percent, 1, type: :int32, json_name: "progressPercent"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -266,9 +284,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeMetadata do
     json_name: "outputConfig",
     deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :error, 1, type: Google.Rpc.Status
 
@@ -283,9 +302,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
 
   field :total_billed_time, 5, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :alternatives, 1,
     repeated: true,
@@ -297,9 +317,10 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
   field :channel_tag, 5, type: :int32, json_name: "channelTag"
   field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :alternatives, 1,
     repeated: true,
@@ -309,17 +330,19 @@ defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult do
   field :result_end_time, 4, type: Google.Protobuf.Duration, json_name: "resultEndTime"
   field :language_code, 5, type: :string, json_name: "languageCode", deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechRecognitionAlternative do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :transcript, 1, type: :string
   field :confidence, 2, type: :float
   field :words, 3, repeated: true, type: Google.Cloud.Speech.V1p1beta1.WordInfo
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.WordInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Duration, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
@@ -327,11 +350,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.WordInfo do
   field :confidence, 4, type: :float
   field :speaker_tag, 5, type: :int32, json_name: "speakerTag", deprecated: false
 end
+
 defmodule Google.Cloud.Speech.V1p1beta1.Speech.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.speech.v1p1beta1.Speech",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :Recognize,
       Google.Cloud.Speech.V1p1beta1.RecognizeRequest,

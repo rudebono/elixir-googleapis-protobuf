@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Resources.LeadFormSubmissionData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -22,9 +22,10 @@ defmodule Google.Ads.Googleads.V11.Resources.LeadFormSubmissionData do
     json_name: "submissionDateTime",
     deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V11.Resources.LeadFormSubmissionField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :field_type, 1,
     type:

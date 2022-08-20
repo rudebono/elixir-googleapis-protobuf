@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Gkehub.V1.MembershipState.Code do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -9,16 +9,18 @@ defmodule Google.Cloud.Gkehub.V1.MembershipState.Code do
   field :UPDATING, 4
   field :SERVICE_UPDATING, 5
 end
+
 defmodule Google.Cloud.Gkehub.V1.Membership.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Gkehub.V1.Membership do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -59,9 +61,10 @@ defmodule Google.Cloud.Gkehub.V1.Membership do
   field :unique_id, 11, type: :string, json_name: "uniqueId", deprecated: false
   field :authority, 12, type: Google.Cloud.Gkehub.V1.Authority, deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gke_cluster, 1,
     type: Google.Cloud.Gkehub.V1.GkeCluster,
@@ -78,9 +81,10 @@ defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
     json_name: "kubernetesResource",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.KubernetesResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :membership_cr_manifest, 1,
     type: :string,
@@ -104,30 +108,34 @@ defmodule Google.Cloud.Gkehub.V1.KubernetesResource do
     json_name: "resourceOptions",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.ResourceOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :connect_version, 1, type: :string, json_name: "connectVersion", deprecated: false
   field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd", deprecated: false
   field :k8s_version, 3, type: :string, json_name: "k8sVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.ResourceManifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :manifest, 1, type: :string
   field :cluster_scoped, 2, type: :bool, json_name: "clusterScoped"
 end
+
 defmodule Google.Cloud.Gkehub.V1.GkeCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.KubernetesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kubernetes_api_server_version, 1,
     type: :string,
@@ -144,15 +152,17 @@ defmodule Google.Cloud.Gkehub.V1.KubernetesMetadata do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.MembershipState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Gkehub.V1.MembershipState.Code, enum: true, deprecated: false
 end
+
 defmodule Google.Cloud.Gkehub.V1.Authority do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issuer, 1, type: :string, deprecated: false
 

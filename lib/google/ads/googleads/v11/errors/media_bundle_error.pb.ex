@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Errors.MediaBundleErrorEnum.MediaBundleError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -27,7 +27,8 @@ defmodule Google.Ads.Googleads.V11.Errors.MediaBundleErrorEnum.MediaBundleError 
   field :URL_IN_MEDIA_BUNDLE_NOT_SSL_COMPLIANT, 23
   field :CUSTOM_EXIT_NOT_ALLOWED, 24
 end
+
 defmodule Google.Ads.Googleads.V11.Errors.MediaBundleErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

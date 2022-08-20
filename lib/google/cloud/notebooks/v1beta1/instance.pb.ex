@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -14,9 +14,10 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -29,47 +30,53 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   field :INITIALIZING, 8
   field :REGISTERING, 9
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
   field :PD_SSD, 2
   field :PD_BALANCED, 3
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
   field :CMEK, 2
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType, enum: true
   field :core_count, 2, type: :int64, json_name: "coreCount"
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :environment, 0
 

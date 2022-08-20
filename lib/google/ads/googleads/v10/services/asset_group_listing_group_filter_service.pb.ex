@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFiltersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -16,9 +16,10 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFiltersR
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V10.Services.AssetGroupListingGroupFilterOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -34,17 +35,19 @@ defmodule Google.Ads.Googleads.V10.Services.AssetGroupListingGroupFilterOperatio
 
   field :remove, 3, type: :string, oneof: 0, deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFiltersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
     type: Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFilterResult
 end
+
 defmodule Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFilterResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -52,11 +55,12 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFilterRe
     type: Google.Ads.Googleads.V10.Resources.AssetGroupListingGroupFilter,
     json_name: "assetGroupListingGroupFilter"
 end
+
 defmodule Google.Ads.Googleads.V10.Services.AssetGroupListingGroupFilterService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v10.services.AssetGroupListingGroupFilterService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :MutateAssetGroupListingGroupFilters,
       Google.Ads.Googleads.V10.Services.MutateAssetGroupListingGroupFiltersRequest,

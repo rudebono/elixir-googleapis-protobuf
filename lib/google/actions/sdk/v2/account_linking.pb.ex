@@ -1,23 +1,25 @@
 defmodule Google.Actions.Sdk.V2.AccountLinking.LinkingType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LINKING_TYPE_UNSPECIFIED, 0
   field :GOOGLE_SIGN_IN, 1
   field :OAUTH_AND_GOOGLE_SIGN_IN, 2
   field :OAUTH, 3
 end
+
 defmodule Google.Actions.Sdk.V2.AccountLinking.AuthGrantType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUTH_GRANT_TYPE_UNSPECIFIED, 0
   field :AUTH_CODE, 1
   field :IMPLICIT, 2
 end
+
 defmodule Google.Actions.Sdk.V2.AccountLinking do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_account_creation, 1,
     type: :bool,

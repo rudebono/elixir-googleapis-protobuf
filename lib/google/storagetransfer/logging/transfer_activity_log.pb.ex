@@ -1,6 +1,6 @@
 defmodule Google.Storagetransfer.Logging.StorageSystemType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STORAGE_SYSTEM_TYPE_UNSPECIFIED, 0
   field :AWS_S3, 1
@@ -9,18 +9,20 @@ defmodule Google.Storagetransfer.Logging.StorageSystemType do
   field :POSIX_FS, 4
   field :HTTP, 5
 end
+
 defmodule Google.Storagetransfer.Logging.TransferActivityLog.Action do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :FIND, 1
   field :COPY, 2
   field :DELETE, 3
 end
+
 defmodule Google.Storagetransfer.Logging.AwsS3ObjectMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object_key, 2, type: :string, json_name: "objectKey", deprecated: false
@@ -28,16 +30,18 @@ defmodule Google.Storagetransfer.Logging.AwsS3ObjectMetadata do
   field :md5, 4, type: :string
   field :size, 5, type: :int64, deprecated: false
 end
+
 defmodule Google.Storagetransfer.Logging.AwsS3BucketMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :path, 2, type: :string
 end
+
 defmodule Google.Storagetransfer.Logging.GcsObjectMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object_key, 2, type: :string, json_name: "objectKey", deprecated: false
@@ -46,16 +50,18 @@ defmodule Google.Storagetransfer.Logging.GcsObjectMetadata do
   field :crc32c, 5, type: :string
   field :size, 6, type: :int64, deprecated: false
 end
+
 defmodule Google.Storagetransfer.Logging.GcsBucketMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :path, 2, type: :string
 end
+
 defmodule Google.Storagetransfer.Logging.AzureBlobMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :account, 1, type: :string, deprecated: false
   field :container, 2, type: :string, deprecated: false
@@ -64,40 +70,45 @@ defmodule Google.Storagetransfer.Logging.AzureBlobMetadata do
   field :md5, 5, type: :string
   field :size, 6, type: :int64, deprecated: false
 end
+
 defmodule Google.Storagetransfer.Logging.AzureBlobContainerMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :account, 1, type: :string, deprecated: false
   field :container, 2, type: :string, deprecated: false
   field :path, 3, type: :string
 end
+
 defmodule Google.Storagetransfer.Logging.PosixFileMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
   field :last_modified_time, 2, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
   field :crc32c, 3, type: :string
   field :size, 4, type: :int64, deprecated: false
 end
+
 defmodule Google.Storagetransfer.Logging.HttpFileMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
   field :md5, 2, type: :string
   field :size, 3, type: :int64
 end
+
 defmodule Google.Storagetransfer.Logging.HttpManifestMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Storagetransfer.Logging.ObjectMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -131,9 +142,10 @@ defmodule Google.Storagetransfer.Logging.ObjectMetadata do
     json_name: "httpFile",
     oneof: 0
 end
+
 defmodule Google.Storagetransfer.Logging.ContainerMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -167,17 +179,19 @@ defmodule Google.Storagetransfer.Logging.ContainerMetadata do
     json_name: "httpManifest",
     oneof: 0
 end
+
 defmodule Google.Storagetransfer.Logging.TransferActivityLog.Status do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status_code, 1, type: :string, json_name: "statusCode", deprecated: false
   field :error_type, 2, type: :string, json_name: "errorType"
   field :error_message, 3, type: :string, json_name: "errorMessage"
 end
+
 defmodule Google.Storagetransfer.Logging.TransferActivityLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :operation, 1, type: :string, deprecated: false
 

@@ -1,14 +1,16 @@
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :timestamp_bound, 0
 
@@ -24,9 +26,10 @@ defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   field :exact_staleness, 5, type: Google.Protobuf.Duration, json_name: "exactStaleness", oneof: 0
   field :return_read_timestamp, 6, type: :bool, json_name: "returnReadTimestamp"
 end
+
 defmodule Google.Spanner.V1.TransactionOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -45,16 +48,18 @@ defmodule Google.Spanner.V1.TransactionOptions do
     json_name: "readOnly",
     oneof: 0
 end
+
 defmodule Google.Spanner.V1.Transaction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :bytes
   field :read_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "readTimestamp"
 end
+
 defmodule Google.Spanner.V1.TransactionSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :selector, 0
 

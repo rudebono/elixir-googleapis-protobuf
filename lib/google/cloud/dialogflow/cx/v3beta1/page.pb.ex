@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -27,9 +27,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
     json_name: "eventHandlers"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :initial_prompt_fulfillment, 3,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
@@ -41,9 +42,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
     json_name: "repromptEventHandlers"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :required, 2, type: :bool
@@ -58,15 +60,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
   field :default_value, 9, type: Google.Protobuf.Value, json_name: "defaultValue"
   field :redact, 11, type: :bool
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parameters, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -80,9 +84,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
   field :target_page, 2, type: :string, json_name: "targetPage", oneof: 0, deprecated: false
   field :target_flow, 3, type: :string, json_name: "targetFlow", oneof: 0, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -97,57 +102,64 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   field :target_page, 4, type: :string, json_name: "targetPage", oneof: 0, deprecated: false
   field :target_flow, 5, type: :string, json_name: "targetFlow", oneof: 0, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :pages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :page, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Pages.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Pages",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListPages,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest,

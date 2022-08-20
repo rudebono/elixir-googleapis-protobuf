@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Eventarc.V1.Provider do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -11,9 +11,10 @@ defmodule Google.Cloud.Eventarc.V1.Provider do
     json_name: "eventTypes",
     deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.EventType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -26,9 +27,10 @@ defmodule Google.Cloud.Eventarc.V1.EventType do
 
   field :event_schema_uri, 4, type: :string, json_name: "eventSchemaUri", deprecated: false
 end
+
 defmodule Google.Cloud.Eventarc.V1.FilteringAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :attribute, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false

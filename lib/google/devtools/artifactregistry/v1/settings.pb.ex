@@ -1,15 +1,16 @@
 defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REDIRECTION_STATE_UNSPECIFIED, 0
   field :REDIRECTION_FROM_GCR_IO_DISABLED, 1
   field :REDIRECTION_FROM_GCR_IO_ENABLED, 2
   field :REDIRECTION_FROM_GCR_IO_FINALIZED, 3
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -18,15 +19,17 @@ defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
     json_name: "legacyRedirectionState",
     enum: true
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.GetProjectSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.UpdateProjectSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_settings, 2,
     type: Google.Devtools.Artifactregistry.V1.ProjectSettings,

@@ -1,29 +1,32 @@
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :BATCH_OPERATION_TYPE_UNSPECIFIED, 0
   field :BATCH, 1
 end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PENDING, 1
   field :RUNNING, 2
   field :DONE, 3
 end
+
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :batch, 1, type: :string
   field :batch_uuid, 2, type: :string, json_name: "batchUuid"
@@ -44,9 +47,10 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
 
   field :warnings, 9, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Dataproc.V1.ClusterOperationStatus.State,
@@ -61,16 +65,18 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus do
     json_name: "stateStartTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cluster_name, 7, type: :string, json_name: "clusterName", deprecated: false
   field :cluster_uuid, 8, type: :string, json_name: "clusterUuid", deprecated: false

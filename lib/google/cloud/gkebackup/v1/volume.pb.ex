@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.VolumeBackupFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VOLUME_BACKUP_FORMAT_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
 end
+
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -17,16 +18,18 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
   field :FAILED, 5
   field :DELETING, 6
 end
+
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.VolumeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VOLUME_TYPE_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
 end
+
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -35,9 +38,10 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.State do
   field :FAILED, 4
   field :DELETING, 5
 end
+
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -83,9 +87,10 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
   field :state_message, 12, type: :string, json_name: "stateMessage", deprecated: false
   field :etag, 13, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

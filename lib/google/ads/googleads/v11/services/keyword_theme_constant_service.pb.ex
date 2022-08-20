@@ -1,25 +1,27 @@
 defmodule Google.Ads.Googleads.V11.Services.SuggestKeywordThemeConstantsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query_text, 1, type: :string, json_name: "queryText"
   field :country_code, 2, type: :string, json_name: "countryCode"
   field :language_code, 3, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.SuggestKeywordThemeConstantsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :keyword_theme_constants, 1,
     repeated: true,
     type: Google.Ads.Googleads.V11.Resources.KeywordThemeConstant,
     json_name: "keywordThemeConstants"
 end
+
 defmodule Google.Ads.Googleads.V11.Services.KeywordThemeConstantService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v11.services.KeywordThemeConstantService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :SuggestKeywordThemeConstants,
       Google.Ads.Googleads.V11.Services.SuggestKeywordThemeConstantsRequest,

@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V9.Common.DynamicLocationSetFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: :string
 
@@ -8,9 +8,10 @@ defmodule Google.Ads.Googleads.V9.Common.DynamicLocationSetFilter do
     type: Google.Ads.Googleads.V9.Common.BusinessNameFilter,
     json_name: "businessNameFilter"
 end
+
 defmodule Google.Ads.Googleads.V9.Common.BusinessNameFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :business_name, 1, type: :string, json_name: "businessName"
 
@@ -20,9 +21,10 @@ defmodule Google.Ads.Googleads.V9.Common.BusinessNameFilter do
     json_name: "filterType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V9.Common.DynamicAffiliateLocationSetFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :chain_ids, 1, repeated: true, type: :int64, json_name: "chainIds"
 end

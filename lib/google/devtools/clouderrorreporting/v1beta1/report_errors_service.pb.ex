@@ -1,6 +1,6 @@
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_name, 1, type: :string, json_name: "projectName", deprecated: false
 
@@ -8,13 +8,15 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest do
     type: Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent,
     deprecated: false
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime", deprecated: false
 
@@ -29,11 +31,12 @@ defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportedErrorEvent do
     type: Google.Devtools.Clouderrorreporting.V1beta1.ErrorContext,
     deprecated: false
 end
+
 defmodule Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorsService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.devtools.clouderrorreporting.v1beta1.ReportErrorsService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ReportErrorEvent,
       Google.Devtools.Clouderrorreporting.V1beta1.ReportErrorEventRequest,

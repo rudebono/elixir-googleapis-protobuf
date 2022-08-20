@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateCustomJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -9,15 +9,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateCustomJobRequest do
     json_name: "customJob",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetCustomJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListCustomJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -25,9 +27,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListCustomJobsRequest do
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListCustomJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :custom_jobs, 1,
     repeated: true,
@@ -36,21 +39,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListCustomJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteCustomJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelCustomJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -59,15 +65,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateDataLabelingJobRequest do
     json_name: "dataLabelingJob",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -76,9 +84,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsRequest do
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :order_by, 6, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_labeling_jobs, 1,
     repeated: true,
@@ -87,21 +96,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDataLabelingJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelDataLabelingJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -110,15 +122,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateHyperparameterTuningJobRequest d
     json_name: "hyperparameterTuningJob",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -126,9 +140,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsRequest do
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :hyperparameter_tuning_jobs, 1,
     repeated: true,
@@ -137,21 +152,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListHyperparameterTuningJobsResponse d
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelHyperparameterTuningJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -160,15 +178,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateBatchPredictionJobRequest do
     json_name: "batchPredictionJob",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -176,9 +196,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsRequest do
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :batch_prediction_jobs, 1,
     repeated: true,
@@ -187,21 +208,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListBatchPredictionJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelBatchPredictionJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -210,9 +234,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateModelDeploymentMonitoringJobRequ
     json_name: "modelDeploymentMonitoringJob",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest.StatsAnomaliesObjective do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringObjectiveType,
@@ -220,9 +245,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAn
 
   field :top_feature_count, 4, type: :int32, json_name: "topFeatureCount"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAnomaliesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model_deployment_monitoring_job, 1,
     type: :string,
@@ -243,9 +269,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAn
   field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAnomaliesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :monitoring_stats, 1,
     repeated: true,
@@ -254,15 +281,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelDeploymentMonitoringStatsAn
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -270,9 +299,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsReque
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model_deployment_monitoring_jobs, 1,
     repeated: true,
@@ -281,9 +311,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListModelDeploymentMonitoringJobsRespo
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model_deployment_monitoring_job, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob,
@@ -295,37 +326,42 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelDeploymentMonitoringJobRequ
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PauseModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ResumeModelDeploymentMonitoringJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelDeploymentMonitoringJobOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.JobService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.JobService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateCustomJob,
       Google.Cloud.Aiplatform.V1beta1.CreateCustomJobRequest,

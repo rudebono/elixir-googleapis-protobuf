@@ -1,6 +1,6 @@
 defmodule Google.Firestore.Admin.V1beta2.OperationState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPERATION_STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -11,17 +11,19 @@ defmodule Google.Firestore.Admin.V1beta2.OperationState do
   field :FAILED, 6
   field :CANCELLED, 7
 end
+
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :ADD, 1
   field :REMOVE, 2
 end
+
 defmodule Google.Firestore.Admin.V1beta2.IndexOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -36,9 +38,10 @@ defmodule Google.Firestore.Admin.V1beta2.IndexOperationMetadata do
     type: Google.Firestore.Admin.V1beta2.Progress,
     json_name: "progressBytes"
 end
+
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :change_type, 1,
     type: Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta.ChangeType,
@@ -47,9 +50,10 @@ defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata.IndexConfigDelta
 
   field :index, 2, type: Google.Firestore.Admin.V1beta2.Index
 end
+
 defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -70,9 +74,10 @@ defmodule Google.Firestore.Admin.V1beta2.FieldOperationMetadata do
     type: Google.Firestore.Admin.V1beta2.Progress,
     json_name: "bytesProgress"
 end
+
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -93,9 +98,10 @@ defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsMetadata do
   field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
   field :output_uri_prefix, 7, type: :string, json_name: "outputUriPrefix"
 end
+
 defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -116,15 +122,17 @@ defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsMetadata do
   field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
   field :input_uri_prefix, 7, type: :string, json_name: "inputUriPrefix"
 end
+
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
 end
+
 defmodule Google.Firestore.Admin.V1beta2.Progress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :estimated_work, 1, type: :int64, json_name: "estimatedWork"
   field :completed_work, 2, type: :int64, json_name: "completedWork"

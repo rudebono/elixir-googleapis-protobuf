@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Accessapproval.V1.EnrollmentLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ENROLLMENT_LEVEL_UNSPECIFIED, 0
   field :BLOCK_ALL, 1
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessReason.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CUSTOMER_INITIATED_SUPPORT, 1
@@ -16,9 +17,10 @@ defmodule Google.Cloud.Accessapproval.V1.AccessReason.Type do
   field :THIRD_PARTY_DATA_REQUEST, 4
   field :GOOGLE_RESPONSE_TO_PRODUCTION_ALERT, 5
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessLocations do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :principal_office_country, 1, type: :string, json_name: "principalOfficeCountry"
 
@@ -26,16 +28,18 @@ defmodule Google.Cloud.Accessapproval.V1.AccessLocations do
     type: :string,
     json_name: "principalPhysicalLocationCountry"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessReason do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Accessapproval.V1.AccessReason.Type, enum: true
   field :detail, 2, type: :string
 end
+
 defmodule Google.Cloud.Accessapproval.V1.SignatureInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :verification_info, 0
 
@@ -43,9 +47,10 @@ defmodule Google.Cloud.Accessapproval.V1.SignatureInfo do
   field :google_public_key_pem, 2, type: :string, json_name: "googlePublicKeyPem", oneof: 0
   field :customer_kms_key_version, 3, type: :string, json_name: "customerKmsKeyVersion", oneof: 0
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ApproveDecision do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :approve_time, 1, type: Google.Protobuf.Timestamp, json_name: "approveTime"
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
@@ -57,22 +62,25 @@ defmodule Google.Cloud.Accessapproval.V1.ApproveDecision do
 
   field :auto_approved, 5, type: :bool, json_name: "autoApproved"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.DismissDecision do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dismiss_time, 1, type: Google.Protobuf.Timestamp, json_name: "dismissTime"
   field :implicit, 2, type: :bool
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ResourceProperties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :excludes_descendants, 1, type: :bool, json_name: "excludesDescendants"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ApprovalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :decision, 0
 
@@ -100,9 +108,10 @@ defmodule Google.Cloud.Accessapproval.V1.ApprovalRequest do
   field :approve, 7, type: Google.Cloud.Accessapproval.V1.ApproveDecision, oneof: 0
   field :dismiss, 8, type: Google.Cloud.Accessapproval.V1.DismissDecision, oneof: 0
 end
+
 defmodule Google.Cloud.Accessapproval.V1.EnrolledService do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cloud_product, 1, type: :string, json_name: "cloudProduct"
 
@@ -111,9 +120,10 @@ defmodule Google.Cloud.Accessapproval.V1.EnrolledService do
     json_name: "enrollmentLevel",
     enum: true
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :notification_emails, 2, repeated: true, type: :string, json_name: "notificationEmails"
@@ -133,25 +143,28 @@ defmodule Google.Cloud.Accessapproval.V1.AccessApprovalSettings do
 
   field :invalid_key_version, 8, type: :bool, json_name: "invalidKeyVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessApprovalServiceAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account_email, 2, type: :string, json_name: "accountEmail"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :approval_requests, 1,
     repeated: true,
@@ -160,61 +173,70 @@ defmodule Google.Cloud.Accessapproval.V1.ListApprovalRequestsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.GetApprovalRequestMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.ApproveApprovalRequestMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.DismissApprovalRequestMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.InvalidateApprovalRequestMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalSettingsMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.UpdateAccessApprovalSettingsMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :settings, 1, type: Google.Cloud.Accessapproval.V1.AccessApprovalSettings
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
+
 defmodule Google.Cloud.Accessapproval.V1.DeleteAccessApprovalSettingsMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Accessapproval.V1.GetAccessApprovalServiceAccountMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
+
 defmodule Google.Cloud.Accessapproval.V1.AccessApproval.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.accessapproval.v1.AccessApproval",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListApprovalRequests,
       Google.Cloud.Accessapproval.V1.ListApprovalRequestsMessage,

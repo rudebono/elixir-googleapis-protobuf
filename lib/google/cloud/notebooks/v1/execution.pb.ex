@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SCALE_TIER_UNSPECIFIED, 0
   field :BASIC, 1
@@ -10,9 +10,10 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier do
   field :BASIC_TPU, 5
   field :CUSTOM, 6
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -24,17 +25,19 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType d
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :JOB_TYPE_UNSPECIFIED, 0
   field :VERTEX_AI, 1
   field :DATAPROC, 2
 end
+
 defmodule Google.Cloud.Notebooks.V1.Execution.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -47,9 +50,10 @@ defmodule Google.Cloud.Notebooks.V1.Execution.State do
   field :EXPIRED, 9
   field :INITIALIZING, 10
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType,
@@ -57,22 +61,25 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig
 
   field :core_count, 2, type: :int64, json_name: "coreCount"
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.EnvEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :network, 1, type: :string
 
@@ -81,16 +88,18 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters do
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.EnvEntry,
     map: true
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :job_parameters, 0
 
@@ -136,9 +145,10 @@ defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   field :kernel_spec, 14, type: :string, json_name: "kernelSpec"
   field :tensorboard, 15, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Notebooks.V1.Execution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :execution_template, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate,

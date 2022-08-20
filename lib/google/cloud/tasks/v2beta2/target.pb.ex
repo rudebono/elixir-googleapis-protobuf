@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Tasks.V2beta2.HttpMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :HTTP_METHOD_UNSPECIFIED, 0
   field :POST, 1
@@ -9,35 +9,40 @@ defmodule Google.Cloud.Tasks.V2beta2.HttpMethod do
   field :PUT, 4
   field :DELETE, 5
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.PullTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.PullMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :app_engine_routing_override, 1,
     type: Google.Cloud.Tasks.V2beta2.AppEngineRouting,
     json_name: "appEngineRoutingOverride"
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :http_method, 1,
     type: Google.Cloud.Tasks.V2beta2.HttpMethod,
@@ -57,9 +62,10 @@ defmodule Google.Cloud.Tasks.V2beta2.AppEngineHttpRequest do
 
   field :payload, 5, type: :bytes
 end
+
 defmodule Google.Cloud.Tasks.V2beta2.AppEngineRouting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :version, 2, type: :string

@@ -1,6 +1,6 @@
 defmodule Google.Apps.Script.Type.Sheets.SheetsAddOnManifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :homepage_trigger, 3,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -10,9 +10,10 @@ defmodule Google.Apps.Script.Type.Sheets.SheetsAddOnManifest do
     type: Google.Apps.Script.Type.Sheets.SheetsExtensionPoint,
     json_name: "onFileScopeGrantedTrigger"
 end
+
 defmodule Google.Apps.Script.Type.Sheets.SheetsExtensionPoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :run_function, 1, type: :string, json_name: "runFunction", deprecated: false
 end

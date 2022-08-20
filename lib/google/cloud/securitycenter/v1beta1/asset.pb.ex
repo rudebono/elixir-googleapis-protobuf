@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Securitycenter.V1beta1.Asset.SecurityCenterProperties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :resource_type, 2, type: :string, json_name: "resourceType"
@@ -8,16 +8,18 @@ defmodule Google.Cloud.Securitycenter.V1beta1.Asset.SecurityCenterProperties do
   field :resource_project, 4, type: :string, json_name: "resourceProject"
   field :resource_owners, 5, repeated: true, type: :string, json_name: "resourceOwners"
 end
+
 defmodule Google.Cloud.Securitycenter.V1beta1.Asset.ResourcePropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
 end
+
 defmodule Google.Cloud.Securitycenter.V1beta1.Asset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 

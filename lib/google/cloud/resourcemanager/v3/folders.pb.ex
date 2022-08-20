@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Resourcemanager.V3.Folder.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :DELETE_REQUESTED, 2
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.Folder do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string, deprecated: false
@@ -36,59 +37,67 @@ defmodule Google.Cloud.Resourcemanager.V3.Folder do
 
   field :etag, 8, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.GetFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.ListFoldersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :show_deleted, 4, type: :bool, json_name: "showDeleted", deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.ListFoldersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :folders, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Folder
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.SearchFoldersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
   field :query, 3, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.SearchFoldersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :folders, 1, repeated: true, type: Google.Cloud.Resourcemanager.V3.Folder
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.CreateFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :folder, 2, type: Google.Cloud.Resourcemanager.V3.Folder, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.CreateFolderMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :parent, 2, type: :string
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.UpdateFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :folder, 1, type: Google.Cloud.Resourcemanager.V3.Folder, deprecated: false
 
@@ -97,50 +106,58 @@ defmodule Google.Cloud.Resourcemanager.V3.UpdateFolderRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.UpdateFolderMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.MoveFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_parent, 2, type: :string, json_name: "destinationParent", deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.MoveFolderMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :source_parent, 2, type: :string, json_name: "sourceParent"
   field :destination_parent, 3, type: :string, json_name: "destinationParent"
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.DeleteFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.DeleteFolderMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteFolderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.UndeleteFolderMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Resourcemanager.V3.Folders.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.resourcemanager.v3.Folders",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetFolder,
       Google.Cloud.Resourcemanager.V3.GetFolderRequest,

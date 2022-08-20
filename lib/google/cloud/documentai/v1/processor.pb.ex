@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DEPLOYED, 1
@@ -11,9 +11,10 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion.State do
   field :DELETING, 6
   field :FAILED, 7
 end
+
 defmodule Google.Cloud.Documentai.V1.Processor.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -24,9 +25,10 @@ defmodule Google.Cloud.Documentai.V1.Processor.State do
   field :FAILED, 6
   field :DELETING, 7
 end
+
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.DeprecationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :deprecation_time, 1, type: Google.Protobuf.Timestamp, json_name: "deprecationTime"
 
@@ -35,9 +37,10 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion.DeprecationInfo do
     json_name: "replacementProcessorVersion",
     deprecated: false
 end
+
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -51,9 +54,10 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
     type: Google.Cloud.Documentai.V1.ProcessorVersion.DeprecationInfo,
     json_name: "deprecationInfo"
 end
+
 defmodule Google.Cloud.Documentai.V1.Processor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string

@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -8,9 +8,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resources, 1,
     repeated: true,
@@ -19,15 +20,17 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse d
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.GetConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :test_id, 2, type: :string, json_name: "testId", deprecated: false
@@ -36,9 +39,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest d
     type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest,
     deprecated: false
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -49,21 +53,24 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest d
     type: Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest,
     deprecated: false
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeleteConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.RerunConnectivityTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -73,11 +80,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
   field :api_version, 7, type: :string, json_name: "apiVersion"
 end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.networkmanagement.v1beta1.ReachabilityService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListConnectivityTests,
       Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest,

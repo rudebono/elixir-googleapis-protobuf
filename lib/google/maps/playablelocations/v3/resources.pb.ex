@@ -1,6 +1,6 @@
 defmodule Google.Maps.Playablelocations.V3.PlayerReport.BadLocationReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :BAD_LOCATION_REASON_UNSPECIFIED, 0
   field :OTHER, 1
@@ -9,17 +9,19 @@ defmodule Google.Maps.Playablelocations.V3.PlayerReport.BadLocationReason do
   field :PERMANENTLY_CLOSED, 5
   field :TEMPORARILY_INACCESSIBLE, 6
 end
+
 defmodule Google.Maps.Playablelocations.V3.Impression.ImpressionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :IMPRESSION_TYPE_UNSPECIFIED, 0
   field :PRESENTED, 1
   field :INTERACTED, 2
 end
+
 defmodule Google.Maps.Playablelocations.V3.PlayerReport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 
@@ -32,9 +34,10 @@ defmodule Google.Maps.Playablelocations.V3.PlayerReport do
   field :reason_details, 3, type: :string, json_name: "reasonDetails", deprecated: false
   field :language_code, 4, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Maps.Playablelocations.V3.Impression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 

@@ -1,20 +1,22 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CustomJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CustomJob.WebAccessUrisEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CustomJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -57,9 +59,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJob do
     map: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :worker_pool_specs, 1,
     repeated: true,
@@ -84,9 +87,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
   field :tensorboard, 7, type: :string, deprecated: false
   field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess", deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :task, 0
 
@@ -115,18 +119,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do
 
   field :disk_spec, 5, type: Google.Cloud.Aiplatform.V1beta1.DiskSpec, json_name: "diskSpec"
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ContainerSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :command, 2, repeated: true, type: :string
   field :args, 3, repeated: true, type: :string
   field :env, 4, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.EnvVar
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PythonPackageSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :executor_image_uri, 1, type: :string, json_name: "executorImageUri", deprecated: false
 
@@ -140,9 +146,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PythonPackageSpec do
   field :args, 4, repeated: true, type: :string
   field :env, 5, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.EnvVar
 end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :timeout, 1, type: Google.Protobuf.Duration
   field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"

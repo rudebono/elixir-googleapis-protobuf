@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata.TargetColumnCorrelationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.CorrelationStats
 end
+
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :primary_table_spec_id, 1, type: :string, json_name: "primaryTableSpecId"
   field :target_column_spec_id, 2, type: :string, json_name: "targetColumnSpecId"
@@ -22,9 +23,10 @@ defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
 
   field :stats_update_time, 7, type: Google.Protobuf.Timestamp, json_name: "statsUpdateTime"
 end
+
 defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :additional_optimization_objective_config, 0
 
@@ -58,9 +60,10 @@ defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   field :train_cost_milli_node_hours, 7, type: :int64, json_name: "trainCostMilliNodeHours"
   field :disable_early_stopping, 12, type: :bool, json_name: "disableEarlyStopping"
 end
+
 defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :score, 1, type: :float
 
@@ -77,9 +80,10 @@ defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
 
   field :baseline_score, 5, type: :float, json_name: "baselineScore"
 end
+
 defmodule Google.Cloud.Automl.V1beta1.TablesModelColumnInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_spec_name, 1, type: :string, json_name: "columnSpecName"
   field :column_display_name, 2, type: :string, json_name: "columnDisplayName"

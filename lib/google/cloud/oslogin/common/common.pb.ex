@@ -1,14 +1,15 @@
 defmodule Google.Cloud.Oslogin.Common.OperatingSystemType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPERATING_SYSTEM_TYPE_UNSPECIFIED, 0
   field :LINUX, 1
   field :WINDOWS, 2
 end
+
 defmodule Google.Cloud.Oslogin.Common.PosixAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :primary, 1, type: :bool
   field :username, 2, type: :string
@@ -27,9 +28,10 @@ defmodule Google.Cloud.Oslogin.Common.PosixAccount do
 
   field :name, 11, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Oslogin.Common.SshPublicKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :expiration_time_usec, 2, type: :int64, json_name: "expirationTimeUsec"

@@ -2,7 +2,7 @@ defmodule Google.Cloud.Apigateway.V1.ApiGatewayService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.apigateway.v1.ApiGatewayService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListGateways,
       Google.Cloud.Apigateway.V1.ListGatewaysRequest,

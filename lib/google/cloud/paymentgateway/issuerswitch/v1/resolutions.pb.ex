@@ -1,21 +1,23 @@
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionSubType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TRANSACTION_SUB_TYPE_UNSPECIFIED, 0
   field :TRANSACTION_SUB_TYPE_BENEFICIARY, 1
   field :TRANSACTION_SUB_TYPE_REMITTER, 2
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment.AdjustmentFlag do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ADJUSTMENT_FLAG_UNSPECIFIED, 0
   field :RAISE, 1
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment.ReasonCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_CODE_UNSPECIFIED, 0
   field :CUSTOMER_ACCOUNT_NOT_REVERSED, 1
@@ -26,9 +28,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment.R
   field :MERCHANT_NOT_RECEIVED_CONFIRMATION, 6
   field :PAID_BY_ALTERNATE_MEANS, 7
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment.AdjustmentFlag do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ADJUSTMENT_FLAG_UNSPECIFIED, 0
   field :DEBIT_REVERSAL_CONFIRMATION, 1
@@ -36,9 +39,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment
   field :REFUND_REVERSAL_CONFIRMATION, 3
   field :TRANSACTION_CREDIT_CONFIRMATION, 4
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment.ReasonCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_CODE_UNSPECIFIED, 0
   field :COMPLAINT_RESOLVED_ONLINE, 1
@@ -55,9 +59,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment
   field :RET_MERCHANT_NOT_RECEIVED_CONFIRMATION, 12
   field :RRC_CUSTOMER_ACCOUNT_CREDITED, 13
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment.AdjustmentFlag do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ADJUSTMENT_FLAG_UNSPECIFIED, 0
   field :CHARGEBACK_RAISE, 1
@@ -69,9 +74,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment.Adj
   field :ARBITRATION_RAISE, 7
   field :DEFERRED_ARBITRATION_RAISE, 8
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment.ReasonCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_CODE_UNSPECIFIED, 0
   field :CHARGEBACK_RAISE_REMITTER_DEBITED_BENEFICIARY_NOT_CREDITED, 1
@@ -92,9 +98,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment.Rea
   field :PARTIES_DENIED, 16
   field :FUNDS_TRANSFERRED_TO_UNINTENDED_BENEFICIARY, 17
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment.AdjustmentFlag do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ADJUSTMENT_FLAG_UNSPECIFIED, 0
   field :RE_PRESENTMENT_RAISE, 1
@@ -116,9 +123,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment.A
   field :WRONG_CREDIT_CHARGEBACK_ACCEPTANCE, 17
   field :MANUAL_ADJUSTMENT, 18
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment.ReasonCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_CODE_UNSPECIFIED, 0
   field :CHARGEBACK_BENEFICIARY_CANNOT_CREDIT_OR_PRE_ARBITRATION_DUPLICATE_PROCESS, 1
@@ -161,9 +169,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment.R
   field :WRONG_CREDIT_REPRESENTMENT_CUSTOMER_INACCESSIBLE, 39
   field :WRONG_CREDIT_REPRESENTMENT_REASON_OTHERS, 40
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Complaint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -183,9 +192,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Complaint do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment,
     json_name: "resolveComplaintAdjustment"
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateComplaintRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -193,17 +203,19 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateComplaintRequest do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Complaint,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :complaint, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Complaint,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Dispute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -223,22 +235,25 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Dispute do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment,
     json_name: "resolveDisputeAdjustment"
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateDisputeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dispute, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Dispute, deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dispute, 1, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Dispute, deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.OriginalTransaction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :transaction_id, 1, type: :string, json_name: "transactionId", deprecated: false
 
@@ -249,9 +264,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.OriginalTransaction do
 
   field :request_time, 3, type: Google.Protobuf.Timestamp, json_name: "requestTime"
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :original_transaction, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.OriginalTransaction,
@@ -272,9 +288,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseDetails do
 
   field :current_cycle, 5, type: :bool, json_name: "currentCycle", deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :participant, 0
 
@@ -296,9 +313,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseResponse do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant,
     oneof: 0
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :adjustment_flag, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment.AdjustmentFlag,
@@ -312,9 +330,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment d
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :adjustment_flag, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment.AdjustmentFlag,
@@ -328,9 +347,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintAdjustment
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :adjustment_flag, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment.AdjustmentFlag,
@@ -344,9 +364,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseDisputeAdjustment do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :adjustment_flag, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment.AdjustmentFlag,
@@ -360,27 +381,32 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeAdjustment d
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateComplaintMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveComplaintMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateDisputeMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ResolveDisputeMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchResolutions.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchResolutions",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateComplaint,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.CreateComplaintRequest,

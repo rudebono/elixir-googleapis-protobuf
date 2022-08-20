@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :conversation, 1, type: :string
   field :participant, 3, type: :string

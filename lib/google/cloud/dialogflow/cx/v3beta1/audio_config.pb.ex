@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :AUDIO_ENCODING_LINEAR_16, 1
@@ -11,27 +11,30 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AudioEncoding do
   field :AUDIO_ENCODING_OGG_OPUS, 6
   field :AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE, 7
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SpeechModelVariant do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SPEECH_MODEL_VARIANT_UNSPECIFIED, 0
   field :USE_BEST_AVAILABLE, 1
   field :USE_STANDARD, 2
   field :USE_ENHANCED, 3
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SsmlVoiceGender do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :SSML_VOICE_GENDER_MALE, 1
   field :SSML_VOICE_GENDER_FEMALE, 2
   field :SSML_VOICE_GENDER_NEUTRAL, 3
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioEncoding do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OUTPUT_AUDIO_ENCODING_UNSPECIFIED, 0
   field :OUTPUT_AUDIO_ENCODING_LINEAR_16, 1
@@ -40,18 +43,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_OGG_OPUS, 3
   field :OUTPUT_AUDIO_ENCODING_MULAW, 5
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SpeechWordInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :word, 3, type: :string
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
   field :confidence, 4, type: :float
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.InputAudioConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AudioEncoding,
@@ -71,9 +76,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.InputAudioConfig do
 
   field :single_utterance, 8, type: :bool, json_name: "singleUtterance"
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.VoiceSelectionParams do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -82,9 +88,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.VoiceSelectionParams do
     json_name: "ssmlGender",
     enum: true
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SynthesizeSpeechConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :speaking_rate, 1, type: :double, json_name: "speakingRate"
   field :pitch, 2, type: :double
@@ -92,9 +99,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SynthesizeSpeechConfig do
   field :effects_profile_id, 5, repeated: true, type: :string, json_name: "effectsProfileId"
   field :voice, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.VoiceSelectionParams
 end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.OutputAudioEncoding,

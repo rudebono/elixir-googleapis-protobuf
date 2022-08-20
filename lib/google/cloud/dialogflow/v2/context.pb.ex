@@ -1,42 +1,47 @@
 defmodule Google.Cloud.Dialogflow.V2.Context do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :lifespan_count, 2, type: :int32, json_name: "lifespanCount", deprecated: false
   field :parameters, 3, type: Google.Protobuf.Struct, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListContextsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.ListContextsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Context
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Dialogflow.V2.GetContextRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.CreateContextRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :context, 2, type: Google.Cloud.Dialogflow.V2.Context, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :context, 1, type: Google.Cloud.Dialogflow.V2.Context, deprecated: false
 
@@ -45,23 +50,26 @@ defmodule Google.Cloud.Dialogflow.V2.UpdateContextRequest do
     json_name: "updateMask",
     deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeleteContextRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.DeleteAllContextsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Dialogflow.V2.Contexts.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.Contexts",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListContexts,
       Google.Cloud.Dialogflow.V2.ListContextsRequest,

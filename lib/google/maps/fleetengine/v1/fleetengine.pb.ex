@@ -1,31 +1,34 @@
 defmodule Maps.Fleetengine.V1.TripType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_TRIP_TYPE, 0
   field :SHARED, 1
   field :EXCLUSIVE, 2
 end
+
 defmodule Maps.Fleetengine.V1.WaypointType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_WAYPOINT_TYPE, 0
   field :PICKUP_WAYPOINT_TYPE, 1
   field :DROP_OFF_WAYPOINT_TYPE, 2
   field :INTERMEDIATE_DESTINATION_WAYPOINT_TYPE, 3
 end
+
 defmodule Maps.Fleetengine.V1.PolylineFormatType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_FORMAT_TYPE, 0
   field :LAT_LNG_LIST_TYPE, 1
   field :ENCODED_POLYLINE_TYPE, 2
 end
+
 defmodule Maps.Fleetengine.V1.NavigationStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_NAVIGATION_STATUS, 0
   field :NO_GUIDANCE, 1
@@ -33,9 +36,10 @@ defmodule Maps.Fleetengine.V1.NavigationStatus do
   field :OFF_ROUTE, 3
   field :ARRIVED_AT_DESTINATION, 4
 end
+
 defmodule Maps.Fleetengine.V1.LocationSensor do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_SENSOR, 0
   field :GPS, 1
@@ -44,9 +48,10 @@ defmodule Maps.Fleetengine.V1.LocationSensor do
   field :ROAD_SNAPPED_LOCATION_PROVIDER, 4
   field :FUSED_LOCATION_PROVIDER, 100
 end
+
 defmodule Maps.Fleetengine.V1.TerminalPointId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :Id, 0
 
@@ -54,9 +59,10 @@ defmodule Maps.Fleetengine.V1.TerminalPointId do
   field :generated_id, 3, type: :string, json_name: "generatedId", oneof: 0, deprecated: true
   field :value, 4, type: :string
 end
+
 defmodule Maps.Fleetengine.V1.TerminalLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :point, 1, type: Google.Type.LatLng, deprecated: false
 
@@ -73,9 +79,10 @@ defmodule Maps.Fleetengine.V1.TerminalLocation do
     enum: true,
     deprecated: true
 end
+
 defmodule Maps.Fleetengine.V1.TripWaypoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: Maps.Fleetengine.V1.TerminalLocation
   field :trip_id, 2, type: :string, json_name: "tripId"
@@ -100,16 +107,18 @@ defmodule Maps.Fleetengine.V1.TripWaypoint do
   field :eta, 7, type: Google.Protobuf.Timestamp
   field :duration, 8, type: Google.Protobuf.Duration
 end
+
 defmodule Maps.Fleetengine.V1.VehicleAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Maps.Fleetengine.V1.VehicleLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng
 

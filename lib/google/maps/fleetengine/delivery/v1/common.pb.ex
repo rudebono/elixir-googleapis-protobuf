@@ -1,6 +1,6 @@
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocationSensor do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_SENSOR, 0
   field :GPS, 1
@@ -9,9 +9,10 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocationSensor do
   field :ROAD_SNAPPED_LOCATION_PROVIDER, 4
   field :FUSED_LOCATION_PROVIDER, 100
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN_NAVIGATION_STATUS, 0
   field :NO_GUIDANCE, 1
@@ -19,16 +20,18 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus do
   field :OFF_ROUTE, 3
   field :ARRIVED_AT_DESTINATION, 4
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng
 

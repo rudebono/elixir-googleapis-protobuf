@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -13,17 +13,19 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   field :STRING_ARRAY, 12
   field :BYTES, 13
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OBJECTIVE_UNSPECIFIED, 0
   field :IMPORT_FEATURE_ANALYSIS, 1
   field :SNAPSHOT_ANALYSIS, 2
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :objective, 1,
     type: Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective,
@@ -35,16 +37,18 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly do
     json_name: "featureStatsAnomaly",
     deprecated: false
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Feature.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Feature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string

@@ -1,22 +1,24 @@
 defmodule Grafeas.V1.AliasContext.Kind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :FIXED, 1
   field :MOVABLE, 2
   field :OTHER, 4
 end
+
 defmodule Grafeas.V1.BuildProvenance.BuildOptionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Grafeas.V1.BuildProvenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -43,16 +45,18 @@ defmodule Grafeas.V1.BuildProvenance do
 
   field :builder_version, 13, type: :string, json_name: "builderVersion"
 end
+
 defmodule Grafeas.V1.Source.FileHashesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1.FileHashes
 end
+
 defmodule Grafeas.V1.Source do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :artifact_storage_source_uri, 1, type: :string, json_name: "artifactStorageSourceUri"
 
@@ -69,22 +73,25 @@ defmodule Grafeas.V1.Source do
     type: Grafeas.V1.SourceContext,
     json_name: "additionalContexts"
 end
+
 defmodule Grafeas.V1.FileHashes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :file_hash, 1, repeated: true, type: Grafeas.V1.Hash, json_name: "fileHash"
 end
+
 defmodule Grafeas.V1.Hash do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :value, 2, type: :bytes
 end
+
 defmodule Grafeas.V1.Command do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :env, 2, repeated: true, type: :string
@@ -93,24 +100,27 @@ defmodule Grafeas.V1.Command do
   field :id, 5, type: :string
   field :wait_for, 6, repeated: true, type: :string, json_name: "waitFor"
 end
+
 defmodule Grafeas.V1.Artifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :checksum, 1, type: :string
   field :id, 2, type: :string
   field :names, 3, repeated: true, type: :string
 end
+
 defmodule Grafeas.V1.SourceContext.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Grafeas.V1.SourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :context, 0
 
@@ -119,16 +129,18 @@ defmodule Grafeas.V1.SourceContext do
   field :git, 3, type: Grafeas.V1.GitSourceContext, oneof: 0
   field :labels, 4, repeated: true, type: Grafeas.V1.SourceContext.LabelsEntry, map: true
 end
+
 defmodule Grafeas.V1.AliasContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kind, 1, type: Grafeas.V1.AliasContext.Kind, enum: true
   field :name, 2, type: :string
 end
+
 defmodule Grafeas.V1.CloudRepoSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -136,9 +148,10 @@ defmodule Grafeas.V1.CloudRepoSourceContext do
   field :revision_id, 2, type: :string, json_name: "revisionId", oneof: 0
   field :alias_context, 3, type: Grafeas.V1.AliasContext, json_name: "aliasContext", oneof: 0
 end
+
 defmodule Grafeas.V1.GerritSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :revision, 0
 
@@ -147,25 +160,28 @@ defmodule Grafeas.V1.GerritSourceContext do
   field :revision_id, 3, type: :string, json_name: "revisionId", oneof: 0
   field :alias_context, 4, type: Grafeas.V1.AliasContext, json_name: "aliasContext", oneof: 0
 end
+
 defmodule Grafeas.V1.GitSourceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
 end
+
 defmodule Grafeas.V1.RepoId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :id, 0
 
   field :project_repo_id, 1, type: Grafeas.V1.ProjectRepoId, json_name: "projectRepoId", oneof: 0
   field :uid, 2, type: :string, oneof: 0
 end
+
 defmodule Grafeas.V1.ProjectRepoId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"

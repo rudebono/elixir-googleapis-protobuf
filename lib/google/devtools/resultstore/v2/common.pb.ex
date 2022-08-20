@@ -1,6 +1,6 @@
 defmodule Google.Devtools.Resultstore.V2.Language do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :NONE, 1
@@ -25,9 +25,10 @@ defmodule Google.Devtools.Resultstore.V2.Language do
   field :PROTO, 21
   field :XML, 22
 end
+
 defmodule Google.Devtools.Resultstore.V2.Status do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :BUILDING, 1
@@ -44,39 +45,44 @@ defmodule Google.Devtools.Resultstore.V2.Status do
   field :UNKNOWN, 12
   field :SKIPPED, 13
 end
+
 defmodule Google.Devtools.Resultstore.V2.UploadStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UPLOAD_STATUS_UNSPECIFIED, 0
   field :UPLOADING, 1
   field :POST_PROCESSING, 2
   field :IMMUTABLE, 3
 end
+
 defmodule Google.Devtools.Resultstore.V2.StatusAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, type: Google.Devtools.Resultstore.V2.Status, enum: true
   field :description, 2, type: :string
 end
+
 defmodule Google.Devtools.Resultstore.V2.Property do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Devtools.Resultstore.V2.Timing do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :duration, 2, type: Google.Protobuf.Duration
 end
+
 defmodule Google.Devtools.Resultstore.V2.Dependency do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :resource, 0
 

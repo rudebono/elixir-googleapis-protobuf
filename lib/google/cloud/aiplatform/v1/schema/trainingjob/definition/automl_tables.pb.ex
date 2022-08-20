@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTables do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs
@@ -8,61 +8,70 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTables 
   field :metadata, 2,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesMetadata
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.AutoTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :invalid_values_allowed, 2, type: :bool, json_name: "invalidValuesAllowed"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TimestampTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :time_format, 2, type: :string, json_name: "timeFormat"
   field :invalid_values_allowed, 3, type: :bool, json_name: "invalidValuesAllowed"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.NumericArrayTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :invalid_values_allowed, 2, type: :bool, json_name: "invalidValuesAllowed"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.CategoricalArrayTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation.TextArrayTransformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs.Transformation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :transformation_detail, 0
 
@@ -109,9 +118,10 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesI
     json_name: "repeatedText",
     oneof: 0
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesInputs do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :additional_optimization_objective_config, 0
 
@@ -147,9 +157,10 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesI
     type: :string,
     json_name: "additionalExperiments"
 end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlTablesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :train_cost_milli_node_hours, 1, type: :int64, json_name: "trainCostMilliNodeHours"
 end

@@ -1,6 +1,6 @@
 defmodule Google.Analytics.Admin.V1beta.IndustryCategory do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INDUSTRY_CATEGORY_UNSPECIFIED, 0
   field :AUTOMOTIVE, 1
@@ -30,35 +30,39 @@ defmodule Google.Analytics.Admin.V1beta.IndustryCategory do
   field :JOBS_AND_EDUCATION, 25
   field :SHOPPING, 26
 end
+
 defmodule Google.Analytics.Admin.V1beta.ServiceLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVICE_LEVEL_UNSPECIFIED, 0
   field :GOOGLE_ANALYTICS_STANDARD, 1
   field :GOOGLE_ANALYTICS_360, 2
 end
+
 defmodule Google.Analytics.Admin.V1beta.ActorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACTOR_TYPE_UNSPECIFIED, 0
   field :USER, 1
   field :SYSTEM, 2
   field :SUPPORT, 3
 end
+
 defmodule Google.Analytics.Admin.V1beta.ActionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :CREATED, 1
   field :UPDATED, 2
   field :DELETED, 3
 end
+
 defmodule Google.Analytics.Admin.V1beta.ChangeHistoryResourceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED, 0
   field :ACCOUNT, 1
@@ -74,35 +78,39 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryResourceType do
   field :DATA_STREAM, 18
   field :ATTRIBUTION_SETTINGS, 20
 end
+
 defmodule Google.Analytics.Admin.V1beta.PropertyType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PROPERTY_TYPE_UNSPECIFIED, 0
   field :PROPERTY_TYPE_ORDINARY, 1
   field :PROPERTY_TYPE_SUBPROPERTY, 2
   field :PROPERTY_TYPE_ROLLUP, 3
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataStream.DataStreamType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DATA_STREAM_TYPE_UNSPECIFIED, 0
   field :WEB_DATA_STREAM, 1
   field :ANDROID_APP_DATA_STREAM, 2
   field :IOS_APP_DATA_STREAM, 3
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomDimension.DimensionScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DIMENSION_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
   field :USER, 2
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomMetric.MeasurementUnit do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MEASUREMENT_UNIT_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -116,24 +124,27 @@ defmodule Google.Analytics.Admin.V1beta.CustomMetric.MeasurementUnit do
   field :MINUTES, 9
   field :HOURS, 10
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomMetric.MetricScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :METRIC_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomMetric.RestrictedMetricType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
   field :COST_DATA, 1
   field :REVENUE_DATA, 2
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataRetentionSettings.RetentionDuration do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RETENTION_DURATION_UNSPECIFIED, 0
   field :TWO_MONTHS, 1
@@ -142,9 +153,10 @@ defmodule Google.Analytics.Admin.V1beta.DataRetentionSettings.RetentionDuration 
   field :THIRTY_EIGHT_MONTHS, 5
   field :FIFTY_MONTHS, 6
 end
+
 defmodule Google.Analytics.Admin.V1beta.Account do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -162,9 +174,10 @@ defmodule Google.Analytics.Admin.V1beta.Account do
   field :region_code, 5, type: :string, json_name: "regionCode"
   field :deleted, 6, type: :bool, deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.Property do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -213,31 +226,35 @@ defmodule Google.Analytics.Admin.V1beta.Property do
 
   field :account, 13, type: :string, deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataStream.WebStreamData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :measurement_id, 1, type: :string, json_name: "measurementId", deprecated: false
   field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
   field :default_uri, 3, type: :string, json_name: "defaultUri", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataStream.AndroidAppStreamData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
   field :package_name, 2, type: :string, json_name: "packageName", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataStream.IosAppStreamData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :firebase_app_id, 1, type: :string, json_name: "firebaseAppId", deprecated: false
   field :bundle_id, 2, type: :string, json_name: "bundleId", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataStream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :stream_data, 0
 
@@ -275,9 +292,10 @@ defmodule Google.Analytics.Admin.V1beta.DataStream do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.FirebaseLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :project, 2, type: :string, deprecated: false
@@ -287,9 +305,10 @@ defmodule Google.Analytics.Admin.V1beta.FirebaseLink do
     json_name: "createTime",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.GoogleAdsLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :customer_id, 3, type: :string, json_name: "customerId", deprecated: false
@@ -314,9 +333,10 @@ defmodule Google.Analytics.Admin.V1beta.GoogleAdsLink do
     json_name: "creatorEmailAddress",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataSharingSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -338,9 +358,10 @@ defmodule Google.Analytics.Admin.V1beta.DataSharingSettings do
 
   field :sharing_with_others_enabled, 6, type: :bool, json_name: "sharingWithOthersEnabled"
 end
+
 defmodule Google.Analytics.Admin.V1beta.AccountSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :account, 2, type: :string, deprecated: false
@@ -351,9 +372,10 @@ defmodule Google.Analytics.Admin.V1beta.AccountSummary do
     type: Google.Analytics.Admin.V1beta.PropertySummary,
     json_name: "propertySummaries"
 end
+
 defmodule Google.Analytics.Admin.V1beta.PropertySummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -365,17 +387,19 @@ defmodule Google.Analytics.Admin.V1beta.PropertySummary do
 
   field :parent, 4, type: :string
 end
+
 defmodule Google.Analytics.Admin.V1beta.MeasurementProtocolSecret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :secret_value, 3, type: :string, json_name: "secretValue", deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.ChangeHistoryEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :change_time, 2, type: Google.Protobuf.Timestamp, json_name: "changeTime"
@@ -389,9 +413,10 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryEvent do
   field :changes_filtered, 5, type: :bool, json_name: "changesFiltered"
   field :changes, 6, repeated: true, type: Google.Analytics.Admin.V1beta.ChangeHistoryChange
 end
+
 defmodule Google.Analytics.Admin.V1beta.ChangeHistoryChange.ChangeHistoryResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -428,9 +453,10 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryChange.ChangeHistoryResourc
     json_name: "dataStream",
     oneof: 0
 end
+
 defmodule Google.Analytics.Admin.V1beta.ChangeHistoryChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :action, 2, type: Google.Analytics.Admin.V1beta.ActionType, enum: true
@@ -443,9 +469,10 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryChange do
     type: Google.Analytics.Admin.V1beta.ChangeHistoryChange.ChangeHistoryResource,
     json_name: "resourceAfterChange"
 end
+
 defmodule Google.Analytics.Admin.V1beta.ConversionEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :event_name, 2, type: :string, json_name: "eventName", deprecated: false
@@ -458,9 +485,10 @@ defmodule Google.Analytics.Admin.V1beta.ConversionEvent do
   field :deletable, 4, type: :bool, deprecated: false
   field :custom, 5, type: :bool, deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomDimension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
@@ -477,9 +505,10 @@ defmodule Google.Analytics.Admin.V1beta.CustomDimension do
     json_name: "disallowAdsPersonalization",
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.CustomMetric do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameter_name, 2, type: :string, json_name: "parameterName", deprecated: false
@@ -504,9 +533,10 @@ defmodule Google.Analytics.Admin.V1beta.CustomMetric do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Analytics.Admin.V1beta.DataRetentionSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

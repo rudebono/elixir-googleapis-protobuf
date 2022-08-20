@@ -2,7 +2,7 @@ defmodule Google.Maps.Mapsplatformdatasets.V1alpha.MapsPlatformDatasetsV1Alpha.S
   @moduledoc false
   use GRPC.Service,
     name: "google.maps.mapsplatformdatasets.v1alpha.MapsPlatformDatasetsV1Alpha",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateDataset,
       Google.Maps.Mapsplatformdatasets.V1alpha.CreateDatasetRequest,

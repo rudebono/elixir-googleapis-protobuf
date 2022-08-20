@@ -1,23 +1,25 @@
 defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
   field :PAUSED, 2
   field :DISABLED, 3
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.Queue.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PULL, 1
   field :PUSH, 2
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.Queue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :queue_type, 0
 
@@ -42,17 +44,19 @@ defmodule Google.Cloud.Tasks.V2beta3.Queue do
   field :type, 11, type: Google.Cloud.Tasks.V2beta3.Queue.Type, enum: true, deprecated: false
   field :stats, 12, type: Google.Cloud.Tasks.V2beta3.QueueStats, deprecated: false
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_dispatches_per_second, 1, type: :double, json_name: "maxDispatchesPerSecond"
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
   field :max_concurrent_dispatches, 3, type: :int32, json_name: "maxConcurrentDispatches"
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
@@ -60,15 +64,17 @@ defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
   field :max_backoff, 4, type: Google.Protobuf.Duration, json_name: "maxBackoff"
   field :max_doublings, 5, type: :int32, json_name: "maxDoublings"
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sampling_ratio, 1, type: :double, json_name: "samplingRatio"
 end
+
 defmodule Google.Cloud.Tasks.V2beta3.QueueStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 

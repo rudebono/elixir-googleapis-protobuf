@@ -1,14 +1,15 @@
 defmodule Google.Devtools.Artifactregistry.V1.YumArtifact.PackageType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PACKAGE_TYPE_UNSPECIFIED, 0
   field :BINARY, 1
   field :SOURCE, 2
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.YumArtifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :package_name, 2, type: :string, json_name: "packageName", deprecated: false
@@ -21,16 +22,18 @@ defmodule Google.Devtools.Artifactregistry.V1.YumArtifact do
 
   field :architecture, 4, type: :string, deprecated: false
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsGcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string
   field :use_wildcards, 2, type: :bool, json_name: "useWildcards"
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -41,9 +44,10 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsRequest do
 
   field :parent, 1, type: :string
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -54,9 +58,10 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo do
 
   field :error, 2, type: Google.Rpc.Status
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :yum_artifacts, 1,
     repeated: true,
@@ -67,7 +72,8 @@ defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsResponse do
     repeated: true,
     type: Google.Devtools.Artifactregistry.V1.ImportYumArtifactsErrorInfo
 end
+
 defmodule Google.Devtools.Artifactregistry.V1.ImportYumArtifactsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

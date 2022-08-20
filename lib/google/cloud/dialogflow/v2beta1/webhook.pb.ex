@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.WebhookRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :session, 4, type: :string
   field :response_id, 1, type: :string, json_name: "responseId"
@@ -18,9 +18,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.WebhookRequest do
     type: Google.Cloud.Dialogflow.V2beta1.OriginalDetectIntentRequest,
     json_name: "originalDetectIntentRequest"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.WebhookResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fulfillment_text, 1, type: :string, json_name: "fulfillmentText"
 
@@ -49,9 +50,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.WebhookResponse do
     type: Google.Cloud.Dialogflow.V2beta1.SessionEntityType,
     json_name: "sessionEntityTypes"
 end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.OriginalDetectIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string
   field :version, 2, type: :string

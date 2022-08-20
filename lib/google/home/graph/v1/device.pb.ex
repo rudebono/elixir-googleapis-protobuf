@@ -1,6 +1,6 @@
 defmodule Google.Home.Graph.V1.Device do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :type, 2, type: :string
@@ -22,26 +22,29 @@ defmodule Google.Home.Graph.V1.Device do
     type: :bool,
     json_name: "notificationSupportedByAgent"
 end
+
 defmodule Google.Home.Graph.V1.DeviceNames do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :nicknames, 2, repeated: true, type: :string
   field :default_names, 3, repeated: true, type: :string, json_name: "defaultNames"
 end
+
 defmodule Google.Home.Graph.V1.DeviceInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :manufacturer, 1, type: :string
   field :model, 2, type: :string
   field :hw_version, 3, type: :string, json_name: "hwVersion"
   field :sw_version, 4, type: :string, json_name: "swVersion"
 end
+
 defmodule Google.Home.Graph.V1.AgentOtherDeviceId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :agent_id, 1, type: :string, json_name: "agentId"
   field :device_id, 2, type: :string, json_name: "deviceId"

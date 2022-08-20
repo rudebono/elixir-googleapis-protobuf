@@ -1,6 +1,6 @@
 defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
@@ -48,15 +48,17 @@ defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
   field :language_code, 9, type: :string, json_name: "languageCode", deprecated: false
   field :units, 10, type: Google.Maps.Routes.V1.Units, enum: true, deprecated: false
 end
+
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
+
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cost_per_minute, 2,
     type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost,
@@ -70,24 +72,27 @@ defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
 
   field :include_tolls, 4, type: :bool, json_name: "includeTolls", deprecated: false
 end
+
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
 end
+
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset_info, 1,
     type: Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo,
     json_name: "datasetInfo",
     deprecated: false
 end
+
 defmodule Google.Maps.Routes.V1.RouteObjective do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :objective, 0
 

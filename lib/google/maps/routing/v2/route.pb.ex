@@ -1,6 +1,6 @@
 defmodule Google.Maps.Routing.V2.Route do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :legs, 1, repeated: true, type: Google.Maps.Routing.V2.RouteLeg
   field :distance_meters, 2, type: :int32, json_name: "distanceMeters"
@@ -15,9 +15,10 @@ defmodule Google.Maps.Routing.V2.Route do
     type: Google.Maps.Routing.V2.RouteTravelAdvisory,
     json_name: "travelAdvisory"
 end
+
 defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :toll_info, 2, type: Google.Maps.Routing.V2.TollInfo, json_name: "tollInfo"
 
@@ -26,9 +27,10 @@ defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
     type: Google.Maps.Routing.V2.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
 end
+
 defmodule Google.Maps.Routing.V2.RouteLegTravelAdvisory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :toll_info, 1, type: Google.Maps.Routing.V2.TollInfo, json_name: "tollInfo"
 
@@ -37,18 +39,20 @@ defmodule Google.Maps.Routing.V2.RouteLegTravelAdvisory do
     type: Google.Maps.Routing.V2.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
 end
+
 defmodule Google.Maps.Routing.V2.RouteLegStepTravelAdvisory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :speed_reading_intervals, 1,
     repeated: true,
     type: Google.Maps.Routing.V2.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
 end
+
 defmodule Google.Maps.Routing.V2.RouteLeg do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -62,9 +66,10 @@ defmodule Google.Maps.Routing.V2.RouteLeg do
     type: Google.Maps.Routing.V2.RouteLegTravelAdvisory,
     json_name: "travelAdvisory"
 end
+
 defmodule Google.Maps.Routing.V2.RouteLegStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :static_duration, 2, type: Google.Protobuf.Duration, json_name: "staticDuration"

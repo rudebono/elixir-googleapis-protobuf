@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Connectors.V1.LaunchStage do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :LAUNCH_STAGE_UNSPECIFIED, 0
   field :PREVIEW, 1
   field :GA, 2
   field :DEPRECATED, 3
 end
+
 defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate.ValueType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -19,24 +20,27 @@ defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate.ValueType do
   field :ENUM, 5
   field :AUTHORIZATION_CODE, 6
 end
+
 defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :DEPRECATED, 2
 end
+
 defmodule Google.Cloud.Connectors.V1.RoleGrant.Principal do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRINCIPAL_UNSPECIFIED, 0
   field :CONNECTOR_SA, 1
 end
+
 defmodule Google.Cloud.Connectors.V1.RoleGrant.Resource.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GCP_PROJECT, 1
@@ -44,9 +48,10 @@ defmodule Google.Cloud.Connectors.V1.RoleGrant.Resource.Type do
   field :GCP_SECRETMANAGER_SECRET, 3
   field :GCP_SECRETMANAGER_SECRET_VERSION, 4
 end
+
 defmodule Google.Cloud.Connectors.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -65,9 +70,10 @@ defmodule Google.Cloud.Connectors.V1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -93,22 +99,25 @@ defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate do
 
   field :state, 10, type: Google.Cloud.Connectors.V1.ConfigVariableTemplate.State, enum: true
 end
+
 defmodule Google.Cloud.Connectors.V1.Secret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :secret_version, 1, type: :string, json_name: "secretVersion"
 end
+
 defmodule Google.Cloud.Connectors.V1.EnumOption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Connectors.V1.ConfigVariable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -122,25 +131,28 @@ defmodule Google.Cloud.Connectors.V1.ConfigVariable do
     json_name: "secretValue",
     oneof: 0
 end
+
 defmodule Google.Cloud.Connectors.V1.RoleGrant.Resource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Connectors.V1.RoleGrant.Resource.Type, enum: true
   field :path_template, 3, type: :string, json_name: "pathTemplate"
 end
+
 defmodule Google.Cloud.Connectors.V1.RoleGrant do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :principal, 1, type: Google.Cloud.Connectors.V1.RoleGrant.Principal, enum: true
   field :roles, 2, repeated: true, type: :string
   field :resource, 3, type: Google.Cloud.Connectors.V1.RoleGrant.Resource
   field :helper_text_template, 4, type: :string, json_name: "helperTextTemplate"
 end
+
 defmodule Google.Cloud.Connectors.V1.AuthorizationCodeLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :scopes, 2, repeated: true, type: :string

@@ -1,21 +1,23 @@
 defmodule Google.Spanner.V1.Mutation.Write do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :columns, 2, repeated: true, type: :string
   field :values, 3, repeated: true, type: Google.Protobuf.ListValue
 end
+
 defmodule Google.Spanner.V1.Mutation.Delete do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :key_set, 2, type: Google.Spanner.V1.KeySet, json_name: "keySet", deprecated: false
 end
+
 defmodule Google.Spanner.V1.Mutation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 

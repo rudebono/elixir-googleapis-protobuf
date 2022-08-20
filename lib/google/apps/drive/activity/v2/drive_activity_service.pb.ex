@@ -2,7 +2,7 @@ defmodule Google.Apps.Drive.Activity.V2.DriveActivityService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.apps.drive.activity.v2.DriveActivityService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :QueryDriveActivity,
       Google.Apps.Drive.Activity.V2.QueryDriveActivityRequest,

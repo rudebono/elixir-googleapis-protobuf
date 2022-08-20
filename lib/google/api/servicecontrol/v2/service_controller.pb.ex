@@ -1,6 +1,6 @@
 defmodule Google.Api.Servicecontrol.V2.CheckRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :service_config_id, 2, type: :string, json_name: "serviceConfigId"
@@ -8,9 +8,10 @@ defmodule Google.Api.Servicecontrol.V2.CheckRequest do
   field :resources, 4, repeated: true, type: Google.Api.Servicecontrol.V2.ResourceInfo
   field :flags, 5, type: :string
 end
+
 defmodule Google.Api.Servicecontrol.V2.ResourceInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -18,16 +19,18 @@ defmodule Google.Api.Servicecontrol.V2.ResourceInfo do
   field :container, 4, type: :string
   field :location, 5, type: :string
 end
+
 defmodule Google.Api.Servicecontrol.V2.CheckResponse.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Api.Servicecontrol.V2.CheckResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 
@@ -36,23 +39,26 @@ defmodule Google.Api.Servicecontrol.V2.CheckResponse do
     type: Google.Api.Servicecontrol.V2.CheckResponse.HeadersEntry,
     map: true
 end
+
 defmodule Google.Api.Servicecontrol.V2.ReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :service_config_id, 2, type: :string, json_name: "serviceConfigId"
   field :operations, 3, repeated: true, type: Google.Rpc.Context.AttributeContext
 end
+
 defmodule Google.Api.Servicecontrol.V2.ReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Servicecontrol.V2.ServiceController.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.api.servicecontrol.v2.ServiceController",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :Check,
       Google.Api.Servicecontrol.V2.CheckRequest,

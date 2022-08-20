@@ -1,6 +1,6 @@
 defmodule Grafeas.V1beta1.NoteKind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :NOTE_KIND_UNSPECIFIED, 0
   field :VULNERABILITY, 1
@@ -11,16 +11,18 @@ defmodule Grafeas.V1beta1.NoteKind do
   field :DISCOVERY, 6
   field :ATTESTATION, 7
 end
+
 defmodule Grafeas.V1beta1.RelatedUrl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :label, 2, type: :string
 end
+
 defmodule Grafeas.V1beta1.Signature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :signature, 1, type: :bytes
   field :public_key_id, 2, type: :string, json_name: "publicKeyId"

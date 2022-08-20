@@ -1,6 +1,6 @@
 defmodule Google.Appengine.V1.OperationMetadataV1 do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :method_metadata, 0
 
@@ -17,9 +17,10 @@ defmodule Google.Appengine.V1.OperationMetadataV1 do
     json_name: "createVersionMetadata",
     oneof: 0
 end
+
 defmodule Google.Appengine.V1.CreateVersionMetadataV1 do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cloud_build_id, 1, type: :string, json_name: "cloudBuildId"
 end

@@ -1,14 +1,15 @@
 defmodule Google.Maps.Routes.V1.RouteMatrixElementCondition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ROUTE_MATRIX_ELEMENT_CONDITION_UNSPECIFIED, 0
   field :ROUTE_EXISTS, 1
   field :ROUTE_NOT_FOUND, 2
 end
+
 defmodule Google.Maps.Routes.V1.RouteMatrixElement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :origin_index, 1, type: :int32, json_name: "originIndex"
   field :destination_index, 2, type: :int32, json_name: "destinationIndex"

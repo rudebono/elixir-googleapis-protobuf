@@ -1,14 +1,15 @@
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :FUNNEL_VISUALIZATION_TYPE_UNSPECIFIED, 0
   field :STANDARD_FUNNEL, 1
   field :TRENDED_FUNNEL, 2
 end
+
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :property, 1, type: :string
 
@@ -41,9 +42,10 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest do
 
   field :return_property_quota, 12, type: :bool, json_name: "returnPropertyQuota"
 end
+
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :funnel_table, 1,
     type: Google.Analytics.Data.V1alpha.FunnelSubReport,
@@ -59,11 +61,12 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
 
   field :kind, 4, type: :string
 end
+
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.analytics.data.v1alpha.AlphaAnalyticsData",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :RunFunnelReport,
       Google.Analytics.Data.V1alpha.RunFunnelReportRequest,

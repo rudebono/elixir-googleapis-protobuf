@@ -1,15 +1,16 @@
 defmodule Google.Cloud.Notebooks.V1.ReservationAffinity.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NO_RESERVATION, 1
   field :ANY_RESERVATION, 2
   field :SPECIFIC_RESERVATION, 3
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.AcceleratorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -24,9 +25,10 @@ defmodule Google.Cloud.Notebooks.V1.Instance.AcceleratorType do
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -41,9 +43,10 @@ defmodule Google.Cloud.Notebooks.V1.Instance.State do
   field :SUSPENDING, 10
   field :SUSPENDED, 11
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.DiskType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
@@ -51,42 +54,47 @@ defmodule Google.Cloud.Notebooks.V1.Instance.DiskType do
   field :PD_BALANCED, 3
   field :PD_EXTREME, 4
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.DiskEncryption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
   field :CMEK, 2
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.NicType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED_NIC_TYPE, 0
   field :VIRTIO_NET, 1
   field :GVNIC, 2
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.UpgradeHistoryEntry.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
   field :SUCCEEDED, 2
   field :FAILED, 3
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.UpgradeHistoryEntry.Action do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :UPGRADE, 1
   field :ROLLBACK, 2
 end
+
 defmodule Google.Cloud.Notebooks.V1.ReservationAffinity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :consume_reservation_type, 1,
     type: Google.Cloud.Notebooks.V1.ReservationAffinity.Type,
@@ -97,22 +105,25 @@ defmodule Google.Cloud.Notebooks.V1.ReservationAffinity do
   field :key, 2, type: :string, deprecated: false
   field :values, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.AcceleratorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Notebooks.V1.Instance.AcceleratorType, enum: true
   field :core_count, 2, type: :int64, json_name: "coreCount"
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.Disk.GuestOsFeature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.Disk do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :auto_delete, 1, type: :bool, json_name: "autoDelete"
   field :boot, 2, type: :bool
@@ -132,17 +143,19 @@ defmodule Google.Cloud.Notebooks.V1.Instance.Disk do
   field :source, 11, type: :string
   field :type, 12, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.ShieldedInstanceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
   field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm"
   field :enable_integrity_monitoring, 3, type: :bool, json_name: "enableIntegrityMonitoring"
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.UpgradeHistoryEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :snapshot, 1, type: :string
   field :vm_image, 2, type: :string, json_name: "vmImage"
@@ -159,23 +172,26 @@ defmodule Google.Cloud.Notebooks.V1.Instance.UpgradeHistoryEntry do
 
   field :target_version, 10, type: :string, json_name: "targetVersion"
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Notebooks.V1.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :environment, 0
 

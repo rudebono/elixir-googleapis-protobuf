@@ -1,38 +1,42 @@
 defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute.AttributeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :TEXTUAL, 1
   field :NUMERICAL, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute.IndexableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INDEXABLE_OPTION_UNSPECIFIED, 0
   field :INDEXABLE_ENABLED, 1
   field :INDEXABLE_DISABLED, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute.DynamicFacetableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :DYNAMIC_FACETABLE_OPTION_UNSPECIFIED, 0
   field :DYNAMIC_FACETABLE_ENABLED, 1
   field :DYNAMIC_FACETABLE_DISABLED, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute.SearchableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :SEARCHABLE_ENABLED, 1
   field :SEARCHABLE_DISABLED, 2
 end
+
 defmodule Google.Cloud.Retail.V2alpha.ProductLevelConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ingestion_product_type, 1, type: :string, json_name: "ingestionProductType"
 
@@ -40,9 +44,10 @@ defmodule Google.Cloud.Retail.V2alpha.ProductLevelConfig do
     type: :string,
     json_name: "merchantCenterProductIdField"
 end
+
 defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :in_use, 9, type: :bool, json_name: "inUse", deprecated: false
@@ -72,16 +77,18 @@ defmodule Google.Cloud.Retail.V2alpha.CatalogAttribute do
     json_name: "recommendationsFilteringOption",
     enum: true
 end
+
 defmodule Google.Cloud.Retail.V2alpha.AttributesConfig.CatalogAttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CatalogAttribute
 end
+
 defmodule Google.Cloud.Retail.V2alpha.AttributesConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -97,9 +104,10 @@ defmodule Google.Cloud.Retail.V2alpha.AttributesConfig do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Retail.V2alpha.CompletionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :matching_order, 2, type: :string, json_name: "matchingOrder"
@@ -137,9 +145,10 @@ defmodule Google.Cloud.Retail.V2alpha.CompletionConfig do
     json_name: "lastAllowlistImportOperation",
     deprecated: false
 end
+
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :merchant_center_account_id, 1,
     type: :int64,
@@ -151,15 +160,17 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLink do
   field :region_code, 4, type: :string, json_name: "regionCode"
   field :language_code, 5, type: :string, json_name: "languageCode"
 end
+
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterLinkingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :links, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.MerchantCenterLink
 end
+
 defmodule Google.Cloud.Retail.V2alpha.Catalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

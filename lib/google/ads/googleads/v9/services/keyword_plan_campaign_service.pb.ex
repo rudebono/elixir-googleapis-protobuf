@@ -1,12 +1,13 @@
 defmodule Google.Ads.Googleads.V9.Services.GetKeywordPlanCampaignRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -18,9 +19,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsRequest do
   field :partial_failure, 3, type: :bool, json_name: "partialFailure"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -29,9 +31,10 @@ defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignOperation do
   field :update, 2, type: Google.Ads.Googleads.V9.Resources.KeywordPlanCampaign, oneof: 0
   field :remove, 3, type: :string, oneof: 0, deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -39,17 +42,19 @@ defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignsResponse do
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateKeywordPlanCampaignResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
+
 defmodule Google.Ads.Googleads.V9.Services.KeywordPlanCampaignService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v9.services.KeywordPlanCampaignService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetKeywordPlanCampaign,
       Google.Ads.Googleads.V9.Services.GetKeywordPlanCampaignRequest,

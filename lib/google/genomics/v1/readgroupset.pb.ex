@@ -1,13 +1,14 @@
 defmodule Google.Genomics.V1.ReadGroupSet.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
 end
+
 defmodule Google.Genomics.V1.ReadGroupSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"

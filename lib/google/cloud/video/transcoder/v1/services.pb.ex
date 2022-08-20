@@ -1,13 +1,14 @@
 defmodule Google.Cloud.Video.Transcoder.V1.CreateJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job, 2, type: Google.Cloud.Video.Transcoder.V1.Job, deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -15,30 +16,34 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobsRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.GetJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.CreateJobTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,9 +54,10 @@ defmodule Google.Cloud.Video.Transcoder.V1.CreateJobTemplateRequest do
 
   field :job_template_id, 3, type: :string, json_name: "jobTemplateId", deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -59,22 +65,25 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesRequest do
   field :filter, 4, type: :string
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.GetJobTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.DeleteJobTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job_templates, 1,
     repeated: true,
@@ -84,11 +93,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.ListJobTemplatesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Video.Transcoder.V1.TranscoderService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.video.transcoder.v1.TranscoderService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateJob,
       Google.Cloud.Video.Transcoder.V1.CreateJobRequest,

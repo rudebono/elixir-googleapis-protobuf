@@ -1,31 +1,34 @@
 defmodule Google.Cloud.Webrisk.V1beta1.ThreatType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :THREAT_TYPE_UNSPECIFIED, 0
   field :MALWARE, 1
   field :SOCIAL_ENGINEERING, 2
   field :UNWANTED_SOFTWARE, 3
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.CompressionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPRESSION_TYPE_UNSPECIFIED, 0
   field :RAW, 1
   field :RICE, 2
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse.ResponseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESPONSE_TYPE_UNSPECIFIED, 0
   field :DIFF, 1
   field :RESET, 2
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest.Constraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_diff_entries, 1, type: :int32, json_name: "maxDiffEntries"
   field :max_database_entries, 2, type: :int32, json_name: "maxDatabaseEntries"
@@ -36,9 +39,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest.Constraints 
     json_name: "supportedCompressions",
     enum: true
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :threat_type, 1,
     type: Google.Cloud.Webrisk.V1beta1.ThreatType,
@@ -52,15 +56,17 @@ defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest do
     type: Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest.Constraints,
     deprecated: false
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse.Checksum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sha256, 1, type: :bytes
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :response_type, 4,
     type: Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse.ResponseType,
@@ -76,9 +82,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffResponse do
     type: Google.Protobuf.Timestamp,
     json_name: "recommendedNextDiff"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchUrisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -89,9 +96,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.SearchUrisRequest do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchUrisResponse.ThreatUri do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :threat_types, 1,
     repeated: true,
@@ -101,15 +109,17 @@ defmodule Google.Cloud.Webrisk.V1beta1.SearchUrisResponse.ThreatUri do
 
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchUrisResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :threat, 1, type: Google.Cloud.Webrisk.V1beta1.SearchUrisResponse.ThreatUri
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :hash_prefix, 1, type: :bytes, json_name: "hashPrefix"
 
@@ -120,9 +130,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesRequest do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesResponse.ThreatHash do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :threat_types, 1,
     repeated: true,
@@ -133,9 +144,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesResponse.ThreatHash do
   field :hash, 2, type: :bytes
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :threats, 1,
     repeated: true,
@@ -143,9 +155,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.SearchHashesResponse do
 
   field :negative_expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "negativeExpireTime"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ThreatEntryAdditions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :raw_hashes, 1,
     repeated: true,
@@ -156,9 +169,10 @@ defmodule Google.Cloud.Webrisk.V1beta1.ThreatEntryAdditions do
     type: Google.Cloud.Webrisk.V1beta1.RiceDeltaEncoding,
     json_name: "riceHashes"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.ThreatEntryRemovals do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :raw_indices, 1, type: Google.Cloud.Webrisk.V1beta1.RawIndices, json_name: "rawIndices"
 
@@ -166,33 +180,37 @@ defmodule Google.Cloud.Webrisk.V1beta1.ThreatEntryRemovals do
     type: Google.Cloud.Webrisk.V1beta1.RiceDeltaEncoding,
     json_name: "riceIndices"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.RawIndices do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :indices, 1, repeated: true, type: :int32
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.RawHashes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :prefix_size, 1, type: :int32, json_name: "prefixSize"
   field :raw_hashes, 2, type: :bytes, json_name: "rawHashes"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.RiceDeltaEncoding do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :first_value, 1, type: :int64, json_name: "firstValue"
   field :rice_parameter, 2, type: :int32, json_name: "riceParameter"
   field :entry_count, 3, type: :int32, json_name: "entryCount"
   field :encoded_data, 4, type: :bytes, json_name: "encodedData"
 end
+
 defmodule Google.Cloud.Webrisk.V1beta1.WebRiskServiceV1Beta1.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.webrisk.v1beta1.WebRiskServiceV1Beta1",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ComputeThreatListDiff,
       Google.Cloud.Webrisk.V1beta1.ComputeThreatListDiffRequest,

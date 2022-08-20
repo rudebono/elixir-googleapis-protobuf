@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Osconfig.V1beta.PatchJob.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -11,18 +11,20 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob.State do
   field :CANCELED, 6
   field :TIMED_OUT, 7
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchConfig.RebootConfig do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
   field :DEFAULT, 1
   field :ALWAYS, 2
   field :NEVER, 3
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.Instance.PatchState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PATCH_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -41,17 +43,19 @@ defmodule Google.Cloud.Osconfig.V1beta.Instance.PatchState do
   field :RUNNING_POST_PATCH_STEP, 14
   field :NO_AGENT_DETECTED, 15
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.AptSettings.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :DIST, 1
   field :UPGRADE, 2
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.WindowsUpdateSettings.Classification do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CLASSIFICATION_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -64,25 +68,28 @@ defmodule Google.Cloud.Osconfig.V1beta.WindowsUpdateSettings.Classification do
   field :UPDATE_ROLLUP, 8
   field :UPDATE, 9
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ExecStepConfig.Interpreter do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :SHELL, 1
   field :POWERSHELL, 2
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchRollout.Mode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :ZONE_BY_ZONE, 1
   field :CONCURRENT_ZONES, 2
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -98,24 +105,27 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest do
   field :display_name, 8, type: :string, json_name: "displayName"
   field :rollout, 9, type: Google.Cloud.Osconfig.V1beta.PatchRollout
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.GetPatchJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobInstanceDetailsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobInstanceDetailsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :patch_job_instance_details, 1,
     repeated: true,
@@ -124,9 +134,10 @@ defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobInstanceDetailsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchJobInstanceDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :instance_system_id, 2, type: :string, json_name: "instanceSystemId"
@@ -134,18 +145,20 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJobInstanceDetails do
   field :failure_reason, 4, type: :string, json_name: "failureReason"
   field :attempt_count, 5, type: :int64, json_name: "attemptCount"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :patch_jobs, 1,
     repeated: true,
@@ -154,9 +167,10 @@ defmodule Google.Cloud.Osconfig.V1beta.ListPatchJobsResponse do
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchJob.InstanceDetailsSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :pending_instance_count, 1, type: :int64, json_name: "pendingInstanceCount"
   field :inactive_instance_count, 2, type: :int64, json_name: "inactiveInstanceCount"
@@ -188,9 +202,10 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob.InstanceDetailsSummary do
     type: :int64,
     json_name: "noAgentDetectedInstanceCount"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 14, type: :string, json_name: "displayName"
@@ -216,9 +231,10 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchJob do
   field :patch_deployment, 15, type: :string, json_name: "patchDeployment", deprecated: false
   field :rollout, 16, type: Google.Cloud.Osconfig.V1beta.PatchRollout
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.V1beta.PatchConfig.RebootConfig,
@@ -238,40 +254,46 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchConfig do
   field :post_step, 9, type: Google.Cloud.Osconfig.V1beta.ExecStep, json_name: "postStep"
   field :mig_instances_allowed, 10, type: :bool, json_name: "migInstancesAllowed"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.CancelPatchJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.AptSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Osconfig.V1beta.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_packages, 3, repeated: true, type: :string, json_name: "exclusivePackages"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.YumSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
   field :excludes, 3, repeated: true, type: :string
   field :exclusive_packages, 4, repeated: true, type: :string, json_name: "exclusivePackages"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.GooSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ZypperSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :with_optional, 1, type: :bool, json_name: "withOptional"
   field :with_update, 2, type: :bool, json_name: "withUpdate"
@@ -280,9 +302,10 @@ defmodule Google.Cloud.Osconfig.V1beta.ZypperSettings do
   field :excludes, 5, repeated: true, type: :string
   field :exclusive_patches, 6, repeated: true, type: :string, json_name: "exclusivePatches"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.WindowsUpdateSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :classifications, 1,
     repeated: true,
@@ -292,9 +315,10 @@ defmodule Google.Cloud.Osconfig.V1beta.WindowsUpdateSettings do
   field :excludes, 2, repeated: true, type: :string
   field :exclusive_patches, 3, repeated: true, type: :string, json_name: "exclusivePatches"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ExecStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :linux_exec_step_config, 1,
     type: Google.Cloud.Osconfig.V1beta.ExecStepConfig,
@@ -304,9 +328,10 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecStep do
     type: Google.Cloud.Osconfig.V1beta.ExecStepConfig,
     json_name: "windowsExecStepConfig"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.ExecStepConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :executable, 0
 
@@ -320,33 +345,37 @@ defmodule Google.Cloud.Osconfig.V1beta.ExecStepConfig do
   field :allowed_success_codes, 3, repeated: true, type: :int32, json_name: "allowedSuccessCodes"
   field :interpreter, 4, type: Google.Cloud.Osconfig.V1beta.ExecStepConfig.Interpreter, enum: true
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.GcsObject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
   field :generation_number, 3, type: :int64, json_name: "generationNumber", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchInstanceFilter.GroupLabel.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchInstanceFilter.GroupLabel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Osconfig.V1beta.PatchInstanceFilter.GroupLabel.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchInstanceFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :all, 1, type: :bool
 
@@ -363,9 +392,10 @@ defmodule Google.Cloud.Osconfig.V1beta.PatchInstanceFilter do
     type: :string,
     json_name: "instanceNamePrefixes"
 end
+
 defmodule Google.Cloud.Osconfig.V1beta.PatchRollout do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :mode, 1, type: Google.Cloud.Osconfig.V1beta.PatchRollout.Mode, enum: true
 

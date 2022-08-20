@@ -1,12 +1,13 @@
 defmodule Google.Ads.Googleads.V9.Services.GetCampaignSharedSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -23,18 +24,20 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetsRequest do
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V9.Services.CampaignSharedSetOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
   field :create, 1, type: Google.Ads.Googleads.V9.Resources.CampaignSharedSet, oneof: 0
   field :remove, 3, type: :string, oneof: 0
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -42,9 +45,10 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetsResponse do
     repeated: true,
     type: Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetResult
 end
+
 defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 
@@ -52,11 +56,12 @@ defmodule Google.Ads.Googleads.V9.Services.MutateCampaignSharedSetResult do
     type: Google.Ads.Googleads.V9.Resources.CampaignSharedSet,
     json_name: "campaignSharedSet"
 end
+
 defmodule Google.Ads.Googleads.V9.Services.CampaignSharedSetService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v9.services.CampaignSharedSetService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :GetCampaignSharedSet,
       Google.Ads.Googleads.V9.Services.GetCampaignSharedSetRequest,

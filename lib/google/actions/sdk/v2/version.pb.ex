@@ -1,6 +1,6 @@
 defmodule Google.Actions.Sdk.V2.Version.VersionState.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATION_IN_PROGRESS, 1
@@ -13,16 +13,18 @@ defmodule Google.Actions.Sdk.V2.Version.VersionState.State do
   field :UNDER_TAKEDOWN, 8
   field :DELETED, 9
 end
+
 defmodule Google.Actions.Sdk.V2.Version.VersionState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :state, 1, type: Google.Actions.Sdk.V2.Version.VersionState.State, enum: true
   field :message, 2, type: :string
 end
+
 defmodule Google.Actions.Sdk.V2.Version do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 

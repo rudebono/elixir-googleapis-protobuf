@@ -1,37 +1,41 @@
 defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint.Effect do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :EFFECT_UNSPECIFIED, 0
   field :NO_SCHEDULE, 1
   field :PREFER_NO_SCHEDULE, 2
   field :NO_EXECUTE, 3
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig.Component do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPONENT_UNSPECIFIED, 0
   field :SYSTEM_COMPONENTS, 1
   field :WORKLOADS, 2
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.WorkloadIdentityConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :issuer_uri, 1, type: :string, json_name: "issuerUri"
   field :workload_pool, 2, type: :string, json_name: "workloadPool"
   field :identity_provider, 3, type: :string, json_name: "identityProvider"
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.MaxPodsConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :max_pods_per_node, 1, type: :int64, json_name: "maxPodsPerNode", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -43,9 +47,10 @@ defmodule Google.Cloud.Gkemulticloud.V1.OperationMetadata do
   field :status_detail, 4, type: :string, json_name: "statusDetail", deprecated: false
   field :error_detail, 5, type: :string, json_name: "errorDetail", deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -55,24 +60,27 @@ defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.Fleet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :membership, 2, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :component_config, 1,
     type: Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig,
     json_name: "componentConfig"
 end
+
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_components, 1,
     repeated: true,

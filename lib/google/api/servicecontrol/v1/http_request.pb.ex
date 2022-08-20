@@ -1,6 +1,6 @@
 defmodule Google.Api.Servicecontrol.V1.HttpRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :request_method, 1, type: :string, json_name: "requestMethod"
   field :request_url, 2, type: :string, json_name: "requestUrl"

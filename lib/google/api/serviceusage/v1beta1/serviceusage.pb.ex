@@ -1,84 +1,95 @@
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse.IdentityState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :IDENTITY_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.EnableServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.DisableServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListServicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.BatchEnableServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :service_ids, 2, repeated: true, type: :string, json_name: "serviceIds"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerQuotaMetricsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :metrics, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaMetricRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GetConsumerQuotaLimitRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Api.Serviceusage.V1beta1.QuotaView, enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -90,9 +101,10 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateAdminOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -105,9 +117,10 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -118,30 +131,34 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListAdminOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.BatchCreateAdminOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -160,19 +177,22 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminOverridesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -184,9 +204,10 @@ defmodule Google.Api.Serviceusage.V1beta1.CreateConsumerOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :override, 2, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
@@ -199,9 +220,10 @@ defmodule Google.Api.Serviceusage.V1beta1.UpdateConsumerOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -212,30 +234,34 @@ defmodule Google.Api.Serviceusage.V1beta1.DeleteConsumerOverrideRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ListConsumerOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.BatchCreateConsumerOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -254,47 +280,56 @@ defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesRequest do
     json_name: "forceOnly",
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportConsumerOverridesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminQuotaPoliciesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :policies, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ImportAdminQuotaPoliciesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.CreateAdminQuotaPolicyMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.UpdateAdminQuotaPolicyMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.DeleteAdminQuotaPolicyMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GenerateServiceIdentityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :identity, 1, type: Google.Api.Serviceusage.V1beta1.ServiceIdentity
 
@@ -302,15 +337,17 @@ defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse do
     type: Google.Api.Serviceusage.V1beta1.GetServiceIdentityResponse.IdentityState,
     enum: true
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.GetServiceIdentityMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Api.Serviceusage.V1beta1.ServiceUsage.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.api.serviceusage.v1beta1.ServiceUsage",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :EnableService,
       Google.Api.Serviceusage.V1beta1.EnableServiceRequest,

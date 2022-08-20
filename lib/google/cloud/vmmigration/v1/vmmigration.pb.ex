@@ -1,47 +1,52 @@
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReportView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UTILIZATION_REPORT_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :FULL, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigratingVmView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :MIGRATING_VM_VIEW_UNSPECIFIED, 0
   field :MIGRATING_VM_VIEW_BASIC, 1
   field :MIGRATING_VM_VIEW_FULL, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineDiskType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED, 0
   field :COMPUTE_ENGINE_DISK_TYPE_STANDARD, 1
   field :COMPUTE_ENGINE_DISK_TYPE_SSD, 2
   field :COMPUTE_ENGINE_DISK_TYPE_BALANCED, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineLicenseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT, 0
   field :COMPUTE_ENGINE_LICENSE_TYPE_PAYG, 1
   field :COMPUTE_ENGINE_LICENSE_TYPE_BYOL, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineBootOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPUTE_ENGINE_BOOT_OPTION_UNSPECIFIED, 0
   field :COMPUTE_ENGINE_BOOT_OPTION_EFI, 1
   field :COMPUTE_ENGINE_BOOT_OPTION_BIOS, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -56,9 +61,10 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm.State do
   field :FINALIZED, 12
   field :ERROR, 13
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CloneJob.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -69,9 +75,10 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob.State do
   field :CANCELLING, 6
   field :ADAPTING_OS, 7
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CutoverJob.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -82,9 +89,10 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob.State do
   field :ACTIVE, 6
   field :ADAPTING_OS, 7
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -92,86 +100,96 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   field :FAILED, 3
   field :ACTIVE, 4
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpgradeStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
   field :FAILED, 2
   field :SUCCEEDED, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.PowerState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :POWER_STATE_UNSPECIFIED, 0
   field :ON, 1
   field :OFF, 2
   field :SUSPENDED, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.BootOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :BOOT_OPTION_UNSPECIFIED, 0
   field :EFI, 1
   field :BIOS, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :SUCCEEDED, 2
   field :FAILED, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.TimeFrame do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TIME_FRAME_UNSPECIFIED, 0
   field :WEEK, 1
   field :MONTH, 2
   field :YEAR, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.AppliedLicense.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NONE, 1
   field :PAYG, 2
   field :BYOL, 3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :IN, 1
   field :NOT_IN, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling.OnHostMaintenance do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ON_HOST_MAINTENANCE_UNSPECIFIED, 0
   field :TERMINATE, 1
   field :MIGRATE, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling.RestartType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESTART_TYPE_UNSPECIFIED, 0
   field :AUTOMATIC_RESTART, 1
   field :NO_AUTOMATIC_RESTART, 2
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :UNKNOWN_ERROR, 1
@@ -184,29 +202,33 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   field :UTILIZATION_REPORT_ERROR, 8
   field :APPLIANCE_UPGRADE_ERROR, 9
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :progress_percent, 5, type: :int32, json_name: "progressPercent"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ReplicationSync do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :last_sync_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastSyncTime"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target_vm_defaults, 0
 
@@ -272,9 +294,10 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
     json_name: "recentCutoverJobs",
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CloneJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target_vm_details, 0
 
@@ -304,9 +327,10 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob do
 
   field :error, 17, type: Google.Rpc.Status, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :target_vm_details, 0
 
@@ -334,9 +358,10 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
   field :error, 9, type: Google.Rpc.Status, deprecated: false
   field :state_message, 10, type: :string, json_name: "stateMessage", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateCloneJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :clone_job_id, 2, type: :string, json_name: "cloneJobId", deprecated: false
@@ -348,19 +373,22 @@ defmodule Google.Cloud.Vmmigration.V1.CreateCloneJobRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CancelCloneJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CancelCloneJobResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -368,9 +396,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :clone_jobs, 1,
     repeated: true,
@@ -381,22 +410,25 @@ defmodule Google.Cloud.Vmmigration.V1.ListCloneJobsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetCloneJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.Source.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.Source do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source_details, 0
 
@@ -420,18 +452,20 @@ defmodule Google.Cloud.Vmmigration.V1.Source do
 
   field :description, 6, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareSourceDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string, deprecated: false
   field :vcenter_ip, 3, type: :string, json_name: "vcenterIp"
   field :thumbprint, 4, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -477,9 +511,10 @@ defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
     json_name: "upgradeStatus",
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpgradeStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :state, 2, type: Google.Cloud.Vmmigration.V1.UpgradeStatus.State, enum: true
@@ -487,9 +522,10 @@ defmodule Google.Cloud.Vmmigration.V1.UpgradeStatus do
   field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :previous_version, 5, type: :string, json_name: "previousVersion"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.AvailableUpdates do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :new_deployable_appliance, 1,
     type: Google.Cloud.Vmmigration.V1.ApplianceVersion,
@@ -499,18 +535,20 @@ defmodule Google.Cloud.Vmmigration.V1.AvailableUpdates do
     type: Google.Cloud.Vmmigration.V1.ApplianceVersion,
     json_name: "inPlaceUpdate"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ApplianceVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :uri, 2, type: :string
   field :critical, 3, type: :bool
   field :release_notes_uri, 4, type: :string, json_name: "releaseNotesUri"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListSourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -518,54 +556,61 @@ defmodule Google.Cloud.Vmmigration.V1.ListSourcesRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListSourcesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :sources, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetSourceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateSourceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :source_id, 2, type: :string, json_name: "sourceId", deprecated: false
   field :source, 3, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpdateSourceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :source, 2, type: Google.Cloud.Vmmigration.V1.Source, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteSourceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.FetchInventoryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source, 1, type: :string, deprecated: false
   field :force_refresh, 2, type: :bool, json_name: "forceRefresh"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :vm_id, 1, type: :string, json_name: "vmId"
   field :datacenter_id, 2, type: :string, json_name: "datacenterId"
@@ -590,15 +635,17 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmsDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.VmwareVmDetails
 end
+
 defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :SourceVms, 0
 
@@ -612,9 +659,10 @@ defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -645,9 +693,10 @@ defmodule Google.Cloud.Vmmigration.V1.UtilizationReport do
   field :vm_count, 9, type: :int32, json_name: "vmCount", deprecated: false
   field :vms, 10, repeated: true, type: Google.Cloud.Vmmigration.V1.VmUtilizationInfo
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmUtilizationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :VmDetails, 0
 
@@ -659,9 +708,10 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationInfo do
   field :vm_id, 3, type: :string, json_name: "vmId"
   field :utilization, 2, type: Google.Cloud.Vmmigration.V1.VmUtilizationMetrics
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmUtilizationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cpu_max_percent, 9, type: :int32, json_name: "cpuMaxPercent"
   field :cpu_average_percent, 10, type: :int32, json_name: "cpuAveragePercent"
@@ -675,9 +725,10 @@ defmodule Google.Cloud.Vmmigration.V1.VmUtilizationMetrics do
     type: :int64,
     json_name: "networkThroughputAverageKbps"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -691,9 +742,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsRequest do
   field :filter, 5, type: :string, deprecated: false
   field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :utilization_reports, 1,
     repeated: true,
@@ -704,9 +756,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListUtilizationReportsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetUtilizationReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -715,9 +768,10 @@ defmodule Google.Cloud.Vmmigration.V1.GetUtilizationReportRequest do
     enum: true,
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateUtilizationReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -733,16 +787,18 @@ defmodule Google.Cloud.Vmmigration.V1.CreateUtilizationReportRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteUtilizationReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :datacenter_connectors, 1,
     repeated: true,
@@ -753,15 +809,17 @@ defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetDatacenterConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateDatacenterConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -777,16 +835,18 @@ defmodule Google.Cloud.Vmmigration.V1.CreateDatacenterConnectorRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteDatacenterConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpgradeApplianceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :datacenter_connector, 1,
     type: :string,
@@ -795,13 +855,15 @@ defmodule Google.Cloud.Vmmigration.V1.UpgradeApplianceRequest do
 
   field :request_id, 2, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpgradeApplianceResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -809,23 +871,26 @@ defmodule Google.Cloud.Vmmigration.V1.ListDatacenterConnectorsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :vm_name, 1, type: :string, json_name: "vmName"
   field :target_project, 2, type: :string, json_name: "targetProject", deprecated: false
@@ -881,23 +946,26 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults do
   field :additional_licenses, 17, repeated: true, type: :string, json_name: "additionalLicenses"
   field :hostname, 18, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :vm_name, 1, type: :string, json_name: "vmName"
   field :project, 2, type: :string
@@ -951,25 +1019,28 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineTargetDetails do
   field :additional_licenses, 17, repeated: true, type: :string, json_name: "additionalLicenses"
   field :hostname, 18, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.NetworkInterface do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
   field :internal_ip, 3, type: :string, json_name: "internalIp"
   field :external_ip, 4, type: :string, json_name: "externalIp"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.AppliedLicense do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Vmmigration.V1.AppliedLicense.Type, enum: true
   field :os_license, 2, type: :string, json_name: "osLicense"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -979,9 +1050,10 @@ defmodule Google.Cloud.Vmmigration.V1.SchedulingNodeAffinity do
 
   field :values, 3, repeated: true, type: :string
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :on_host_maintenance, 1,
     type: Google.Cloud.Vmmigration.V1.ComputeScheduling.OnHostMaintenance,
@@ -1000,16 +1072,18 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeScheduling do
 
   field :min_node_cpus, 4, type: :int32, json_name: "minNodeCpus"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.SchedulePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :idle_duration, 1, type: Google.Protobuf.Duration, json_name: "idleDuration"
   field :skip_os_adaptation, 2, type: :bool, json_name: "skipOsAdaptation"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateMigratingVmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :migrating_vm_id, 2, type: :string, json_name: "migratingVmId", deprecated: false
@@ -1021,9 +1095,10 @@ defmodule Google.Cloud.Vmmigration.V1.CreateMigratingVmRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1032,9 +1107,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsRequest do
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
   field :view, 6, type: Google.Cloud.Vmmigration.V1.MigratingVmView, enum: true, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :migrating_vms, 1,
     repeated: true,
@@ -1045,16 +1121,18 @@ defmodule Google.Cloud.Vmmigration.V1.ListMigratingVmsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetMigratingVmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Vmmigration.V1.MigratingVmView, enum: true, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpdateMigratingVmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -1065,55 +1143,65 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateMigratingVmRequest do
 
   field :request_id, 3, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteMigratingVmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.StartMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.StartMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.PauseMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.PauseMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ResumeMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ResumeMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.FinalizeMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :migrating_vm, 1, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.FinalizeMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.TargetProject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :project, 2, type: :string
@@ -1129,15 +1217,17 @@ defmodule Google.Cloud.Vmmigration.V1.TargetProject do
     json_name: "updateTime",
     deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetTargetProjectRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1145,9 +1235,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :target_projects, 1,
     repeated: true,
@@ -1158,9 +1249,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListTargetProjectsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateTargetProjectRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :target_project_id, 2, type: :string, json_name: "targetProjectId", deprecated: false
@@ -1172,9 +1264,10 @@ defmodule Google.Cloud.Vmmigration.V1.CreateTargetProjectRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpdateTargetProjectRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -1185,16 +1278,18 @@ defmodule Google.Cloud.Vmmigration.V1.UpdateTargetProjectRequest do
 
   field :request_id, 3, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteTargetProjectRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.Group do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1211,9 +1306,10 @@ defmodule Google.Cloud.Vmmigration.V1.Group do
   field :description, 4, type: :string
   field :display_name, 5, type: :string, json_name: "displayName"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListGroupsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1221,69 +1317,79 @@ defmodule Google.Cloud.Vmmigration.V1.ListGroupsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListGroupsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :groups, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :group_id, 2, type: :string, json_name: "groupId", deprecated: false
   field :group, 3, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.UpdateGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :group, 2, type: Google.Cloud.Vmmigration.V1.Group, deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.DeleteGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.AddGroupMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
   field :migrating_vm, 2, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.AddGroupMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.RemoveGroupMigrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
   field :migrating_vm, 2, type: :string, json_name: "migratingVm", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.RemoveGroupMigrationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CreateCutoverJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cutover_job_id, 2, type: :string, json_name: "cutoverJobId", deprecated: false
@@ -1295,19 +1401,22 @@ defmodule Google.Cloud.Vmmigration.V1.CreateCutoverJobRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CancelCutoverJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.CancelCutoverJobResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1315,9 +1424,10 @@ defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsRequest do
   field :filter, 4, type: :string, deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :cutover_jobs, 1,
     repeated: true,
@@ -1328,15 +1438,17 @@ defmodule Google.Cloud.Vmmigration.V1.ListCutoverJobsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
   field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.GetCutoverJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -1355,9 +1467,10 @@ defmodule Google.Cloud.Vmmigration.V1.OperationMetadata do
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.MigrationError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode,
@@ -1382,11 +1495,12 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError do
 
   field :error_time, 5, type: Google.Protobuf.Timestamp, json_name: "errorTime", deprecated: false
 end
+
 defmodule Google.Cloud.Vmmigration.V1.VmMigration.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.vmmigration.v1.VmMigration",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ListSources,
       Google.Cloud.Vmmigration.V1.ListSourcesRequest,

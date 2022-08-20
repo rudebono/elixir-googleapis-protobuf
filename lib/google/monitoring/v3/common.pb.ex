@@ -1,6 +1,6 @@
 defmodule Google.Monitoring.V3.ComparisonType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMPARISON_UNSPECIFIED, 0
   field :COMPARISON_GT, 1
@@ -10,17 +10,19 @@ defmodule Google.Monitoring.V3.ComparisonType do
   field :COMPARISON_EQ, 5
   field :COMPARISON_NE, 6
 end
+
 defmodule Google.Monitoring.V3.ServiceTier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :SERVICE_TIER_UNSPECIFIED, 0
   field :SERVICE_TIER_BASIC, 1
   field :SERVICE_TIER_PREMIUM, 2
 end
+
 defmodule Google.Monitoring.V3.Aggregation.Aligner do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :ALIGN_NONE, 0
   field :ALIGN_DELTA, 1
@@ -42,9 +44,10 @@ defmodule Google.Monitoring.V3.Aggregation.Aligner do
   field :ALIGN_PERCENTILE_05, 21
   field :ALIGN_PERCENT_CHANGE, 23
 end
+
 defmodule Google.Monitoring.V3.Aggregation.Reducer do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REDUCE_NONE, 0
   field :REDUCE_MEAN, 1
@@ -61,9 +64,10 @@ defmodule Google.Monitoring.V3.Aggregation.Reducer do
   field :REDUCE_PERCENTILE_50, 11
   field :REDUCE_PERCENTILE_05, 12
 end
+
 defmodule Google.Monitoring.V3.TypedValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -77,16 +81,18 @@ defmodule Google.Monitoring.V3.TypedValue do
     json_name: "distributionValue",
     oneof: 0
 end
+
 defmodule Google.Monitoring.V3.TimeInterval do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
 end
+
 defmodule Google.Monitoring.V3.Aggregation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 

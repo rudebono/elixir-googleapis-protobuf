@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V11.Errors.CriterionErrorEnum.CriterionError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -135,7 +135,8 @@ defmodule Google.Ads.Googleads.V11.Errors.CriterionErrorEnum.CriterionError do
   field :AUDIENCE_NOT_ALLOWED_TO_ATTACH_WHEN_AUDIENCE_GROUPED_SET_TO_FALSE, 138
   field :CANNOT_TARGET_CUSTOMER_MATCH_USER_LIST, 139
 end
+
 defmodule Google.Ads.Googleads.V11.Errors.CriterionErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end

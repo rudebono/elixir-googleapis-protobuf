@@ -1,29 +1,33 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReceiveTaskNotificationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReceiveTaskNotificationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.StartNextTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.StartNextTaskResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1.Task
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskProgressRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :progress, 0
 
@@ -51,18 +55,20 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskProgressRequest do
     json_name: "applyConfigTaskProgress",
     oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskProgressResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_directive, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.TaskDirective,
     json_name: "taskDirective",
     enum: true
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskCompleteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -92,13 +98,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskCompleteRequest do
     json_name: "applyConfigTaskOutput",
     oneof: 0
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportTaskCompleteResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :agent_version, 2, type: :string, json_name: "agentVersion", deprecated: false
@@ -114,29 +122,33 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentRequest do
   field :os_version, 6, type: :string, json_name: "osVersion"
   field :os_architecture, 7, type: :string, json_name: "osArchitecture"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.RegisterAgentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportInventoryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_id_token, 1, type: :string, json_name: "instanceIdToken", deprecated: false
   field :inventory_checksum, 2, type: :string, json_name: "inventoryChecksum", deprecated: false
   field :inventory, 3, type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory, deprecated: false
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.ReportInventoryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :report_full_inventory, 1, type: :bool, json_name: "reportFullInventory"
 end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.AgentEndpointService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.osconfig.agentendpoint.v1.AgentEndpointService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :ReceiveTaskNotification,
       Google.Cloud.Osconfig.Agentendpoint.V1.ReceiveTaskNotificationRequest,

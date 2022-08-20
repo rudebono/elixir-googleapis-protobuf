@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Video.Stitcher.V1.LiveAdTagDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -9,9 +9,10 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveAdTagDetail do
     type: Google.Cloud.Video.Stitcher.V1.AdRequest,
     json_name: "adRequests"
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.VodAdTagDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -20,9 +21,10 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodAdTagDetail do
     type: Google.Cloud.Video.Stitcher.V1.AdRequest,
     json_name: "adRequests"
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.AdRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -34,15 +36,17 @@ defmodule Google.Cloud.Video.Stitcher.V1.AdRequest do
     type: Google.Cloud.Video.Stitcher.V1.ResponseMetadata,
     json_name: "responseMetadata"
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.RequestMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :headers, 1, type: Google.Protobuf.Struct
 end
+
 defmodule Google.Cloud.Video.Stitcher.V1.ResponseMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :error, 1, type: :string
   field :headers, 2, type: Google.Protobuf.Struct

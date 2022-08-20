@@ -1,67 +1,75 @@
 defmodule Google.Cloud.Run.V2.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service, 2, type: Google.Cloud.Run.V2.Service, deprecated: false
   field :service_id, 3, type: :string, json_name: "serviceId", deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
+
 defmodule Google.Cloud.Run.V2.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service, 1, type: Google.Cloud.Run.V2.Service, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
   field :allow_missing, 4, type: :bool, json_name: "allowMissing"
 end
+
 defmodule Google.Cloud.Run.V2.ListServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :show_deleted, 4, type: :bool, json_name: "showDeleted"
 end
+
 defmodule Google.Cloud.Run.V2.ListServicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Run.V2.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
+
 defmodule Google.Cloud.Run.V2.GetServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Run.V2.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
   field :etag, 3, type: :string
 end
+
 defmodule Google.Cloud.Run.V2.Service.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Run.V2.Service.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Run.V2.Service do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -136,9 +144,10 @@ defmodule Google.Cloud.Run.V2.Service do
   field :reconciling, 98, type: :bool, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
+
 defmodule Google.Cloud.Run.V2.Services.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.run.v2.Services", protoc_gen_elixir_version: "0.10.0"
+  use GRPC.Service, name: "google.cloud.run.v2.Services", protoc_gen_elixir_version: "0.11.0"
 
   rpc :CreateService, Google.Cloud.Run.V2.CreateServiceRequest, Google.Longrunning.Operation
 

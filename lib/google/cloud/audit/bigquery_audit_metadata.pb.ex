@@ -1,41 +1,45 @@
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :WRITE_DISPOSITION_UNSPECIFIED, 0
   field :WRITE_EMPTY, 1
   field :WRITE_TRUNCATE, 2
   field :WRITE_APPEND, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :COPY, 1
   field :SNAPSHOT, 2
   field :RESTORE, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :CREATE_DISPOSITION_UNSPECIFIED, 0
   field :CREATE_NEVER, 1
   field :CREATE_IF_NEEDED, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :JOB_STATE_UNSPECIFIED, 0
   field :PENDING, 1
   field :RUNNING, 2
   field :DONE, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :QUERY_STATEMENT_TYPE_UNSPECIFIED, 0
   field :SELECT, 1
@@ -70,66 +74,74 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
   field :EXPORT_DATA, 28
   field :CALL, 29
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB_INSERT_REQUEST, 1
   field :QUERY_REQUEST, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :CREATE, 1
   field :QUERY, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :UPDATE, 1
   field :SET_IAM_POLICY, 2
   field :QUERY, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :DELETE, 1
   field :QUERY, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
   field :QUERY, 2
   field :TABLE_INSERT_REQUEST, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
   field :ROUTINE_INSERT_REQUEST, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
@@ -139,34 +151,38 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead.Reason do
   field :CREATE_READ_SESSION, 5
   field :MATERIALIZED_VIEW_REFRESH, 6
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :TABLE_UPDATE_REQUEST, 1
   field :JOB, 2
   field :QUERY, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :MODEL_PATCH_REQUEST, 1
   field :QUERY, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
   field :ROUTINE_UPDATE_REQUEST, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
@@ -174,49 +190,55 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange.Reason do
   field :MATERIALIZED_VIEW_REFRESH, 3
   field :WRITE_API, 4
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :JOB, 1
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :TABLE_DELETE_REQUEST, 2
   field :EXPIRED, 3
   field :QUERY, 4
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :MODEL_DELETE_REQUEST, 1
   field :EXPIRED, 2
   field :QUERY, 3
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :QUERY, 1
   field :ROUTINE_DELETE_REQUEST, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :QUERY, 1
@@ -224,32 +246,36 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type do
   field :EXPORT, 3
   field :IMPORT, 4
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :QUERY_INTERACTIVE, 1
   field :QUERY_BATCH, 2
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Job
   field :reason, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason, enum: true
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :before, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
   field :after, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
   field :job, 3, type: Google.Cloud.Audit.BigQueryAuditMetadata.Job
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset
 
@@ -259,9 +285,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation do
 
   field :job_name, 3, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Dataset
 
@@ -271,9 +298,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetChange do
 
   field :job_name, 3, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion.Reason,
@@ -281,9 +309,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetDeletion do
 
   field :job_name, 2, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Table
 
@@ -293,9 +322,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableCreation do
 
   field :job_name, 4, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Model
 
@@ -305,9 +335,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelCreation do
 
   field :job_name, 4, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -317,9 +348,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineCreation do
 
   field :job_name, 4, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fields, 2, repeated: true, type: :string
   field :fields_truncated, 8, type: :bool, json_name: "fieldsTruncated"
@@ -333,18 +365,20 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataRead do
   field :job_name, 4, type: :string, json_name: "jobName"
   field :session_name, 5, type: :string, json_name: "sessionName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Table
   field :truncated, 4, type: :bool
   field :reason, 5, type: Google.Cloud.Audit.BigQueryAuditMetadata.TableChange.Reason, enum: true
   field :job_name, 6, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Model
 
@@ -354,9 +388,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelMetadataChange do
 
   field :job_name, 3, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -366,9 +401,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineChange do
 
   field :job_name, 4, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :deleted_rows_count, 1, type: :int64, json_name: "deletedRowsCount"
   field :inserted_rows_count, 2, type: :int64, json_name: "insertedRowsCount"
@@ -381,9 +417,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDataChange do
   field :job_name, 5, type: :string, json_name: "jobName"
   field :stream_name, 6, type: :string, json_name: "streamName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange.Reason,
@@ -391,9 +428,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataChange do
 
   field :job_name, 2, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead.Reason,
@@ -401,9 +439,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead do
 
   field :job_name, 2, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :dataset_name, 1, type: :string, json_name: "datasetName"
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -422,9 +461,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo,
     json_name: "defaultEncryption"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion.Reason,
@@ -432,9 +472,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion do
 
   field :job_name, 2, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion.Reason,
@@ -442,9 +483,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion do
 
   field :job_name, 2, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :model_name, 1, type: :string, json_name: "modelName"
 
@@ -457,9 +499,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
   field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :encryption, 8, type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :routine, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.Routine
 
@@ -469,9 +512,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
 
   field :job_name, 4, type: :string, json_name: "jobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName"
 
@@ -487,9 +531,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Job do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobStats,
     json_name: "jobStats"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_truncated, 10, type: :bool, json_name: "queryTruncated"
@@ -525,9 +570,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Query do
     json_name: "statementType",
     enum: true
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Load do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
   field :source_uris_truncated, 7, type: :bool, json_name: "sourceUrisTruncated"
@@ -549,9 +595,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Load do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo,
     json_name: "destinationTableEncryption"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Extract do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -560,9 +607,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Extract do
   field :source_table, 2, type: :string, json_name: "sourceTable", oneof: 0
   field :source_model, 4, type: :string, json_name: "sourceModel", oneof: 0
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.TableCopy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :source_tables, 1, repeated: true, type: :string, json_name: "sourceTables"
   field :source_tables_truncated, 6, type: :bool, json_name: "sourceTablesTruncated"
@@ -591,16 +639,18 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.TableCopy do
     type: Google.Protobuf.Timestamp,
     json_name: "destinationExpirationTime"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -631,16 +681,18 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDefinition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job_state, 1,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState,
@@ -650,9 +702,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStatus do
   field :error_result, 2, type: Google.Rpc.Status, json_name: "errorResult"
   field :errors, 3, repeated: true, type: Google.Rpc.Status
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Query do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :total_processed_bytes, 1, type: :int64, json_name: "totalProcessedBytes"
   field :total_billed_bytes, 2, type: :int64, json_name: "totalBilledBytes"
@@ -663,28 +716,32 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Query do
   field :output_row_count, 8, type: :int64, json_name: "outputRowCount"
   field :cache_hit, 9, type: :bool, json_name: "cacheHit"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Load do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :total_output_bytes, 1, type: :int64, json_name: "totalOutputBytes"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.Extract do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :total_input_bytes, 1, type: :int64, json_name: "totalInputBytes"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.ReservationResourceUsage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_ms, 2, type: :int64, json_name: "slotMs"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :extended, 0
 
@@ -716,9 +773,10 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
 
   field :parent_job_name, 12, type: :string, json_name: "parentJobName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName"
   field :schema_json, 3, type: :string, json_name: "schemaJson"
@@ -734,24 +792,27 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
     json_name: "tableInfo"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Routine do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :routine_name, 1, type: :string, json_name: "routineName"
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -761,29 +822,33 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo.LabelsEntry,
     map: true
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableViewDefinition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_truncated, 2, type: :bool, json_name: "queryTruncated"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :policy, 1, type: Google.Iam.V1.Policy
   field :authorized_views, 2, repeated: true, type: :string, json_name: "authorizedViews"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :event, 0
 

@@ -1,6 +1,6 @@
 defmodule Google.Ads.Googleads.V10.Services.MutateAdParametersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -17,9 +17,10 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAdParametersRequest do
     json_name: "responseContentType",
     enum: true
 end
+
 defmodule Google.Ads.Googleads.V10.Services.AdParameterOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -28,9 +29,10 @@ defmodule Google.Ads.Googleads.V10.Services.AdParameterOperation do
   field :update, 2, type: Google.Ads.Googleads.V10.Resources.AdParameter, oneof: 0
   field :remove, 3, type: :string, oneof: 0, deprecated: false
 end
+
 defmodule Google.Ads.Googleads.V10.Services.MutateAdParametersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -38,9 +40,10 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAdParametersResponse do
     repeated: true,
     type: Google.Ads.Googleads.V10.Services.MutateAdParameterResult
 end
+
 defmodule Google.Ads.Googleads.V10.Services.MutateAdParameterResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -48,11 +51,12 @@ defmodule Google.Ads.Googleads.V10.Services.MutateAdParameterResult do
     type: Google.Ads.Googleads.V10.Resources.AdParameter,
     json_name: "adParameter"
 end
+
 defmodule Google.Ads.Googleads.V10.Services.AdParameterService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.ads.googleads.v10.services.AdParameterService",
-    protoc_gen_elixir_version: "0.10.0"
+    protoc_gen_elixir_version: "0.11.0"
 
   rpc :MutateAdParameters,
       Google.Ads.Googleads.V10.Services.MutateAdParametersRequest,

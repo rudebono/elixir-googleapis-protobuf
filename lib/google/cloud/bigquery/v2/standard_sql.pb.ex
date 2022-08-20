@@ -1,6 +1,6 @@
 defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :TYPE_KIND_UNSPECIFIED, 0
   field :INT64, 2
@@ -20,9 +20,10 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType.TypeKind do
   field :ARRAY, 16
   field :STRUCT, 17
 end
+
 defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :sub_type, 0
 
@@ -42,22 +43,25 @@ defmodule Google.Cloud.Bigquery.V2.StandardSqlDataType do
     json_name: "structType",
     oneof: 0
 end
+
 defmodule Google.Cloud.Bigquery.V2.StandardSqlField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Bigquery.V2.StandardSqlDataType, deprecated: false
 end
+
 defmodule Google.Cloud.Bigquery.V2.StandardSqlStructType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
 end
+
 defmodule Google.Cloud.Bigquery.V2.StandardSqlTableType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.10.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :columns, 1, repeated: true, type: Google.Cloud.Bigquery.V2.StandardSqlField
 end
