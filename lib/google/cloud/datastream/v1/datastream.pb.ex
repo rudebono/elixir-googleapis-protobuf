@@ -28,6 +28,11 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileRequest do
     type: Google.Cloud.Datastream.V1.MysqlRdbms,
     json_name: "mysqlRdbms",
     oneof: 2
+
+  field :postgresql_rdbms, 102,
+    type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
+    json_name: "postgresqlRdbms",
+    oneof: 2
 end
 
 defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
@@ -44,6 +49,11 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
   field :mysql_rdbms, 101,
     type: Google.Cloud.Datastream.V1.MysqlRdbms,
     json_name: "mysqlRdbms",
+    oneof: 0
+
+  field :postgresql_rdbms, 102,
+    type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
+    json_name: "postgresqlRdbms",
     oneof: 0
 end
 

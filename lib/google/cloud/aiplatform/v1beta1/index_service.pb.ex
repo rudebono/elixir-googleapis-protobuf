@@ -87,6 +87,32 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteIndexRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :index, 1, type: :string, deprecated: false
+  field :datapoints, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RemoveDatapointsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :index, 1, type: :string, deprecated: false
+  field :datapoint_ids, 2, repeated: true, type: :string, json_name: "datapointIds"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RemoveDatapointsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata.RecordError do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -155,6 +181,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Service do
   rpc :DeleteIndex,
       Google.Cloud.Aiplatform.V1beta1.DeleteIndexRequest,
       Google.Longrunning.Operation
+
+  rpc :UpsertDatapoints,
+      Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsRequest,
+      Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsResponse
+
+  rpc :RemoveDatapoints,
+      Google.Cloud.Aiplatform.V1beta1.RemoveDatapointsRequest,
+      Google.Cloud.Aiplatform.V1beta1.RemoveDatapointsResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Stub do
