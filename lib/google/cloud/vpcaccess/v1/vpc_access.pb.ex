@@ -36,6 +36,9 @@ defmodule Google.Cloud.Vpcaccess.V1.Connector do
     deprecated: false
 
   field :subnet, 8, type: Google.Cloud.Vpcaccess.V1.Connector.Subnet
+  field :machine_type, 10, type: :string, json_name: "machineType"
+  field :min_instances, 11, type: :int32, json_name: "minInstances"
+  field :max_instances, 12, type: :int32, json_name: "maxInstances"
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do

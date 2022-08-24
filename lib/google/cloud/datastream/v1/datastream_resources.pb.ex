@@ -121,12 +121,28 @@ defmodule Google.Cloud.Datastream.V1.MysqlProfile do
   field :ssl_config, 5, type: Google.Cloud.Datastream.V1.MysqlSslConfig, json_name: "sslConfig"
 end
 
+defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :hostname, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+  field :database, 5, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.GcsProfile do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :root_path, 2, type: :string, json_name: "rootPath"
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryProfile do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.StaticServiceIpConnectivity do
@@ -302,6 +318,16 @@ defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
     json_name: "mysqlProfile",
     oneof: 0
 
+  field :bigquery_profile, 103,
+    type: Google.Cloud.Datastream.V1.BigQueryProfile,
+    json_name: "bigqueryProfile",
+    oneof: 0
+
+  field :postgresql_profile, 104,
+    type: Google.Cloud.Datastream.V1.PostgresqlProfile,
+    json_name: "postgresqlProfile",
+    oneof: 0
+
   field :static_service_ip_connectivity, 200,
     type: Google.Cloud.Datastream.V1.StaticServiceIpConnectivity,
     json_name: "staticServiceIpConnectivity",
@@ -367,9 +393,21 @@ defmodule Google.Cloud.Datastream.V1.OracleRdbms do
     json_name: "oracleSchemas"
 end
 
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.DropLargeObjects do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.StreamLargeObjects do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :large_objects_handling, 0
 
   field :include_objects, 1,
     type: Google.Cloud.Datastream.V1.OracleRdbms,
@@ -378,6 +416,82 @@ defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
   field :exclude_objects, 2,
     type: Google.Cloud.Datastream.V1.OracleRdbms,
     json_name: "excludeObjects"
+
+  field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
+
+  field :drop_large_objects, 100,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.DropLargeObjects,
+    json_name: "dropLargeObjects",
+    oneof: 0
+
+  field :stream_large_objects, 102,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.StreamLargeObjects,
+    json_name: "streamLargeObjects",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlColumn do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :column, 1, type: :string
+  field :data_type, 2, type: :string, json_name: "dataType"
+  field :length, 3, type: :int32
+  field :precision, 4, type: :int32
+  field :scale, 5, type: :int32
+  field :primary_key, 7, type: :bool, json_name: "primaryKey"
+  field :nullable, 8, type: :bool
+  field :ordinal_position, 9, type: :int32, json_name: "ordinalPosition"
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlTable do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :table, 1, type: :string
+
+  field :postgresql_columns, 2,
+    repeated: true,
+    type: Google.Cloud.Datastream.V1.PostgresqlColumn,
+    json_name: "postgresqlColumns"
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlSchema do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :schema, 1, type: :string
+
+  field :postgresql_tables, 2,
+    repeated: true,
+    type: Google.Cloud.Datastream.V1.PostgresqlTable,
+    json_name: "postgresqlTables"
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlRdbms do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :postgresql_schemas, 1,
+    repeated: true,
+    type: Google.Cloud.Datastream.V1.PostgresqlSchema,
+    json_name: "postgresqlSchemas"
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlSourceConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :include_objects, 1,
+    type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
+    json_name: "includeObjects"
+
+  field :exclude_objects, 2,
+    type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
+    json_name: "excludeObjects"
+
+  field :replication_slot, 3, type: :string, json_name: "replicationSlot", deprecated: false
+  field :publication, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlColumn do
@@ -438,6 +552,8 @@ defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
   field :exclude_objects, 2,
     type: Google.Cloud.Datastream.V1.MysqlRdbms,
     json_name: "excludeObjects"
+
+  field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
 end
 
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
@@ -459,6 +575,11 @@ defmodule Google.Cloud.Datastream.V1.SourceConfig do
   field :mysql_source_config, 101,
     type: Google.Cloud.Datastream.V1.MysqlSourceConfig,
     json_name: "mysqlSourceConfig",
+    oneof: 0
+
+  field :postgresql_source_config, 102,
+    type: Google.Cloud.Datastream.V1.PostgresqlSourceConfig,
+    json_name: "postgresqlSourceConfig",
     oneof: 0
 end
 
@@ -505,6 +626,51 @@ defmodule Google.Cloud.Datastream.V1.GcsDestinationConfig do
     oneof: 0
 end
 
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SingleTargetDataset do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets.DatasetTemplate do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :location, 1, type: :string, deprecated: false
+  field :dataset_id_prefix, 2, type: :string, json_name: "datasetIdPrefix"
+  field :kms_key_name, 3, type: :string, json_name: "kmsKeyName"
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dataset_template, 2,
+    type:
+      Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets.DatasetTemplate,
+    json_name: "datasetTemplate"
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :dataset_config, 0
+
+  field :single_target_dataset, 201,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SingleTargetDataset,
+    json_name: "singleTargetDataset",
+    oneof: 0
+
+  field :source_hierarchy_datasets, 202,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets,
+    json_name: "sourceHierarchyDatasets",
+    oneof: 0
+
+  field :data_freshness, 300, type: Google.Protobuf.Duration, json_name: "dataFreshness"
+end
+
 defmodule Google.Cloud.Datastream.V1.DestinationConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -519,6 +685,11 @@ defmodule Google.Cloud.Datastream.V1.DestinationConfig do
   field :gcs_destination_config, 100,
     type: Google.Cloud.Datastream.V1.GcsDestinationConfig,
     json_name: "gcsDestinationConfig",
+    oneof: 0
+
+  field :bigquery_destination_config, 101,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig,
+    json_name: "bigqueryDestinationConfig",
     oneof: 0
 end
 
@@ -536,6 +707,11 @@ defmodule Google.Cloud.Datastream.V1.Stream.BackfillAllStrategy do
   field :mysql_excluded_objects, 2,
     type: Google.Cloud.Datastream.V1.MysqlRdbms,
     json_name: "mysqlExcludedObjects",
+    oneof: 0
+
+  field :postgresql_excluded_objects, 3,
+    type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
+    json_name: "postgresqlExcludedObjects",
     oneof: 0
 end
 
@@ -637,6 +813,14 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.OracleObjectIdentifi
   field :table, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.PostgresqlObjectIdentifier do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :schema, 1, type: :string, deprecated: false
+  field :table, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.MysqlObjectIdentifier do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -659,6 +843,11 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   field :mysql_identifier, 2,
     type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.MysqlObjectIdentifier,
     json_name: "mysqlIdentifier",
+    oneof: 0
+
+  field :postgresql_identifier, 3,
+    type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.PostgresqlObjectIdentifier,
+    json_name: "postgresqlIdentifier",
     oneof: 0
 end
 

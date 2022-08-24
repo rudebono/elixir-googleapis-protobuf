@@ -227,6 +227,8 @@ defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult do
     type: Google.Cloud.Retail.V2.SearchResponse.SearchResult.VariantRollupValuesEntry,
     json_name: "variantRollupValues",
     map: true
+
+  field :personal_labels, 7, repeated: true, type: :string, json_name: "personalLabels"
 end
 
 defmodule Google.Cloud.Retail.V2.SearchResponse.Facet.FacetValue do

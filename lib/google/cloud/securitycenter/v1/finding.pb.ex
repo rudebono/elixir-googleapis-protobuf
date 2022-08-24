@@ -139,4 +139,5 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :next_steps, 40, type: :string, json_name: "nextSteps"
   field :containers, 42, repeated: true, type: Google.Cloud.Securitycenter.V1.Container
   field :kubernetes, 43, type: Google.Cloud.Securitycenter.V1.Kubernetes
+  field :database, 44, type: Google.Cloud.Securitycenter.V1.Database
 end

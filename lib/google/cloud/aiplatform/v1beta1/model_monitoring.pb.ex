@@ -21,6 +21,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringConfig do
     json_name: "alertConfig"
 
   field :analysis_instance_schema_uri, 4, type: :string, json_name: "analysisInstanceSchemaUri"
+
+  field :stats_anomalies_base_directory, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "statsAnomaliesBaseDirectory"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveConfig.TrainingDataset do
