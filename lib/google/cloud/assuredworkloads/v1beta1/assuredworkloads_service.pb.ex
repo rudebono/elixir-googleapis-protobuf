@@ -12,10 +12,6 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service 
       Google.Cloud.Assuredworkloads.V1beta1.UpdateWorkloadRequest,
       Google.Cloud.Assuredworkloads.V1beta1.Workload
 
-  rpc :RestrictAllowedServices,
-      Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesRequest,
-      Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesResponse
-
   rpc :RestrictAllowedResources,
       Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedResourcesRequest,
       Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedResourcesResponse

@@ -1,12 +1,3 @@
-defmodule Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesRequest.RestrictionType do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :RESTRICTION_TYPE_UNSPECIFIED, 0
-  field :ALLOW_ALL_GCP_SERVICES, 1
-  field :ALLOW_COMPLIANT_SERVICES, 2
-end
-
 defmodule Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedResourcesRequest.RestrictionType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -31,6 +22,7 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.ComplianceRegime do
   field :EU_REGIONS_AND_SUPPORT, 8
   field :CA_REGIONS_AND_SUPPORT, 9
   field :ITAR, 10
+  field :AU_REGIONS_AND_US_SUPPORT, 11
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload.KajEnrollmentState do
@@ -92,24 +84,6 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.UpdateWorkloadRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "updateMask",
     deprecated: false
-end
-
-defmodule Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-
-  field :restriction_type, 2,
-    type: Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesRequest.RestrictionType,
-    json_name: "restrictionType",
-    enum: true,
-    deprecated: false
-end
-
-defmodule Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedServicesResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.RestrictAllowedResourcesRequest do
