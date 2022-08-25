@@ -84,6 +84,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsRequest do
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :order_by, 6, type: :string, json_name: "orderBy"
+  field :read_mask, 7, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListPipelineJobsResponse do

@@ -12,6 +12,21 @@ defmodule Google.Cloud.Securitycenter.V1.Access do
   field :user_agent_family, 4, type: :string, json_name: "userAgentFamily"
   field :service_name, 5, type: :string, json_name: "serviceName"
   field :method_name, 6, type: :string, json_name: "methodName"
+  field :principal_subject, 7, type: :string, json_name: "principalSubject"
+  field :service_account_key_name, 8, type: :string, json_name: "serviceAccountKeyName"
+
+  field :service_account_delegation_info, 9,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.ServiceAccountDelegationInfo,
+    json_name: "serviceAccountDelegationInfo"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ServiceAccountDelegationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :principal_email, 1, type: :string, json_name: "principalEmail"
+  field :principal_subject, 2, type: :string, json_name: "principalSubject"
 end
 
 defmodule Google.Cloud.Securitycenter.V1.Geolocation do

@@ -194,6 +194,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.Disk do
   field :snapshot, 5, type: :string, oneof: 0
   field :type, 1, type: :string
   field :size_gb, 2, type: :int64, json_name: "sizeGb"
+  field :disk_interface, 6, type: :string, json_name: "diskInterface"
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.AttachedDisk do
@@ -217,6 +218,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.Accelerator do
 
   field :type, 1, type: :string
   field :count, 2, type: :int64
+  field :install_gpu_drivers, 3, type: :bool, json_name: "installGpuDrivers", deprecated: true
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy do

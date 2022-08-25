@@ -100,6 +100,8 @@ defmodule Google.Cloud.Batch.V1.Runnable do
   field :ignore_exit_status, 3, type: :bool, json_name: "ignoreExitStatus"
   field :background, 4, type: :bool
   field :always_run, 5, type: :bool, json_name: "alwaysRun"
+  field :environment, 7, type: Google.Cloud.Batch.V1.Environment
+  field :timeout, 8, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Cloud.Batch.V1.TaskSpec.EnvironmentsEntry do
@@ -131,9 +133,11 @@ defmodule Google.Cloud.Batch.V1.TaskSpec do
   field :environments, 6,
     repeated: true,
     type: Google.Cloud.Batch.V1.TaskSpec.EnvironmentsEntry,
-    map: true
+    map: true,
+    deprecated: true
 
   field :volumes, 7, repeated: true, type: Google.Cloud.Batch.V1.Volume
+  field :environment, 10, type: Google.Cloud.Batch.V1.Environment
 end
 
 defmodule Google.Cloud.Batch.V1.LifecyclePolicy.ActionCondition do
