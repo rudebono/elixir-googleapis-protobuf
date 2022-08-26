@@ -22,8 +22,13 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :ID_E_TOLL, 16
   field :IN_FASTAG, 78
   field :IN_LOCAL_HP_PLATE_EXEMPT, 79
+  field :MX_IAVE, 90
+  field :MX_PASE, 91
+  field :MX_QUICKPASS, 93
+  field :MX_SISTEMA_TELEPEAJE_CHIHUAHUA, 89
   field :MX_TAG_IAVE, 12
   field :MX_TAG_TELEVIA, 13
+  field :MX_TELEVIA, 92
   field :MX_VIAPASS, 14
   field :US_AL_FREEDOM_PASS, 21
   field :US_AK_ANTON_ANDERSON_TUNNEL_BOOK_OF_10_TICKETS, 22
