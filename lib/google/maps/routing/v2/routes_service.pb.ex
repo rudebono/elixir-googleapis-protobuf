@@ -125,8 +125,8 @@ defmodule Google.Maps.Routing.V2.RouteMatrixElement do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :origin_index, 1, type: :int32, json_name: "originIndex"
-  field :destination_index, 2, type: :int32, json_name: "destinationIndex"
+  field :origin_index, 1, proto3_optional: true, type: :int32, json_name: "originIndex"
+  field :destination_index, 2, proto3_optional: true, type: :int32, json_name: "destinationIndex"
   field :status, 3, type: Google.Rpc.Status
   field :condition, 9, type: Google.Maps.Routing.V2.RouteMatrixElementCondition, enum: true
   field :distance_meters, 4, type: :int32, json_name: "distanceMeters"
