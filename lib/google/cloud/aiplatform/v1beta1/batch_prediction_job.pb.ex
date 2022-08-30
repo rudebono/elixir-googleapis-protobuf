@@ -163,4 +163,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
   field :model_monitoring_config, 26,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringConfig,
     json_name: "modelMonitoringConfig"
+
+  field :model_monitoring_stats_anomalies, 31,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsAnomalies,
+    json_name: "modelMonitoringStatsAnomalies"
+
+  field :model_monitoring_status, 32,
+    type: Google.Rpc.Status,
+    json_name: "modelMonitoringStatus",
+    deprecated: false
 end
