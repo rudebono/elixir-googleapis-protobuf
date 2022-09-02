@@ -364,7 +364,10 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy do
     enum: true,
     deprecated: true
 
-  field :service_account_email, 5, type: :string, json_name: "serviceAccountEmail"
+  field :service_account_email, 5,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: true
 
   field :service_account, 9,
     type: Google.Cloud.Batch.V1alpha.ServiceAccount,
