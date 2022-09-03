@@ -34,6 +34,15 @@ defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.SearchableOption do
   field :SEARCHABLE_DISABLED, 2
 end
 
+defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.ExactSearchableOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :EXACT_SEARCHABLE_OPTION_UNSPECIFIED, 0
+  field :EXACT_SEARCHABLE_ENABLED, 1
+  field :EXACT_SEARCHABLE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Retail.V2beta.ProductLevelConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -75,6 +84,11 @@ defmodule Google.Cloud.Retail.V2beta.CatalogAttribute do
   field :recommendations_filtering_option, 8,
     type: Google.Cloud.Retail.V2beta.RecommendationsFilteringOption,
     json_name: "recommendationsFilteringOption",
+    enum: true
+
+  field :exact_searchable_option, 11,
+    type: Google.Cloud.Retail.V2beta.CatalogAttribute.ExactSearchableOption,
+    json_name: "exactSearchableOption",
     enum: true
 end
 
