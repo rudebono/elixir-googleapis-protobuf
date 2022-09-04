@@ -107,6 +107,34 @@ defmodule Google.Cloud.Retail.V2beta.RemoveCatalogAttributeRequest do
   field :key, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Retail.V2beta.BatchRemoveCatalogAttributesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
+
+  field :attribute_keys, 2,
+    repeated: true,
+    type: :string,
+    json_name: "attributeKeys",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2beta.BatchRemoveCatalogAttributesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :deleted_catalog_attributes, 1,
+    repeated: true,
+    type: :string,
+    json_name: "deletedCatalogAttributes"
+
+  field :reset_catalog_attributes, 2,
+    repeated: true,
+    type: :string,
+    json_name: "resetCatalogAttributes"
+end
+
 defmodule Google.Cloud.Retail.V2beta.ReplaceCatalogAttributeRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -164,6 +192,10 @@ defmodule Google.Cloud.Retail.V2beta.CatalogService.Service do
   rpc :RemoveCatalogAttribute,
       Google.Cloud.Retail.V2beta.RemoveCatalogAttributeRequest,
       Google.Cloud.Retail.V2beta.AttributesConfig
+
+  rpc :BatchRemoveCatalogAttributes,
+      Google.Cloud.Retail.V2beta.BatchRemoveCatalogAttributesRequest,
+      Google.Cloud.Retail.V2beta.BatchRemoveCatalogAttributesResponse
 
   rpc :ReplaceCatalogAttribute,
       Google.Cloud.Retail.V2beta.ReplaceCatalogAttributeRequest,

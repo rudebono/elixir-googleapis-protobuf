@@ -7,7 +7,8 @@ defmodule Google.Cloud.Retail.V2beta.Control do
   field :facet_spec, 3,
     type: Google.Cloud.Retail.V2beta.SearchRequest.FacetSpec,
     json_name: "facetSpec",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :rule, 4, type: Google.Cloud.Retail.V2beta.Rule, oneof: 0
   field :name, 1, type: :string, deprecated: false
@@ -25,4 +26,10 @@ defmodule Google.Cloud.Retail.V2beta.Control do
     json_name: "solutionTypes",
     enum: true,
     deprecated: false
+
+  field :search_solution_use_case, 7,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.SearchSolutionUseCase,
+    json_name: "searchSolutionUseCase",
+    enum: true
 end
