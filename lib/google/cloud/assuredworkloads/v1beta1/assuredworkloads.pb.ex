@@ -351,6 +351,12 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.Workload do
     type: Google.Cloud.Assuredworkloads.V1beta1.Workload.SaaEnrollmentResponse,
     json_name: "saaEnrollmentResponse",
     deprecated: false
+
+  field :compliant_but_disallowed_services, 24,
+    repeated: true,
+    type: :string,
+    json_name: "compliantButDisallowedServices",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadOperationMetadata do

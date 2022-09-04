@@ -1,3 +1,45 @@
+defmodule Google.Privacy.Dlp.V2.TransformationResultStatusType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_TYPE_UNSPECIFIED, 0
+  field :INVALID_TRANSFORM, 1
+  field :BIGQUERY_MAX_ROW_SIZE_EXCEEDED, 2
+  field :METADATA_UNRETRIEVABLE, 3
+  field :SUCCESS, 4
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationContainerType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TRANSFORM_UNKNOWN_CONTAINER, 0
+  field :TRANSFORM_BODY, 1
+  field :TRANSFORM_METADATA, 2
+  field :TRANSFORM_TABLE, 3
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TRANSFORMATION_TYPE_UNSPECIFIED, 0
+  field :RECORD_SUPPRESSION, 1
+  field :REPLACE_VALUE, 2
+  field :REPLACE_DICTIONARY, 15
+  field :REDACT, 3
+  field :CHARACTER_MASK, 4
+  field :CRYPTO_REPLACE_FFX_FPE, 5
+  field :FIXED_SIZE_BUCKETING, 6
+  field :BUCKETING, 7
+  field :REPLACE_WITH_INFO_TYPE, 8
+  field :TIME_PART, 9
+  field :CRYPTO_HASH, 10
+  field :DATE_SHIFT, 12
+  field :CRYPTO_DETERMINISTIC_CONFIG, 13
+  field :REDACT_IMAGE, 14
+end
+
 defmodule Google.Privacy.Dlp.V2.RelationalOperator do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -283,16 +325,6 @@ defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   field :CANCELED, 4
   field :FAILED, 5
   field :ACTIVE, 6
-end
-
-defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :SENSITIVITY_SCORE_UNSPECIFIED, 0
-  field :SENSITIVITY_LOW, 10
-  field :SENSITIVITY_MODERATE, 20
-  field :SENSITIVITY_HIGH, 30
 end
 
 defmodule Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore do
@@ -850,6 +882,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
     enum: true
 
   field :description, 4, type: :string
+  field :versions, 9, repeated: true, type: Google.Privacy.Dlp.V2.VersionDescription
   field :categories, 10, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeCategory
 end
 
@@ -876,6 +909,14 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
     json_name: "typeCategory",
     enum: true,
     oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.VersionDescription do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :version, 1, type: :string
+  field :description, 2, type: :string
 end
 
 defmodule Google.Privacy.Dlp.V2.ListInfoTypesRequest do
@@ -1439,9 +1480,68 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyConfig do
     json_name: "recordTransformations",
     oneof: 0
 
+  field :image_transformations, 4,
+    type: Google.Privacy.Dlp.V2.ImageTransformations,
+    json_name: "imageTransformations",
+    oneof: 0
+
   field :transformation_error_handling, 3,
     type: Google.Privacy.Dlp.V2.TransformationErrorHandling,
     json_name: "transformationErrorHandling"
+end
+
+defmodule Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.SelectedInfoTypes do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :info_types, 5,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InfoType,
+    json_name: "infoTypes",
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.AllInfoTypes do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.AllText do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :target, 0
+
+  field :selected_info_types, 4,
+    type: Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.SelectedInfoTypes,
+    json_name: "selectedInfoTypes",
+    oneof: 0
+
+  field :all_info_types, 5,
+    type: Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.AllInfoTypes,
+    json_name: "allInfoTypes",
+    oneof: 0
+
+  field :all_text, 6,
+    type: Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation.AllText,
+    json_name: "allText",
+    oneof: 0
+
+  field :redaction_color, 3, type: Google.Privacy.Dlp.V2.Color, json_name: "redactionColor"
+end
+
+defmodule Google.Privacy.Dlp.V2.ImageTransformations do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :transforms, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ImageTransformations.ImageTransformation
 end
 
 defmodule Google.Privacy.Dlp.V2.TransformationErrorHandling.ThrowError do
@@ -1897,6 +1997,84 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary do
   field :transformed_bytes, 7, type: :int64, json_name: "transformedBytes"
 end
 
+defmodule Google.Privacy.Dlp.V2.TransformationDescription do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: Google.Privacy.Dlp.V2.TransformationType, enum: true
+  field :description, 2, type: :string
+  field :condition, 3, type: :string
+  field :info_type, 4, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :container_name, 2, type: :string, json_name: "containerName"
+  field :transformation, 3, repeated: true, type: Google.Privacy.Dlp.V2.TransformationDescription
+
+  field :status_details, 4,
+    type: Google.Privacy.Dlp.V2.TransformationResultStatus,
+    json_name: "statusDetails"
+
+  field :transformed_bytes, 5, type: :int64, json_name: "transformedBytes"
+
+  field :transformation_location, 6,
+    type: Google.Privacy.Dlp.V2.TransformationLocation,
+    json_name: "transformationLocation"
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationLocation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :location_type, 0
+
+  field :finding_id, 1, type: :string, json_name: "findingId", oneof: 0
+
+  field :record_transformation, 2,
+    type: Google.Privacy.Dlp.V2.RecordTransformation,
+    json_name: "recordTransformation",
+    oneof: 0
+
+  field :container_type, 3,
+    type: Google.Privacy.Dlp.V2.TransformationContainerType,
+    json_name: "containerType",
+    enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.RecordTransformation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :field_id, 1, type: Google.Privacy.Dlp.V2.FieldId, json_name: "fieldId"
+  field :container_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "containerTimestamp"
+  field :container_version, 3, type: :string, json_name: "containerVersion"
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationResultStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :result_status_type, 1,
+    type: Google.Privacy.Dlp.V2.TransformationResultStatusType,
+    json_name: "resultStatusType",
+    enum: true
+
+  field :details, 2, type: Google.Rpc.Status
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationDetailsStorageConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, oneof: 0
+end
+
 defmodule Google.Privacy.Dlp.V2.Schedule do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -2038,6 +2216,33 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Privacy.Dlp.V2.Action.Deidentify do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :output, 0
+
+  field :transformation_config, 7,
+    type: Google.Privacy.Dlp.V2.TransformationConfig,
+    json_name: "transformationConfig"
+
+  field :transformation_details_storage_config, 3,
+    type: Google.Privacy.Dlp.V2.TransformationDetailsStorageConfig,
+    json_name: "transformationDetailsStorageConfig"
+
+  field :cloud_storage_output, 9,
+    type: :string,
+    json_name: "cloudStorageOutput",
+    oneof: 0,
+    deprecated: false
+
+  field :file_types_to_transform, 8,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileType,
+    json_name: "fileTypesToTransform",
+    enum: true
+end
+
 defmodule Google.Privacy.Dlp.V2.Action.JobNotificationEmails do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -2074,6 +2279,8 @@ defmodule Google.Privacy.Dlp.V2.Action do
     json_name: "publishFindingsToCloudDataCatalog",
     oneof: 0
 
+  field :deidentify, 7, type: Google.Privacy.Dlp.V2.Action.Deidentify, oneof: 0
+
   field :job_notification_emails, 8,
     type: Google.Privacy.Dlp.V2.Action.JobNotificationEmails,
     json_name: "jobNotificationEmails",
@@ -2083,6 +2290,19 @@ defmodule Google.Privacy.Dlp.V2.Action do
     type: Google.Privacy.Dlp.V2.Action.PublishToStackdriver,
     json_name: "publishToStackdriver",
     oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.TransformationConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :deidentify_template, 1, type: :string, json_name: "deidentifyTemplate"
+
+  field :structured_deidentify_template, 2,
+    type: :string,
+    json_name: "structuredDeidentifyTemplate"
+
+  field :image_redact_template, 4, type: :string, json_name: "imageRedactTemplate"
 end
 
 defmodule Google.Privacy.Dlp.V2.CreateInspectTemplateRequest do
@@ -2655,13 +2875,6 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
-defmodule Google.Privacy.Dlp.V2.SensitivityScore do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :score, 1, type: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel, enum: true
-end
-
 defmodule Google.Privacy.Dlp.V2.DataRiskLevel do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -2765,6 +2978,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeSummary do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+  field :estimated_prevalence, 2, type: :int32, json_name: "estimatedPrevalence"
 end
 
 defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do
@@ -2772,6 +2986,7 @@ defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+  field :estimated_prevalence, 2, type: :int32, json_name: "estimatedPrevalence"
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
