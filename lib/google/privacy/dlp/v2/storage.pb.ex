@@ -27,6 +27,16 @@ defmodule Google.Privacy.Dlp.V2.FileType do
   field :EXCEL, 12
 end
 
+defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :SENSITIVITY_SCORE_UNSPECIFIED, 0
+  field :SENSITIVITY_LOW, 10
+  field :SENSITIVITY_MODERATE, 20
+  field :SENSITIVITY_HIGH, 30
+end
+
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.ExclusionType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -59,6 +69,13 @@ defmodule Google.Privacy.Dlp.V2.InfoType do
 
   field :name, 1, type: :string
   field :version, 2, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.SensitivityScore do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :score, 1, type: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel, enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.StoredType do
