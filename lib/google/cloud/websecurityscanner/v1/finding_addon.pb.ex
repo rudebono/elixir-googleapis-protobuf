@@ -20,6 +20,14 @@ defmodule Google.Cloud.Websecurityscanner.V1.Xss.AttackVector do
   field :USER_CONTROLLABLE_URL, 15
 end
 
+defmodule Google.Cloud.Websecurityscanner.V1.Xxe.Location do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LOCATION_UNSPECIFIED, 0
+  field :COMPLETE_REQUEST_BODY, 1
+end
+
 defmodule Google.Cloud.Websecurityscanner.V1.Form do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -87,4 +95,16 @@ defmodule Google.Cloud.Websecurityscanner.V1.Xss do
     enum: true
 
   field :stored_xss_seeding_url, 4, type: :string, json_name: "storedXssSeedingUrl"
+end
+
+defmodule Google.Cloud.Websecurityscanner.V1.Xxe do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :payload_value, 1, type: :string, json_name: "payloadValue"
+
+  field :payload_location, 2,
+    type: Google.Cloud.Websecurityscanner.V1.Xxe.Location,
+    json_name: "payloadLocation",
+    enum: true
 end

@@ -7,6 +7,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanRunWarningTrace.Code do
   field :TOO_MANY_CRAWL_RESULTS, 2
   field :TOO_MANY_FUZZ_TASKS, 3
   field :BLOCKED_BY_IAP, 4
+  field :NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN, 5
 end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanRunWarningTrace do

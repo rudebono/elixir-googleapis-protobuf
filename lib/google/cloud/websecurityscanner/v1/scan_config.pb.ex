@@ -28,7 +28,7 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -75,7 +75,8 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
   field :google_account, 1,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount,
     json_name: "googleAccount",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :custom_account, 2,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAccount,
@@ -126,4 +127,5 @@ defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
 
   field :managed_scan, 13, type: :bool, json_name: "managedScan"
   field :static_ip_scan, 14, type: :bool, json_name: "staticIpScan"
+  field :ignore_http_status_errors, 15, type: :bool, json_name: "ignoreHttpStatusErrors"
 end
