@@ -7,6 +7,15 @@ defmodule Google.Cloud.Bigquery.Storage.V1.DataFormat do
   field :ARROW, 2
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.WriteStreamView do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :WRITE_STREAM_VIEW_UNSPECIFIED, 0
+  field :BASIC, 1
+  field :FULL, 2
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -148,4 +157,6 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream do
     json_name: "writeMode",
     enum: true,
     deprecated: false
+
+  field :location, 8, type: :string, deprecated: false
 end

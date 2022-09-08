@@ -203,6 +203,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.GetWriteStreamRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :view, 3, type: Google.Cloud.Bigquery.Storage.V1.WriteStreamView, enum: true
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.BatchCommitWriteStreamsRequest do

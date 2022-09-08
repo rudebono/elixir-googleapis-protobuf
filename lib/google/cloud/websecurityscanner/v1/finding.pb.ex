@@ -48,4 +48,5 @@ defmodule Google.Cloud.Websecurityscanner.V1.Finding do
     json_name: "vulnerableParameters"
 
   field :xss, 14, type: Google.Cloud.Websecurityscanner.V1.Xss
+  field :xxe, 18, type: Google.Cloud.Websecurityscanner.V1.Xxe, deprecated: false
 end
