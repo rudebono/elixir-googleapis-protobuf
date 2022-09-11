@@ -40,6 +40,14 @@ defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
 end
 
+defmodule Google.Storagetransfer.V1.DeleteTransferJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
+end
+
 defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -182,6 +190,10 @@ defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   rpc :RunTransferJob,
       Google.Storagetransfer.V1.RunTransferJobRequest,
       Google.Longrunning.Operation
+
+  rpc :DeleteTransferJob,
+      Google.Storagetransfer.V1.DeleteTransferJobRequest,
+      Google.Protobuf.Empty
 
   rpc :CreateAgentPool,
       Google.Storagetransfer.V1.CreateAgentPoolRequest,
