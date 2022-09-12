@@ -1,3 +1,39 @@
+defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.AuthMethod do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :AUTH_METHOD_UNSPECIFIED, 0
+  field :AUTH_METHOD_AWS_SIGNATURE_V4, 1
+  field :AUTH_METHOD_AWS_SIGNATURE_V2, 2
+end
+
+defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.RequestModel do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REQUEST_MODEL_UNSPECIFIED, 0
+  field :REQUEST_MODEL_VIRTUAL_HOSTED_STYLE, 1
+  field :REQUEST_MODEL_PATH_STYLE, 2
+end
+
+defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.NetworkProtocol do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :NETWORK_PROTOCOL_UNSPECIFIED, 0
+  field :NETWORK_PROTOCOL_HTTPS, 1
+  field :NETWORK_PROTOCOL_HTTP, 2
+end
+
+defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.ListApi do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LIST_API_UNSPECIFIED, 0
+  field :LIST_OBJECTS_V2, 1
+  field :LIST_OBJECTS, 2
+end
+
 defmodule Google.Storagetransfer.V1.AgentPool.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -257,6 +293,47 @@ defmodule Google.Storagetransfer.V1.PosixFilesystem do
   field :root_directory, 1, type: :string, json_name: "rootDirectory"
 end
 
+defmodule Google.Storagetransfer.V1.AwsS3CompatibleData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :data_provider, 0
+
+  field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
+  field :path, 2, type: :string
+  field :endpoint, 3, type: :string, deprecated: false
+  field :region, 5, type: :string
+
+  field :s3_metadata, 4,
+    type: Google.Storagetransfer.V1.S3CompatibleMetadata,
+    json_name: "s3Metadata",
+    oneof: 0
+end
+
+defmodule Google.Storagetransfer.V1.S3CompatibleMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :auth_method, 1,
+    type: Google.Storagetransfer.V1.S3CompatibleMetadata.AuthMethod,
+    json_name: "authMethod",
+    enum: true
+
+  field :request_model, 2,
+    type: Google.Storagetransfer.V1.S3CompatibleMetadata.RequestModel,
+    json_name: "requestModel",
+    enum: true
+
+  field :protocol, 3,
+    type: Google.Storagetransfer.V1.S3CompatibleMetadata.NetworkProtocol,
+    enum: true
+
+  field :list_api, 4,
+    type: Google.Storagetransfer.V1.S3CompatibleMetadata.ListApi,
+    json_name: "listApi",
+    enum: true
+end
+
 defmodule Google.Storagetransfer.V1.AgentPool.BandwidthLimit do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -344,6 +421,11 @@ defmodule Google.Storagetransfer.V1.TransferSpec do
   field :azure_blob_storage_data_source, 8,
     type: Google.Storagetransfer.V1.AzureBlobStorageData,
     json_name: "azureBlobStorageDataSource",
+    oneof: 1
+
+  field :aws_s3_compatible_data_source, 19,
+    type: Google.Storagetransfer.V1.AwsS3CompatibleData,
+    json_name: "awsS3CompatibleDataSource",
     oneof: 1
 
   field :gcs_intermediate_data_location, 16,
