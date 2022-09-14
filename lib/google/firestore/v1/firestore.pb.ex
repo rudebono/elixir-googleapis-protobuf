@@ -188,6 +188,40 @@ defmodule Google.Firestore.V1.RunQueryResponse do
   field :done, 6, type: :bool, oneof: 0
 end
 
+defmodule Google.Firestore.V1.RunAggregationQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :query_type, 0
+
+  oneof :consistency_selector, 1
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :structured_aggregation_query, 2,
+    type: Google.Firestore.V1.StructuredAggregationQuery,
+    json_name: "structuredAggregationQuery",
+    oneof: 0
+
+  field :transaction, 4, type: :bytes, oneof: 1
+
+  field :new_transaction, 5,
+    type: Google.Firestore.V1.TransactionOptions,
+    json_name: "newTransaction",
+    oneof: 1
+
+  field :read_time, 6, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
+end
+
+defmodule Google.Firestore.V1.RunAggregationQueryResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :result, 1, type: Google.Firestore.V1.AggregationResult
+  field :transaction, 2, type: :bytes
+  field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
+end
+
 defmodule Google.Firestore.V1.PartitionQueryRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -432,6 +466,10 @@ defmodule Google.Firestore.V1.Firestore.Service do
   rpc :Rollback, Google.Firestore.V1.RollbackRequest, Google.Protobuf.Empty
 
   rpc :RunQuery, Google.Firestore.V1.RunQueryRequest, stream(Google.Firestore.V1.RunQueryResponse)
+
+  rpc :RunAggregationQuery,
+      Google.Firestore.V1.RunAggregationQueryRequest,
+      stream(Google.Firestore.V1.RunAggregationQueryResponse)
 
   rpc :PartitionQuery,
       Google.Firestore.V1.PartitionQueryRequest,
