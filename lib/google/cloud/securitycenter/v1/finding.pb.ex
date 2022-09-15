@@ -128,6 +128,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     deprecated: false
 
   field :compliances, 34, repeated: true, type: Google.Cloud.Securitycenter.V1.Compliance
+  field :parent_display_name, 36, type: :string, json_name: "parentDisplayName", deprecated: false
   field :description, 37, type: :string
   field :exfiltration, 38, type: Google.Cloud.Securitycenter.V1.Exfiltration
 

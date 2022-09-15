@@ -241,6 +241,15 @@ defmodule Google.Cloud.Compute.V1.Backend.BalancingMode do
   field :UTILIZATION, 157_008_386
 end
 
+defmodule Google.Cloud.Compute.V1.BackendBucket.CompressionMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_COMPRESSION_MODE, 0
+  field :AUTOMATIC, 165_298_699
+  field :DISABLED, 516_696_700
+end
+
 defmodule Google.Cloud.Compute.V1.BackendBucketCdnPolicy.CacheMode do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -250,6 +259,15 @@ defmodule Google.Cloud.Compute.V1.BackendBucketCdnPolicy.CacheMode do
   field :FORCE_CACHE_ALL, 486_026_928
   field :INVALID_CACHE_MODE, 381_295_560
   field :USE_ORIGIN_HEADERS, 55_380_261
+end
+
+defmodule Google.Cloud.Compute.V1.BackendService.CompressionMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_COMPRESSION_MODE, 0
+  field :AUTOMATIC, 165_298_699
+  field :DISABLED, 516_696_700
 end
 
 defmodule Google.Cloud.Compute.V1.BackendService.LoadBalancingScheme do
@@ -2387,6 +2405,7 @@ defmodule Google.Cloud.Compute.V1.ShareSettings.ShareType do
 
   field :UNDEFINED_SHARE_TYPE, 0
   field :LOCAL, 72_607_563
+  field :ORGANIZATION, 274_978_099
   field :SHARE_TYPE_UNSPECIFIED, 494_771_730
   field :SPECIFIC_PROJECTS, 347_838_695
 end
@@ -3511,6 +3530,11 @@ defmodule Google.Cloud.Compute.V1.AdvancedMachineFeatures do
     proto3_optional: true,
     type: :int32,
     json_name: "threadsPerCore"
+
+  field :visible_core_count, 193_198_684,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "visibleCoreCount"
 end
 
 defmodule Google.Cloud.Compute.V1.AggregatedListAcceleratorTypesRequest do
@@ -4129,6 +4153,28 @@ defmodule Google.Cloud.Compute.V1.AggregatedListSslCertificatesRequest do
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.AggregatedListSslPoliciesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.AggregatedListSubnetworksRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -4505,6 +4551,7 @@ defmodule Google.Cloud.Compute.V1.AttachedDisk do
     json_name: "diskEncryptionKey"
 
   field :disk_size_gb, 316_263_735, proto3_optional: true, type: :int64, json_name: "diskSizeGb"
+  field :force_attach, 142_758_425, proto3_optional: true, type: :bool, json_name: "forceAttach"
 
   field :guest_os_features, 79_294_545,
     repeated: true,
@@ -4540,6 +4587,14 @@ defmodule Google.Cloud.Compute.V1.AttachedDiskInitializeParams.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1.AttachedDiskInitializeParams.ResourceManagerTagsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.AttachedDiskInitializeParams do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -4566,6 +4621,12 @@ defmodule Google.Cloud.Compute.V1.AttachedDiskInitializeParams do
     proto3_optional: true,
     type: :int64,
     json_name: "provisionedIops"
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.AttachedDiskInitializeParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -4948,6 +5009,11 @@ defmodule Google.Cloud.Compute.V1.BackendBucket do
     type: Google.Cloud.Compute.V1.BackendBucketCdnPolicy,
     json_name: "cdnPolicy"
 
+  field :compression_mode, 95_520_988,
+    proto3_optional: true,
+    type: :string,
+    json_name: "compressionMode"
+
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
     type: :string,
@@ -5089,6 +5155,11 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.CircuitBreakers,
     json_name: "circuitBreakers"
+
+  field :compression_mode, 95_520_988,
+    proto3_optional: true,
+    type: :string,
+    json_name: "compressionMode"
 
   field :connection_draining, 461_096_747,
     proto3_optional: true,
@@ -5822,12 +5893,22 @@ defmodule Google.Cloud.Compute.V1.Commitment do
     type: Google.Cloud.Compute.V1.LicenseResourceCommitment,
     json_name: "licenseResource"
 
+  field :merge_source_commitments, 188_093_761,
+    repeated: true,
+    type: :string,
+    json_name: "mergeSourceCommitments"
+
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :plan, 3_443_497, proto3_optional: true, type: :string
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :reservations, 399_717_927, repeated: true, type: Google.Cloud.Compute.V1.Reservation
   field :resources, 164_412_965, repeated: true, type: Google.Cloud.Compute.V1.ResourceCommitment
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :split_source_commitment, 402_611_156,
+    proto3_optional: true,
+    type: :string,
+    json_name: "splitSourceCommitment"
 
   field :start_timestamp, 83_645_817,
     proto3_optional: true,
@@ -6753,6 +6834,16 @@ defmodule Google.Cloud.Compute.V1.DeleteRegionSslCertificateRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.DeleteRegionSslPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :ssl_policy, 295_190_213, type: :string, json_name: "sslPolicy", deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.DeleteRegionTargetHttpProxyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -6778,6 +6869,20 @@ defmodule Google.Cloud.Compute.V1.DeleteRegionTargetHttpsProxyRequest do
   field :target_https_proxy, 52_336_748,
     type: :string,
     json_name: "targetHttpsProxy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteRegionTargetTcpProxyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :target_tcp_proxy, 503_065_442,
+    type: :string,
+    json_name: "targetTcpProxy",
     deprecated: false
 end
 
@@ -7240,6 +7345,7 @@ defmodule Google.Cloud.Compute.V1.Disk do
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :options, 361_137_822, proto3_optional: true, type: :string
+  field :params, 78_313_862, proto3_optional: true, type: Google.Cloud.Compute.V1.DiskParams
 
   field :physical_block_size_bytes, 420_007_943,
     proto3_optional: true,
@@ -7379,6 +7485,25 @@ defmodule Google.Cloud.Compute.V1.DiskMoveRequest do
     json_name: "destinationZone"
 
   field :target_disk, 62_433_163, proto3_optional: true, type: :string, json_name: "targetDisk"
+end
+
+defmodule Google.Cloud.Compute.V1.DiskParams.ResourceManagerTagsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.DiskParams do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.DiskParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.DiskType do
@@ -8545,6 +8670,19 @@ defmodule Google.Cloud.Compute.V1.GetHealthTargetPoolRequest do
   field :target_pool, 62_796_298, type: :string, json_name: "targetPool", deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetIamPolicyBackendServiceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetIamPolicyDiskRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -8665,6 +8803,20 @@ defmodule Google.Cloud.Compute.V1.GetIamPolicyNodeGroupRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.GetIamPolicyNodeTemplateRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetIamPolicyRegionBackendServiceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -9214,6 +9366,15 @@ defmodule Google.Cloud.Compute.V1.GetRegionSslCertificateRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetRegionSslPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :ssl_policy, 295_190_213, type: :string, json_name: "sslPolicy", deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetRegionTargetHttpProxyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -9237,6 +9398,19 @@ defmodule Google.Cloud.Compute.V1.GetRegionTargetHttpsProxyRequest do
   field :target_https_proxy, 52_336_748,
     type: :string,
     json_name: "targetHttpsProxy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetRegionTargetTcpProxyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :target_tcp_proxy, 503_065_442,
+    type: :string,
+    json_name: "targetTcpProxy",
     deprecated: false
 end
 
@@ -11091,6 +11265,20 @@ defmodule Google.Cloud.Compute.V1.InsertRegionSslCertificateRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.InsertRegionSslPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :ssl_policy_resource, 274_891_848,
+    type: Google.Cloud.Compute.V1.SslPolicy,
+    json_name: "sslPolicyResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.InsertRegionTargetHttpProxyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -11116,6 +11304,20 @@ defmodule Google.Cloud.Compute.V1.InsertRegionTargetHttpsProxyRequest do
   field :target_https_proxy_resource, 433_657_473,
     type: Google.Cloud.Compute.V1.TargetHttpsProxy,
     json_name: "targetHttpsProxyResource",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.InsertRegionTargetTcpProxyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :target_tcp_proxy_resource, 145_913_931,
+    type: Google.Cloud.Compute.V1.TargetTcpProxy,
+    json_name: "targetTcpProxyResource",
     deprecated: false
 end
 
@@ -11620,6 +11822,28 @@ defmodule Google.Cloud.Compute.V1.InstanceAggregatedList do
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :unreachables, 243_372_063, repeated: true, type: :string
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceConsumptionData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :consumption_info, 146_354_898,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceConsumptionInfo,
+    json_name: "consumptionInfo"
+
+  field :instance, 18_257_045, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceConsumptionInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :guest_cpus, 393_356_754, proto3_optional: true, type: :int32, json_name: "guestCpus"
+  field :local_ssd_gb, 329_237_578, proto3_optional: true, type: :int32, json_name: "localSsdGb"
+  field :memory_mb, 116_001_171, proto3_optional: true, type: :int32, json_name: "memoryMb"
+  field :min_node_cpus, 317_231_675, proto3_optional: true, type: :int32, json_name: "minNodeCpus"
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroup do
@@ -13272,6 +13496,23 @@ defmodule Google.Cloud.Compute.V1.ListAutoscalersRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ListAvailableFeaturesRegionSslPoliciesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.ListAvailableFeaturesSslPoliciesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -14440,6 +14681,23 @@ defmodule Google.Cloud.Compute.V1.ListRegionSslCertificatesRequest do
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.ListRegionSslPoliciesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.ListRegionTargetHttpProxiesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -14458,6 +14716,23 @@ defmodule Google.Cloud.Compute.V1.ListRegionTargetHttpProxiesRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.ListRegionTargetHttpsProxiesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListRegionTargetTcpProxiesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -15977,6 +16252,12 @@ defmodule Google.Cloud.Compute.V1.NodeGroup do
     json_name: "nodeTemplate"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :share_settings, 266_668_163,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ShareSettings,
+    json_name: "shareSettings"
+
   field :size, 3_530_753, proto3_optional: true, type: :int32
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
@@ -16059,12 +16340,23 @@ defmodule Google.Cloud.Compute.V1.NodeGroupNode do
     repeated: true,
     type: Google.Cloud.Compute.V1.AcceleratorConfig
 
+  field :consumed_resources, 334_527_118,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceConsumptionInfo,
+    json_name: "consumedResources"
+
   field :cpu_overcommit_type, 247_727_959,
     proto3_optional: true,
     type: :string,
     json_name: "cpuOvercommitType"
 
   field :disks, 95_594_102, repeated: true, type: Google.Cloud.Compute.V1.LocalDisk
+
+  field :instance_consumption_data, 84_715_576,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstanceConsumptionData,
+    json_name: "instanceConsumptionData"
+
   field :instances, 29_097_598, repeated: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :node_type, 465_832_791, proto3_optional: true, type: :string, json_name: "nodeType"
@@ -16077,6 +16369,11 @@ defmodule Google.Cloud.Compute.V1.NodeGroupNode do
 
   field :server_id, 339_433_367, proto3_optional: true, type: :string, json_name: "serverId"
   field :status, 181_260_274, proto3_optional: true, type: :string
+
+  field :total_resources, 97_406_698,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceConsumptionInfo,
+    json_name: "totalResources"
 end
 
 defmodule Google.Cloud.Compute.V1.NodeGroupsAddNodesRequest do
@@ -17291,6 +17588,21 @@ defmodule Google.Cloud.Compute.V1.PatchRegionSecurityPolicyRequest do
   field :security_policy_resource, 216_159_612,
     type: Google.Cloud.Compute.V1.SecurityPolicy,
     json_name: "securityPolicyResource",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.PatchRegionSslPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :ssl_policy, 295_190_213, type: :string, json_name: "sslPolicy", deprecated: false
+
+  field :ssl_policy_resource, 274_891_848,
+    type: Google.Cloud.Compute.V1.SslPolicy,
+    json_name: "sslPolicyResource",
     deprecated: false
 end
 
@@ -20128,8 +20440,20 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  field :json_custom_config, 111_570_105,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig,
+    json_name: "jsonCustomConfig"
+
   field :json_parsing, 282_493_529, proto3_optional: true, type: :string, json_name: "jsonParsing"
   field :log_level, 140_582_601, proto3_optional: true, type: :string, json_name: "logLevel"
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :content_types, 17_428_787, repeated: true, type: :string, json_name: "contentTypes"
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyDdosProtectionConfig do
@@ -20696,6 +21020,19 @@ defmodule Google.Cloud.Compute.V1.SetEdgeSecurityPolicyBackendServiceRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetIamPolicyBackendServiceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :global_set_policy_request_resource, 337_048_498,
+    type: Google.Cloud.Compute.V1.GlobalSetPolicyRequest,
+    json_name: "globalSetPolicyRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetIamPolicyDiskRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -20816,6 +21153,21 @@ defmodule Google.Cloud.Compute.V1.SetIamPolicyNodeGroupRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.SetIamPolicyNodeTemplateRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_policy_request_resource, 276_489_091,
+    type: Google.Cloud.Compute.V1.RegionSetPolicyRequest,
+    json_name: "regionSetPolicyRequestResource",
+    deprecated: false
+
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetIamPolicyRegionBackendServiceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -20971,6 +21323,22 @@ defmodule Google.Cloud.Compute.V1.SetInstanceTemplateRegionInstanceGroupManagerR
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsAddressRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsDiskRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -21012,6 +21380,19 @@ defmodule Google.Cloud.Compute.V1.SetLabelsForwardingRuleRequest do
     deprecated: false
 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetLabelsGlobalAddressRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :global_set_labels_request_resource, 319_917_189,
+    type: Google.Cloud.Compute.V1.GlobalSetLabelsRequest,
+    json_name: "globalSetLabelsRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
@@ -21057,6 +21438,35 @@ defmodule Google.Cloud.Compute.V1.SetLabelsInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsInterconnectAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetLabelsInterconnectRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :global_set_labels_request_resource, 319_917_189,
+    type: Google.Cloud.Compute.V1.GlobalSetLabelsRequest,
+    json_name: "globalSetLabelsRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsRegionDiskRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -21073,6 +21483,19 @@ defmodule Google.Cloud.Compute.V1.SetLabelsRegionDiskRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsSecurityPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :global_set_labels_request_resource, 319_917_189,
+    type: Google.Cloud.Compute.V1.GlobalSetLabelsRequest,
+    json_name: "globalSetLabelsRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsSnapshotRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -21086,7 +21509,39 @@ defmodule Google.Cloud.Compute.V1.SetLabelsSnapshotRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsTargetVpnGatewayRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsVpnGatewayRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetLabelsVpnTunnelRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -22056,6 +22511,38 @@ defmodule Google.Cloud.Compute.V1.SslCertificatesScopedList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.SslPoliciesAggregatedList.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.SslPoliciesScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.SslPoliciesAggregatedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SslPoliciesAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.SslPoliciesList do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -22078,6 +22565,18 @@ defmodule Google.Cloud.Compute.V1.SslPoliciesListAvailableFeaturesResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :features, 246_211_645, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.SslPoliciesScopedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ssl_policies, 209_941_027,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SslPolicy,
+    json_name: "sslPolicies"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.SslPolicy do
@@ -22108,6 +22607,7 @@ defmodule Google.Cloud.Compute.V1.SslPolicy do
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :profile, 227_445_161, proto3_optional: true, type: :string
+  field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warnings, 498_091_095, repeated: true, type: Google.Cloud.Compute.V1.Warnings
 end
@@ -23022,6 +23522,7 @@ defmodule Google.Cloud.Compute.V1.TargetTcpProxy do
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :proxy_bind, 286_025_582, proto3_optional: true, type: :bool, json_name: "proxyBind"
   field :proxy_header, 160_374_142, proto3_optional: true, type: :string, json_name: "proxyHeader"
+  field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :service, 373_540_533, proto3_optional: true, type: :string
 end
@@ -24802,6 +25303,10 @@ defmodule Google.Cloud.Compute.V1.Addresses.Service do
   rpc :Insert, Google.Cloud.Compute.V1.InsertAddressRequest, Google.Cloud.Compute.V1.Operation
 
   rpc :List, Google.Cloud.Compute.V1.ListAddressesRequest, Google.Cloud.Compute.V1.AddressList
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsAddressRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.Addresses.Stub do
@@ -24913,6 +25418,10 @@ defmodule Google.Cloud.Compute.V1.BackendServices.Service do
       Google.Cloud.Compute.V1.GetHealthBackendServiceRequest,
       Google.Cloud.Compute.V1.BackendServiceGroupHealth
 
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyBackendServiceRequest,
+      Google.Cloud.Compute.V1.Policy
+
   rpc :Insert,
       Google.Cloud.Compute.V1.InsertBackendServiceRequest,
       Google.Cloud.Compute.V1.Operation
@@ -24928,6 +25437,10 @@ defmodule Google.Cloud.Compute.V1.BackendServices.Service do
   rpc :SetEdgeSecurityPolicy,
       Google.Cloud.Compute.V1.SetEdgeSecurityPolicyBackendServiceRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyBackendServiceRequest,
+      Google.Cloud.Compute.V1.Policy
 
   rpc :SetSecurityPolicy,
       Google.Cloud.Compute.V1.SetSecurityPolicyBackendServiceRequest,
@@ -25214,6 +25727,10 @@ defmodule Google.Cloud.Compute.V1.GlobalAddresses.Service do
   rpc :List,
       Google.Cloud.Compute.V1.ListGlobalAddressesRequest,
       Google.Cloud.Compute.V1.AddressList
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsGlobalAddressRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.GlobalAddresses.Stub do
@@ -25846,6 +26363,10 @@ defmodule Google.Cloud.Compute.V1.InterconnectAttachments.Service do
   rpc :Patch,
       Google.Cloud.Compute.V1.PatchInterconnectAttachmentRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsInterconnectAttachmentRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.InterconnectAttachments.Stub do
@@ -25898,6 +26419,10 @@ defmodule Google.Cloud.Compute.V1.Interconnects.Service do
       Google.Cloud.Compute.V1.InterconnectList
 
   rpc :Patch, Google.Cloud.Compute.V1.PatchInterconnectRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsInterconnectRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.Interconnects.Stub do
@@ -26547,6 +27072,10 @@ defmodule Google.Cloud.Compute.V1.RegionBackendServices.Service do
       Google.Cloud.Compute.V1.GetHealthRegionBackendServiceRequest,
       Google.Cloud.Compute.V1.BackendServiceGroupHealth
 
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyRegionBackendServiceRequest,
+      Google.Cloud.Compute.V1.Policy
+
   rpc :Insert,
       Google.Cloud.Compute.V1.InsertRegionBackendServiceRequest,
       Google.Cloud.Compute.V1.Operation
@@ -26558,6 +27087,10 @@ defmodule Google.Cloud.Compute.V1.RegionBackendServices.Service do
   rpc :Patch,
       Google.Cloud.Compute.V1.PatchRegionBackendServiceRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyRegionBackendServiceRequest,
+      Google.Cloud.Compute.V1.Policy
 
   rpc :Update,
       Google.Cloud.Compute.V1.UpdateRegionBackendServiceRequest,
@@ -27087,6 +27620,40 @@ defmodule Google.Cloud.Compute.V1.RegionSslCertificates.Stub do
   use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionSslCertificates.Service
 end
 
+defmodule Google.Cloud.Compute.V1.RegionSslPolicies.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.RegionSslPolicies",
+    protoc_gen_elixir_version: "0.11.0"
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteRegionSslPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get, Google.Cloud.Compute.V1.GetRegionSslPolicyRequest, Google.Cloud.Compute.V1.SslPolicy
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertRegionSslPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListRegionSslPoliciesRequest,
+      Google.Cloud.Compute.V1.SslPoliciesList
+
+  rpc :ListAvailableFeatures,
+      Google.Cloud.Compute.V1.ListAvailableFeaturesRegionSslPoliciesRequest,
+      Google.Cloud.Compute.V1.SslPoliciesListAvailableFeaturesResponse
+
+  rpc :Patch,
+      Google.Cloud.Compute.V1.PatchRegionSslPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+end
+
+defmodule Google.Cloud.Compute.V1.RegionSslPolicies.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionSslPolicies.Service
+end
+
 defmodule Google.Cloud.Compute.V1.RegionTargetHttpProxies.Service do
   @moduledoc false
   use GRPC.Service,
@@ -27157,6 +27724,34 @@ end
 defmodule Google.Cloud.Compute.V1.RegionTargetHttpsProxies.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionTargetHttpsProxies.Service
+end
+
+defmodule Google.Cloud.Compute.V1.RegionTargetTcpProxies.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.RegionTargetTcpProxies",
+    protoc_gen_elixir_version: "0.11.0"
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteRegionTargetTcpProxyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetRegionTargetTcpProxyRequest,
+      Google.Cloud.Compute.V1.TargetTcpProxy
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertRegionTargetTcpProxyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListRegionTargetTcpProxiesRequest,
+      Google.Cloud.Compute.V1.TargetTcpProxyList
+end
+
+defmodule Google.Cloud.Compute.V1.RegionTargetTcpProxies.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionTargetTcpProxies.Service
 end
 
 defmodule Google.Cloud.Compute.V1.RegionUrlMaps.Service do
@@ -27398,6 +27993,10 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicies.Service do
   rpc :RemoveRule,
       Google.Cloud.Compute.V1.RemoveRuleSecurityPolicyRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicies.Stub do
@@ -27524,6 +28123,10 @@ defmodule Google.Cloud.Compute.V1.SslPolicies.Service do
   use GRPC.Service,
     name: "google.cloud.compute.v1.SslPolicies",
     protoc_gen_elixir_version: "0.11.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListSslPoliciesRequest,
+      Google.Cloud.Compute.V1.SslPoliciesAggregatedList
 
   rpc :Delete, Google.Cloud.Compute.V1.DeleteSslPolicyRequest, Google.Cloud.Compute.V1.Operation
 
@@ -27918,6 +28521,10 @@ defmodule Google.Cloud.Compute.V1.TargetVpnGateways.Service do
   rpc :List,
       Google.Cloud.Compute.V1.ListTargetVpnGatewaysRequest,
       Google.Cloud.Compute.V1.TargetVpnGatewayList
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsTargetVpnGatewayRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.TargetVpnGateways.Stub do
@@ -28014,6 +28621,10 @@ defmodule Google.Cloud.Compute.V1.VpnTunnels.Service do
   rpc :Insert, Google.Cloud.Compute.V1.InsertVpnTunnelRequest, Google.Cloud.Compute.V1.Operation
 
   rpc :List, Google.Cloud.Compute.V1.ListVpnTunnelsRequest, Google.Cloud.Compute.V1.VpnTunnelList
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsVpnTunnelRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.VpnTunnels.Stub do
