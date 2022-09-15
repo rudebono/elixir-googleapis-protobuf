@@ -143,6 +143,8 @@ defmodule Google.Bigtable.Admin.V2.Table do
     type: Google.Bigtable.Admin.V2.RestoreInfo,
     json_name: "restoreInfo",
     deprecated: false
+
+  field :deletion_protection, 9, type: :bool, json_name: "deletionProtection"
 end
 
 defmodule Google.Bigtable.Admin.V2.ColumnFamily do

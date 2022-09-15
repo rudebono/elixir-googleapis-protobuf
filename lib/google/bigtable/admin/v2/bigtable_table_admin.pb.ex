@@ -106,6 +106,27 @@ defmodule Google.Bigtable.Admin.V2.GetTableRequest do
   field :view, 2, type: Google.Bigtable.Admin.V2.Table.View, enum: true
 end
 
+defmodule Google.Bigtable.Admin.V2.UpdateTableRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :table, 1, type: Google.Bigtable.Admin.V2.Table, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateTableMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
 defmodule Google.Bigtable.Admin.V2.DeleteTableRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -329,6 +350,8 @@ defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
       Google.Bigtable.Admin.V2.ListTablesResponse
 
   rpc :GetTable, Google.Bigtable.Admin.V2.GetTableRequest, Google.Bigtable.Admin.V2.Table
+
+  rpc :UpdateTable, Google.Bigtable.Admin.V2.UpdateTableRequest, Google.Longrunning.Operation
 
   rpc :DeleteTable, Google.Bigtable.Admin.V2.DeleteTableRequest, Google.Protobuf.Empty
 
