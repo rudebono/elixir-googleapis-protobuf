@@ -224,7 +224,8 @@ defmodule Google.Iam.Admin.V1.GetServiceAccountKeyRequest do
   field :public_key_type, 2,
     type: Google.Iam.Admin.V1.ServiceAccountPublicKeyType,
     json_name: "publicKeyType",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Iam.Admin.V1.ServiceAccountKey do
@@ -257,6 +258,8 @@ defmodule Google.Iam.Admin.V1.ServiceAccountKey do
     type: Google.Iam.Admin.V1.ListServiceAccountKeysRequest.KeyType,
     json_name: "keyType",
     enum: true
+
+  field :disabled, 11, type: :bool
 end
 
 defmodule Google.Iam.Admin.V1.CreateServiceAccountKeyRequest do
@@ -285,6 +288,20 @@ defmodule Google.Iam.Admin.V1.UploadServiceAccountKeyRequest do
 end
 
 defmodule Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Iam.Admin.V1.DisableServiceAccountKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Iam.Admin.V1.EnableServiceAccountKeyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -568,6 +585,14 @@ defmodule Google.Iam.Admin.V1.IAM.Service do
 
   rpc :DeleteServiceAccountKey,
       Google.Iam.Admin.V1.DeleteServiceAccountKeyRequest,
+      Google.Protobuf.Empty
+
+  rpc :DisableServiceAccountKey,
+      Google.Iam.Admin.V1.DisableServiceAccountKeyRequest,
+      Google.Protobuf.Empty
+
+  rpc :EnableServiceAccountKey,
+      Google.Iam.Admin.V1.EnableServiceAccountKeyRequest,
       Google.Protobuf.Empty
 
   rpc :SignBlob, Google.Iam.Admin.V1.SignBlobRequest, Google.Iam.Admin.V1.SignBlobResponse

@@ -8,6 +8,24 @@ defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType do
   field :WITNESS, 3
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :GOOGLE_MANAGED, 1
+  field :USER_MANAGED, 2
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :READY, 2
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -26,14 +44,50 @@ defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo do
   field :default_leader_location, 3, type: :bool, json_name: "defaultLeaderLocation"
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :config_type, 5,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig.Type,
+    json_name: "configType",
+    enum: true,
+    deprecated: false
+
   field :replicas, 3, repeated: true, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo
+
+  field :optional_replicas, 6,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.ReplicaInfo,
+    json_name: "optionalReplicas",
+    deprecated: false
+
+  field :base_config, 7, type: :string, json_name: "baseConfig", deprecated: false
+
+  field :labels, 8,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig.LabelsEntry,
+    map: true
+
+  field :etag, 9, type: :string
   field :leader_options, 4, repeated: true, type: :string, json_name: "leaderOptions"
+  field :reconciling, 10, type: :bool, deprecated: false
+
+  field :state, 11,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig.State,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
@@ -103,6 +157,65 @@ defmodule Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_config_id, 2, type: :string, json_name: "instanceConfigId", deprecated: false
+
+  field :instance_config, 3,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
+    json_name: "instanceConfig",
+    deprecated: false
+
+  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_config, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
+    json_name: "instanceConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :operations, 1, repeated: true, type: Google.Longrunning.Operation
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.GetInstanceRequest do
@@ -175,6 +288,30 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_config, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
+    json_name: "instanceConfig"
+
+  field :progress, 2, type: Google.Spanner.Admin.Instance.V1.OperationProgress
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_config, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
+    json_name: "instanceConfig"
+
+  field :progress, 2, type: Google.Spanner.Admin.Instance.V1.OperationProgress
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   @moduledoc false
   use GRPC.Service,
@@ -188,6 +325,22 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   rpc :GetInstanceConfig,
       Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest,
       Google.Spanner.Admin.Instance.V1.InstanceConfig
+
+  rpc :CreateInstanceConfig,
+      Google.Spanner.Admin.Instance.V1.CreateInstanceConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateInstanceConfig,
+      Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstanceConfig,
+      Google.Spanner.Admin.Instance.V1.DeleteInstanceConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListInstanceConfigOperations,
+      Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsRequest,
+      Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsResponse
 
   rpc :ListInstances,
       Google.Spanner.Admin.Instance.V1.ListInstancesRequest,
