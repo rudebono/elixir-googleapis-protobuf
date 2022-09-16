@@ -213,6 +213,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
     deprecated: false
 
   field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Symptom, deprecated: false
+
+  field :shielded_instance_config, 45,
+    type: Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig,
+    json_name: "shieldedInstanceConfig"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
@@ -426,6 +430,13 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
     repeated: true,
     type: Google.Cloud.Tpu.V2alpha1.GuestAttributes,
     json_name: "guestAttributes"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do

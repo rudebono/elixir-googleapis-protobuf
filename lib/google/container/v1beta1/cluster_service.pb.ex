@@ -388,6 +388,15 @@ defmodule Google.Container.V1beta1.LoggingComponentConfig.Component do
   field :WORKLOADS, 2
 end
 
+defmodule Google.Container.V1beta1.LoggingVariantConfig.Variant do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :VARIANT_UNSPECIFIED, 0
+  field :DEFAULT, 1
+  field :MAX_THROUGHPUT, 2
+end
+
 defmodule Google.Container.V1beta1.MonitoringComponentConfig.Component do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -523,6 +532,10 @@ defmodule Google.Container.V1beta1.NodeConfig do
   field :confidential_nodes, 35,
     type: Google.Container.V1beta1.ConfidentialNodes,
     json_name: "confidentialNodes"
+
+  field :logging_config, 38,
+    type: Google.Container.V1beta1.NodePoolLoggingConfig,
+    json_name: "loggingConfig"
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -1197,6 +1210,10 @@ defmodule Google.Container.V1beta1.NodeConfigDefaults do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcfs_config, 1, type: Google.Container.V1beta1.GcfsConfig, json_name: "gcfsConfig"
+
+  field :logging_config, 3,
+    type: Google.Container.V1beta1.NodePoolLoggingConfig,
+    json_name: "loggingConfig"
 end
 
 defmodule Google.Container.V1beta1.NodePoolAutoConfig do
@@ -1362,6 +1379,10 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
     proto3_optional: true,
     type: Google.Container.V1beta1.ProtectConfig,
     json_name: "desiredProtectConfig"
+
+  field :desired_node_pool_logging_config, 116,
+    type: Google.Container.V1beta1.NodePoolLoggingConfig,
+    json_name: "desiredNodePoolLoggingConfig"
 end
 
 defmodule Google.Container.V1beta1.Operation do
@@ -1499,6 +1520,10 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
     json_name: "confidentialNodes"
 
   field :gvnic, 29, type: Google.Container.V1beta1.VirtualNIC
+
+  field :logging_config, 32,
+    type: Google.Container.V1beta1.NodePoolLoggingConfig,
+    json_name: "loggingConfig"
 end
 
 defmodule Google.Container.V1beta1.SetNodePoolAutoscalingRequest do
@@ -2765,6 +2790,22 @@ defmodule Google.Container.V1beta1.MonitoringConfig do
   field :managed_prometheus_config, 2,
     type: Google.Container.V1beta1.ManagedPrometheusConfig,
     json_name: "managedPrometheusConfig"
+end
+
+defmodule Google.Container.V1beta1.NodePoolLoggingConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :variant_config, 1,
+    type: Google.Container.V1beta1.LoggingVariantConfig,
+    json_name: "variantConfig"
+end
+
+defmodule Google.Container.V1beta1.LoggingVariantConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :variant, 1, type: Google.Container.V1beta1.LoggingVariantConfig.Variant, enum: true
 end
 
 defmodule Google.Container.V1beta1.MonitoringComponentConfig do

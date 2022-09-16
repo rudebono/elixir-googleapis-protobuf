@@ -449,6 +449,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesOperationMetadat
     json_name: "genericMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesOperationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEntityTypeOperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -474,6 +483,49 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchCreateFeaturesOperationMetadata d
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectEntity do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :entity_id_selector, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.EntityIdSelector,
+    json_name: "entityIdSelector",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :DeleteOption, 0
+
+  field :select_entity, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectEntity,
+    json_name: "selectEntity",
+    oneof: 0
+
+  field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EntityIdSelector do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :EntityIdsSource, 0
+
+  field :csv_source, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CsvSource,
+    json_name: "csvSource",
+    oneof: 0
+
+  field :entity_id_field, 5, type: :string, json_name: "entityIdField"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service do
@@ -556,6 +608,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreService.Service do
 
   rpc :ExportFeatureValues,
       Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteFeatureValues,
+      Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest,
       Google.Longrunning.Operation
 
   rpc :SearchFeatures,
