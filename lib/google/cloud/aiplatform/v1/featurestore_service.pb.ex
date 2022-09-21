@@ -104,6 +104,10 @@ defmodule Google.Cloud.Aiplatform.V1.ImportFeatureValuesResponse do
   field :imported_entity_count, 1, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 2, type: :int64, json_name: "importedFeatureValueCount"
   field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  field :timestamp_outside_retention_rows_count, 4,
+    type: :int64,
+    json_name: "timestampOutsideRetentionRowsCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.BatchReadFeatureValuesRequest.PassThroughField do
@@ -425,6 +429,10 @@ defmodule Google.Cloud.Aiplatform.V1.ImportFeatureValuesOperationMetadata do
   field :imported_entity_count, 2, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 3, type: :int64, json_name: "importedFeatureValueCount"
   field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  field :timestamp_outside_retention_rows_count, 7,
+    type: :int64,
+    json_name: "timestampOutsideRetentionRowsCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportFeatureValuesOperationMetadata do

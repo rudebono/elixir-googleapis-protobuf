@@ -48,6 +48,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
   field :field_key, 2, type: :string, json_name: "fieldKey", oneof: 0
   field :map_key, 3, type: Google.Api.Expr.V1alpha1.Expr, json_name: "mapKey", oneof: 0
   field :value, 4, type: Google.Api.Expr.V1alpha1.Expr
+  field :optional_entry, 5, type: :bool, json_name: "optionalEntry"
 end
 
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct do

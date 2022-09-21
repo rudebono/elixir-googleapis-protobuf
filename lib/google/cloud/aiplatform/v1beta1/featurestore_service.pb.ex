@@ -104,6 +104,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesResponse do
   field :imported_entity_count, 1, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 2, type: :int64, json_name: "importedFeatureValueCount"
   field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  field :timestamp_outside_retention_rows_count, 4,
+    type: :int64,
+    json_name: "timestampOutsideRetentionRowsCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchReadFeatureValuesRequest.PassThroughField do
@@ -429,6 +433,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata d
   field :imported_entity_count, 2, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 3, type: :int64, json_name: "importedFeatureValueCount"
   field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
+
+  field :timestamp_outside_retention_rows_count, 7,
+    type: :int64,
+    json_name: "timestampOutsideRetentionRowsCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportFeatureValuesOperationMetadata do
@@ -495,6 +503,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectEntit
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectTimeRangeAndFeature do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :time_range, 1, type: Google.Type.Interval, json_name: "timeRange", deprecated: false
+
+  field :feature_selector, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureSelector,
+    json_name: "featureSelector",
+    deprecated: false
+
+  field :skip_online_storage_delete, 3, type: :bool, json_name: "skipOnlineStorageDelete"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -504,6 +526,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest do
   field :select_entity, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectEntity,
     json_name: "selectEntity",
+    oneof: 0
+
+  field :select_time_range_and_feature, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest.SelectTimeRangeAndFeature,
+    json_name: "selectTimeRangeAndFeature",
     oneof: 0
 
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
