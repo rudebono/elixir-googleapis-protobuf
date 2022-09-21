@@ -17,6 +17,15 @@ defmodule Google.Cloud.Language.V1beta2.Document.Type do
   field :HTML, 2
 end
 
+defmodule Google.Cloud.Language.V1beta2.Document.BoilerplateHandling do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :BOILERPLATE_HANDLING_UNSPECIFIED, 0
+  field :SKIP_BOILERPLATE, 1
+  field :KEEP_BOILERPLATE, 2
+end
+
 defmodule Google.Cloud.Language.V1beta2.Entity.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -288,6 +297,15 @@ defmodule Google.Cloud.Language.V1beta2.EntityMention.Type do
   field :COMMON, 2
 end
 
+defmodule Google.Cloud.Language.V1beta2.ClassificationModelOptions.V2Model.ContentCategoriesVersion do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONTENT_CATEGORIES_VERSION_UNSPECIFIED, 0
+  field :V1, 1
+  field :V2, 2
+end
+
 defmodule Google.Cloud.Language.V1beta2.Document do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -298,6 +316,12 @@ defmodule Google.Cloud.Language.V1beta2.Document do
   field :content, 2, type: :string, oneof: 0
   field :gcs_content_uri, 3, type: :string, json_name: "gcsContentUri", oneof: 0
   field :language, 4, type: :string
+  field :reference_web_uri, 5, type: :string, json_name: "referenceWebUri"
+
+  field :boilerplate_handling, 6,
+    type: Google.Cloud.Language.V1beta2.Document.BoilerplateHandling,
+    json_name: "boilerplateHandling",
+    enum: true
 end
 
 defmodule Google.Cloud.Language.V1beta2.Sentence do
@@ -409,6 +433,39 @@ defmodule Google.Cloud.Language.V1beta2.ClassificationCategory do
   field :confidence, 2, type: :float
 end
 
+defmodule Google.Cloud.Language.V1beta2.ClassificationModelOptions.V1Model do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Language.V1beta2.ClassificationModelOptions.V2Model do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :content_categories_version, 1,
+    type:
+      Google.Cloud.Language.V1beta2.ClassificationModelOptions.V2Model.ContentCategoriesVersion,
+    json_name: "contentCategoriesVersion",
+    enum: true
+end
+
+defmodule Google.Cloud.Language.V1beta2.ClassificationModelOptions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :model_type, 0
+
+  field :v1_model, 1,
+    type: Google.Cloud.Language.V1beta2.ClassificationModelOptions.V1Model,
+    json_name: "v1Model",
+    oneof: 0
+
+  field :v2_model, 2,
+    type: Google.Cloud.Language.V1beta2.ClassificationModelOptions.V2Model,
+    json_name: "v2Model",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Language.V1beta2.AnalyzeSentimentRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -499,6 +556,10 @@ defmodule Google.Cloud.Language.V1beta2.ClassifyTextRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
+
+  field :classification_model_options, 3,
+    type: Google.Cloud.Language.V1beta2.ClassificationModelOptions,
+    json_name: "classificationModelOptions"
 end
 
 defmodule Google.Cloud.Language.V1beta2.ClassifyTextResponse do
@@ -517,6 +578,10 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
   field :extract_document_sentiment, 3, type: :bool, json_name: "extractDocumentSentiment"
   field :extract_entity_sentiment, 4, type: :bool, json_name: "extractEntitySentiment"
   field :classify_text, 6, type: :bool, json_name: "classifyText"
+
+  field :classification_model_options, 10,
+    type: Google.Cloud.Language.V1beta2.ClassificationModelOptions,
+    json_name: "classificationModelOptions"
 end
 
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest do

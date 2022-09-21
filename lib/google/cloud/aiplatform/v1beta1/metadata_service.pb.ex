@@ -90,6 +90,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListArtifactsRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListArtifactsResponse do
@@ -177,6 +178,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListContextsRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListContextsResponse do
@@ -273,6 +275,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AddContextChildrenResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RemoveContextChildrenRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :context, 1, type: :string, deprecated: false
+
+  field :child_contexts, 2,
+    repeated: true,
+    type: :string,
+    json_name: "childContexts",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RemoveContextChildrenResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryContextLineageSubgraphRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -304,6 +324,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListExecutionsRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExecutionsResponse do
@@ -516,6 +537,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataService.Service do
   rpc :AddContextChildren,
       Google.Cloud.Aiplatform.V1beta1.AddContextChildrenRequest,
       Google.Cloud.Aiplatform.V1beta1.AddContextChildrenResponse
+
+  rpc :RemoveContextChildren,
+      Google.Cloud.Aiplatform.V1beta1.RemoveContextChildrenRequest,
+      Google.Cloud.Aiplatform.V1beta1.RemoveContextChildrenResponse
 
   rpc :QueryContextLineageSubgraph,
       Google.Cloud.Aiplatform.V1beta1.QueryContextLineageSubgraphRequest,

@@ -288,6 +288,15 @@ defmodule Google.Cloud.Language.V1.EntityMention.Type do
   field :COMMON, 2
 end
 
+defmodule Google.Cloud.Language.V1.ClassificationModelOptions.V2Model.ContentCategoriesVersion do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONTENT_CATEGORIES_VERSION_UNSPECIFIED, 0
+  field :V1, 1
+  field :V2, 2
+end
+
 defmodule Google.Cloud.Language.V1.Document do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -406,6 +415,38 @@ defmodule Google.Cloud.Language.V1.ClassificationCategory do
   field :confidence, 2, type: :float
 end
 
+defmodule Google.Cloud.Language.V1.ClassificationModelOptions.V1Model do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Language.V1.ClassificationModelOptions.V2Model do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :content_categories_version, 1,
+    type: Google.Cloud.Language.V1.ClassificationModelOptions.V2Model.ContentCategoriesVersion,
+    json_name: "contentCategoriesVersion",
+    enum: true
+end
+
+defmodule Google.Cloud.Language.V1.ClassificationModelOptions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :model_type, 0
+
+  field :v1_model, 1,
+    type: Google.Cloud.Language.V1.ClassificationModelOptions.V1Model,
+    json_name: "v1Model",
+    oneof: 0
+
+  field :v2_model, 2,
+    type: Google.Cloud.Language.V1.ClassificationModelOptions.V2Model,
+    json_name: "v2Model",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Language.V1.AnalyzeSentimentRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -496,6 +537,10 @@ defmodule Google.Cloud.Language.V1.ClassifyTextRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V1.Document, deprecated: false
+
+  field :classification_model_options, 3,
+    type: Google.Cloud.Language.V1.ClassificationModelOptions,
+    json_name: "classificationModelOptions"
 end
 
 defmodule Google.Cloud.Language.V1.ClassifyTextResponse do
@@ -514,6 +559,10 @@ defmodule Google.Cloud.Language.V1.AnnotateTextRequest.Features do
   field :extract_document_sentiment, 3, type: :bool, json_name: "extractDocumentSentiment"
   field :extract_entity_sentiment, 4, type: :bool, json_name: "extractEntitySentiment"
   field :classify_text, 6, type: :bool, json_name: "classifyText"
+
+  field :classification_model_options, 10,
+    type: Google.Cloud.Language.V1.ClassificationModelOptions,
+    json_name: "classificationModelOptions"
 end
 
 defmodule Google.Cloud.Language.V1.AnnotateTextRequest do

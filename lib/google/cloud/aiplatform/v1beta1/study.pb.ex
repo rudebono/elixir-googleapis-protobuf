@@ -320,6 +320,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.ConvexStopConfig do
   field :use_seconds, 5, type: :bool, json_name: "useSeconds"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.TransferLearningConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :disable_transfer_learning, 1, type: :bool, json_name: "disableTransferLearning"
+
+  field :prior_study_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "priorStudyNames",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -368,6 +381,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec do
     type: Google.Cloud.Aiplatform.V1beta1.StudySpec.MeasurementSelectionType,
     json_name: "measurementSelectionType",
     enum: true
+
+  field :transfer_learning_config, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.StudySpec.TransferLearningConfig,
+    json_name: "transferLearningConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Measurement.Metric do
