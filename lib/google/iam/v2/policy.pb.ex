@@ -94,25 +94,6 @@ defmodule Google.Iam.V2.DeletePolicyRequest do
   field :etag, 2, type: :string, deprecated: false
 end
 
-defmodule Google.Iam.V2.ListApplicablePoliciesRequest do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :attachment_point, 1, type: :string, json_name: "attachmentPoint", deprecated: false
-  field :filter, 2, type: :string
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :page_size, 4, type: :int32, json_name: "pageSize"
-end
-
-defmodule Google.Iam.V2.ListApplicablePoliciesResponse do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :policies, 1, repeated: true, type: Google.Iam.V2.Policy
-  field :inaccessible, 2, repeated: true, type: :string
-  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
-end
-
 defmodule Google.Iam.V2.PolicyOperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -133,10 +114,6 @@ defmodule Google.Iam.V2.Policies.Service do
   rpc :UpdatePolicy, Google.Iam.V2.UpdatePolicyRequest, Google.Longrunning.Operation
 
   rpc :DeletePolicy, Google.Iam.V2.DeletePolicyRequest, Google.Longrunning.Operation
-
-  rpc :ListApplicablePolicies,
-      Google.Iam.V2.ListApplicablePoliciesRequest,
-      Google.Iam.V2.ListApplicablePoliciesResponse
 end
 
 defmodule Google.Iam.V2.Policies.Stub do
