@@ -33,6 +33,24 @@ defmodule Google.Streetview.Publish.V1.StreetViewPublishService.Service do
   rpc :BatchDeletePhotos,
       Google.Streetview.Publish.V1.BatchDeletePhotosRequest,
       Google.Streetview.Publish.V1.BatchDeletePhotosResponse
+
+  rpc :StartPhotoSequenceUpload, Google.Protobuf.Empty, Google.Streetview.Publish.V1.UploadRef
+
+  rpc :CreatePhotoSequence,
+      Google.Streetview.Publish.V1.CreatePhotoSequenceRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetPhotoSequence,
+      Google.Streetview.Publish.V1.GetPhotoSequenceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListPhotoSequences,
+      Google.Streetview.Publish.V1.ListPhotoSequencesRequest,
+      Google.Streetview.Publish.V1.ListPhotoSequencesResponse
+
+  rpc :DeletePhotoSequence,
+      Google.Streetview.Publish.V1.DeletePhotoSequenceRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Streetview.Publish.V1.StreetViewPublishService.Stub do

@@ -109,6 +109,17 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Restric
   field :FULLY_RESTRICTED, 2
 end
 
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :LABEL_ADDED, 1
+  field :LABEL_REMOVED, 2
+  field :LABEL_FIELD_VALUE_CHANGED, 3
+  field :LABEL_APPLIED_BY_ITEM_CREATE, 4
+end
+
 defmodule Google.Apps.Drive.Activity.V2.Action do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -156,6 +167,11 @@ defmodule Google.Apps.Drive.Activity.V2.ActionDetail do
   field :settings_change, 13,
     type: Google.Apps.Drive.Activity.V2.SettingsChange,
     json_name: "settingsChange",
+    oneof: 0
+
+  field :applied_label_change, 19,
+    type: Google.Apps.Drive.Activity.V2.AppliedLabelChange,
+    json_name: "appliedLabelChange",
     oneof: 0
 end
 
@@ -339,4 +355,170 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange do
     repeated: true,
     type: Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange,
     json_name: "restrictionChanges"
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Text do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :string
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.TextList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Text
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Selection do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :string
+  field :display_name, 2, proto3_optional: true, type: :string, json_name: "displayName"
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.SelectionList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Selection
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Integer do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :int64
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.SingleUser do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :string
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.UserList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.SingleUser
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Date do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :value, 0
+
+  field :text, 1,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Text,
+    oneof: 0
+
+  field :text_list, 3,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.TextList,
+    json_name: "textList",
+    oneof: 0
+
+  field :selection, 4,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Selection,
+    oneof: 0
+
+  field :selection_list, 5,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.SelectionList,
+    json_name: "selectionList",
+    oneof: 0
+
+  field :integer, 6,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Integer,
+    oneof: 0
+
+  field :user, 7,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.SingleUser,
+    oneof: 0
+
+  field :user_list, 8,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.UserList,
+    json_name: "userList",
+    oneof: 0
+
+  field :date, 9,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue.Date,
+    oneof: 0
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :field_id, 1, proto3_optional: true, type: :string, json_name: "fieldId"
+
+  field :old_value, 2,
+    proto3_optional: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue,
+    json_name: "oldValue"
+
+  field :new_value, 3,
+    proto3_optional: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange.FieldValue,
+    json_name: "newValue"
+
+  field :display_name, 4, proto3_optional: true, type: :string, json_name: "displayName"
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :label, 1, type: :string
+
+  field :types, 2,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.Type,
+    enum: true
+
+  field :title, 3, type: :string
+
+  field :field_changes, 4,
+    repeated: true,
+    type:
+      Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail.FieldValueChange,
+    json_name: "fieldChanges"
+end
+
+defmodule Google.Apps.Drive.Activity.V2.AppliedLabelChange do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :changes, 1,
+    repeated: true,
+    type: Google.Apps.Drive.Activity.V2.AppliedLabelChange.AppliedLabelChangeDetail
 end

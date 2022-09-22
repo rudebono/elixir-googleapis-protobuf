@@ -6,6 +6,15 @@ defmodule Google.Streetview.Publish.V1.PhotoView do
   field :INCLUDE_DOWNLOAD_URL, 1
 end
 
+defmodule Google.Streetview.Publish.V1.CreatePhotoSequenceRequest.InputType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :INPUT_TYPE_UNSPECIFIED, 0
+  field :VIDEO, 1
+  field :XDM, 2
+end
+
 defmodule Google.Streetview.Publish.V1.CreatePhotoRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -109,9 +118,62 @@ defmodule Google.Streetview.Publish.V1.BatchDeletePhotosRequest do
   field :photo_ids, 1, repeated: true, type: :string, json_name: "photoIds", deprecated: false
 end
 
+defmodule Google.Streetview.Publish.V1.CreatePhotoSequenceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :photo_sequence, 1,
+    type: Google.Streetview.Publish.V1.PhotoSequence,
+    json_name: "photoSequence",
+    deprecated: false
+
+  field :input_type, 2,
+    type: Google.Streetview.Publish.V1.CreatePhotoSequenceRequest.InputType,
+    json_name: "inputType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Streetview.Publish.V1.GetPhotoSequenceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :sequence_id, 1, type: :string, json_name: "sequenceId", deprecated: false
+  field :view, 2, type: Google.Streetview.Publish.V1.PhotoView, enum: true, deprecated: true
+  field :filter, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Streetview.Publish.V1.DeletePhotoSequenceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :sequence_id, 1, type: :string, json_name: "sequenceId", deprecated: false
+end
+
 defmodule Google.Streetview.Publish.V1.BatchDeletePhotosResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :status, 1, repeated: true, type: Google.Rpc.Status
+end
+
+defmodule Google.Streetview.Publish.V1.ListPhotoSequencesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Streetview.Publish.V1.ListPhotoSequencesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :photo_sequences, 1,
+    repeated: true,
+    type: Google.Longrunning.Operation,
+    json_name: "photoSequences"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
