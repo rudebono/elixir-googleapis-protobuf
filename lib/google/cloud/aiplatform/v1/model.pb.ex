@@ -17,6 +17,16 @@ defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat.ExportableContent do
   field :IMAGE, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :MODEL_SOURCE_TYPE_UNSPECIFIED, 0
+  field :AUTOML, 1
+  field :CUSTOM, 2
+  field :BQML, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -128,6 +138,11 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :model_source_info, 38,
+    type: Google.Cloud.Aiplatform.V1.ModelSourceInfo,
+    json_name: "modelSourceInfo",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do
@@ -165,4 +180,14 @@ defmodule Google.Cloud.Aiplatform.V1.Port do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :container_port, 3, type: :int32, json_name: "containerPort"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :source_type, 1,
+    type: Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType,
+    json_name: "sourceType",
+    enum: true
 end
