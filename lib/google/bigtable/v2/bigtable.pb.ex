@@ -1,3 +1,13 @@
+defmodule Google.Bigtable.V2.ReadRowsRequest.RequestStatsView do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REQUEST_STATS_VIEW_UNSPECIFIED, 0
+  field :REQUEST_STATS_NONE, 1
+  field :REQUEST_STATS_EFFICIENCY, 2
+  field :REQUEST_STATS_FULL, 3
+end
+
 defmodule Google.Bigtable.V2.ReadRowsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -7,6 +17,11 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
   field :rows, 2, type: Google.Bigtable.V2.RowSet
   field :filter, 3, type: Google.Bigtable.V2.RowFilter
   field :rows_limit, 4, type: :int64, json_name: "rowsLimit"
+
+  field :request_stats_view, 6,
+    type: Google.Bigtable.V2.ReadRowsRequest.RequestStatsView,
+    json_name: "requestStatsView",
+    enum: true
 end
 
 defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
@@ -32,6 +47,7 @@ defmodule Google.Bigtable.V2.ReadRowsResponse do
 
   field :chunks, 1, repeated: true, type: Google.Bigtable.V2.ReadRowsResponse.CellChunk
   field :last_scanned_row_key, 2, type: :bytes, json_name: "lastScannedRowKey"
+  field :request_stats, 3, type: Google.Bigtable.V2.RequestStats, json_name: "requestStats"
 end
 
 defmodule Google.Bigtable.V2.SampleRowKeysRequest do
