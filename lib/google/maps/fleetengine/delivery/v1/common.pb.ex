@@ -8,6 +8,7 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocationSensor do
   field :PASSIVE, 3
   field :ROAD_SNAPPED_LOCATION_PROVIDER, 4
   field :FUSED_LOCATION_PROVIDER, 100
+  field :CORE_LOCATION, 200
 end
 
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus do
