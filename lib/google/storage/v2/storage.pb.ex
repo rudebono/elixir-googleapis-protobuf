@@ -66,7 +66,7 @@ defmodule Google.Storage.V2.CreateBucketRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :bucket, 2, type: Google.Storage.V2.Bucket, deprecated: false
+  field :bucket, 2, type: Google.Storage.V2.Bucket
   field :bucket_id, 3, type: :string, json_name: "bucketId", deprecated: false
   field :predefined_acl, 6, type: :string, json_name: "predefinedAcl"
   field :predefined_default_object_acl, 7, type: :string, json_name: "predefinedDefaultObjectAcl"
@@ -100,14 +100,18 @@ defmodule Google.Storage.V2.LockBucketRetentionPolicyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
-  field :if_metageneration_match, 2, type: :int64, json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_match, 2,
+    type: :int64,
+    json_name: "ifMetagenerationMatch",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.UpdateBucketRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :bucket, 1, type: Google.Storage.V2.Bucket
+  field :bucket, 1, type: Google.Storage.V2.Bucket, deprecated: false
 
   field :if_metageneration_match, 2,
     proto3_optional: true,
@@ -121,7 +125,11 @@ defmodule Google.Storage.V2.UpdateBucketRequest do
 
   field :predefined_acl, 8, type: :string, json_name: "predefinedAcl"
   field :predefined_default_object_acl, 9, type: :string, json_name: "predefinedDefaultObjectAcl"
-  field :update_mask, 6, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :update_mask, 6,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.DeleteNotificationRequest do
@@ -264,8 +272,8 @@ defmodule Google.Storage.V2.ReadObjectRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :bucket, 1, type: :string
-  field :object, 2, type: :string
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
   field :read_offset, 4, type: :int64, json_name: "readOffset"
   field :read_limit, 5, type: :int64, json_name: "readLimit"
@@ -358,7 +366,7 @@ defmodule Google.Storage.V2.WriteObjectSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :resource, 1, type: Google.Storage.V2.Object
+  field :resource, 1, type: Google.Storage.V2.Object, deprecated: false
   field :predefined_acl, 7, type: :string, json_name: "predefinedAcl"
 
   field :if_generation_match, 3,
@@ -559,7 +567,8 @@ defmodule Google.Storage.V2.StartResumableWriteRequest do
 
   field :write_object_spec, 1,
     type: Google.Storage.V2.WriteObjectSpec,
-    json_name: "writeObjectSpec"
+    json_name: "writeObjectSpec",
+    deprecated: false
 
   field :common_object_request_params, 3,
     type: Google.Storage.V2.CommonObjectRequestParams,
@@ -577,7 +586,7 @@ defmodule Google.Storage.V2.UpdateObjectRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :object, 1, type: Google.Storage.V2.Object
+  field :object, 1, type: Google.Storage.V2.Object, deprecated: false
 
   field :if_generation_match, 2,
     proto3_optional: true,
@@ -600,7 +609,11 @@ defmodule Google.Storage.V2.UpdateObjectRequest do
     json_name: "ifMetagenerationNotMatch"
 
   field :predefined_acl, 10, type: :string, json_name: "predefinedAcl"
-  field :update_mask, 7, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :update_mask, 7,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :common_object_request_params, 8,
     type: Google.Storage.V2.CommonObjectRequestParams,
@@ -655,15 +668,10 @@ defmodule Google.Storage.V2.ListHmacKeysRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
-  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
-
-  field :service_account_email, 4,
-    type: :string,
-    json_name: "serviceAccountEmail",
-    deprecated: false
-
-  field :show_deleted_keys, 5, type: :bool, json_name: "showDeletedKeys", deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :service_account_email, 4, type: :string, json_name: "serviceAccountEmail"
+  field :show_deleted_keys, 5, type: :bool, json_name: "showDeletedKeys"
 end
 
 defmodule Google.Storage.V2.ListHmacKeysResponse do
@@ -811,7 +819,7 @@ defmodule Google.Storage.V2.Bucket.RetentionPolicy do
 
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :is_locked, 2, type: :bool, json_name: "isLocked"
-  field :retention_period, 3, type: :int64, json_name: "retentionPeriod"
+  field :retention_period, 3, proto3_optional: true, type: :int64, json_name: "retentionPeriod"
 end
 
 defmodule Google.Storage.V2.Bucket.Versioning do
@@ -920,6 +928,7 @@ defmodule Google.Storage.V2.BucketAccessControl do
   field :role, 1, type: :string
   field :id, 2, type: :string
   field :entity, 3, type: :string
+  field :entity_alt, 9, type: :string, json_name: "entityAlt", deprecated: false
   field :entity_id, 4, type: :string, json_name: "entityId"
   field :etag, 8, type: :string
   field :email, 5, type: :string
@@ -986,16 +995,15 @@ defmodule Google.Storage.V2.Notification do
   field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
   field :etag, 7, type: :string
-  field :event_types, 3, repeated: true, type: :string, json_name: "eventTypes", deprecated: false
+  field :event_types, 3, repeated: true, type: :string, json_name: "eventTypes"
 
   field :custom_attributes, 4,
     repeated: true,
     type: Google.Storage.V2.Notification.CustomAttributesEntry,
     json_name: "customAttributes",
-    map: true,
-    deprecated: false
+    map: true
 
-  field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix", deprecated: false
+  field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix"
   field :payload_format, 6, type: :string, json_name: "payloadFormat", deprecated: false
 end
 
@@ -1083,6 +1091,7 @@ defmodule Google.Storage.V2.ObjectAccessControl do
   field :role, 1, type: :string
   field :id, 2, type: :string
   field :entity, 3, type: :string
+  field :entity_alt, 9, type: :string, json_name: "entityAlt", deprecated: false
   field :entity_id, 4, type: :string, json_name: "entityId"
   field :etag, 8, type: :string
   field :email, 5, type: :string

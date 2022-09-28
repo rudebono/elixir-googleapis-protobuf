@@ -5,6 +5,7 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   field :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED, 0
   field :RENDER, 1
   field :DEPLOY, 2
+  field :VERIFY, 3
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
@@ -70,6 +71,64 @@ defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
   field :EXECUTION_FAILED, 2
   field :DEADLINE_EXCEEDED, 3
   field :RELEASE_FAILED, 4
+  field :RELEASE_ABANDONED, 5
+  field :VERIFICATION_CONFIG_NOT_FOUND, 6
+end
+
+defmodule Google.Cloud.Deploy.V1.Phase.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :IN_PROGRESS, 2
+  field :SUCCEEDED, 3
+  field :FAILED, 4
+  field :ABORTED, 5
+end
+
+defmodule Google.Cloud.Deploy.V1.Job.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :DISABLED, 2
+  field :IN_PROGRESS, 3
+  field :SUCCEEDED, 4
+  field :FAILED, 5
+  field :ABORTED, 6
+end
+
+defmodule Google.Cloud.Deploy.V1.JobRun.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :IN_PROGRESS, 1
+  field :SUCCEEDED, 2
+  field :FAILED, 3
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployJobRun.FailureCause do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+  field :DEADLINE_EXCEEDED, 3
+end
+
+defmodule Google.Cloud.Deploy.V1.VerifyJobRun.FailureCause do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+  field :DEADLINE_EXCEEDED, 3
+  field :VERIFICATION_CONFIG_NOT_FOUND, 4
 end
 
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
@@ -125,6 +184,7 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
 
   field :condition, 11, type: Google.Cloud.Deploy.V1.PipelineCondition, deprecated: false
   field :etag, 10, type: :string
+  field :suspended, 12, type: :bool
 end
 
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
@@ -140,6 +200,23 @@ defmodule Google.Cloud.Deploy.V1.Stage do
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
+  field :strategy, 5, type: Google.Cloud.Deploy.V1.Strategy, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Strategy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :deployment_strategy, 0
+
+  field :standard, 1, type: Google.Cloud.Deploy.V1.Standard, oneof: 0
+end
+
+defmodule Google.Cloud.Deploy.V1.Standard do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :verify, 1, type: :bool
 end
 
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
@@ -318,6 +395,7 @@ defmodule Google.Cloud.Deploy.V1.Target do
     json_name: "anthosCluster",
     oneof: 0
 
+  field :run, 18, type: Google.Cloud.Deploy.V1.CloudRunLocation, oneof: 0
   field :etag, 12, type: :string, deprecated: false
 
   field :execution_configs, 16,
@@ -353,6 +431,11 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
   field :worker_pool, 4, type: :string, json_name: "workerPool", deprecated: false
   field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
   field :artifact_storage, 6, type: :string, json_name: "artifactStorage", deprecated: false
+
+  field :execution_timeout, 7,
+    type: Google.Protobuf.Duration,
+    json_name: "executionTimeout",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
@@ -385,6 +468,13 @@ defmodule Google.Cloud.Deploy.V1.AnthosCluster do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :membership, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CloudRunLocation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :location, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
@@ -468,6 +558,8 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
     json_name: "failureCause",
     enum: true,
     deprecated: false
+
+  field :failure_message, 5, type: :string, json_name: "failureMessage", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
@@ -516,6 +608,7 @@ defmodule Google.Cloud.Deploy.V1.Release do
     map: true
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Release.LabelsEntry, map: true
+  field :abandoned, 23, type: :bool, deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -711,6 +804,108 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
     json_name: "deployFailureCause",
     enum: true,
     deprecated: false
+
+  field :phases, 23, repeated: true, type: Google.Cloud.Deploy.V1.Phase, deprecated: false
+  field :metadata, 24, type: Google.Cloud.Deploy.V1.Metadata, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Metadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :cloud_run, 1,
+    type: Google.Cloud.Deploy.V1.CloudRunMetadata,
+    json_name: "cloudRun",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployJobRunMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :cloud_run, 1,
+    type: Google.Cloud.Deploy.V1.CloudRunMetadata,
+    json_name: "cloudRun",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CloudRunMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+
+  field :service_urls, 2,
+    repeated: true,
+    type: :string,
+    json_name: "serviceUrls",
+    deprecated: false
+
+  field :revision, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Phase do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :jobs, 0
+
+  field :id, 1, type: :string, deprecated: false
+  field :state, 3, type: Google.Cloud.Deploy.V1.Phase.State, enum: true, deprecated: false
+
+  field :deployment_jobs, 4,
+    type: Google.Cloud.Deploy.V1.DeploymentJobs,
+    json_name: "deploymentJobs",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeploymentJobs do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :deploy_job, 1,
+    type: Google.Cloud.Deploy.V1.Job,
+    json_name: "deployJob",
+    deprecated: false
+
+  field :verify_job, 2,
+    type: Google.Cloud.Deploy.V1.Job,
+    json_name: "verifyJob",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Job do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :job_type, 0
+
+  field :id, 1, type: :string, deprecated: false
+  field :state, 2, type: Google.Cloud.Deploy.V1.Job.State, enum: true, deprecated: false
+  field :job_run, 3, type: :string, json_name: "jobRun", deprecated: false
+
+  field :deploy_job, 4,
+    type: Google.Cloud.Deploy.V1.DeployJob,
+    json_name: "deployJob",
+    oneof: 0,
+    deprecated: false
+
+  field :verify_job, 5,
+    type: Google.Cloud.Deploy.V1.VerifyJob,
+    json_name: "verifyJob",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployJob do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Deploy.V1.VerifyJob do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
@@ -784,6 +979,127 @@ end
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Deploy.V1.RetryJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :rollout, 1, type: :string, deprecated: false
+  field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
+  field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.RetryJobResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Deploy.V1.AbandonReleaseRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.AbandonReleaseResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Deploy.V1.JobRun do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :job_run, 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
+  field :phase_id, 3, type: :string, json_name: "phaseId", deprecated: false
+  field :job_id, 4, type: :string, json_name: "jobId", deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 6, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :state, 8, type: Google.Cloud.Deploy.V1.JobRun.State, enum: true, deprecated: false
+
+  field :deploy_job_run, 9,
+    type: Google.Cloud.Deploy.V1.DeployJobRun,
+    json_name: "deployJobRun",
+    oneof: 0,
+    deprecated: false
+
+  field :verify_job_run, 10,
+    type: Google.Cloud.Deploy.V1.VerifyJobRun,
+    json_name: "verifyJobRun",
+    oneof: 0,
+    deprecated: false
+
+  field :etag, 11, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployJobRun do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :build, 1, type: :string, deprecated: false
+
+  field :failure_cause, 2,
+    type: Google.Cloud.Deploy.V1.DeployJobRun.FailureCause,
+    json_name: "failureCause",
+    enum: true,
+    deprecated: false
+
+  field :failure_message, 3, type: :string, json_name: "failureMessage", deprecated: false
+  field :metadata, 4, type: Google.Cloud.Deploy.V1.DeployJobRunMetadata, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.VerifyJobRun do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :build, 1, type: :string, deprecated: false
+  field :artifact_uri, 2, type: :string, json_name: "artifactUri", deprecated: false
+  field :event_log_path, 3, type: :string, json_name: "eventLogPath", deprecated: false
+
+  field :failure_cause, 4,
+    type: Google.Cloud.Deploy.V1.VerifyJobRun.FailureCause,
+    json_name: "failureCause",
+    enum: true,
+    deprecated: false
+
+  field :failure_message, 5, type: :string, json_name: "failureMessage", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.ListJobRunsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.ListJobRunsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :job_runs, 1, repeated: true, type: Google.Cloud.Deploy.V1.JobRun, json_name: "jobRuns"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.GetJobRunRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Config do
@@ -865,6 +1181,10 @@ defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
 
   rpc :CreateRelease, Google.Cloud.Deploy.V1.CreateReleaseRequest, Google.Longrunning.Operation
 
+  rpc :AbandonRelease,
+      Google.Cloud.Deploy.V1.AbandonReleaseRequest,
+      Google.Cloud.Deploy.V1.AbandonReleaseResponse
+
   rpc :ApproveRollout,
       Google.Cloud.Deploy.V1.ApproveRolloutRequest,
       Google.Cloud.Deploy.V1.ApproveRolloutResponse
@@ -876,6 +1196,14 @@ defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
   rpc :GetRollout, Google.Cloud.Deploy.V1.GetRolloutRequest, Google.Cloud.Deploy.V1.Rollout
 
   rpc :CreateRollout, Google.Cloud.Deploy.V1.CreateRolloutRequest, Google.Longrunning.Operation
+
+  rpc :RetryJob, Google.Cloud.Deploy.V1.RetryJobRequest, Google.Cloud.Deploy.V1.RetryJobResponse
+
+  rpc :ListJobRuns,
+      Google.Cloud.Deploy.V1.ListJobRunsRequest,
+      Google.Cloud.Deploy.V1.ListJobRunsResponse
+
+  rpc :GetJobRun, Google.Cloud.Deploy.V1.GetJobRunRequest, Google.Cloud.Deploy.V1.JobRun
 
   rpc :GetConfig, Google.Cloud.Deploy.V1.GetConfigRequest, Google.Cloud.Deploy.V1.Config
 end
