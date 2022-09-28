@@ -42,7 +42,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.Substate do
   field :STALE_STATUS, 2
 end
 
-defmodule Google.Cloud.Dataproc.V1.Metric.MetricSource do
+defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -172,7 +172,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
     json_name: "metastoreConfig",
     deprecated: false
 
-  field :dataproc_metric_config, 21,
+  field :dataproc_metric_config, 23,
     type: Google.Cloud.Dataproc.V1.DataprocMetricConfig,
     json_name: "dataprocMetricConfig",
     deprecated: false
@@ -602,12 +602,12 @@ defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
     deprecated: false
 end
 
-defmodule Google.Cloud.Dataproc.V1.Metric do
+defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :metric_source, 1,
-    type: Google.Cloud.Dataproc.V1.Metric.MetricSource,
+    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource,
     json_name: "metricSource",
     enum: true,
     deprecated: false
@@ -623,7 +623,10 @@ defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :metrics, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Metric, deprecated: false
+  field :metrics, 1,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry do
