@@ -25,6 +25,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   field :ARTICLE_SUGGESTION, 1
   field :FAQ, 2
   field :SMART_REPLY, 3
+  field :CONVERSATION_SUMMARIZATION, 8
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEntry do
