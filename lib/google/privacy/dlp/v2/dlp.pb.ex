@@ -2978,7 +2978,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeSummary do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
-  field :estimated_prevalence, 2, type: :int32, json_name: "estimatedPrevalence"
+  field :estimated_prevalence, 2, type: :int32, json_name: "estimatedPrevalence", deprecated: true
 end
 
 defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do

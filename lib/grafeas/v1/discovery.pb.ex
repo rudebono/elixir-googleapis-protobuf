@@ -15,6 +15,7 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   field :PENDING, 1
   field :SCANNING, 2
   field :FINISHED_SUCCESS, 3
+  field :COMPLETE, 3
   field :FINISHED_FAILED, 4
   field :FINISHED_UNSUPPORTED, 5
 end
@@ -24,6 +25,13 @@ defmodule Grafeas.V1.DiscoveryNote do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :analysis_kind, 1, type: Grafeas.V1.NoteKind, json_name: "analysisKind", enum: true
+end
+
+defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisCompleted do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :analysis_type, 1, repeated: true, type: :string, json_name: "analysisType"
 end
 
 defmodule Grafeas.V1.DiscoveryOccurrence do
@@ -40,6 +48,11 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
     json_name: "analysisStatus",
     enum: true
 
+  field :analysis_completed, 7,
+    type: Grafeas.V1.DiscoveryOccurrence.AnalysisCompleted,
+    json_name: "analysisCompleted"
+
+  field :analysis_error, 8, repeated: true, type: Google.Rpc.Status, json_name: "analysisError"
   field :analysis_status_error, 3, type: Google.Rpc.Status, json_name: "analysisStatusError"
   field :cpe, 4, type: :string
   field :last_scan_time, 5, type: Google.Protobuf.Timestamp, json_name: "lastScanTime"
