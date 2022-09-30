@@ -1,3 +1,12 @@
+defmodule Grafeas.V1.CVSSVersion do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CVSS_VERSION_UNSPECIFIED, 0
+  field :CVSS_VERSION_2, 1
+  field :CVSS_VERSION_3, 2
+end
+
 defmodule Grafeas.V1.CVSSv3.AttackVector do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
