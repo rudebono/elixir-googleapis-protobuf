@@ -58,6 +58,33 @@ defmodule Google.Datastore.V1.RunQueryResponse do
   field :query, 2, type: Google.Datastore.V1.Query
 end
 
+defmodule Google.Datastore.V1.RunAggregationQueryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :query_type, 0
+
+  field :project_id, 8, type: :string, json_name: "projectId", deprecated: false
+  field :database_id, 9, type: :string, json_name: "databaseId"
+  field :partition_id, 2, type: Google.Datastore.V1.PartitionId, json_name: "partitionId"
+  field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
+
+  field :aggregation_query, 3,
+    type: Google.Datastore.V1.AggregationQuery,
+    json_name: "aggregationQuery",
+    oneof: 0
+
+  field :gql_query, 7, type: Google.Datastore.V1.GqlQuery, json_name: "gqlQuery", oneof: 0
+end
+
+defmodule Google.Datastore.V1.RunAggregationQueryResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :batch, 1, type: Google.Datastore.V1.AggregationResultBatch
+  field :query, 2, type: Google.Datastore.V1.AggregationQuery
+end
+
 defmodule Google.Datastore.V1.BeginTransactionRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -227,6 +254,10 @@ defmodule Google.Datastore.V1.Datastore.Service do
   rpc :Lookup, Google.Datastore.V1.LookupRequest, Google.Datastore.V1.LookupResponse
 
   rpc :RunQuery, Google.Datastore.V1.RunQueryRequest, Google.Datastore.V1.RunQueryResponse
+
+  rpc :RunAggregationQuery,
+      Google.Datastore.V1.RunAggregationQueryRequest,
+      Google.Datastore.V1.RunAggregationQueryResponse
 
   rpc :BeginTransaction,
       Google.Datastore.V1.BeginTransactionRequest,

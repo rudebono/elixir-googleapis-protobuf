@@ -13,6 +13,7 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload.ComplianceRegime do
   field :EU_REGIONS_AND_SUPPORT, 8
   field :CA_REGIONS_AND_SUPPORT, 9
   field :ITAR, 10
+  field :ASSURED_WORKLOADS_FOR_PARTNERS, 12
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.KajEnrollmentState do
@@ -24,12 +25,21 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload.KajEnrollmentState do
   field :KAJ_ENROLLMENT_STATE_COMPLETE, 2
 end
 
+defmodule Google.Cloud.Assuredworkloads.V1.Workload.Partner do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :PARTNER_UNSPECIFIED, 0
+  field :LOCAL_CONTROLS_BY_S3NS, 1
+end
+
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.ResourceInfo.ResourceType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :CONSUMER_PROJECT, 1
+  field :CONSUMER_FOLDER, 4
   field :ENCRYPTION_KEYS_PROJECT, 2
   field :KEYRING, 3
 end
@@ -52,6 +62,36 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload.SaaEnrollmentResponse.SetupE
   field :ERROR_MISSING_EXTERNAL_SIGNING_KEY, 2
   field :ERROR_NOT_ALL_SERVICES_ENROLLED, 3
   field :ERROR_SETUP_CHECK_FAILED, 4
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest.RestrictionType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RESTRICTION_TYPE_UNSPECIFIED, 0
+  field :ALLOW_ALL_GCP_RESOURCES, 1
+  field :ALLOW_COMPLIANT_RESOURCES, 2
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RESOLVED, 2
+  field :UNRESOLVED, 3
+  field :EXCEPTION, 4
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.RemediationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REMEDIATION_TYPE_UNSPECIFIED, 0
+  field :REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION, 1
+  field :REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION, 2
+  field :REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION, 3
+  field :REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION, 4
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.CreateWorkloadRequest do
@@ -122,7 +162,7 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.KMSSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :next_rotation_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -214,7 +254,7 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload do
   field :kms_settings, 14,
     type: Google.Cloud.Assuredworkloads.V1.Workload.KMSSettings,
     json_name: "kmsSettings",
-    deprecated: false
+    deprecated: true
 
   field :resource_settings, 15,
     repeated: true,
@@ -237,6 +277,17 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload do
     type: Google.Cloud.Assuredworkloads.V1.Workload.SaaEnrollmentResponse,
     json_name: "saaEnrollmentResponse",
     deprecated: false
+
+  field :compliant_but_disallowed_services, 24,
+    repeated: true,
+    type: :string,
+    json_name: "compliantButDisallowedServices",
+    deprecated: false
+
+  field :partner, 25,
+    type: Google.Cloud.Assuredworkloads.V1.Workload.Partner,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.CreateWorkloadOperationMetadata do
@@ -258,6 +309,174 @@ defmodule Google.Cloud.Assuredworkloads.V1.CreateWorkloadOperationMetadata do
     deprecated: false
 end
 
+defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :restriction_type, 2,
+    type: Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest.RestrictionType,
+    json_name: "restrictionType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :comment, 2, type: :string, deprecated: false
+
+  field :non_compliant_org_policy, 3,
+    type: :string,
+    json_name: "nonCompliantOrgPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.TimeWindow do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.ListViolationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :interval, 2, type: Google.Cloud.Assuredworkloads.V1.TimeWindow, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.ListViolationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :violations, 1, repeated: true, type: Google.Cloud.Assuredworkloads.V1.Violation
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.GetViolationRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Gcloud do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :gcloud_commands, 1, repeated: true, type: :string, json_name: "gcloudCommands"
+  field :steps, 2, repeated: true, type: :string
+  field :additional_links, 3, repeated: true, type: :string, json_name: "additionalLinks"
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Console do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :console_uris, 1, repeated: true, type: :string, json_name: "consoleUris"
+  field :steps, 2, repeated: true, type: :string
+  field :additional_links, 3, repeated: true, type: :string, json_name: "additionalLinks"
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :gcloud_instructions, 1,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Gcloud,
+    json_name: "gcloudInstructions"
+
+  field :console_instructions, 2,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Console,
+    json_name: "consoleInstructions"
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instructions, 1,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions,
+    deprecated: false
+
+  field :compliant_values, 2, repeated: true, type: :string, json_name: "compliantValues"
+
+  field :remediation_type, 3,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.RemediationType,
+    json_name: "remediationType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Assuredworkloads.V1.Violation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :begin_time, 3, type: Google.Protobuf.Timestamp, json_name: "beginTime", deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :resolve_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "resolveTime",
+    deprecated: false
+
+  field :category, 6, type: :string, deprecated: false
+
+  field :state, 7,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.State,
+    enum: true,
+    deprecated: false
+
+  field :org_policy_constraint, 8,
+    type: :string,
+    json_name: "orgPolicyConstraint",
+    deprecated: false
+
+  field :audit_log_link, 11, type: :string, json_name: "auditLogLink", deprecated: false
+
+  field :non_compliant_org_policy, 12,
+    type: :string,
+    json_name: "nonCompliantOrgPolicy",
+    deprecated: false
+
+  field :remediation, 13,
+    type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation,
+    deprecated: false
+
+  field :acknowledged, 14, type: :bool, deprecated: false
+
+  field :acknowledgement_time, 15,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "acknowledgementTime",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -272,6 +491,10 @@ defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Service do
       Google.Cloud.Assuredworkloads.V1.UpdateWorkloadRequest,
       Google.Cloud.Assuredworkloads.V1.Workload
 
+  rpc :RestrictAllowedResources,
+      Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest,
+      Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesResponse
+
   rpc :DeleteWorkload,
       Google.Cloud.Assuredworkloads.V1.DeleteWorkloadRequest,
       Google.Protobuf.Empty
@@ -283,6 +506,18 @@ defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Service do
   rpc :ListWorkloads,
       Google.Cloud.Assuredworkloads.V1.ListWorkloadsRequest,
       Google.Cloud.Assuredworkloads.V1.ListWorkloadsResponse
+
+  rpc :ListViolations,
+      Google.Cloud.Assuredworkloads.V1.ListViolationsRequest,
+      Google.Cloud.Assuredworkloads.V1.ListViolationsResponse
+
+  rpc :GetViolation,
+      Google.Cloud.Assuredworkloads.V1.GetViolationRequest,
+      Google.Cloud.Assuredworkloads.V1.Violation
+
+  rpc :AcknowledgeViolation,
+      Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationRequest,
+      Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationResponse
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Stub do
