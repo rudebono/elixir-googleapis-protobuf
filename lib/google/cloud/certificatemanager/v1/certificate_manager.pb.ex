@@ -351,9 +351,10 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Prov
   field :reason, 1,
     type:
       Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue.Reason,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :details, 2, type: :string
+  field :details, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo do
@@ -365,7 +366,8 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Auth
   field :state, 2,
     type:
       Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.AuthorizationAttemptInfo.State,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :failure_reason, 3,
     type:
@@ -374,7 +376,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.Auth
     enum: true,
     deprecated: false
 
-  field :details, 4, type: :string
+  field :details, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate do
@@ -389,6 +391,8 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate do
     json_name: "dnsAuthorizations",
     deprecated: false
 
+  field :issuance_config, 6, type: :string, json_name: "issuanceConfig", deprecated: false
+
   field :state, 4,
     type: Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.State,
     enum: true,
@@ -396,7 +400,8 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate do
 
   field :provisioning_issue, 3,
     type: Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.ProvisioningIssue,
-    json_name: "provisioningIssue"
+    json_name: "provisioningIssue",
+    deprecated: false
 
   field :authorization_attempt_info, 5,
     repeated: true,
@@ -470,8 +475,8 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget.IpConfig 
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :ip_address, 1, type: :string, json_name: "ipAddress"
-  field :ports, 3, repeated: true, type: :uint32
+  field :ip_address, 1, type: :string, json_name: "ipAddress", deprecated: false
+  field :ports, 3, repeated: true, type: :uint32, deprecated: false
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget do
@@ -480,13 +485,23 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget do
 
   oneof :target_proxy, 0
 
-  field :target_https_proxy, 1, type: :string, json_name: "targetHttpsProxy", oneof: 0
-  field :target_ssl_proxy, 3, type: :string, json_name: "targetSslProxy", oneof: 0
+  field :target_https_proxy, 1,
+    type: :string,
+    json_name: "targetHttpsProxy",
+    oneof: 0,
+    deprecated: false
+
+  field :target_ssl_proxy, 3,
+    type: :string,
+    json_name: "targetSslProxy",
+    oneof: 0,
+    deprecated: false
 
   field :ip_configs, 2,
     repeated: true,
     type: Google.Cloud.Certificatemanager.V1.CertificateMap.GclbTarget.IpConfig,
-    json_name: "ipConfigs"
+    json_name: "ipConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.CertificateMap.LabelsEntry do
@@ -704,6 +719,22 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateManager.Service do
 
   rpc :DeleteDnsAuthorization,
       Google.Cloud.Certificatemanager.V1.DeleteDnsAuthorizationRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListCertificateIssuanceConfigs,
+      Google.Cloud.Certificatemanager.V1.ListCertificateIssuanceConfigsRequest,
+      Google.Cloud.Certificatemanager.V1.ListCertificateIssuanceConfigsResponse
+
+  rpc :GetCertificateIssuanceConfig,
+      Google.Cloud.Certificatemanager.V1.GetCertificateIssuanceConfigRequest,
+      Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig
+
+  rpc :CreateCertificateIssuanceConfig,
+      Google.Cloud.Certificatemanager.V1.CreateCertificateIssuanceConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteCertificateIssuanceConfig,
+      Google.Cloud.Certificatemanager.V1.DeleteCertificateIssuanceConfigRequest,
       Google.Longrunning.Operation
 end
 

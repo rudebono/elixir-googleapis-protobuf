@@ -57,6 +57,7 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
   field :START, 1
   field :STOP, 2
   field :QUERY, 3
+  field :CREATE, 4
 end
 
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
@@ -171,4 +172,7 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   field :session_id, 3, type: :string, json_name: "sessionId"
   field :type, 4, type: Google.Cloud.Dataplex.V1.SessionEvent.EventType, enum: true
   field :query, 5, type: Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail, oneof: 0
+  field :event_succeeded, 6, type: :bool, json_name: "eventSucceeded"
+  field :warm_pool_enabled, 7, type: :bool, json_name: "warmPoolEnabled"
+  field :unassigned_duration, 8, type: Google.Protobuf.Duration, json_name: "unassignedDuration"
 end

@@ -82,6 +82,37 @@ defmodule Google.Datastore.V1.Query do
   field :limit, 12, type: Google.Protobuf.Int32Value
 end
 
+defmodule Google.Datastore.V1.AggregationQuery.Aggregation.Count do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :up_to, 1, type: Google.Protobuf.Int64Value, json_name: "upTo", deprecated: false
+end
+
+defmodule Google.Datastore.V1.AggregationQuery.Aggregation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :operator, 0
+
+  field :count, 1, type: Google.Datastore.V1.AggregationQuery.Aggregation.Count, oneof: 0
+  field :alias, 7, type: :string, deprecated: false
+end
+
+defmodule Google.Datastore.V1.AggregationQuery do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :query_type, 0
+
+  field :nested_query, 1, type: Google.Datastore.V1.Query, json_name: "nestedQuery", oneof: 0
+
+  field :aggregations, 3,
+    repeated: true,
+    type: Google.Datastore.V1.AggregationQuery.Aggregation,
+    deprecated: false
+end
+
 defmodule Google.Datastore.V1.KindExpression do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3

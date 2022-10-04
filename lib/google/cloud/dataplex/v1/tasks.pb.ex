@@ -176,6 +176,26 @@ defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.Task.NotebookTaskConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :notebook, 4, type: :string, deprecated: false
+
+  field :infrastructure_spec, 3,
+    type: Google.Cloud.Dataplex.V1.Task.InfrastructureSpec,
+    json_name: "infrastructureSpec",
+    deprecated: false
+
+  field :file_uris, 5, repeated: true, type: :string, json_name: "fileUris", deprecated: false
+
+  field :archive_uris, 6,
+    repeated: true,
+    type: :string,
+    json_name: "archiveUris",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionStatus do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -244,6 +264,7 @@ defmodule Google.Cloud.Dataplex.V1.Task do
     deprecated: false
 
   field :spark, 300, type: Google.Cloud.Dataplex.V1.Task.SparkTaskConfig, oneof: 0
+  field :notebook, 302, type: Google.Cloud.Dataplex.V1.Task.NotebookTaskConfig, oneof: 0
 end
 
 defmodule Google.Cloud.Dataplex.V1.Job do

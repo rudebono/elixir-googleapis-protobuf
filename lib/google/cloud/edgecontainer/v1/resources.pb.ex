@@ -75,13 +75,6 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster do
     type: Google.Cloud.Edgecontainer.V1.MaintenancePolicy,
     json_name: "maintenancePolicy",
     deprecated: false
-
-  field :control_plane_version, 13,
-    type: :string,
-    json_name: "controlPlaneVersion",
-    deprecated: false
-
-  field :node_version, 14, type: :string, json_name: "nodeVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.ClusterNetworking do
@@ -183,8 +176,6 @@ defmodule Google.Cloud.Edgecontainer.V1.NodePool do
     type: Google.Cloud.Edgecontainer.V1.NodePool.LocalDiskEncryption,
     json_name: "localDiskEncryption",
     deprecated: false
-
-  field :node_version, 10, type: :string, json_name: "nodeVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Machine.LabelsEntry do
@@ -218,7 +209,7 @@ defmodule Google.Cloud.Edgecontainer.V1.Machine do
 
   field :hosted_node, 5, type: :string, json_name: "hostedNode"
   field :zone, 6, type: :string
-  field :version, 7, type: :string, deprecated: false
+  field :disabled, 8, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.VpcProject do
@@ -226,7 +217,7 @@ defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.VpcProject do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
-  field :service_account, 2, type: :string, json_name: "serviceAccount"
+  field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.Details.CloudRouter do
@@ -302,7 +293,8 @@ defmodule Google.Cloud.Edgecontainer.V1.VpnConnection do
 
   field :vpc_project, 11,
     type: Google.Cloud.Edgecontainer.V1.VpnConnection.VpcProject,
-    json_name: "vpcProject"
+    json_name: "vpcProject",
+    deprecated: false
 
   field :enable_high_availability, 9, type: :bool, json_name: "enableHighAvailability"
   field :details, 10, type: Google.Cloud.Edgecontainer.V1.VpnConnection.Details, deprecated: false

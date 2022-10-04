@@ -134,6 +134,11 @@ end
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationDatasetOperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :conversation_dataset, 1,
+    type: :string,
+    json_name: "conversationDataset",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteConversationDatasetOperationMetadata do
