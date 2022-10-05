@@ -21,10 +21,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.RuleSetService.Service do
   rpc :ListRuleSets,
       Google.Cloud.Contentwarehouse.V1.ListRuleSetsRequest,
       Google.Cloud.Contentwarehouse.V1.ListRuleSetsResponse
-
-  rpc :ProcessAsyncRuleSets,
-      Google.Cloud.Contentwarehouse.V1.ProcessAsyncRuleSetsRequest,
-      Google.Cloud.Contentwarehouse.V1.ProcessAsyncRuleSetsResponse
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleSetService.Stub do
