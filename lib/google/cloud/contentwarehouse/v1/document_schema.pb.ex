@@ -78,11 +78,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition do
     type: Google.Cloud.Contentwarehouse.V1.TimestampTypeOptions,
     json_name: "timestampTypeOptions",
     oneof: 0
-
-  field :boolean_type_options, 17,
-    type: Google.Cloud.Contentwarehouse.V1.BooleanTypeOptions,
-    json_name: "booleanTypeOptions",
-    oneof: 0
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.IntegerTypeOptions do
@@ -115,11 +110,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.TimestampTypeOptions do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Contentwarehouse.V1.BooleanTypeOptions do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-end
-
 defmodule Google.Cloud.Contentwarehouse.V1.PropertyTypeOptions do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -140,4 +130,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.EnumTypeOptions do
     type: :string,
     json_name: "possibleValues",
     deprecated: false
+
+  field :validation_check_disabled, 2, type: :bool, json_name: "validationCheckDisabled"
 end

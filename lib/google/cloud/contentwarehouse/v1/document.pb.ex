@@ -134,11 +134,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.Property do
     type: Google.Cloud.Contentwarehouse.V1.TimestampArray,
     json_name: "timestampValues",
     oneof: 0
-
-  field :boolean_values, 10,
-    type: Google.Cloud.Contentwarehouse.V1.BooleanArray,
-    json_name: "booleanValues",
-    oneof: 0
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.IntegerArray do
@@ -181,13 +176,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.TimestampArray do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Contentwarehouse.V1.TimestampValue
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.BooleanArray do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :values, 1, repeated: true, type: :bool
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.TimestampValue do

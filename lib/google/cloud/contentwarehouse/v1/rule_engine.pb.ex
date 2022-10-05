@@ -1,24 +1,10 @@
-defmodule Google.Cloud.Contentwarehouse.V1.Schedule do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :SCHEDULE_UNSPECIFIED, 0
-  field :SCHEDULE_DAILY, 1
-  field :SCHEDULE_WEEKLY, 2
-  field :SCHEDULE_MONTHLY, 3
-end
-
 defmodule Google.Cloud.Contentwarehouse.V1.Rule.TriggerType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ON_CREATE, 1
-  field :ON_READ, 2
-  field :ON_SEARCH, 3
   field :ON_UPDATE, 4
-  field :ON_DELETE, 5
-  field :ASYNC, 6
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.AccessControlAction.OperationType do
@@ -46,16 +32,10 @@ defmodule Google.Cloud.Contentwarehouse.V1.RuleSet do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  oneof :expiration, 0
-
   field :name, 6, type: :string
   field :description, 1, type: :string
   field :source, 2, type: :string
   field :rules, 3, repeated: true, type: Google.Cloud.Contentwarehouse.V1.Rule
-  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :expire_time, 5, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
-  field :ttl, 7, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
-  field :schedule, 8, type: Google.Cloud.Contentwarehouse.V1.Schedule, enum: true
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Rule do
@@ -72,8 +52,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.Rule do
 
   field :condition, 4, type: :string
   field :actions, 5, repeated: true, type: Google.Cloud.Contentwarehouse.V1.Action
-  field :priority, 6, type: :float
-  field :enabled, 7, type: :bool
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Action do
@@ -107,16 +85,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.Action do
   field :publish_to_pub_sub, 6,
     type: Google.Cloud.Contentwarehouse.V1.PublishAction,
     json_name: "publishToPubSub",
-    oneof: 0
-
-  field :context_evaluation_action, 7,
-    type: Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction,
-    json_name: "contextEvaluationAction",
-    oneof: 0
-
-  field :expired_data_handling_action, 8,
-    type: Google.Cloud.Contentwarehouse.V1.ExpiredDataHandlingAction,
-    json_name: "expiredDataHandlingAction",
     oneof: 0
 
   field :remove_from_folder_action, 9,
@@ -178,24 +146,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.DataUpdateAction do
     map: true
 end
 
-defmodule Google.Cloud.Contentwarehouse.V1.FolderSchemaCondition do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :folder_schema, 1, type: :string, json_name: "folderSchema", deprecated: false
-  field :condition, 2, type: :string
-end
-
 defmodule Google.Cloud.Contentwarehouse.V1.AddToFolderAction do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :folders, 1, repeated: true, type: :string, deprecated: false
-
-  field :folder_schema_conditions, 2,
-    repeated: true,
-    type: Google.Cloud.Contentwarehouse.V1.FolderSchemaCondition,
-    json_name: "folderSchemaConditions"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RemoveFromFolderAction do
@@ -212,62 +167,6 @@ defmodule Google.Cloud.Contentwarehouse.V1.PublishAction do
 
   field :topic_id, 1, type: :string, json_name: "topicId"
   field :messages, 2, repeated: true, type: :string
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.CloudFunctionInfo do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :cloud_function, 3, type: :string, json_name: "cloudFunction"
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.Webhook do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :uri, 8, type: :string
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.WebhookWithServiceDirectory do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :service, 9, type: :string
-  field :webhook, 10, type: Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.Webhook
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  oneof :ContextEvaluationMethod, 0
-
-  field :condition, 1, type: :string
-  field :variable_names, 2, repeated: true, type: :string, json_name: "variableNames"
-
-  field :cloud_function_info, 4,
-    type: Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.CloudFunctionInfo,
-    json_name: "cloudFunctionInfo",
-    oneof: 0
-
-  field :webhook, 6,
-    type: Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.Webhook,
-    oneof: 0
-
-  field :webhook_with_service_directory, 7,
-    type: Google.Cloud.Contentwarehouse.V1.ContextEvaluationAction.WebhookWithServiceDirectory,
-    json_name: "webhookWithServiceDirectory",
-    oneof: 0
-
-  field :topic_id, 5, type: :string, json_name: "topicId", deprecated: false
-end
-
-defmodule Google.Cloud.Contentwarehouse.V1.ExpiredDataHandlingAction do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :condition, 1, type: :string
-  field :topic_id, 2, type: :string, json_name: "topicId"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DeleteDocumentAction do
