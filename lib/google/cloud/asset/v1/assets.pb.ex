@@ -165,7 +165,8 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     map: true
 
   field :network_tags, 8, repeated: true, type: :string, json_name: "networkTags"
-  field :kms_key, 10, type: :string, json_name: "kmsKey"
+  field :kms_key, 10, type: :string, json_name: "kmsKey", deprecated: true
+  field :kms_keys, 28, repeated: true, type: :string, json_name: "kmsKeys"
   field :create_time, 11, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 12, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :state, 13, type: :string
