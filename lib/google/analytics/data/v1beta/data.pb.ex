@@ -424,6 +424,11 @@ defmodule Google.Analytics.Data.V1beta.ResponseMetaData do
   field :currency_code, 5, proto3_optional: true, type: :string, json_name: "currencyCode"
   field :time_zone, 6, proto3_optional: true, type: :string, json_name: "timeZone"
   field :empty_reason, 7, proto3_optional: true, type: :string, json_name: "emptyReason"
+
+  field :subject_to_thresholding, 8,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "subjectToThresholding"
 end
 
 defmodule Google.Analytics.Data.V1beta.DimensionHeader do
@@ -529,6 +534,10 @@ defmodule Google.Analytics.Data.V1beta.PropertyQuota do
   field :potentially_thresholded_requests_per_hour, 5,
     type: Google.Analytics.Data.V1beta.QuotaStatus,
     json_name: "potentiallyThresholdedRequestsPerHour"
+
+  field :tokens_per_project_per_hour, 6,
+    type: Google.Analytics.Data.V1beta.QuotaStatus,
+    json_name: "tokensPerProjectPerHour"
 end
 
 defmodule Google.Analytics.Data.V1beta.QuotaStatus do
