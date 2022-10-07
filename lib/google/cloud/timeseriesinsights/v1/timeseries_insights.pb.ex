@@ -318,6 +318,19 @@ defmodule Google.Cloud.Timeseriesinsights.V1.EvaluateSliceRequest do
     json_name: "forecastParams"
 end
 
+defmodule Google.Cloud.Timeseriesinsights.V1.EvaluateTimeseriesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :timeseries, 2, type: Google.Cloud.Timeseriesinsights.V1.Timeseries
+  field :granularity, 3, type: Google.Protobuf.Duration
+
+  field :forecast_params, 4,
+    type: Google.Cloud.Timeseriesinsights.V1.ForecastParams,
+    json_name: "forecastParams"
+end
+
 defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesInsightsController.Service do
   @moduledoc false
   use GRPC.Service,
@@ -346,6 +359,10 @@ defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesInsightsController.Servic
 
   rpc :EvaluateSlice,
       Google.Cloud.Timeseriesinsights.V1.EvaluateSliceRequest,
+      Google.Cloud.Timeseriesinsights.V1.EvaluatedSlice
+
+  rpc :EvaluateTimeseries,
+      Google.Cloud.Timeseriesinsights.V1.EvaluateTimeseriesRequest,
       Google.Cloud.Timeseriesinsights.V1.EvaluatedSlice
 end
 

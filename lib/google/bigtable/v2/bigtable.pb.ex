@@ -4,8 +4,7 @@ defmodule Google.Bigtable.V2.ReadRowsRequest.RequestStatsView do
 
   field :REQUEST_STATS_VIEW_UNSPECIFIED, 0
   field :REQUEST_STATS_NONE, 1
-  field :REQUEST_STATS_EFFICIENCY, 2
-  field :REQUEST_STATS_FULL, 3
+  field :REQUEST_STATS_FULL, 2
 end
 
 defmodule Google.Bigtable.V2.ReadRowsRequest do
