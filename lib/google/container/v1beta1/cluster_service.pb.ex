@@ -166,6 +166,15 @@ defmodule Google.Container.V1beta1.WorkloadConfig.Mode do
   field :RESTRICTED, 3
 end
 
+defmodule Google.Container.V1beta1.ProtectConfig.WorkloadVulnerabilityMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :WORKLOAD_VULNERABILITY_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :BASIC, 2
+end
+
 defmodule Google.Container.V1beta1.Operation.Status do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1194,6 +1203,12 @@ defmodule Google.Container.V1beta1.ProtectConfig do
     proto3_optional: true,
     type: Google.Container.V1beta1.WorkloadConfig,
     json_name: "workloadConfig"
+
+  field :workload_vulnerability_mode, 2,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.ProtectConfig.WorkloadVulnerabilityMode,
+    json_name: "workloadVulnerabilityMode",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.NodePoolDefaults do
