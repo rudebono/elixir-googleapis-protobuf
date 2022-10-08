@@ -35,6 +35,24 @@ defmodule Google.Container.V1.NodePoolUpdateStrategy do
   field :SURGE, 3
 end
 
+defmodule Google.Container.V1.StackType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STACK_TYPE_UNSPECIFIED, 0
+  field :IPV4, 1
+  field :IPV4_IPV6, 2
+end
+
+defmodule Google.Container.V1.IPv6AccessType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :IPV6_ACCESS_TYPE_UNSPECIFIED, 0
+  field :INTERNAL, 1
+  field :EXTERNAL, 2
+end
+
 defmodule Google.Container.V1.NodeNetworkConfig.NetworkPerformanceConfig.Tier do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -602,6 +620,10 @@ defmodule Google.Container.V1.AddonsConfig do
   field :gcp_filestore_csi_driver_config, 14,
     type: Google.Container.V1.GcpFilestoreCsiDriverConfig,
     json_name: "gcpFilestoreCsiDriverConfig"
+
+  field :gke_backup_agent_config, 16,
+    type: Google.Container.V1.GkeBackupAgentConfig,
+    json_name: "gkeBackupAgentConfig"
 end
 
 defmodule Google.Container.V1.HttpLoadBalancing do
@@ -703,6 +725,13 @@ defmodule Google.Container.V1.GcpFilestoreCsiDriverConfig do
   field :enabled, 1, type: :bool
 end
 
+defmodule Google.Container.V1.GkeBackupAgentConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
 defmodule Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -767,6 +796,12 @@ defmodule Google.Container.V1.IPAllocationPolicy do
   field :services_ipv4_cidr_block, 11, type: :string, json_name: "servicesIpv4CidrBlock"
   field :tpu_ipv4_cidr_block, 13, type: :string, json_name: "tpuIpv4CidrBlock"
   field :use_routes, 15, type: :bool, json_name: "useRoutes"
+  field :stack_type, 16, type: Google.Container.V1.StackType, json_name: "stackType", enum: true
+
+  field :ipv6_access_type, 17,
+    type: Google.Container.V1.IPv6AccessType,
+    json_name: "ipv6AccessType",
+    enum: true
 end
 
 defmodule Google.Container.V1.Cluster.ResourceLabelsEntry do
@@ -872,6 +907,10 @@ defmodule Google.Container.V1.Cluster do
   field :mesh_certificates, 67,
     type: Google.Container.V1.MeshCertificates,
     json_name: "meshCertificates"
+
+  field :cost_management_config, 45,
+    type: Google.Container.V1.CostManagementConfig,
+    json_name: "costManagementConfig"
 
   field :notification_config, 49,
     type: Google.Container.V1.NotificationConfig,
@@ -989,6 +1028,10 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_shielded_nodes, 48,
     type: Google.Container.V1.ShieldedNodes,
     json_name: "desiredShieldedNodes"
+
+  field :desired_cost_management_config, 49,
+    type: Google.Container.V1.CostManagementConfig,
+    json_name: "desiredCostManagementConfig"
 
   field :desired_dns_config, 53,
     type: Google.Container.V1.DNSConfig,
@@ -2042,6 +2085,13 @@ defmodule Google.Container.V1.ReleaseChannel do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :channel, 1, type: Google.Container.V1.ReleaseChannel.Channel, enum: true
+end
+
+defmodule Google.Container.V1.CostManagementConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
 end
 
 defmodule Google.Container.V1.IntraNodeVisibilityConfig do
