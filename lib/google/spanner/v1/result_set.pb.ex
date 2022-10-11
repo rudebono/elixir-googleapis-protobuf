@@ -24,6 +24,10 @@ defmodule Google.Spanner.V1.ResultSetMetadata do
 
   field :row_type, 1, type: Google.Spanner.V1.StructType, json_name: "rowType"
   field :transaction, 2, type: Google.Spanner.V1.Transaction
+
+  field :undeclared_parameters, 3,
+    type: Google.Spanner.V1.StructType,
+    json_name: "undeclaredParameters"
 end
 
 defmodule Google.Spanner.V1.ResultSetStats do
