@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CREATE_DISPOSITION_UNSPECIFIED, 0
+  field :CREATE_NEVER, 1
+  field :CREATE_IF_NEEDED, 2
+end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.WriteDisposition do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -16,15 +25,6 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.OperationType do
   field :COPY, 1
   field :SNAPSHOT, 2
   field :RESTORE, 3
-end
-
-defmodule Google.Cloud.Audit.BigQueryAuditMetadata.CreateDisposition do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :CREATE_DISPOSITION_UNSPECIFIED, 0
-  field :CREATE_NEVER, 1
-  field :CREATE_IF_NEEDED, 2
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobState do
@@ -54,8 +54,11 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
   field :CREATE_MODEL, 9
   field :CREATE_MATERIALIZED_VIEW, 13
   field :CREATE_FUNCTION, 14
+  field :CREATE_TABLE_FUNCTION, 56
   field :CREATE_PROCEDURE, 20
+  field :CREATE_ROW_ACCESS_POLICY, 24
   field :CREATE_SCHEMA, 53
+  field :CREATE_SNAPSHOT_TABLE, 59
   field :DROP_TABLE, 10
   field :DROP_EXTERNAL_TABLE, 33
   field :DROP_VIEW, 11
@@ -64,6 +67,8 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.QueryStatementType do
   field :DROP_FUNCTION, 16
   field :DROP_PROCEDURE, 21
   field :DROP_SCHEMA, 54
+  field :DROP_ROW_ACCESS_POLICY, 25
+  field :DROP_SNAPSHOT_TABLE, 62
   field :ALTER_TABLE, 17
   field :ALTER_VIEW, 18
   field :ALTER_MATERIALIZED_VIEW, 22
@@ -82,6 +87,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobInsertion.Reason do
   field :REASON_UNSPECIFIED, 0
   field :JOB_INSERT_REQUEST, 1
   field :QUERY_REQUEST, 2
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobDeletion.Reason do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REASON_UNSPECIFIED, 0
+  field :JOB_DELETE_REQUEST, 1
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation.Reason do
@@ -236,6 +249,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion.Reason do
   field :ROUTINE_DELETE_REQUEST, 2
 end
 
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.UnlinkDataset.Reason do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REASON_UNSPECIFIED, 0
+  field :UNLINK_API, 1
+end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobConfig.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -271,6 +292,14 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobChange do
   field :before, 1, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
   field :after, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobState, enum: true
   field :job, 3, type: Google.Cloud.Audit.BigQueryAuditMetadata.Job
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobDeletion do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :job_name, 1, type: :string, json_name: "jobName"
+  field :reason, 2, type: Google.Cloud.Audit.BigQueryAuditMetadata.JobDeletion.Reason, enum: true
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.DatasetCreation do
@@ -440,28 +469,6 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDataRead do
   field :job_name, 2, type: :string, json_name: "jobName"
 end
 
-defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :dataset_name, 1, type: :string, json_name: "datasetName"
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :acl, 5, type: Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl
-
-  field :default_table_expire_duration, 6,
-    type: Google.Protobuf.Duration,
-    json_name: "defaultTableExpireDuration"
-
-  field :dataset_info, 7,
-    type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
-    json_name: "datasetInfo"
-
-  field :default_encryption, 8,
-    type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo,
-    json_name: "defaultEncryption"
-end
-
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableDeletion do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -484,22 +491,6 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.ModelDeletion do
   field :job_name, 2, type: :string, json_name: "jobName"
 end
 
-defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :model_name, 1, type: :string, json_name: "modelName"
-
-  field :model_info, 2,
-    type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
-    json_name: "modelInfo"
-
-  field :expire_time, 5, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-  field :encryption, 8, type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo
-end
-
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -511,6 +502,53 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion do
     enum: true
 
   field :job_name, 4, type: :string, json_name: "jobName"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyCreation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_access_policy, 1,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicy,
+    json_name: "rowAccessPolicy"
+
+  field :job_name, 2, type: :string, json_name: "jobName"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyChange do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_access_policy, 1,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicy,
+    json_name: "rowAccessPolicy"
+
+  field :job_name, 2, type: :string, json_name: "jobName"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyDeletion do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_access_policies, 1,
+    repeated: true,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicy,
+    json_name: "rowAccessPolicies"
+
+  field :job_name, 2, type: :string, json_name: "jobName"
+  field :all_row_access_policies_dropped, 3, type: :bool, json_name: "allRowAccessPoliciesDropped"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.UnlinkDataset do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :linked_dataset, 1, type: :string, json_name: "linkedDataset"
+  field :source_dataset, 2, type: :string, json_name: "sourceDataset"
+
+  field :reason, 3,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.UnlinkDataset.Reason,
+    enum: true
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Job do
@@ -779,6 +817,11 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName"
+
+  field :table_info, 10,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
+    json_name: "tableInfo"
+
   field :schema_json, 3, type: :string, json_name: "schemaJson"
   field :schema_json_truncated, 11, type: :bool, json_name: "schemaJsonTruncated"
   field :view, 4, type: Google.Cloud.Audit.BigQueryAuditMetadata.TableViewDefinition
@@ -787,10 +830,22 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Table do
   field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :truncate_time, 8, type: Google.Protobuf.Timestamp, json_name: "truncateTime"
   field :encryption, 9, type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo
+end
 
-  field :table_info, 10,
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Model do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName"
+
+  field :model_info, 2,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
-    json_name: "tableInfo"
+    json_name: "modelInfo"
+
+  field :expire_time, 5, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 7, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :encryption, 8, type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Routine do
@@ -831,6 +886,31 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.TableViewDefinition do
   field :query_truncated, 2, type: :bool, json_name: "queryTruncated"
 end
 
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.Dataset do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dataset_name, 1, type: :string, json_name: "datasetName"
+
+  field :dataset_info, 7,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.EntityInfo,
+    json_name: "datasetInfo"
+
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :acl, 5, type: Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl
+
+  field :default_table_expire_duration, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "defaultTableExpireDuration"
+
+  field :default_encryption, 8,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo,
+    json_name: "defaultEncryption"
+
+  field :default_collation, 9, type: :string, json_name: "defaultCollation"
+end
+
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata.BigQueryAcl do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -844,6 +924,32 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.EncryptionInfo do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_access_policy_name, 1, type: :string, json_name: "rowAccessPolicyName"
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.FirstPartyAppMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :metadata, 0
+
+  field :sheets_metadata, 1,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.SheetsMetadata,
+    json_name: "sheetsMetadata",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Audit.BigQueryAuditMetadata.SheetsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :doc_id, 1, type: :string, json_name: "docId"
 end
 
 defmodule Google.Cloud.Audit.BigQueryAuditMetadata do
@@ -860,6 +966,11 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata do
   field :job_change, 2,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobChange,
     json_name: "jobChange",
+    oneof: 0
+
+  field :job_deletion, 23,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.JobDeletion,
+    json_name: "jobDeletion",
     oneof: 0
 
   field :dataset_creation, 3,
@@ -941,4 +1052,28 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata do
     type: Google.Cloud.Audit.BigQueryAuditMetadata.RoutineDeletion,
     json_name: "routineDeletion",
     oneof: 0
+
+  field :row_access_policy_creation, 20,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyCreation,
+    json_name: "rowAccessPolicyCreation",
+    oneof: 0
+
+  field :row_access_policy_change, 21,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyChange,
+    json_name: "rowAccessPolicyChange",
+    oneof: 0
+
+  field :row_access_policy_deletion, 22,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.RowAccessPolicyDeletion,
+    json_name: "rowAccessPolicyDeletion",
+    oneof: 0
+
+  field :unlink_dataset, 25,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.UnlinkDataset,
+    json_name: "unlinkDataset",
+    oneof: 0
+
+  field :first_party_app_metadata, 24,
+    type: Google.Cloud.Audit.BigQueryAuditMetadata.FirstPartyAppMetadata,
+    json_name: "firstPartyAppMetadata"
 end

@@ -28,6 +28,7 @@ defmodule Google.Maps.Addressvalidation.V1.UspsData do
   field :dpv_cmra, 6, type: :string, json_name: "dpvCmra"
   field :dpv_vacant, 7, type: :string, json_name: "dpvVacant"
   field :dpv_no_stat, 8, type: :string, json_name: "dpvNoStat"
+  field :carrier_route, 9, type: :string, json_name: "carrierRoute"
   field :carrier_route_indicator, 10, type: :string, json_name: "carrierRouteIndicator"
   field :ews_no_match, 11, type: :bool, json_name: "ewsNoMatch"
   field :post_office_city, 12, type: :string, json_name: "postOfficeCity"
@@ -46,4 +47,5 @@ defmodule Google.Maps.Addressvalidation.V1.UspsData do
   field :address_record_type, 25, type: :string, json_name: "addressRecordType"
   field :default_address, 26, type: :bool, json_name: "defaultAddress"
   field :error_message, 27, type: :string, json_name: "errorMessage"
+  field :cass_processed, 28, type: :bool, json_name: "cassProcessed"
 end
