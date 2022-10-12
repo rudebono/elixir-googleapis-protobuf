@@ -17,12 +17,17 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
   field :CHARGEBACK, 1
   field :CHARGEBACK_FRAUD, 8
   field :CHARGEBACK_DISPUTE, 9
+  field :REFUND, 10
+  field :REFUND_FRAUD, 11
+  field :TRANSACTION_ACCEPTED, 12
+  field :TRANSACTION_DECLINED, 13
   field :PAYMENT_HEURISTICS, 2
   field :INITIATED_TWO_FACTOR, 7
   field :PASSED_TWO_FACTOR, 3
   field :FAILED_TWO_FACTOR, 4
   field :CORRECT_PASSWORD, 5
   field :INCORRECT_PASSWORD, 6
+  field :SOCIAL_SPAM, 14
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason do
@@ -141,6 +146,29 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :lookup_hash_prefix, 1, type: :bytes, json_name: "lookupHashPrefix", deprecated: false
+
+  field :encrypted_user_credentials_hash, 2,
+    type: :bytes,
+    json_name: "encryptedUserCredentialsHash",
+    deprecated: false
+
+  field :encrypted_leak_match_prefixes, 3,
+    repeated: true,
+    type: :bytes,
+    json_name: "encryptedLeakMatchPrefixes",
+    deprecated: false
+
+  field :reencrypted_user_credentials_hash, 4,
+    type: :bytes,
+    json_name: "reencryptedUserCredentialsHash",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -217,29 +245,6 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
     enum: true
 end
 
-defmodule Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :lookup_hash_prefix, 1, type: :bytes, json_name: "lookupHashPrefix", deprecated: false
-
-  field :encrypted_user_credentials_hash, 2,
-    type: :bytes,
-    json_name: "encryptedUserCredentialsHash",
-    deprecated: false
-
-  field :encrypted_leak_match_prefixes, 3,
-    repeated: true,
-    type: :bytes,
-    json_name: "encryptedLeakMatchPrefixes",
-    deprecated: false
-
-  field :reencrypted_user_credentials_hash, 4,
-    type: :bytes,
-    json_name: "reencryptedUserCredentialsHash",
-    deprecated: false
-end
-
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -263,6 +268,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse do
 
   field :keys, 1, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.Key
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RetrieveLegacySecretKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest do
@@ -321,6 +333,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Metrics do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics,
     json_name: "challengeMetrics"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RetrieveLegacySecretKeyResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :legacy_secret_key, 1, type: :string, json_name: "legacySecretKey"
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry do
@@ -588,6 +607,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :ListKeys,
       Google.Cloud.Recaptchaenterprise.V1.ListKeysRequest,
       Google.Cloud.Recaptchaenterprise.V1.ListKeysResponse
+
+  rpc :RetrieveLegacySecretKey,
+      Google.Cloud.Recaptchaenterprise.V1.RetrieveLegacySecretKeyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.RetrieveLegacySecretKeyResponse
 
   rpc :GetKey,
       Google.Cloud.Recaptchaenterprise.V1.GetKeyRequest,

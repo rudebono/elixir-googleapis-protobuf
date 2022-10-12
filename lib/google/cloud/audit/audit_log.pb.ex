@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Audit.ViolationInfo.PolicyType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :POLICY_TYPE_UNSPECIFIED, 0
+  field :BOOLEAN_CONSTRAINT, 1
+  field :LIST_CONSTRAINT, 2
+  field :CUSTOM_CONSTRAINT, 3
+end
+
 defmodule Google.Cloud.Audit.AuditLog do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -25,6 +35,10 @@ defmodule Google.Cloud.Audit.AuditLog do
     repeated: true,
     type: Google.Cloud.Audit.AuthorizationInfo,
     json_name: "authorizationInfo"
+
+  field :policy_violation_info, 25,
+    type: Google.Cloud.Audit.PolicyViolationInfo,
+    json_name: "policyViolationInfo"
 
   field :request_metadata, 4,
     type: Google.Cloud.Audit.RequestMetadata,
@@ -123,4 +137,57 @@ defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
     type: Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal,
     json_name: "thirdPartyPrincipal",
     oneof: 0
+end
+
+defmodule Google.Cloud.Audit.PolicyViolationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :org_policy_violation_info, 1,
+    type: Google.Cloud.Audit.OrgPolicyViolationInfo,
+    json_name: "orgPolicyViolationInfo"
+end
+
+defmodule Google.Cloud.Audit.OrgPolicyViolationInfo.ResourceTagsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Audit.OrgPolicyViolationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :payload, 1, type: Google.Protobuf.Struct, deprecated: false
+  field :resource_type, 2, type: :string, json_name: "resourceType", deprecated: false
+
+  field :resource_tags, 3,
+    repeated: true,
+    type: Google.Cloud.Audit.OrgPolicyViolationInfo.ResourceTagsEntry,
+    json_name: "resourceTags",
+    map: true,
+    deprecated: false
+
+  field :violation_info, 4,
+    repeated: true,
+    type: Google.Cloud.Audit.ViolationInfo,
+    json_name: "violationInfo",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Audit.ViolationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :constraint, 1, type: :string, deprecated: false
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
+  field :checked_value, 3, type: :string, json_name: "checkedValue", deprecated: false
+
+  field :policy_type, 4,
+    type: Google.Cloud.Audit.ViolationInfo.PolicyType,
+    json_name: "policyType",
+    enum: true,
+    deprecated: false
 end

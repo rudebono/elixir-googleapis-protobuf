@@ -18,7 +18,8 @@ defmodule Google.Maps.Addressvalidation.V1.Address do
   field :address_components, 4,
     repeated: true,
     type: Google.Maps.Addressvalidation.V1.AddressComponent,
-    json_name: "addressComponents"
+    json_name: "addressComponents",
+    deprecated: false
 
   field :missing_component_types, 5,
     repeated: true,
