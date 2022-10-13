@@ -102,7 +102,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.PanelInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :panel_id, 2, type: :string, json_name: "panelId"
+  field :panel_id, 2, type: :string, json_name: "panelId", deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
   field :panel_position, 4, proto3_optional: true, type: :int32, json_name: "panelPosition"
   field :total_panels, 5, proto3_optional: true, type: :int32, json_name: "totalPanels"

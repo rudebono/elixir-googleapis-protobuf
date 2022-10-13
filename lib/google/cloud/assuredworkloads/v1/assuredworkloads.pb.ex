@@ -13,6 +13,7 @@ defmodule Google.Cloud.Assuredworkloads.V1.Workload.ComplianceRegime do
   field :EU_REGIONS_AND_SUPPORT, 8
   field :CA_REGIONS_AND_SUPPORT, 9
   field :ITAR, 10
+  field :AU_REGIONS_AND_US_SUPPORT, 11
   field :ASSURED_WORKLOADS_FOR_PARTNERS, 12
 end
 
@@ -337,7 +338,7 @@ defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationRequest do
   field :non_compliant_org_policy, 3,
     type: :string,
     json_name: "nonCompliantOrgPolicy",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationResponse do
@@ -474,6 +475,11 @@ defmodule Google.Cloud.Assuredworkloads.V1.Violation do
     proto3_optional: true,
     type: Google.Protobuf.Timestamp,
     json_name: "acknowledgementTime",
+    deprecated: false
+
+  field :exception_audit_log_link, 16,
+    type: :string,
+    json_name: "exceptionAuditLogLink",
     deprecated: false
 end
 
