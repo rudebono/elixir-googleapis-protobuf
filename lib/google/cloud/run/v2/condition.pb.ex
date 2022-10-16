@@ -65,6 +65,7 @@ defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do
   field :EXECUTION_REASON_UNDEFINED, 0
   field :JOB_STATUS_SERVICE_POLLING_ERROR, 1
   field :NON_ZERO_EXIT_CODE, 2
+  field :CANCELLED, 3
 end
 
 defmodule Google.Cloud.Run.V2.Condition do
