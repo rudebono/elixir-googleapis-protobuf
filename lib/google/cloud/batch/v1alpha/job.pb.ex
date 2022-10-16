@@ -432,5 +432,5 @@ defmodule Google.Cloud.Batch.V1alpha.ServiceAccount do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :email, 1, type: :string
-  field :scopes, 2, repeated: true, type: :string
+  field :scopes, 2, repeated: true, type: :string, deprecated: true
 end
