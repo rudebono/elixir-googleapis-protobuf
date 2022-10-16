@@ -14,6 +14,10 @@ defmodule Google.Cloud.Run.V2.Container do
     repeated: true,
     type: Google.Cloud.Run.V2.VolumeMount,
     json_name: "volumeMounts"
+
+  field :working_dir, 9, type: :string, json_name: "workingDir"
+  field :liveness_probe, 10, type: Google.Cloud.Run.V2.Probe, json_name: "livenessProbe"
+  field :startup_probe, 11, type: Google.Cloud.Run.V2.Probe, json_name: "startupProbe"
 end
 
 defmodule Google.Cloud.Run.V2.ResourceRequirements.LimitsEntry do
@@ -120,4 +124,49 @@ defmodule Google.Cloud.Run.V2.CloudSqlInstance do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Run.V2.Probe do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :probe_type, 0
+
+  field :initial_delay_seconds, 1, type: :int32, json_name: "initialDelaySeconds"
+  field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds"
+  field :period_seconds, 3, type: :int32, json_name: "periodSeconds"
+  field :failure_threshold, 4, type: :int32, json_name: "failureThreshold"
+  field :http_get, 5, type: Google.Cloud.Run.V2.HTTPGetAction, json_name: "httpGet", oneof: 0
+
+  field :tcp_socket, 6,
+    type: Google.Cloud.Run.V2.TCPSocketAction,
+    json_name: "tcpSocket",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Run.V2.HTTPGetAction do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :path, 1, type: :string
+
+  field :http_headers, 4,
+    repeated: true,
+    type: Google.Cloud.Run.V2.HTTPHeader,
+    json_name: "httpHeaders"
+end
+
+defmodule Google.Cloud.Run.V2.HTTPHeader do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Run.V2.TCPSocketAction do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :port, 1, type: :int32
 end

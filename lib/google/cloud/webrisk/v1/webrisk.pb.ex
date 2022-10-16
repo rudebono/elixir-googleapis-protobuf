@@ -6,6 +6,7 @@ defmodule Google.Cloud.Webrisk.V1.ThreatType do
   field :MALWARE, 1
   field :SOCIAL_ENGINEERING, 2
   field :UNWANTED_SOFTWARE, 3
+  field :SOCIAL_ENGINEERING_EXTENDED_COVERAGE, 4
 end
 
 defmodule Google.Cloud.Webrisk.V1.CompressionType do

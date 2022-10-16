@@ -75,9 +75,9 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsRequest do
 
   field :parent, 1, type: :string, deprecated: false
 
-  field :errors_config, 5,
+  field :error_config, 5,
     type: Google.Cloud.Discoveryengine.V1beta.ImportErrorConfig,
-    json_name: "errorsConfig"
+    json_name: "errorConfig"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsResponse do
@@ -86,9 +86,9 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsResponse do
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
-  field :errors_config, 2,
+  field :error_config, 2,
     type: Google.Cloud.Discoveryengine.V1beta.ImportErrorConfig,
-    json_name: "errorsConfig"
+    json_name: "errorConfig"
 
   field :joined_events_count, 3, type: :int64, json_name: "joinedEventsCount"
   field :unjoined_events_count, 4, type: :int64, json_name: "unjoinedEventsCount"
@@ -147,9 +147,9 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest do
 
   field :parent, 1, type: :string, deprecated: false
 
-  field :errors_config, 5,
+  field :error_config, 5,
     type: Google.Cloud.Discoveryengine.V1beta.ImportErrorConfig,
-    json_name: "errorsConfig"
+    json_name: "errorConfig"
 
   field :reconciliation_mode, 6,
     type: Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest.ReconciliationMode,
@@ -163,7 +163,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsResponse do
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
-  field :errors_config, 2,
+  field :error_config, 2,
     type: Google.Cloud.Discoveryengine.V1beta.ImportErrorConfig,
-    json_name: "errorsConfig"
+    json_name: "errorConfig"
 end
