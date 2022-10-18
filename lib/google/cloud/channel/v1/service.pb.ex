@@ -146,7 +146,7 @@ defmodule Google.Cloud.Channel.V1.ListTransferableSkusRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
-  field :auth_token, 5, type: :string, json_name: "authToken"
+  field :auth_token, 5, type: :string, json_name: "authToken", deprecated: false
   field :language_code, 6, type: :string, json_name: "languageCode"
 end
 
@@ -174,7 +174,7 @@ defmodule Google.Cloud.Channel.V1.ListTransferableOffersRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :sku, 6, type: :string, deprecated: false
-  field :language_code, 7, type: :string, json_name: "languageCode"
+  field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableOffersResponse do
