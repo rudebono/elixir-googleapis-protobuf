@@ -1,6 +1,20 @@
+defmodule Google.Spanner.V1.TransactionOptions.ReadWrite.ReadLockMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :READ_LOCK_MODE_UNSPECIFIED, 0
+  field :PESSIMISTIC, 1
+  field :OPTIMISTIC, 2
+end
+
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :read_lock_mode, 1,
+    type: Google.Spanner.V1.TransactionOptions.ReadWrite.ReadLockMode,
+    json_name: "readLockMode",
+    enum: true
 end
 
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
