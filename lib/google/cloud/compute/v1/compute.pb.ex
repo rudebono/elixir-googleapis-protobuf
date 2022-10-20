@@ -38,6 +38,15 @@ defmodule Google.Cloud.Compute.V1.Address.IpVersion do
   field :UNSPECIFIED_VERSION, 21_850_000
 end
 
+defmodule Google.Cloud.Compute.V1.Address.Ipv6EndpointType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_IPV6_ENDPOINT_TYPE, 0
+  field :NETLB, 74_173_363
+  field :VM, 2743
+end
+
 defmodule Google.Cloud.Compute.V1.Address.NetworkTier do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -926,6 +935,15 @@ defmodule Google.Cloud.Compute.V1.Instance.Status do
   field :TERMINATED, 250_018_339
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManager.ListManagedInstancesResults do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_LIST_MANAGED_INSTANCES_RESULTS, 0
+  field :PAGELESS, 32_183_464
+  field :PAGINATED, 40_190_637
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1414,6 +1432,19 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointGroup.NetworkEndpointType do
   field :SERVERLESS, 270_492_508
 end
 
+defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupPscData.PscConnectionStatus do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_PSC_CONNECTION_STATUS, 0
+  field :ACCEPTED, 246_714_279
+  field :CLOSED, 380_163_436
+  field :NEEDS_ATTENTION, 344_491_452
+  field :PENDING, 35_394_935
+  field :REJECTED, 174_130_302
+  field :STATUS_UNSPECIFIED, 42_133_066
+end
+
 defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupsListEndpointsRequest.HealthStatus do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1845,6 +1876,7 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :SSL_CERTIFICATES, 378_372_399
   field :STATIC_ADDRESSES, 93_624_049
   field :STATIC_BYOIP_ADDRESSES, 275_809_649
+  field :STATIC_EXTERNAL_IPV6_ADDRESS_RANGES, 472_346_774
   field :SUBNETWORKS, 421_330_469
   field :T2A_CPUS, 522_170_599
   field :T2D_CPUS, 71_187_140
@@ -2155,6 +2187,15 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus.Status do
   field :UP, 2715
 end
 
+defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus.StatusReason do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_STATUS_REASON, 0
+  field :MD5_AUTH_INTERNAL_PROBLEM, 140_462_259
+  field :STATUS_REASON_UNSPECIFIED, 394_331_913
+end
+
 defmodule Google.Cloud.Compute.V1.Rule.Action do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -2353,7 +2394,10 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleRateLimitOptions.EnforceOnKe
   field :ALL, 64897
   field :HTTP_COOKIE, 494_981_627
   field :HTTP_HEADER, 91_597_348
+  field :HTTP_PATH, 311_503_228
   field :IP, 2343
+  field :REGION_CODE, 79_559_768
+  field :SNI, 82254
   field :XFF_IP, 438_707_118
 end
 
@@ -3438,6 +3482,12 @@ defmodule Google.Cloud.Compute.V1.Address do
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :uint64
   field :ip_version, 294_959_552, proto3_optional: true, type: :string, json_name: "ipVersion"
+
+  field :ipv6_endpoint_type, 97_501_004,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv6EndpointType"
+
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :network, 232_872_494, proto3_optional: true, type: :string
@@ -7714,6 +7764,11 @@ defmodule Google.Cloud.Compute.V1.ErrorDetails do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.LocalizedMessage,
     json_name: "localizedMessage"
+
+  field :quota_info, 93_923_861,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.QuotaExceededInfo,
+    json_name: "quotaInfo"
 end
 
 defmodule Google.Cloud.Compute.V1.ErrorInfo.MetadatasEntry do
@@ -11748,6 +11803,11 @@ defmodule Google.Cloud.Compute.V1.Instance do
     type: :string,
     json_name: "resourcePolicies"
 
+  field :resource_status, 249_429_315,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ResourceStatus,
+    json_name: "resourceStatus"
+
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :scheduling, 386_688_404, proto3_optional: true, type: Google.Cloud.Compute.V1.Scheduling
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
@@ -11967,6 +12027,12 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
     json_name: "instanceTemplate"
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :list_managed_instances_results, 296_047_156,
+    proto3_optional: true,
+    type: :string,
+    json_name: "listManagedInstancesResults"
+
   field :name, 3_373_707, proto3_optional: true, type: :string
 
   field :named_ports, 427_598_732,
@@ -15867,6 +15933,11 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointGroup do
     type: :string,
     json_name: "networkEndpointType"
 
+  field :psc_data, 71_937_481,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkEndpointGroupPscData,
+    json_name: "pscData"
+
   field :psc_target_service, 269_132_134,
     proto3_optional: true,
     type: :string,
@@ -15951,6 +16022,26 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupPscData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :consumer_psc_address, 452_646_572,
+    proto3_optional: true,
+    type: :string,
+    json_name: "consumerPscAddress"
+
+  field :psc_connection_id, 292_082_397,
+    proto3_optional: true,
+    type: :uint64,
+    json_name: "pscConnectionId"
+
+  field :psc_connection_status, 184_149_172,
+    proto3_optional: true,
+    type: :string,
+    json_name: "pscConnectionStatus"
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupsAttachEndpointsRequest do
@@ -18309,6 +18400,28 @@ defmodule Google.Cloud.Compute.V1.Quota do
   field :usage, 111_574_433, proto3_optional: true, type: :double
 end
 
+defmodule Google.Cloud.Compute.V1.QuotaExceededInfo.DimensionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.QuotaExceededInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dimensions, 414_334_925,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.QuotaExceededInfo.DimensionsEntry,
+    map: true
+
+  field :limit, 102_976_443, proto3_optional: true, type: :double
+  field :limit_name, 398_197_903, proto3_optional: true, type: :string, json_name: "limitName"
+  field :metric_name, 409_881_530, proto3_optional: true, type: :string, json_name: "metricName"
+end
+
 defmodule Google.Cloud.Compute.V1.RawDisk do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -19503,6 +19616,16 @@ defmodule Google.Cloud.Compute.V1.ResourcePolicyWeeklyCycleDayOfWeek do
   field :start_time, 37_467_274, proto3_optional: true, type: :string, json_name: "startTime"
 end
 
+defmodule Google.Cloud.Compute.V1.ResourceStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :physical_host, 464_370_704,
+    proto3_optional: true,
+    type: :string,
+    json_name: "physicalHost"
+end
+
 defmodule Google.Cloud.Compute.V1.ResumeInstanceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -19626,6 +19749,12 @@ defmodule Google.Cloud.Compute.V1.Router do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :interfaces, 12_073_562, repeated: true, type: Google.Cloud.Compute.V1.RouterInterface
   field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :md5_authentication_keys, 71_063_322,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.RouterMd5AuthenticationKey,
+    json_name: "md5AuthenticationKeys"
+
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :nats, 3_373_938, repeated: true, type: Google.Cloud.Compute.V1.RouterNat
   field :network, 232_872_494, proto3_optional: true, type: :string
@@ -19744,6 +19873,11 @@ defmodule Google.Cloud.Compute.V1.RouterBgpPeer do
     type: :string,
     json_name: "managementType"
 
+  field :md5_authentication_key_name, 281_075_345,
+    proto3_optional: true,
+    type: :string,
+    json_name: "md5AuthenticationKeyName"
+
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :peer_asn, 69_573_151, proto3_optional: true, type: :uint32, json_name: "peerAsn"
 
@@ -19836,6 +19970,14 @@ defmodule Google.Cloud.Compute.V1.RouterList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.RouterMd5AuthenticationKey do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 106_079, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.RouterNat do
@@ -20010,12 +20152,23 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus do
     type: Google.Cloud.Compute.V1.BfdStatus,
     json_name: "bfdStatus"
 
+  field :enable_ipv6, 181_467_939, proto3_optional: true, type: :bool, json_name: "enableIpv6"
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+
+  field :ipv6_nexthop_address, 27_968_211,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv6NexthopAddress"
 
   field :linked_vpn_tunnel, 352_296_953,
     proto3_optional: true,
     type: :string,
     json_name: "linkedVpnTunnel"
+
+  field :md5_auth_enabled, 451_152_075,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "md5AuthEnabled"
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -20029,6 +20182,11 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus do
     type: :string,
     json_name: "peerIpAddress"
 
+  field :peer_ipv6_nexthop_address, 491_486_608,
+    proto3_optional: true,
+    type: :string,
+    json_name: "peerIpv6NexthopAddress"
+
   field :router_appliance_instance, 468_312_989,
     proto3_optional: true,
     type: :string,
@@ -20036,6 +20194,12 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus do
 
   field :state, 109_757_585, proto3_optional: true, type: :string
   field :status, 181_260_274, proto3_optional: true, type: :string
+
+  field :status_reason, 342_706_993,
+    proto3_optional: true,
+    type: :string,
+    json_name: "statusReason"
+
   field :uptime, 235_379_688, proto3_optional: true, type: :string
 
   field :uptime_seconds, 104_736_040,
