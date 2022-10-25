@@ -6,6 +6,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseEngine do
   field :MYSQL, 1
   field :POSTGRESQL, 2
   field :SQLSERVER, 3
+  field :ORACLE, 4
+  field :SPANNER, 5
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
@@ -15,6 +17,8 @@ defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
   field :CLOUDSQL, 1
   field :RDS, 2
+  field :AURORA, 3
+  field :ALLOYDB, 4
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State do
@@ -93,6 +97,16 @@ defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version d
   field :V13, 5
 end
 
+defmodule Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile.ConnectivityType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONNECTIVITY_TYPE_UNSPECIFIED, 0
+  field :STATIC_SERVICE_IP, 1
+  field :FORWARD_SSH_TUNNEL, 2
+  field :PRIVATE_CONNECTIVITY, 3
+end
+
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -105,6 +119,19 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
   field :DELETING, 5
   field :DELETED, 6
   field :FAILED, 7
+end
+
+defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :CREATED, 2
+  field :FAILED, 3
+  field :DELETING, 4
+  field :FAILED_TO_DELETE, 5
+  field :DELETED, 6
 end
 
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseType do
@@ -206,6 +233,17 @@ defmodule Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile do
   field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId"
 end
 
+defmodule Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :connectivity_type, 1,
+    type: Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile.ConnectivityType,
+    json_name: "connectivityType",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -239,6 +277,7 @@ defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
     oneof: 0
 
   field :cloudsql, 102, type: Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile, oneof: 0
+  field :oracle, 103, type: Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile, oneof: 0
   field :error, 5, type: Google.Rpc.Status
   field :provider, 6, type: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider, enum: true
 end
@@ -272,6 +311,66 @@ defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
   field :connection_profile, 1,
     type: Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile,
     json_name: "connectionProfile"
+
+  field :occurrence_timestamp, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "occurrenceTimestamp"
+
+  field :code, 3, type: :int32
+  field :text_message, 4, type: :string, json_name: "textMessage"
+  field :original_code, 200, type: :int32, json_name: "originalCode", oneof: 0
+  field :original_message, 201, type: :string, json_name: "originalMessage", oneof: 0
+end
+
+defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :labels, 2,
+    repeated: true,
+    type: Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.LabelsEntry,
+    map: true
+
+  field :display_name, 3, type: :string, json_name: "displayName"
+
+  field :state, 4,
+    type: Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.State,
+    enum: true
+
+  field :error, 5, type: Google.Rpc.Status
+
+  field :vpc_peering_config, 100,
+    type: Google.Cloud.Clouddms.Logging.V1.VpcPeeringConfig,
+    json_name: "vpcPeeringConfig"
+end
+
+defmodule Google.Cloud.Clouddms.Logging.V1.VpcPeeringConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :vpc_name, 1, type: :string, json_name: "vpcName"
+  field :subnet, 2, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.Logging.V1.PrivateConnectionEventLog do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :original_cause, 0
+
+  field :private_connection, 1,
+    type: Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection,
+    json_name: "privateConnection"
 
   field :occurrence_timestamp, 2,
     type: Google.Protobuf.Timestamp,
