@@ -44,6 +44,29 @@ defmodule Google.Cloud.Dialogflow.V2.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_MULAW, 5
 end
 
+defmodule Google.Cloud.Dialogflow.V2.TelephonyDtmf do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TELEPHONY_DTMF_UNSPECIFIED, 0
+  field :DTMF_ONE, 1
+  field :DTMF_TWO, 2
+  field :DTMF_THREE, 3
+  field :DTMF_FOUR, 4
+  field :DTMF_FIVE, 5
+  field :DTMF_SIX, 6
+  field :DTMF_SEVEN, 7
+  field :DTMF_EIGHT, 8
+  field :DTMF_NINE, 9
+  field :DTMF_ZERO, 10
+  field :DTMF_A, 11
+  field :DTMF_B, 12
+  field :DTMF_C, 13
+  field :DTMF_D, 14
+  field :DTMF_STAR, 15
+  field :DTMF_POUND, 16
+end
+
 defmodule Google.Cloud.Dialogflow.V2.SpeechContext do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -140,6 +163,17 @@ defmodule Google.Cloud.Dialogflow.V2.OutputAudioConfig do
     json_name: "synthesizeSpeechConfig"
 end
 
+defmodule Google.Cloud.Dialogflow.V2.TelephonyDtmfEvents do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dtmf_events, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.TelephonyDtmf,
+    json_name: "dtmfEvents",
+    enum: true
+end
+
 defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -148,4 +182,6 @@ defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
     type: Google.Cloud.Dialogflow.V2.SpeechModelVariant,
     json_name: "speechModelVariant",
     enum: true
+
+  field :model, 2, type: :string
 end
