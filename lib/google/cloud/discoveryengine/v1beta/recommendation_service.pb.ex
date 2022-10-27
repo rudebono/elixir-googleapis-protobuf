@@ -6,6 +6,14 @@ defmodule Google.Cloud.Discoveryengine.V1beta.RecommendRequest.ParamsEntry do
   field :value, 2, type: Google.Protobuf.Value
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.RecommendRequest.UserLabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.RecommendRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -24,6 +32,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.RecommendRequest do
   field :params, 6,
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1beta.RecommendRequest.ParamsEntry,
+    map: true
+
+  field :user_labels, 8,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.RecommendRequest.UserLabelsEntry,
+    json_name: "userLabels",
     map: true
 end
 

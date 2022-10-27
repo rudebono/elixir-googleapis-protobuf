@@ -6,5 +6,5 @@ defmodule Google.Monitoring.Dashboard.V1.TableDisplayOptions do
     repeated: true,
     type: :string,
     json_name: "shownColumns",
-    deprecated: false
+    deprecated: true
 end
