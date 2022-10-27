@@ -37,6 +37,11 @@ defmodule Google.Cloud.Dialogflow.V2.Participant do
     json_name: "sipRecordingMediaLabel",
     deprecated: false
 
+  field :obfuscated_external_user_id, 7,
+    type: :string,
+    json_name: "obfuscatedExternalUserId",
+    deprecated: false
+
   field :documents_metadata_filters, 8,
     repeated: true,
     type: Google.Cloud.Dialogflow.V2.Participant.DocumentsMetadataFiltersEntry,
@@ -187,6 +192,85 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentResponse do
     json_name: "endUserSuggestionResults"
 
   field :dtmf_parameters, 9,
+    type: Google.Cloud.Dialogflow.V2.DtmfParameters,
+    json_name: "dtmfParameters"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :config, 0
+
+  oneof :input, 1
+
+  field :participant, 1, type: :string, deprecated: false
+
+  field :audio_config, 2,
+    type: Google.Cloud.Dialogflow.V2.InputAudioConfig,
+    json_name: "audioConfig",
+    oneof: 0
+
+  field :text_config, 3,
+    type: Google.Cloud.Dialogflow.V2.InputTextConfig,
+    json_name: "textConfig",
+    oneof: 0
+
+  field :reply_audio_config, 4,
+    type: Google.Cloud.Dialogflow.V2.OutputAudioConfig,
+    json_name: "replyAudioConfig"
+
+  field :input_audio, 5, type: :bytes, json_name: "inputAudio", oneof: 1
+  field :input_text, 6, type: :string, json_name: "inputText", oneof: 1
+
+  field :input_dtmf, 9,
+    type: Google.Cloud.Dialogflow.V2.TelephonyDtmfEvents,
+    json_name: "inputDtmf",
+    oneof: 1
+
+  field :query_params, 7,
+    type: Google.Cloud.Dialogflow.V2.QueryParameters,
+    json_name: "queryParams"
+
+  field :assist_query_params, 8,
+    type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
+    json_name: "assistQueryParams"
+
+  field :cx_parameters, 13, type: Google.Protobuf.Struct, json_name: "cxParameters"
+
+  field :enable_partial_automated_agent_reply, 12,
+    type: :bool,
+    json_name: "enablePartialAutomatedAgentReply"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :recognition_result, 1,
+    type: Google.Cloud.Dialogflow.V2.StreamingRecognitionResult,
+    json_name: "recognitionResult"
+
+  field :reply_text, 2, type: :string, json_name: "replyText"
+  field :reply_audio, 3, type: Google.Cloud.Dialogflow.V2.OutputAudio, json_name: "replyAudio"
+
+  field :automated_agent_reply, 4,
+    type: Google.Cloud.Dialogflow.V2.AutomatedAgentReply,
+    json_name: "automatedAgentReply"
+
+  field :message, 6, type: Google.Cloud.Dialogflow.V2.Message
+
+  field :human_agent_suggestion_results, 7,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SuggestionResult,
+    json_name: "humanAgentSuggestionResults"
+
+  field :end_user_suggestion_results, 8,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SuggestionResult,
+    json_name: "endUserSuggestionResults"
+
+  field :dtmf_parameters, 10,
     type: Google.Cloud.Dialogflow.V2.DtmfParameters,
     json_name: "dtmfParameters"
 end
@@ -378,6 +462,13 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
     oneof: 0
 end
 
+defmodule Google.Cloud.Dialogflow.V2.InputTextConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2.AnnotatedMessagePart do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -439,6 +530,10 @@ defmodule Google.Cloud.Dialogflow.V2.Participants.Service do
   rpc :AnalyzeContent,
       Google.Cloud.Dialogflow.V2.AnalyzeContentRequest,
       Google.Cloud.Dialogflow.V2.AnalyzeContentResponse
+
+  rpc :StreamingAnalyzeContent,
+      stream(Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentRequest),
+      stream(Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentResponse)
 
   rpc :SuggestArticles,
       Google.Cloud.Dialogflow.V2.SuggestArticlesRequest,
