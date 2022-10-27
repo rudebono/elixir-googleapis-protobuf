@@ -14,6 +14,11 @@ defmodule Google.Cloud.Video.Stitcher.V1.CdnKey do
     json_name: "akamaiCdnKey",
     oneof: 0
 
+  field :media_cdn_key, 8,
+    type: Google.Cloud.Video.Stitcher.V1.MediaCdnKey,
+    json_name: "mediaCdnKey",
+    oneof: 0
+
   field :name, 1, type: :string
   field :hostname, 4, type: :string
 end
@@ -31,4 +36,12 @@ defmodule Google.Cloud.Video.Stitcher.V1.AkamaiCdnKey do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :token_key, 1, type: :bytes, json_name: "tokenKey", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.MediaCdnKey do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :private_key, 1, type: :bytes, json_name: "privateKey", deprecated: false
+  field :key_name, 2, type: :string, json_name: "keyName"
 end

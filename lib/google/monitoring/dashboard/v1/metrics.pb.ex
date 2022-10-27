@@ -55,6 +55,7 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
     json_name: "timeSeriesQueryLanguage",
     oneof: 0
 
+  field :prometheus_query, 6, type: :string, json_name: "prometheusQuery", oneof: 0
   field :unit_override, 5, type: :string, json_name: "unitOverride"
 end
 
