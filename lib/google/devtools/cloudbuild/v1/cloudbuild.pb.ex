@@ -290,6 +290,9 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
     enum: true,
     deprecated: false
 
+  field :allow_failure, 14, type: :bool, json_name: "allowFailure"
+  field :exit_code, 16, type: :int32, json_name: "exitCode", deprecated: false
+  field :allow_exit_codes, 18, repeated: true, type: :int32, json_name: "allowExitCodes"
   field :script, 19, type: :string
 end
 
