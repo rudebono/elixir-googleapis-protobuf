@@ -263,6 +263,32 @@ defmodule Google.Devtools.Cloudbuild.V1.BuiltImage do
     deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.UploadedPythonPackage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :file_hashes, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes, json_name: "fileHashes"
+
+  field :push_timing, 3,
+    type: Google.Devtools.Cloudbuild.V1.TimeSpan,
+    json_name: "pushTiming",
+    deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :file_hashes, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes, json_name: "fileHashes"
+
+  field :push_timing, 3,
+    type: Google.Devtools.Cloudbuild.V1.TimeSpan,
+    json_name: "pushTiming",
+    deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -317,6 +343,16 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
   field :artifact_timing, 7,
     type: Google.Devtools.Cloudbuild.V1.TimeSpan,
     json_name: "artifactTiming"
+
+  field :python_packages, 8,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.UploadedPythonPackage,
+    json_name: "pythonPackages"
+
+  field :maven_artifacts, 9,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact,
+    json_name: "mavenArtifacts"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
@@ -449,12 +485,41 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do
   field :timing, 3, type: Google.Devtools.Cloudbuild.V1.TimeSpan, deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Artifacts.MavenArtifact do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :repository, 1, type: :string
+  field :path, 2, type: :string
+  field :artifact_id, 3, type: :string, json_name: "artifactId"
+  field :group_id, 4, type: :string, json_name: "groupId"
+  field :version, 5, type: :string
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.Artifacts.PythonPackage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :repository, 1, type: :string
+  field :paths, 2, repeated: true, type: :string
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :images, 1, repeated: true, type: :string
   field :objects, 2, type: Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects
+
+  field :maven_artifacts, 3,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Artifacts.MavenArtifact,
+    json_name: "mavenArtifacts"
+
+  field :python_packages, 5,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Artifacts.PythonPackage,
+    json_name: "pythonPackages"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
