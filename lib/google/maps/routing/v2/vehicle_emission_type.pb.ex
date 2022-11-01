@@ -6,4 +6,5 @@ defmodule Google.Maps.Routing.V2.VehicleEmissionType do
   field :GASOLINE, 1
   field :ELECTRIC, 2
   field :HYBRID, 3
+  field :DIESEL, 4
 end

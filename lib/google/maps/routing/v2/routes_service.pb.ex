@@ -7,6 +7,14 @@ defmodule Google.Maps.Routing.V2.RouteMatrixElementCondition do
   field :ROUTE_NOT_FOUND, 2
 end
 
+defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :REFERENCE_ROUTE_UNSPECIFIED, 0
+  field :FUEL_EFFICIENT, 1
+end
+
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -60,6 +68,13 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
 
   field :language_code, 10, type: :string, json_name: "languageCode", deprecated: false
   field :units, 11, type: Google.Maps.Routing.V2.Units, enum: true, deprecated: false
+
+  field :requested_reference_routes, 14,
+    repeated: true,
+    type: Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute,
+    json_name: "requestedReferenceRoutes",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesResponse do

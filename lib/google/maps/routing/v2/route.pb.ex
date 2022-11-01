@@ -2,6 +2,12 @@ defmodule Google.Maps.Routing.V2.Route do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  field :route_labels, 13,
+    repeated: true,
+    type: Google.Maps.Routing.V2.RouteLabel,
+    json_name: "routeLabels",
+    enum: true
+
   field :legs, 1, repeated: true, type: Google.Maps.Routing.V2.RouteLeg
   field :distance_meters, 2, type: :int32, json_name: "distanceMeters"
   field :duration, 3, type: Google.Protobuf.Duration
@@ -14,6 +20,8 @@ defmodule Google.Maps.Routing.V2.Route do
   field :travel_advisory, 9,
     type: Google.Maps.Routing.V2.RouteTravelAdvisory,
     json_name: "travelAdvisory"
+
+  field :route_token, 12, type: :string, json_name: "routeToken"
 end
 
 defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
@@ -26,6 +34,8 @@ defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
     repeated: true,
     type: Google.Maps.Routing.V2.SpeedReadingInterval,
     json_name: "speedReadingIntervals"
+
+  field :fuel_consumption_microliters, 5, type: :int64, json_name: "fuelConsumptionMicroliters"
 end
 
 defmodule Google.Maps.Routing.V2.RouteLegTravelAdvisory do
