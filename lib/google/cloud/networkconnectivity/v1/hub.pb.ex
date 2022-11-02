@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LOCATION_FEATURE_UNSPECIFIED, 0
+  field :SITE_TO_CLOUD_SPOKES, 1
+  field :SITE_TO_SITE_SPOKES, 2
+end
+
 defmodule Google.Cloud.Networkconnectivity.V1.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -6,15 +15,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.State do
   field :CREATING, 1
   field :ACTIVE, 2
   field :DELETING, 3
-end
-
-defmodule Google.Cloud.Networkconnectivity.V1.LocationFeature do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :LOCATION_FEATURE_UNSPECIFIED, 0
-  field :SITE_TO_CLOUD_SPOKES, 1
-  field :SITE_TO_SITE_SPOKES, 2
+  field :UPDATING, 6
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry do
@@ -238,6 +239,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels do
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
+  field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
@@ -246,6 +248,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
+  field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
@@ -257,6 +260,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
     type: Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance
 
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
+  field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.RouterApplianceInstance do
