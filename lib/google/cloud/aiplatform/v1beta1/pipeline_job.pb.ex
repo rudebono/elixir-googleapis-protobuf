@@ -274,6 +274,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.ContainerDe
     type: :string,
     json_name: "preCachingCheckJob",
     deprecated: false
+
+  field :failed_main_jobs, 3,
+    repeated: true,
+    type: :string,
+    json_name: "failedMainJobs",
+    deprecated: false
+
+  field :failed_pre_caching_check_jobs, 4,
+    repeated: true,
+    type: :string,
+    json_name: "failedPreCachingCheckJobs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.CustomJobDetail do

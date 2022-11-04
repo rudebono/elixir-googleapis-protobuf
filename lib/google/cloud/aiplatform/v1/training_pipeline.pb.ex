@@ -112,6 +112,7 @@ defmodule Google.Cloud.Aiplatform.V1.InputDataConfig do
   field :annotations_filter, 6, type: :string, json_name: "annotationsFilter"
   field :annotation_schema_uri, 9, type: :string, json_name: "annotationSchemaUri"
   field :saved_query_id, 7, type: :string, json_name: "savedQueryId"
+  field :persist_ml_use_assignment, 11, type: :bool, json_name: "persistMlUseAssignment"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FractionSplit do

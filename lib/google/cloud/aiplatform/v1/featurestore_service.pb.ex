@@ -163,6 +163,11 @@ defmodule Google.Cloud.Aiplatform.V1.BatchReadFeatureValuesRequest do
     type: Google.Cloud.Aiplatform.V1.BatchReadFeatureValuesRequest.EntityTypeSpec,
     json_name: "entityTypeSpecs",
     deprecated: false
+
+  field :start_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "startTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportFeatureValuesRequest.SnapshotExport do
