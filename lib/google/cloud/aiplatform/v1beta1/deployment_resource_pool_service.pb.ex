@@ -97,6 +97,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QueryDeployedModelsResponse do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModelRef,
     json_name: "deployedModelRefs"
+
+  field :total_deployed_model_count, 4, type: :int32, json_name: "totalDeployedModelCount"
+  field :total_endpoint_count, 5, type: :int32, json_name: "totalEndpointCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeploymentResourcePoolService.Service do

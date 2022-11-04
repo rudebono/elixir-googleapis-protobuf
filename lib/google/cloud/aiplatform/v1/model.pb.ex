@@ -143,6 +143,8 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
     type: Google.Cloud.Aiplatform.V1.ModelSourceInfo,
     json_name: "modelSourceInfo",
     deprecated: false
+
+  field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do

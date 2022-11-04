@@ -9,6 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AcceleratorType do
   field :NVIDIA_TESLA_P4, 4
   field :NVIDIA_TESLA_T4, 5
   field :NVIDIA_TESLA_A100, 8
+  field :NVIDIA_A100_80GB, 9
   field :TPU_V2, 6
   field :TPU_V3, 7
 end
