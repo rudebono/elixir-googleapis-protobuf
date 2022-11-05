@@ -4,6 +4,7 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsRequ
 
   field :channel_connection, 1, type: :string, json_name: "channelConnection"
   field :events, 2, repeated: true, type: Google.Protobuf.Any
+  field :text_events, 3, repeated: true, type: :string, json_name: "textEvents"
 end
 
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishChannelConnectionEventsResponse do
@@ -17,6 +18,7 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsRequest do
 
   field :channel, 1, type: :string
   field :events, 2, repeated: true, type: Google.Protobuf.Any
+  field :text_events, 3, repeated: true, type: :string, json_name: "textEvents"
 end
 
 defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse do

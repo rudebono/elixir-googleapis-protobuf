@@ -53,6 +53,15 @@ defmodule Google.Container.V1.IPv6AccessType do
   field :EXTERNAL, 2
 end
 
+defmodule Google.Container.V1.LinuxNodeConfig.CgroupMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CGROUP_MODE_UNSPECIFIED, 0
+  field :CGROUP_MODE_V1, 1
+  field :CGROUP_MODE_V2, 2
+end
+
 defmodule Google.Container.V1.NodeNetworkConfig.NetworkPerformanceConfig.Tier do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -256,6 +265,16 @@ defmodule Google.Container.V1.StatusCondition.Code do
   field :CA_EXPIRING, 9
 end
 
+defmodule Google.Container.V1.GatewayAPIConfig.Channel do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CHANNEL_UNSPECIFIED, 0
+  field :CHANNEL_DISABLED, 1
+  field :CHANNEL_EXPERIMENTAL, 3
+  field :CHANNEL_STANDARD, 4
+end
+
 defmodule Google.Container.V1.ReleaseChannel.Channel do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -320,6 +339,9 @@ defmodule Google.Container.V1.LoggingComponentConfig.Component do
   field :COMPONENT_UNSPECIFIED, 0
   field :SYSTEM_COMPONENTS, 1
   field :WORKLOADS, 2
+  field :APISERVER, 3
+  field :SCHEDULER, 4
+  field :CONTROLLER_MANAGER, 5
 end
 
 defmodule Google.Container.V1.LoggingVariantConfig.Variant do
@@ -358,6 +380,11 @@ defmodule Google.Container.V1.LinuxNodeConfig do
     repeated: true,
     type: Google.Container.V1.LinuxNodeConfig.SysctlsEntry,
     map: true
+
+  field :cgroup_mode, 2,
+    type: Google.Container.V1.LinuxNodeConfig.CgroupMode,
+    json_name: "cgroupMode",
+    enum: true
 end
 
 defmodule Google.Container.V1.NodeKubeletConfig do
@@ -379,6 +406,14 @@ defmodule Google.Container.V1.NodeConfig.MetadataEntry do
 end
 
 defmodule Google.Container.V1.NodeConfig.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Container.V1.NodeConfig.ResourceLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -447,6 +482,12 @@ defmodule Google.Container.V1.NodeConfig do
     type: Google.Container.V1.ConfidentialNodes,
     json_name: "confidentialNodes"
 
+  field :resource_labels, 37,
+    repeated: true,
+    type: Google.Container.V1.NodeConfig.ResourceLabelsEntry,
+    json_name: "resourceLabels",
+    map: true
+
   field :logging_config, 38,
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "loggingConfig"
@@ -477,6 +518,11 @@ defmodule Google.Container.V1.NodeNetworkConfig do
   field :create_pod_range, 4, type: :bool, json_name: "createPodRange", deprecated: false
   field :pod_range, 5, type: :string, json_name: "podRange"
   field :pod_ipv4_cidr_block, 6, type: :string, json_name: "podIpv4CidrBlock"
+
+  field :enable_private_nodes, 9,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enablePrivateNodes"
 
   field :network_performance_config, 11,
     proto3_optional: true,
@@ -548,6 +594,24 @@ defmodule Google.Container.V1.NodeLabels do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: Google.Container.V1.NodeLabels.LabelsEntry, map: true
+end
+
+defmodule Google.Container.V1.ResourceLabels.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Container.V1.ResourceLabels do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :labels, 1,
+    repeated: true,
+    type: Google.Container.V1.ResourceLabels.LabelsEntry,
+    map: true
 end
 
 defmodule Google.Container.V1.NetworkTags do
@@ -682,6 +746,8 @@ defmodule Google.Container.V1.PrivateClusterConfig do
   field :master_global_access_config, 8,
     type: Google.Container.V1.PrivateClusterMasterGlobalAccessConfig,
     json_name: "masterGlobalAccessConfig"
+
+  field :private_endpoint_subnetwork, 10, type: :string, json_name: "privateEndpointSubnetwork"
 end
 
 defmodule Google.Container.V1.AuthenticatorGroupsConfig do
@@ -750,6 +816,11 @@ defmodule Google.Container.V1.MasterAuthorizedNetworksConfig do
     repeated: true,
     type: Google.Container.V1.MasterAuthorizedNetworksConfig.CidrBlock,
     json_name: "cidrBlocks"
+
+  field :gcp_public_cidrs_access_enabled, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "gcpPublicCidrsAccessEnabled"
 end
 
 defmodule Google.Container.V1.LegacyAbac do
@@ -1119,6 +1190,11 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.ServiceExternalIPsConfig,
     json_name: "desiredServiceExternalIpsConfig"
 
+  field :desired_enable_private_endpoint, 71,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredEnablePrivateEndpoint"
+
   field :desired_master_version, 100, type: :string, json_name: "desiredMasterVersion"
 
   field :desired_gcfs_config, 109,
@@ -1128,6 +1204,10 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_node_pool_auto_config_network_tags, 110,
     type: Google.Container.V1.NetworkTags,
     json_name: "desiredNodePoolAutoConfigNetworkTags"
+
+  field :desired_gateway_api_config, 114,
+    type: Google.Container.V1.GatewayAPIConfig,
+    json_name: "desiredGatewayApiConfig"
 
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1.NodePoolLoggingConfig,
@@ -1272,6 +1352,10 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :logging_config, 32,
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "loggingConfig"
+
+  field :resource_labels, 33,
+    type: Google.Container.V1.ResourceLabels,
+    json_name: "resourceLabels"
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
@@ -2009,6 +2093,17 @@ defmodule Google.Container.V1.NetworkConfig do
   field :service_external_ips_config, 15,
     type: Google.Container.V1.ServiceExternalIPsConfig,
     json_name: "serviceExternalIpsConfig"
+
+  field :gateway_api_config, 16,
+    type: Google.Container.V1.GatewayAPIConfig,
+    json_name: "gatewayApiConfig"
+end
+
+defmodule Google.Container.V1.GatewayAPIConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :channel, 1, type: Google.Container.V1.GatewayAPIConfig.Channel, enum: true
 end
 
 defmodule Google.Container.V1.ServiceExternalIPsConfig do

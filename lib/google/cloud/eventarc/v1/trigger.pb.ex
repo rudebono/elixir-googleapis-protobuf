@@ -6,6 +6,14 @@ defmodule Google.Cloud.Eventarc.V1.Trigger.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Eventarc.V1.Trigger.ConditionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Eventarc.V1.StateCondition
+end
+
 defmodule Google.Cloud.Eventarc.V1.Trigger do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -40,6 +48,13 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
     deprecated: false
 
   field :channel, 13, type: :string, deprecated: false
+
+  field :conditions, 15,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.Trigger.ConditionsEntry,
+    map: true,
+    deprecated: false
+
   field :etag, 99, type: :string, deprecated: false
 end
 
@@ -52,6 +67,14 @@ defmodule Google.Cloud.Eventarc.V1.EventFilter do
   field :operator, 3, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Eventarc.V1.StateCondition do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :code, 1, type: Google.Rpc.Code, enum: true
+  field :message, 2, type: :string
+end
+
 defmodule Google.Cloud.Eventarc.V1.Destination do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -61,6 +84,7 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
   field :cloud_run, 1, type: Google.Cloud.Eventarc.V1.CloudRun, json_name: "cloudRun", oneof: 0
   field :cloud_function, 2, type: :string, json_name: "cloudFunction", oneof: 0, deprecated: false
   field :gke, 3, type: Google.Cloud.Eventarc.V1.GKE, oneof: 0
+  field :workflow, 4, type: :string, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.Transport do
