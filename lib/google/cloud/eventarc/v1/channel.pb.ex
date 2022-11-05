@@ -27,8 +27,9 @@ defmodule Google.Cloud.Eventarc.V1.Channel do
     json_name: "updateTime",
     deprecated: false
 
-  field :provider, 7, type: :string, deprecated: false
+  field :provider, 7, type: :string
   field :pubsub_topic, 8, type: :string, json_name: "pubsubTopic", oneof: 0, deprecated: false
   field :state, 9, type: Google.Cloud.Eventarc.V1.Channel.State, enum: true, deprecated: false
   field :activation_token, 10, type: :string, json_name: "activationToken", deprecated: false
+  field :crypto_key_name, 11, type: :string, json_name: "cryptoKeyName", deprecated: false
 end

@@ -142,6 +142,8 @@ defmodule Google.Cloud.Run.V2.Probe do
     type: Google.Cloud.Run.V2.TCPSocketAction,
     json_name: "tcpSocket",
     oneof: 0
+
+  field :grpc, 7, type: Google.Cloud.Run.V2.GRPCAction, oneof: 0
 end
 
 defmodule Google.Cloud.Run.V2.HTTPGetAction do
@@ -169,4 +171,12 @@ defmodule Google.Cloud.Run.V2.TCPSocketAction do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :port, 1, type: :int32
+end
+
+defmodule Google.Cloud.Run.V2.GRPCAction do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :port, 1, type: :int32
+  field :service, 2, type: :string
 end

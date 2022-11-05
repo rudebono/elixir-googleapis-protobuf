@@ -13,6 +13,7 @@ defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
@@ -187,6 +188,25 @@ defmodule Google.Cloud.Eventarc.V1.DeleteChannelConnectionRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Eventarc.V1.UpdateGoogleChannelConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :google_channel_config, 1,
+    type: Google.Cloud.Eventarc.V1.GoogleChannelConfig,
+    json_name: "googleChannelConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Eventarc.V1.GetGoogleChannelConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -258,6 +278,14 @@ defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do
   rpc :DeleteChannelConnection,
       Google.Cloud.Eventarc.V1.DeleteChannelConnectionRequest,
       Google.Longrunning.Operation
+
+  rpc :GetGoogleChannelConfig,
+      Google.Cloud.Eventarc.V1.GetGoogleChannelConfigRequest,
+      Google.Cloud.Eventarc.V1.GoogleChannelConfig
+
+  rpc :UpdateGoogleChannelConfig,
+      Google.Cloud.Eventarc.V1.UpdateGoogleChannelConfigRequest,
+      Google.Cloud.Eventarc.V1.GoogleChannelConfig
 end
 
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Stub do
