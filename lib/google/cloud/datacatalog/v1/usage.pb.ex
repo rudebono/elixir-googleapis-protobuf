@@ -29,5 +29,6 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry,
     json_name: "usageWithinTimeRange",
-    map: true
+    map: true,
+    deprecated: false
 end
