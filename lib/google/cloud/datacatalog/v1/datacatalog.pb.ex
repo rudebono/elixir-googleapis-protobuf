@@ -229,12 +229,14 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
   field :bigquery_table_spec, 12,
     type: Google.Cloud.Datacatalog.V1.BigQueryTableSpec,
     json_name: "bigqueryTableSpec",
-    oneof: 2
+    oneof: 2,
+    deprecated: false
 
   field :bigquery_date_sharded_spec, 15,
     type: Google.Cloud.Datacatalog.V1.BigQueryDateShardedSpec,
     json_name: "bigqueryDateShardedSpec",
-    oneof: 2
+    oneof: 2,
+    deprecated: false
 
   field :database_table_spec, 24,
     type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec,
@@ -269,10 +271,7 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     type: Google.Cloud.Datacatalog.V1.SystemTimestamps,
     json_name: "sourceSystemTimestamps"
 
-  field :usage_signal, 13,
-    type: Google.Cloud.Datacatalog.V1.UsageSignal,
-    json_name: "usageSignal",
-    deprecated: false
+  field :usage_signal, 13, type: Google.Cloud.Datacatalog.V1.UsageSignal, json_name: "usageSignal"
 
   field :labels, 14,
     repeated: true,
@@ -298,7 +297,8 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
 
   field :dataplex_table, 2,
     type: Google.Cloud.Datacatalog.V1.DataplexTableSpec,
-    json_name: "dataplexTable"
+    json_name: "dataplexTable",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.FilesetSpec do

@@ -25,7 +25,8 @@ defmodule Google.Cloud.Talent.V4.Company do
   field :keyword_searchable_job_custom_attributes, 11,
     repeated: true,
     type: :string,
-    json_name: "keywordSearchableJobCustomAttributes"
+    json_name: "keywordSearchableJobCustomAttributes",
+    deprecated: true
 
   field :derived_info, 12,
     type: Google.Cloud.Talent.V4.Company.DerivedInfo,
