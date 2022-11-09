@@ -425,6 +425,14 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Service d
   rpc :DeleteGcpUserAccessBinding,
       Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequest,
       Google.Longrunning.Operation
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Stub do
