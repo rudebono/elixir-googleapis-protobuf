@@ -76,17 +76,6 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
   field :resource, 2, type: :string, oneof: 0
 end
 
-defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :resources, 1, repeated: true, type: :string
-
-  field :operations, 2,
-    repeated: true,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation
-end
-
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -127,6 +116,31 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.Ingress
     json_name: "ingressTo"
 end
 
+defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :identities, 1, repeated: true, type: :string
+
+  field :identity_type, 2,
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType,
+    json_name: "identityType",
+    enum: true
+end
+
+defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :resources, 1, repeated: true, type: :string
+
+  field :operations, 2,
+    repeated: true,
+    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation
+
+  field :external_resources, 3, repeated: true, type: :string, json_name: "externalResources"
+end
+
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -138,18 +152,6 @@ defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressP
   field :egress_to, 2,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo,
     json_name: "egressTo"
-end
-
-defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :identities, 1, repeated: true, type: :string
-
-  field :identity_type, 2,
-    type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType,
-    json_name: "identityType",
-    enum: true
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig do

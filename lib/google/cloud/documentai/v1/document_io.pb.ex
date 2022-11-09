@@ -50,6 +50,7 @@ defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig.GcsOutputConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
+  field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
 end
 
 defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
