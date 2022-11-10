@@ -204,6 +204,82 @@ defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EntityReconciliationJob do
     deprecated: false
 end
 
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :ids, 2, repeated: true, type: :string, deprecated: false
+  field :languages, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :context, 1, type: Google.Protobuf.Value
+  field :type, 2, type: Google.Protobuf.Value
+  field :item_list_element, 3, type: Google.Protobuf.ListValue, json_name: "itemListElement"
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+  field :languages, 3, repeated: true, type: :string
+  field :types, 4, repeated: true, type: :string
+  field :limit, 6, type: Google.Protobuf.Int32Value
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :context, 1, type: Google.Protobuf.Value
+  field :type, 2, type: Google.Protobuf.Value
+  field :item_list_element, 3, type: Google.Protobuf.ListValue, json_name: "itemListElement"
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :ids, 2, repeated: true, type: :string, deprecated: false
+  field :languages, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :context, 1, type: Google.Protobuf.Value
+  field :type, 2, type: Google.Protobuf.Value
+  field :item_list_element, 3, type: Google.Protobuf.ListValue, json_name: "itemListElement"
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+  field :languages, 3, repeated: true, type: :string
+  field :types, 4, repeated: true, type: :string
+  field :limit, 6, type: Google.Protobuf.Int32Value
+end
+
+defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :context, 1, type: Google.Protobuf.Value
+  field :type, 2, type: Google.Protobuf.Value
+  field :item_list_element, 3, type: Google.Protobuf.ListValue, json_name: "itemListElement"
+end
+
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -229,6 +305,22 @@ defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphServi
   rpc :DeleteEntityReconciliationJob,
       Google.Cloud.Enterpriseknowledgegraph.V1.DeleteEntityReconciliationJobRequest,
       Google.Protobuf.Empty
+
+  rpc :Lookup,
+      Google.Cloud.Enterpriseknowledgegraph.V1.LookupRequest,
+      Google.Cloud.Enterpriseknowledgegraph.V1.LookupResponse
+
+  rpc :Search,
+      Google.Cloud.Enterpriseknowledgegraph.V1.SearchRequest,
+      Google.Cloud.Enterpriseknowledgegraph.V1.SearchResponse
+
+  rpc :LookupPublicKg,
+      Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgRequest,
+      Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgResponse
+
+  rpc :SearchPublicKg,
+      Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgRequest,
+      Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgResponse
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphService.Stub do

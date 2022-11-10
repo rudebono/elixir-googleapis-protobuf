@@ -89,6 +89,8 @@ defmodule Google.Cloud.Channel.V1.Offer do
     repeated: true,
     type: Google.Cloud.Channel.V1.ParameterDefinition,
     json_name: "parameterDefinitions"
+
+  field :deal_code, 12, type: :string, json_name: "dealCode"
 end
 
 defmodule Google.Cloud.Channel.V1.ParameterDefinition do
