@@ -205,6 +205,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :URUGUAY, 38
   field :VENEZUELA, 39
   field :INTERNAL, 40
+  field :NEW_ZEALAND, 41
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.IndustryCategory do
@@ -374,6 +375,17 @@ defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
     json_name: "infoTypes"
 end
 
+defmodule Google.Privacy.Dlp.V2.ExcludeByHotword do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :hotword_regex, 1,
+    type: Google.Privacy.Dlp.V2.CustomInfoType.Regex,
+    json_name: "hotwordRegex"
+
+  field :proximity, 2, type: Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.Proximity
+end
+
 defmodule Google.Privacy.Dlp.V2.ExclusionRule do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -386,6 +398,11 @@ defmodule Google.Privacy.Dlp.V2.ExclusionRule do
   field :exclude_info_types, 3,
     type: Google.Privacy.Dlp.V2.ExcludeInfoTypes,
     json_name: "excludeInfoTypes",
+    oneof: 0
+
+  field :exclude_by_hotword, 5,
+    type: Google.Privacy.Dlp.V2.ExcludeByHotword,
+    json_name: "excludeByHotword",
     oneof: 0
 
   field :matching_type, 4,
