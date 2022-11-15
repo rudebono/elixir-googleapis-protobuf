@@ -23,7 +23,7 @@ defmodule Google.Api.BackendRule do
   field :selector, 1, type: :string
   field :address, 2, type: :string
   field :deadline, 3, type: :double
-  field :min_deadline, 4, type: :double, json_name: "minDeadline"
+  field :min_deadline, 4, type: :double, json_name: "minDeadline", deprecated: true
   field :operation_deadline, 5, type: :double, json_name: "operationDeadline"
 
   field :path_translation, 6,

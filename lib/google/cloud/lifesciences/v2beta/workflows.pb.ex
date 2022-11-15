@@ -46,6 +46,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.Pipeline do
     type: Google.Cloud.Lifesciences.V2beta.Pipeline.EnvironmentEntry,
     map: true
 
+  field :encrypted_environment, 5,
+    type: Google.Cloud.Lifesciences.V2beta.Secret,
+    json_name: "encryptedEnvironment"
+
   field :timeout, 4, type: Google.Protobuf.Duration
 end
 
@@ -86,6 +90,10 @@ defmodule Google.Cloud.Lifesciences.V2beta.Action do
     repeated: true,
     type: Google.Cloud.Lifesciences.V2beta.Action.EnvironmentEntry,
     map: true
+
+  field :encrypted_environment, 21,
+    type: Google.Cloud.Lifesciences.V2beta.Secret,
+    json_name: "encryptedEnvironment"
 
   field :pid_namespace, 6, type: :string, json_name: "pidNamespace"
 
@@ -183,6 +191,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine do
   field :enable_stackdriver_monitoring, 12, type: :bool, json_name: "enableStackdriverMonitoring"
   field :docker_cache_images, 13, repeated: true, type: :string, json_name: "dockerCacheImages"
   field :volumes, 14, repeated: true, type: Google.Cloud.Lifesciences.V2beta.Volume
+  field :reservation, 15, type: :string
 end
 
 defmodule Google.Cloud.Lifesciences.V2beta.ServiceAccount do

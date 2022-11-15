@@ -24,6 +24,18 @@ defmodule Google.Cloud.Oslogin.V1.LoginProfile do
     map: true
 end
 
+defmodule Google.Cloud.Oslogin.V1.CreateSshPublicKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :ssh_public_key, 2,
+    type: Google.Cloud.Oslogin.Common.SshPublicKey,
+    json_name: "sshPublicKey",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Oslogin.V1.DeletePosixAccountRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -73,6 +85,7 @@ defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :login_profile, 1, type: Google.Cloud.Oslogin.V1.LoginProfile, json_name: "loginProfile"
+  field :details, 2, type: :string
 end
 
 defmodule Google.Cloud.Oslogin.V1.UpdateSshPublicKeyRequest do
@@ -94,6 +107,10 @@ defmodule Google.Cloud.Oslogin.V1.OsLoginService.Service do
   use GRPC.Service,
     name: "google.cloud.oslogin.v1.OsLoginService",
     protoc_gen_elixir_version: "0.11.0"
+
+  rpc :CreateSshPublicKey,
+      Google.Cloud.Oslogin.V1.CreateSshPublicKeyRequest,
+      Google.Cloud.Oslogin.Common.SshPublicKey
 
   rpc :DeletePosixAccount,
       Google.Cloud.Oslogin.V1.DeletePosixAccountRequest,

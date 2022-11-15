@@ -58,6 +58,7 @@ defmodule Google.Cloud.Securitycenter.V1.MitreAttack.Technique do
   field :NETWORK_SERVICE_DISCOVERY, 32
   field :ACCESS_TOKEN_MANIPULATION, 33
   field :ABUSE_ELEVATION_CONTROL_MECHANISM, 34
+  field :DEFAULT_ACCOUNTS, 35
 end
 
 defmodule Google.Cloud.Securitycenter.V1.MitreAttack do

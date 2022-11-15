@@ -44,6 +44,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion do
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
+
+  field :document_schema, 12,
+    type: Google.Cloud.Documentai.V1beta3.DocumentSchema,
+    json_name: "documentSchema"
+
   field :state, 6, type: Google.Cloud.Documentai.V1beta3.ProcessorVersion.State, enum: true
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :kms_key_name, 9, type: :string, json_name: "kmsKeyName"

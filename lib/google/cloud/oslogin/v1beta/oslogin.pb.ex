@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Oslogin.V1beta.LoginProfileView do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LOGIN_PROFILE_VIEW_UNSPECIFIED, 0
+  field :BASIC, 1
+  field :SECURITY_KEY, 2
+end
+
 defmodule Google.Cloud.Oslogin.V1beta.LoginProfile.SshPublicKeysEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -22,6 +31,23 @@ defmodule Google.Cloud.Oslogin.V1beta.LoginProfile do
     type: Google.Cloud.Oslogin.V1beta.LoginProfile.SshPublicKeysEntry,
     json_name: "sshPublicKeys",
     map: true
+
+  field :security_keys, 5,
+    repeated: true,
+    type: Google.Cloud.Oslogin.V1beta.SecurityKey,
+    json_name: "securityKeys"
+end
+
+defmodule Google.Cloud.Oslogin.V1beta.CreateSshPublicKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :ssh_public_key, 2,
+    type: Google.Cloud.Oslogin.Common.SshPublicKey,
+    json_name: "sshPublicKey",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.DeletePosixAccountRequest do
@@ -45,6 +71,7 @@ defmodule Google.Cloud.Oslogin.V1beta.GetLoginProfileRequest do
   field :name, 1, type: :string, deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId"
   field :system_id, 3, type: :string, json_name: "systemId"
+  field :view, 4, type: Google.Cloud.Oslogin.V1beta.LoginProfileView, enum: true
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.GetSshPublicKeyRequest do
@@ -66,6 +93,7 @@ defmodule Google.Cloud.Oslogin.V1beta.ImportSshPublicKeyRequest do
     deprecated: false
 
   field :project_id, 3, type: :string, json_name: "projectId"
+  field :view, 4, type: Google.Cloud.Oslogin.V1beta.LoginProfileView, enum: true
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.ImportSshPublicKeyResponse do
@@ -75,6 +103,8 @@ defmodule Google.Cloud.Oslogin.V1beta.ImportSshPublicKeyResponse do
   field :login_profile, 1,
     type: Google.Cloud.Oslogin.V1beta.LoginProfile,
     json_name: "loginProfile"
+
+  field :details, 2, type: :string
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.UpdateSshPublicKeyRequest do
@@ -91,11 +121,46 @@ defmodule Google.Cloud.Oslogin.V1beta.UpdateSshPublicKeyRequest do
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Oslogin.V1beta.SecurityKey do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :protocol_type, 0
+
+  field :public_key, 1, type: :string, json_name: "publicKey"
+  field :private_key, 2, type: :string, json_name: "privateKey"
+
+  field :universal_two_factor, 3,
+    type: Google.Cloud.Oslogin.V1beta.UniversalTwoFactor,
+    json_name: "universalTwoFactor",
+    oneof: 0
+
+  field :web_authn, 4, type: Google.Cloud.Oslogin.V1beta.WebAuthn, json_name: "webAuthn", oneof: 0
+end
+
+defmodule Google.Cloud.Oslogin.V1beta.UniversalTwoFactor do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :app_id, 1, type: :string, json_name: "appId"
+end
+
+defmodule Google.Cloud.Oslogin.V1beta.WebAuthn do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :rp_id, 1, type: :string, json_name: "rpId"
+end
+
 defmodule Google.Cloud.Oslogin.V1beta.OsLoginService.Service do
   @moduledoc false
   use GRPC.Service,
     name: "google.cloud.oslogin.v1beta.OsLoginService",
     protoc_gen_elixir_version: "0.11.0"
+
+  rpc :CreateSshPublicKey,
+      Google.Cloud.Oslogin.V1beta.CreateSshPublicKeyRequest,
+      Google.Cloud.Oslogin.Common.SshPublicKey
 
   rpc :DeletePosixAccount,
       Google.Cloud.Oslogin.V1beta.DeletePosixAccountRequest,

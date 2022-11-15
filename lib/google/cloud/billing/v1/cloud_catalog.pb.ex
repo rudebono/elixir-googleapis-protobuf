@@ -16,6 +16,16 @@ defmodule Google.Cloud.Billing.V1.AggregationInfo.AggregationInterval do
   field :MONTHLY, 2
 end
 
+defmodule Google.Cloud.Billing.V1.GeoTaxonomy.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :GLOBAL, 1
+  field :REGIONAL, 2
+  field :MULTI_REGIONAL, 3
+end
+
 defmodule Google.Cloud.Billing.V1.Service do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -42,6 +52,7 @@ defmodule Google.Cloud.Billing.V1.Sku do
     json_name: "pricingInfo"
 
   field :service_provider_name, 7, type: :string, json_name: "serviceProviderName"
+  field :geo_taxonomy, 8, type: Google.Cloud.Billing.V1.GeoTaxonomy, json_name: "geoTaxonomy"
 end
 
 defmodule Google.Cloud.Billing.V1.Category do
@@ -85,16 +96,17 @@ defmodule Google.Cloud.Billing.V1.PricingExpression do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :usage_unit, 1, type: :string, json_name: "usageUnit"
-  field :usage_unit_description, 4, type: :string, json_name: "usageUnitDescription"
-  field :base_unit, 5, type: :string, json_name: "baseUnit"
-  field :base_unit_description, 6, type: :string, json_name: "baseUnitDescription"
-  field :base_unit_conversion_factor, 7, type: :double, json_name: "baseUnitConversionFactor"
   field :display_quantity, 2, type: :double, json_name: "displayQuantity"
 
   field :tiered_rates, 3,
     repeated: true,
     type: Google.Cloud.Billing.V1.PricingExpression.TierRate,
     json_name: "tieredRates"
+
+  field :usage_unit_description, 4, type: :string, json_name: "usageUnitDescription"
+  field :base_unit, 5, type: :string, json_name: "baseUnit"
+  field :base_unit_description, 6, type: :string, json_name: "baseUnitDescription"
+  field :base_unit_conversion_factor, 7, type: :double, json_name: "baseUnitConversionFactor"
 end
 
 defmodule Google.Cloud.Billing.V1.AggregationInfo do
@@ -112,6 +124,14 @@ defmodule Google.Cloud.Billing.V1.AggregationInfo do
     enum: true
 
   field :aggregation_count, 3, type: :int32, json_name: "aggregationCount"
+end
+
+defmodule Google.Cloud.Billing.V1.GeoTaxonomy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: Google.Cloud.Billing.V1.GeoTaxonomy.Type, enum: true
+  field :regions, 2, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Billing.V1.ListServicesRequest do
