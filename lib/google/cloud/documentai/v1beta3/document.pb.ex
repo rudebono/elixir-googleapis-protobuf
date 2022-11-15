@@ -80,6 +80,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Style do
   field :font_size, 7,
     type: Google.Cloud.Documentai.V1beta3.Document.Style.FontSize,
     json_name: "fontSize"
+
+  field :font_family, 8, type: :string, json_name: "fontFamily"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Dimension do
@@ -141,7 +143,9 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Block do
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
 
-  field :provenance, 3, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+  field :provenance, 3,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Paragraph do
@@ -155,7 +159,9 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Paragraph do
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
 
-  field :provenance, 3, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+  field :provenance, 3,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Line do
@@ -169,7 +175,9 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Line do
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
 
-  field :provenance, 3, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+  field :provenance, 3,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token.DetectedBreak do
@@ -196,7 +204,9 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token do
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
 
-  field :provenance, 4, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+  field :provenance, 4,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Symbol do
@@ -267,6 +277,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Table do
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
+
+  field :provenance, 5, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.FormField do
@@ -311,6 +323,26 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage do
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores.DetectedDefect do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: :string
+  field :confidence, 2, type: :float
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :quality_score, 1, type: :float, json_name: "qualityScore"
+
+  field :detected_defects, 2,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores.DetectedDefect,
+    json_name: "detectedDefects"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page do
@@ -360,7 +392,13 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page do
     type: Google.Cloud.Documentai.V1beta3.Document.Page.DetectedBarcode,
     json_name: "detectedBarcodes"
 
-  field :provenance, 16, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+  field :image_quality_scores, 17,
+    type: Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores,
+    json_name: "imageQualityScores"
+
+  field :provenance, 16,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.NormalizedValue do
@@ -538,7 +576,11 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.TextChange do
     json_name: "textAnchor"
 
   field :changed_text, 2, type: :string, json_name: "changedText"
-  field :provenance, 3, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Provenance
+
+  field :provenance, 3,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.Provenance,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document do

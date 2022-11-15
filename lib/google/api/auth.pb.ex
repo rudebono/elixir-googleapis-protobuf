@@ -24,6 +24,7 @@ defmodule Google.Api.JwtLocation do
 
   field :header, 1, type: :string, oneof: 0
   field :query, 2, type: :string, oneof: 0
+  field :cookie, 4, type: :string, oneof: 0
   field :value_prefix, 3, type: :string, json_name: "valuePrefix"
 end
 

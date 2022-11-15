@@ -97,6 +97,8 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
     type: Google.Cloud.Aiplatform.V1.BatchDedicatedResources,
     json_name: "dedicatedResources"
 
+  field :service_account, 29, type: :string, json_name: "serviceAccount"
+
   field :manual_batch_tuning_parameters, 8,
     type: Google.Cloud.Aiplatform.V1.ManualBatchTuningParameters,
     json_name: "manualBatchTuningParameters",

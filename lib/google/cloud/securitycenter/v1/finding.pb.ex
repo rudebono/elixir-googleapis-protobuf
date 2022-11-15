@@ -141,4 +141,5 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :containers, 42, repeated: true, type: Google.Cloud.Securitycenter.V1.Container
   field :kubernetes, 43, type: Google.Cloud.Securitycenter.V1.Kubernetes
   field :database, 44, type: Google.Cloud.Securitycenter.V1.Database
+  field :files, 46, repeated: true, type: Google.Cloud.Securitycenter.V1.File
 end

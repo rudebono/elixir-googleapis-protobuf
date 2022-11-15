@@ -208,6 +208,14 @@ defmodule Google.Container.V1.NodePool.UpdateInfo.BlueGreenInfo.Phase do
   field :ROLLBACK_STARTED, 7
 end
 
+defmodule Google.Container.V1.NodePool.PlacementPolicy.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :COMPACT, 1
+end
+
 defmodule Google.Container.V1.MaintenanceExclusionOptions.Scope do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1668,6 +1676,13 @@ defmodule Google.Container.V1.NodePool.UpdateInfo do
     json_name: "blueGreenInfo"
 end
 
+defmodule Google.Container.V1.NodePool.PlacementPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: Google.Container.V1.NodePool.PlacementPolicy.Type, enum: true
+end
+
 defmodule Google.Container.V1.NodePool do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1699,6 +1714,10 @@ defmodule Google.Container.V1.NodePool do
   field :upgrade_settings, 107,
     type: Google.Container.V1.NodePool.UpgradeSettings,
     json_name: "upgradeSettings"
+
+  field :placement_policy, 108,
+    type: Google.Container.V1.NodePool.PlacementPolicy,
+    json_name: "placementPolicy"
 
   field :update_info, 109,
     type: Google.Container.V1.NodePool.UpdateInfo,

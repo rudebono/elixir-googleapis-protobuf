@@ -31,9 +31,6 @@ defmodule Google.Api.Service do
   field :monitoring, 28, type: Google.Api.Monitoring
   field :system_parameters, 29, type: Google.Api.SystemParameters, json_name: "systemParameters"
   field :source_info, 37, type: Google.Api.SourceInfo, json_name: "sourceInfo"
-
-  field :config_version, 20,
-    type: Google.Protobuf.UInt32Value,
-    json_name: "configVersion",
-    deprecated: true
+  field :publishing, 45, type: Google.Api.Publishing
+  field :config_version, 20, type: Google.Protobuf.UInt32Value, json_name: "configVersion"
 end
