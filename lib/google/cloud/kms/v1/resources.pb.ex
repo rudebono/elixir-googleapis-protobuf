@@ -57,6 +57,10 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :EC_SIGN_P384_SHA384, 13
   field :EC_SIGN_SECP256K1_SHA256, 31
   field :HMAC_SHA256, 32
+  field :HMAC_SHA1, 33
+  field :HMAC_SHA384, 34
+  field :HMAC_SHA512, 35
+  field :HMAC_SHA224, 36
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
 end
 
