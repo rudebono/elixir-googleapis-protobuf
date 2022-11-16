@@ -14,6 +14,8 @@ defmodule Google.Cloud.Pubsublite.V1.ExportConfig.State do
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :PAUSED, 2
+  field :PERMISSION_DENIED, 3
+  field :NOT_FOUND, 4
 end
 
 defmodule Google.Cloud.Pubsublite.V1.AttributeValues do
@@ -179,10 +181,16 @@ defmodule Google.Cloud.Pubsublite.V1.ExportConfig do
     json_name: "desiredState",
     enum: true
 
+  field :current_state, 6,
+    type: Google.Cloud.Pubsublite.V1.ExportConfig.State,
+    json_name: "currentState",
+    enum: true,
+    deprecated: false
+
   field :statuses, 4,
     repeated: true,
     type: Google.Cloud.Pubsublite.V1.ExportConfig.PartitionStatus,
-    deprecated: false
+    deprecated: true
 
   field :dead_letter_topic, 5, type: :string, json_name: "deadLetterTopic", deprecated: false
 

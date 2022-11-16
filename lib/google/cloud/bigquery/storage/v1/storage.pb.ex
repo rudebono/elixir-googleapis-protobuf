@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretation do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :MISSING_VALUE_INTERPRETATION_UNSPECIFIED, 0
+  field :NULL_VALUE, 1
+  field :DEFAULT_VALUE, 2
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -149,6 +158,17 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ProtoData do
   field :rows, 2, type: Google.Cloud.Bigquery.Storage.V1.ProtoRows
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretationsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :value, 2,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretation,
+    enum: true
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -164,6 +184,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest do
     oneof: 0
 
   field :trace_id, 6, type: :string, json_name: "traceId"
+
+  field :missing_value_interpretations, 7,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretationsEntry,
+    json_name: "missingValueInterpretations",
+    map: true
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse.AppendResult do
