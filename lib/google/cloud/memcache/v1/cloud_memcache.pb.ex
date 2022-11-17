@@ -13,6 +13,7 @@ defmodule Google.Cloud.Memcache.V1.Instance.State do
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
+  field :UPDATING, 3
   field :DELETING, 4
   field :PERFORMING_MAINTENANCE, 5
 end
@@ -34,6 +35,16 @@ defmodule Google.Cloud.Memcache.V1.Instance.InstanceMessage.Code do
 
   field :CODE_UNSPECIFIED, 0
   field :ZONE_DISTRIBUTION_UNBALANCED, 1
+end
+
+defmodule Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest.RescheduleType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RESCHEDULE_TYPE_UNSPECIFIED, 0
+  field :IMMEDIATE, 1
+  field :NEXT_AVAILABLE_WINDOW, 2
+  field :SPECIFIC_TIME, 3
 end
 
 defmodule Google.Cloud.Memcache.V1.Instance.NodeConfig do
@@ -129,6 +140,75 @@ defmodule Google.Cloud.Memcache.V1.Instance do
     json_name: "instanceMessages"
 
   field :discovery_endpoint, 20, type: :string, json_name: "discoveryEndpoint", deprecated: false
+
+  field :maintenance_policy, 21,
+    type: Google.Cloud.Memcache.V1.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
+  field :maintenance_schedule, 22,
+    type: Google.Cloud.Memcache.V1.MaintenanceSchedule,
+    json_name: "maintenanceSchedule",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1.MaintenancePolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :description, 3, type: :string
+
+  field :weekly_maintenance_window, 4,
+    repeated: true,
+    type: Google.Cloud.Memcache.V1.WeeklyMaintenanceWindow,
+    json_name: "weeklyMaintenanceWindow",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1.WeeklyMaintenanceWindow do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
+  field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
+  field :duration, 3, type: Google.Protobuf.Duration, deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1.MaintenanceSchedule do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :schedule_deadline_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleDeadlineTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+
+  field :reschedule_type, 2,
+    type: Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest.RescheduleType,
+    json_name: "rescheduleType",
+    enum: true,
+    deprecated: false
+
+  field :schedule_time, 3, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
 end
 
 defmodule Google.Cloud.Memcache.V1.ListInstancesRequest do
@@ -246,6 +326,31 @@ defmodule Google.Cloud.Memcache.V1.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Memcache.V1.LocationMetadata.AvailableZonesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Memcache.V1.ZoneMetadata
+end
+
+defmodule Google.Cloud.Memcache.V1.LocationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :available_zones, 1,
+    repeated: true,
+    type: Google.Cloud.Memcache.V1.LocationMetadata.AvailableZonesEntry,
+    json_name: "availableZones",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1.ZoneMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Memcache.V1.CloudMemcache.Service do
   @moduledoc false
   use GRPC.Service,
@@ -276,6 +381,10 @@ defmodule Google.Cloud.Memcache.V1.CloudMemcache.Service do
 
   rpc :ApplyParameters,
       Google.Cloud.Memcache.V1.ApplyParametersRequest,
+      Google.Longrunning.Operation
+
+  rpc :RescheduleMaintenance,
+      Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest,
       Google.Longrunning.Operation
 end
 

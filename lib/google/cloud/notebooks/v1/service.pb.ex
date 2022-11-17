@@ -309,6 +309,18 @@ defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
+defmodule Google.Cloud.Notebooks.V1.DiagnoseInstanceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :diagnostic_config, 2,
+    type: Google.Cloud.Notebooks.V1.DiagnosticConfig,
+    json_name: "diagnosticConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Notebooks.V1.ListEnvironmentsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -508,6 +520,10 @@ defmodule Google.Cloud.Notebooks.V1.NotebookService.Service do
 
   rpc :RollbackInstance,
       Google.Cloud.Notebooks.V1.RollbackInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DiagnoseInstance,
+      Google.Cloud.Notebooks.V1.DiagnoseInstanceRequest,
       Google.Longrunning.Operation
 
   rpc :UpgradeInstanceInternal,

@@ -79,6 +79,14 @@ defmodule Google.Cloud.Notebooks.V1.ResetRuntimeRequest do
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Notebooks.V1.UpgradeRuntimeRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -86,6 +94,20 @@ defmodule Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest do
   field :name, 1, type: :string, deprecated: false
   field :vm_id, 2, type: :string, json_name: "vmId", deprecated: false
   field :event, 3, type: Google.Cloud.Notebooks.V1.Event, deprecated: false
+end
+
+defmodule Google.Cloud.Notebooks.V1.UpdateRuntimeRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :runtime, 1, type: Google.Cloud.Notebooks.V1.Runtime, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalRequest do
@@ -108,6 +130,18 @@ defmodule Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalResponse do
     deprecated: false
 end
 
+defmodule Google.Cloud.Notebooks.V1.DiagnoseRuntimeRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :diagnostic_config, 2,
+    type: Google.Cloud.Notebooks.V1.DiagnosticConfig,
+    json_name: "diagnosticConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -122,6 +156,8 @@ defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
 
   rpc :CreateRuntime, Google.Cloud.Notebooks.V1.CreateRuntimeRequest, Google.Longrunning.Operation
 
+  rpc :UpdateRuntime, Google.Cloud.Notebooks.V1.UpdateRuntimeRequest, Google.Longrunning.Operation
+
   rpc :DeleteRuntime, Google.Cloud.Notebooks.V1.DeleteRuntimeRequest, Google.Longrunning.Operation
 
   rpc :StartRuntime, Google.Cloud.Notebooks.V1.StartRuntimeRequest, Google.Longrunning.Operation
@@ -132,6 +168,10 @@ defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
 
   rpc :ResetRuntime, Google.Cloud.Notebooks.V1.ResetRuntimeRequest, Google.Longrunning.Operation
 
+  rpc :UpgradeRuntime,
+      Google.Cloud.Notebooks.V1.UpgradeRuntimeRequest,
+      Google.Longrunning.Operation
+
   rpc :ReportRuntimeEvent,
       Google.Cloud.Notebooks.V1.ReportRuntimeEventRequest,
       Google.Longrunning.Operation
@@ -139,6 +179,10 @@ defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Service do
   rpc :RefreshRuntimeTokenInternal,
       Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalRequest,
       Google.Cloud.Notebooks.V1.RefreshRuntimeTokenInternalResponse
+
+  rpc :DiagnoseRuntime,
+      Google.Cloud.Notebooks.V1.DiagnoseRuntimeRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Notebooks.V1.ManagedNotebookService.Stub do
