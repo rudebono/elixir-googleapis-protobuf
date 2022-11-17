@@ -62,6 +62,15 @@ defmodule Google.Cloud.Notebooks.V1.RuntimeAccessConfig.RuntimeAccessType do
   field :SERVICE_ACCOUNT, 2
 end
 
+defmodule Google.Cloud.Notebooks.V1.RuntimeSoftwareConfig.PostStartupScriptBehavior do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED, 0
+  field :RUN_EVERY_START, 1
+  field :DOWNLOAD_AND_RUN_EVERY_START, 2
+end
+
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.NicType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -232,6 +241,14 @@ defmodule Google.Cloud.Notebooks.V1.RuntimeSoftwareConfig do
     deprecated: false
 
   field :upgradeable, 9, proto3_optional: true, type: :bool, deprecated: false
+
+  field :post_startup_script_behavior, 10,
+    type: Google.Cloud.Notebooks.V1.RuntimeSoftwareConfig.PostStartupScriptBehavior,
+    json_name: "postStartupScriptBehavior",
+    enum: true
+
+  field :disable_terminal, 11, proto3_optional: true, type: :bool, json_name: "disableTerminal"
+  field :version, 12, proto3_optional: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Notebooks.V1.RuntimeMetrics.SystemMetricsEntry do

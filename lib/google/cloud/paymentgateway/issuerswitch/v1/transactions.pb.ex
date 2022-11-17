@@ -92,12 +92,17 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo do
     json_name: "createTime",
     deprecated: false
 
-  field :bank_adapter_request_ids, 9,
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :bank_adapter_request_ids, 10,
     type: :string,
     json_name: "bankAdapterRequestIds",
     deprecated: false
 
-  field :upi_error_code, 10, type: :string, json_name: "upiErrorCode", deprecated: false
+  field :upi_error_code, 11, type: :string, json_name: "upiErrorCode", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MetadataTransaction do
@@ -389,21 +394,41 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportFinancialTransactionsMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMandateTransactionsMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMetadataTransactionsMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportComplaintTransactionsMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchTransactions.Service do

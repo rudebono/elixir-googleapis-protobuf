@@ -159,6 +159,7 @@ defmodule Google.Cloud.Notebooks.V1beta1.IsInstanceUpgradeableResponse do
   field :upgradeable, 1, type: :bool
   field :upgrade_version, 2, type: :string, json_name: "upgradeVersion"
   field :upgrade_info, 3, type: :string, json_name: "upgradeInfo"
+  field :upgrade_image, 4, type: :string, json_name: "upgradeImage"
 end
 
 defmodule Google.Cloud.Notebooks.V1beta1.UpgradeInstanceRequest do

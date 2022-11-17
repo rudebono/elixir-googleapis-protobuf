@@ -13,6 +13,7 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.State do
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
+  field :UPDATING, 3
   field :DELETING, 4
   field :PERFORMING_MAINTENANCE, 5
 end
@@ -34,6 +35,16 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance.InstanceMessage.Code do
 
   field :CODE_UNSPECIFIED, 0
   field :ZONE_DISTRIBUTION_UNBALANCED, 1
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.RescheduleMaintenanceRequest.RescheduleType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RESCHEDULE_TYPE_UNSPECIFIED, 0
+  field :IMMEDIATE, 1
+  field :NEXT_AVAILABLE_WINDOW, 2
+  field :SPECIFIC_TIME, 3
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.Instance.NodeConfig do
@@ -139,6 +150,60 @@ defmodule Google.Cloud.Memcache.V1beta2.Instance do
 
   field :discovery_endpoint, 20, type: :string, json_name: "discoveryEndpoint", deprecated: false
   field :update_available, 21, type: :bool, json_name: "updateAvailable", deprecated: false
+
+  field :maintenance_policy, 22,
+    type: Google.Cloud.Memcache.V1beta2.MaintenancePolicy,
+    json_name: "maintenancePolicy"
+
+  field :maintenance_schedule, 23,
+    type: Google.Cloud.Memcache.V1beta2.MaintenanceSchedule,
+    json_name: "maintenanceSchedule",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.MaintenancePolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :description, 3, type: :string
+
+  field :weekly_maintenance_window, 4,
+    repeated: true,
+    type: Google.Cloud.Memcache.V1beta2.WeeklyMaintenanceWindow,
+    json_name: "weeklyMaintenanceWindow",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.WeeklyMaintenanceWindow do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
+  field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
+  field :duration, 3, type: Google.Protobuf.Duration, deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.MaintenanceSchedule do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :schedule_deadline_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleDeadlineTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ListInstancesRequest do
@@ -194,6 +259,21 @@ defmodule Google.Cloud.Memcache.V1beta2.DeleteInstanceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Memcache.V1beta2.RescheduleMaintenanceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+
+  field :reschedule_type, 2,
+    type: Google.Cloud.Memcache.V1beta2.RescheduleMaintenanceRequest.RescheduleType,
+    json_name: "rescheduleType",
+    enum: true,
+    deprecated: false
+
+  field :schedule_time, 3, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
 end
 
 defmodule Google.Cloud.Memcache.V1beta2.ApplyParametersRequest do
@@ -326,6 +406,10 @@ defmodule Google.Cloud.Memcache.V1beta2.CloudMemcache.Service do
 
   rpc :ApplySoftwareUpdate,
       Google.Cloud.Memcache.V1beta2.ApplySoftwareUpdateRequest,
+      Google.Longrunning.Operation
+
+  rpc :RescheduleMaintenance,
+      Google.Cloud.Memcache.V1beta2.RescheduleMaintenanceRequest,
       Google.Longrunning.Operation
 end
 

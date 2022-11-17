@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Notebooks.V1beta1.ReservationAffinity.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :NO_RESERVATION, 1
+  field :ANY_RESERVATION, 2
+  field :SPECIFIC_RESERVATION, 3
+end
+
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -29,6 +39,8 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.State do
   field :UPGRADING, 7
   field :INITIALIZING, 8
   field :REGISTERING, 9
+  field :SUSPENDING, 10
+  field :SUSPENDED, 11
 end
 
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskType do
@@ -48,6 +60,29 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance.DiskEncryption do
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
   field :CMEK, 2
+end
+
+defmodule Google.Cloud.Notebooks.V1beta1.Instance.NicType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNSPECIFIED_NIC_TYPE, 0
+  field :VIRTIO_NET, 1
+  field :GVNIC, 2
+end
+
+defmodule Google.Cloud.Notebooks.V1beta1.ReservationAffinity do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :consume_reservation_type, 1,
+    type: Google.Cloud.Notebooks.V1beta1.ReservationAffinity.Type,
+    json_name: "consumeReservationType",
+    enum: true,
+    deprecated: false
+
+  field :key, 2, type: :string, deprecated: false
+  field :values, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Notebooks.V1beta1.Instance.AcceleratorConfig do
@@ -150,6 +185,19 @@ defmodule Google.Cloud.Notebooks.V1beta1.Instance do
     repeated: true,
     type: Google.Cloud.Notebooks.V1beta1.Instance.MetadataEntry,
     map: true
+
+  field :nic_type, 28,
+    type: Google.Cloud.Notebooks.V1beta1.Instance.NicType,
+    json_name: "nicType",
+    enum: true,
+    deprecated: false
+
+  field :reservation_affinity, 29,
+    type: Google.Cloud.Notebooks.V1beta1.ReservationAffinity,
+    json_name: "reservationAffinity",
+    deprecated: false
+
+  field :can_ip_forward, 31, type: :bool, json_name: "canIpForward", deprecated: false
 
   field :create_time, 23,
     type: Google.Protobuf.Timestamp,
