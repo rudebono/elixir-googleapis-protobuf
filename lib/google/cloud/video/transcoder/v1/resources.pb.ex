@@ -380,6 +380,40 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad do
   field :right_pixels, 4, type: :int32, json_name: "rightPixels"
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace.YadifConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :mode, 1, type: :string
+  field :disable_spatial_interlacing, 2, type: :bool, json_name: "disableSpatialInterlacing"
+  field :parity, 3, type: :string
+  field :deinterlace_all_frames, 4, type: :bool, json_name: "deinterlaceAllFrames"
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace.BwdifConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :mode, 1, type: :string
+  field :parity, 2, type: :string
+  field :deinterlace_all_frames, 3, type: :bool, json_name: "deinterlaceAllFrames"
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :deinterlacing_filter, 0
+
+  field :yadif, 1,
+    type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace.YadifConfig,
+    oneof: 0
+
+  field :bwdif, 2,
+    type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace.BwdifConfig,
+    oneof: 0
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -390,6 +424,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   field :audio, 4, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Audio
   field :crop, 5, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop
   field :pad, 6, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad
+  field :deinterlace, 7, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do

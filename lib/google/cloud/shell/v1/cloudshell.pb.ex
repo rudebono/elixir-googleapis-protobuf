@@ -29,6 +29,7 @@ defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
   field :CLOUD_SHELL_DISABLED, 2
   field :TOS_VIOLATION, 4
   field :QUOTA_EXCEEDED, 5
+  field :ENVIRONMENT_UNAVAILABLE, 6
 end
 
 defmodule Google.Cloud.Shell.V1.Environment do
