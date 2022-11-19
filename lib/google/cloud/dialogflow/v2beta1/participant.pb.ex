@@ -187,6 +187,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
     enum: true
 
   field :allow_cancellation, 8, type: :bool, json_name: "allowCancellation"
+  field :cx_current_page, 11, type: :string, json_name: "cxCurrentPage"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
