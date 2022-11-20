@@ -4335,6 +4335,28 @@ defmodule Google.Cloud.Compute.V1.AggregatedListTargetPoolsRequest do
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.AggregatedListTargetTcpProxiesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.AggregatedListTargetVpnGatewaysRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -23657,6 +23679,18 @@ defmodule Google.Cloud.Compute.V1.TargetSslProxyList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.TargetTcpProxiesScopedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :target_tcp_proxies, 262_056_832,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.TargetTcpProxy,
+    json_name: "targetTcpProxies"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.TargetTcpProxiesSetBackendServiceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -23689,6 +23723,37 @@ defmodule Google.Cloud.Compute.V1.TargetTcpProxy do
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :service, 373_540_533, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.TargetTcpProxyAggregatedList.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.TargetTcpProxiesScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.TargetTcpProxyAggregatedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.TargetTcpProxyAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.TargetTcpProxyList do
@@ -28629,6 +28694,10 @@ defmodule Google.Cloud.Compute.V1.TargetTcpProxies.Service do
   use GRPC.Service,
     name: "google.cloud.compute.v1.TargetTcpProxies",
     protoc_gen_elixir_version: "0.11.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListTargetTcpProxiesRequest,
+      Google.Cloud.Compute.V1.TargetTcpProxyAggregatedList
 
   rpc :Delete,
       Google.Cloud.Compute.V1.DeleteTargetTcpProxyRequest,
