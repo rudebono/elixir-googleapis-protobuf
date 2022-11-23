@@ -183,7 +183,13 @@ defmodule Google.Cloud.Kms.V1.ImportCryptoKeyVersionRequest do
     deprecated: false
 
   field :import_job, 4, type: :string, json_name: "importJob", deprecated: false
-  field :rsa_aes_wrapped_key, 5, type: :bytes, json_name: "rsaAesWrappedKey", oneof: 0
+  field :wrapped_key, 8, type: :bytes, json_name: "wrappedKey", deprecated: false
+
+  field :rsa_aes_wrapped_key, 5,
+    type: :bytes,
+    json_name: "rsaAesWrappedKey",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.CreateImportJobRequest do

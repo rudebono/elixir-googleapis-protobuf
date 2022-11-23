@@ -121,7 +121,7 @@ defmodule Google.Cloud.Kms.V1.EkmConnection do
     type: Google.Cloud.Kms.V1.EkmConnection.ServiceResolver,
     json_name: "serviceResolvers"
 
-  field :etag, 5, type: :string
+  field :etag, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Service do

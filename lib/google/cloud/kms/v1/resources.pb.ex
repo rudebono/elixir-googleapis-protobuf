@@ -93,6 +93,10 @@ defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
   field :IMPORT_METHOD_UNSPECIFIED, 0
   field :RSA_OAEP_3072_SHA1_AES_256, 1
   field :RSA_OAEP_4096_SHA1_AES_256, 2
+  field :RSA_OAEP_3072_SHA256_AES_256, 3
+  field :RSA_OAEP_4096_SHA256_AES_256, 4
+  field :RSA_OAEP_3072_SHA256, 5
+  field :RSA_OAEP_4096_SHA256, 6
 end
 
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportJobState do
