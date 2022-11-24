@@ -155,14 +155,6 @@ defmodule Google.Cloud.Pubsublite.V1.Subscription do
     json_name: "exportConfig"
 end
 
-defmodule Google.Cloud.Pubsublite.V1.ExportConfig.PartitionStatus do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :partition, 1, type: :int64
-  field :status, 2, type: Google.Rpc.Status
-end
-
 defmodule Google.Cloud.Pubsublite.V1.ExportConfig.PubSubConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -186,11 +178,6 @@ defmodule Google.Cloud.Pubsublite.V1.ExportConfig do
     json_name: "currentState",
     enum: true,
     deprecated: false
-
-  field :statuses, 4,
-    repeated: true,
-    type: Google.Cloud.Pubsublite.V1.ExportConfig.PartitionStatus,
-    deprecated: true
 
   field :dead_letter_topic, 5, type: :string, json_name: "deadLetterTopic", deprecated: false
 
