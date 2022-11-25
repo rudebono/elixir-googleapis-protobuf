@@ -48,6 +48,15 @@ defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.EndpointProtocol do
   field :GRPC, 2
 end
 
+defmodule Google.Cloud.Metastore.V1alpha.TelemetryConfig.LogFormat do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LOG_FORMAT_UNSPECIFIED, 0
+  field :LEGACY, 1
+  field :JSON, 2
+end
+
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -196,14 +205,17 @@ defmodule Google.Cloud.Metastore.V1alpha.Service do
 
   field :network_config, 21,
     type: Google.Cloud.Metastore.V1alpha.NetworkConfig,
-    json_name: "networkConfig",
-    deprecated: false
+    json_name: "networkConfig"
 
   field :database_type, 22,
     type: Google.Cloud.Metastore.V1alpha.Service.DatabaseType,
     json_name: "databaseType",
     enum: true,
     deprecated: false
+
+  field :telemetry_config, 23,
+    type: Google.Cloud.Metastore.V1alpha.TelemetryConfig,
+    json_name: "telemetryConfig"
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataIntegration do
@@ -373,6 +385,16 @@ defmodule Google.Cloud.Metastore.V1alpha.NetworkConfig do
     repeated: true,
     type: Google.Cloud.Metastore.V1alpha.NetworkConfig.Consumer,
     deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1alpha.TelemetryConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :log_format, 1,
+    type: Google.Cloud.Metastore.V1alpha.TelemetryConfig.LogFormat,
+    json_name: "logFormat",
+    enum: true
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataManagementActivity do

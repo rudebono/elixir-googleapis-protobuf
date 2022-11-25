@@ -30,6 +30,24 @@ defmodule Google.Cloud.Metastore.V1.Service.ReleaseChannel do
   field :STABLE, 2
 end
 
+defmodule Google.Cloud.Metastore.V1.Service.DatabaseType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DATABASE_TYPE_UNSPECIFIED, 0
+  field :MYSQL, 1
+  field :SPANNER, 2
+end
+
+defmodule Google.Cloud.Metastore.V1.TelemetryConfig.LogFormat do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :LOG_FORMAT_UNSPECIFIED, 0
+  field :LEGACY, 1
+  field :JSON, 2
+end
+
 defmodule Google.Cloud.Metastore.V1.MetadataImport.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -157,6 +175,25 @@ defmodule Google.Cloud.Metastore.V1.Service do
     json_name: "releaseChannel",
     enum: true,
     deprecated: false
+
+  field :encryption_config, 20,
+    type: Google.Cloud.Metastore.V1.EncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
+
+  field :network_config, 21,
+    type: Google.Cloud.Metastore.V1.NetworkConfig,
+    json_name: "networkConfig"
+
+  field :database_type, 22,
+    type: Google.Cloud.Metastore.V1.Service.DatabaseType,
+    json_name: "databaseType",
+    enum: true,
+    deprecated: false
+
+  field :telemetry_config, 23,
+    type: Google.Cloud.Metastore.V1.TelemetryConfig,
+    json_name: "telemetryConfig"
 end
 
 defmodule Google.Cloud.Metastore.V1.MaintenanceWindow do
@@ -208,6 +245,43 @@ defmodule Google.Cloud.Metastore.V1.Secret do
   oneof :value, 0
 
   field :cloud_secret, 2, type: :string, json_name: "cloudSecret", oneof: 0
+end
+
+defmodule Google.Cloud.Metastore.V1.EncryptionConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :kms_key, 1, type: :string, json_name: "kmsKey"
+end
+
+defmodule Google.Cloud.Metastore.V1.NetworkConfig.Consumer do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :vpc_resource, 0
+
+  field :subnetwork, 1, type: :string, oneof: 0, deprecated: false
+  field :endpoint_uri, 3, type: :string, json_name: "endpointUri", deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.NetworkConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :consumers, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1.NetworkConfig.Consumer,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.TelemetryConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :log_format, 1,
+    type: Google.Cloud.Metastore.V1.TelemetryConfig.LogFormat,
+    json_name: "logFormat",
+    enum: true
 end
 
 defmodule Google.Cloud.Metastore.V1.MetadataManagementActivity do
