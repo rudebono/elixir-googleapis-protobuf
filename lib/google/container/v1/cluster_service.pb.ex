@@ -490,6 +490,11 @@ defmodule Google.Container.V1.NodeConfig do
     type: Google.Container.V1.ConfidentialNodes,
     json_name: "confidentialNodes"
 
+  field :fast_socket, 36,
+    proto3_optional: true,
+    type: Google.Container.V1.FastSocket,
+    json_name: "fastSocket"
+
   field :resource_labels, 37,
     repeated: true,
     type: Google.Container.V1.NodeConfig.ResourceLabelsEntry,
@@ -1356,6 +1361,7 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
     json_name: "confidentialNodes"
 
   field :gvnic, 29, type: Google.Container.V1.VirtualNIC
+  field :fast_socket, 31, type: Google.Container.V1.FastSocket, json_name: "fastSocket"
 
   field :logging_config, 32,
     type: Google.Container.V1.NodePoolLoggingConfig,
@@ -2369,6 +2375,13 @@ defmodule Google.Container.V1.ShieldedNodes do
 end
 
 defmodule Google.Container.V1.VirtualNIC do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1.FastSocket do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 

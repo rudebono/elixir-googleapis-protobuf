@@ -27,6 +27,15 @@ defmodule Google.Ads.Searchads360.V0.Common.DeviceInfo do
   field :type, 1, type: Google.Ads.Searchads360.V0.Enums.DeviceEnum.Device, enum: true
 end
 
+defmodule Google.Ads.Searchads360.V0.Common.ListingGroupInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1,
+    type: Google.Ads.Searchads360.V0.Enums.ListingGroupTypeEnum.ListingGroupType,
+    enum: true
+end
+
 defmodule Google.Ads.Searchads360.V0.Common.AgeRangeInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3

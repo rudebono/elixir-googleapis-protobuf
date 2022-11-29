@@ -282,8 +282,8 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     type: :double,
     json_name: "valuePerConversionsByConversionDate"
 
-  field :view_through_conversions, 155,
+  field :client_account_view_through_conversions, 155,
     proto3_optional: true,
     type: :int64,
-    json_name: "viewThroughConversions"
+    json_name: "clientAccountViewThroughConversions"
 end

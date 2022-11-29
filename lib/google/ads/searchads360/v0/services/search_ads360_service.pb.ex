@@ -109,6 +109,14 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.CustomerClient,
     json_name: "customerClient"
 
+  field :keyword_view, 21,
+    type: Google.Ads.Searchads360.V0.Resources.KeywordView,
+    json_name: "keywordView"
+
+  field :product_group_view, 54,
+    type: Google.Ads.Searchads360.V0.Resources.ProductGroupView,
+    json_name: "productGroupView"
+
   field :metrics, 4, type: Google.Ads.Searchads360.V0.Common.Metrics
   field :segments, 102, type: Google.Ads.Searchads360.V0.Common.Segments
 
