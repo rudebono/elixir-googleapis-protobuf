@@ -73,7 +73,13 @@ defmodule Google.Ads.Searchads360.V0.Resources.ConversionTrackingSetting do
     json_name: "conversionTrackingId",
     deprecated: false
 
-  field :cross_account_conversion_tracking_id, 4,
+  field :google_ads_cross_account_conversion_tracking_id, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "googleAdsCrossAccountConversionTrackingId",
+    deprecated: false
+
+  field :cross_account_conversion_tracking_id, 37,
     proto3_optional: true,
     type: :int64,
     json_name: "crossAccountConversionTrackingId",

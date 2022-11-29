@@ -45,7 +45,23 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
 
   field :bid_modifier, 61, proto3_optional: true, type: :double, json_name: "bidModifier"
   field :cpc_bid_micros, 62, proto3_optional: true, type: :int64, json_name: "cpcBidMicros"
+
+  field :effective_cpc_bid_micros, 66,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "effectiveCpcBidMicros",
+    deprecated: false
+
   field :final_urls, 70, repeated: true, type: :string, json_name: "finalUrls"
+
+  field :engine_status, 80,
+    proto3_optional: true,
+    type:
+      Google.Ads.Searchads360.V0.Enums.AdGroupCriterionEngineStatusEnum.AdGroupCriterionEngineStatus,
+    json_name: "engineStatus",
+    enum: true,
+    deprecated: false
+
   field :final_url_suffix, 72, proto3_optional: true, type: :string, json_name: "finalUrlSuffix"
 
   field :tracking_url_template, 73,
@@ -57,6 +73,12 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
 
   field :keyword, 27,
     type: Google.Ads.Searchads360.V0.Common.KeywordInfo,
+    oneof: 0,
+    deprecated: false
+
+  field :listing_group, 32,
+    type: Google.Ads.Searchads360.V0.Common.ListingGroupInfo,
+    json_name: "listingGroup",
     oneof: 0,
     deprecated: false
 
