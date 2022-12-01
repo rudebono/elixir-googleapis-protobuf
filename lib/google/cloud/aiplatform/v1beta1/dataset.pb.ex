@@ -12,7 +12,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
-  field :description, 16, type: :string, deprecated: false
+  field :description, 16, type: :string
   field :metadata_schema_uri, 3, type: :string, json_name: "metadataSchemaUri", deprecated: false
   field :metadata, 8, type: Google.Protobuf.Value, deprecated: false
 
@@ -36,6 +36,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   field :encryption_spec, 11,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :metadata_artifact, 17, type: :string, json_name: "metadataArtifact", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportDataConfig.DataItemLabelsEntry do

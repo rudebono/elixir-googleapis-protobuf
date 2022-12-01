@@ -1,3 +1,42 @@
+defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
+
+  field :payloads, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload.FeatureValuesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1.FeatureValue
+end
+
+defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :entity_id, 1, type: :string, json_name: "entityId", deprecated: false
+
+  field :feature_values, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload.FeatureValuesEntry,
+    json_name: "featureValues",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -137,6 +176,10 @@ defmodule Google.Cloud.Aiplatform.V1.FeaturestoreOnlineServingService.Service do
   rpc :StreamingReadFeatureValues,
       Google.Cloud.Aiplatform.V1.StreamingReadFeatureValuesRequest,
       stream(Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse)
+
+  rpc :WriteFeatureValues,
+      Google.Cloud.Aiplatform.V1.WriteFeatureValuesRequest,
+      Google.Cloud.Aiplatform.V1.WriteFeatureValuesResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeaturestoreOnlineServingService.Stub do
