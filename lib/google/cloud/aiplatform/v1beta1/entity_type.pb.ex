@@ -35,4 +35,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EntityType do
     type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig,
     json_name: "monitoringConfig",
     deprecated: false
+
+  field :offline_storage_ttl_days, 10,
+    type: :int32,
+    json_name: "offlineStorageTtlDays",
+    deprecated: false
 end

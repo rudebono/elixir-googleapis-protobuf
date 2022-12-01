@@ -437,6 +437,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportFeatureValuesOperationMetadata d
 
   field :imported_entity_count, 2, type: :int64, json_name: "importedEntityCount"
   field :imported_feature_value_count, 3, type: :int64, json_name: "importedFeatureValueCount"
+  field :source_uris, 4, repeated: true, type: :string, json_name: "sourceUris"
   field :invalid_row_count, 6, type: :int64, json_name: "invalidRowCount"
 
   field :timestamp_outside_retention_rows_count, 7,
