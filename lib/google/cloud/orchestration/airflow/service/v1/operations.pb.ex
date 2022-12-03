@@ -19,6 +19,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.Type d
   field :DELETE, 2
   field :UPDATE, 3
   field :CHECK, 4
+  field :SAVE_SNAPSHOT, 5
+  field :LOAD_SNAPSHOT, 6
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata do

@@ -36,6 +36,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr.CreateList do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Expr
+  field :optional_indices, 2, repeated: true, type: :int32, json_name: "optionalIndices"
 end
 
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
