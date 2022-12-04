@@ -254,6 +254,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.RecognizeResponse do
 
   field :results, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.SpeechRecognitionResult
   field :total_billed_time, 3, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  field :speech_adaptation_info, 7,
+    type: Google.Cloud.Speech.V1p1beta1.SpeechAdaptationInfo,
+    json_name: "speechAdaptationInfo"
+
+  field :request_id, 8, type: :int64, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
@@ -268,6 +274,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeResponse do
     json_name: "outputConfig"
 
   field :output_error, 7, type: Google.Rpc.Status, json_name: "outputError"
+
+  field :speech_adaptation_info, 8,
+    type: Google.Cloud.Speech.V1p1beta1.SpeechAdaptationInfo,
+    json_name: "speechAdaptationInfo"
+
+  field :request_id, 9, type: :int64, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.LongRunningRecognizeMetadata do
@@ -301,6 +313,12 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
     enum: true
 
   field :total_billed_time, 5, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
+
+  field :speech_adaptation_info, 9,
+    type: Google.Cloud.Speech.V1p1beta1.SpeechAdaptationInfo,
+    json_name: "speechAdaptationInfo"
+
+  field :request_id, 10, type: :int64, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionResult do
@@ -349,6 +367,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.WordInfo do
   field :word, 3, type: :string
   field :confidence, 4, type: :float
   field :speaker_tag, 5, type: :int32, json_name: "speakerTag", deprecated: false
+end
+
+defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :adaptation_timeout, 1, type: :bool, json_name: "adaptationTimeout"
+  field :timeout_message, 4, type: :string, json_name: "timeoutMessage"
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.Speech.Service do

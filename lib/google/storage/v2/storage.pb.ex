@@ -221,6 +221,10 @@ defmodule Google.Storage.V2.ComposeObjectRequest do
   field :common_object_request_params, 7,
     type: Google.Storage.V2.CommonObjectRequestParams,
     json_name: "commonObjectRequestParams"
+
+  field :object_checksums, 10,
+    type: Google.Storage.V2.ObjectChecksums,
+    json_name: "objectChecksums"
 end
 
 defmodule Google.Storage.V2.DeleteObjectRequest do
@@ -452,8 +456,12 @@ defmodule Google.Storage.V2.ListObjectsRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "readMask"
 
-  field :lexicographic_start, 10, type: :string, json_name: "lexicographicStart"
-  field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd"
+  field :lexicographic_start, 10,
+    type: :string,
+    json_name: "lexicographicStart",
+    deprecated: false
+
+  field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd", deprecated: false
 end
 
 defmodule Google.Storage.V2.QueryWriteStatusRequest do
@@ -548,6 +556,10 @@ defmodule Google.Storage.V2.RewriteObjectRequest do
   field :common_object_request_params, 19,
     type: Google.Storage.V2.CommonObjectRequestParams,
     json_name: "commonObjectRequestParams"
+
+  field :object_checksums, 29,
+    type: Google.Storage.V2.ObjectChecksums,
+    json_name: "objectChecksums"
 end
 
 defmodule Google.Storage.V2.RewriteResponse do
@@ -573,6 +585,10 @@ defmodule Google.Storage.V2.StartResumableWriteRequest do
   field :common_object_request_params, 3,
     type: Google.Storage.V2.CommonObjectRequestParams,
     json_name: "commonObjectRequestParams"
+
+  field :object_checksums, 5,
+    type: Google.Storage.V2.ObjectChecksums,
+    json_name: "objectChecksums"
 end
 
 defmodule Google.Storage.V2.StartResumableWriteResponse do
@@ -820,6 +836,7 @@ defmodule Google.Storage.V2.Bucket.RetentionPolicy do
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :is_locked, 2, type: :bool, json_name: "isLocked"
   field :retention_period, 3, proto3_optional: true, type: :int64, json_name: "retentionPeriod"
+  field :retention_duration, 4, type: Google.Protobuf.Duration, json_name: "retentionDuration"
 end
 
 defmodule Google.Storage.V2.Bucket.Versioning do
