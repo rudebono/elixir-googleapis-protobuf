@@ -1,3 +1,22 @@
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig.EnvironmentSize do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ENVIRONMENT_SIZE_UNSPECIFIED, 0
+  field :ENVIRONMENT_SIZE_SMALL, 1
+  field :ENVIRONMENT_SIZE_MEDIUM, 2
+  field :ENVIRONMENT_SIZE_LARGE, 3
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NetworkingConfig.ConnectionType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONNECTION_TYPE_UNSPECIFIED, 0
+  field :VPC_PEERING, 1
+  field :PRIVATE_SERVICE_CONNECT, 2
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -70,6 +89,45 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.UpdateEnvironmentRequest
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SaveSnapshotRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+  field :snapshot_location, 2, type: :string, json_name: "snapshotLocation"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SaveSnapshotResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :snapshot_path, 1, type: :string, json_name: "snapshotPath"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.LoadSnapshotRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+  field :snapshot_path, 2, type: :string, json_name: "snapshotPath"
+
+  field :skip_pypi_packages_installation, 3,
+    type: :bool,
+    json_name: "skipPypiPackagesInstallation"
+
+  field :skip_environment_variables_setting, 4,
+    type: :bool,
+    json_name: "skipEnvironmentVariablesSetting"
+
+  field :skip_airflow_overrides_setting, 5, type: :bool, json_name: "skipAirflowOverridesSetting"
+  field :skip_gcs_data_copying, 6, type: :bool, json_name: "skipGcsDataCopying"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.LoadSnapshotResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -110,7 +168,33 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
     json_name: "encryptionConfig",
     deprecated: false
 
+  field :maintenance_window, 12,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.MaintenanceWindow,
+    json_name: "maintenanceWindow",
+    deprecated: false
+
+  field :workloads_config, 15,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig,
+    json_name: "workloadsConfig",
+    deprecated: false
+
+  field :environment_size, 16,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig.EnvironmentSize,
+    json_name: "environmentSize",
+    enum: true,
+    deprecated: false
+
   field :airflow_uri, 6, type: :string, json_name: "airflowUri"
+
+  field :master_authorized_networks_config, 17,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.MasterAuthorizedNetworksConfig,
+    json_name: "masterAuthorizedNetworksConfig",
+    deprecated: false
+
+  field :recovery_config, 18,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.RecoveryConfig,
+    json_name: "recoveryConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WebServerNetworkAccessControl.AllowedIpRange do
@@ -151,6 +235,15 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EncryptionConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.MaintenanceWindow do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :recurrence, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig.AirflowConfigOverridesEntry do
@@ -203,6 +296,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SoftwareConfig do
     map: true
 
   field :python_version, 6, type: :string, json_name: "pythonVersion"
+  field :scheduler_count, 7, type: :int32, json_name: "schedulerCount", deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy do
@@ -257,6 +351,8 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NodeConfig do
     type: Google.Cloud.Orchestration.Airflow.Service.V1.IPAllocationPolicy,
     json_name: "ipAllocationPolicy",
     deprecated: false
+
+  field :enable_ip_masq_agent, 11, type: :bool, json_name: "enableIpMasqAgent", deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig do
@@ -276,6 +372,17 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateClusterConfig do
   field :master_ipv4_reserved_range, 3,
     type: :string,
     json_name: "masterIpv4ReservedRange",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NetworkingConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :connection_type, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.NetworkingConfig.ConnectionType,
+    json_name: "connectionType",
+    enum: true,
     deprecated: false
 end
 
@@ -307,6 +414,124 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PrivateEnvironmentConfig
     type: :string,
     json_name: "webServerIpv4ReservedRange",
     deprecated: false
+
+  field :cloud_composer_network_ipv4_cidr_block, 7,
+    type: :string,
+    json_name: "cloudComposerNetworkIpv4CidrBlock",
+    deprecated: false
+
+  field :cloud_composer_network_ipv4_reserved_range, 8,
+    type: :string,
+    json_name: "cloudComposerNetworkIpv4ReservedRange",
+    deprecated: false
+
+  field :enable_privately_used_public_ips, 6,
+    type: :bool,
+    json_name: "enablePrivatelyUsedPublicIps",
+    deprecated: false
+
+  field :cloud_composer_connection_subnetwork, 9,
+    type: :string,
+    json_name: "cloudComposerConnectionSubnetwork",
+    deprecated: false
+
+  field :networking_config, 10,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.NetworkingConfig,
+    json_name: "networkingConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.SchedulerResource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :cpu, 1, type: :float, deprecated: false
+  field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
+  field :storage_gb, 3, type: :float, json_name: "storageGb", deprecated: false
+  field :count, 4, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.WebServerResource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :cpu, 1, type: :float, deprecated: false
+  field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
+  field :storage_gb, 3, type: :float, json_name: "storageGb", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.WorkerResource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :cpu, 1, type: :float, deprecated: false
+  field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
+  field :storage_gb, 3, type: :float, json_name: "storageGb", deprecated: false
+  field :min_count, 4, type: :int32, json_name: "minCount", deprecated: false
+  field :max_count, 5, type: :int32, json_name: "maxCount", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scheduler, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.SchedulerResource,
+    deprecated: false
+
+  field :web_server, 2,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.WebServerResource,
+    json_name: "webServer",
+    deprecated: false
+
+  field :worker, 3,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.WorkloadsConfig.WorkerResource,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.RecoveryConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scheduled_snapshots_config, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.ScheduledSnapshotsConfig,
+    json_name: "scheduledSnapshotsConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ScheduledSnapshotsConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool, deprecated: false
+  field :snapshot_location, 6, type: :string, json_name: "snapshotLocation", deprecated: false
+
+  field :snapshot_creation_schedule, 3,
+    type: :string,
+    json_name: "snapshotCreationSchedule",
+    deprecated: false
+
+  field :time_zone, 5, type: :string, json_name: "timeZone", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.MasterAuthorizedNetworksConfig.CidrBlock do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :cidr_block, 2, type: :string, json_name: "cidrBlock"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.MasterAuthorizedNetworksConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+
+  field :cidr_blocks, 2,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.MasterAuthorizedNetworksConfig.CidrBlock,
+    json_name: "cidrBlocks"
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment.LabelsEntry do
@@ -397,6 +622,14 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do
 
   rpc :DeleteEnvironment,
       Google.Cloud.Orchestration.Airflow.Service.V1.DeleteEnvironmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :SaveSnapshot,
+      Google.Cloud.Orchestration.Airflow.Service.V1.SaveSnapshotRequest,
+      Google.Longrunning.Operation
+
+  rpc :LoadSnapshot,
+      Google.Cloud.Orchestration.Airflow.Service.V1.LoadSnapshotRequest,
       Google.Longrunning.Operation
 end
 
