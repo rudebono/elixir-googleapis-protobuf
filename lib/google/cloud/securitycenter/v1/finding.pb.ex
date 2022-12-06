@@ -142,4 +142,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :kubernetes, 43, type: Google.Cloud.Securitycenter.V1.Kubernetes
   field :database, 44, type: Google.Cloud.Securitycenter.V1.Database
   field :files, 46, repeated: true, type: Google.Cloud.Securitycenter.V1.File
+
+  field :kernel_rootkit, 50,
+    type: Google.Cloud.Securitycenter.V1.KernelRootkit,
+    json_name: "kernelRootkit"
 end
