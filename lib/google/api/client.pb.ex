@@ -22,7 +22,7 @@ defmodule Google.Api.CommonLanguageSettings do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :reference_docs_uri, 1, type: :string, json_name: "referenceDocsUri"
+  field :reference_docs_uri, 1, type: :string, json_name: "referenceDocsUri", deprecated: true
   field :destinations, 2, repeated: true, type: Google.Api.ClientLibraryDestination, enum: true
 end
 
