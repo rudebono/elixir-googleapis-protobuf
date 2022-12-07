@@ -143,6 +143,61 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.SearchDataItemsRequest.OrderByAnnotation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :saved_query, 1, type: :string, json_name: "savedQuery", deprecated: false
+  field :order_by, 2, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SearchDataItemsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :order, 0
+
+  field :order_by_data_item, 12, type: :string, json_name: "orderByDataItem", oneof: 0
+
+  field :order_by_annotation, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.SearchDataItemsRequest.OrderByAnnotation,
+    json_name: "orderByAnnotation",
+    oneof: 0
+
+  field :dataset, 1, type: :string, deprecated: false
+  field :saved_query, 2, type: :string, json_name: "savedQuery", deprecated: true
+  field :data_labeling_job, 3, type: :string, json_name: "dataLabelingJob"
+  field :data_item_filter, 4, type: :string, json_name: "dataItemFilter"
+  field :annotations_filter, 5, type: :string, json_name: "annotationsFilter", deprecated: true
+  field :annotation_filters, 11, repeated: true, type: :string, json_name: "annotationFilters"
+  field :field_mask, 6, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+  field :annotations_limit, 7, type: :int32, json_name: "annotationsLimit"
+  field :page_size, 8, type: :int32, json_name: "pageSize"
+  field :order_by, 9, type: :string, json_name: "orderBy", deprecated: true
+  field :page_token, 10, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SearchDataItemsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :data_item_views, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.DataItemView,
+    json_name: "dataItemViews"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DataItemView do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :data_item, 1, type: Google.Cloud.Aiplatform.V1beta1.DataItem, json_name: "dataItem"
+  field :annotations, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Annotation
+  field :has_truncated_annotations, 3, type: :bool, json_name: "hasTruncatedAnnotations"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSavedQueriesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -228,6 +283,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Service do
   rpc :ListDataItems,
       Google.Cloud.Aiplatform.V1beta1.ListDataItemsRequest,
       Google.Cloud.Aiplatform.V1beta1.ListDataItemsResponse
+
+  rpc :SearchDataItems,
+      Google.Cloud.Aiplatform.V1beta1.SearchDataItemsRequest,
+      Google.Cloud.Aiplatform.V1beta1.SearchDataItemsResponse
 
   rpc :ListSavedQueries,
       Google.Cloud.Aiplatform.V1beta1.ListSavedQueriesRequest,

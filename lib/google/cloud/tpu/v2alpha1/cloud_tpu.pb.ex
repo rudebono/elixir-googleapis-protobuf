@@ -49,6 +49,21 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.ApiVersion do
   field :V2_ALPHA1, 3
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACCEPTED, 2
+  field :PROVISIONING, 3
+  field :FAILED, 4
+  field :DELETING, 5
+  field :ACTIVE, 6
+  field :SUSPENDING, 7
+  field :SUSPENDED, 8
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -128,6 +143,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
   field :enable_external_ips, 3, type: :bool, json_name: "enableExternalIps"
+  field :can_ip_forward, 4, type: :bool, json_name: "canIpForward"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceAccount do
@@ -160,7 +176,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 
   field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
-  field :accelerator_type, 5, type: :string, json_name: "acceleratorType", deprecated: false
+  field :accelerator_type, 5, type: :string, json_name: "acceleratorType"
   field :state, 9, type: Google.Cloud.Tpu.V2alpha1.Node.State, enum: true, deprecated: false
   field :health_description, 10, type: :string, json_name: "healthDescription", deprecated: false
   field :runtime_version, 11, type: :string, json_name: "runtimeVersion", deprecated: false
@@ -213,10 +229,192 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
     deprecated: false
 
   field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Symptom, deprecated: false
+  field :queued_resource, 43, type: :string, json_name: "queuedResource", deprecated: false
 
   field :shielded_instance_config, 45,
     type: Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig,
     json_name: "shieldedInstanceConfig"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :node_id, 2, type: :string, json_name: "nodeId"
+  field :node, 3, type: Google.Cloud.Tpu.V2alpha1.Node, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :node_spec, 1,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec,
+    json_name: "nodeSpec"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.BestEffort do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Guaranteed do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :min_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "minDuration",
+    deprecated: false
+
+  field :reserved, 2, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.QueueingPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :start_timing_constraints, 0
+
+  field :valid_until_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "validUntilDuration",
+    oneof: 0
+
+  field :valid_until_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "validUntilTime",
+    oneof: 0
+
+  field :valid_after_duration, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "validAfterDuration",
+    oneof: 0
+
+  field :valid_after_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "validAfterTime",
+    oneof: 0
+
+  field :valid_interval, 5, type: Google.Type.Interval, json_name: "validInterval", oneof: 0
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :resource, 0
+
+  oneof :tier, 1
+
+  field :name, 1, type: :string, deprecated: false
+  field :tpu, 2, type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu, oneof: 0
+
+  field :best_effort, 3,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource.BestEffort,
+    json_name: "bestEffort",
+    oneof: 1
+
+  field :guaranteed, 4, type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Guaranteed, oneof: 1
+
+  field :queueing_policy, 5,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource.QueueingPolicy,
+    json_name: "queueingPolicy"
+
+  field :state, 6, type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.CreatingData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.AcceptedData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.ProvisioningData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.FailedData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :error, 1, type: Google.Rpc.Status
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.DeletingData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.ActiveData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.SuspendingData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.SuspendedData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :state_data, 0
+
+  field :state, 1, type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.State, enum: true
+
+  field :creating_data, 2,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.CreatingData,
+    json_name: "creatingData",
+    oneof: 0
+
+  field :accepted_data, 3,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.AcceptedData,
+    json_name: "acceptedData",
+    oneof: 0
+
+  field :provisioning_data, 4,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.ProvisioningData,
+    json_name: "provisioningData",
+    oneof: 0
+
+  field :failed_data, 5,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.FailedData,
+    json_name: "failedData",
+    oneof: 0
+
+  field :deleting_data, 6,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.DeletingData,
+    json_name: "deletingData",
+    oneof: 0
+
+  field :active_data, 7,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.ActiveData,
+    json_name: "activeData",
+    oneof: 0
+
+  field :suspending_data, 8,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.SuspendingData,
+    json_name: "suspendingData",
+    oneof: 0
+
+  field :suspended_data, 9,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.SuspendedData,
+    json_name: "suspendedData",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do
@@ -251,6 +449,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.CreateNodeRequest do
   field :parent, 1, type: :string, deprecated: false
   field :node_id, 2, type: :string, json_name: "nodeId"
   field :node, 3, type: Google.Cloud.Tpu.V2alpha1.Node, deprecated: false
+  field :request_id, 6, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.DeleteNodeRequest do
@@ -258,20 +457,21 @@ defmodule Google.Cloud.Tpu.V2alpha1.DeleteNodeRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.StopNodeRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.StartNodeRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
@@ -284,6 +484,58 @@ defmodule Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest do
     deprecated: false
 
   field :node, 2, type: Google.Cloud.Tpu.V2alpha1.Node, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :queued_resources, 1,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource,
+    json_name: "queuedResources"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.GetQueuedResourceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.CreateQueuedResourceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :queued_resource_id, 2, type: :string, json_name: "queuedResourceId"
+
+  field :queued_resource, 3,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource,
+    json_name: "queuedResource",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
@@ -346,19 +598,6 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListAcceleratorTypesResponse do
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
-  field :target, 3, type: :string
-  field :verb, 4, type: :string
-  field :status_detail, 5, type: :string, json_name: "statusDetail"
-  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
-  field :api_version, 7, type: :string, json_name: "apiVersion"
-end
-
 defmodule Google.Cloud.Tpu.V2alpha1.RuntimeVersion do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -398,6 +637,19 @@ defmodule Google.Cloud.Tpu.V2alpha1.ListRuntimeVersionsResponse do
   field :unreachable, 3, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.OperationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :target, 3, type: :string
+  field :verb, 4, type: :string
+  field :status_detail, 5, type: :string, json_name: "statusDetail"
+  field :cancel_requested, 6, type: :bool, json_name: "cancelRequested"
+  field :api_version, 7, type: :string, json_name: "apiVersion"
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -432,6 +684,14 @@ defmodule Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse do
     json_name: "guestAttributes"
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.SimulateMaintenanceEventRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :worker_ids, 2, repeated: true, type: :string, json_name: "workerIds"
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -459,6 +719,22 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
 
   rpc :UpdateNode, Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest, Google.Longrunning.Operation
 
+  rpc :ListQueuedResources,
+      Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesRequest,
+      Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesResponse
+
+  rpc :GetQueuedResource,
+      Google.Cloud.Tpu.V2alpha1.GetQueuedResourceRequest,
+      Google.Cloud.Tpu.V2alpha1.QueuedResource
+
+  rpc :CreateQueuedResource,
+      Google.Cloud.Tpu.V2alpha1.CreateQueuedResourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteQueuedResource,
+      Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest,
+      Google.Longrunning.Operation
+
   rpc :GenerateServiceIdentity,
       Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityRequest,
       Google.Cloud.Tpu.V2alpha1.GenerateServiceIdentityResponse
@@ -482,6 +758,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
   rpc :GetGuestAttributes,
       Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest,
       Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse
+
+  rpc :SimulateMaintenanceEvent,
+      Google.Cloud.Tpu.V2alpha1.SimulateMaintenanceEventRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Stub do
