@@ -1190,6 +1190,24 @@ defmodule Google.Cloud.Compute.V1.InterconnectAttachment.Type do
   field :PARTNER_PROVIDER, 483_261_352
 end
 
+defmodule Google.Cloud.Compute.V1.InterconnectDiagnostics.BundleAggregationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_BUNDLE_AGGREGATION_TYPE, 0
+  field :BUNDLE_AGGREGATION_TYPE_LACP, 27_758_925
+  field :BUNDLE_AGGREGATION_TYPE_STATIC, 50_678_873
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectDiagnostics.BundleOperationalStatus do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_BUNDLE_OPERATIONAL_STATUS, 0
+  field :BUNDLE_OPERATIONAL_STATUS_DOWN, 453_842_693
+  field :BUNDLE_OPERATIONAL_STATUS_UP, 161_366_462
+end
+
 defmodule Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkLACPStatus.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1209,6 +1227,15 @@ defmodule Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkOpticalPower.State 
   field :LOW_ALARM, 316_659_046
   field :LOW_WARNING, 338_793_841
   field :OK, 2524
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkStatus.OperationalStatus do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_OPERATIONAL_STATUS, 0
+  field :LINK_OPERATIONAL_STATUS_DOWN, 281_653_885
+  field :LINK_OPERATIONAL_STATUS_UP, 305_879_862
 end
 
 defmodule Google.Cloud.Compute.V1.InterconnectLocation.Continent do
@@ -1416,6 +1443,29 @@ defmodule Google.Cloud.Compute.V1.Network.NetworkFirewallPolicyEnforcementOrder 
   field :UNDEFINED_NETWORK_FIREWALL_POLICY_ENFORCEMENT_ORDER, 0
   field :AFTER_CLASSIC_FIREWALL, 154_582_608
   field :BEFORE_CLASSIC_FIREWALL, 338_458_349
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachment.ConnectionPreference do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_CONNECTION_PREFERENCE, 0
+  field :ACCEPT_AUTOMATIC, 75_250_580
+  field :ACCEPT_MANUAL, 373_061_341
+  field :INVALID, 530_283_991
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentConnectedEndpoint.Status do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_STATUS, 0
+  field :ACCEPTED, 246_714_279
+  field :CLOSED, 380_163_436
+  field :NEEDS_ATTENTION, 344_491_452
+  field :PENDING, 35_394_935
+  field :REJECTED, 174_130_302
+  field :STATUS_UNSPECIFIED, 42_133_066
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkEndpointGroup.NetworkEndpointType do
@@ -1699,6 +1749,17 @@ defmodule Google.Cloud.Compute.V1.Project.DefaultNetworkTier do
   field :STANDARD_OVERRIDES_FIXED_STANDARD, 465_847_234
 end
 
+defmodule Google.Cloud.Compute.V1.Project.VmDnsSetting do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_VM_DNS_SETTING, 0
+  field :GLOBAL_DEFAULT, 345_419_141
+  field :UNSPECIFIED_VM_DNS_SETTING, 35_691_930
+  field :ZONAL_DEFAULT, 368_475_782
+  field :ZONAL_ONLY, 521_198_951
+end
+
 defmodule Google.Cloud.Compute.V1.Project.XpnProjectStatus do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1799,8 +1860,12 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :EXTERNAL_VPN_GATEWAYS, 272_457_134
   field :FIREWALLS, 374_485_843
   field :FORWARDING_RULES, 432_668_949
+  field :GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES, 164_566_753
   field :GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES, 327_611_949
+  field :GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES, 400_256_169
   field :GLOBAL_INTERNAL_ADDRESSES, 42_738_332
+  field :GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES, 256_608_303
+  field :GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES, 323_514_196
   field :GPUS_ALL_REGIONS, 39_387_177
   field :HEALTH_CHECKS, 289_347_502
   field :IMAGES, 15_562_360
@@ -1860,7 +1925,11 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :PUBLIC_ADVERTISED_PREFIXES, 471_371_980
   field :PUBLIC_DELEGATED_PREFIXES, 532_465_974
   field :REGIONAL_AUTOSCALERS, 29_363_772
+  field :REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES, 4_240_989
+  field :REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES, 409_564_525
   field :REGIONAL_INSTANCE_GROUP_MANAGERS, 37_543_696
+  field :REGIONAL_INTERNAL_LB_BACKEND_SERVICES, 137_983_760
+  field :REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES, 96_282_539
   field :RESERVATIONS, 32_644_647
   field :RESOURCE_POLICIES, 83_955_297
   field :ROUTERS, 493_018_666
@@ -3874,6 +3943,28 @@ defmodule Google.Cloud.Compute.V1.AggregatedListInterconnectAttachmentsRequest d
 end
 
 defmodule Google.Cloud.Compute.V1.AggregatedListMachineTypesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.AggregatedListNetworkAttachmentsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -6585,6 +6676,20 @@ defmodule Google.Cloud.Compute.V1.DeleteMachineImageRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.DeleteNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :network_attachment, 224_644_052,
+    type: :string,
+    json_name: "networkAttachment",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.DeleteNetworkEdgeSecurityServiceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -8852,6 +8957,20 @@ defmodule Google.Cloud.Compute.V1.GetIamPolicyMachineImageRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetIamPolicyNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetIamPolicyNetworkFirewallPolicyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -9147,6 +9266,19 @@ defmodule Google.Cloud.Compute.V1.GetNatMappingInfoRoutersRequest do
     json_name: "returnPartialSuccess"
 
   field :router, 148_608_841, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :network_attachment, 224_644_052,
+    type: :string,
+    json_name: "networkAttachment",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetNetworkEdgeSecurityServiceRequest do
@@ -11038,6 +11170,20 @@ defmodule Google.Cloud.Compute.V1.InsertMachineImageRequest do
     proto3_optional: true,
     type: :string,
     json_name: "sourceInstance"
+end
+
+defmodule Google.Cloud.Compute.V1.InsertNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :network_attachment_resource, 210_974_745,
+    type: Google.Cloud.Compute.V1.NetworkAttachment,
+    json_name: "networkAttachmentResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Compute.V1.InsertNetworkEdgeSecurityServiceRequest do
@@ -13200,6 +13346,16 @@ defmodule Google.Cloud.Compute.V1.InterconnectDiagnostics do
     type: Google.Cloud.Compute.V1.InterconnectDiagnosticsARPEntry,
     json_name: "arpCaches"
 
+  field :bundle_aggregation_type, 434_939_028,
+    proto3_optional: true,
+    type: :string,
+    json_name: "bundleAggregationType"
+
+  field :bundle_operational_status, 106_433_500,
+    proto3_optional: true,
+    type: :string,
+    json_name: "bundleOperationalStatus"
+
   field :links, 102_977_465,
     repeated: true,
     type: Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkStatus
@@ -13256,6 +13412,11 @@ defmodule Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkStatus do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.InterconnectDiagnosticsLinkLACPStatus,
     json_name: "lacpStatus"
+
+  field :operational_status, 201_070_847,
+    proto3_optional: true,
+    type: :string,
+    json_name: "operationalStatus"
 
   field :receiving_optical_power, 244_717_279,
     proto3_optional: true,
@@ -14177,6 +14338,23 @@ defmodule Google.Cloud.Compute.V1.ListManagedInstancesRegionInstanceGroupManager
     json_name: "instanceGroupManager",
     deprecated: false
 
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListNetworkAttachmentsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
   field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
   field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
@@ -15808,6 +15986,132 @@ defmodule Google.Cloud.Compute.V1.Network do
     json_name: "selfLinkWithId"
 
   field :subnetworks, 415_853_125, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachment do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :connection_endpoints, 326_078_813,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.NetworkAttachmentConnectedEndpoint,
+    json_name: "connectionEndpoints"
+
+  field :connection_preference, 285_818_076,
+    proto3_optional: true,
+    type: :string,
+    json_name: "connectionPreference"
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :network, 232_872_494, proto3_optional: true, type: :string
+
+  field :producer_accept_lists, 202_804_523,
+    repeated: true,
+    type: :string,
+    json_name: "producerAcceptLists"
+
+  field :producer_reject_lists, 4_112_002,
+    repeated: true,
+    type: :string,
+    json_name: "producerRejectLists"
+
+  field :region, 138_946_292, proto3_optional: true, type: :string
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :subnetworks, 415_853_125, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentAggregatedList.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.NetworkAttachmentsScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentAggregatedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.NetworkAttachmentAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentConnectedEndpoint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+
+  field :project_id_or_num, 349_783_336,
+    proto3_optional: true,
+    type: :string,
+    json_name: "projectIdOrNum"
+
+  field :secondary_ip_cidr_ranges, 117_184_788,
+    repeated: true,
+    type: :string,
+    json_name: "secondaryIpCidrRanges"
+
+  field :status, 181_260_274, proto3_optional: true, type: :string
+  field :subnetwork, 307_827_694, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.NetworkAttachment
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachmentsScopedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :network_attachments, 521_514_783,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.NetworkAttachment,
+    json_name: "networkAttachments"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkEdgeSecurityService do
@@ -18179,6 +18483,11 @@ defmodule Google.Cloud.Compute.V1.Project do
     type: Google.Cloud.Compute.V1.UsageExportLocation,
     json_name: "usageExportLocation"
 
+  field :vm_dns_setting, 58_856_370,
+    proto3_optional: true,
+    type: :string,
+    json_name: "vmDnsSetting"
+
   field :xpn_project_status, 228_419_265,
     proto3_optional: true,
     type: :string,
@@ -19119,6 +19428,14 @@ defmodule Google.Cloud.Compute.V1.RequestMirrorPolicy do
     json_name: "backendService"
 end
 
+defmodule Google.Cloud.Compute.V1.Reservation.ResourcePoliciesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.Reservation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -19134,6 +19451,13 @@ defmodule Google.Cloud.Compute.V1.Reservation do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :resource_policies, 22_220_385,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.Reservation.ResourcePoliciesEntry,
+    json_name: "resourcePolicies",
+    map: true
+
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
@@ -20993,6 +21317,8 @@ defmodule Google.Cloud.Compute.V1.ServiceAttachmentConsumerProjectLimit do
     type: :uint32,
     json_name: "connectionLimit"
 
+  field :network_url, 207_194_078, proto3_optional: true, type: :string, json_name: "networkUrl"
+
   field :project_id_or_num, 349_783_336,
     proto3_optional: true,
     type: :string,
@@ -21308,6 +21634,21 @@ defmodule Google.Cloud.Compute.V1.SetIamPolicyMachineImageRequest do
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetIamPolicyNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_policy_request_resource, 276_489_091,
+    type: Google.Cloud.Compute.V1.RegionSetPolicyRequest,
+    json_name: "regionSetPolicyRequestResource",
+    deprecated: false
+
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
@@ -22870,6 +23211,11 @@ defmodule Google.Cloud.Compute.V1.StopInstanceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  field :discard_local_ssd, 319_517_903,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "discardLocalSsd"
+
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -23069,6 +23415,11 @@ end
 defmodule Google.Cloud.Compute.V1.SuspendInstanceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :discard_local_ssd, 319_517_903,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "discardLocalSsd"
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -24010,6 +24361,20 @@ defmodule Google.Cloud.Compute.V1.TestIamPermissionsMachineImageRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+
+  field :test_permissions_request_resource, 439_214_758,
+    type: Google.Cloud.Compute.V1.TestPermissionsRequest,
+    json_name: "testPermissionsRequestResource",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.TestIamPermissionsNetworkAttachmentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
 
   field :test_permissions_request_resource, 439_214_758,
@@ -26767,6 +27132,50 @@ end
 defmodule Google.Cloud.Compute.V1.MachineTypes.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Compute.V1.MachineTypes.Service
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachments.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.NetworkAttachments",
+    protoc_gen_elixir_version: "0.11.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListNetworkAttachmentsRequest,
+      Google.Cloud.Compute.V1.NetworkAttachmentAggregatedList
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.NetworkAttachment
+
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListNetworkAttachmentsRequest,
+      Google.Cloud.Compute.V1.NetworkAttachmentList
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Cloud.Compute.V1.TestIamPermissionsNetworkAttachmentRequest,
+      Google.Cloud.Compute.V1.TestPermissionsResponse
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkAttachments.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.NetworkAttachments.Service
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkEdgeSecurityServices.Service do
