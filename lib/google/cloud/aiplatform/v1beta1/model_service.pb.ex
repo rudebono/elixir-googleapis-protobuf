@@ -6,6 +6,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelRequest do
   field :parent_model, 4, type: :string, json_name: "parentModel", deprecated: false
   field :model_id, 5, type: :string, json_name: "modelId", deprecated: false
   field :model, 2, type: Google.Cloud.Aiplatform.V1beta1.Model, deprecated: false
+  field :service_account, 6, type: :string, json_name: "serviceAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelOperationMetadata do

@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Visionai.V1alpha1.StreamAnnotationType do
+defmodule Google.Cloud.Visionai.V1.StreamAnnotationType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -7,14 +7,14 @@ defmodule Google.Cloud.Visionai.V1alpha1.StreamAnnotationType do
   field :STREAM_ANNOTATION_TYPE_CROSSING_LINE, 2
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PersonEntity do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonEntity do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :person_entity_id, 1, type: :int64, json_name: "personEntityId"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PPEEntity do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEEntity do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -28,7 +28,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
   field :ppe_entity_id, 4, type: :int64, json_name: "ppeEntityId"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -38,7 +38,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
   field :height, 4, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PersonIdentifiedBox do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonIdentifiedBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -46,17 +46,17 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
 
   field :normalized_bounding_box, 2,
     type:
-      Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox,
+      Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox,
     json_name: "normalizedBoundingBox"
 
   field :confidence_score, 3, type: :float, json_name: "confidenceScore"
 
   field :person_entity, 4,
-    type: Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PersonEntity,
+    type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonEntity,
     json_name: "personEntity"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PPEIdentifiedBox do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEIdentifiedBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -64,31 +64,29 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
 
   field :normalized_bounding_box, 2,
     type:
-      Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox,
+      Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox,
     json_name: "normalizedBoundingBox"
 
   field :confidence_score, 3, type: :float, json_name: "confidenceScore"
 
   field :ppe_entity, 4,
-    type: Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PPEEntity,
+    type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEEntity,
     json_name: "ppeEntity"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.DetectedPerson do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.DetectedPerson do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :person_id, 1, type: :int64, json_name: "personId"
 
   field :detected_person_identified_box, 2,
-    type:
-      Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PersonIdentifiedBox,
+    type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonIdentifiedBox,
     json_name: "detectedPersonIdentifiedBox"
 
   field :detected_ppe_identified_boxes, 3,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.PPEIdentifiedBox,
+    type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEIdentifiedBox,
     json_name: "detectedPpeIdentifiedBoxes"
 
   field :face_coverage_score, 4,
@@ -122,7 +120,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
     json_name: "feetCoverageScore"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput do
+defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -130,12 +128,11 @@ defmodule Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOut
 
   field :detected_persons, 2,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.PersonalProtectiveEquipmentDetectionOutput.DetectedPerson,
+    type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.DetectedPerson,
     json_name: "detectedPersons"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.Entity do
+defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.Entity do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -143,7 +140,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.Entity 
   field :label_string, 2, type: :string, json_name: "labelString"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.IdentifiedBox.NormalizedBoundingBox do
+defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox.NormalizedBoundingBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -153,7 +150,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.Identif
   field :height, 4, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.IdentifiedBox do
+defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -161,14 +158,14 @@ defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.Identif
 
   field :normalized_bounding_box, 2,
     type:
-      Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.IdentifiedBox.NormalizedBoundingBox,
+      Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox.NormalizedBoundingBox,
     json_name: "normalizedBoundingBox"
 
   field :confidence_score, 3, type: :float, json_name: "confidenceScore"
-  field :entity, 4, type: Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.Entity
+  field :entity, 4, type: Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.Entity
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult do
+defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -176,11 +173,11 @@ defmodule Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult do
 
   field :identified_boxes, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.ObjectDetectionPredictionResult.IdentifiedBox,
+    type: Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox,
     json_name: "identifiedBoxes"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ImageObjectDetectionPredictionResult do
+defmodule Google.Cloud.Visionai.V1.ImageObjectDetectionPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -190,7 +187,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.ImageObjectDetectionPredictionResult do
   field :bboxes, 4, repeated: true, type: Google.Protobuf.ListValue
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ClassificationPredictionResult do
+defmodule Google.Cloud.Visionai.V1.ClassificationPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -199,7 +196,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.ClassificationPredictionResult do
   field :confidences, 3, repeated: true, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ImageSegmentationPredictionResult do
+defmodule Google.Cloud.Visionai.V1.ImageSegmentationPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -207,7 +204,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.ImageSegmentationPredictionResult do
   field :confidence_mask, 2, type: :string, json_name: "confidenceMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoActionRecognitionPredictionResult.IdentifiedAction do
+defmodule Google.Cloud.Visionai.V1.VideoActionRecognitionPredictionResult.IdentifiedAction do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -216,7 +213,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoActionRecognitionPredictionResult.
   field :confidence, 3, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoActionRecognitionPredictionResult do
+defmodule Google.Cloud.Visionai.V1.VideoActionRecognitionPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -225,10 +222,10 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoActionRecognitionPredictionResult 
 
   field :actions, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.VideoActionRecognitionPredictionResult.IdentifiedAction
+    type: Google.Cloud.Visionai.V1.VideoActionRecognitionPredictionResult.IdentifiedAction
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.BoundingBox do
+defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.BoundingBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -238,7 +235,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.Bou
   field :y_max, 4, type: :float, json_name: "yMax"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.DetectedObject do
+defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.DetectedObject do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -246,14 +243,14 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.Det
   field :display_name, 2, type: :string, json_name: "displayName"
 
   field :bounding_box, 3,
-    type: Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.BoundingBox,
+    type: Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.BoundingBox,
     json_name: "boundingBox"
 
   field :confidence, 4, type: :float
   field :track_id, 5, type: :int64, json_name: "trackId"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult do
+defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -262,10 +259,10 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult do
 
   field :objects, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.VideoObjectTrackingPredictionResult.DetectedObject
+    type: Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.DetectedObject
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoClassificationPredictionResult.IdentifiedClassification do
+defmodule Google.Cloud.Visionai.V1.VideoClassificationPredictionResult.IdentifiedClassification do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -274,7 +271,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoClassificationPredictionResult.Ide
   field :confidence, 3, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.VideoClassificationPredictionResult do
+defmodule Google.Cloud.Visionai.V1.VideoClassificationPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -283,11 +280,10 @@ defmodule Google.Cloud.Visionai.V1alpha1.VideoClassificationPredictionResult do
 
   field :classifications, 3,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.VideoClassificationPredictionResult.IdentifiedClassification
+    type: Google.Cloud.Visionai.V1.VideoClassificationPredictionResult.IdentifiedClassification
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Entity do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Entity do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -295,7 +291,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Entit
   field :label_string, 2, type: :string, json_name: "labelString"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.IdentifiedBox.NormalizedBoundingBox do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox.NormalizedBoundingBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -305,7 +301,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Ident
   field :height, 4, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.IdentifiedBox do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -313,95 +309,92 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Ident
 
   field :normalized_bounding_box, 2,
     type:
-      Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.IdentifiedBox.NormalizedBoundingBox,
+      Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox.NormalizedBoundingBox,
     json_name: "normalizedBoundingBox"
 
   field :score, 3, type: :float
-  field :entity, 4, type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Entity
+  field :entity, 4, type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Entity
   field :track_id, 5, type: :int64, json_name: "trackId"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :entity, 1, type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Entity
+  field :entity, 1, type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Entity
   field :count, 2, type: :int32
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
 
   field :object_count, 2,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount,
     json_name: "objectCount"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.CrossingLineCount do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.CrossingLineCount do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :annotation, 1, type: Google.Cloud.Visionai.V1alpha1.StreamAnnotation
+  field :annotation, 1, type: Google.Cloud.Visionai.V1.StreamAnnotation
 
   field :positive_direction_counts, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount,
     json_name: "positiveDirectionCounts"
 
   field :negative_direction_counts, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount,
     json_name: "negativeDirectionCounts"
 
   field :accumulated_positive_direction_counts, 4,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount,
     json_name: "accumulatedPositiveDirectionCounts"
 
   field :accumulated_negative_direction_counts, 5,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount,
     json_name: "accumulatedNegativeDirectionCounts"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ActiveZoneCount do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ActiveZoneCount do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :annotation, 1, type: Google.Cloud.Visionai.V1alpha1.StreamAnnotation
+  field :annotation, 1, type: Google.Cloud.Visionai.V1.StreamAnnotation
 
   field :counts, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :full_frame_count, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ObjectCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount,
     json_name: "fullFrameCount"
 
   field :crossing_line_counts, 2,
     repeated: true,
-    type:
-      Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.CrossingLineCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.CrossingLineCount,
     json_name: "crossingLineCounts"
 
   field :active_zone_counts, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats.ActiveZoneCount,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ActiveZoneCount,
     json_name: "activeZoneCounts"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.TrackInfo do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.TrackInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -409,7 +402,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Track
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.DwellTimeInfo do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.DwellTimeInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -419,7 +412,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Dwell
   field :dwell_end_time, 4, type: Google.Protobuf.Timestamp, json_name: "dwellEndTime"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult do
+defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -427,75 +420,75 @@ defmodule Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult do
 
   field :identified_boxes, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.IdentifiedBox,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox,
     json_name: "identifiedBoxes"
 
-  field :stats, 3, type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.Stats
+  field :stats, 3, type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats
 
   field :track_info, 4,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.TrackInfo,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.TrackInfo,
     json_name: "trackInfo"
 
   field :dwell_time_info, 5,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.OccupancyCountingPredictionResult.DwellTimeInfo,
+    type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.DwellTimeInfo,
     json_name: "dwellTimeInfo"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.StreamAnnotation do
+defmodule Google.Cloud.Visionai.V1.StreamAnnotation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :annotation_payload, 0
 
   field :active_zone, 5,
-    type: Google.Cloud.Visionai.V1alpha1.NormalizedPolygon,
+    type: Google.Cloud.Visionai.V1.NormalizedPolygon,
     json_name: "activeZone",
     oneof: 0
 
   field :crossing_line, 6,
-    type: Google.Cloud.Visionai.V1alpha1.NormalizedPolyline,
+    type: Google.Cloud.Visionai.V1.NormalizedPolyline,
     json_name: "crossingLine",
     oneof: 0
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :source_stream, 3, type: :string, json_name: "sourceStream"
-  field :type, 4, type: Google.Cloud.Visionai.V1alpha1.StreamAnnotationType, enum: true
+  field :type, 4, type: Google.Cloud.Visionai.V1.StreamAnnotationType, enum: true
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.StreamAnnotations do
+defmodule Google.Cloud.Visionai.V1.StreamAnnotations do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :stream_annotations, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.StreamAnnotation,
+    type: Google.Cloud.Visionai.V1.StreamAnnotation,
     json_name: "streamAnnotations"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.NormalizedPolygon do
+defmodule Google.Cloud.Visionai.V1.NormalizedPolygon do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.NormalizedVertex,
+    type: Google.Cloud.Visionai.V1.NormalizedVertex,
     json_name: "normalizedVertices"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.NormalizedPolyline do
+defmodule Google.Cloud.Visionai.V1.NormalizedPolyline do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.NormalizedVertex,
+    type: Google.Cloud.Visionai.V1.NormalizedVertex,
     json_name: "normalizedVertices"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.NormalizedVertex do
+defmodule Google.Cloud.Visionai.V1.NormalizedVertex do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -503,7 +496,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.NormalizedVertex do
   field :y, 2, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformMetadata do
+defmodule Google.Cloud.Visionai.V1.AppPlatformMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -513,7 +506,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformMetadata do
   field :processor, 4, type: :string
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionRequest.StructedInputAnnotation do
+defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionRequest.StructedInputAnnotation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -521,39 +514,39 @@ defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionRequest.Structe
   field :annotation, 2, type: Google.Protobuf.Struct
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionRequest do
+defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :app_platform_metadata, 1,
-    type: Google.Cloud.Visionai.V1alpha1.AppPlatformMetadata,
+    type: Google.Cloud.Visionai.V1.AppPlatformMetadata,
     json_name: "appPlatformMetadata"
 
   field :annotations, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionRequest.StructedInputAnnotation
+    type: Google.Cloud.Visionai.V1.AppPlatformCloudFunctionRequest.StructedInputAnnotation
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionResponse.StructedOutputAnnotation do
+defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionResponse.StructedOutputAnnotation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Protobuf.Struct
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionResponse do
+defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :annotations, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.AppPlatformCloudFunctionResponse.StructedOutputAnnotation
+    type: Google.Cloud.Visionai.V1.AppPlatformCloudFunctionResponse.StructedOutputAnnotation
 
   field :annotation_passthrough, 3, type: :bool, json_name: "annotationPassthrough"
-  field :events, 4, repeated: true, type: Google.Cloud.Visionai.V1alpha1.AppPlatformEventBody
+  field :events, 4, repeated: true, type: Google.Cloud.Visionai.V1.AppPlatformEventBody
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AppPlatformEventBody do
+defmodule Google.Cloud.Visionai.V1.AppPlatformEventBody do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
