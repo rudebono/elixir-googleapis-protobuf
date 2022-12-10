@@ -30,6 +30,22 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest.Reason d
   field :SOCIAL_SPAM, 14
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo.Result do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RESULT_UNSPECIFIED, 0
+  field :SUCCESS_USER_VERIFIED, 1
+  field :ERROR_USER_NOT_VERIFIED, 2
+  field :ERROR_SITE_ONBOARDING_INCOMPLETE, 3
+  field :ERROR_RECIPIENT_NOT_ALLOWED, 4
+  field :ERROR_RECIPIENT_ABUSE_LIMIT_EXHAUSTED, 5
+  field :ERROR_CRITICAL_INTERNAL, 6
+  field :ERROR_CUSTOMER_QUOTA_EXHAUSTED, 7
+  field :ERROR_VERIFICATION_BYPASSED, 8
+  field :ERROR_VERDICT_MISMATCH, 9
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -146,6 +162,41 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.EndpointVerificationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :endpoint, 0
+
+  field :email_address, 1, type: :string, json_name: "emailAddress", oneof: 0
+  field :phone_number, 2, type: :string, json_name: "phoneNumber", oneof: 0
+  field :request_token, 3, type: :string, json_name: "requestToken", deprecated: false
+
+  field :last_verification_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastVerificationTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :endpoints, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.EndpointVerificationInfo
+
+  field :language_code, 3, type: :string, json_name: "languageCode"
+
+  field :latest_verification_result, 7,
+    type: Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo.Result,
+    json_name: "latestVerificationResult",
+    enum: true,
+    deprecated: false
+
+  field :username, 2, type: :string, deprecated: true
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -185,6 +236,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
     type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties,
     json_name: "tokenProperties",
     deprecated: false
+
+  field :account_verification, 5,
+    type: Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo,
+    json_name: "accountVerification"
 
   field :account_defender_assessment, 6,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment,
@@ -232,6 +287,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
 
   field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :hostname, 4, type: :string
+  field :android_package_name, 8, type: :string, json_name: "androidPackageName"
+  field :ios_bundle_id, 9, type: :string, json_name: "iosBundleId"
   field :action, 5, type: :string
 end
 
@@ -308,6 +365,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :skip_billing_check, 2, type: :bool, json_name: "skipBillingCheck", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest do
