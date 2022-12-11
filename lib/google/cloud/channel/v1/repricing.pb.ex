@@ -81,6 +81,11 @@ defmodule Google.Cloud.Channel.V1.RepricingConfig do
     json_name: "rebillingBasis",
     enum: true,
     deprecated: false
+
+  field :conditional_overrides, 6,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.ConditionalOverride,
+    json_name: "conditionalOverrides"
 end
 
 defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
@@ -100,4 +105,41 @@ defmodule Google.Cloud.Channel.V1.PercentageAdjustment do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :percentage, 2, type: Google.Type.Decimal
+end
+
+defmodule Google.Cloud.Channel.V1.ConditionalOverride do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :adjustment, 1, type: Google.Cloud.Channel.V1.RepricingAdjustment, deprecated: false
+
+  field :rebilling_basis, 2,
+    type: Google.Cloud.Channel.V1.RebillingBasis,
+    json_name: "rebillingBasis",
+    enum: true,
+    deprecated: false
+
+  field :repricing_condition, 3,
+    type: Google.Cloud.Channel.V1.RepricingCondition,
+    json_name: "repricingCondition",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Channel.V1.RepricingCondition do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :condition, 0
+
+  field :sku_group_condition, 1,
+    type: Google.Cloud.Channel.V1.SkuGroupCondition,
+    json_name: "skuGroupCondition",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Channel.V1.SkuGroupCondition do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :sku_group, 1, type: :string, json_name: "skuGroup"
 end
