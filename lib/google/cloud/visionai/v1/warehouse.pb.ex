@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Visionai.V1alpha1.FacetBucketType do
+defmodule Google.Cloud.Visionai.V1.FacetBucketType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -9,7 +9,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.FacetBucketType do
   field :FACET_BUCKET_TYPE_CUSTOM_RANGE, 4
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.DataType do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.DataType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -23,7 +23,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.DataType do
   field :BOOLEAN, 9
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.Granularity do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -32,7 +32,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.Granularity do
   field :GRANULARITY_PARTITION_LEVEL, 2
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.SearchStrategy.SearchStrategyType do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.SearchStrategyType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -41,7 +41,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.SearchStrategy.Search
   field :SMART_SEARCH, 2
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty.DateTimeBucketSpec.Granularity do
+defmodule Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec.Granularity do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -51,7 +51,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty.DateTimeBucketSpec.Granul
   field :DAY, 3
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config.VideoType.ContainerFormat do
+defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType.ContainerFormat do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -59,12 +59,12 @@ defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config.VideoType.Con
   field :CONTAINER_FORMAT_MP4, 1
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateAssetRequest do
+defmodule Google.Cloud.Visionai.V1.CreateAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :asset, 2, type: Google.Cloud.Visionai.V1alpha1.Asset, deprecated: false
+  field :asset, 2, type: Google.Cloud.Visionai.V1.Asset, deprecated: false
 
   field :asset_id, 3,
     proto3_optional: true,
@@ -73,14 +73,14 @@ defmodule Google.Cloud.Visionai.V1alpha1.CreateAssetRequest do
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GetAssetRequest do
+defmodule Google.Cloud.Visionai.V1.GetAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListAssetsRequest do
+defmodule Google.Cloud.Visionai.V1.ListAssetsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -89,30 +89,30 @@ defmodule Google.Cloud.Visionai.V1alpha1.ListAssetsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListAssetsResponse do
+defmodule Google.Cloud.Visionai.V1.ListAssetsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :assets, 1, repeated: true, type: Google.Cloud.Visionai.V1alpha1.Asset
+  field :assets, 1, repeated: true, type: Google.Cloud.Visionai.V1.Asset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UpdateAssetRequest do
+defmodule Google.Cloud.Visionai.V1.UpdateAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :asset, 1, type: Google.Cloud.Visionai.V1alpha1.Asset, deprecated: false
+  field :asset, 1, type: Google.Cloud.Visionai.V1.Asset, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteAssetRequest do
+defmodule Google.Cloud.Visionai.V1.DeleteAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Asset do
+defmodule Google.Cloud.Visionai.V1.Asset do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -120,20 +120,20 @@ defmodule Google.Cloud.Visionai.V1alpha1.Asset do
   field :ttl, 2, type: Google.Protobuf.Duration
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateCorpusRequest do
+defmodule Google.Cloud.Visionai.V1.CreateCorpusRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :corpus, 2, type: Google.Cloud.Visionai.V1alpha1.Corpus, deprecated: false
+  field :corpus, 2, type: Google.Cloud.Visionai.V1.Corpus, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateCorpusMetadata do
+defmodule Google.Cloud.Visionai.V1.CreateCorpusMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Corpus do
+defmodule Google.Cloud.Visionai.V1.Corpus do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -147,22 +147,22 @@ defmodule Google.Cloud.Visionai.V1alpha1.Corpus do
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GetCorpusRequest do
+defmodule Google.Cloud.Visionai.V1.GetCorpusRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UpdateCorpusRequest do
+defmodule Google.Cloud.Visionai.V1.UpdateCorpusRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :corpus, 1, type: Google.Cloud.Visionai.V1alpha1.Corpus, deprecated: false
+  field :corpus, 1, type: Google.Cloud.Visionai.V1.Corpus, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListCorporaRequest do
+defmodule Google.Cloud.Visionai.V1.ListCorporaRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -171,34 +171,34 @@ defmodule Google.Cloud.Visionai.V1alpha1.ListCorporaRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListCorporaResponse do
+defmodule Google.Cloud.Visionai.V1.ListCorporaResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :corpora, 1, repeated: true, type: Google.Cloud.Visionai.V1alpha1.Corpus
+  field :corpora, 1, repeated: true, type: Google.Cloud.Visionai.V1.Corpus
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteCorpusRequest do
+defmodule Google.Cloud.Visionai.V1.DeleteCorpusRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateDataSchemaRequest do
+defmodule Google.Cloud.Visionai.V1.CreateDataSchemaRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
   field :data_schema, 2,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchema,
+    type: Google.Cloud.Visionai.V1.DataSchema,
     json_name: "dataSchema",
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchema do
+defmodule Google.Cloud.Visionai.V1.DataSchema do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -206,73 +206,71 @@ defmodule Google.Cloud.Visionai.V1alpha1.DataSchema do
   field :key, 2, type: :string, deprecated: false
 
   field :schema_details, 3,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails,
     json_name: "schemaDetails"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.ProtoAnyConfig do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :type_uri, 1, type: :string, json_name: "typeUri"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.SearchStrategy do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :search_strategy_type, 1,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.SearchStrategy.SearchStrategyType,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.SearchStrategyType,
     json_name: "searchStrategyType",
     enum: true
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DataSchemaDetails do
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :type, 1, type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.DataType, enum: true
+  field :type, 1, type: Google.Cloud.Visionai.V1.DataSchemaDetails.DataType, enum: true
 
   field :proto_any_config, 6,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.ProtoAnyConfig,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig,
     json_name: "protoAnyConfig"
 
-  field :granularity, 5,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.Granularity,
-    enum: true
+  field :granularity, 5, type: Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity, enum: true
 
   field :search_strategy, 7,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchemaDetails.SearchStrategy,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy,
     json_name: "searchStrategy"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UpdateDataSchemaRequest do
+defmodule Google.Cloud.Visionai.V1.UpdateDataSchemaRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_schema, 1,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchema,
+    type: Google.Cloud.Visionai.V1.DataSchema,
     json_name: "dataSchema",
     deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GetDataSchemaRequest do
+defmodule Google.Cloud.Visionai.V1.GetDataSchemaRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteDataSchemaRequest do
+defmodule Google.Cloud.Visionai.V1.DeleteDataSchemaRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListDataSchemasRequest do
+defmodule Google.Cloud.Visionai.V1.ListDataSchemasRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -281,24 +279,24 @@ defmodule Google.Cloud.Visionai.V1alpha1.ListDataSchemasRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListDataSchemasResponse do
+defmodule Google.Cloud.Visionai.V1.ListDataSchemasResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data_schemas, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.DataSchema,
+    type: Google.Cloud.Visionai.V1.DataSchema,
     json_name: "dataSchemas"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateAnnotationRequest do
+defmodule Google.Cloud.Visionai.V1.CreateAnnotationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :annotation, 2, type: Google.Cloud.Visionai.V1alpha1.Annotation, deprecated: false
+  field :annotation, 2, type: Google.Cloud.Visionai.V1.Annotation, deprecated: false
 
   field :annotation_id, 3,
     proto3_optional: true,
@@ -307,27 +305,27 @@ defmodule Google.Cloud.Visionai.V1alpha1.CreateAnnotationRequest do
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Annotation do
+defmodule Google.Cloud.Visionai.V1.Annotation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
   field :user_specified_annotation, 2,
-    type: Google.Cloud.Visionai.V1alpha1.UserSpecifiedAnnotation,
+    type: Google.Cloud.Visionai.V1.UserSpecifiedAnnotation,
     json_name: "userSpecifiedAnnotation"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UserSpecifiedAnnotation do
+defmodule Google.Cloud.Visionai.V1.UserSpecifiedAnnotation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
-  field :value, 2, type: Google.Cloud.Visionai.V1alpha1.AnnotationValue
-  field :partition, 3, type: Google.Cloud.Visionai.V1alpha1.Partition
+  field :value, 2, type: Google.Cloud.Visionai.V1.AnnotationValue
+  field :partition, 3, type: Google.Cloud.Visionai.V1.Partition
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GeoCoordinate do
+defmodule Google.Cloud.Visionai.V1.GeoCoordinate do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -335,7 +333,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.GeoCoordinate do
   field :longitude, 2, type: :double
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AnnotationValue do
+defmodule Google.Cloud.Visionai.V1.AnnotationValue do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -347,7 +345,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.AnnotationValue do
   field :datetime_value, 5, type: :string, json_name: "datetimeValue", oneof: 0
 
   field :geo_coordinate, 7,
-    type: Google.Cloud.Visionai.V1alpha1.GeoCoordinate,
+    type: Google.Cloud.Visionai.V1.GeoCoordinate,
     json_name: "geoCoordinate",
     oneof: 0
 
@@ -360,7 +358,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.AnnotationValue do
     oneof: 0
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListAnnotationsRequest do
+defmodule Google.Cloud.Visionai.V1.ListAnnotationsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -370,77 +368,77 @@ defmodule Google.Cloud.Visionai.V1alpha1.ListAnnotationsRequest do
   field :filter, 4, type: :string
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListAnnotationsResponse do
+defmodule Google.Cloud.Visionai.V1.ListAnnotationsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :annotations, 1, repeated: true, type: Google.Cloud.Visionai.V1alpha1.Annotation
+  field :annotations, 1, repeated: true, type: Google.Cloud.Visionai.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GetAnnotationRequest do
+defmodule Google.Cloud.Visionai.V1.GetAnnotationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UpdateAnnotationRequest do
+defmodule Google.Cloud.Visionai.V1.UpdateAnnotationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :annotation, 1, type: Google.Cloud.Visionai.V1alpha1.Annotation, deprecated: false
+  field :annotation, 1, type: Google.Cloud.Visionai.V1.Annotation, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteAnnotationRequest do
+defmodule Google.Cloud.Visionai.V1.DeleteAnnotationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CreateSearchConfigRequest do
+defmodule Google.Cloud.Visionai.V1.CreateSearchConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
   field :search_config, 2,
-    type: Google.Cloud.Visionai.V1alpha1.SearchConfig,
+    type: Google.Cloud.Visionai.V1.SearchConfig,
     json_name: "searchConfig",
     deprecated: false
 
   field :search_config_id, 3, type: :string, json_name: "searchConfigId", deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.UpdateSearchConfigRequest do
+defmodule Google.Cloud.Visionai.V1.UpdateSearchConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :search_config, 1,
-    type: Google.Cloud.Visionai.V1alpha1.SearchConfig,
+    type: Google.Cloud.Visionai.V1.SearchConfig,
     json_name: "searchConfig",
     deprecated: false
 
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GetSearchConfigRequest do
+defmodule Google.Cloud.Visionai.V1.GetSearchConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteSearchConfigRequest do
+defmodule Google.Cloud.Visionai.V1.DeleteSearchConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListSearchConfigsRequest do
+defmodule Google.Cloud.Visionai.V1.ListSearchConfigsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -449,82 +447,80 @@ defmodule Google.Cloud.Visionai.V1alpha1.ListSearchConfigsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ListSearchConfigsResponse do
+defmodule Google.Cloud.Visionai.V1.ListSearchConfigsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :search_configs, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.SearchConfig,
+    type: Google.Cloud.Visionai.V1.SearchConfig,
     json_name: "searchConfigs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.SearchConfig do
+defmodule Google.Cloud.Visionai.V1.SearchConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string
 
   field :facet_property, 2,
-    type: Google.Cloud.Visionai.V1alpha1.FacetProperty,
+    type: Google.Cloud.Visionai.V1.FacetProperty,
     json_name: "facetProperty"
 
   field :search_criteria_property, 3,
-    type: Google.Cloud.Visionai.V1alpha1.SearchCriteriaProperty,
+    type: Google.Cloud.Visionai.V1.SearchCriteriaProperty,
     json_name: "searchCriteriaProperty"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty.FixedRangeBucketSpec do
+defmodule Google.Cloud.Visionai.V1.FacetProperty.FixedRangeBucketSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :bucket_start, 1,
-    type: Google.Cloud.Visionai.V1alpha1.FacetValue,
-    json_name: "bucketStart"
+  field :bucket_start, 1, type: Google.Cloud.Visionai.V1.FacetValue, json_name: "bucketStart"
 
   field :bucket_granularity, 2,
-    type: Google.Cloud.Visionai.V1alpha1.FacetValue,
+    type: Google.Cloud.Visionai.V1.FacetValue,
     json_name: "bucketGranularity"
 
   field :bucket_count, 3, type: :int32, json_name: "bucketCount"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty.CustomRangeBucketSpec do
+defmodule Google.Cloud.Visionai.V1.FacetProperty.CustomRangeBucketSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :endpoints, 1, repeated: true, type: Google.Cloud.Visionai.V1alpha1.FacetValue
+  field :endpoints, 1, repeated: true, type: Google.Cloud.Visionai.V1.FacetValue
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty.DateTimeBucketSpec do
+defmodule Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :granularity, 1,
-    type: Google.Cloud.Visionai.V1alpha1.FacetProperty.DateTimeBucketSpec.Granularity,
+    type: Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec.Granularity,
     enum: true
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty do
+defmodule Google.Cloud.Visionai.V1.FacetProperty do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :range_facet_config, 0
 
   field :fixed_range_bucket_spec, 5,
-    type: Google.Cloud.Visionai.V1alpha1.FacetProperty.FixedRangeBucketSpec,
+    type: Google.Cloud.Visionai.V1.FacetProperty.FixedRangeBucketSpec,
     json_name: "fixedRangeBucketSpec",
     oneof: 0
 
   field :custom_range_bucket_spec, 6,
-    type: Google.Cloud.Visionai.V1alpha1.FacetProperty.CustomRangeBucketSpec,
+    type: Google.Cloud.Visionai.V1.FacetProperty.CustomRangeBucketSpec,
     json_name: "customRangeBucketSpec",
     oneof: 0
 
   field :datetime_bucket_spec, 7,
-    type: Google.Cloud.Visionai.V1alpha1.FacetProperty.DateTimeBucketSpec,
+    type: Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec,
     json_name: "datetimeBucketSpec",
     oneof: 0
 
@@ -533,19 +529,19 @@ defmodule Google.Cloud.Visionai.V1alpha1.FacetProperty do
   field :result_size, 3, type: :int64, json_name: "resultSize"
 
   field :bucket_type, 4,
-    type: Google.Cloud.Visionai.V1alpha1.FacetBucketType,
+    type: Google.Cloud.Visionai.V1.FacetBucketType,
     json_name: "bucketType",
     enum: true
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.SearchCriteriaProperty do
+defmodule Google.Cloud.Visionai.V1.SearchCriteriaProperty do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :mapped_fields, 1, repeated: true, type: :string, json_name: "mappedFields"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetValue do
+defmodule Google.Cloud.Visionai.V1.FacetValue do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -556,133 +552,133 @@ defmodule Google.Cloud.Visionai.V1alpha1.FacetValue do
   field :datetime_value, 3, type: Google.Type.DateTime, json_name: "datetimeValue", oneof: 0
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetBucket.Range do
+defmodule Google.Cloud.Visionai.V1.FacetBucket.Range do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :start, 1, type: Google.Cloud.Visionai.V1alpha1.FacetValue
-  field :end, 2, type: Google.Cloud.Visionai.V1alpha1.FacetValue
+  field :start, 1, type: Google.Cloud.Visionai.V1.FacetValue
+  field :end, 2, type: Google.Cloud.Visionai.V1.FacetValue
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetBucket do
+defmodule Google.Cloud.Visionai.V1.FacetBucket do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :bucket_value, 0
 
-  field :value, 2, type: Google.Cloud.Visionai.V1alpha1.FacetValue, oneof: 0
-  field :range, 4, type: Google.Cloud.Visionai.V1alpha1.FacetBucket.Range, oneof: 0
+  field :value, 2, type: Google.Cloud.Visionai.V1.FacetValue, oneof: 0
+  field :range, 4, type: Google.Cloud.Visionai.V1.FacetBucket.Range, oneof: 0
   field :selected, 3, type: :bool
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FacetGroup do
+defmodule Google.Cloud.Visionai.V1.FacetGroup do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :facet_id, 1, type: :string, json_name: "facetId"
   field :display_name, 2, type: :string, json_name: "displayName"
-  field :buckets, 3, repeated: true, type: Google.Cloud.Visionai.V1alpha1.FacetBucket
+  field :buckets, 3, repeated: true, type: Google.Cloud.Visionai.V1.FacetBucket
 
   field :bucket_type, 4,
-    type: Google.Cloud.Visionai.V1alpha1.FacetBucketType,
+    type: Google.Cloud.Visionai.V1.FacetBucketType,
     json_name: "bucketType",
     enum: true
 
   field :fetch_matched_annotations, 5, type: :bool, json_name: "fetchMatchedAnnotations"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config.VideoType do
+defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :container_format, 1,
-    type: Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config.VideoType.ContainerFormat,
+    type: Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType.ContainerFormat,
     json_name: "containerFormat",
     enum: true
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config do
+defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :data_type, 0
 
   field :video_type, 2,
-    type: Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config.VideoType,
+    type: Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType,
     json_name: "videoType",
     oneof: 0
 
   field :asset, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.TimeIndexedData do
+defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.TimeIndexedData do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 
   field :temporal_partition, 2,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartition"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetRequest do
+defmodule Google.Cloud.Visionai.V1.IngestAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :streaming_request, 0
 
-  field :config, 1, type: Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.Config, oneof: 0
+  field :config, 1, type: Google.Cloud.Visionai.V1.IngestAssetRequest.Config, oneof: 0
 
   field :time_indexed_data, 2,
-    type: Google.Cloud.Visionai.V1alpha1.IngestAssetRequest.TimeIndexedData,
+    type: Google.Cloud.Visionai.V1.IngestAssetRequest.TimeIndexedData,
     json_name: "timeIndexedData",
     oneof: 0
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IngestAssetResponse do
+defmodule Google.Cloud.Visionai.V1.IngestAssetResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :successfully_ingested_partition, 1,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "successfullyIngestedPartition"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ClipAssetRequest do
+defmodule Google.Cloud.Visionai.V1.ClipAssetRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
   field :temporal_partition, 2,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartition",
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ClipAssetResponse.TimeIndexedUri do
+defmodule Google.Cloud.Visionai.V1.ClipAssetResponse.TimeIndexedUri do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :temporal_partition, 1,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartition"
 
   field :uri, 2, type: :string
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.ClipAssetResponse do
+defmodule Google.Cloud.Visionai.V1.ClipAssetResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :time_indexed_uris, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.ClipAssetResponse.TimeIndexedUri,
+    type: Google.Cloud.Visionai.V1.ClipAssetResponse.TimeIndexedUri,
     json_name: "timeIndexedUris"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GenerateHlsUriRequest do
+defmodule Google.Cloud.Visionai.V1.GenerateHlsUriRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -690,12 +686,12 @@ defmodule Google.Cloud.Visionai.V1alpha1.GenerateHlsUriRequest do
 
   field :temporal_partitions, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartitions",
     deprecated: false
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GenerateHlsUriResponse do
+defmodule Google.Cloud.Visionai.V1.GenerateHlsUriResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -703,11 +699,11 @@ defmodule Google.Cloud.Visionai.V1alpha1.GenerateHlsUriResponse do
 
   field :temporal_partitions, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartitions"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.SearchAssetsRequest do
+defmodule Google.Cloud.Visionai.V1.SearchAssetsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -716,14 +712,14 @@ defmodule Google.Cloud.Visionai.V1alpha1.SearchAssetsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 
   field :content_time_ranges, 5,
-    type: Google.Cloud.Visionai.V1alpha1.DateTimeRangeArray,
+    type: Google.Cloud.Visionai.V1.DateTimeRangeArray,
     json_name: "contentTimeRanges"
 
-  field :criteria, 4, repeated: true, type: Google.Cloud.Visionai.V1alpha1.Criteria
+  field :criteria, 4, repeated: true, type: Google.Cloud.Visionai.V1.Criteria
 
   field :facet_selections, 6,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.FacetGroup,
+    type: Google.Cloud.Visionai.V1.FacetGroup,
     json_name: "facetSelections"
 
   field :result_annotation_keys, 8,
@@ -732,26 +728,26 @@ defmodule Google.Cloud.Visionai.V1alpha1.SearchAssetsRequest do
     json_name: "resultAnnotationKeys"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DeleteAssetMetadata do
+defmodule Google.Cloud.Visionai.V1.DeleteAssetMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.AnnotationMatchingResult do
+defmodule Google.Cloud.Visionai.V1.AnnotationMatchingResult do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :criteria, 1, type: Google.Cloud.Visionai.V1alpha1.Criteria
+  field :criteria, 1, type: Google.Cloud.Visionai.V1.Criteria
 
   field :matched_annotations, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.Annotation,
+    type: Google.Cloud.Visionai.V1.Annotation,
     json_name: "matchedAnnotations"
 
   field :status, 3, type: Google.Rpc.Status
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.SearchResultItem do
+defmodule Google.Cloud.Visionai.V1.SearchResultItem do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -759,40 +755,40 @@ defmodule Google.Cloud.Visionai.V1alpha1.SearchResultItem do
 
   field :segments, 2,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     deprecated: true
 
-  field :segment, 5, type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition
+  field :segment, 5, type: Google.Cloud.Visionai.V1.Partition.TemporalPartition
 
   field :requested_annotations, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.Annotation,
+    type: Google.Cloud.Visionai.V1.Annotation,
     json_name: "requestedAnnotations"
 
   field :annotation_matching_results, 4,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.AnnotationMatchingResult,
+    type: Google.Cloud.Visionai.V1.AnnotationMatchingResult,
     json_name: "annotationMatchingResults"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.SearchAssetsResponse do
+defmodule Google.Cloud.Visionai.V1.SearchAssetsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :search_result_items, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.SearchResultItem,
+    type: Google.Cloud.Visionai.V1.SearchResultItem,
     json_name: "searchResultItems"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 
   field :facet_results, 3,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.FacetGroup,
+    type: Google.Cloud.Visionai.V1.FacetGroup,
     json_name: "facetResults"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IntRange do
+defmodule Google.Cloud.Visionai.V1.IntRange do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -800,7 +796,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.IntRange do
   field :end, 2, proto3_optional: true, type: :int64
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FloatRange do
+defmodule Google.Cloud.Visionai.V1.FloatRange do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -808,34 +804,34 @@ defmodule Google.Cloud.Visionai.V1alpha1.FloatRange do
   field :end, 2, proto3_optional: true, type: :float
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.StringArray do
+defmodule Google.Cloud.Visionai.V1.StringArray do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :txt_values, 1, repeated: true, type: :string, json_name: "txtValues"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.IntRangeArray do
+defmodule Google.Cloud.Visionai.V1.IntRangeArray do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :int_ranges, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.IntRange,
+    type: Google.Cloud.Visionai.V1.IntRange,
     json_name: "intRanges"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.FloatRangeArray do
+defmodule Google.Cloud.Visionai.V1.FloatRangeArray do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :float_ranges, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.FloatRange,
+    type: Google.Cloud.Visionai.V1.FloatRange,
     json_name: "floatRanges"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DateTimeRange do
+defmodule Google.Cloud.Visionai.V1.DateTimeRange do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -843,17 +839,17 @@ defmodule Google.Cloud.Visionai.V1alpha1.DateTimeRange do
   field :end, 2, type: Google.Type.DateTime
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.DateTimeRangeArray do
+defmodule Google.Cloud.Visionai.V1.DateTimeRangeArray do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :date_time_ranges, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.DateTimeRange,
+    type: Google.Cloud.Visionai.V1.DateTimeRange,
     json_name: "dateTimeRanges"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.CircleArea do
+defmodule Google.Cloud.Visionai.V1.CircleArea do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -862,64 +858,60 @@ defmodule Google.Cloud.Visionai.V1alpha1.CircleArea do
   field :radius_meter, 3, type: :double, json_name: "radiusMeter"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.GeoLocationArray do
+defmodule Google.Cloud.Visionai.V1.GeoLocationArray do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :circle_areas, 1,
     repeated: true,
-    type: Google.Cloud.Visionai.V1alpha1.CircleArea,
+    type: Google.Cloud.Visionai.V1.CircleArea,
     json_name: "circleAreas"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.BoolValue do
+defmodule Google.Cloud.Visionai.V1.BoolValue do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :value, 1, type: :bool
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Criteria do
+defmodule Google.Cloud.Visionai.V1.Criteria do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   oneof :value, 0
 
   field :text_array, 2,
-    type: Google.Cloud.Visionai.V1alpha1.StringArray,
+    type: Google.Cloud.Visionai.V1.StringArray,
     json_name: "textArray",
     oneof: 0
 
   field :int_range_array, 3,
-    type: Google.Cloud.Visionai.V1alpha1.IntRangeArray,
+    type: Google.Cloud.Visionai.V1.IntRangeArray,
     json_name: "intRangeArray",
     oneof: 0
 
   field :float_range_array, 4,
-    type: Google.Cloud.Visionai.V1alpha1.FloatRangeArray,
+    type: Google.Cloud.Visionai.V1.FloatRangeArray,
     json_name: "floatRangeArray",
     oneof: 0
 
   field :date_time_range_array, 5,
-    type: Google.Cloud.Visionai.V1alpha1.DateTimeRangeArray,
+    type: Google.Cloud.Visionai.V1.DateTimeRangeArray,
     json_name: "dateTimeRangeArray",
     oneof: 0
 
   field :geo_location_array, 6,
-    type: Google.Cloud.Visionai.V1alpha1.GeoLocationArray,
+    type: Google.Cloud.Visionai.V1.GeoLocationArray,
     json_name: "geoLocationArray",
     oneof: 0
 
-  field :bool_value, 7,
-    type: Google.Cloud.Visionai.V1alpha1.BoolValue,
-    json_name: "boolValue",
-    oneof: 0
-
+  field :bool_value, 7, type: Google.Cloud.Visionai.V1.BoolValue, json_name: "boolValue", oneof: 0
   field :field, 1, type: :string
   field :fetch_matched_annotations, 8, type: :bool, json_name: "fetchMatchedAnnotations"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition do
+defmodule Google.Cloud.Visionai.V1.Partition.TemporalPartition do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -927,7 +919,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition do
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Partition.SpatialPartition do
+defmodule Google.Cloud.Visionai.V1.Partition.SpatialPartition do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -937,141 +929,123 @@ defmodule Google.Cloud.Visionai.V1alpha1.Partition.SpatialPartition do
   field :y_max, 4, proto3_optional: true, type: :int64, json_name: "yMax"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Partition do
+defmodule Google.Cloud.Visionai.V1.Partition do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :temporal_partition, 1,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.TemporalPartition,
+    type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
     json_name: "temporalPartition"
 
   field :spatial_partition, 2,
-    type: Google.Cloud.Visionai.V1alpha1.Partition.SpatialPartition,
+    type: Google.Cloud.Visionai.V1.Partition.SpatialPartition,
     json_name: "spatialPartition"
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Warehouse.Service do
+defmodule Google.Cloud.Visionai.V1.Warehouse.Service do
   @moduledoc false
   use GRPC.Service,
-    name: "google.cloud.visionai.v1alpha1.Warehouse",
+    name: "google.cloud.visionai.v1.Warehouse",
     protoc_gen_elixir_version: "0.11.0"
 
-  rpc :CreateAsset,
-      Google.Cloud.Visionai.V1alpha1.CreateAssetRequest,
-      Google.Cloud.Visionai.V1alpha1.Asset
+  rpc :CreateAsset, Google.Cloud.Visionai.V1.CreateAssetRequest, Google.Cloud.Visionai.V1.Asset
 
-  rpc :UpdateAsset,
-      Google.Cloud.Visionai.V1alpha1.UpdateAssetRequest,
-      Google.Cloud.Visionai.V1alpha1.Asset
+  rpc :UpdateAsset, Google.Cloud.Visionai.V1.UpdateAssetRequest, Google.Cloud.Visionai.V1.Asset
 
-  rpc :GetAsset,
-      Google.Cloud.Visionai.V1alpha1.GetAssetRequest,
-      Google.Cloud.Visionai.V1alpha1.Asset
+  rpc :GetAsset, Google.Cloud.Visionai.V1.GetAssetRequest, Google.Cloud.Visionai.V1.Asset
 
   rpc :ListAssets,
-      Google.Cloud.Visionai.V1alpha1.ListAssetsRequest,
-      Google.Cloud.Visionai.V1alpha1.ListAssetsResponse
+      Google.Cloud.Visionai.V1.ListAssetsRequest,
+      Google.Cloud.Visionai.V1.ListAssetsResponse
 
-  rpc :DeleteAsset,
-      Google.Cloud.Visionai.V1alpha1.DeleteAssetRequest,
-      Google.Longrunning.Operation
+  rpc :DeleteAsset, Google.Cloud.Visionai.V1.DeleteAssetRequest, Google.Longrunning.Operation
 
-  rpc :CreateCorpus,
-      Google.Cloud.Visionai.V1alpha1.CreateCorpusRequest,
-      Google.Longrunning.Operation
+  rpc :CreateCorpus, Google.Cloud.Visionai.V1.CreateCorpusRequest, Google.Longrunning.Operation
 
-  rpc :GetCorpus,
-      Google.Cloud.Visionai.V1alpha1.GetCorpusRequest,
-      Google.Cloud.Visionai.V1alpha1.Corpus
+  rpc :GetCorpus, Google.Cloud.Visionai.V1.GetCorpusRequest, Google.Cloud.Visionai.V1.Corpus
 
-  rpc :UpdateCorpus,
-      Google.Cloud.Visionai.V1alpha1.UpdateCorpusRequest,
-      Google.Cloud.Visionai.V1alpha1.Corpus
+  rpc :UpdateCorpus, Google.Cloud.Visionai.V1.UpdateCorpusRequest, Google.Cloud.Visionai.V1.Corpus
 
   rpc :ListCorpora,
-      Google.Cloud.Visionai.V1alpha1.ListCorporaRequest,
-      Google.Cloud.Visionai.V1alpha1.ListCorporaResponse
+      Google.Cloud.Visionai.V1.ListCorporaRequest,
+      Google.Cloud.Visionai.V1.ListCorporaResponse
 
-  rpc :DeleteCorpus, Google.Cloud.Visionai.V1alpha1.DeleteCorpusRequest, Google.Protobuf.Empty
+  rpc :DeleteCorpus, Google.Cloud.Visionai.V1.DeleteCorpusRequest, Google.Protobuf.Empty
 
   rpc :CreateDataSchema,
-      Google.Cloud.Visionai.V1alpha1.CreateDataSchemaRequest,
-      Google.Cloud.Visionai.V1alpha1.DataSchema
+      Google.Cloud.Visionai.V1.CreateDataSchemaRequest,
+      Google.Cloud.Visionai.V1.DataSchema
 
   rpc :UpdateDataSchema,
-      Google.Cloud.Visionai.V1alpha1.UpdateDataSchemaRequest,
-      Google.Cloud.Visionai.V1alpha1.DataSchema
+      Google.Cloud.Visionai.V1.UpdateDataSchemaRequest,
+      Google.Cloud.Visionai.V1.DataSchema
 
   rpc :GetDataSchema,
-      Google.Cloud.Visionai.V1alpha1.GetDataSchemaRequest,
-      Google.Cloud.Visionai.V1alpha1.DataSchema
+      Google.Cloud.Visionai.V1.GetDataSchemaRequest,
+      Google.Cloud.Visionai.V1.DataSchema
 
-  rpc :DeleteDataSchema,
-      Google.Cloud.Visionai.V1alpha1.DeleteDataSchemaRequest,
-      Google.Protobuf.Empty
+  rpc :DeleteDataSchema, Google.Cloud.Visionai.V1.DeleteDataSchemaRequest, Google.Protobuf.Empty
 
   rpc :ListDataSchemas,
-      Google.Cloud.Visionai.V1alpha1.ListDataSchemasRequest,
-      Google.Cloud.Visionai.V1alpha1.ListDataSchemasResponse
+      Google.Cloud.Visionai.V1.ListDataSchemasRequest,
+      Google.Cloud.Visionai.V1.ListDataSchemasResponse
 
   rpc :CreateAnnotation,
-      Google.Cloud.Visionai.V1alpha1.CreateAnnotationRequest,
-      Google.Cloud.Visionai.V1alpha1.Annotation
+      Google.Cloud.Visionai.V1.CreateAnnotationRequest,
+      Google.Cloud.Visionai.V1.Annotation
 
   rpc :GetAnnotation,
-      Google.Cloud.Visionai.V1alpha1.GetAnnotationRequest,
-      Google.Cloud.Visionai.V1alpha1.Annotation
+      Google.Cloud.Visionai.V1.GetAnnotationRequest,
+      Google.Cloud.Visionai.V1.Annotation
 
   rpc :ListAnnotations,
-      Google.Cloud.Visionai.V1alpha1.ListAnnotationsRequest,
-      Google.Cloud.Visionai.V1alpha1.ListAnnotationsResponse
+      Google.Cloud.Visionai.V1.ListAnnotationsRequest,
+      Google.Cloud.Visionai.V1.ListAnnotationsResponse
 
   rpc :UpdateAnnotation,
-      Google.Cloud.Visionai.V1alpha1.UpdateAnnotationRequest,
-      Google.Cloud.Visionai.V1alpha1.Annotation
+      Google.Cloud.Visionai.V1.UpdateAnnotationRequest,
+      Google.Cloud.Visionai.V1.Annotation
 
-  rpc :DeleteAnnotation,
-      Google.Cloud.Visionai.V1alpha1.DeleteAnnotationRequest,
-      Google.Protobuf.Empty
+  rpc :DeleteAnnotation, Google.Cloud.Visionai.V1.DeleteAnnotationRequest, Google.Protobuf.Empty
 
   rpc :IngestAsset,
-      stream(Google.Cloud.Visionai.V1alpha1.IngestAssetRequest),
-      stream(Google.Cloud.Visionai.V1alpha1.IngestAssetResponse)
+      stream(Google.Cloud.Visionai.V1.IngestAssetRequest),
+      stream(Google.Cloud.Visionai.V1.IngestAssetResponse)
 
   rpc :ClipAsset,
-      Google.Cloud.Visionai.V1alpha1.ClipAssetRequest,
-      Google.Cloud.Visionai.V1alpha1.ClipAssetResponse
+      Google.Cloud.Visionai.V1.ClipAssetRequest,
+      Google.Cloud.Visionai.V1.ClipAssetResponse
 
   rpc :GenerateHlsUri,
-      Google.Cloud.Visionai.V1alpha1.GenerateHlsUriRequest,
-      Google.Cloud.Visionai.V1alpha1.GenerateHlsUriResponse
+      Google.Cloud.Visionai.V1.GenerateHlsUriRequest,
+      Google.Cloud.Visionai.V1.GenerateHlsUriResponse
 
   rpc :CreateSearchConfig,
-      Google.Cloud.Visionai.V1alpha1.CreateSearchConfigRequest,
-      Google.Cloud.Visionai.V1alpha1.SearchConfig
+      Google.Cloud.Visionai.V1.CreateSearchConfigRequest,
+      Google.Cloud.Visionai.V1.SearchConfig
 
   rpc :UpdateSearchConfig,
-      Google.Cloud.Visionai.V1alpha1.UpdateSearchConfigRequest,
-      Google.Cloud.Visionai.V1alpha1.SearchConfig
+      Google.Cloud.Visionai.V1.UpdateSearchConfigRequest,
+      Google.Cloud.Visionai.V1.SearchConfig
 
   rpc :GetSearchConfig,
-      Google.Cloud.Visionai.V1alpha1.GetSearchConfigRequest,
-      Google.Cloud.Visionai.V1alpha1.SearchConfig
+      Google.Cloud.Visionai.V1.GetSearchConfigRequest,
+      Google.Cloud.Visionai.V1.SearchConfig
 
   rpc :DeleteSearchConfig,
-      Google.Cloud.Visionai.V1alpha1.DeleteSearchConfigRequest,
+      Google.Cloud.Visionai.V1.DeleteSearchConfigRequest,
       Google.Protobuf.Empty
 
   rpc :ListSearchConfigs,
-      Google.Cloud.Visionai.V1alpha1.ListSearchConfigsRequest,
-      Google.Cloud.Visionai.V1alpha1.ListSearchConfigsResponse
+      Google.Cloud.Visionai.V1.ListSearchConfigsRequest,
+      Google.Cloud.Visionai.V1.ListSearchConfigsResponse
 
   rpc :SearchAssets,
-      Google.Cloud.Visionai.V1alpha1.SearchAssetsRequest,
-      Google.Cloud.Visionai.V1alpha1.SearchAssetsResponse
+      Google.Cloud.Visionai.V1.SearchAssetsRequest,
+      Google.Cloud.Visionai.V1.SearchAssetsResponse
 end
 
-defmodule Google.Cloud.Visionai.V1alpha1.Warehouse.Stub do
+defmodule Google.Cloud.Visionai.V1.Warehouse.Stub do
   @moduledoc false
-  use GRPC.Stub, service: Google.Cloud.Visionai.V1alpha1.Warehouse.Service
+  use GRPC.Stub, service: Google.Cloud.Visionai.V1.Warehouse.Service
 end
