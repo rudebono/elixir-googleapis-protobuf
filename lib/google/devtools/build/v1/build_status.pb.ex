@@ -20,5 +20,6 @@ defmodule Google.Devtools.Build.V1.BuildStatus do
   field :result, 1, type: Google.Devtools.Build.V1.BuildStatus.Result, enum: true
   field :final_invocation_id, 3, type: :string, json_name: "finalInvocationId"
   field :build_tool_exit_code, 4, type: Google.Protobuf.Int32Value, json_name: "buildToolExitCode"
+  field :error_message, 5, type: :string, json_name: "errorMessage"
   field :details, 2, type: Google.Protobuf.Any
 end
