@@ -17,6 +17,14 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility do
   field :PREEMPTIBLE, 2
 end
 
+defmodule Google.Cloud.Dataproc.V1.NodeGroup.Role do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ROLE_UNSPECIFIED, 0
+  field :DRIVER, 1
+end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -175,6 +183,12 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
   field :dataproc_metric_config, 23,
     type: Google.Cloud.Dataproc.V1.DataprocMetricConfig,
     json_name: "dataprocMetricConfig",
+    deprecated: false
+
+  field :auxiliary_node_groups, 25,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.AuxiliaryNodeGroup,
+    json_name: "auxiliaryNodeGroups",
     deprecated: false
 end
 
@@ -412,6 +426,50 @@ defmodule Google.Cloud.Dataproc.V1.DiskConfig do
   field :boot_disk_size_gb, 1, type: :int32, json_name: "bootDiskSizeGb", deprecated: false
   field :num_local_ssds, 2, type: :int32, json_name: "numLocalSsds", deprecated: false
   field :local_ssd_interface, 4, type: :string, json_name: "localSsdInterface", deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.AuxiliaryNodeGroup do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :node_group, 1,
+    type: Google.Cloud.Dataproc.V1.NodeGroup,
+    json_name: "nodeGroup",
+    deprecated: false
+
+  field :node_group_id, 2, type: :string, json_name: "nodeGroupId", deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.NodeGroup.LabelsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataproc.V1.NodeGroup do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :roles, 2,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.NodeGroup.Role,
+    enum: true,
+    deprecated: false
+
+  field :node_group_config, 3,
+    type: Google.Cloud.Dataproc.V1.InstanceGroupConfig,
+    json_name: "nodeGroupConfig",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.NodeGroup.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeInitializationAction do
