@@ -19,6 +19,8 @@ defmodule Google.Cloud.Securitycenter.V1.Access do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.ServiceAccountDelegationInfo,
     json_name: "serviceAccountDelegationInfo"
+
+  field :user_name, 11, type: :string, json_name: "userName"
 end
 
 defmodule Google.Cloud.Securitycenter.V1.ServiceAccountDelegationInfo do

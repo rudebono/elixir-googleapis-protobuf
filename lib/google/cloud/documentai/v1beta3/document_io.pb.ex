@@ -45,12 +45,24 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchDocumentsInputConfig do
     oneof: 0
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.DocumentOutputConfig.GcsOutputConfig.ShardingConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :pages_per_shard, 1, type: :int32, json_name: "pagesPerShard"
+  field :pages_overlap, 2, type: :int32, json_name: "pagesOverlap"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.DocumentOutputConfig.GcsOutputConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  field :sharding_config, 3,
+    type: Google.Cloud.Documentai.V1beta3.DocumentOutputConfig.GcsOutputConfig.ShardingConfig,
+    json_name: "shardingConfig"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentOutputConfig do

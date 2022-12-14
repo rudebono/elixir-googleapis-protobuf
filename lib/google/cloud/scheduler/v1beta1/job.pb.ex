@@ -46,6 +46,11 @@ defmodule Google.Cloud.Scheduler.V1beta1.Job do
     json_name: "retryConfig"
 
   field :attempt_deadline, 22, type: Google.Protobuf.Duration, json_name: "attemptDeadline"
+
+  field :legacy_app_engine_cron, 23,
+    type: :bool,
+    json_name: "legacyAppEngineCron",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.RetryConfig do
