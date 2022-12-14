@@ -126,6 +126,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisOperationMetadata 
 
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :conversation, 3, type: :string, deprecated: false
+
+  field :annotator_selector, 4,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
+    json_name: "annotatorSelector",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest do
@@ -190,6 +195,82 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteConversationRequest do
   field :force, 2, type: :bool
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.GcsSource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :bucket_uri, 1, type: :string, json_name: "bucketUri", deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.TranscriptObjectConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :medium, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.ConversationConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :agent_id, 1, type: :string, json_name: "agentId"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :object_config, 1
+
+  field :gcs_source, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :transcript_object_config, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.TranscriptObjectConfig,
+    json_name: "transcriptObjectConfig",
+    oneof: 1
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :conversation_config, 4,
+    type: Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.ConversationConfig,
+    json_name: "conversationConfig"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :request, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest,
+    deprecated: false
+
+  field :partial_errors, 4,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialErrors",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -228,6 +309,39 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DeleteAnalysisRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :analysis_percentage, 3, type: :float, json_name: "analysisPercentage", deprecated: false
+
+  field :annotator_selector, 8,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
+    json_name: "annotatorSelector"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsRequest
+  field :completed_analyses_count, 4, type: :int32, json_name: "completedAnalysesCount"
+  field :failed_analyses_count, 5, type: :int32, json_name: "failedAnalysesCount"
+  field :total_requested_analyses_count, 6, type: :int32, json_name: "totalRequestedAnalysesCount"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :successful_analysis_count, 1, type: :int32, json_name: "successfulAnalysisCount"
+  field :failed_analysis_count, 2, type: :int32, json_name: "failedAnalysisCount"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.BigQueryDestination do
@@ -439,6 +553,13 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -623,6 +744,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
       Google.Cloud.Contactcenterinsights.V1.DeleteAnalysisRequest,
       Google.Protobuf.Empty
 
+  rpc :BulkAnalyzeConversations,
+      Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsRequest,
+      Google.Longrunning.Operation
+
+  rpc :IngestConversations,
+      Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest,
+      Google.Longrunning.Operation
+
   rpc :ExportInsightsData,
       Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest,
       Google.Longrunning.Operation
@@ -666,6 +795,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :UpdateIssue,
       Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest,
       Google.Cloud.Contactcenterinsights.V1.Issue
+
+  rpc :DeleteIssue,
+      Google.Cloud.Contactcenterinsights.V1.DeleteIssueRequest,
+      Google.Protobuf.Empty
 
   rpc :CalculateIssueModelStats,
       Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest,

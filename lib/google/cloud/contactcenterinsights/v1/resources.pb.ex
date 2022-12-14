@@ -257,6 +257,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Analysis do
     type: Google.Cloud.Contactcenterinsights.V1.AnalysisResult,
     json_name: "analysisResult",
     deprecated: false
+
+  field :annotator_selector, 8,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
+    json_name: "annotatorSelector"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationDataSource do
@@ -437,6 +441,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CallAnnotation do
     json_name: "phraseMatchData",
     oneof: 0
 
+  field :issue_match_data, 18,
+    type: Google.Cloud.Contactcenterinsights.V1.IssueMatchData,
+    json_name: "issueMatchData",
+    oneof: 0
+
   field :channel_tag, 1, type: :int32, json_name: "channelTag"
 
   field :annotation_start_boundary, 4,
@@ -548,6 +557,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.SentimentData do
   field :score, 2, type: :float
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.IssueMatchData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :issue_assignment, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.IssueAssignment,
+    json_name: "issueAssignment"
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.InputDataConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -612,6 +630,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Issue do
   field :update_time, 4,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :sample_utterances, 6,
+    repeated: true,
+    type: :string,
+    json_name: "sampleUtterances",
     deprecated: false
 end
 
@@ -742,6 +766,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings.AnalysisConfig do
   field :runtime_integration_analysis_percentage, 1,
     type: :double,
     json_name: "runtimeIntegrationAnalysisPercentage"
+
+  field :annotator_selector, 5,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
+    json_name: "annotatorSelector"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Settings.PubsubNotificationSettingsEntry do
@@ -990,4 +1018,30 @@ defmodule Google.Cloud.Contactcenterinsights.V1.View do
     deprecated: false
 
   field :value, 5, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :run_interruption_annotator, 1, type: :bool, json_name: "runInterruptionAnnotator"
+  field :run_silence_annotator, 2, type: :bool, json_name: "runSilenceAnnotator"
+  field :run_phrase_matcher_annotator, 3, type: :bool, json_name: "runPhraseMatcherAnnotator"
+
+  field :phrase_matchers, 4,
+    repeated: true,
+    type: :string,
+    json_name: "phraseMatchers",
+    deprecated: false
+
+  field :run_sentiment_annotator, 5, type: :bool, json_name: "runSentimentAnnotator"
+  field :run_entity_annotator, 6, type: :bool, json_name: "runEntityAnnotator"
+  field :run_intent_annotator, 7, type: :bool, json_name: "runIntentAnnotator"
+  field :run_issue_model_annotator, 8, type: :bool, json_name: "runIssueModelAnnotator"
+
+  field :issue_models, 10,
+    repeated: true,
+    type: :string,
+    json_name: "issueModels",
+    deprecated: false
 end

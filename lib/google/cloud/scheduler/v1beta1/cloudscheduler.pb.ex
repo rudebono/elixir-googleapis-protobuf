@@ -3,8 +3,10 @@ defmodule Google.Cloud.Scheduler.V1beta1.ListJobsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :filter, 4, type: :string
   field :page_size, 5, type: :int32, json_name: "pageSize"
   field :page_token, 6, type: :string, json_name: "pageToken"
+  field :legacy_app_engine_cron, 7, type: :bool, json_name: "legacyAppEngineCron"
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.ListJobsResponse do
@@ -43,6 +45,7 @@ defmodule Google.Cloud.Scheduler.V1beta1.DeleteJobRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :legacy_app_engine_cron, 2, type: :bool, json_name: "legacyAppEngineCron"
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.PauseJobRequest do
@@ -64,6 +67,7 @@ defmodule Google.Cloud.Scheduler.V1beta1.RunJobRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :legacy_app_engine_cron, 2, type: :bool, json_name: "legacyAppEngineCron"
 end
 
 defmodule Google.Cloud.Scheduler.V1beta1.CloudScheduler.Service do

@@ -116,6 +116,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do
     json_name: "estimatedTotalBytesScanned",
     deprecated: false
 
+  field :estimated_row_count, 14, type: :int64, json_name: "estimatedRowCount", deprecated: false
   field :trace_id, 13, type: :string, json_name: "traceId", deprecated: false
 end
 
