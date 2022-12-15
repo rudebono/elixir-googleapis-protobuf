@@ -296,6 +296,10 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.InstancePolicy do
     repeated: true,
     type: Google.Cloud.Batch.V1alpha.AllocationPolicy.Accelerator
 
+  field :boot_disk, 8,
+    type: Google.Cloud.Batch.V1alpha.AllocationPolicy.Disk,
+    json_name: "bootDisk"
+
   field :disks, 6, repeated: true, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.AttachedDisk
   field :reservation, 7, type: :string
 end
@@ -433,5 +437,5 @@ defmodule Google.Cloud.Batch.V1alpha.ServiceAccount do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :email, 1, type: :string
-  field :scopes, 2, repeated: true, type: :string, deprecated: true
+  field :scopes, 2, repeated: true, type: :string
 end

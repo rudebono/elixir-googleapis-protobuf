@@ -1225,6 +1225,11 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
+
+  field :desired_stack_type, 119,
+    type: Google.Container.V1.StackType,
+    json_name: "desiredStackType",
+    enum: true
 end
 
 defmodule Google.Container.V1.Operation do
