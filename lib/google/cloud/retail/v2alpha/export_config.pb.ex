@@ -53,6 +53,11 @@ defmodule Google.Cloud.Retail.V2alpha.OutputResult do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.BigQueryOutputResult,
     json_name: "bigqueryResult"
+
+  field :gcs_result, 2,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.GcsOutputResult,
+    json_name: "gcsResult"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.BigQueryOutputResult do
@@ -61,4 +66,11 @@ defmodule Google.Cloud.Retail.V2alpha.BigQueryOutputResult do
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :table_id, 2, type: :string, json_name: "tableId"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.GcsOutputResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :output_uri, 1, type: :string, json_name: "outputUri"
 end

@@ -597,7 +597,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document do
   field :text_styles, 5,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.Document.Style,
-    json_name: "textStyles"
+    json_name: "textStyles",
+    deprecated: true
 
   field :pages, 6, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Page
   field :entities, 7, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Entity

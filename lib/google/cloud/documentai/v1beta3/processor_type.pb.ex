@@ -20,4 +20,5 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorType do
 
   field :allow_creation, 6, type: :bool, json_name: "allowCreation"
   field :launch_stage, 8, type: Google.Api.LaunchStage, json_name: "launchStage", enum: true
+  field :sample_document_uris, 9, repeated: true, type: :string, json_name: "sampleDocumentUris"
 end
