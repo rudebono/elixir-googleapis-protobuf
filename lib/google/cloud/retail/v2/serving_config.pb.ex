@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Retail.V2.ServingConfig.DiversityType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DIVERSITY_TYPE_UNSPECIFIED, 0
+  field :RULE_BASED_DIVERSITY, 2
+  field :DATA_DRIVEN_DIVERSITY, 3
+end
+
 defmodule Google.Cloud.Retail.V2.ServingConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -38,6 +47,12 @@ defmodule Google.Cloud.Retail.V2.ServingConfig do
 
   field :ignore_control_ids, 15, repeated: true, type: :string, json_name: "ignoreControlIds"
   field :diversity_level, 8, type: :string, json_name: "diversityLevel"
+
+  field :diversity_type, 20,
+    type: Google.Cloud.Retail.V2.ServingConfig.DiversityType,
+    json_name: "diversityType",
+    enum: true
+
   field :enable_category_filter_level, 16, type: :string, json_name: "enableCategoryFilterLevel"
 
   field :personalization_spec, 21,

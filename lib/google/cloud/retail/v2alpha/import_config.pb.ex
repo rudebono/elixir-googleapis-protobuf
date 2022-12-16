@@ -183,6 +183,18 @@ defmodule Google.Cloud.Retail.V2alpha.ImportMetadata do
   field :failure_count, 4, type: :int64, json_name: "failureCount"
   field :request_id, 5, type: :string, json_name: "requestId", deprecated: true
   field :notification_pubsub_topic, 6, type: :string, json_name: "notificationPubsubTopic"
+
+  field :transformed_user_events_metadata, 7,
+    type: Google.Cloud.Retail.V2alpha.TransformedUserEventsMetadata,
+    json_name: "transformedUserEventsMetadata"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.TransformedUserEventsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :source_events_count, 1, type: :int64, json_name: "sourceEventsCount"
+  field :transformed_events_count, 2, type: :int64, json_name: "transformedEventsCount"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ImportProductsResponse do

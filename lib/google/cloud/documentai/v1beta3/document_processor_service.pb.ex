@@ -51,6 +51,13 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State 
   field :CANCELLED, 5
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ocr_config, 1, type: Google.Cloud.Documentai.V1beta3.OcrConfig, json_name: "ocrConfig"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -71,6 +78,10 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   field :document, 2, type: Google.Cloud.Documentai.V1beta3.Document, deprecated: true
   field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"
   field :field_mask, 6, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  field :process_options, 7,
+    type: Google.Cloud.Documentai.V1beta3.ProcessOptions,
+    json_name: "processOptions"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
@@ -139,6 +150,10 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest do
     json_name: "documentOutputConfig"
 
   field :skip_human_review, 4, type: :bool, json_name: "skipHumanReview"
+
+  field :process_options, 7,
+    type: Google.Cloud.Documentai.V1beta3.ProcessOptions,
+    json_name: "processOptions"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessResponse do

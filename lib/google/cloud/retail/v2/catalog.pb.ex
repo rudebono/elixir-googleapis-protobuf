@@ -34,6 +34,24 @@ defmodule Google.Cloud.Retail.V2.CatalogAttribute.SearchableOption do
   field :SEARCHABLE_DISABLED, 2
 end
 
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.ExactSearchableOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :EXACT_SEARCHABLE_OPTION_UNSPECIFIED, 0
+  field :EXACT_SEARCHABLE_ENABLED, 1
+  field :EXACT_SEARCHABLE_DISABLED, 2
+end
+
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.RetrievableOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RETRIEVABLE_OPTION_UNSPECIFIED, 0
+  field :RETRIEVABLE_ENABLED, 1
+  field :RETRIEVABLE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Retail.V2.ProductLevelConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -70,6 +88,16 @@ defmodule Google.Cloud.Retail.V2.CatalogAttribute do
   field :searchable_option, 7,
     type: Google.Cloud.Retail.V2.CatalogAttribute.SearchableOption,
     json_name: "searchableOption",
+    enum: true
+
+  field :exact_searchable_option, 11,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.ExactSearchableOption,
+    json_name: "exactSearchableOption",
+    enum: true
+
+  field :retrievable_option, 12,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.RetrievableOption,
+    json_name: "retrievableOption",
     enum: true
 end
 
