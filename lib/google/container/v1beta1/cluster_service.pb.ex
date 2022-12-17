@@ -35,6 +35,15 @@ defmodule Google.Container.V1beta1.DatapathProvider do
   field :ADVANCED_DATAPATH, 2
 end
 
+defmodule Google.Container.V1beta1.StackType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STACK_TYPE_UNSPECIFIED, 0
+  field :IPV4, 1
+  field :IPV4_IPV6, 2
+end
+
 defmodule Google.Container.V1beta1.LinuxNodeConfig.CgroupMode do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1469,6 +1478,11 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1beta1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
+
+  field :desired_stack_type, 119,
+    type: Google.Container.V1beta1.StackType,
+    json_name: "desiredStackType",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.Operation do
