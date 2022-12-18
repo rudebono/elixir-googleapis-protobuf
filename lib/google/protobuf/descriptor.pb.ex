@@ -293,6 +293,7 @@ defmodule Google.Protobuf.FieldOptions do
   field :unverified_lazy, 15, optional: true, type: :bool, default: false
   field :deprecated, 3, optional: true, type: :bool, default: false
   field :weak, 10, optional: true, type: :bool, default: false
+  field :debug_redact, 16, optional: true, type: :bool, default: false
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, 536_870_912}]
