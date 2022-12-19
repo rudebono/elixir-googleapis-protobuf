@@ -74,7 +74,12 @@ defmodule Google.Cloud.Retail.V2beta.Product do
   field :conditions, 29, repeated: true, type: :string
   field :promotions, 34, repeated: true, type: Google.Cloud.Retail.V2beta.Promotion
   field :publish_time, 33, type: Google.Protobuf.Timestamp, json_name: "publishTime"
-  field :retrievable_fields, 30, type: Google.Protobuf.FieldMask, json_name: "retrievableFields"
+
+  field :retrievable_fields, 30,
+    type: Google.Protobuf.FieldMask,
+    json_name: "retrievableFields",
+    deprecated: true
+
   field :variants, 31, repeated: true, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
 
   field :local_inventories, 35,
