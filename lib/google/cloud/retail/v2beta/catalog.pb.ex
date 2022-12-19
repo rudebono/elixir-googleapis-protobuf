@@ -43,6 +43,15 @@ defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.ExactSearchableOption do
   field :EXACT_SEARCHABLE_DISABLED, 2
 end
 
+defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.RetrievableOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RETRIEVABLE_OPTION_UNSPECIFIED, 0
+  field :RETRIEVABLE_ENABLED, 1
+  field :RETRIEVABLE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Retail.V2beta.ProductLevelConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -89,6 +98,11 @@ defmodule Google.Cloud.Retail.V2beta.CatalogAttribute do
   field :exact_searchable_option, 11,
     type: Google.Cloud.Retail.V2beta.CatalogAttribute.ExactSearchableOption,
     json_name: "exactSearchableOption",
+    enum: true
+
+  field :retrievable_option, 12,
+    type: Google.Cloud.Retail.V2beta.CatalogAttribute.RetrievableOption,
+    json_name: "retrievableOption",
     enum: true
 end
 
@@ -173,6 +187,15 @@ defmodule Google.Cloud.Retail.V2beta.MerchantCenterLink do
   field :destinations, 3, repeated: true, type: :string
   field :region_code, 4, type: :string, json_name: "regionCode"
   field :language_code, 5, type: :string, json_name: "languageCode"
+  field :feeds, 6, repeated: true, type: Google.Cloud.Retail.V2beta.MerchantCenterFeedFilter
+end
+
+defmodule Google.Cloud.Retail.V2beta.MerchantCenterFeedFilter do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :primary_feed_id, 1, type: :int64, json_name: "primaryFeedId"
+  field :primary_feed_name, 2, type: :string, json_name: "primaryFeedName"
 end
 
 defmodule Google.Cloud.Retail.V2beta.MerchantCenterLinkingConfig do
