@@ -786,6 +786,65 @@ defmodule Google.Cloud.Metastore.V1beta.DatabaseDumpSpec do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Metastore.V1beta.RemoveIamPolicyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :resource, 1, type: :string, deprecated: false
+  field :asynchronous, 2, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1beta.RemoveIamPolicyResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :success, 1, type: :bool
+end
+
+defmodule Google.Cloud.Metastore.V1beta.QueryMetadataRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1beta.QueryMetadataResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :result_manifest_uri, 1, type: :string, json_name: "resultManifestUri"
+end
+
+defmodule Google.Cloud.Metastore.V1beta.MoveTableToDatabaseRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :table_name, 2, type: :string, json_name: "tableName", deprecated: false
+  field :db_name, 3, type: :string, json_name: "dbName", deprecated: false
+  field :destination_db_name, 4, type: :string, json_name: "destinationDbName", deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1beta.MoveTableToDatabaseResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Metastore.V1beta.AlterMetadataResourceLocationRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :resource_name, 2, type: :string, json_name: "resourceName", deprecated: false
+  field :location_uri, 3, type: :string, json_name: "locationUri", deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1beta.AlterMetadataResourceLocationResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Metastore.V1beta.DataprocMetastore.Service do
   @moduledoc false
   use GRPC.Service,
@@ -850,6 +909,22 @@ defmodule Google.Cloud.Metastore.V1beta.DataprocMetastore.Service do
 
   rpc :DeleteBackup,
       Google.Cloud.Metastore.V1beta.DeleteBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :RemoveIamPolicy,
+      Google.Cloud.Metastore.V1beta.RemoveIamPolicyRequest,
+      Google.Cloud.Metastore.V1beta.RemoveIamPolicyResponse
+
+  rpc :QueryMetadata,
+      Google.Cloud.Metastore.V1beta.QueryMetadataRequest,
+      Google.Longrunning.Operation
+
+  rpc :MoveTableToDatabase,
+      Google.Cloud.Metastore.V1beta.MoveTableToDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :AlterMetadataResourceLocation,
+      Google.Cloud.Metastore.V1beta.AlterMetadataResourceLocationRequest,
       Google.Longrunning.Operation
 end
 

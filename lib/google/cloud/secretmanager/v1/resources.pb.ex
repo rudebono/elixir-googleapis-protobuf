@@ -24,6 +24,14 @@ defmodule Google.Cloud.Secretmanager.V1.Secret.VersionAliasesEntry do
   field :value, 2, type: :int64
 end
 
+defmodule Google.Cloud.Secretmanager.V1.Secret.AnnotationsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Secretmanager.V1.Secret do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -59,6 +67,12 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
     repeated: true,
     type: Google.Cloud.Secretmanager.V1.Secret.VersionAliasesEntry,
     json_name: "versionAliases",
+    map: true,
+    deprecated: false
+
+  field :annotations, 13,
+    repeated: true,
+    type: Google.Cloud.Secretmanager.V1.Secret.AnnotationsEntry,
     map: true,
     deprecated: false
 end
