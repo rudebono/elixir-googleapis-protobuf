@@ -103,6 +103,16 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster do
     type: Google.Cloud.Gkemulticloud.V1.LoggingConfig,
     json_name: "loggingConfig",
     deprecated: false
+
+  field :errors, 24,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AzureClusterError,
+    deprecated: false
+
+  field :monitoring_config, 25,
+    type: Google.Cloud.Gkemulticloud.V1.MonitoringConfig,
+    json_name: "monitoringConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterNetworking do
@@ -337,6 +347,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool do
     type: :string,
     json_name: "azureAvailabilityZone",
     deprecated: false
+
+  field :errors, 29,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AzureNodePoolError,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig.TagsEntry do
@@ -453,4 +468,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterResources do
     type: :string,
     json_name: "controlPlaneApplicationSecurityGroupId",
     deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterError do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :message, 1, type: :string
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePoolError do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :message, 1, type: :string
 end

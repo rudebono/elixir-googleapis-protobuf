@@ -116,6 +116,16 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
     type: Google.Cloud.Gkemulticloud.V1.LoggingConfig,
     json_name: "loggingConfig",
     deprecated: false
+
+  field :errors, 20,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AwsClusterError,
+    deprecated: false
+
+  field :monitoring_config, 21,
+    type: Google.Cloud.Gkemulticloud.V1.MonitoringConfig,
+    json_name: "monitoringConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane.TagsEntry do
@@ -313,6 +323,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
     type: Google.Cloud.Gkemulticloud.V1.MaxPodsConstraint,
     json_name: "maxPodsConstraint",
     deprecated: false
+
+  field :errors, 29,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AwsNodePoolError,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.LabelsEntry do
@@ -391,6 +406,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
     type: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement,
     json_name: "instancePlacement",
     deprecated: false
+
+  field :autoscaling_metrics_collection, 15,
+    type: Google.Cloud.Gkemulticloud.V1.AwsAutoscalingGroupMetricsCollection,
+    json_name: "autoscalingMetricsCollection",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling do
@@ -452,4 +472,26 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement do
     type: Google.Cloud.Gkemulticloud.V1.AwsInstancePlacement.Tenancy,
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsAutoscalingGroupMetricsCollection do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :granularity, 1, type: :string, deprecated: false
+  field :metrics, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterError do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :message, 1, type: :string
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolError do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :message, 1, type: :string
 end

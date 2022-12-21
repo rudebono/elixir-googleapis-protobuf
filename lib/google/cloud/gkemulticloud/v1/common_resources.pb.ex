@@ -46,6 +46,12 @@ defmodule Google.Cloud.Gkemulticloud.V1.OperationMetadata do
   field :target, 3, type: :string, deprecated: false
   field :status_detail, 4, type: :string, json_name: "statusDetail", deprecated: false
   field :error_detail, 5, type: :string, json_name: "errorDetail", deprecated: false
+  field :verb, 7, type: :string, deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint do
@@ -87,4 +93,20 @@ defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig do
     type: Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig.Component,
     json_name: "enableComponents",
     enum: true
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.MonitoringConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :managed_prometheus_config, 2,
+    type: Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig,
+    json_name: "managedPrometheusConfig"
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
 end

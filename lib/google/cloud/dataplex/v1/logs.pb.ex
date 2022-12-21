@@ -69,6 +69,44 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
   field :BIGQUERY, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.ScanType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :SCAN_TYPE_UNSPECIFIED, 0
+  field :DATA_PROFILE, 1
+  field :DATA_QUALITY, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :STARTED, 1
+  field :SUCCEEDED, 2
+  field :FAILED, 3
+  field :CANCELLED, 4
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Trigger do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TRIGGER_UNSPECIFIED, 0
+  field :ON_DEMAND, 1
+  field :SCHEDULE, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Scope do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :SCOPE_UNSPECIFIED, 0
+  field :FULL, 1
+  field :INCREMENTAL, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -175,4 +213,61 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   field :event_succeeded, 6, type: :bool, json_name: "eventSucceeded"
   field :fast_startup_enabled, 7, type: :bool, json_name: "fastStartupEnabled"
   field :unassigned_duration, 8, type: Google.Protobuf.Duration, json_name: "unassignedDuration"
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_count, 1, type: :int64, json_name: "rowCount"
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionPassedEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :bool
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_count, 1, type: :int64, json_name: "rowCount"
+  field :passed, 2, type: :bool
+
+  field :dimension_passed, 3,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionPassedEntry,
+    json_name: "dimensionPassed",
+    map: true
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :result, 0
+
+  field :data_source, 1, type: :string, json_name: "dataSource"
+  field :job_id, 2, type: :string, json_name: "jobId"
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :type, 5, type: Google.Cloud.Dataplex.V1.DataScanEvent.ScanType, enum: true
+  field :state, 6, type: Google.Cloud.Dataplex.V1.DataScanEvent.State, enum: true
+  field :message, 7, type: :string
+  field :spec_version, 8, type: :string, json_name: "specVersion"
+  field :trigger, 9, type: Google.Cloud.Dataplex.V1.DataScanEvent.Trigger, enum: true
+  field :scope, 10, type: Google.Cloud.Dataplex.V1.DataScanEvent.Scope, enum: true
+
+  field :data_profile, 101,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileResult,
+    json_name: "dataProfile",
+    oneof: 0
+
+  field :data_quality, 102,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult,
+    json_name: "dataQuality",
+    oneof: 0
 end
