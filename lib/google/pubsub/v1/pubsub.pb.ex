@@ -440,32 +440,17 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
-
-  field :invalid_ack_ids, 2,
-    repeated: true,
-    type: :string,
-    json_name: "invalidAckIds",
-    deprecated: false
-
-  field :unordered_ack_ids, 3,
-    repeated: true,
-    type: :string,
-    json_name: "unorderedAckIds",
-    deprecated: false
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds"
+  field :invalid_ack_ids, 2, repeated: true, type: :string, json_name: "invalidAckIds"
+  field :unordered_ack_ids, 3, repeated: true, type: :string, json_name: "unorderedAckIds"
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
-
-  field :invalid_ack_ids, 2,
-    repeated: true,
-    type: :string,
-    json_name: "invalidAckIds",
-    deprecated: false
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds"
+  field :invalid_ack_ids, 2, repeated: true, type: :string, json_name: "invalidAckIds"
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do

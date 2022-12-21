@@ -17,6 +17,16 @@ defmodule Google.Cloud.Iap.V1.ReauthSettings.PolicyType do
   field :DEFAULT, 2
 end
 
+defmodule Google.Cloud.Iap.V1.AttributePropagationSettings.OutputCredentials do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :OUTPUT_CREDENTIALS_UNSPECIFIED, 0
+  field :HEADER, 1
+  field :JWT, 2
+  field :RCTOKEN, 3
+end
+
 defmodule Google.Cloud.Iap.V1.ListTunnelDestGroupsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -126,6 +136,10 @@ defmodule Google.Cloud.Iap.V1.AccessSettings do
   field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings, json_name: "corsSettings"
   field :oauth_settings, 3, type: Google.Cloud.Iap.V1.OAuthSettings, json_name: "oauthSettings"
   field :reauth_settings, 6, type: Google.Cloud.Iap.V1.ReauthSettings, json_name: "reauthSettings"
+
+  field :allowed_domains_settings, 7,
+    type: Google.Cloud.Iap.V1.AllowedDomainsSettings,
+    json_name: "allowedDomainsSettings"
 end
 
 defmodule Google.Cloud.Iap.V1.GcipSettings do
@@ -163,6 +177,14 @@ defmodule Google.Cloud.Iap.V1.ReauthSettings do
     enum: true
 end
 
+defmodule Google.Cloud.Iap.V1.AllowedDomainsSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enable, 1, proto3_optional: true, type: :bool
+  field :domains, 2, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Iap.V1.ApplicationSettings do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -174,6 +196,10 @@ defmodule Google.Cloud.Iap.V1.ApplicationSettings do
     json_name: "accessDeniedPageSettings"
 
   field :cookie_domain, 3, type: Google.Protobuf.StringValue, json_name: "cookieDomain"
+
+  field :attribute_propagation_settings, 4,
+    type: Google.Cloud.Iap.V1.AttributePropagationSettings,
+    json_name: "attributePropagationSettings"
 end
 
 defmodule Google.Cloud.Iap.V1.CsmSettings do
@@ -194,6 +220,26 @@ defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
   field :generate_troubleshooting_uri, 2,
     type: Google.Protobuf.BoolValue,
     json_name: "generateTroubleshootingUri"
+
+  field :remediation_token_generation_enabled, 3,
+    proto3_optional: true,
+    type: Google.Protobuf.BoolValue,
+    json_name: "remediationTokenGenerationEnabled"
+end
+
+defmodule Google.Cloud.Iap.V1.AttributePropagationSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :expression, 1, proto3_optional: true, type: :string
+
+  field :output_credentials, 2,
+    repeated: true,
+    type: Google.Cloud.Iap.V1.AttributePropagationSettings.OutputCredentials,
+    json_name: "outputCredentials",
+    enum: true
+
+  field :enable, 3, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsRequest do

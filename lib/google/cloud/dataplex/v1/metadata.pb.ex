@@ -337,6 +337,13 @@ defmodule Google.Cloud.Dataplex.V1.StorageFormat.JsonOptions do
   field :encoding, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.StorageFormat.IcebergOptions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :metadata_location, 1, type: :string, json_name: "metadataLocation", deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.StorageFormat do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -363,6 +370,11 @@ defmodule Google.Cloud.Dataplex.V1.StorageFormat do
 
   field :json, 11,
     type: Google.Cloud.Dataplex.V1.StorageFormat.JsonOptions,
+    oneof: 0,
+    deprecated: false
+
+  field :iceberg, 12,
+    type: Google.Cloud.Dataplex.V1.StorageFormat.IcebergOptions,
     oneof: 0,
     deprecated: false
 end
