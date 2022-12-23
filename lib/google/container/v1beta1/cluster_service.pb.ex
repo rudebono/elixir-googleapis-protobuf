@@ -53,6 +53,15 @@ defmodule Google.Container.V1beta1.LinuxNodeConfig.CgroupMode do
   field :CGROUP_MODE_V2, 2
 end
 
+defmodule Google.Container.V1beta1.WindowsNodeConfig.OSVersion do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :OS_VERSION_UNSPECIFIED, 0
+  field :OS_VERSION_LTSC2019, 1
+  field :OS_VERSION_LTSC2022, 2
+end
+
 defmodule Google.Container.V1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -463,6 +472,16 @@ defmodule Google.Container.V1beta1.LinuxNodeConfig do
     enum: true
 end
 
+defmodule Google.Container.V1beta1.WindowsNodeConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :os_version, 1,
+    type: Google.Container.V1beta1.WindowsNodeConfig.OSVersion,
+    json_name: "osVersion",
+    enum: true
+end
+
 defmodule Google.Container.V1beta1.NodeKubeletConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -586,6 +605,18 @@ defmodule Google.Container.V1beta1.NodeConfig do
   field :logging_config, 38,
     type: Google.Container.V1beta1.NodePoolLoggingConfig,
     json_name: "loggingConfig"
+
+  field :windows_node_config, 39,
+    type: Google.Container.V1beta1.WindowsNodeConfig,
+    json_name: "windowsNodeConfig"
+
+  field :local_nvme_ssd_block_config, 40,
+    type: Google.Container.V1beta1.LocalNvmeSsdBlockConfig,
+    json_name: "localNvmeSsdBlockConfig"
+
+  field :ephemeral_storage_local_ssd_config, 41,
+    type: Google.Container.V1beta1.EphemeralStorageLocalSsdConfig,
+    json_name: "ephemeralStorageLocalSsdConfig"
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -648,6 +679,20 @@ defmodule Google.Container.V1beta1.SandboxConfig do
 end
 
 defmodule Google.Container.V1beta1.EphemeralStorageConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :local_ssd_count, 1, type: :int32, json_name: "localSsdCount"
+end
+
+defmodule Google.Container.V1beta1.LocalNvmeSsdBlockConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :local_ssd_count, 1, type: :int32, json_name: "localSsdCount"
+end
+
+defmodule Google.Container.V1beta1.EphemeralStorageLocalSsdConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -1629,6 +1674,10 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
   field :resource_labels, 33,
     type: Google.Container.V1beta1.ResourceLabels,
     json_name: "resourceLabels"
+
+  field :windows_node_config, 34,
+    type: Google.Container.V1beta1.WindowsNodeConfig,
+    json_name: "windowsNodeConfig"
 end
 
 defmodule Google.Container.V1beta1.SetNodePoolAutoscalingRequest do
