@@ -84,12 +84,22 @@ defmodule Google.Api.Expr.Conformance.V1alpha1.EvalResponse do
   field :issues, 2, repeated: true, type: Google.Rpc.Status
 end
 
+defmodule Google.Api.Expr.Conformance.V1alpha1.SourcePosition do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :location, 1, type: :string
+  field :offset, 2, type: :int32
+  field :line, 3, type: :int32
+  field :column, 4, type: :int32
+end
+
 defmodule Google.Api.Expr.Conformance.V1alpha1.IssueDetails do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :severity, 1, type: Google.Api.Expr.Conformance.V1alpha1.IssueDetails.Severity, enum: true
-  field :position, 2, type: Google.Api.Expr.V1alpha1.SourcePosition
+  field :position, 2, type: Google.Api.Expr.Conformance.V1alpha1.SourcePosition
   field :id, 3, type: :int64
 end
 

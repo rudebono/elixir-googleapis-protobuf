@@ -1086,6 +1086,8 @@ defmodule Google.Container.V1.Cluster do
   field :node_pool_auto_config, 136,
     type: Google.Container.V1.NodePoolAutoConfig,
     json_name: "nodePoolAutoConfig"
+
+  field :etag, 139, type: :string
 end
 
 defmodule Google.Container.V1.NodePoolAutoConfig do
@@ -1254,6 +1256,8 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.GatewayAPIConfig,
     json_name: "desiredGatewayApiConfig"
 
+  field :etag, 115, type: :string
+
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
@@ -1398,6 +1402,7 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
     json_name: "confidentialNodes"
 
   field :gvnic, 29, type: Google.Container.V1.VirtualNIC
+  field :etag, 30, type: :string
   field :fast_socket, 31, type: Google.Container.V1.FastSocket, json_name: "fastSocket"
 
   field :logging_config, 32,
@@ -1770,6 +1775,8 @@ defmodule Google.Container.V1.NodePool do
     type: Google.Container.V1.NodePool.UpdateInfo,
     json_name: "updateInfo",
     deprecated: false
+
+  field :etag, 110, type: :string
 end
 
 defmodule Google.Container.V1.NodeManagement do
