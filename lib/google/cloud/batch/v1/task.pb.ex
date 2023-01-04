@@ -166,7 +166,23 @@ defmodule Google.Cloud.Batch.V1.Task do
   field :status, 2, type: Google.Cloud.Batch.V1.TaskStatus
 end
 
+defmodule Google.Cloud.Batch.V1.Environment.KMSEnvMap do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key_name, 1, type: :string, json_name: "keyName"
+  field :cipher_text, 2, type: :string, json_name: "cipherText"
+end
+
 defmodule Google.Cloud.Batch.V1.Environment.VariablesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Batch.V1.Environment.SecretVariablesEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -182,4 +198,14 @@ defmodule Google.Cloud.Batch.V1.Environment do
     repeated: true,
     type: Google.Cloud.Batch.V1.Environment.VariablesEntry,
     map: true
+
+  field :secret_variables, 2,
+    repeated: true,
+    type: Google.Cloud.Batch.V1.Environment.SecretVariablesEntry,
+    json_name: "secretVariables",
+    map: true
+
+  field :encrypted_variables, 3,
+    type: Google.Cloud.Batch.V1.Environment.KMSEnvMap,
+    json_name: "encryptedVariables"
 end
