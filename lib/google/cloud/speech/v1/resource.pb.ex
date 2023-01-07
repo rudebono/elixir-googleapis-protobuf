@@ -31,6 +31,13 @@ defmodule Google.Cloud.Speech.V1.PhraseSet do
   field :boost, 4, type: :float
 end
 
+defmodule Google.Cloud.Speech.V1.SpeechAdaptation.ABNFGrammar do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :abnf_strings, 1, repeated: true, type: :string, json_name: "abnfStrings"
+end
+
 defmodule Google.Cloud.Speech.V1.SpeechAdaptation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -50,4 +57,8 @@ defmodule Google.Cloud.Speech.V1.SpeechAdaptation do
     repeated: true,
     type: Google.Cloud.Speech.V1.CustomClass,
     json_name: "customClasses"
+
+  field :abnf_grammar, 4,
+    type: Google.Cloud.Speech.V1.SpeechAdaptation.ABNFGrammar,
+    json_name: "abnfGrammar"
 end
