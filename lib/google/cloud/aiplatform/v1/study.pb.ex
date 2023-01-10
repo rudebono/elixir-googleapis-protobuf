@@ -300,6 +300,11 @@ defmodule Google.Cloud.Aiplatform.V1.StudySpec.ConvexAutomatedStoppingSpec do
   field :min_measurement_count, 3, type: :int64, json_name: "minMeasurementCount"
   field :learning_rate_parameter_name, 4, type: :string, json_name: "learningRateParameterName"
   field :use_elapsed_duration, 5, type: :bool, json_name: "useElapsedDuration"
+
+  field :update_all_stopped_trials, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "updateAllStoppedTrials"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec do

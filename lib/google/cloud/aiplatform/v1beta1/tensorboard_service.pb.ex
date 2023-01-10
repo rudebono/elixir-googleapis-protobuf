@@ -13,6 +13,52 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :tensorboard, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.PerUserUsageData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :username, 1, type: :string
+  field :view_count, 2, type: :int64, json_name: "viewCount"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.PerMonthUsageData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :user_usage_data, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.PerUserUsageData,
+    json_name: "userUsageData"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.MonthlyUsageDataEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :value, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.PerMonthUsageData
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :monthly_usage_data, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse.MonthlyUsageDataEntry,
+    json_name: "monthlyUsageData",
+    map: true
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -454,6 +500,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   rpc :GetTensorboard,
       Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest,
       Google.Cloud.Aiplatform.V1beta1.Tensorboard
+
+  rpc :ReadTensorboardUsage,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageRequest,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse
 
   rpc :UpdateTensorboard,
       Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest,

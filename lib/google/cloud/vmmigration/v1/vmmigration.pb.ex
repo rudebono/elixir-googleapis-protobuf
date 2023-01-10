@@ -44,6 +44,17 @@ defmodule Google.Cloud.Vmmigration.V1.ComputeEngineBootOption do
   field :COMPUTE_ENGINE_BOOT_OPTION_BIOS, 2
 end
 
+defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :PAUSED, 2
+  field :FAILED, 3
+  field :SUCCEEDED, 4
+end
+
 defmodule Google.Cloud.Vmmigration.V1.MigratingVm.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -90,6 +101,16 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob.State do
   field :ADAPTING_OS, 7
 end
 
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceDetails.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :FAILED, 2
+  field :ACTIVE, 3
+end
+
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -128,6 +149,46 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails.BootOption do
   field :BOOT_OPTION_UNSPECIFIED, 0
   field :EFI, 1
   field :BIOS, 2
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails.PowerState do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :POWER_STATE_UNSPECIFIED, 0
+  field :ON, 1
+  field :OFF, 2
+  field :SUSPENDED, 3
+  field :PENDING, 4
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails.BootOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :BOOT_OPTION_UNSPECIFIED, 0
+  field :EFI, 1
+  field :BIOS, 2
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails.VmVirtualizationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :VM_VIRTUALIZATION_TYPE_UNSPECIFIED, 0
+  field :HVM, 1
+  field :PARAVIRTUAL, 2
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails.VmArchitecture do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :VM_ARCHITECTURE_UNSPECIFIED, 0
+  field :I386, 1
+  field :X86_64, 2
+  field :ARM64, 3
+  field :X86_64_MAC, 4
 end
 
 defmodule Google.Cloud.Vmmigration.V1.UtilizationReport.State do
@@ -203,12 +264,76 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError.ErrorCode do
   field :APPLIANCE_UPGRADE_ERROR, 9
 end
 
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceVmDetails.Firmware do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :FIRMWARE_UNSPECIFIED, 0
+  field :EFI, 1
+  field :BIOS, 2
+end
+
 defmodule Google.Cloud.Vmmigration.V1.ReplicationCycle do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  field :name, 13, type: :string
+  field :cycle_number, 10, type: :int32, json_name: "cycleNumber"
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :progress_percent, 5, type: :int32, json_name: "progressPercent"
+  field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :total_pause_duration, 7, type: Google.Protobuf.Duration, json_name: "totalPauseDuration"
+  field :progress_percent, 5, type: :int32, json_name: "progressPercent", deprecated: true
+  field :steps, 9, repeated: true, type: Google.Cloud.Vmmigration.V1.CycleStep
+  field :state, 11, type: Google.Cloud.Vmmigration.V1.ReplicationCycle.State, enum: true
+  field :error, 12, type: Google.Rpc.Status
+end
+
+defmodule Google.Cloud.Vmmigration.V1.CycleStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :step, 0
+
+  field :initializing_replication, 3,
+    type: Google.Cloud.Vmmigration.V1.InitializingReplicationStep,
+    json_name: "initializingReplication",
+    oneof: 0
+
+  field :replicating, 4, type: Google.Cloud.Vmmigration.V1.ReplicatingStep, oneof: 0
+
+  field :post_processing, 5,
+    type: Google.Cloud.Vmmigration.V1.PostProcessingStep,
+    json_name: "postProcessing",
+    oneof: 0
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Vmmigration.V1.InitializingReplicationStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Vmmigration.V1.ReplicatingStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :total_bytes, 1, type: :int64, json_name: "totalBytes"
+  field :replicated_bytes, 2, type: :int64, json_name: "replicatedBytes"
+
+  field :last_two_minutes_average_bytes_per_second, 3,
+    type: :int64,
+    json_name: "lastTwoMinutesAverageBytesPerSecond"
+
+  field :last_thirty_minutes_average_bytes_per_second, 4,
+    type: :int64,
+    json_name: "lastThirtyMinutesAverageBytesPerSecond"
+end
+
+defmodule Google.Cloud.Vmmigration.V1.PostProcessingStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Vmmigration.V1.ReplicationSync do
@@ -232,10 +357,18 @@ defmodule Google.Cloud.Vmmigration.V1.MigratingVm do
 
   oneof :target_vm_defaults, 0
 
+  oneof :source_vm_details, 1
+
   field :compute_engine_target_defaults, 26,
     type: Google.Cloud.Vmmigration.V1.ComputeEngineTargetDefaults,
     json_name: "computeEngineTargetDefaults",
     oneof: 0
+
+  field :aws_source_vm_details, 29,
+    type: Google.Cloud.Vmmigration.V1.AwsSourceVmDetails,
+    json_name: "awsSourceVmDetails",
+    oneof: 1,
+    deprecated: false
 
   field :name, 1, type: :string, deprecated: false
   field :source_vm_id, 2, type: :string, json_name: "sourceVmId"
@@ -326,6 +459,47 @@ defmodule Google.Cloud.Vmmigration.V1.CloneJob do
     deprecated: false
 
   field :error, 17, type: Google.Rpc.Status, deprecated: false
+  field :steps, 23, repeated: true, type: Google.Cloud.Vmmigration.V1.CloneStep, deprecated: false
+end
+
+defmodule Google.Cloud.Vmmigration.V1.CloneStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :step, 0
+
+  field :adapting_os, 3,
+    type: Google.Cloud.Vmmigration.V1.AdaptingOSStep,
+    json_name: "adaptingOs",
+    oneof: 0
+
+  field :preparing_vm_disks, 4,
+    type: Google.Cloud.Vmmigration.V1.PreparingVMDisksStep,
+    json_name: "preparingVmDisks",
+    oneof: 0
+
+  field :instantiating_migrated_vm, 5,
+    type: Google.Cloud.Vmmigration.V1.InstantiatingMigratedVMStep,
+    json_name: "instantiatingMigratedVm",
+    oneof: 0
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AdaptingOSStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Vmmigration.V1.PreparingVMDisksStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Vmmigration.V1.InstantiatingMigratedVMStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
@@ -357,6 +531,51 @@ defmodule Google.Cloud.Vmmigration.V1.CutoverJob do
   field :progress_percent, 13, type: :int32, json_name: "progressPercent", deprecated: false
   field :error, 9, type: Google.Rpc.Status, deprecated: false
   field :state_message, 10, type: :string, json_name: "stateMessage", deprecated: false
+
+  field :steps, 17,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.CutoverStep,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Vmmigration.V1.CutoverStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :step, 0
+
+  field :previous_replication_cycle, 3,
+    type: Google.Cloud.Vmmigration.V1.ReplicationCycle,
+    json_name: "previousReplicationCycle",
+    oneof: 0
+
+  field :shutting_down_source_vm, 4,
+    type: Google.Cloud.Vmmigration.V1.ShuttingDownSourceVMStep,
+    json_name: "shuttingDownSourceVm",
+    oneof: 0
+
+  field :final_sync, 5,
+    type: Google.Cloud.Vmmigration.V1.ReplicationCycle,
+    json_name: "finalSync",
+    oneof: 0
+
+  field :preparing_vm_disks, 6,
+    type: Google.Cloud.Vmmigration.V1.PreparingVMDisksStep,
+    json_name: "preparingVmDisks",
+    oneof: 0
+
+  field :instantiating_migrated_vm, 7,
+    type: Google.Cloud.Vmmigration.V1.InstantiatingMigratedVMStep,
+    json_name: "instantiatingMigratedVm",
+    oneof: 0
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Vmmigration.V1.ShuttingDownSourceVMStep do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Vmmigration.V1.CreateCloneJobRequest do
@@ -433,6 +652,7 @@ defmodule Google.Cloud.Vmmigration.V1.Source do
   oneof :source_details, 0
 
   field :vmware, 10, type: Google.Cloud.Vmmigration.V1.VmwareSourceDetails, oneof: 0
+  field :aws, 12, type: Google.Cloud.Vmmigration.V1.AwsSourceDetails, oneof: 0
   field :name, 1, type: :string, deprecated: false
 
   field :create_time, 2,
@@ -461,6 +681,69 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareSourceDetails do
   field :password, 2, type: :string, deprecated: false
   field :vcenter_ip, 3, type: :string, json_name: "vcenterIp"
   field :thumbprint, 4, type: :string
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceDetails.AccessKeyCredentials do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_key_id, 1, type: :string, json_name: "accessKeyId"
+  field :secret_access_key, 2, type: :string, json_name: "secretAccessKey", deprecated: false
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceDetails.Tag do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceDetails.MigrationResourcesUserTagsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :credentials_type, 0
+
+  field :access_key_creds, 11,
+    type: Google.Cloud.Vmmigration.V1.AwsSourceDetails.AccessKeyCredentials,
+    json_name: "accessKeyCreds",
+    oneof: 0
+
+  field :aws_region, 3, type: :string, json_name: "awsRegion", deprecated: false
+
+  field :state, 4,
+    type: Google.Cloud.Vmmigration.V1.AwsSourceDetails.State,
+    enum: true,
+    deprecated: false
+
+  field :error, 5, type: Google.Rpc.Status, deprecated: false
+
+  field :inventory_tag_list, 10,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.AwsSourceDetails.Tag,
+    json_name: "inventoryTagList"
+
+  field :inventory_security_group_names, 7,
+    repeated: true,
+    type: :string,
+    json_name: "inventorySecurityGroupNames"
+
+  field :migration_resources_user_tags, 8,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.AwsSourceDetails.MigrationResourcesUserTagsEntry,
+    json_name: "migrationResourcesUserTags",
+    map: true
+
+  field :public_ip, 9, type: :string, json_name: "publicIp", deprecated: false
 end
 
 defmodule Google.Cloud.Vmmigration.V1.DatacenterConnector do
@@ -636,11 +919,85 @@ defmodule Google.Cloud.Vmmigration.V1.VmwareVmDetails do
     deprecated: false
 end
 
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails.TagsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :vm_id, 1, type: :string, json_name: "vmId"
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :source_id, 3, type: :string, json_name: "sourceId"
+  field :source_description, 4, type: :string, json_name: "sourceDescription"
+
+  field :power_state, 5,
+    type: Google.Cloud.Vmmigration.V1.AwsVmDetails.PowerState,
+    json_name: "powerState",
+    enum: true,
+    deprecated: false
+
+  field :cpu_count, 6, type: :int32, json_name: "cpuCount"
+  field :memory_mb, 7, type: :int32, json_name: "memoryMb"
+  field :disk_count, 8, type: :int32, json_name: "diskCount"
+  field :committed_storage_mb, 9, type: :int64, json_name: "committedStorageMb"
+  field :os_description, 10, type: :string, json_name: "osDescription"
+
+  field :boot_option, 11,
+    type: Google.Cloud.Vmmigration.V1.AwsVmDetails.BootOption,
+    json_name: "bootOption",
+    enum: true
+
+  field :instance_type, 12, type: :string, json_name: "instanceType"
+  field :vpc_id, 13, type: :string, json_name: "vpcId"
+
+  field :security_groups, 14,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.AwsSecurityGroup,
+    json_name: "securityGroups"
+
+  field :tags, 15,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.AwsVmDetails.TagsEntry,
+    map: true
+
+  field :zone, 16, type: :string
+
+  field :virtualization_type, 17,
+    type: Google.Cloud.Vmmigration.V1.AwsVmDetails.VmVirtualizationType,
+    json_name: "virtualizationType",
+    enum: true
+
+  field :architecture, 18,
+    type: Google.Cloud.Vmmigration.V1.AwsVmDetails.VmArchitecture,
+    enum: true
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsSecurityGroup do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :id, 1, type: :string
+  field :name, 2, type: :string
+end
+
 defmodule Google.Cloud.Vmmigration.V1.VmwareVmsDetails do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :details, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.VmwareVmDetails
+end
+
+defmodule Google.Cloud.Vmmigration.V1.AwsVmsDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :details, 1, repeated: true, type: Google.Cloud.Vmmigration.V1.AwsVmDetails
 end
 
 defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
@@ -652,6 +1009,11 @@ defmodule Google.Cloud.Vmmigration.V1.FetchInventoryResponse do
   field :vmware_vms, 1,
     type: Google.Cloud.Vmmigration.V1.VmwareVmsDetails,
     json_name: "vmwareVms",
+    oneof: 0
+
+  field :aws_vms, 3,
+    type: Google.Cloud.Vmmigration.V1.AwsVmsDetails,
+    json_name: "awsVms",
     oneof: 0
 
   field :update_time, 2,
@@ -1496,6 +1858,46 @@ defmodule Google.Cloud.Vmmigration.V1.MigrationError do
   field :error_time, 5, type: Google.Protobuf.Timestamp, json_name: "errorTime", deprecated: false
 end
 
+defmodule Google.Cloud.Vmmigration.V1.AwsSourceVmDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :firmware, 1, type: Google.Cloud.Vmmigration.V1.AwsSourceVmDetails.Firmware, enum: true
+  field :committed_storage_bytes, 2, type: :int64, json_name: "committedStorageBytes"
+end
+
+defmodule Google.Cloud.Vmmigration.V1.ListReplicationCyclesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Vmmigration.V1.ListReplicationCyclesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :replication_cycles, 1,
+    repeated: true,
+    type: Google.Cloud.Vmmigration.V1.ReplicationCycle,
+    json_name: "replicationCycles",
+    deprecated: false
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Vmmigration.V1.GetReplicationCycleRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Vmmigration.V1.VmMigration.Service do
   @moduledoc false
   use GRPC.Service,
@@ -1661,6 +2063,14 @@ defmodule Google.Cloud.Vmmigration.V1.VmMigration.Service do
   rpc :DeleteTargetProject,
       Google.Cloud.Vmmigration.V1.DeleteTargetProjectRequest,
       Google.Longrunning.Operation
+
+  rpc :ListReplicationCycles,
+      Google.Cloud.Vmmigration.V1.ListReplicationCyclesRequest,
+      Google.Cloud.Vmmigration.V1.ListReplicationCyclesResponse
+
+  rpc :GetReplicationCycle,
+      Google.Cloud.Vmmigration.V1.GetReplicationCycleRequest,
+      Google.Cloud.Vmmigration.V1.ReplicationCycle
 end
 
 defmodule Google.Cloud.Vmmigration.V1.VmMigration.Stub do

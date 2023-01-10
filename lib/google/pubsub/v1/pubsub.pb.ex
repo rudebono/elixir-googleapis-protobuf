@@ -34,6 +34,8 @@ defmodule Google.Pubsub.V1.SchemaSettings do
 
   field :schema, 1, type: :string, deprecated: false
   field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true
+  field :first_revision_id, 3, type: :string, json_name: "firstRevisionId"
+  field :last_revision_id, 4, type: :string, json_name: "lastRevisionId"
 end
 
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
