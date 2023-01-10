@@ -32,6 +32,12 @@ defmodule Google.Pubsub.V1.Schema do
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Pubsub.V1.Schema.Type, enum: true
   field :definition, 3, type: :string
+  field :revision_id, 4, type: :string, json_name: "revisionId", deprecated: false
+
+  field :revision_create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "revisionCreateTime",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CreateSchemaRequest do
@@ -67,6 +73,48 @@ defmodule Google.Pubsub.V1.ListSchemasResponse do
 
   field :schemas, 1, repeated: true, type: Google.Pubsub.V1.Schema
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Pubsub.V1.ListSchemaRevisionsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Pubsub.V1.SchemaView, enum: true
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Pubsub.V1.ListSchemaRevisionsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :schemas, 1, repeated: true, type: Google.Pubsub.V1.Schema
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Pubsub.V1.CommitSchemaRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :schema, 2, type: Google.Pubsub.V1.Schema, deprecated: false
+end
+
+defmodule Google.Pubsub.V1.RollbackSchemaRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
+end
+
+defmodule Google.Pubsub.V1.DeleteSchemaRevisionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.DeleteSchemaRequest do
@@ -116,6 +164,16 @@ defmodule Google.Pubsub.V1.SchemaService.Service do
   rpc :GetSchema, Google.Pubsub.V1.GetSchemaRequest, Google.Pubsub.V1.Schema
 
   rpc :ListSchemas, Google.Pubsub.V1.ListSchemasRequest, Google.Pubsub.V1.ListSchemasResponse
+
+  rpc :ListSchemaRevisions,
+      Google.Pubsub.V1.ListSchemaRevisionsRequest,
+      Google.Pubsub.V1.ListSchemaRevisionsResponse
+
+  rpc :CommitSchema, Google.Pubsub.V1.CommitSchemaRequest, Google.Pubsub.V1.Schema
+
+  rpc :RollbackSchema, Google.Pubsub.V1.RollbackSchemaRequest, Google.Pubsub.V1.Schema
+
+  rpc :DeleteSchemaRevision, Google.Pubsub.V1.DeleteSchemaRevisionRequest, Google.Pubsub.V1.Schema
 
   rpc :DeleteSchema, Google.Pubsub.V1.DeleteSchemaRequest, Google.Protobuf.Empty
 

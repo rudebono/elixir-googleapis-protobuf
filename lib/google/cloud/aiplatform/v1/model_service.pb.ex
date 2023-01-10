@@ -62,6 +62,7 @@ defmodule Google.Cloud.Aiplatform.V1.ListModelVersionsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
   field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :order_by, 6, type: :string, json_name: "orderBy"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListModelVersionsResponse do

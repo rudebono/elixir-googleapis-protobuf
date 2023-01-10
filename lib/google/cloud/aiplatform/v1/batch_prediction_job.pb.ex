@@ -17,6 +17,16 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob.InputConfig do
   field :instances_format, 1, type: :string, json_name: "instancesFormat", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob.InstanceConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_type, 1, type: :string, json_name: "instanceType"
+  field :key_field, 2, type: :string, json_name: "keyField"
+  field :included_fields, 3, repeated: true, type: :string, json_name: "includedFields"
+  field :excluded_fields, 4, repeated: true, type: :string, json_name: "excludedFields"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob.OutputConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -85,6 +95,10 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
     type: Google.Cloud.Aiplatform.V1.BatchPredictionJob.InputConfig,
     json_name: "inputConfig",
     deprecated: false
+
+  field :instance_config, 27,
+    type: Google.Cloud.Aiplatform.V1.BatchPredictionJob.InstanceConfig,
+    json_name: "instanceConfig"
 
   field :model_parameters, 5, type: Google.Protobuf.Value, json_name: "modelParameters"
 

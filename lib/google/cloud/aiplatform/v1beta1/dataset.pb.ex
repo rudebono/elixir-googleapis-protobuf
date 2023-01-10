@@ -33,6 +33,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
     type: Google.Cloud.Aiplatform.V1beta1.Dataset.LabelsEntry,
     map: true
 
+  field :saved_queries, 9,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SavedQuery,
+    json_name: "savedQueries"
+
   field :encryption_spec, 11,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"

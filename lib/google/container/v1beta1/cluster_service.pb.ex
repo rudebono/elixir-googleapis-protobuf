@@ -1298,6 +1298,8 @@ defmodule Google.Container.V1beta1.Cluster do
     proto3_optional: true,
     type: Google.Container.V1beta1.ProtectConfig,
     json_name: "protectConfig"
+
+  field :etag, 139, type: :string
 end
 
 defmodule Google.Container.V1beta1.WorkloadConfig do
@@ -1520,6 +1522,8 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
     type: Google.Container.V1beta1.GatewayAPIConfig,
     json_name: "desiredGatewayApiConfig"
 
+  field :etag, 115, type: :string
+
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1beta1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
@@ -1665,6 +1669,7 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
     json_name: "confidentialNodes"
 
   field :gvnic, 29, type: Google.Container.V1beta1.VirtualNIC
+  field :etag, 30, type: :string
   field :fast_socket, 31, type: Google.Container.V1beta1.FastSocket, json_name: "fastSocket"
 
   field :logging_config, 32,
@@ -2090,6 +2095,8 @@ defmodule Google.Container.V1beta1.NodePool do
     type: Google.Container.V1beta1.NodePool.UpdateInfo,
     json_name: "updateInfo",
     deprecated: false
+
+  field :etag, 110, type: :string
 end
 
 defmodule Google.Container.V1beta1.NodeManagement do
