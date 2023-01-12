@@ -134,4 +134,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall,
     json_name: "telephonyTransferCall",
     oneof: 0
+
+  field :channel, 19, type: :string
 end

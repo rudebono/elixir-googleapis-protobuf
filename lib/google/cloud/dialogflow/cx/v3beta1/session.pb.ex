@@ -172,6 +172,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
     type: :string,
     json_name: "flowVersions",
     deprecated: false
+
+  field :channel, 15, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput do
