@@ -37,6 +37,34 @@ defmodule Google.Cloud.Asset.V1.AnalyzeMoveRequest.AnalysisView do
   field :BASIC, 2
 end
 
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.ConstraintDefault do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONSTRAINT_DEFAULT_UNSPECIFIED, 0
+  field :ALLOW, 1
+  field :DENY, 2
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.MethodType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :METHOD_TYPE_UNSPECIFIED, 0
+  field :CREATE, 1
+  field :UPDATE, 2
+  field :DELETE, 3
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.ActionType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ACTION_TYPE_UNSPECIFIED, 0
+  field :ALLOW, 1
+  field :DENY, 2
+end
+
 defmodule Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -826,6 +854,269 @@ defmodule Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse do
     json_name: "policyResults"
 end
 
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicy.Rule.StringValues do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
+  field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicy.Rule do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :values, 3, type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy.Rule.StringValues, oneof: 0
+  field :allow_all, 4, type: :bool, json_name: "allowAll", oneof: 0
+  field :deny_all, 5, type: :bool, json_name: "denyAll", oneof: 0
+  field :enforce, 6, type: :bool, oneof: 0
+  field :condition, 7, type: Google.Type.Expr
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :attached_resource, 1, type: :string, json_name: "attachedResource"
+  field :applied_resource, 5, type: :string, json_name: "appliedResource"
+  field :rules, 2, repeated: true, type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy.Rule
+  field :inherit_from_parent, 3, type: :bool, json_name: "inheritFromParent"
+  field :reset, 4, type: :bool
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.ListConstraint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :supports_in, 1, type: :bool, json_name: "supportsIn"
+  field :supports_under, 2, type: :bool, json_name: "supportsUnder"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.BooleanConstraint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :constraint_type, 0
+
+  field :name, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :description, 3, type: :string
+
+  field :constraint_default, 4,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.ConstraintDefault,
+    json_name: "constraintDefault",
+    enum: true
+
+  field :list_constraint, 5,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.ListConstraint,
+    json_name: "listConstraint",
+    oneof: 0
+
+  field :boolean_constraint, 6,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint.BooleanConstraint,
+    json_name: "booleanConstraint",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :resource_types, 2, repeated: true, type: :string, json_name: "resourceTypes"
+
+  field :method_types, 3,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.MethodType,
+    json_name: "methodTypes",
+    enum: true
+
+  field :condition, 4, type: :string
+
+  field :action_type, 5,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.ActionType,
+    json_name: "actionType",
+    enum: true
+
+  field :display_name, 6, type: :string, json_name: "displayName"
+  field :description, 7, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :constraint_definition, 0
+
+  field :google_defined_constraint, 1,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.Constraint,
+    json_name: "googleDefinedConstraint",
+    oneof: 0
+
+  field :custom_constraint, 2,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint,
+    json_name: "customConstraint",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPoliciesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scope, 1, type: :string, deprecated: false
+  field :constraint, 2, type: :string, deprecated: false
+  field :filter, 3, type: :string
+  field :page_size, 4, proto3_optional: true, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse.OrgPolicyResult do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :consolidated_policy, 1,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "consolidatedPolicy"
+
+  field :policy_bundle, 2,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "policyBundle"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :org_policy_results, 1,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse.OrgPolicyResult,
+    json_name: "orgPolicyResults"
+
+  field :constraint, 2, type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scope, 1, type: :string, deprecated: false
+  field :constraint, 2, type: :string, deprecated: false
+  field :filter, 3, type: :string
+  field :page_size, 4, proto3_optional: true, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+  field :parent, 2, type: :string
+
+  field :consolidated_policy, 3,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "consolidatedPolicy"
+
+  field :policy_bundle, 4,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "policyBundle"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :governed_containers, 1,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse.GovernedContainer,
+    json_name: "governedContainers"
+
+  field :constraint, 2, type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scope, 1, type: :string, deprecated: false
+  field :constraint, 2, type: :string, deprecated: false
+  field :filter, 3, type: :string
+  field :page_size, 4, proto3_optional: true, type: :int32, json_name: "pageSize"
+  field :page_token, 5, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
+  field :parent, 2, type: :string
+  field :project, 5, type: :string
+  field :folders, 6, repeated: true, type: :string
+  field :organization, 7, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :attached_resource, 1, type: :string, json_name: "attachedResource"
+  field :policy, 2, type: Google.Iam.V1.Policy
+  field :project, 5, type: :string
+  field :folders, 6, repeated: true, type: :string
+  field :organization, 7, type: :string
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :governed_asset, 0
+
+  field :governed_resource, 1,
+    type: Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedResource,
+    json_name: "governedResource",
+    oneof: 0
+
+  field :governed_iam_policy, 2,
+    type: Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy,
+    json_name: "governedIamPolicy",
+    oneof: 0
+
+  field :consolidated_policy, 3,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "consolidatedPolicy"
+
+  field :policy_bundle, 4,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
+    json_name: "policyBundle"
+end
+
+defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :governed_assets, 1,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset,
+    json_name: "governedAssets"
+
+  field :constraint, 2, type: Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Asset.V1.AssetService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -895,6 +1186,18 @@ defmodule Google.Cloud.Asset.V1.AssetService.Service do
   rpc :BatchGetEffectiveIamPolicies,
       Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesRequest,
       Google.Cloud.Asset.V1.BatchGetEffectiveIamPoliciesResponse
+
+  rpc :AnalyzeOrgPolicies,
+      Google.Cloud.Asset.V1.AnalyzeOrgPoliciesRequest,
+      Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse
+
+  rpc :AnalyzeOrgPolicyGovernedContainers,
+      Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersRequest,
+      Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse
+
+  rpc :AnalyzeOrgPolicyGovernedAssets,
+      Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsRequest,
+      Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse
 end
 
 defmodule Google.Cloud.Asset.V1.AssetService.Stub do
