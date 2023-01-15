@@ -33,6 +33,7 @@ defmodule Google.Datastore.V1.LookupResponse do
   field :found, 1, repeated: true, type: Google.Datastore.V1.EntityResult
   field :missing, 2, repeated: true, type: Google.Datastore.V1.EntityResult
   field :deferred, 3, repeated: true, type: Google.Datastore.V1.Key
+  field :transaction, 5, type: :bytes
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime"
 end
 
@@ -56,6 +57,7 @@ defmodule Google.Datastore.V1.RunQueryResponse do
 
   field :batch, 1, type: Google.Datastore.V1.QueryResultBatch
   field :query, 2, type: Google.Datastore.V1.Query
+  field :transaction, 5, type: :bytes
 end
 
 defmodule Google.Datastore.V1.RunAggregationQueryRequest do
@@ -83,6 +85,7 @@ defmodule Google.Datastore.V1.RunAggregationQueryResponse do
 
   field :batch, 1, type: Google.Datastore.V1.AggregationResultBatch
   field :query, 2, type: Google.Datastore.V1.AggregationQuery
+  field :transaction, 5, type: :bytes
 end
 
 defmodule Google.Datastore.V1.BeginTransactionRequest do
@@ -128,6 +131,12 @@ defmodule Google.Datastore.V1.CommitRequest do
   field :database_id, 9, type: :string, json_name: "databaseId"
   field :mode, 5, type: Google.Datastore.V1.CommitRequest.Mode, enum: true
   field :transaction, 1, type: :bytes, oneof: 0
+
+  field :single_use_transaction, 10,
+    type: Google.Datastore.V1.TransactionOptions,
+    json_name: "singleUseTransaction",
+    oneof: 0
+
   field :mutations, 6, repeated: true, type: Google.Datastore.V1.Mutation
 end
 
@@ -213,6 +222,12 @@ defmodule Google.Datastore.V1.ReadOptions do
     oneof: 0
 
   field :transaction, 2, type: :bytes, oneof: 0
+
+  field :new_transaction, 3,
+    type: Google.Datastore.V1.TransactionOptions,
+    json_name: "newTransaction",
+    oneof: 0
+
   field :read_time, 4, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
 end
 
