@@ -108,6 +108,11 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationModelEvaluation do
     json_name: "smartReplyMetrics",
     oneof: 0,
     deprecated: false
+
+  field :raw_human_eval_template_csv, 8,
+    type: :string,
+    json_name: "rawHumanEvalTemplateCsv",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.EvaluationConfig.SmartReplyConfig do
