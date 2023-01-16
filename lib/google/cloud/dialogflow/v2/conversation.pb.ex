@@ -113,6 +113,47 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
   field :phone_number, 3, type: :string, json_name: "phoneNumber", deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :conversation, 1, type: :string, deprecated: false
+  field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 4, type: :int32, json_name: "contextSize"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary.TextSectionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :text_sections, 4,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary.TextSectionsEntry,
+    json_name: "textSections",
+    map: true
+
+  field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :summary, 1, type: Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   @moduledoc false
   use GRPC.Service,
@@ -138,6 +179,10 @@ defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   rpc :ListMessages,
       Google.Cloud.Dialogflow.V2.ListMessagesRequest,
       Google.Cloud.Dialogflow.V2.ListMessagesResponse
+
+  rpc :SuggestConversationSummary,
+      Google.Cloud.Dialogflow.V2.SuggestConversationSummaryRequest,
+      Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Stub do
