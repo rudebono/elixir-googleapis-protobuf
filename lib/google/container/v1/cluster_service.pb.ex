@@ -918,6 +918,16 @@ defmodule Google.Container.V1.IPAllocationPolicy do
     type: Google.Container.V1.IPv6AccessType,
     json_name: "ipv6AccessType",
     enum: true
+
+  field :subnet_ipv6_cidr_block, 22,
+    type: :string,
+    json_name: "subnetIpv6CidrBlock",
+    deprecated: false
+
+  field :services_ipv6_cidr_block, 23,
+    type: :string,
+    json_name: "servicesIpv6CidrBlock",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.Cluster.ResourceLabelsEntry do

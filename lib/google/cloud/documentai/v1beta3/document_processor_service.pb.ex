@@ -249,6 +249,13 @@ defmodule Google.Cloud.Documentai.V1beta3.ListProcessorsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.GetProcessorTypeRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.GetProcessorRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -633,6 +640,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
   rpc :ListProcessorTypes,
       Google.Cloud.Documentai.V1beta3.ListProcessorTypesRequest,
       Google.Cloud.Documentai.V1beta3.ListProcessorTypesResponse
+
+  rpc :GetProcessorType,
+      Google.Cloud.Documentai.V1beta3.GetProcessorTypeRequest,
+      Google.Cloud.Documentai.V1beta3.ProcessorType
 
   rpc :ListProcessors,
       Google.Cloud.Documentai.V1beta3.ListProcessorsRequest,
