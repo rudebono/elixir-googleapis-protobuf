@@ -86,6 +86,11 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
 
   field :tensorboard, 7, type: :string, deprecated: false
   field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess", deprecated: false
+
+  field :enable_dashboard_access, 16,
+    type: :bool,
+    json_name: "enableDashboardAccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.WorkerPoolSpec do
