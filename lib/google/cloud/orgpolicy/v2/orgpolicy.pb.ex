@@ -5,6 +5,7 @@ defmodule Google.Cloud.Orgpolicy.V2.Policy do
   field :name, 1, type: :string, deprecated: false
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
   field :alternate, 3, type: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec, deprecated: true
+  field :dry_run_spec, 4, type: Google.Cloud.Orgpolicy.V2.PolicySpec, json_name: "dryRunSpec"
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
@@ -113,6 +114,7 @@ defmodule Google.Cloud.Orgpolicy.V2.UpdatePolicyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :policy, 1, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
