@@ -15,6 +15,24 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute do
   field :FUEL_EFFICIENT, 1
 end
 
+defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :EXTRA_COMPUTATION_UNSPECIFIED, 0
+  field :TOLLS, 1
+  field :FUEL_CONSUMPTION, 2
+  field :TRAFFIC_ON_POLYLINE, 3
+end
+
+defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :EXTRA_COMPUTATION_UNSPECIFIED, 0
+  field :TOLLS, 1
+end
+
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -75,6 +93,13 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
     json_name: "requestedReferenceRoutes",
     enum: true,
     deprecated: false
+
+  field :extra_computations, 15,
+    repeated: true,
+    type: Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation,
+    json_name: "extraComputations",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesResponse do
@@ -114,6 +139,13 @@ defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
   field :departure_time, 5,
     type: Google.Protobuf.Timestamp,
     json_name: "departureTime",
+    deprecated: false
+
+  field :extra_computations, 8,
+    repeated: true,
+    type: Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation,
+    json_name: "extraComputations",
+    enum: true,
     deprecated: false
 end
 

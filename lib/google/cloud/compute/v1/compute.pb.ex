@@ -741,6 +741,7 @@ defmodule Google.Cloud.Compute.V1.GuestOsFeature.Type do
   field :MULTI_IP_SUBNET, 151_776_719
   field :SECURE_BOOT, 376_811_194
   field :SEV_CAPABLE, 87_083_793
+  field :SEV_SNP_CAPABLE, 426_919
   field :UEFI_COMPATIBLE, 195_865_408
   field :VIRTIO_SCSI_MULTIQUEUE, 201_597_069
   field :WINDOWS, 456_863_331
@@ -4548,6 +4549,26 @@ defmodule Google.Cloud.Compute.V1.AliasIpRange do
     json_name: "subnetworkRangeName"
 end
 
+defmodule Google.Cloud.Compute.V1.AllocationResourceStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :specific_sku_allocation, 196_231_151,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation,
+    json_name: "specificSkuAllocation"
+end
+
+defmodule Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :source_instance_template_id, 111_196_154,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstanceTemplateId"
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -4600,6 +4621,11 @@ defmodule Google.Cloud.Compute.V1.AllocationSpecificSKUReservation do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.AllocationSpecificSKUAllocationReservedInstanceProperties,
     json_name: "instanceProperties"
+
+  field :source_instance_template, 332_423_616,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstanceTemplate"
 end
 
 defmodule Google.Cloud.Compute.V1.Allowed do
@@ -16481,6 +16507,12 @@ defmodule Google.Cloud.Compute.V1.NetworkInterface do
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :network, 232_872_494, proto3_optional: true, type: :string
+
+  field :network_attachment, 224_644_052,
+    proto3_optional: true,
+    type: :string,
+    json_name: "networkAttachment"
+
   field :network_i_p, 207_181_961, proto3_optional: true, type: :string, json_name: "networkIP"
   field :nic_type, 59_810_577, proto3_optional: true, type: :string, json_name: "nicType"
   field :queue_count, 503_708_769, proto3_optional: true, type: :int32, json_name: "queueCount"
@@ -19457,6 +19489,11 @@ defmodule Google.Cloud.Compute.V1.Reservation do
     type: Google.Cloud.Compute.V1.Reservation.ResourcePoliciesEntry,
     json_name: "resourcePolicies",
     map: true
+
+  field :resource_status, 249_429_315,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.AllocationResourceStatus,
+    json_name: "resourceStatus"
 
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
