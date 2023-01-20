@@ -15,6 +15,7 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig.Preemptibility do
   field :PREEMPTIBILITY_UNSPECIFIED, 0
   field :NON_PREEMPTIBLE, 1
   field :PREEMPTIBLE, 2
+  field :SPOT, 3
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeGroup.Role do
