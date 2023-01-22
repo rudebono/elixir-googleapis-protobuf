@@ -17,6 +17,15 @@ defmodule Google.Cloud.Run.V2.ExecutionEnvironment do
   field :EXECUTION_ENVIRONMENT_GEN2, 2
 end
 
+defmodule Google.Cloud.Run.V2.EncryptionKeyRevocationAction do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED, 0
+  field :PREVENT_NEW, 1
+  field :SHUTDOWN, 2
+end
+
 defmodule Google.Cloud.Run.V2.VpcAccess.VpcEgress do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3

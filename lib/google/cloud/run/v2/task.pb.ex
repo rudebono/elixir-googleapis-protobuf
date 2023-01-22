@@ -114,6 +114,7 @@ defmodule Google.Cloud.Run.V2.Task do
     json_name: "vpcAccess",
     deprecated: false
 
+  field :log_uri, 32, type: :string, json_name: "logUri", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 

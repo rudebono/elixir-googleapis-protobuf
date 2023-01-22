@@ -102,6 +102,16 @@ defmodule Google.Cloud.Run.V2.Revision do
     enum: true
 
   field :encryption_key, 21, type: :string, json_name: "encryptionKey", deprecated: false
+
+  field :encryption_key_revocation_action, 23,
+    type: Google.Cloud.Run.V2.EncryptionKeyRevocationAction,
+    json_name: "encryptionKeyRevocationAction",
+    enum: true
+
+  field :encryption_key_shutdown_duration, 24,
+    type: Google.Protobuf.Duration,
+    json_name: "encryptionKeyShutdownDuration"
+
   field :reconciling, 30, type: :bool, deprecated: false
   field :conditions, 31, repeated: true, type: Google.Cloud.Run.V2.Condition, deprecated: false
   field :observed_generation, 32, type: :int64, json_name: "observedGeneration", deprecated: false
