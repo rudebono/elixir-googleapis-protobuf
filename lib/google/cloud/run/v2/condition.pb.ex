@@ -56,6 +56,7 @@ defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
   field :ACTIVE_REVISION_LIMIT_REACHED, 9
   field :NO_DEPLOYMENT, 10
   field :HEALTH_CHECK_SKIPPED, 11
+  field :MIN_INSTANCES_WARMING, 12
 end
 
 defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do

@@ -58,6 +58,31 @@ defmodule Google.Protobuf.FieldOptions.JSType do
   field :JS_NUMBER, 2
 end
 
+defmodule Google.Protobuf.FieldOptions.OptionRetention do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
+
+  field :RETENTION_UNKNOWN, 0
+  field :RETENTION_RUNTIME, 1
+  field :RETENTION_SOURCE, 2
+end
+
+defmodule Google.Protobuf.FieldOptions.OptionTargetType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
+
+  field :TARGET_TYPE_UNKNOWN, 0
+  field :TARGET_TYPE_FILE, 1
+  field :TARGET_TYPE_EXTENSION_RANGE, 2
+  field :TARGET_TYPE_MESSAGE, 3
+  field :TARGET_TYPE_FIELD, 4
+  field :TARGET_TYPE_ONEOF, 5
+  field :TARGET_TYPE_ENUM, 6
+  field :TARGET_TYPE_ENUM_ENTRY, 7
+  field :TARGET_TYPE_SERVICE, 8
+  field :TARGET_TYPE_METHOD, 9
+end
+
 defmodule Google.Protobuf.MethodOptions.IdempotencyLevel do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
