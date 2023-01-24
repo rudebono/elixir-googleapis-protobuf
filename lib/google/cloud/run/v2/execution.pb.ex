@@ -103,6 +103,9 @@ defmodule Google.Cloud.Run.V2.Execution do
   field :running_count, 19, type: :int32, json_name: "runningCount", deprecated: false
   field :succeeded_count, 20, type: :int32, json_name: "succeededCount", deprecated: false
   field :failed_count, 21, type: :int32, json_name: "failedCount", deprecated: false
+  field :cancelled_count, 24, type: :int32, json_name: "cancelledCount", deprecated: false
+  field :retried_count, 25, type: :int32, json_name: "retriedCount", deprecated: false
+  field :log_uri, 26, type: :string, json_name: "logUri", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 
