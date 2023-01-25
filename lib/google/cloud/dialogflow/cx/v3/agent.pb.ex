@@ -4,6 +4,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ExportAgentRequest.DataFormat do
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
+  field :JSON_PACKAGE, 4
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest.RestoreOption do
