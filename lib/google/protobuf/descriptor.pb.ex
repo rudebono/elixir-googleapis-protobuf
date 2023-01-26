@@ -319,6 +319,17 @@ defmodule Google.Protobuf.FieldOptions do
   field :deprecated, 3, optional: true, type: :bool, default: false
   field :weak, 10, optional: true, type: :bool, default: false
   field :debug_redact, 16, optional: true, type: :bool, default: false
+
+  field :retention, 17,
+    optional: true,
+    type: Google.Protobuf.FieldOptions.OptionRetention,
+    enum: true
+
+  field :target, 18,
+    optional: true,
+    type: Google.Protobuf.FieldOptions.OptionTargetType,
+    enum: true
+
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, 536_870_912}]
