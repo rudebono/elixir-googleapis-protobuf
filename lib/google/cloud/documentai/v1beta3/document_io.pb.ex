@@ -82,4 +82,5 @@ defmodule Google.Cloud.Documentai.V1beta3.OcrConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable_native_pdf_parsing, 3, type: :bool, json_name: "enableNativePdfParsing"
+  field :advanced_ocr_options, 5, repeated: true, type: :string, json_name: "advancedOcrOptions"
 end
