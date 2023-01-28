@@ -7,6 +7,15 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionSubType do
   field :TRANSACTION_SUB_TYPE_REMITTER, 2
 end
 
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseResponse.Result do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RESULT_UNSPECIFIED, 0
+  field :SUCCESS, 1
+  field :FAILURE, 2
+end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment.AdjustmentFlag do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -304,14 +313,12 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseResponse do
   field :approval_number, 7, type: :string, json_name: "approvalNumber"
   field :process_status, 8, type: :string, json_name: "processStatus"
   field :adjustment_time, 9, type: Google.Protobuf.Timestamp, json_name: "adjustmentTime"
+  field :payer, 10, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant, oneof: 0
+  field :payee, 11, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant, oneof: 0
 
-  field :payer, 10,
-    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant,
-    oneof: 0
-
-  field :payee, 11,
-    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant,
-    oneof: 0
+  field :result, 12,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.CaseResponse.Result,
+    enum: true
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.RaiseComplaintAdjustment do

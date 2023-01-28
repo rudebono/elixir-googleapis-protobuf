@@ -142,9 +142,23 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :ifsc_code, 1, type: :string, json_name: "ifscCode"
+  field :ifsc, 1, type: :string
   field :account_type, 2, type: :string, json_name: "accountType"
   field :account_number, 3, type: :string, json_name: "accountNumber"
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant.SettlementDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :backend_settlement_id, 1,
+    type: :string,
+    json_name: "backendSettlementId",
+    deprecated: false
+
+  field :code, 2, type: :string, deprecated: false
+  field :reversal_code, 3, type: :string, json_name: "reversalCode", deprecated: false
+  field :settled_amount, 4, type: Google.Type.Money, json_name: "settledAmount", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant do
@@ -152,27 +166,53 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :participant, 1, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant
-  field :account, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference
 
-  field :merchant_info, 3,
+  field :merchant_info, 2,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantInfo,
     json_name: "merchantInfo"
 
-  field :mobile, 4, type: :string, deprecated: false
-  field :device_id, 5, type: :string, json_name: "deviceId", deprecated: false
+  field :mobile, 3, type: :string, deprecated: false
+
+  field :details, 4,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant.SettlementDetails,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.DeviceDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :payment_app, 1, type: :string, json_name: "paymentApp"
+  field :capability, 2, type: :string
+  field :geo_code, 3, type: Google.Type.LatLng, json_name: "geoCode"
+  field :id, 4, type: :string
+  field :ip_address, 5, type: :string, json_name: "ipAddress"
+  field :location, 6, type: :string
+  field :operating_system, 7, type: :string, json_name: "operatingSystem"
+  field :telecom_provider, 8, type: :string, json_name: "telecomProvider"
+  field :type, 9, type: :string
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :virtual_payment_address, 1, type: :string, json_name: "virtualPaymentAddress"
+  field :payment_address, 1, type: :string, json_name: "paymentAddress"
 
   field :persona, 2,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant.Persona,
     enum: true
 
   field :user, 3, type: :string
+
+  field :account, 4,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference,
+    deprecated: false
+
+  field :device_details, 5,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.DeviceDetails,
+    json_name: "deviceDetails",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantInfo do
