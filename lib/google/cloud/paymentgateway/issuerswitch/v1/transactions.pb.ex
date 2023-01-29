@@ -5,6 +5,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.State do
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :FAILED, 2
+  field :TIMED_OUT, 3
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionSubType do
@@ -17,6 +18,15 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :PAY, 3
   field :BENEFICIARY, 4
   field :REMITTER, 5
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule.PaymentRuleName do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :PAYMENT_RULE_NAME_UNSPECIFIED, 0
+  field :EXPIRE_AFTER, 1
+  field :MIN_AMOUNT, 2
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.RecurrencePatternType do
@@ -55,6 +65,75 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.AmountR
   field :MAX, 2
 end
 
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :reference_id, 3, type: :string, json_name: "referenceId", deprecated: false
+  field :reference_uri, 4, type: :string, json_name: "referenceUri", deprecated: false
+  field :description, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionErrorDetails do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :error_code, 1, type: :string, json_name: "errorCode", deprecated: false
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
+  field :upi_error_code, 3, type: :string, json_name: "upiErrorCode", deprecated: false
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata.ValuesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata.ValuesEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :request_ids, 1, type: :string, json_name: "requestIds", deprecated: false
+
+  field :response_metadata, 2,
+    type:
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata,
+    json_name: "responseMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionRiskInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :provider, 1, type: :string
+  field :type, 2, type: :string
+  field :value, 3, type: :string
+end
+
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -84,25 +163,23 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo do
     enum: true,
     deprecated: false
 
-  field :error_code, 6, type: :string, json_name: "errorCode", deprecated: false
-  field :error_message, 7, type: :string, json_name: "errorMessage", deprecated: false
+  field :metadata, 6,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionMetadata
 
-  field :create_time, 8,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
+  field :error_details, 7,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionErrorDetails,
+    json_name: "errorDetails",
     deprecated: false
 
-  field :update_time, 9,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
+  field :bank_adapter_info, 8,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo,
+    json_name: "bankAdapterInfo",
     deprecated: false
 
-  field :bank_adapter_request_ids, 10,
-    type: :string,
-    json_name: "bankAdapterRequestIds",
-    deprecated: false
-
-  field :upi_error_code, 11, type: :string, json_name: "upiErrorCode", deprecated: false
+  field :risk_info, 9,
+    repeated: true,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionRiskInfo,
+    json_name: "riskInfo"
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MetadataTransaction do
@@ -111,7 +188,23 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MetadataTransaction do
 
   field :name, 1, type: :string
   field :info, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo
-  field :origin_vpa, 3, type: :string, json_name: "originVpa", deprecated: false
+
+  field :initiator, 3,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :payment_rule, 1,
+    type:
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule.PaymentRuleName,
+    json_name: "paymentRule",
+    enum: true
+
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction do
@@ -135,6 +228,11 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction do
     deprecated: false
 
   field :amount, 6, type: Google.Type.Money, deprecated: false
+
+  field :payment_rules, 7,
+    repeated: true,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule,
+    json_name: "paymentRules"
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction do
@@ -188,11 +286,6 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction do
 
   field :approval_reference, 17, type: :string, json_name: "approvalReference", deprecated: false
   field :block_funds, 18, type: :bool, json_name: "blockFunds", deprecated: false
-
-  field :last_update_time, 19,
-    type: Google.Protobuf.Timestamp,
-    json_name: "lastUpdateTime",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ComplaintTransaction do

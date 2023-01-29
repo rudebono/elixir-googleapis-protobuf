@@ -4,7 +4,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.UpiTransaction do
 
   oneof :payload, 0
 
-  field :description, 1, type: :string
+  field :message, 1, type: :string
   field :severity, 2, type: Google.Logging.Type.LogSeverity, enum: true
 
   field :api_type, 3,
