@@ -4,6 +4,7 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionRequest do
 
   field :image_png, 1, type: :bytes, json_name: "imagePng", deprecated: false
   field :request, 2, type: Google.Chromeos.Uidetection.V1.DetectionRequest, deprecated: false
+  field :resize_image, 3, proto3_optional: true, type: :bool, json_name: "resizeImage"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
@@ -46,6 +47,7 @@ defmodule Google.Chromeos.Uidetection.V1.TextBlockDetectionRequest do
   field :regex_mode, 2, type: :bool, json_name: "regexMode"
   field :disable_approx_match, 3, type: :bool, json_name: "disableApproxMatch"
   field :max_edit_distance, 4, proto3_optional: true, type: :int32, json_name: "maxEditDistance"
+  field :specified_words_only, 5, type: :bool, json_name: "specifiedWordsOnly"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.CustomIconDetectionRequest do
