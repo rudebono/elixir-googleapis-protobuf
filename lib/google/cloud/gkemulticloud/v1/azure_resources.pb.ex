@@ -55,6 +55,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureCluster do
     type: Google.Cloud.Gkemulticloud.V1.AzureAuthorization,
     deprecated: false
 
+  field :azure_services_authentication, 22,
+    type: Google.Cloud.Gkemulticloud.V1.AzureServicesAuthentication,
+    json_name: "azureServicesAuthentication",
+    deprecated: false
+
   field :state, 7,
     type: Google.Cloud.Gkemulticloud.V1.AzureCluster.State,
     enum: true,
@@ -257,6 +262,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClient do
   field :name, 1, type: :string
   field :tenant_id, 2, type: :string, json_name: "tenantId", deprecated: false
   field :application_id, 3, type: :string, json_name: "applicationId", deprecated: false
+  field :reconciling, 9, type: :bool, deprecated: false
 
   field :annotations, 8,
     repeated: true,
@@ -271,6 +277,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClient do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureAuthorization do
@@ -282,6 +293,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureAuthorization do
     type: Google.Cloud.Gkemulticloud.V1.AzureClusterUser,
     json_name: "adminUsers",
     deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureServicesAuthentication do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :tenant_id, 1, type: :string, json_name: "tenantId", deprecated: false
+  field :application_id, 2, type: :string, json_name: "applicationId", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterUser do
