@@ -154,6 +154,10 @@ defmodule Google.Cloud.Batch.V1alpha.JobStatus.InstanceStatus do
     enum: true
 
   field :task_pack, 3, type: :int64, json_name: "taskPack"
+
+  field :boot_disk, 4,
+    type: Google.Cloud.Batch.V1alpha.AllocationPolicy.Disk,
+    json_name: "bootDisk"
 end
 
 defmodule Google.Cloud.Batch.V1alpha.JobStatus.TaskGroupStatus.CountsEntry do

@@ -17,6 +17,30 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
       Google.Devtools.Artifactregistry.V1.GetDockerImageRequest,
       Google.Devtools.Artifactregistry.V1.DockerImage
 
+  rpc :ListMavenArtifacts,
+      Google.Devtools.Artifactregistry.V1.ListMavenArtifactsRequest,
+      Google.Devtools.Artifactregistry.V1.ListMavenArtifactsResponse
+
+  rpc :GetMavenArtifact,
+      Google.Devtools.Artifactregistry.V1.GetMavenArtifactRequest,
+      Google.Devtools.Artifactregistry.V1.MavenArtifact
+
+  rpc :ListNpmPackages,
+      Google.Devtools.Artifactregistry.V1.ListNpmPackagesRequest,
+      Google.Devtools.Artifactregistry.V1.ListNpmPackagesResponse
+
+  rpc :GetNpmPackage,
+      Google.Devtools.Artifactregistry.V1.GetNpmPackageRequest,
+      Google.Devtools.Artifactregistry.V1.NpmPackage
+
+  rpc :ListPythonPackages,
+      Google.Devtools.Artifactregistry.V1.ListPythonPackagesRequest,
+      Google.Devtools.Artifactregistry.V1.ListPythonPackagesResponse
+
+  rpc :GetPythonPackage,
+      Google.Devtools.Artifactregistry.V1.GetPythonPackageRequest,
+      Google.Devtools.Artifactregistry.V1.PythonPackage
+
   rpc :ImportAptArtifacts,
       Google.Devtools.Artifactregistry.V1.ImportAptArtifactsRequest,
       Google.Longrunning.Operation
@@ -110,6 +134,14 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
   rpc :UpdateProjectSettings,
       Google.Devtools.Artifactregistry.V1.UpdateProjectSettingsRequest,
       Google.Devtools.Artifactregistry.V1.ProjectSettings
+
+  rpc :GetVPCSCConfig,
+      Google.Devtools.Artifactregistry.V1.GetVPCSCConfigRequest,
+      Google.Devtools.Artifactregistry.V1.VPCSCConfig
+
+  rpc :UpdateVPCSCConfig,
+      Google.Devtools.Artifactregistry.V1.UpdateVPCSCConfigRequest,
+      Google.Devtools.Artifactregistry.V1.VPCSCConfig
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Stub do

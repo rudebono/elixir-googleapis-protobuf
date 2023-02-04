@@ -167,6 +167,90 @@ defmodule Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CreateNasJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :nas_job, 2,
+    type: Google.Cloud.Aiplatform.V1.NasJob,
+    json_name: "nasJob",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GetNasJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListNasJobsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListNasJobsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :nas_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.NasJob,
+    json_name: "nasJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DeleteNasJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CancelNasJobRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GetNasTrialDetailRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListNasTrialDetailsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListNasTrialDetailsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :nas_trial_details, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.NasTrialDetail,
+    json_name: "nasTrialDetails"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -420,6 +504,28 @@ defmodule Google.Cloud.Aiplatform.V1.JobService.Service do
   rpc :CancelHyperparameterTuningJob,
       Google.Cloud.Aiplatform.V1.CancelHyperparameterTuningJobRequest,
       Google.Protobuf.Empty
+
+  rpc :CreateNasJob,
+      Google.Cloud.Aiplatform.V1.CreateNasJobRequest,
+      Google.Cloud.Aiplatform.V1.NasJob
+
+  rpc :GetNasJob, Google.Cloud.Aiplatform.V1.GetNasJobRequest, Google.Cloud.Aiplatform.V1.NasJob
+
+  rpc :ListNasJobs,
+      Google.Cloud.Aiplatform.V1.ListNasJobsRequest,
+      Google.Cloud.Aiplatform.V1.ListNasJobsResponse
+
+  rpc :DeleteNasJob, Google.Cloud.Aiplatform.V1.DeleteNasJobRequest, Google.Longrunning.Operation
+
+  rpc :CancelNasJob, Google.Cloud.Aiplatform.V1.CancelNasJobRequest, Google.Protobuf.Empty
+
+  rpc :GetNasTrialDetail,
+      Google.Cloud.Aiplatform.V1.GetNasTrialDetailRequest,
+      Google.Cloud.Aiplatform.V1.NasTrialDetail
+
+  rpc :ListNasTrialDetails,
+      Google.Cloud.Aiplatform.V1.ListNasTrialDetailsRequest,
+      Google.Cloud.Aiplatform.V1.ListNasTrialDetailsResponse
 
   rpc :CreateBatchPredictionJob,
       Google.Cloud.Aiplatform.V1.CreateBatchPredictionJobRequest,

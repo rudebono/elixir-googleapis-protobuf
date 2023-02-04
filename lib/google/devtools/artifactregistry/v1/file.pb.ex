@@ -22,16 +22,26 @@ defmodule Google.Devtools.Artifactregistry.V1.File do
   field :name, 1, type: :string
   field :size_bytes, 3, type: :int64, json_name: "sizeBytes"
   field :hashes, 4, repeated: true, type: Google.Devtools.Artifactregistry.V1.Hash
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :owner, 7, type: :string
+  field :fetch_time, 8, type: Google.Protobuf.Timestamp, json_name: "fetchTime", deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListFilesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
@@ -50,5 +60,5 @@ defmodule Google.Devtools.Artifactregistry.V1.GetFileRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
