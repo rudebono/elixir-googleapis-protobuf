@@ -108,6 +108,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpec,
     json_name: "explanationSpec"
 
+  field :disable_explanations, 19, type: :bool, json_name: "disableExplanations"
   field :service_account, 11, type: :string, json_name: "serviceAccount"
   field :enable_container_logging, 12, type: :bool, json_name: "enableContainerLogging"
   field :enable_access_logging, 13, type: :bool, json_name: "enableAccessLogging"

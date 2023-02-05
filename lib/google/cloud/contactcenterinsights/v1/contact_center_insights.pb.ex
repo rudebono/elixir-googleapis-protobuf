@@ -244,6 +244,28 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest do
     json_name: "conversationConfig"
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata.IngestConversationsStats do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :processed_object_count, 1,
+    type: :int32,
+    json_name: "processedObjectCount",
+    deprecated: false
+
+  field :duplicates_skipped_count, 2,
+    type: :int32,
+    json_name: "duplicatesSkippedCount",
+    deprecated: false
+
+  field :successful_ingest_count, 3,
+    type: :int32,
+    json_name: "successfulIngestCount",
+    deprecated: false
+
+  field :failed_ingest_count, 4, type: :int32, json_name: "failedIngestCount", deprecated: false
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -263,6 +285,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata do
     repeated: true,
     type: Google.Rpc.Status,
     json_name: "partialErrors",
+    deprecated: false
+
+  field :ingest_conversations_stats, 5,
+    type:
+      Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata.IngestConversationsStats,
+    json_name: "ingestConversationsStats",
     deprecated: false
 end
 
