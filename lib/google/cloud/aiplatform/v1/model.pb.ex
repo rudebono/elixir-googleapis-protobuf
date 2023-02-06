@@ -41,6 +41,13 @@ defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Model.OriginalModelInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :model, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Model.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -142,6 +149,11 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   field :model_source_info, 38,
     type: Google.Cloud.Aiplatform.V1.ModelSourceInfo,
     json_name: "modelSourceInfo",
+    deprecated: false
+
+  field :original_model_info, 34,
+    type: Google.Cloud.Aiplatform.V1.Model.OriginalModelInfo,
+    json_name: "originalModelInfo",
     deprecated: false
 
   field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false

@@ -187,6 +187,39 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :destination_model, 0
+
+  field :model_id, 4, type: :string, json_name: "modelId", oneof: 0, deprecated: false
+  field :parent_model, 5, type: :string, json_name: "parentModel", oneof: 0, deprecated: false
+  field :parent, 1, type: :string, deprecated: false
+  field :source_model, 2, type: :string, json_name: "sourceModel", deprecated: false
+
+  field :encryption_spec, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelOperationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :model, 1, type: :string, deprecated: false
+  field :model_version_id, 2, type: :string, json_name: "modelVersionId", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportModelEvaluationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -328,6 +361,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
   rpc :ExportModel,
       Google.Cloud.Aiplatform.V1beta1.ExportModelRequest,
       Google.Longrunning.Operation
+
+  rpc :CopyModel, Google.Cloud.Aiplatform.V1beta1.CopyModelRequest, Google.Longrunning.Operation
 
   rpc :ImportModelEvaluation,
       Google.Cloud.Aiplatform.V1beta1.ImportModelEvaluationRequest,

@@ -58,3 +58,10 @@ defmodule Google.Devtools.Artifactregistry.V1.DeleteVersionRequest do
   field :name, 1, type: :string
   field :force, 2, type: :bool
 end
+
+defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :failed_versions, 2, repeated: true, type: :string, json_name: "failedVersions"
+end

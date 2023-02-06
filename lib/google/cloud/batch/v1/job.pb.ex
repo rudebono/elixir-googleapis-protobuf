@@ -102,6 +102,7 @@ defmodule Google.Cloud.Batch.V1.JobStatus.InstanceStatus do
     enum: true
 
   field :task_pack, 3, type: :int64, json_name: "taskPack"
+  field :boot_disk, 4, type: Google.Cloud.Batch.V1.AllocationPolicy.Disk, json_name: "bootDisk"
 end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.TaskGroupStatus.CountsEntry do
@@ -234,6 +235,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy do
     enum: true
 
   field :accelerators, 5, repeated: true, type: Google.Cloud.Batch.V1.AllocationPolicy.Accelerator
+  field :boot_disk, 8, type: Google.Cloud.Batch.V1.AllocationPolicy.Disk, json_name: "bootDisk"
   field :disks, 6, repeated: true, type: Google.Cloud.Batch.V1.AllocationPolicy.AttachedDisk
 end
 
@@ -326,4 +328,5 @@ defmodule Google.Cloud.Batch.V1.ServiceAccount do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :email, 1, type: :string
+  field :scopes, 2, repeated: true, type: :string
 end
