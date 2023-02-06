@@ -600,6 +600,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
     json_name: "updateTime",
     deprecated: false
 
+  field :issue_count, 8, type: :int64, json_name: "issueCount", deprecated: false
+
   field :state, 5,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModel.State,
     enum: true,

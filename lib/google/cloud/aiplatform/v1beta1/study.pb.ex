@@ -148,6 +148,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Trial do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec.SafetyMetricConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :safety_threshold, 1, type: :double, json_name: "safetyThreshold"
+
+  field :desired_min_safe_trials_fraction, 2,
+    proto3_optional: true,
+    type: :double,
+    json_name: "desiredMinSafeTrialsFraction"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -158,6 +170,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec do
     type: Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec.GoalType,
     enum: true,
     deprecated: false
+
+  field :safety_config, 3,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec.SafetyMetricConfig,
+    json_name: "safetyConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.ParameterSpec.DoubleValueSpec do

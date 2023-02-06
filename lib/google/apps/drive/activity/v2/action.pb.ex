@@ -98,6 +98,7 @@ defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Feature
   field :DIRECT_SHARING, 2
   field :ITEM_DUPLICATION, 3
   field :DRIVE_FILE_STREAM, 4
+  field :FILE_ORGANIZER_CAN_SHARE_FOLDERS, 5
 end
 
 defmodule Google.Apps.Drive.Activity.V2.SettingsChange.RestrictionChange.Restriction do
