@@ -4,6 +4,7 @@ defmodule Google.Cloud.Pubsublite.V1.InitialPublishRequest do
 
   field :topic, 1, type: :string
   field :partition, 2, type: :int64
+  field :client_id, 3, type: :bytes, json_name: "clientId"
 end
 
 defmodule Google.Cloud.Pubsublite.V1.InitialPublishResponse do
@@ -16,6 +17,16 @@ defmodule Google.Cloud.Pubsublite.V1.MessagePublishRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Pubsublite.V1.PubSubMessage
+  field :first_sequence_number, 2, type: :int64, json_name: "firstSequenceNumber"
+end
+
+defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse.CursorRange do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
+  field :start_index, 2, type: :int32, json_name: "startIndex"
+  field :end_index, 3, type: :int32, json_name: "endIndex"
 end
 
 defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse do
@@ -23,6 +34,11 @@ defmodule Google.Cloud.Pubsublite.V1.MessagePublishResponse do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :start_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "startCursor"
+
+  field :cursor_ranges, 2,
+    repeated: true,
+    type: Google.Cloud.Pubsublite.V1.MessagePublishResponse.CursorRange,
+    json_name: "cursorRanges"
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PublishRequest do

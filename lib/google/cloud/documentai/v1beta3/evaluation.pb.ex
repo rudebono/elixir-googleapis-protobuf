@@ -6,6 +6,22 @@ defmodule Google.Cloud.Documentai.V1beta3.Evaluation.MultiConfidenceMetrics.Metr
   field :AGGREGATE, 1
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.EvaluationReference do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :operation, 1, type: :string
+  field :evaluation, 2, type: :string, deprecated: false
+
+  field :aggregate_metrics, 4,
+    type: Google.Cloud.Documentai.V1beta3.Evaluation.Metrics,
+    json_name: "aggregateMetrics"
+
+  field :aggregate_metrics_exact, 5,
+    type: Google.Cloud.Documentai.V1beta3.Evaluation.Metrics,
+    json_name: "aggregateMetricsExact"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.Counters do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3

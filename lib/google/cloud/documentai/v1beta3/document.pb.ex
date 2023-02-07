@@ -40,6 +40,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance.OperationType do
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :ADD, 1
   field :REMOVE, 2
+  field :UPDATE, 7
   field :REPLACE, 3
   field :EVAL_REQUESTED, 4
   field :EVAL_APPROVED, 5
@@ -529,7 +530,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :revision, 1, type: :int32
+  field :revision, 1, type: :int32, deprecated: true
   field :id, 2, type: :int32, deprecated: true
 
   field :parents, 3,
