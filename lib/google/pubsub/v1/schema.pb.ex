@@ -114,7 +114,7 @@ defmodule Google.Pubsub.V1.DeleteSchemaRevisionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
+  field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: true
 end
 
 defmodule Google.Pubsub.V1.DeleteSchemaRequest do
