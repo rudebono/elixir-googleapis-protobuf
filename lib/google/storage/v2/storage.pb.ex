@@ -132,29 +132,33 @@ defmodule Google.Storage.V2.UpdateBucketRequest do
     deprecated: false
 end
 
-defmodule Google.Storage.V2.DeleteNotificationRequest do
+defmodule Google.Storage.V2.DeleteNotificationConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Storage.V2.GetNotificationRequest do
+defmodule Google.Storage.V2.GetNotificationConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Storage.V2.CreateNotificationRequest do
+defmodule Google.Storage.V2.CreateNotificationConfigRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :notification, 2, type: Google.Storage.V2.Notification, deprecated: false
+
+  field :notification_config, 2,
+    type: Google.Storage.V2.NotificationConfig,
+    json_name: "notificationConfig",
+    deprecated: false
 end
 
-defmodule Google.Storage.V2.ListNotificationsRequest do
+defmodule Google.Storage.V2.ListNotificationConfigsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -163,11 +167,15 @@ defmodule Google.Storage.V2.ListNotificationsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
-defmodule Google.Storage.V2.ListNotificationsResponse do
+defmodule Google.Storage.V2.ListNotificationConfigsResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :notifications, 1, repeated: true, type: Google.Storage.V2.Notification
+  field :notification_configs, 1,
+    repeated: true,
+    type: Google.Storage.V2.NotificationConfig,
+    json_name: "notificationConfigs"
+
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
@@ -997,7 +1005,7 @@ defmodule Google.Storage.V2.HmacKeyMetadata do
   field :etag, 8, type: :string
 end
 
-defmodule Google.Storage.V2.Notification.CustomAttributesEntry do
+defmodule Google.Storage.V2.NotificationConfig.CustomAttributesEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -1005,7 +1013,7 @@ defmodule Google.Storage.V2.Notification.CustomAttributesEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Storage.V2.Notification do
+defmodule Google.Storage.V2.NotificationConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -1016,7 +1024,7 @@ defmodule Google.Storage.V2.Notification do
 
   field :custom_attributes, 4,
     repeated: true,
-    type: Google.Storage.V2.Notification.CustomAttributesEntry,
+    type: Google.Storage.V2.NotificationConfig.CustomAttributesEntry,
     json_name: "customAttributes",
     map: true
 
@@ -1183,17 +1191,21 @@ defmodule Google.Storage.V2.Storage.Service do
 
   rpc :UpdateBucket, Google.Storage.V2.UpdateBucketRequest, Google.Storage.V2.Bucket
 
-  rpc :DeleteNotification, Google.Storage.V2.DeleteNotificationRequest, Google.Protobuf.Empty
+  rpc :DeleteNotificationConfig,
+      Google.Storage.V2.DeleteNotificationConfigRequest,
+      Google.Protobuf.Empty
 
-  rpc :GetNotification, Google.Storage.V2.GetNotificationRequest, Google.Storage.V2.Notification
+  rpc :GetNotificationConfig,
+      Google.Storage.V2.GetNotificationConfigRequest,
+      Google.Storage.V2.NotificationConfig
 
-  rpc :CreateNotification,
-      Google.Storage.V2.CreateNotificationRequest,
-      Google.Storage.V2.Notification
+  rpc :CreateNotificationConfig,
+      Google.Storage.V2.CreateNotificationConfigRequest,
+      Google.Storage.V2.NotificationConfig
 
-  rpc :ListNotifications,
-      Google.Storage.V2.ListNotificationsRequest,
-      Google.Storage.V2.ListNotificationsResponse
+  rpc :ListNotificationConfigs,
+      Google.Storage.V2.ListNotificationConfigsRequest,
+      Google.Storage.V2.ListNotificationConfigsResponse
 
   rpc :ComposeObject, Google.Storage.V2.ComposeObjectRequest, Google.Storage.V2.Object
 

@@ -80,6 +80,8 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :SEARCH_ADS_360_LINK, 16
   field :DATA_STREAM, 18
   field :ATTRIBUTION_SETTINGS, 20
+  field :EXPANDED_DATA_SET, 21
+  field :CHANNEL_GROUP, 22
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -576,6 +578,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     json_name: "dataRetentionSettings",
     oneof: 0
 
+  field :search_ads_360_link, 16,
+    type: Google.Analytics.Admin.V1alpha.SearchAds360Link,
+    json_name: "searchAds360Link",
+    oneof: 0
+
   field :data_stream, 18,
     type: Google.Analytics.Admin.V1alpha.DataStream,
     json_name: "dataStream",
@@ -584,6 +591,16 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :attribution_settings, 20,
     type: Google.Analytics.Admin.V1alpha.AttributionSettings,
     json_name: "attributionSettings",
+    oneof: 0
+
+  field :expanded_data_set, 21,
+    type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
+    json_name: "expandedDataSet",
+    oneof: 0
+
+  field :bigquery_link, 23,
+    type: Google.Analytics.Admin.V1alpha.BigQueryLink,
+    json_name: "bigqueryLink",
     oneof: 0
 end
 
@@ -663,6 +680,37 @@ defmodule Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLinkProposal d
     type: Google.Protobuf.BoolValue,
     json_name: "costDataSharingEnabled",
     deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SearchAds360Link do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :advertiser_id, 2, type: :string, json_name: "advertiserId", deprecated: false
+
+  field :campaign_data_sharing_enabled, 3,
+    type: Google.Protobuf.BoolValue,
+    json_name: "campaignDataSharingEnabled",
+    deprecated: false
+
+  field :cost_data_sharing_enabled, 4,
+    type: Google.Protobuf.BoolValue,
+    json_name: "costDataSharingEnabled",
+    deprecated: false
+
+  field :advertiser_display_name, 5,
+    type: :string,
+    json_name: "advertiserDisplayName",
+    deprecated: false
+
+  field :ads_personalization_enabled, 6,
+    type: Google.Protobuf.BoolValue,
+    json_name: "adsPersonalizationEnabled"
+
+  field :site_stats_sharing_enabled, 7,
+    type: Google.Protobuf.BoolValue,
+    json_name: "siteStatsSharingEnabled"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
@@ -799,4 +847,23 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings do
     json_name: "reportingAttributionModel",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :daily_export_enabled, 4, type: :bool, json_name: "dailyExportEnabled"
+  field :streaming_export_enabled, 5, type: :bool, json_name: "streamingExportEnabled"
+  field :include_advertising_id, 6, type: :bool, json_name: "includeAdvertisingId"
+  field :export_streams, 7, repeated: true, type: :string, json_name: "exportStreams"
+  field :excluded_events, 8, repeated: true, type: :string, json_name: "excludedEvents"
 end

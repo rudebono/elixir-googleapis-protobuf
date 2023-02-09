@@ -761,6 +761,67 @@ defmodule Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProp
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetSearchAds360LinkRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSearchAds360LinksRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSearchAds360LinksResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :search_ads_360_links, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.SearchAds360Link,
+    json_name: "searchAds360Links"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateSearchAds360LinkRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :search_ads_360_link, 2,
+    type: Google.Analytics.Admin.V1alpha.SearchAds360Link,
+    json_name: "searchAds360Link",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteSearchAds360LinkRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateSearchAds360LinkRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :search_ads_360_link, 1,
+    type: Google.Analytics.Admin.V1alpha.SearchAds360Link,
+    json_name: "searchAds360Link"
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1035,6 +1096,61 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateAttributionSettingsRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "updateMask",
     deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string, deprecated: false
+  field :opt_out, 2, type: :bool, json_name: "optOut"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :opt_out, 1, type: :bool, json_name: "optOut"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetBigQueryLinkRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :bigquery_links, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.BigQueryLink,
+    json_name: "bigqueryLinks"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
@@ -1343,6 +1459,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.ArchiveAudienceRequest,
       Google.Protobuf.Empty
 
+  rpc :GetSearchAds360Link,
+      Google.Analytics.Admin.V1alpha.GetSearchAds360LinkRequest,
+      Google.Analytics.Admin.V1alpha.SearchAds360Link
+
+  rpc :ListSearchAds360Links,
+      Google.Analytics.Admin.V1alpha.ListSearchAds360LinksRequest,
+      Google.Analytics.Admin.V1alpha.ListSearchAds360LinksResponse
+
+  rpc :CreateSearchAds360Link,
+      Google.Analytics.Admin.V1alpha.CreateSearchAds360LinkRequest,
+      Google.Analytics.Admin.V1alpha.SearchAds360Link
+
+  rpc :DeleteSearchAds360Link,
+      Google.Analytics.Admin.V1alpha.DeleteSearchAds360LinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateSearchAds360Link,
+      Google.Analytics.Admin.V1alpha.UpdateSearchAds360LinkRequest,
+      Google.Analytics.Admin.V1alpha.SearchAds360Link
+
   rpc :GetAttributionSettings,
       Google.Analytics.Admin.V1alpha.GetAttributionSettingsRequest,
       Google.Analytics.Admin.V1alpha.AttributionSettings
@@ -1354,6 +1490,22 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :RunAccessReport,
       Google.Analytics.Admin.V1alpha.RunAccessReportRequest,
       Google.Analytics.Admin.V1alpha.RunAccessReportResponse
+
+  rpc :SetAutomatedGa4ConfigurationOptOut,
+      Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest,
+      Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse
+
+  rpc :FetchAutomatedGa4ConfigurationOptOut,
+      Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest,
+      Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse
+
+  rpc :GetBigQueryLink,
+      Google.Analytics.Admin.V1alpha.GetBigQueryLinkRequest,
+      Google.Analytics.Admin.V1alpha.BigQueryLink
+
+  rpc :ListBigQueryLinks,
+      Google.Analytics.Admin.V1alpha.ListBigQueryLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

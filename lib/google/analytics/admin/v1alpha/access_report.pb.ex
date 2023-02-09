@@ -266,6 +266,10 @@ defmodule Google.Analytics.Admin.V1alpha.AccessQuota do
   field :server_errors_per_project_per_hour, 4,
     type: Google.Analytics.Admin.V1alpha.AccessQuotaStatus,
     json_name: "serverErrorsPerProjectPerHour"
+
+  field :tokens_per_project_per_hour, 5,
+    type: Google.Analytics.Admin.V1alpha.AccessQuotaStatus,
+    json_name: "tokensPerProjectPerHour"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AccessQuotaStatus do
