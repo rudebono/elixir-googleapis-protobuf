@@ -18,7 +18,6 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.StringF
   field :ENDS_WITH, 3
   field :CONTAINS, 4
   field :FULL_REGEXP, 5
-  field :PARTIAL_REGEXP, 6
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.NumericFilter.Operation do
@@ -28,9 +27,7 @@ defmodule Google.Analytics.Admin.V1alpha.AudienceDimensionOrMetricFilter.Numeric
   field :OPERATION_UNSPECIFIED, 0
   field :EQUAL, 1
   field :LESS_THAN, 2
-  field :LESS_THAN_OR_EQUAL, 3
   field :GREATER_THAN, 4
-  field :GREATER_THAN_OR_EQUAL, 5
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AudienceFilterClause.AudienceClauseType do
