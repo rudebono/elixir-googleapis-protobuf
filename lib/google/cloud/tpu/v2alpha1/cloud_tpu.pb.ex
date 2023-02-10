@@ -77,6 +77,16 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
   field :PROJECT_ABUSE, 6
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorConfig.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :V2, 2
+  field :V3, 4
+  field :V4, 7
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributes do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -230,6 +240,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 
   field :symptoms, 39, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Symptom, deprecated: false
   field :queued_resource, 43, type: :string, json_name: "queuedResource", deprecated: false
+
+  field :accelerator_config, 44,
+    type: Google.Cloud.Tpu.V2alpha1.AcceleratorConfig,
+    json_name: "acceleratorConfig"
 
   field :shielded_instance_config, 45,
     type: Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig,
@@ -565,6 +579,11 @@ defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorType do
 
   field :name, 1, type: :string
   field :type, 2, type: :string
+
+  field :accelerator_configs, 3,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.AcceleratorConfig,
+    json_name: "acceleratorConfigs"
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GetAcceleratorTypeRequest do
@@ -690,6 +709,18 @@ defmodule Google.Cloud.Tpu.V2alpha1.SimulateMaintenanceEventRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :worker_ids, 2, repeated: true, type: :string, json_name: "workerIds"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1,
+    type: Google.Cloud.Tpu.V2alpha1.AcceleratorConfig.Type,
+    enum: true,
+    deprecated: false
+
+  field :topology, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig do

@@ -7,6 +7,16 @@ defmodule Google.Bigtable.V2.ReadRowsRequest.RequestStatsView do
   field :REQUEST_STATS_FULL, 2
 end
 
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.DataChange.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :USER, 1
+  field :GARBAGE_COLLECTION, 2
+  field :CONTINUATION, 3
+end
+
 defmodule Google.Bigtable.V2.ReadRowsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -173,6 +183,127 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRowResponse do
   field :row, 1, type: Google.Bigtable.V2.Row
 end
 
+defmodule Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId"
+end
+
+defmodule Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :partition, 1, type: Google.Bigtable.V2.StreamPartition
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :start_from, 0
+
+  field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId"
+  field :partition, 3, type: Google.Bigtable.V2.StreamPartition
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", oneof: 0
+
+  field :continuation_tokens, 6,
+    type: Google.Bigtable.V2.StreamContinuationTokens,
+    json_name: "continuationTokens",
+    oneof: 0
+
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :heartbeat_duration, 7, type: Google.Protobuf.Duration, json_name: "heartbeatDuration"
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk.ChunkInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :chunked_value_size, 1, type: :int32, json_name: "chunkedValueSize"
+  field :chunked_value_offset, 2, type: :int32, json_name: "chunkedValueOffset"
+  field :last_chunk, 3, type: :bool, json_name: "lastChunk"
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :chunk_info, 1,
+    type: Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk.ChunkInfo,
+    json_name: "chunkInfo"
+
+  field :mutation, 2, type: Google.Bigtable.V2.Mutation
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.DataChange do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: Google.Bigtable.V2.ReadChangeStreamResponse.DataChange.Type, enum: true
+  field :source_cluster_id, 2, type: :string, json_name: "sourceClusterId"
+  field :row_key, 3, type: :bytes, json_name: "rowKey"
+  field :commit_timestamp, 4, type: Google.Protobuf.Timestamp, json_name: "commitTimestamp"
+  field :tiebreaker, 5, type: :int32
+
+  field :chunks, 6,
+    repeated: true,
+    type: Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk
+
+  field :done, 8, type: :bool
+  field :token, 9, type: :string
+
+  field :estimated_low_watermark, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "estimatedLowWatermark"
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.Heartbeat do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :continuation_token, 1,
+    type: Google.Bigtable.V2.StreamContinuationToken,
+    json_name: "continuationToken"
+
+  field :estimated_low_watermark, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "estimatedLowWatermark"
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse.CloseStream do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :status, 1, type: Google.Rpc.Status
+
+  field :continuation_tokens, 2,
+    repeated: true,
+    type: Google.Bigtable.V2.StreamContinuationToken,
+    json_name: "continuationTokens"
+end
+
+defmodule Google.Bigtable.V2.ReadChangeStreamResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :stream_record, 0
+
+  field :data_change, 1,
+    type: Google.Bigtable.V2.ReadChangeStreamResponse.DataChange,
+    json_name: "dataChange",
+    oneof: 0
+
+  field :heartbeat, 2, type: Google.Bigtable.V2.ReadChangeStreamResponse.Heartbeat, oneof: 0
+
+  field :close_stream, 3,
+    type: Google.Bigtable.V2.ReadChangeStreamResponse.CloseStream,
+    json_name: "closeStream",
+    oneof: 0
+end
+
 defmodule Google.Bigtable.V2.Bigtable.Service do
   @moduledoc false
   use GRPC.Service, name: "google.bigtable.v2.Bigtable", protoc_gen_elixir_version: "0.11.0"
@@ -198,6 +329,14 @@ defmodule Google.Bigtable.V2.Bigtable.Service do
   rpc :ReadModifyWriteRow,
       Google.Bigtable.V2.ReadModifyWriteRowRequest,
       Google.Bigtable.V2.ReadModifyWriteRowResponse
+
+  rpc :GenerateInitialChangeStreamPartitions,
+      Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsRequest,
+      stream(Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsResponse)
+
+  rpc :ReadChangeStream,
+      Google.Bigtable.V2.ReadChangeStreamRequest,
+      stream(Google.Bigtable.V2.ReadChangeStreamResponse)
 end
 
 defmodule Google.Bigtable.V2.Bigtable.Stub do
