@@ -236,3 +236,25 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRule do
   field :append_value, 3, type: :bytes, json_name: "appendValue", oneof: 0
   field :increment_amount, 4, type: :int64, json_name: "incrementAmount", oneof: 0
 end
+
+defmodule Google.Bigtable.V2.StreamPartition do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :row_range, 1, type: Google.Bigtable.V2.RowRange, json_name: "rowRange"
+end
+
+defmodule Google.Bigtable.V2.StreamContinuationTokens do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :tokens, 1, repeated: true, type: Google.Bigtable.V2.StreamContinuationToken
+end
+
+defmodule Google.Bigtable.V2.StreamContinuationToken do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :partition, 1, type: Google.Bigtable.V2.StreamPartition
+  field :token, 2, type: :string
+end

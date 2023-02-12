@@ -62,4 +62,9 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema do
   field :max_length, 7, type: :int64, json_name: "maxLength", deprecated: false
   field :precision, 8, type: :int64, deprecated: false
   field :scale, 9, type: :int64, deprecated: false
+
+  field :default_value_expression, 10,
+    type: :string,
+    json_name: "defaultValueExpression",
+    deprecated: false
 end
