@@ -33,6 +33,8 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationCluster.PrivateClusterConf
     type: :string,
     json_name: "serviceAttachmentUri",
     deprecated: false
+
+  field :allowed_projects, 4, repeated: true, type: :string, json_name: "allowedProjects"
 end
 
 defmodule Google.Cloud.Workstations.V1beta.WorkstationCluster.AnnotationsEntry do
@@ -155,6 +157,7 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.PersistentDirectory
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :fs_type, 2, type: :string, json_name: "fsType"
   field :disk_type, 3, type: :string, json_name: "diskType"
+  field :source_snapshot, 5, type: :string, json_name: "sourceSnapshot"
 
   field :reclaim_policy, 4,
     type:
