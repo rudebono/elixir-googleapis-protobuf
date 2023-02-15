@@ -104,6 +104,7 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateExtensionConstraints.Kno
   field :CA_OPTIONS, 3
   field :POLICY_IDS, 4
   field :AIA_OCSP_SERVERS, 5
+  field :NAME_CONSTRAINTS, 6
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.AccessUrls do
@@ -556,6 +557,30 @@ defmodule Google.Cloud.Security.Privateca.V1.X509Parameters.CaOptions do
     deprecated: false
 end
 
+defmodule Google.Cloud.Security.Privateca.V1.X509Parameters.NameConstraints do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :critical, 1, type: :bool
+  field :permitted_dns_names, 2, repeated: true, type: :string, json_name: "permittedDnsNames"
+  field :excluded_dns_names, 3, repeated: true, type: :string, json_name: "excludedDnsNames"
+  field :permitted_ip_ranges, 4, repeated: true, type: :string, json_name: "permittedIpRanges"
+  field :excluded_ip_ranges, 5, repeated: true, type: :string, json_name: "excludedIpRanges"
+
+  field :permitted_email_addresses, 6,
+    repeated: true,
+    type: :string,
+    json_name: "permittedEmailAddresses"
+
+  field :excluded_email_addresses, 7,
+    repeated: true,
+    type: :string,
+    json_name: "excludedEmailAddresses"
+
+  field :permitted_uris, 8, repeated: true, type: :string, json_name: "permittedUris"
+  field :excluded_uris, 9, repeated: true, type: :string, json_name: "excludedUris"
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.X509Parameters do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -580,6 +605,11 @@ defmodule Google.Cloud.Security.Privateca.V1.X509Parameters do
     repeated: true,
     type: :string,
     json_name: "aiaOcspServers",
+    deprecated: false
+
+  field :name_constraints, 6,
+    type: Google.Cloud.Security.Privateca.V1.X509Parameters.NameConstraints,
+    json_name: "nameConstraints",
     deprecated: false
 
   field :additional_extensions, 5,
