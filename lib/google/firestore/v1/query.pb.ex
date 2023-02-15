@@ -13,6 +13,7 @@ defmodule Google.Firestore.V1.StructuredQuery.CompositeFilter.Operator do
 
   field :OPERATOR_UNSPECIFIED, 0
   field :AND, 1
+  field :OR, 2
 end
 
 defmodule Google.Firestore.V1.StructuredQuery.FieldFilter.Operator do

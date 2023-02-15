@@ -29,10 +29,10 @@ defmodule Google.Firestore.V1.ListDocumentsRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :collection_id, 2, type: :string, json_name: "collectionId", deprecated: false
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-  field :order_by, 6, type: :string, json_name: "orderBy"
-  field :mask, 7, type: Google.Firestore.V1.DocumentMask
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
+  field :mask, 7, type: Google.Firestore.V1.DocumentMask, deprecated: false
   field :transaction, 8, type: :bytes, oneof: 0
   field :read_time, 10, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 0
   field :show_missing, 12, type: :bool, json_name: "showMissing"
