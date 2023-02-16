@@ -1,0 +1,38 @@
+defmodule Google.Ads.Googleads.V13.Enums.RecommendationTypeEnum.RecommendationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :UNKNOWN, 1
+  field :CAMPAIGN_BUDGET, 2
+  field :KEYWORD, 3
+  field :TEXT_AD, 4
+  field :TARGET_CPA_OPT_IN, 5
+  field :MAXIMIZE_CONVERSIONS_OPT_IN, 6
+  field :ENHANCED_CPC_OPT_IN, 7
+  field :SEARCH_PARTNERS_OPT_IN, 8
+  field :MAXIMIZE_CLICKS_OPT_IN, 9
+  field :OPTIMIZE_AD_ROTATION, 10
+  field :KEYWORD_MATCH_TYPE, 14
+  field :MOVE_UNUSED_BUDGET, 15
+  field :FORECASTING_CAMPAIGN_BUDGET, 16
+  field :TARGET_ROAS_OPT_IN, 17
+  field :RESPONSIVE_SEARCH_AD, 18
+  field :MARGINAL_ROI_CAMPAIGN_BUDGET, 19
+  field :USE_BROAD_MATCH_KEYWORD, 20
+  field :RESPONSIVE_SEARCH_AD_ASSET, 21
+  field :UPGRADE_SMART_SHOPPING_CAMPAIGN_TO_PERFORMANCE_MAX, 22
+  field :RESPONSIVE_SEARCH_AD_IMPROVE_AD_STRENGTH, 23
+  field :DISPLAY_EXPANSION_OPT_IN, 24
+  field :UPGRADE_LOCAL_CAMPAIGN_TO_PERFORMANCE_MAX, 25
+  field :RAISE_TARGET_CPA_BID_TOO_LOW, 26
+  field :FORECASTING_SET_TARGET_ROAS, 27
+  field :CALLOUT_ASSET, 28
+  field :SITELINK_ASSET, 29
+  field :CALL_ASSET, 30
+end
+
+defmodule Google.Ads.Googleads.V13.Enums.RecommendationTypeEnum do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end

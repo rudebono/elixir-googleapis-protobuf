@@ -205,6 +205,7 @@ defmodule Google.Datastore.V1.MutationResult do
 
   field :key, 3, type: Google.Datastore.V1.Key
   field :version, 4, type: :int64
+  field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :conflict_detected, 5, type: :bool, json_name: "conflictDetected"
 end

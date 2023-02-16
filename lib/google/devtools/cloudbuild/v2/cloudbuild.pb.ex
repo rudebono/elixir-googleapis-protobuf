@@ -41,15 +41,3 @@ defmodule Google.Devtools.Cloudbuild.V2.RunWorkflowCustomOperationMetadata do
   field :target, 6, type: :string, deprecated: false
   field :pipeline_run_id, 7, type: :string, json_name: "pipelineRunId", deprecated: false
 end
-
-defmodule Google.Devtools.Cloudbuild.V2.CloudBuild.Service do
-  @moduledoc false
-  use GRPC.Service,
-    name: "google.devtools.cloudbuild.v2.CloudBuild",
-    protoc_gen_elixir_version: "0.11.0"
-end
-
-defmodule Google.Devtools.Cloudbuild.V2.CloudBuild.Stub do
-  @moduledoc false
-  use GRPC.Stub, service: Google.Devtools.Cloudbuild.V2.CloudBuild.Service
-end
