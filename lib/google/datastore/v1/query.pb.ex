@@ -23,6 +23,7 @@ defmodule Google.Datastore.V1.CompositeFilter.Operator do
 
   field :OPERATOR_UNSPECIFIED, 0
   field :AND, 1
+  field :OR, 2
 end
 
 defmodule Google.Datastore.V1.PropertyFilter.Operator do
@@ -58,6 +59,7 @@ defmodule Google.Datastore.V1.EntityResult do
 
   field :entity, 1, type: Google.Datastore.V1.Entity
   field :version, 4, type: :int64
+  field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 5, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :cursor, 3, type: :bytes
 end
