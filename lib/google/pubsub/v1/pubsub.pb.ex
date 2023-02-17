@@ -458,6 +458,11 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation d
 
   field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds"
   field :invalid_ack_ids, 2, repeated: true, type: :string, json_name: "invalidAckIds"
+
+  field :temporary_failed_ack_ids, 3,
+    repeated: true,
+    type: :string,
+    json_name: "temporaryFailedAckIds"
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do

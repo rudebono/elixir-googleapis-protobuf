@@ -44,8 +44,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Environment do
   field :version_configs, 6,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Environment.VersionConfig,
-    json_name: "versionConfigs",
-    deprecated: false
+    json_name: "versionConfigs"
 
   field :update_time, 5,
     type: Google.Protobuf.Timestamp,
