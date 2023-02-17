@@ -62,6 +62,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
   field :advanced_settings, 22,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
     json_name: "advancedSettings"
+
+  field :text_to_speech_settings, 31,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.TextToSpeechSettings,
+    json_name: "textToSpeechSettings"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do
