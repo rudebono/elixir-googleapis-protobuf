@@ -849,6 +849,17 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings do
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.AccessBinding do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :access_target, 0
+
+  field :user, 2, type: :string, oneof: 0
+  field :name, 1, type: :string, deprecated: false
+  field :roles, 3, repeated: true, type: :string
+end
+
 defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3

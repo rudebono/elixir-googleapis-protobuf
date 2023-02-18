@@ -1098,6 +1098,199 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateAttributionSettingsRequest do
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetAccessBindingRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_bindings, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBindings"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListAccessBindingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListAccessBindingsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_bindings, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBindings"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateAccessBindingRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :access_binding, 2,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBinding",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 3,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CreateAccessBindingRequest,
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_bindings, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBindings"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateAccessBindingRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_binding, 1,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBinding",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.UpdateAccessBindingRequest,
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :access_bindings, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AccessBinding,
+    json_name: "accessBindings"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteAccessBindingRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.BatchDeleteAccessBindingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.DeleteAccessBindingRequest,
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateExpandedDataSetRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :expanded_data_set, 2,
+    type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
+    json_name: "expandedDataSet",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateExpandedDataSetRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :expanded_data_set, 1,
+    type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
+    json_name: "expandedDataSet",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteExpandedDataSetRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetExpandedDataSetRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListExpandedDataSetsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListExpandedDataSetsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :expanded_data_sets, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
+    json_name: "expandedDataSets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1490,6 +1683,62 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :RunAccessReport,
       Google.Analytics.Admin.V1alpha.RunAccessReportRequest,
       Google.Analytics.Admin.V1alpha.RunAccessReportResponse
+
+  rpc :CreateAccessBinding,
+      Google.Analytics.Admin.V1alpha.CreateAccessBindingRequest,
+      Google.Analytics.Admin.V1alpha.AccessBinding
+
+  rpc :GetAccessBinding,
+      Google.Analytics.Admin.V1alpha.GetAccessBindingRequest,
+      Google.Analytics.Admin.V1alpha.AccessBinding
+
+  rpc :UpdateAccessBinding,
+      Google.Analytics.Admin.V1alpha.UpdateAccessBindingRequest,
+      Google.Analytics.Admin.V1alpha.AccessBinding
+
+  rpc :DeleteAccessBinding,
+      Google.Analytics.Admin.V1alpha.DeleteAccessBindingRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListAccessBindings,
+      Google.Analytics.Admin.V1alpha.ListAccessBindingsRequest,
+      Google.Analytics.Admin.V1alpha.ListAccessBindingsResponse
+
+  rpc :BatchCreateAccessBindings,
+      Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsRequest,
+      Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsResponse
+
+  rpc :BatchGetAccessBindings,
+      Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsRequest,
+      Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsResponse
+
+  rpc :BatchUpdateAccessBindings,
+      Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsRequest,
+      Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsResponse
+
+  rpc :BatchDeleteAccessBindings,
+      Google.Analytics.Admin.V1alpha.BatchDeleteAccessBindingsRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetExpandedDataSet,
+      Google.Analytics.Admin.V1alpha.GetExpandedDataSetRequest,
+      Google.Analytics.Admin.V1alpha.ExpandedDataSet
+
+  rpc :ListExpandedDataSets,
+      Google.Analytics.Admin.V1alpha.ListExpandedDataSetsRequest,
+      Google.Analytics.Admin.V1alpha.ListExpandedDataSetsResponse
+
+  rpc :CreateExpandedDataSet,
+      Google.Analytics.Admin.V1alpha.CreateExpandedDataSetRequest,
+      Google.Analytics.Admin.V1alpha.ExpandedDataSet
+
+  rpc :UpdateExpandedDataSet,
+      Google.Analytics.Admin.V1alpha.UpdateExpandedDataSetRequest,
+      Google.Analytics.Admin.V1alpha.ExpandedDataSet
+
+  rpc :DeleteExpandedDataSet,
+      Google.Analytics.Admin.V1alpha.DeleteExpandedDataSetRequest,
+      Google.Protobuf.Empty
 
   rpc :SetAutomatedGa4ConfigurationOptOut,
       Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest,
