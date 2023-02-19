@@ -9,8 +9,10 @@ defmodule Google.Cloud.Dataproc.V1.Component do
   field :FLINK, 14
   field :HBASE, 11
   field :HIVE_WEBHCAT, 3
+  field :HUDI, 18
   field :JUPYTER, 1
   field :PRESTO, 6
+  field :TRINO, 17
   field :RANGER, 12
   field :SOLR, 10
   field :ZEPPELIN, 4
@@ -91,6 +93,8 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
     deprecated: false
 
   field :kms_key, 7, type: :string, json_name: "kmsKey", deprecated: false
+  field :ttl, 9, type: Google.Protobuf.Duration, deprecated: false
+  field :staging_bucket, 10, type: :string, json_name: "stagingBucket", deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
@@ -135,6 +139,41 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
   field :diagnostic_output_uri, 3,
     type: :string,
     json_name: "diagnosticOutputUri",
+    deprecated: false
+
+  field :approximate_usage, 6,
+    type: Google.Cloud.Dataproc.V1.UsageMetrics,
+    json_name: "approximateUsage",
+    deprecated: false
+
+  field :current_usage, 7,
+    type: Google.Cloud.Dataproc.V1.UsageSnapshot,
+    json_name: "currentUsage",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.UsageMetrics do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :milli_dcu_seconds, 1, type: :int64, json_name: "milliDcuSeconds", deprecated: false
+
+  field :shuffle_storage_gb_seconds, 2,
+    type: :int64,
+    json_name: "shuffleStorageGbSeconds",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.UsageSnapshot do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :milli_dcu, 1, type: :int64, json_name: "milliDcu", deprecated: false
+  field :shuffle_storage_gb, 2, type: :int64, json_name: "shuffleStorageGb", deprecated: false
+
+  field :snapshot_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "snapshotTime",
     deprecated: false
 end
 
@@ -229,8 +268,8 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
-  field :preemptible, 10, type: :bool, deprecated: false
   field :local_ssd_count, 7, type: :int32, json_name: "localSsdCount", deprecated: false
+  field :preemptible, 10, type: :bool, deprecated: false
 
   field :accelerators, 11,
     repeated: true,
@@ -238,6 +277,8 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig do
     deprecated: false
 
   field :min_cpu_platform, 13, type: :string, json_name: "minCpuPlatform", deprecated: false
+  field :boot_disk_kms_key, 23, type: :string, json_name: "bootDiskKmsKey", deprecated: false
+  field :spot, 32, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAcceleratorConfig do
@@ -246,6 +287,7 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAcceleratorConfi
 
   field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
   field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
+  field :gpu_partition_size, 3, type: :string, json_name: "gpuPartitionSize"
 end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig do
