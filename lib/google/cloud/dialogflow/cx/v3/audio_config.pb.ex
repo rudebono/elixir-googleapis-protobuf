@@ -116,3 +116,22 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioConfig do
     type: Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig,
     json_name: "synthesizeSpeechConfig"
 end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings.SynthesizeSpeechConfigsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :synthesize_speech_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings.SynthesizeSpeechConfigsEntry,
+    json_name: "synthesizeSpeechConfigs",
+    map: true
+end

@@ -51,6 +51,11 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
 
   field :state, 6, type: Google.Cloud.Documentai.V1.ProcessorVersion.State, enum: true
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :latest_evaluation, 8,
+    type: Google.Cloud.Documentai.V1.EvaluationReference,
+    json_name: "latestEvaluation"
+
   field :kms_key_name, 9, type: :string, json_name: "kmsKeyName"
   field :kms_key_version_name, 10, type: :string, json_name: "kmsKeyVersionName"
   field :google_managed, 11, type: :bool, json_name: "googleManaged"

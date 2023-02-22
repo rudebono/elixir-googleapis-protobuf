@@ -377,6 +377,80 @@ defmodule Google.Cloud.Documentai.V1.SetDefaultProcessorVersionMetadata do
     json_name: "commonMetadata"
 end
 
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.InputData do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :training_documents, 3,
+    type: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig,
+    json_name: "trainingDocuments"
+
+  field :test_documents, 4,
+    type: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig,
+    json_name: "testDocuments"
+end
+
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :processor_version, 2,
+    type: Google.Cloud.Documentai.V1.ProcessorVersion,
+    json_name: "processorVersion",
+    deprecated: false
+
+  field :document_schema, 10,
+    type: Google.Cloud.Documentai.V1.DocumentSchema,
+    json_name: "documentSchema",
+    deprecated: false
+
+  field :input_data, 4,
+    type: Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.InputData,
+    json_name: "inputData",
+    deprecated: false
+
+  field :base_processor_version, 8,
+    type: :string,
+    json_name: "baseProcessorVersion",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :processor_version, 1, type: :string, json_name: "processorVersion"
+end
+
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata.DatasetValidation do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :document_error_count, 3, type: :int32, json_name: "documentErrorCount"
+  field :dataset_error_count, 4, type: :int32, json_name: "datasetErrorCount"
+  field :document_errors, 1, repeated: true, type: Google.Rpc.Status, json_name: "documentErrors"
+  field :dataset_errors, 2, repeated: true, type: Google.Rpc.Status, json_name: "datasetErrors"
+end
+
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
+    json_name: "commonMetadata"
+
+  field :training_dataset_validation, 2,
+    type: Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata.DatasetValidation,
+    json_name: "trainingDatasetValidation"
+
+  field :test_dataset_validation, 3,
+    type: Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata.DatasetValidation,
+    json_name: "testDatasetValidation"
+end
+
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -417,6 +491,58 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
   field :question_id, 6, type: :string, json_name: "questionId"
 end
 
+defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :processor_version, 1, type: :string, json_name: "processorVersion", deprecated: false
+
+  field :evaluation_documents, 3,
+    type: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig,
+    json_name: "evaluationDocuments",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
+    json_name: "commonMetadata"
+end
+
+defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :evaluation, 2, type: :string
+end
+
+defmodule Google.Cloud.Documentai.V1.GetEvaluationRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1.ListEvaluationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Documentai.V1.ListEvaluationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :evaluations, 1, repeated: true, type: Google.Cloud.Documentai.V1.Evaluation
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -450,6 +576,10 @@ defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   rpc :GetProcessor,
       Google.Cloud.Documentai.V1.GetProcessorRequest,
       Google.Cloud.Documentai.V1.Processor
+
+  rpc :TrainProcessorVersion,
+      Google.Cloud.Documentai.V1.TrainProcessorVersionRequest,
+      Google.Longrunning.Operation
 
   rpc :GetProcessorVersion,
       Google.Cloud.Documentai.V1.GetProcessorVersionRequest,
@@ -494,6 +624,18 @@ defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   rpc :ReviewDocument,
       Google.Cloud.Documentai.V1.ReviewDocumentRequest,
       Google.Longrunning.Operation
+
+  rpc :EvaluateProcessorVersion,
+      Google.Cloud.Documentai.V1.EvaluateProcessorVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetEvaluation,
+      Google.Cloud.Documentai.V1.GetEvaluationRequest,
+      Google.Cloud.Documentai.V1.Evaluation
+
+  rpc :ListEvaluations,
+      Google.Cloud.Documentai.V1.ListEvaluationsRequest,
+      Google.Cloud.Documentai.V1.ListEvaluationsResponse
 end
 
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Stub do

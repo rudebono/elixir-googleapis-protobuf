@@ -62,7 +62,6 @@ defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource do
   field :YARN, 4
   field :SPARK_HISTORY_SERVER, 5
   field :HIVESERVER2, 6
-  field :HIVEMETASTORE, 7
 end
 
 defmodule Google.Cloud.Dataproc.V1.ReservationAffinity.Type do
@@ -283,12 +282,7 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
   field :zone_uri, 1, type: :string, json_name: "zoneUri", deprecated: false
   field :network_uri, 2, type: :string, json_name: "networkUri", deprecated: false
   field :subnetwork_uri, 6, type: :string, json_name: "subnetworkUri", deprecated: false
-
-  field :internal_ip_only, 7,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "internalIpOnly",
-    deprecated: false
+  field :internal_ip_only, 7, type: :bool, json_name: "internalIpOnly", deprecated: false
 
   field :private_ipv6_google_access, 12,
     type: Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess,
@@ -343,20 +337,10 @@ defmodule Google.Cloud.Dataproc.V1.ShieldedInstanceConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :enable_secure_boot, 1,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "enableSecureBoot",
-    deprecated: false
-
-  field :enable_vtpm, 2,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "enableVtpm",
-    deprecated: false
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot", deprecated: false
+  field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm", deprecated: false
 
   field :enable_integrity_monitoring, 3,
-    proto3_optional: true,
     type: :bool,
     json_name: "enableIntegrityMonitoring",
     deprecated: false
@@ -677,6 +661,33 @@ defmodule Google.Cloud.Dataproc.V1.MetastoreConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :metric_source, 1,
+    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource,
+    json_name: "metricSource",
+    enum: true,
+    deprecated: false
+
+  field :metric_overrides, 2,
+    repeated: true,
+    type: :string,
+    json_name: "metricOverrides",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :metrics, 1,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterMetrics.HdfsMetricsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -708,33 +719,6 @@ defmodule Google.Cloud.Dataproc.V1.ClusterMetrics do
     type: Google.Cloud.Dataproc.V1.ClusterMetrics.YarnMetricsEntry,
     json_name: "yarnMetrics",
     map: true
-end
-
-defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :metric_source, 1,
-    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource,
-    json_name: "metricSource",
-    enum: true,
-    deprecated: false
-
-  field :metric_overrides, 2,
-    repeated: true,
-    type: :string,
-    json_name: "metricOverrides",
-    deprecated: false
-end
-
-defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :metrics, 1,
-    repeated: true,
-    type: Google.Cloud.Dataproc.V1.DataprocMetricConfig.Metric,
-    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.CreateClusterRequest do

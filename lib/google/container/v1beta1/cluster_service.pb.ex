@@ -3068,13 +3068,13 @@ defmodule Google.Container.V1beta1.ClusterManager.Service do
       Google.Container.V1beta1.GetServerConfigRequest,
       Google.Container.V1beta1.ServerConfig
 
-  rpc :ListNodePools,
-      Google.Container.V1beta1.ListNodePoolsRequest,
-      Google.Container.V1beta1.ListNodePoolsResponse
-
   rpc :GetJSONWebKeys,
       Google.Container.V1beta1.GetJSONWebKeysRequest,
       Google.Container.V1beta1.GetJSONWebKeysResponse
+
+  rpc :ListNodePools,
+      Google.Container.V1beta1.ListNodePoolsRequest,
+      Google.Container.V1beta1.ListNodePoolsResponse
 
   rpc :GetNodePool, Google.Container.V1beta1.GetNodePoolRequest, Google.Container.V1beta1.NodePool
 
