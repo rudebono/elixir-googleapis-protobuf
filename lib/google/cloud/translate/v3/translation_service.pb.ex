@@ -308,6 +308,21 @@ defmodule Google.Cloud.Translation.V3.TranslateDocumentRequest do
     type: Google.Cloud.Translation.V3.TranslateDocumentRequest.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :customized_attribution, 10,
+    type: :string,
+    json_name: "customizedAttribution",
+    deprecated: false
+
+  field :is_translate_native_pdf_only, 11,
+    type: :bool,
+    json_name: "isTranslateNativePdfOnly",
+    deprecated: false
+
+  field :enable_shadow_removal_native_pdf, 12,
+    type: :bool,
+    json_name: "enableShadowRemovalNativePdf",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Translation.V3.DocumentTranslation do
@@ -488,6 +503,7 @@ defmodule Google.Cloud.Translation.V3.Glossary do
     deprecated: false
 
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :display_name, 9, type: :string, json_name: "displayName", deprecated: false
 end
 
 defmodule Google.Cloud.Translation.V3.CreateGlossaryRequest do
@@ -626,6 +642,11 @@ defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest do
     type: Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.FormatConversionsEntry,
     json_name: "formatConversions",
     map: true,
+    deprecated: false
+
+  field :customized_attribution, 10,
+    type: :string,
+    json_name: "customizedAttribution",
     deprecated: false
 end
 

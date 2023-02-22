@@ -437,38 +437,6 @@ defmodule Google.Cloud.Dataproc.V1.PrestoJob do
     deprecated: false
 end
 
-defmodule Google.Cloud.Dataproc.V1.TrinoJob.PropertiesEntry do
-  @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
-defmodule Google.Cloud.Dataproc.V1.TrinoJob do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  oneof :queries, 0
-
-  field :query_file_uri, 1, type: :string, json_name: "queryFileUri", oneof: 0
-  field :query_list, 2, type: Google.Cloud.Dataproc.V1.QueryList, json_name: "queryList", oneof: 0
-  field :continue_on_failure, 3, type: :bool, json_name: "continueOnFailure", deprecated: false
-  field :output_format, 4, type: :string, json_name: "outputFormat", deprecated: false
-  field :client_tags, 5, repeated: true, type: :string, json_name: "clientTags", deprecated: false
-
-  field :properties, 6,
-    repeated: true,
-    type: Google.Cloud.Dataproc.V1.TrinoJob.PropertiesEntry,
-    map: true,
-    deprecated: false
-
-  field :logging_config, 7,
-    type: Google.Cloud.Dataproc.V1.LoggingConfig,
-    json_name: "loggingConfig",
-    deprecated: false
-end
-
 defmodule Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -595,12 +563,6 @@ defmodule Google.Cloud.Dataproc.V1.Job do
   field :presto_job, 23,
     type: Google.Cloud.Dataproc.V1.PrestoJob,
     json_name: "prestoJob",
-    oneof: 0,
-    deprecated: false
-
-  field :trino_job, 28,
-    type: Google.Cloud.Dataproc.V1.TrinoJob,
-    json_name: "trinoJob",
     oneof: 0,
     deprecated: false
 

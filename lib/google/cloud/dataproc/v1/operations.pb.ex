@@ -109,12 +109,6 @@ defmodule Google.Cloud.Dataproc.V1.ClusterOperationMetadata do
     deprecated: false
 
   field :warnings, 14, repeated: true, type: :string, deprecated: false
-
-  field :child_operation_ids, 15,
-    repeated: true,
-    type: :string,
-    json_name: "childOperationIds",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.NodeGroupOperationMetadata.LabelsEntry do

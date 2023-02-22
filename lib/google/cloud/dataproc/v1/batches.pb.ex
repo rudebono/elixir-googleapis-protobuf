@@ -35,8 +35,6 @@ defmodule Google.Cloud.Dataproc.V1.ListBatchesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
-  field :filter, 4, type: :string, deprecated: false
-  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListBatchesResponse do
