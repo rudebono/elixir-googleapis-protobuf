@@ -89,6 +89,10 @@ defmodule Maps.Fleetengine.Delivery.V1.Task do
     json_name: "taskDuration",
     deprecated: false
 
+  field :target_time_window, 14,
+    type: Maps.Fleetengine.Delivery.V1.TimeWindow,
+    json_name: "targetTimeWindow"
+
   field :journey_sharing_info, 8,
     type: Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo,
     json_name: "journeySharingInfo",

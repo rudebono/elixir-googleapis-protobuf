@@ -131,3 +131,11 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation do
 
   field :road_snapped, 26, type: :bool, json_name: "roadSnapped", deprecated: true
 end
+
+defmodule Maps.Fleetengine.Delivery.V1.TimeWindow do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+end

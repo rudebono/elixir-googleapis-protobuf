@@ -76,7 +76,11 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :task_id, 1, type: :string, json_name: "taskId"
-  field :task_duration, 2, type: Google.Protobuf.Duration, json_name: "taskDuration"
+
+  field :task_duration, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "taskDuration",
+    deprecated: false
 end
 
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop do
