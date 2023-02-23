@@ -152,6 +152,14 @@ defmodule Maps.Fleetengine.Delivery.V1.ListTasksResponse do
   field :total_size, 3, type: :int64, json_name: "totalSize"
 end
 
+defmodule Maps.Fleetengine.Delivery.V1.GetTaskTrackingInfoRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
+  field :name, 3, type: :string, deprecated: false
+end
+
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -191,6 +199,10 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
   rpc :ListTasks,
       Maps.Fleetengine.Delivery.V1.ListTasksRequest,
       Maps.Fleetengine.Delivery.V1.ListTasksResponse
+
+  rpc :GetTaskTrackingInfo,
+      Maps.Fleetengine.Delivery.V1.GetTaskTrackingInfoRequest,
+      Maps.Fleetengine.Delivery.V1.TaskTrackingInfo
 
   rpc :ListDeliveryVehicles,
       Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest,
