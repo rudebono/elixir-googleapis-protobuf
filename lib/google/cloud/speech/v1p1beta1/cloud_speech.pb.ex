@@ -67,6 +67,9 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse.SpeechEventTy
 
   field :SPEECH_EVENT_UNSPECIFIED, 0
   field :END_OF_SINGLE_UTTERANCE, 1
+  field :SPEECH_ACTIVITY_BEGIN, 2
+  field :SPEECH_ACTIVITY_END, 3
+  field :SPEECH_ACTIVITY_TIMEOUT, 4
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognizeRequest do
@@ -113,6 +116,14 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeRequest do
   field :audio_content, 2, type: :bytes, json_name: "audioContent", oneof: 0
 end
 
+defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig.VoiceActivityTimeout do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :speech_start_timeout, 1, type: Google.Protobuf.Duration, json_name: "speechStartTimeout"
+  field :speech_end_timeout, 2, type: Google.Protobuf.Duration, json_name: "speechEndTimeout"
+end
+
 defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -120,6 +131,11 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig do
   field :config, 1, type: Google.Cloud.Speech.V1p1beta1.RecognitionConfig, deprecated: false
   field :single_utterance, 2, type: :bool, json_name: "singleUtterance"
   field :interim_results, 3, type: :bool, json_name: "interimResults"
+  field :enable_voice_activity_events, 5, type: :bool, json_name: "enableVoiceActivityEvents"
+
+  field :voice_activity_timeout, 6,
+    type: Google.Cloud.Speech.V1p1beta1.StreamingRecognitionConfig.VoiceActivityTimeout,
+    json_name: "voiceActivityTimeout"
 end
 
 defmodule Google.Cloud.Speech.V1p1beta1.RecognitionConfig do
@@ -312,6 +328,7 @@ defmodule Google.Cloud.Speech.V1p1beta1.StreamingRecognizeResponse do
     json_name: "speechEventType",
     enum: true
 
+  field :speech_event_time, 8, type: Google.Protobuf.Duration, json_name: "speechEventTime"
   field :total_billed_time, 5, type: Google.Protobuf.Duration, json_name: "totalBilledTime"
 
   field :speech_adaptation_info, 9,
