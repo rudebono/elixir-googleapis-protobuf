@@ -125,6 +125,8 @@ defmodule Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties do
 
   field :database, 1, type: :string
   field :use_parallelism, 2, type: :bool, json_name: "useParallelism"
+  field :use_serverless_analytics, 3, type: :bool, json_name: "useServerlessAnalytics"
+  field :database_role, 4, type: :string, json_name: "databaseRole", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsProperties do
