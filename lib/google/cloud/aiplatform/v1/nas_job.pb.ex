@@ -82,7 +82,7 @@ defmodule Google.Cloud.Aiplatform.V1.NasJob do
   field :enable_restricted_image_training, 14,
     type: :bool,
     json_name: "enableRestrictedImageTraining",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NasTrialDetail do

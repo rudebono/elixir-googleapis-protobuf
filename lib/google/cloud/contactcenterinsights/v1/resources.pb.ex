@@ -769,6 +769,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings.AnalysisConfig do
     type: :double,
     json_name: "runtimeIntegrationAnalysisPercentage"
 
+  field :upload_conversation_analysis_percentage, 6,
+    type: :double,
+    json_name: "uploadConversationAnalysisPercentage"
+
   field :annotator_selector, 5,
     type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
     json_name: "annotatorSelector"

@@ -13,6 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1.Featurestore.OnlineServingConfig.Scaling do
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount"
+
+  field :cpu_utilization_target, 3,
+    type: :int32,
+    json_name: "cpuUtilizationTarget",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Featurestore.OnlineServingConfig do

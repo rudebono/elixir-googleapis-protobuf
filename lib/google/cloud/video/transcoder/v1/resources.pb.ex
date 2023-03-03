@@ -537,6 +537,8 @@ defmodule Google.Cloud.Video.Transcoder.V1.AudioStream do
     type: Google.Cloud.Video.Transcoder.V1.AudioStream.AudioMapping
 
   field :sample_rate_hertz, 6, type: :int32, json_name: "sampleRateHertz"
+  field :language_code, 7, type: :string, json_name: "languageCode"
+  field :display_name, 8, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping do
@@ -553,7 +555,9 @@ defmodule Google.Cloud.Video.Transcoder.V1.TextStream do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :codec, 1, type: :string
+  field :language_code, 2, type: :string, json_name: "languageCode"
   field :mapping, 3, repeated: true, type: Google.Cloud.Video.Transcoder.V1.TextStream.TextMapping
+  field :display_name, 4, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do

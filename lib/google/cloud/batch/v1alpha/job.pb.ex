@@ -206,6 +206,17 @@ defmodule Google.Cloud.Batch.V1alpha.JobStatus do
     map: true
 
   field :run_duration, 5, type: Google.Protobuf.Duration, json_name: "runDuration"
+
+  field :resource_usage, 6,
+    type: Google.Cloud.Batch.V1alpha.ResourceUsage,
+    json_name: "resourceUsage"
+end
+
+defmodule Google.Cloud.Batch.V1alpha.ResourceUsage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :core_hours, 1, type: :double, json_name: "coreHours"
 end
 
 defmodule Google.Cloud.Batch.V1alpha.JobNotification.Message do

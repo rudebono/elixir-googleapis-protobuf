@@ -36,6 +36,11 @@ defmodule Google.Cloud.Batch.V1.StatusEvent do
   field :description, 1, type: :string
   field :event_time, 2, type: Google.Protobuf.Timestamp, json_name: "eventTime"
   field :task_execution, 4, type: Google.Cloud.Batch.V1.TaskExecution, json_name: "taskExecution"
+
+  field :task_state, 5,
+    type: Google.Cloud.Batch.V1.TaskStatus.State,
+    json_name: "taskState",
+    enum: true
 end
 
 defmodule Google.Cloud.Batch.V1.TaskExecution do

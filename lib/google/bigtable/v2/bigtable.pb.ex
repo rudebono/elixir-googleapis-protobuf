@@ -283,6 +283,11 @@ defmodule Google.Bigtable.V2.ReadChangeStreamResponse.CloseStream do
     repeated: true,
     type: Google.Bigtable.V2.StreamContinuationToken,
     json_name: "continuationTokens"
+
+  field :new_partitions, 3,
+    repeated: true,
+    type: Google.Bigtable.V2.StreamPartition,
+    json_name: "newPartitions"
 end
 
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse do

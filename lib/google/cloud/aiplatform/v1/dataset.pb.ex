@@ -93,10 +93,26 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataConfig do
 
   oneof :destination, 0
 
+  oneof :split, 1
+
   field :gcs_destination, 1,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
     json_name: "gcsDestination",
     oneof: 0
 
+  field :fraction_split, 5,
+    type: Google.Cloud.Aiplatform.V1.ExportFractionSplit,
+    json_name: "fractionSplit",
+    oneof: 1
+
   field :annotations_filter, 2, type: :string, json_name: "annotationsFilter"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ExportFractionSplit do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :training_fraction, 1, type: :double, json_name: "trainingFraction"
+  field :validation_fraction, 2, type: :double, json_name: "validationFraction"
+  field :test_fraction, 3, type: :double, json_name: "testFraction"
 end
