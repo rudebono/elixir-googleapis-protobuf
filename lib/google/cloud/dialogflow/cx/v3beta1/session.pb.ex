@@ -309,6 +309,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentRequest do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput,
     json_name: "queryInput",
     deprecated: false
+
+  field :persist_parameter_changes, 5, type: :bool, json_name: "persistParameterChanges"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentResponse do
