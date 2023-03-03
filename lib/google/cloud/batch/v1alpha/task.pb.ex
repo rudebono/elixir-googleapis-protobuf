@@ -40,6 +40,11 @@ defmodule Google.Cloud.Batch.V1alpha.StatusEvent do
   field :task_execution, 4,
     type: Google.Cloud.Batch.V1alpha.TaskExecution,
     json_name: "taskExecution"
+
+  field :task_state, 5,
+    type: Google.Cloud.Batch.V1alpha.TaskStatus.State,
+    json_name: "taskState",
+    enum: true
 end
 
 defmodule Google.Cloud.Batch.V1alpha.TaskExecution do
@@ -59,6 +64,17 @@ defmodule Google.Cloud.Batch.V1alpha.TaskStatus do
     repeated: true,
     type: Google.Cloud.Batch.V1alpha.StatusEvent,
     json_name: "statusEvents"
+
+  field :resource_usage, 3,
+    type: Google.Cloud.Batch.V1alpha.TaskResourceUsage,
+    json_name: "resourceUsage"
+end
+
+defmodule Google.Cloud.Batch.V1alpha.TaskResourceUsage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :core_hours, 1, type: :double, json_name: "coreHours"
 end
 
 defmodule Google.Cloud.Batch.V1alpha.Runnable.Container do

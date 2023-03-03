@@ -35,11 +35,7 @@ defmodule Google.Cloud.Scheduler.V1.UpdateJobRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Scheduler.V1.Job, deprecated: false
-
-  field :update_mask, 2,
-    type: Google.Protobuf.FieldMask,
-    json_name: "updateMask",
-    deprecated: false
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
 defmodule Google.Cloud.Scheduler.V1.DeleteJobRequest do

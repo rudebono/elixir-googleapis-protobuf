@@ -156,6 +156,7 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest do
     json_name: "queryOptions"
 
   field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+  field :data_boost_enabled, 15, type: :bool, json_name: "dataBoostEnabled"
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry do
@@ -289,6 +290,7 @@ defmodule Google.Spanner.V1.ReadRequest do
   field :resume_token, 9, type: :bytes, json_name: "resumeToken"
   field :partition_token, 10, type: :bytes, json_name: "partitionToken"
   field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+  field :data_boost_enabled, 16, type: :bool, json_name: "dataBoostEnabled"
 end
 
 defmodule Google.Spanner.V1.BeginTransactionRequest do

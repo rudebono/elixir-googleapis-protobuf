@@ -235,6 +235,29 @@ defmodule Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesResponse do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.BatchImportEvaluatedAnnotationsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :evaluated_annotations, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.EvaluatedAnnotation,
+    json_name: "evaluatedAnnotations",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.BatchImportEvaluatedAnnotationsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :imported_evaluated_annotations_count, 1,
+    type: :int32,
+    json_name: "importedEvaluatedAnnotationsCount",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -338,6 +361,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
   rpc :BatchImportModelEvaluationSlices,
       Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesRequest,
       Google.Cloud.Aiplatform.V1.BatchImportModelEvaluationSlicesResponse
+
+  rpc :BatchImportEvaluatedAnnotations,
+      Google.Cloud.Aiplatform.V1.BatchImportEvaluatedAnnotationsRequest,
+      Google.Cloud.Aiplatform.V1.BatchImportEvaluatedAnnotationsResponse
 
   rpc :GetModelEvaluation,
       Google.Cloud.Aiplatform.V1.GetModelEvaluationRequest,

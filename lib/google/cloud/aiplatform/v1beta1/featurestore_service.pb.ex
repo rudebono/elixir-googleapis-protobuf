@@ -542,9 +542,49 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesRequest do
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse.SelectEntity do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :offline_storage_deleted_entity_row_count, 1,
+    type: :int64,
+    json_name: "offlineStorageDeletedEntityRowCount"
+
+  field :online_storage_deleted_entity_count, 2,
+    type: :int64,
+    json_name: "onlineStorageDeletedEntityCount"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse.SelectTimeRangeAndFeature do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :impacted_feature_count, 1, type: :int64, json_name: "impactedFeatureCount"
+
+  field :offline_storage_modified_entity_row_count, 2,
+    type: :int64,
+    json_name: "offlineStorageModifiedEntityRowCount"
+
+  field :online_storage_modified_entity_count, 3,
+    type: :int64,
+    json_name: "onlineStorageModifiedEntityCount"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :response, 0
+
+  field :select_entity, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse.SelectEntity,
+    json_name: "selectEntity",
+    oneof: 0
+
+  field :select_time_range_and_feature, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.DeleteFeatureValuesResponse.SelectTimeRangeAndFeature,
+    json_name: "selectTimeRangeAndFeature",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EntityIdSelector do

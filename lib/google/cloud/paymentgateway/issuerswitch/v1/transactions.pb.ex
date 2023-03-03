@@ -18,6 +18,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :PAY, 3
   field :BENEFICIARY, 4
   field :REMITTER, 5
+  field :REFUND, 6
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule.PaymentRuleName do
@@ -82,6 +83,8 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :reference_id, 3, type: :string, json_name: "referenceId", deprecated: false
   field :reference_uri, 4, type: :string, json_name: "referenceUri", deprecated: false
   field :description, 5, type: :string, deprecated: false
+  field :initiation_mode, 6, type: :string, json_name: "initiationMode", deprecated: false
+  field :purpose_code, 7, type: :string, json_name: "purposeCode", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionErrorDetails do
@@ -93,7 +96,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :upi_error_code, 3, type: :string, json_name: "upiErrorCode", deprecated: false
 end
 
-defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata.ValuesEntry do
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata.ValuesEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -101,18 +104,18 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapte
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata do
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :values, 1,
     repeated: true,
     type:
-      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata.ValuesEntry,
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata.ValuesEntry,
     map: true
 end
 
-defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo do
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -120,7 +123,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapte
 
   field :response_metadata, 2,
     type:
-      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo.ResponseMetadata,
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata,
     json_name: "responseMetadata",
     deprecated: false
 end
@@ -171,9 +174,9 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo do
     json_name: "errorDetails",
     deprecated: false
 
-  field :bank_adapter_info, 8,
-    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.BankAdapterInfo,
-    json_name: "bankAdapterInfo",
+  field :adapter_info, 8,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo,
+    json_name: "adapterInfo",
     deprecated: false
 
   field :risk_info, 9,
