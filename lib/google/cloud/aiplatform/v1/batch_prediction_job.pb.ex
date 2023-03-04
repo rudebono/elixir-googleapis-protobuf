@@ -173,4 +173,6 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :disable_container_logging, 34, type: :bool, json_name: "disableContainerLogging"
 end

@@ -187,4 +187,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
     type: Google.Rpc.Status,
     json_name: "modelMonitoringStatus",
     deprecated: false
+
+  field :disable_container_logging, 34, type: :bool, json_name: "disableContainerLogging"
 end

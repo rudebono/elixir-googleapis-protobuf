@@ -55,6 +55,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationProfile do
   field :language_code, 10, type: :string, json_name: "languageCode"
   field :time_zone, 14, type: :string, json_name: "timeZone"
   field :security_settings, 13, type: :string, json_name: "securitySettings", deprecated: false
+
+  field :tts_config, 18,
+    type: Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig,
+    json_name: "ttsConfig"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig do
