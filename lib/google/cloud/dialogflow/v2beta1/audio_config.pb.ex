@@ -85,6 +85,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SpeechWordInfo do
   field :confidence, 4, type: :float
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.BargeInConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :no_barge_in_duration, 1, type: Google.Protobuf.Duration, json_name: "noBargeInDuration"
+  field :total_duration, 2, type: Google.Protobuf.Duration, json_name: "totalDuration"
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -121,6 +129,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
   field :disable_no_speech_recognized_event, 14,
     type: :bool,
     json_name: "disableNoSpeechRecognizedEvent"
+
+  field :barge_in_config, 15,
+    type: Google.Cloud.Dialogflow.V2beta1.BargeInConfig,
+    json_name: "bargeInConfig"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams do

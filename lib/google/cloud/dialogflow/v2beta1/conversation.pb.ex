@@ -147,6 +147,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryRequest do
   field :conversation, 1, type: :string, deprecated: false
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
   field :context_size, 4, type: :int32, json_name: "contextSize"
+
+  field :assist_query_params, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
+    json_name: "assistQueryParams"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse.Summary.TextSectionsEntry do
