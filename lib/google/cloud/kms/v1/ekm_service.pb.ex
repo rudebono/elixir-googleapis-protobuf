@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Kms.V1.EkmConnection.KeyManagementMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :KEY_MANAGEMENT_MODE_UNSPECIFIED, 0
+  field :MANUAL, 1
+  field :CLOUD_KMS, 2
+end
+
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -49,6 +58,28 @@ defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
   field :ekm_connection, 1,
     type: Google.Cloud.Kms.V1.EkmConnection,
     json_name: "ekmConnection",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Kms.V1.GetEkmConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Kms.V1.UpdateEkmConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ekm_config, 1,
+    type: Google.Cloud.Kms.V1.EkmConfig,
+    json_name: "ekmConfig",
     deprecated: false
 
   field :update_mask, 2,
@@ -122,6 +153,26 @@ defmodule Google.Cloud.Kms.V1.EkmConnection do
     json_name: "serviceResolvers"
 
   field :etag, 5, type: :string, deprecated: false
+
+  field :key_management_mode, 6,
+    type: Google.Cloud.Kms.V1.EkmConnection.KeyManagementMode,
+    json_name: "keyManagementMode",
+    enum: true,
+    deprecated: false
+
+  field :crypto_space_path, 7, type: :string, json_name: "cryptoSpacePath", deprecated: false
+end
+
+defmodule Google.Cloud.Kms.V1.EkmConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :default_ekm_connection, 2,
+    type: :string,
+    json_name: "defaultEkmConnection",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Service do
@@ -143,6 +194,10 @@ defmodule Google.Cloud.Kms.V1.EkmService.Service do
   rpc :UpdateEkmConnection,
       Google.Cloud.Kms.V1.UpdateEkmConnectionRequest,
       Google.Cloud.Kms.V1.EkmConnection
+
+  rpc :GetEkmConfig, Google.Cloud.Kms.V1.GetEkmConfigRequest, Google.Cloud.Kms.V1.EkmConfig
+
+  rpc :UpdateEkmConfig, Google.Cloud.Kms.V1.UpdateEkmConfigRequest, Google.Cloud.Kms.V1.EkmConfig
 end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Stub do

@@ -76,6 +76,9 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
   field :DESTROY_SCHEDULED, 4
   field :PENDING_IMPORT, 6
   field :IMPORT_FAILED, 7
+  field :GENERATION_FAILED, 8
+  field :PENDING_EXTERNAL_DESTRUCTION, 9
+  field :EXTERNAL_DESTRUCTION_FAILED, 10
 end
 
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionView do
@@ -261,6 +264,16 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
   field :import_failure_reason, 16,
     type: :string,
     json_name: "importFailureReason",
+    deprecated: false
+
+  field :generation_failure_reason, 19,
+    type: :string,
+    json_name: "generationFailureReason",
+    deprecated: false
+
+  field :external_destruction_failure_reason, 20,
+    type: :string,
+    json_name: "externalDestructionFailureReason",
     deprecated: false
 
   field :external_protection_level_options, 17,
