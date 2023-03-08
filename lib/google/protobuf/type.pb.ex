@@ -4,6 +4,7 @@ defmodule Google.Protobuf.Syntax do
 
   field :SYNTAX_PROTO2, 0
   field :SYNTAX_PROTO3, 1
+  field :SYNTAX_EDITIONS, 2
 end
 
 defmodule Google.Protobuf.Field.Kind do
@@ -51,6 +52,7 @@ defmodule Google.Protobuf.Type do
   field :options, 4, repeated: true, type: Google.Protobuf.Option
   field :source_context, 5, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :syntax, 6, type: Google.Protobuf.Syntax, enum: true
+  field :edition, 7, type: :string
 end
 
 defmodule Google.Protobuf.Field do
@@ -78,6 +80,7 @@ defmodule Google.Protobuf.Enum do
   field :options, 3, repeated: true, type: Google.Protobuf.Option
   field :source_context, 4, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :syntax, 5, type: Google.Protobuf.Syntax, enum: true
+  field :edition, 6, type: :string
 end
 
 defmodule Google.Protobuf.EnumValue do
