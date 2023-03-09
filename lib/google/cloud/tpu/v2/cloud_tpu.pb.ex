@@ -63,6 +63,16 @@ defmodule Google.Cloud.Tpu.V2.Symptom.SymptomType do
   field :PROJECT_ABUSE, 6
 end
 
+defmodule Google.Cloud.Tpu.V2.AcceleratorConfig.Type do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :V2, 2
+  field :V3, 4
+  field :V4, 7
+end
+
 defmodule Google.Cloud.Tpu.V2.GuestAttributes do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -207,6 +217,10 @@ defmodule Google.Cloud.Tpu.V2.Node do
   field :shielded_instance_config, 45,
     type: Google.Cloud.Tpu.V2.ShieldedInstanceConfig,
     json_name: "shieldedInstanceConfig"
+
+  field :accelerator_config, 46,
+    type: Google.Cloud.Tpu.V2.AcceleratorConfig,
+    json_name: "acceleratorConfig"
 end
 
 defmodule Google.Cloud.Tpu.V2.ListNodesRequest do
@@ -303,6 +317,11 @@ defmodule Google.Cloud.Tpu.V2.AcceleratorType do
 
   field :name, 1, type: :string
   field :type, 2, type: :string
+
+  field :accelerator_configs, 3,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2.AcceleratorConfig,
+    json_name: "acceleratorConfigs"
 end
 
 defmodule Google.Cloud.Tpu.V2.GetAcceleratorTypeRequest do
@@ -420,6 +439,14 @@ defmodule Google.Cloud.Tpu.V2.GetGuestAttributesResponse do
     repeated: true,
     type: Google.Cloud.Tpu.V2.GuestAttributes,
     json_name: "guestAttributes"
+end
+
+defmodule Google.Cloud.Tpu.V2.AcceleratorConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :type, 1, type: Google.Cloud.Tpu.V2.AcceleratorConfig.Type, enum: true, deprecated: false
+  field :topology, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2.ShieldedInstanceConfig do
