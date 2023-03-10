@@ -16,7 +16,7 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :parent, 4, type: :string
+  field :parent, 4, type: :string, deprecated: false
   field :deployment, 1, type: Google.Devtools.Cloudprofiler.V2.Deployment
 
   field :profile_type, 2,
@@ -30,7 +30,7 @@ defmodule Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :parent, 1, type: :string
+  field :parent, 1, type: :string, deprecated: false
   field :profile, 2, type: Google.Devtools.Cloudprofiler.V2.Profile
 end
 
@@ -54,7 +54,7 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :profile_type, 2,
     type: Google.Devtools.Cloudprofiler.V2.ProfileType,
@@ -63,12 +63,13 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile do
 
   field :deployment, 3, type: Google.Devtools.Cloudprofiler.V2.Deployment
   field :duration, 4, type: Google.Protobuf.Duration
-  field :profile_bytes, 5, type: :bytes, json_name: "profileBytes"
+  field :profile_bytes, 5, type: :bytes, json_name: "profileBytes", deprecated: false
 
   field :labels, 6,
     repeated: true,
     type: Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do

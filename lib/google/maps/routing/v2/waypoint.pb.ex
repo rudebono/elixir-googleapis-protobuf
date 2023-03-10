@@ -6,6 +6,7 @@ defmodule Google.Maps.Routing.V2.Waypoint do
 
   field :location, 1, type: Google.Maps.Routing.V2.Location, oneof: 0
   field :place_id, 2, type: :string, json_name: "placeId", oneof: 0
+  field :address, 7, type: :string, oneof: 0
   field :via, 3, type: :bool
   field :vehicle_stopover, 4, type: :bool, json_name: "vehicleStopover"
   field :side_of_road, 5, type: :bool, json_name: "sideOfRoad"
