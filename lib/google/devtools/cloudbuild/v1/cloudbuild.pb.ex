@@ -143,6 +143,14 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.LoggingMode do
   field :NONE, 4
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.DefaultLogsBucketBehavior do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED, 0
+  field :REGIONAL_USER_OWNED_BUCKET, 1
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -973,6 +981,12 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
   field :env, 12, repeated: true, type: :string
   field :secret_env, 13, repeated: true, type: :string, json_name: "secretEnv"
   field :volumes, 14, repeated: true, type: Google.Devtools.Cloudbuild.V1.Volume
+
+  field :default_logs_bucket_behavior, 21,
+    type: Google.Devtools.Cloudbuild.V1.BuildOptions.DefaultLogsBucketBehavior,
+    json_name: "defaultLogsBucketBehavior",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do

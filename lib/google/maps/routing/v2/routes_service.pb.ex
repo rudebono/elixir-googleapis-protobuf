@@ -108,6 +108,10 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesResponse do
 
   field :routes, 1, repeated: true, type: Google.Maps.Routing.V2.Route
   field :fallback_info, 2, type: Google.Maps.Routing.V2.FallbackInfo, json_name: "fallbackInfo"
+
+  field :geocoding_results, 3,
+    type: Google.Maps.Routing.V2.GeocodingResults,
+    json_name: "geocodingResults"
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
