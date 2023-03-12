@@ -21,6 +21,14 @@ defmodule Google.Devtools.Testing.V1.ApkManifest do
     json_name: "intentFilters"
 
   field :uses_permission, 7, repeated: true, type: :string, json_name: "usesPermission"
+  field :version_code, 8, type: :int64, json_name: "versionCode"
+  field :version_name, 9, type: :string, json_name: "versionName"
+  field :metadata, 10, repeated: true, type: Google.Devtools.Testing.V1.Metadata
+
+  field :uses_feature, 11,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.UsesFeature,
+    json_name: "usesFeature"
 end
 
 defmodule Google.Devtools.Testing.V1.IntentFilter do
@@ -30,6 +38,22 @@ defmodule Google.Devtools.Testing.V1.IntentFilter do
   field :action_names, 1, repeated: true, type: :string, json_name: "actionNames"
   field :category_names, 2, repeated: true, type: :string, json_name: "categoryNames"
   field :mime_type, 3, type: :string, json_name: "mimeType"
+end
+
+defmodule Google.Devtools.Testing.V1.Metadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Devtools.Testing.V1.UsesFeature do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :is_required, 2, type: :bool, json_name: "isRequired"
 end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsRequest do

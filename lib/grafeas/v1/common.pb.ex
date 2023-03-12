@@ -13,6 +13,7 @@ defmodule Grafeas.V1.NoteKind do
   field :UPGRADE, 8
   field :COMPLIANCE, 9
   field :DSSE_ATTESTATION, 10
+  field :VULNERABILITY_ASSESSMENT, 11
 end
 
 defmodule Grafeas.V1.RelatedUrl do

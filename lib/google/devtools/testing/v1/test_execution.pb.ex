@@ -7,6 +7,15 @@ defmodule Google.Devtools.Testing.V1.OrchestratorOption do
   field :DO_NOT_USE_ORCHESTRATOR, 2
 end
 
+defmodule Google.Devtools.Testing.V1.RoboMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :ROBO_MODE_UNSPECIFIED, 0
+  field :ROBO_VERSION_1, 1
+  field :ROBO_VERSION_2, 2
+end
+
 defmodule Google.Devtools.Testing.V1.RoboActionType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -56,6 +65,10 @@ defmodule Google.Devtools.Testing.V1.InvalidMatrixDetails do
   field :NO_CODE_APK, 23
   field :INVALID_INPUT_APK, 27
   field :INVALID_APK_PREVIEW_SDK, 29
+  field :MATRIX_TOO_LARGE, 37
+  field :TEST_QUOTA_EXCEEDED, 39
+  field :SERVICE_NOT_ACTIVATED, 40
+  field :UNKNOWN_PERMISSION_ERROR, 41
 end
 
 defmodule Google.Devtools.Testing.V1.TestState do
@@ -245,7 +258,7 @@ defmodule Google.Devtools.Testing.V1.TestSetup do
     type: Google.Devtools.Testing.V1.EnvironmentVariable,
     json_name: "environmentVariables"
 
-  field :systrace, 9, type: Google.Devtools.Testing.V1.SystraceSetup
+  field :systrace, 9, type: Google.Devtools.Testing.V1.SystraceSetup, deprecated: true
   field :dont_autogrant_permissions, 23, type: :bool, json_name: "dontAutograntPermissions"
 end
 
@@ -444,6 +457,11 @@ defmodule Google.Devtools.Testing.V1.AndroidRoboTest do
     repeated: true,
     type: Google.Devtools.Testing.V1.RoboDirective,
     json_name: "roboDirectives"
+
+  field :robo_mode, 14,
+    type: Google.Devtools.Testing.V1.RoboMode,
+    json_name: "roboMode",
+    enum: true
 
   field :robo_script, 13, type: Google.Devtools.Testing.V1.FileReference, json_name: "roboScript"
 

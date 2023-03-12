@@ -58,6 +58,11 @@ defmodule Grafeas.V1.Note do
     type: Grafeas.V1.DSSEAttestationNote,
     json_name: "dsseAttestation",
     oneof: 0
+
+  field :vulnerability_assessment, 20,
+    type: Grafeas.V1.VulnerabilityAssessmentNote,
+    json_name: "vulnerabilityAssessment",
+    oneof: 0
 end
 
 defmodule Grafeas.V1.GetOccurrenceRequest do
