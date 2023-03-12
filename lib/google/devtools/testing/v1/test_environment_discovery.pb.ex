@@ -18,6 +18,17 @@ defmodule Google.Devtools.Testing.V1.DeviceFormFactor do
   field :WEARABLE, 3
 end
 
+defmodule Google.Devtools.Testing.V1.DeviceCapacity do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DEVICE_CAPACITY_UNSPECIFIED, 0
+  field :DEVICE_CAPACITY_HIGH, 1
+  field :DEVICE_CAPACITY_MEDIUM, 2
+  field :DEVICE_CAPACITY_LOW, 3
+  field :DEVICE_CAPACITY_NONE, 4
+end
+
 defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.EnvironmentType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -129,6 +140,11 @@ defmodule Google.Devtools.Testing.V1.AndroidModel do
     json_name: "formFactor",
     enum: true
 
+  field :per_version_info, 21,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.PerAndroidVersionInfo,
+    json_name: "perVersionInfo"
+
   field :screen_x, 5, type: :int32, json_name: "screenX"
   field :screen_y, 6, type: :int32, json_name: "screenY"
   field :screen_density, 12, type: :int32, json_name: "screenDensity"
@@ -150,6 +166,18 @@ defmodule Google.Devtools.Testing.V1.AndroidVersion do
   field :release_date, 5, type: Google.Type.Date, json_name: "releaseDate"
   field :distribution, 6, type: Google.Devtools.Testing.V1.Distribution
   field :tags, 7, repeated: true, type: :string
+end
+
+defmodule Google.Devtools.Testing.V1.PerAndroidVersionInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :version_id, 1, type: :string, json_name: "versionId"
+
+  field :device_capacity, 2,
+    type: Google.Devtools.Testing.V1.DeviceCapacity,
+    json_name: "deviceCapacity",
+    enum: true
 end
 
 defmodule Google.Devtools.Testing.V1.Distribution do
@@ -202,6 +230,11 @@ defmodule Google.Devtools.Testing.V1.IosModel do
     type: Google.Devtools.Testing.V1.DeviceFormFactor,
     json_name: "formFactor",
     enum: true
+
+  field :per_version_info, 14,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.PerIosVersionInfo,
+    json_name: "perVersionInfo"
 end
 
 defmodule Google.Devtools.Testing.V1.IosVersion do
@@ -217,6 +250,18 @@ defmodule Google.Devtools.Testing.V1.IosVersion do
     repeated: true,
     type: :string,
     json_name: "supportedXcodeVersionIds"
+end
+
+defmodule Google.Devtools.Testing.V1.PerIosVersionInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :version_id, 1, type: :string, json_name: "versionId"
+
+  field :device_capacity, 2,
+    type: Google.Devtools.Testing.V1.DeviceCapacity,
+    json_name: "deviceCapacity",
+    enum: true
 end
 
 defmodule Google.Devtools.Testing.V1.Locale do
@@ -277,7 +322,11 @@ defmodule Google.Devtools.Testing.V1.ProvidedSoftwareCatalog do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :orchestrator_version, 1, type: :string, json_name: "orchestratorVersion"
+  field :orchestrator_version, 1,
+    type: :string,
+    json_name: "orchestratorVersion",
+    deprecated: true
+
   field :androidx_orchestrator_version, 2, type: :string, json_name: "androidxOrchestratorVersion"
 end
 
