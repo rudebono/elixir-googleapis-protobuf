@@ -551,6 +551,7 @@ defmodule Google.Cloud.Channel.V1.ListOffersRequest do
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 4, type: :string, deprecated: false
   field :language_code, 5, type: :string, json_name: "languageCode", deprecated: false
+  field :show_future_offers, 7, type: :bool, json_name: "showFutureOffers", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ListOffersResponse do
@@ -724,6 +725,28 @@ defmodule Google.Cloud.Channel.V1.ListSubscribersResponse do
   field :topic, 1, type: :string
   field :service_accounts, 2, repeated: true, type: :string, json_name: "serviceAccounts"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Channel.V1.ListEntitlementChangesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Channel.V1.ListEntitlementChangesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :entitlement_changes, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.EntitlementChange,
+    json_name: "entitlementChanges"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
@@ -901,6 +924,10 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
   rpc :ListSubscribers,
       Google.Cloud.Channel.V1.ListSubscribersRequest,
       Google.Cloud.Channel.V1.ListSubscribersResponse
+
+  rpc :ListEntitlementChanges,
+      Google.Cloud.Channel.V1.ListEntitlementChangesRequest,
+      Google.Cloud.Channel.V1.ListEntitlementChangesResponse
 end
 
 defmodule Google.Cloud.Channel.V1.CloudChannelService.Stub do
