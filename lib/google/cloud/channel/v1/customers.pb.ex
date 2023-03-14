@@ -36,6 +36,7 @@ defmodule Google.Cloud.Channel.V1.Customer do
     deprecated: false
 
   field :channel_partner_id, 13, type: :string, json_name: "channelPartnerId"
+  field :correlation_id, 14, type: :string, json_name: "correlationId", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ContactInfo do
