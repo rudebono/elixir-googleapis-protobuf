@@ -6,6 +6,14 @@ defmodule Google.Cloud.Datacatalog.V1.Taxonomy.PolicyType do
   field :FINE_GRAINED_ACCESS_CONTROL, 1
 end
 
+defmodule Google.Cloud.Datacatalog.V1.Taxonomy.Service do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: Google.Cloud.Datacatalog.V1.ManagingSystem, enum: true
+  field :identity, 2, type: :string
+end
+
 defmodule Google.Cloud.Datacatalog.V1.Taxonomy do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -26,6 +34,8 @@ defmodule Google.Cloud.Datacatalog.V1.Taxonomy do
     json_name: "activatedPolicyTypes",
     enum: true,
     deprecated: false
+
+  field :service, 7, type: Google.Cloud.Datacatalog.V1.Taxonomy.Service, deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.PolicyTag do
@@ -74,6 +84,7 @@ defmodule Google.Cloud.Datacatalog.V1.ListTaxonomiesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ListTaxonomiesResponse do

@@ -14,6 +14,10 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
   field :LAKE, 10
   field :ZONE, 11
   field :SERVICE, 14
+  field :DATABASE_SCHEMA, 15
+  field :DASHBOARD, 16
+  field :EXPLORE, 17
+  field :LOOK, 18
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
@@ -23,6 +27,15 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
   field :TABLE_TYPE_UNSPECIFIED, 0
   field :NATIVE, 1
   field :EXTERNAL, 2
+end
+
+defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec.ViewType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :VIEW_TYPE_UNSPECIFIED, 0
+  field :STANDARD_VIEW, 1
+  field :MATERIALIZED_VIEW, 2
 end
 
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType do
@@ -42,6 +55,27 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
   field :IN, 1
   field :OUT, 2
   field :INOUT, 3
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RECONCILIATION_STATE_UNSPECIFIED, 0
+  field :RECONCILIATION_QUEUED, 1
+  field :RECONCILIATION_IN_PROGRESS, 2
+  field :RECONCILIATION_DONE, 3
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ImportEntriesMetadata.ImportState do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :IMPORT_STATE_UNSPECIFIED, 0
+  field :IMPORT_QUEUED, 1
+  field :IMPORT_IN_PROGRESS, 2
+  field :IMPORT_DONE, 3
+  field :IMPORT_OBSOLETE, 4
 end
 
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
@@ -202,9 +236,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
 
   oneof :system, 1
 
-  oneof :type_spec, 2
+  oneof :system_spec, 2
 
-  oneof :spec, 3
+  oneof :type_spec, 3
+
+  oneof :spec, 4
 
   field :name, 1, type: :string, deprecated: false
   field :linked_resource, 9, type: :string, json_name: "linkedResource"
@@ -221,42 +257,52 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
 
   field :user_specified_system, 18, type: :string, json_name: "userSpecifiedSystem", oneof: 1
 
+  field :sql_database_system_spec, 39,
+    type: Google.Cloud.Datacatalog.V1.SqlDatabaseSystemSpec,
+    json_name: "sqlDatabaseSystemSpec",
+    oneof: 2
+
+  field :looker_system_spec, 40,
+    type: Google.Cloud.Datacatalog.V1.LookerSystemSpec,
+    json_name: "lookerSystemSpec",
+    oneof: 2
+
   field :gcs_fileset_spec, 6,
     type: Google.Cloud.Datacatalog.V1.GcsFilesetSpec,
     json_name: "gcsFilesetSpec",
-    oneof: 2
+    oneof: 3
 
   field :bigquery_table_spec, 12,
     type: Google.Cloud.Datacatalog.V1.BigQueryTableSpec,
     json_name: "bigqueryTableSpec",
-    oneof: 2,
+    oneof: 3,
     deprecated: false
 
   field :bigquery_date_sharded_spec, 15,
     type: Google.Cloud.Datacatalog.V1.BigQueryDateShardedSpec,
     json_name: "bigqueryDateShardedSpec",
-    oneof: 2,
+    oneof: 3,
     deprecated: false
 
   field :database_table_spec, 24,
     type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec,
     json_name: "databaseTableSpec",
-    oneof: 3
+    oneof: 4
 
   field :data_source_connection_spec, 27,
     type: Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec,
     json_name: "dataSourceConnectionSpec",
-    oneof: 3
+    oneof: 4
 
   field :routine_spec, 28,
     type: Google.Cloud.Datacatalog.V1.RoutineSpec,
     json_name: "routineSpec",
-    oneof: 3
+    oneof: 4
 
   field :fileset_spec, 33,
     type: Google.Cloud.Datacatalog.V1.FilesetSpec,
     json_name: "filesetSpec",
-    oneof: 3
+    oneof: 4
 
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
@@ -289,6 +335,21 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     deprecated: false
 end
 
+defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :source_definition, 0
+
+  field :view_type, 1,
+    type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec.ViewType,
+    json_name: "viewType",
+    enum: true
+
+  field :base_table, 2, type: :string, json_name: "baseTable", oneof: 0
+  field :sql_query, 3, type: :string, json_name: "sqlQuery", oneof: 0
+end
+
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -299,6 +360,10 @@ defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
     type: Google.Cloud.Datacatalog.V1.DataplexTableSpec,
     json_name: "dataplexTable",
     deprecated: false
+
+  field :database_view_spec, 3,
+    type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec,
+    json_name: "databaseViewSpec"
 end
 
 defmodule Google.Cloud.Datacatalog.V1.FilesetSpec do
@@ -353,6 +418,27 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
     type: Google.Cloud.Datacatalog.V1.BigQueryRoutineSpec,
     json_name: "bigqueryRoutineSpec",
     oneof: 0
+end
+
+defmodule Google.Cloud.Datacatalog.V1.SqlDatabaseSystemSpec do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :sql_engine, 1, type: :string, json_name: "sqlEngine"
+  field :database_version, 2, type: :string, json_name: "databaseVersion"
+  field :instance_host, 3, type: :string, json_name: "instanceHost"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.LookerSystemSpec do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent_instance_id, 1, type: :string, json_name: "parentInstanceId"
+  field :parent_instance_display_name, 2, type: :string, json_name: "parentInstanceDisplayName"
+  field :parent_model_id, 3, type: :string, json_name: "parentModelId"
+  field :parent_model_display_name, 4, type: :string, json_name: "parentModelDisplayName"
+  field :parent_view_id, 5, type: :string, json_name: "parentViewId"
+  field :parent_view_display_name, 6, type: :string, json_name: "parentViewDisplayName"
 end
 
 defmodule Google.Cloud.Datacatalog.V1.BusinessContext do
@@ -548,6 +634,47 @@ defmodule Google.Cloud.Datacatalog.V1.ListTagsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :tag_template, 2, type: :string, json_name: "tagTemplate", deprecated: false
+  field :force_delete_missing, 3, type: :bool, json_name: "forceDeleteMissing"
+  field :tags, 4, repeated: true, type: Google.Cloud.Datacatalog.V1.Tag
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :created_tags_count, 1, type: :int64, json_name: "createdTagsCount"
+  field :updated_tags_count, 2, type: :int64, json_name: "updatedTagsCount"
+  field :deleted_tags_count, 3, type: :int64, json_name: "deletedTagsCount"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ErrorsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Rpc.Status
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState,
+    enum: true
+
+  field :errors, 2,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ErrorsEntry,
+    map: true
+end
+
 defmodule Google.Cloud.Datacatalog.V1.ListEntriesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -588,6 +715,39 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UnstarEntryResponse do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ImportEntriesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :gcs_bucket_path, 2, type: :string, json_name: "gcsBucketPath", oneof: 0
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ImportEntriesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :upserted_entries_count, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "upsertedEntriesCount"
+
+  field :deleted_entries_count, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "deletedEntriesCount"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ImportEntriesMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :state, 1, type: Google.Cloud.Datacatalog.V1.ImportEntriesMetadata.ImportState, enum: true
+  field :errors, 2, repeated: true, type: Google.Rpc.Status
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ModifyEntryOverviewRequest do
@@ -714,6 +874,10 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
       Google.Cloud.Datacatalog.V1.ListTagsRequest,
       Google.Cloud.Datacatalog.V1.ListTagsResponse
 
+  rpc :ReconcileTags,
+      Google.Cloud.Datacatalog.V1.ReconcileTagsRequest,
+      Google.Longrunning.Operation
+
   rpc :StarEntry,
       Google.Cloud.Datacatalog.V1.StarEntryRequest,
       Google.Cloud.Datacatalog.V1.StarEntryResponse
@@ -729,6 +893,10 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :ImportEntries,
+      Google.Cloud.Datacatalog.V1.ImportEntriesRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Stub do

@@ -7,6 +7,17 @@ defmodule Google.Cloud.Datacatalog.V1.IntegratedSystem do
   field :CLOUD_PUBSUB, 2
   field :DATAPROC_METASTORE, 3
   field :DATAPLEX, 4
+  field :CLOUD_SQL, 8
+  field :LOOKER, 9
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ManagingSystem do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :MANAGING_SYSTEM_UNSPECIFIED, 0
+  field :MANAGING_SYSTEM_DATAPLEX, 1
+  field :MANAGING_SYSTEM_OTHER, 2
 end
 
 defmodule Google.Cloud.Datacatalog.V1.PersonalDetails do

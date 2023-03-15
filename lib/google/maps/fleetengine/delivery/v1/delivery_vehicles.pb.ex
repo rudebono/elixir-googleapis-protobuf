@@ -81,6 +81,11 @@ defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.TaskInfo do
     type: Google.Protobuf.Duration,
     json_name: "taskDuration",
     deprecated: false
+
+  field :target_time_window, 3,
+    type: Maps.Fleetengine.Delivery.V1.TimeWindow,
+    json_name: "targetTimeWindow",
+    deprecated: false
 end
 
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop do
