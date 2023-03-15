@@ -6,6 +6,7 @@ defmodule Google.Cloud.Iap.V1.ReauthSettings.Method do
   field :LOGIN, 1
   field :PASSWORD, 2
   field :SECURE_KEY, 3
+  field :ENROLLED_SECOND_FACTORS, 4
 end
 
 defmodule Google.Cloud.Iap.V1.ReauthSettings.PolicyType do

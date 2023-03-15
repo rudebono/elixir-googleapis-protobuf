@@ -11,12 +11,27 @@ defmodule Google.Cloud.Datacatalog.V1.UsageStats do
     json_name: "totalExecutionTimeForCompletionsMillis"
 end
 
+defmodule Google.Cloud.Datacatalog.V1.CommonUsageStats do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :view_count, 1, proto3_optional: true, type: :int64, json_name: "viewCount"
+end
+
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal.UsageWithinTimeRangeEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.UsageStats
+end
+
+defmodule Google.Cloud.Datacatalog.V1.UsageSignal.CommonUsageWithinTimeRangeEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Datacatalog.V1.CommonUsageStats
 end
 
 defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
@@ -31,4 +46,12 @@ defmodule Google.Cloud.Datacatalog.V1.UsageSignal do
     json_name: "usageWithinTimeRange",
     map: true,
     deprecated: false
+
+  field :common_usage_within_time_range, 3,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.UsageSignal.CommonUsageWithinTimeRangeEntry,
+    json_name: "commonUsageWithinTimeRange",
+    map: true
+
+  field :favorite_count, 4, proto3_optional: true, type: :int64, json_name: "favoriteCount"
 end
