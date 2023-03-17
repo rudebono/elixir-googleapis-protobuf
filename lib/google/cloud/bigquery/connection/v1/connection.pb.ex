@@ -88,6 +88,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
     json_name: "cloudResource",
     oneof: 0
 
+  field :spark, 23, type: Google.Cloud.Bigquery.Connection.V1.SparkProperties, oneof: 0
   field :creation_time, 5, type: :int64, json_name: "creationTime", deprecated: false
   field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime", deprecated: false
   field :has_credential, 7, type: :bool, json_name: "hasCredential", deprecated: false
@@ -186,6 +187,37 @@ defmodule Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.MetastoreServiceConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :metastore_service, 1, type: :string, json_name: "metastoreService", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.SparkHistoryServerConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.SparkProperties do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :service_account_id, 1, type: :string, json_name: "serviceAccountId", deprecated: false
+
+  field :metastore_service_config, 3,
+    type: Google.Cloud.Bigquery.Connection.V1.MetastoreServiceConfig,
+    json_name: "metastoreServiceConfig",
+    deprecated: false
+
+  field :spark_history_server_config, 4,
+    type: Google.Cloud.Bigquery.Connection.V1.SparkHistoryServerConfig,
+    json_name: "sparkHistoryServerConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
