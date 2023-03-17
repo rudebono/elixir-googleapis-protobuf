@@ -29,6 +29,15 @@ defmodule Google.Cloud.Functions.V2.StateMessage.Severity do
   field :INFO, 3
 end
 
+defmodule Google.Cloud.Functions.V2.BuildConfig.DockerRegistry do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DOCKER_REGISTRY_UNSPECIFIED, 0
+  field :CONTAINER_REGISTRY, 1
+  field :ARTIFACT_REGISTRY, 2
+end
+
 defmodule Google.Cloud.Functions.V2.ServiceConfig.VpcConnectorEgressSettings do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -46,6 +55,15 @@ defmodule Google.Cloud.Functions.V2.ServiceConfig.IngressSettings do
   field :ALLOW_ALL, 1
   field :ALLOW_INTERNAL_ONLY, 2
   field :ALLOW_INTERNAL_AND_GCLB, 3
+end
+
+defmodule Google.Cloud.Functions.V2.ServiceConfig.SecurityLevel do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :SECURITY_LEVEL_UNSPECIFIED, 0
+  field :SECURE_ALWAYS, 1
+  field :SECURE_OPTIONAL, 2
 end
 
 defmodule Google.Cloud.Functions.V2.EventTrigger.RetryPolicy do
@@ -132,6 +150,9 @@ defmodule Google.Cloud.Functions.V2.Function do
     type: Google.Cloud.Functions.V2.StateMessage,
     json_name: "stateMessages",
     deprecated: false
+
+  field :kms_key_name, 25, type: :string, json_name: "kmsKeyName", deprecated: false
+  field :url, 14, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2.StateMessage do
@@ -227,6 +248,12 @@ defmodule Google.Cloud.Functions.V2.BuildConfig do
     json_name: "environmentVariables",
     map: true
 
+  field :docker_registry, 10,
+    type: Google.Cloud.Functions.V2.BuildConfig.DockerRegistry,
+    json_name: "dockerRegistry",
+    enum: true,
+    deprecated: false
+
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
 end
 
@@ -245,6 +272,7 @@ defmodule Google.Cloud.Functions.V2.ServiceConfig do
   field :service, 1, type: :string, deprecated: false
   field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds"
   field :available_memory, 13, type: :string, json_name: "availableMemory"
+  field :available_cpu, 22, type: :string, json_name: "availableCpu"
 
   field :environment_variables, 4,
     repeated: true,
@@ -281,6 +309,15 @@ defmodule Google.Cloud.Functions.V2.ServiceConfig do
     json_name: "secretVolumes"
 
   field :revision, 18, type: :string, deprecated: false
+
+  field :max_instance_request_concurrency, 20,
+    type: :int32,
+    json_name: "maxInstanceRequestConcurrency"
+
+  field :security_level, 21,
+    type: Google.Cloud.Functions.V2.ServiceConfig.SecurityLevel,
+    json_name: "securityLevel",
+    enum: true
 end
 
 defmodule Google.Cloud.Functions.V2.SecretEnvVar do
@@ -405,6 +442,7 @@ defmodule Google.Cloud.Functions.V2.GenerateUploadUrlRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2.GenerateUploadUrlResponse do

@@ -304,6 +304,7 @@ defmodule Google.Cloud.Compute.V1.BackendService.LocalityLbPolicy do
   field :RANDOM, 262_527_171
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
+  field :WEIGHTED_MAGLEV, 254_930_962
 end
 
 defmodule Google.Cloud.Compute.V1.BackendService.Protocol do
@@ -379,6 +380,17 @@ defmodule Google.Cloud.Compute.V1.BackendServiceLocalityLoadBalancingPolicyConfi
   field :RANDOM, 262_527_171
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
+  field :WEIGHTED_MAGLEV, 254_930_962
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceLogConfig.OptionalMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_OPTIONAL_MODE, 0
+  field :CUSTOM, 388_595_569
+  field :EXCLUDE_ALL_OPTIONAL, 168_636_099
+  field :INCLUDE_ALL_OPTIONAL, 535_606_965
 end
 
 defmodule Google.Cloud.Compute.V1.BfdPacket.Diagnostic do
@@ -489,6 +501,7 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :ACCELERATOR_OPTIMIZED, 280_848_403
   field :COMPUTE_OPTIMIZED, 158_349_023
   field :COMPUTE_OPTIMIZED_C2D, 383_246_453
+  field :COMPUTE_OPTIMIZED_C3, 428_004_784
   field :GENERAL_PURPOSE, 299_793_543
   field :GENERAL_PURPOSE_E2, 301_911_877
   field :GENERAL_PURPOSE_N2, 301_912_156
@@ -1893,6 +1906,7 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :N2D_CPUS, 351_743_370
   field :N2_CPUS, 416_465_286
   field :NETWORKS, 485_481_477
+  field :NETWORK_ATTACHMENTS, 149_028_575
   field :NETWORK_ENDPOINT_GROUPS, 102_144_909
   field :NETWORK_FIREWALL_POLICIES, 101_117_374
   field :NODE_GROUPS, 24_624_817
@@ -2454,6 +2468,18 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleMatcher.VersionedExpr do
 
   field :UNDEFINED_VERSIONED_EXPR, 0
   field :SRC_IPS_V1, 70_925_961
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams.Op do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :UNDEFINED_OP, 0
+  field :CONTAINS, 215_180_831
+  field :ENDS_WITH, 490_402_221
+  field :EQUALS, 442_201_023
+  field :EQUALS_ANY, 337_226_060
+  field :STARTS_WITH, 139_505_652
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleRateLimitOptions.EnforceOnKey do
@@ -3878,6 +3904,28 @@ defmodule Google.Cloud.Compute.V1.AggregatedListInstanceGroupManagersRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.AggregatedListInstanceGroupsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.AggregatedListInstanceTemplatesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -5703,6 +5751,13 @@ defmodule Google.Cloud.Compute.V1.BackendServiceLogConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
+  field :optional_fields, 528_589_944, repeated: true, type: :string, json_name: "optionalFields"
+
+  field :optional_mode, 128_697_122,
+    proto3_optional: true,
+    type: :string,
+    json_name: "optionalMode"
+
   field :sample_rate, 153_193_045, proto3_optional: true, type: :float, json_name: "sampleRate"
 end
 
@@ -6946,6 +7001,20 @@ defmodule Google.Cloud.Compute.V1.DeleteRegionInstanceGroupManagerRequest do
   field :instance_group_manager, 249_363_395,
     type: :string,
     json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteRegionInstanceTemplateRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_template, 309_248_228,
+    type: :string,
+    json_name: "instanceTemplate",
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
@@ -8373,6 +8442,11 @@ defmodule Google.Cloud.Compute.V1.ForwardingRule do
     type: :string,
     json_name: "backendService"
 
+  field :base_forwarding_rule, 524_873_104,
+    proto3_optional: true,
+    type: :string,
+    json_name: "baseForwardingRule"
+
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
     type: :string,
@@ -8446,6 +8520,7 @@ defmodule Google.Cloud.Compute.V1.ForwardingRule do
     json_name: "serviceLabel"
 
   field :service_name, 359_880_149, proto3_optional: true, type: :string, json_name: "serviceName"
+  field :source_ip_ranges, 111_563_210, repeated: true, type: :string, json_name: "sourceIpRanges"
   field :subnetwork, 307_827_694, proto3_optional: true, type: :string
   field :target, 192_835_985, proto3_optional: true, type: :string
 end
@@ -9515,6 +9590,19 @@ defmodule Google.Cloud.Compute.V1.GetRegionInstanceGroupRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetRegionInstanceTemplateRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_template, 309_248_228,
+    type: :string,
+    json_name: "instanceTemplate",
+    deprecated: false
+
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
 end
@@ -11442,6 +11530,20 @@ defmodule Google.Cloud.Compute.V1.InsertRegionInstanceGroupManagerRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.InsertRegionInstanceTemplateRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_template_resource, 10_679_561,
+    type: Google.Cloud.Compute.V1.InstanceTemplate,
+    json_name: "instanceTemplateResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.InsertRegionNetworkEndpointGroupRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -12897,6 +12999,7 @@ defmodule Google.Cloud.Compute.V1.InstanceTemplate do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.InstanceProperties
 
+  field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :source_instance, 396_315_705,
@@ -12908,6 +13011,36 @@ defmodule Google.Cloud.Compute.V1.InstanceTemplate do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.SourceInstanceParams,
     json_name: "sourceInstanceParams"
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceTemplateAggregatedList.ItemsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.InstanceTemplatesScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceTemplateAggregatedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstanceTemplateAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceTemplateList do
@@ -12924,6 +13057,18 @@ defmodule Google.Cloud.Compute.V1.InstanceTemplateList do
     json_name: "nextPageToken"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceTemplatesScopedList do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance_templates, 459_889_679,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstanceTemplate,
+    json_name: "instanceTemplates"
+
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
@@ -13040,6 +13185,14 @@ defmodule Google.Cloud.Compute.V1.InstancesSetMinCpuPlatformRequest do
     proto3_optional: true,
     type: :string,
     json_name: "minCpuPlatform"
+end
+
+defmodule Google.Cloud.Compute.V1.InstancesSetNameRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :current_name, 394_983_825, proto3_optional: true, type: :string, json_name: "currentName"
+  field :name, 3_373_707, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InstancesSetServiceAccountRequest do
@@ -14855,6 +15008,23 @@ defmodule Google.Cloud.Compute.V1.ListRegionInstanceGroupManagersRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.ListRegionInstanceGroupsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListRegionInstanceTemplatesRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -21067,6 +21237,11 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRule do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.SecurityPolicyRuleMatcher
 
+  field :preconfigured_waf_config, 117_805_027,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfig,
+    json_name: "preconfiguredWafConfig"
+
   field :preview, 218_686_408, proto3_optional: true, type: :bool
   field :priority, 445_151_652, proto3_optional: true, type: :int32
 
@@ -21120,6 +21295,55 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleMatcherConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :src_ip_ranges, 432_128_083, repeated: true, type: :string, json_name: "srcIpRanges"
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :exclusions, 208_665_701,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusion
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusion do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :request_cookies_to_exclude, 156_757_878,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams,
+    json_name: "requestCookiesToExclude"
+
+  field :request_headers_to_exclude, 63_230_495,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams,
+    json_name: "requestHeadersToExclude"
+
+  field :request_query_params_to_exclude, 340_692_744,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams,
+    json_name: "requestQueryParamsToExclude"
+
+  field :request_uris_to_exclude, 90_690_846,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams,
+    json_name: "requestUrisToExclude"
+
+  field :target_rule_ids, 498_430_435, repeated: true, type: :string, json_name: "targetRuleIds"
+
+  field :target_rule_set, 498_440_077,
+    proto3_optional: true,
+    type: :string,
+    json_name: "targetRuleSet"
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :op, 3553, proto3_optional: true, type: :string
+  field :val, 116_513, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleRateLimitOptions do
@@ -22178,6 +22402,22 @@ defmodule Google.Cloud.Compute.V1.SetMinCpuPlatformInstanceRequest do
   field :instances_set_min_cpu_platform_request_resource, 148_459_368,
     type: Google.Cloud.Compute.V1.InstancesSetMinCpuPlatformRequest,
     json_name: "instancesSetMinCpuPlatformRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetNameInstanceRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :instance, 18_257_045, type: :string, deprecated: false
+
+  field :instances_set_name_request_resource, 272_080_980,
+    type: Google.Cloud.Compute.V1.InstancesSetNameRequest,
+    json_name: "instancesSetNameRequestResource",
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
@@ -24695,6 +24935,24 @@ defmodule Google.Cloud.Compute.V1.UpdateBackendServiceRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.UpdateDiskRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :disk, 3_083_677, type: :string, deprecated: false
+
+  field :disk_resource, 25_880_688,
+    type: Google.Cloud.Compute.V1.Disk,
+    json_name: "diskResource",
+    deprecated: false
+
+  field :paths, 106_438_894, proto3_optional: true, type: :string
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.UpdateDisplayDeviceInstanceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -24885,6 +25143,24 @@ defmodule Google.Cloud.Compute.V1.UpdateRegionCommitmentRequest do
   field :commitment_resource, 244_240_888,
     type: Google.Cloud.Compute.V1.Commitment,
     json_name: "commitmentResource",
+    deprecated: false
+
+  field :paths, 106_438_894, proto3_optional: true, type: :string
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Compute.V1.UpdateRegionDiskRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :disk, 3_083_677, type: :string, deprecated: false
+
+  field :disk_resource, 25_880_688,
+    type: Google.Cloud.Compute.V1.Disk,
+    json_name: "diskResource",
     deprecated: false
 
   field :paths, 106_438_894, proto3_optional: true, type: :string
@@ -25730,6 +26006,7 @@ defmodule Google.Cloud.Compute.V1.WafExpressionSetExpression do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
+  field :sensitivity, 27_532_959, proto3_optional: true, type: :int32
 end
 
 defmodule Google.Cloud.Compute.V1.WaitGlobalOperationRequest do
@@ -26148,6 +26425,8 @@ defmodule Google.Cloud.Compute.V1.Disks.Service do
   rpc :TestIamPermissions,
       Google.Cloud.Compute.V1.TestIamPermissionsDiskRequest,
       Google.Cloud.Compute.V1.TestPermissionsResponse
+
+  rpc :Update, Google.Cloud.Compute.V1.UpdateDiskRequest, Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.Disks.Stub do
@@ -26763,6 +27042,10 @@ defmodule Google.Cloud.Compute.V1.InstanceTemplates.Service do
     name: "google.cloud.compute.v1.InstanceTemplates",
     protoc_gen_elixir_version: "0.11.0"
 
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListInstanceTemplatesRequest,
+      Google.Cloud.Compute.V1.InstanceTemplateAggregatedList
+
   rpc :Delete,
       Google.Cloud.Compute.V1.DeleteInstanceTemplateRequest,
       Google.Cloud.Compute.V1.Operation
@@ -26908,6 +27191,8 @@ defmodule Google.Cloud.Compute.V1.Instances.Service do
   rpc :SetMinCpuPlatform,
       Google.Cloud.Compute.V1.SetMinCpuPlatformInstanceRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :SetName, Google.Cloud.Compute.V1.SetNameInstanceRequest, Google.Cloud.Compute.V1.Operation
 
   rpc :SetScheduling,
       Google.Cloud.Compute.V1.SetSchedulingInstanceRequest,
@@ -27868,6 +28153,8 @@ defmodule Google.Cloud.Compute.V1.RegionDisks.Service do
   rpc :TestIamPermissions,
       Google.Cloud.Compute.V1.TestIamPermissionsRegionDiskRequest,
       Google.Cloud.Compute.V1.TestPermissionsResponse
+
+  rpc :Update, Google.Cloud.Compute.V1.UpdateRegionDiskRequest, Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.RegionDisks.Stub do
@@ -28057,6 +28344,34 @@ end
 defmodule Google.Cloud.Compute.V1.RegionInstanceGroups.Stub do
   @moduledoc false
   use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionInstanceGroups.Service
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstanceTemplates.Service do
+  @moduledoc false
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.RegionInstanceTemplates",
+    protoc_gen_elixir_version: "0.11.0"
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteRegionInstanceTemplateRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetRegionInstanceTemplateRequest,
+      Google.Cloud.Compute.V1.InstanceTemplate
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertRegionInstanceTemplateRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListRegionInstanceTemplatesRequest,
+      Google.Cloud.Compute.V1.InstanceTemplateList
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstanceTemplates.Stub do
+  @moduledoc false
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionInstanceTemplates.Service
 end
 
 defmodule Google.Cloud.Compute.V1.RegionInstances.Service do
