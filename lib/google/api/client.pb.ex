@@ -69,6 +69,10 @@ defmodule Google.Api.Publishing do
     repeated: true,
     type: Google.Api.ClientLibrarySettings,
     json_name: "librarySettings"
+
+  field :proto_reference_documentation_uri, 110,
+    type: :string,
+    json_name: "protoReferenceDocumentationUri"
 end
 
 defmodule Google.Api.JavaSettings.ServiceClassNamesEntry do

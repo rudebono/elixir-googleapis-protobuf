@@ -48,13 +48,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model.OriginalModelInfo do
   field :model, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.Model.LargeModelReference do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -168,11 +161,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
     deprecated: false
 
   field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false
-
-  field :large_model_reference, 45,
-    type: Google.Cloud.Aiplatform.V1beta1.Model.LargeModelReference,
-    json_name: "largeModelReference",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictSchemata do
