@@ -325,8 +325,8 @@ defmodule Google.Protobuf.FieldOptions do
     type: Google.Protobuf.FieldOptions.OptionRetention,
     enum: true
 
-  field :target, 18,
-    optional: true,
+  field :targets, 19,
+    repeated: true,
     type: Google.Protobuf.FieldOptions.OptionTargetType,
     enum: true
 
