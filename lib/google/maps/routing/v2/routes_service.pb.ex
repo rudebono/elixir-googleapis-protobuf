@@ -85,6 +85,7 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
     deprecated: false
 
   field :language_code, 10, type: :string, json_name: "languageCode", deprecated: false
+  field :region_code, 16, type: :string, json_name: "regionCode", deprecated: false
   field :units, 11, type: Google.Maps.Routing.V2.Units, enum: true, deprecated: false
 
   field :requested_reference_routes, 14,
@@ -144,6 +145,9 @@ defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
     type: Google.Protobuf.Timestamp,
     json_name: "departureTime",
     deprecated: false
+
+  field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
+  field :region_code, 9, type: :string, json_name: "regionCode", deprecated: false
 
   field :extra_computations, 8,
     repeated: true,
