@@ -146,7 +146,8 @@ defmodule Google.Cloud.Speech.V2.OperationMetadata do
   field :update_config_request, 21,
     type: Google.Cloud.Speech.V2.UpdateConfigRequest,
     json_name: "updateConfigRequest",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :progress_percent, 22, type: :int32, json_name: "progressPercent"
 
@@ -490,6 +491,39 @@ defmodule Google.Cloud.Speech.V2.BatchRecognizeRequest do
   field :config, 4, type: Google.Cloud.Speech.V2.RecognitionConfig
   field :config_mask, 5, type: Google.Protobuf.FieldMask, json_name: "configMask"
   field :files, 3, repeated: true, type: Google.Cloud.Speech.V2.BatchRecognizeFileMetadata
+
+  field :recognition_output_config, 6,
+    type: Google.Cloud.Speech.V2.RecognitionOutputConfig,
+    json_name: "recognitionOutputConfig"
+end
+
+defmodule Google.Cloud.Speech.V2.GcsOutputConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Speech.V2.InlineOutputConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Speech.V2.RecognitionOutputConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :output, 0
+
+  field :gcs_output_config, 1,
+    type: Google.Cloud.Speech.V2.GcsOutputConfig,
+    json_name: "gcsOutputConfig",
+    oneof: 0
+
+  field :inline_response_config, 2,
+    type: Google.Cloud.Speech.V2.InlineOutputConfig,
+    json_name: "inlineResponseConfig",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeResponse.ResultsEntry do
@@ -508,6 +542,18 @@ defmodule Google.Cloud.Speech.V2.BatchRecognizeResponse do
     repeated: true,
     type: Google.Cloud.Speech.V2.BatchRecognizeResponse.ResultsEntry,
     map: true
+
+  field :total_billed_duration, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "totalBilledDuration"
+end
+
+defmodule Google.Cloud.Speech.V2.BatchRecognizeResults do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :results, 1, repeated: true, type: Google.Cloud.Speech.V2.SpeechRecognitionResult
+  field :metadata, 2, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
@@ -516,6 +562,8 @@ defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
 
   field :uri, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
+  field :metadata, 3, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
+  field :transcript, 4, type: Google.Cloud.Speech.V2.BatchRecognizeResults
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeTranscriptionMetadata do

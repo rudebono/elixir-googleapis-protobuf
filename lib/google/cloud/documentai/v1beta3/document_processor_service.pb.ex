@@ -619,6 +619,37 @@ defmodule Google.Cloud.Documentai.V1beta3.ListEvaluationsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :processor_version_source, 2,
+    type: :string,
+    json_name: "processorVersionSource",
+    oneof: 0,
+    deprecated: false
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :processor_version, 1, type: :string, json_name: "processorVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :common_metadata, 1,
+    type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
+    json_name: "commonMetadata"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -712,6 +743,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Service do
   rpc :ListEvaluations,
       Google.Cloud.Documentai.V1beta3.ListEvaluationsRequest,
       Google.Cloud.Documentai.V1beta3.ListEvaluationsResponse
+
+  rpc :ImportProcessorVersion,
+      Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentProcessorService.Stub do

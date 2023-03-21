@@ -31,6 +31,15 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
   field :STOPPING, 8
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.InputConfig.InputSwitchMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :INPUT_SWITCH_MODE_UNSPECIFIED, 0
+  field :FAILOVER_PREFER_PRIMARY, 1
+  field :MANUAL, 3
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -183,6 +192,26 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
     deprecated: false
 
   field :log_config, 19, type: Google.Cloud.Video.Livestream.V1.LogConfig, json_name: "logConfig"
+
+  field :timecode_config, 21,
+    type: Google.Cloud.Video.Livestream.V1.TimecodeConfig,
+    json_name: "timecodeConfig"
+
+  field :encryptions, 24, repeated: true, type: Google.Cloud.Video.Livestream.V1.Encryption
+
+  field :input_config, 25,
+    type: Google.Cloud.Video.Livestream.V1.InputConfig,
+    json_name: "inputConfig"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.InputConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :input_switch_mode, 1,
+    type: Google.Cloud.Video.Livestream.V1.InputConfig.InputSwitchMode,
+    json_name: "inputSwitchMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
@@ -272,11 +301,35 @@ defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
     json_name: "automaticFailover"
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Event.InputSwitchTask do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :input_key, 1, type: :string, json_name: "inputKey"
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.AdBreakTask do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Event.ReturnToProgramTask do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Event.MuteTask do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :duration, 1, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Event.UnmuteTask do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Event.LabelsEntry do
@@ -310,9 +363,31 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
     type: Google.Cloud.Video.Livestream.V1.Event.LabelsEntry,
     map: true
 
+  field :input_switch, 5,
+    type: Google.Cloud.Video.Livestream.V1.Event.InputSwitchTask,
+    json_name: "inputSwitch",
+    oneof: 0,
+    deprecated: false
+
   field :ad_break, 6,
     type: Google.Cloud.Video.Livestream.V1.Event.AdBreakTask,
     json_name: "adBreak",
+    oneof: 0,
+    deprecated: false
+
+  field :return_to_program, 13,
+    type: Google.Cloud.Video.Livestream.V1.Event.ReturnToProgramTask,
+    json_name: "returnToProgram",
+    oneof: 0,
+    deprecated: false
+
+  field :mute, 15,
+    type: Google.Cloud.Video.Livestream.V1.Event.MuteTask,
+    oneof: 0,
+    deprecated: false
+
+  field :unmute, 16,
+    type: Google.Cloud.Video.Livestream.V1.Event.UnmuteTask,
     oneof: 0,
     deprecated: false
 
@@ -325,4 +400,91 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
     deprecated: false
 
   field :error, 12, type: Google.Rpc.Status, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.SecretManagerSource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :secret_version, 1, type: :string, json_name: "secretVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.Widevine do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.Fairplay do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.Playready do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.Clearkey do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.DrmSystems do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :widevine, 1, type: Google.Cloud.Video.Livestream.V1.Encryption.Widevine
+  field :fairplay, 2, type: Google.Cloud.Video.Livestream.V1.Encryption.Fairplay
+  field :playready, 3, type: Google.Cloud.Video.Livestream.V1.Encryption.Playready
+  field :clearkey, 4, type: Google.Cloud.Video.Livestream.V1.Encryption.Clearkey
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.Aes128Encryption do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.SampleAesEncryption do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption.MpegCommonEncryption do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :scheme, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Encryption do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :secret_source, 0
+
+  oneof :encryption_mode, 1
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :secret_manager_key_source, 7,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.SecretManagerSource,
+    json_name: "secretManagerKeySource",
+    oneof: 0
+
+  field :drm_systems, 3,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.DrmSystems,
+    json_name: "drmSystems",
+    deprecated: false
+
+  field :aes128, 4, type: Google.Cloud.Video.Livestream.V1.Encryption.Aes128Encryption, oneof: 1
+
+  field :sample_aes, 5,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.SampleAesEncryption,
+    json_name: "sampleAes",
+    oneof: 1
+
+  field :mpeg_cenc, 6,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.MpegCommonEncryption,
+    json_name: "mpegCenc",
+    oneof: 1
 end

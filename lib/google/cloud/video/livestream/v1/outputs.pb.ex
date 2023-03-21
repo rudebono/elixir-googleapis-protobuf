@@ -7,6 +7,15 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest.ManifestType do
   field :DASH, 2
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.TimecodeConfig.TimecodeSource do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TIMECODE_SOURCE_UNSPECIFIED, 0
+  field :MEDIA_TIMESTAMP, 1
+  field :EMBEDDED_TIMECODE, 2
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.ElementaryStream do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -42,6 +51,8 @@ defmodule Google.Cloud.Video.Livestream.V1.MuxStream do
   field :segment_settings, 5,
     type: Google.Cloud.Video.Livestream.V1.SegmentSettings,
     json_name: "segmentSettings"
+
+  field :encryption_id, 6, type: :string, json_name: "encryptionId"
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Manifest do
@@ -61,6 +72,8 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest do
   field :segment_keep_duration, 5,
     type: Google.Protobuf.Duration,
     json_name: "segmentKeepDuration"
+
+  field :use_timecode_as_timeline, 6, type: :bool, json_name: "useTimecodeAsTimeline"
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
@@ -75,6 +88,13 @@ defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
   field :row_count, 6, type: :int32, json_name: "rowCount"
   field :interval, 7, type: Google.Protobuf.Duration
   field :quality, 8, type: :int32
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Audio do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :lufs, 1, type: :double
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop do
@@ -101,6 +121,7 @@ defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  field :audio, 1, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Audio
   field :crop, 2, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop
   field :pad, 3, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad
 end
@@ -145,6 +166,7 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping do
   field :input_track, 2, type: :int32, json_name: "inputTrack", deprecated: false
   field :input_channel, 3, type: :int32, json_name: "inputChannel", deprecated: false
   field :output_channel, 4, type: :int32, json_name: "outputChannel", deprecated: false
+  field :gain_db, 5, type: :double, json_name: "gainDb"
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
@@ -176,4 +198,18 @@ defmodule Google.Cloud.Video.Livestream.V1.SegmentSettings do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.TimecodeConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :time_offset, 0
+
+  field :source, 1,
+    type: Google.Cloud.Video.Livestream.V1.TimecodeConfig.TimecodeSource,
+    enum: true
+
+  field :utc_offset, 2, type: Google.Protobuf.Duration, json_name: "utcOffset", oneof: 0
+  field :time_zone, 3, type: Google.Type.TimeZone, json_name: "timeZone", oneof: 0
 end
