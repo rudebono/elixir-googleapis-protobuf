@@ -1346,6 +1346,70 @@ defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :enhanced_measurement_settings, 1,
+    type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
+    json_name: "enhancedMeasurementSettings",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string
+
+  field :connected_site_tag, 2,
+    type: Google.Analytics.Admin.V1alpha.ConnectedSiteTag,
+    json_name: "connectedSiteTag",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteConnectedSiteTagRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string
+  field :tag_id, 2, type: :string, json_name: "tagId"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :connected_site_tags, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ConnectedSiteTag,
+    json_name: "connectedSiteTags"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -1755,6 +1819,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :ListBigQueryLinks,
       Google.Analytics.Admin.V1alpha.ListBigQueryLinksRequest,
       Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse
+
+  rpc :GetEnhancedMeasurementSettings,
+      Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest,
+      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
+
+  rpc :UpdateEnhancedMeasurementSettings,
+      Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest,
+      Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
+
+  rpc :CreateConnectedSiteTag,
+      Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest,
+      Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagResponse
+
+  rpc :DeleteConnectedSiteTag,
+      Google.Analytics.Admin.V1alpha.DeleteConnectedSiteTagRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListConnectedSiteTags,
+      Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest,
+      Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

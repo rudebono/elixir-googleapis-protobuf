@@ -82,6 +82,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :ATTRIBUTION_SETTINGS, 20
   field :EXPANDED_DATA_SET, 21
   field :CHANNEL_GROUP, 22
+  field :ENHANCED_MEASUREMENT_SETTINGS, 24
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -602,6 +603,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.BigQueryLink,
     json_name: "bigqueryLink",
     oneof: 0
+
+  field :enhanced_measurement_settings, 24,
+    type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
+    json_name: "enhancedMeasurementSettings",
+    oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -874,7 +880,38 @@ defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
 
   field :daily_export_enabled, 4, type: :bool, json_name: "dailyExportEnabled"
   field :streaming_export_enabled, 5, type: :bool, json_name: "streamingExportEnabled"
+  field :intraday_export_enabled, 9, type: :bool, json_name: "intradayExportEnabled"
   field :include_advertising_id, 6, type: :bool, json_name: "includeAdvertisingId"
   field :export_streams, 7, repeated: true, type: :string, json_name: "exportStreams"
   field :excluded_events, 8, repeated: true, type: :string, json_name: "excludedEvents"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :stream_enabled, 2, type: :bool, json_name: "streamEnabled"
+  field :scrolls_enabled, 3, type: :bool, json_name: "scrollsEnabled"
+  field :outbound_clicks_enabled, 4, type: :bool, json_name: "outboundClicksEnabled"
+  field :site_search_enabled, 5, type: :bool, json_name: "siteSearchEnabled"
+  field :video_engagement_enabled, 6, type: :bool, json_name: "videoEngagementEnabled"
+  field :file_downloads_enabled, 7, type: :bool, json_name: "fileDownloadsEnabled"
+  field :page_changes_enabled, 8, type: :bool, json_name: "pageChangesEnabled"
+  field :form_interactions_enabled, 9, type: :bool, json_name: "formInteractionsEnabled"
+
+  field :search_query_parameter, 10,
+    type: :string,
+    json_name: "searchQueryParameter",
+    deprecated: false
+
+  field :uri_query_parameter, 11, type: :string, json_name: "uriQueryParameter"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ConnectedSiteTag do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
+  field :tag_id, 2, type: :string, json_name: "tagId", deprecated: false
 end

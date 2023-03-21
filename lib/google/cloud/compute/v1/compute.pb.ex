@@ -754,6 +754,7 @@ defmodule Google.Cloud.Compute.V1.GuestOsFeature.Type do
   field :MULTI_IP_SUBNET, 151_776_719
   field :SECURE_BOOT, 376_811_194
   field :SEV_CAPABLE, 87_083_793
+  field :SEV_LIVE_MIGRATABLE, 392_039_820
   field :SEV_SNP_CAPABLE, 426_919
   field :UEFI_COMPATIBLE, 195_865_408
   field :VIRTIO_SCSI_MULTIQUEUE, 201_597_069
@@ -17051,6 +17052,13 @@ defmodule Google.Cloud.Compute.V1.NodeGroupsSetNodeTemplateRequest do
     json_name: "nodeTemplate"
 end
 
+defmodule Google.Cloud.Compute.V1.NodeGroupsSimulateMaintenanceEventRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :nodes, 104_993_457, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.NodeTemplate.NodeAffinityLabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -22976,6 +22984,22 @@ defmodule Google.Cloud.Compute.V1.SimulateMaintenanceEventInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SimulateMaintenanceEventNodeGroupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
+
+  field :node_groups_simulate_maintenance_event_request_resource, 351_468_764,
+    type: Google.Cloud.Compute.V1.NodeGroupsSimulateMaintenanceEventRequest,
+    json_name: "nodeGroupsSimulateMaintenanceEventRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.Snapshot.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -27742,6 +27766,10 @@ defmodule Google.Cloud.Compute.V1.NodeGroups.Service do
 
   rpc :SetNodeTemplate,
       Google.Cloud.Compute.V1.SetNodeTemplateNodeGroupRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :SimulateMaintenanceEvent,
+      Google.Cloud.Compute.V1.SimulateMaintenanceEventNodeGroupRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :TestIamPermissions,
