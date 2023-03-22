@@ -34,6 +34,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2.TranslationConfigDetails do
   field :gcs_source_path, 1, type: :string, json_name: "gcsSourcePath", oneof: 0
   field :gcs_target_path, 2, type: :string, json_name: "gcsTargetPath", oneof: 1
 
+  field :name_mapping_list, 5,
+    type: Google.Cloud.Bigquery.Migration.V2.ObjectNameMappingList,
+    json_name: "nameMappingList",
+    oneof: 2
+
   field :source_dialect, 3,
     type: Google.Cloud.Bigquery.Migration.V2.Dialect,
     json_name: "sourceDialect"
@@ -42,12 +47,8 @@ defmodule Google.Cloud.Bigquery.Migration.V2.TranslationConfigDetails do
     type: Google.Cloud.Bigquery.Migration.V2.Dialect,
     json_name: "targetDialect"
 
-  field :name_mapping_list, 5,
-    type: Google.Cloud.Bigquery.Migration.V2.ObjectNameMappingList,
-    json_name: "nameMappingList",
-    oneof: 2
-
   field :source_env, 6, type: Google.Cloud.Bigquery.Migration.V2.SourceEnv, json_name: "sourceEnv"
+  field :request_source, 8, type: :string, json_name: "requestSource"
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
