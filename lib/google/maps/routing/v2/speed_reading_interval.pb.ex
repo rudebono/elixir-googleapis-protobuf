@@ -12,6 +12,8 @@ defmodule Google.Maps.Routing.V2.SpeedReadingInterval do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
+  oneof :speed_type, 0
+
   field :start_polyline_point_index, 1,
     proto3_optional: true,
     type: :int32,
@@ -22,5 +24,5 @@ defmodule Google.Maps.Routing.V2.SpeedReadingInterval do
     type: :int32,
     json_name: "endPolylinePointIndex"
 
-  field :speed, 3, type: Google.Maps.Routing.V2.SpeedReadingInterval.Speed, enum: true
+  field :speed, 3, type: Google.Maps.Routing.V2.SpeedReadingInterval.Speed, enum: true, oneof: 0
 end

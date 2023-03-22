@@ -32,6 +32,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask.State do
   field :SUCCEEDED, 3
   field :FAILED, 4
   field :PAUSED, 5
+  field :PENDING_DEPENDENCY, 6
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationWorkflow.TasksEntry do

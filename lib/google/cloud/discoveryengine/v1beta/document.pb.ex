@@ -8,6 +8,6 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Document do
   field :json_data, 5, type: :string, json_name: "jsonData", oneof: 0
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false
-  field :schema_id, 3, type: :string, json_name: "schemaId", deprecated: false
+  field :schema_id, 3, type: :string, json_name: "schemaId"
   field :parent_document_id, 7, type: :string, json_name: "parentDocumentId"
 end

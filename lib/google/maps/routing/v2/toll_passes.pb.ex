@@ -58,6 +58,7 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :US_MD_EZPASSMD, 34
   field :US_ME_EZPASSME, 35
   field :US_MI_AMBASSADOR_BRIDGE_PREMIER_COMMUTER_CARD, 36
+  field :US_MI_BCPASS, 94
   field :US_MI_GROSSE_ILE_TOLL_BRIDGE_PASS_TAG, 37
   field :US_MI_IQ_PROX_CARD, 38
   field :US_MI_MACKINAC_BRIDGE_MAC_PASS, 39
