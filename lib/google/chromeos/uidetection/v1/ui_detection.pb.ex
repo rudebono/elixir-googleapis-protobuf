@@ -5,6 +5,7 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionRequest do
   field :image_png, 1, type: :bytes, json_name: "imagePng", deprecated: false
   field :request, 2, type: Google.Chromeos.Uidetection.V1.DetectionRequest, deprecated: false
   field :resize_image, 3, proto3_optional: true, type: :bool, json_name: "resizeImage"
+  field :test_id, 4, type: :string, json_name: "testId"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
@@ -67,6 +68,8 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionResponse do
     repeated: true,
     type: Google.Chromeos.Uidetection.V1.BoundingBox,
     json_name: "boundingBoxes"
+
+  field :transformed_image_png, 2, type: :bytes, json_name: "transformedImagePng"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.BoundingBox do
