@@ -1,12 +1,27 @@
+defmodule Google.Cloud.Bigquery.Reservation.V1.Edition do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :EDITION_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :ENTERPRISE, 2
+  field :ENTERPRISE_PLUS, 3
+end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :FLEX, 3
+  field :FLEX_FLAT_RATE, 7
   field :TRIAL, 5
   field :MONTHLY, 2
+  field :MONTHLY_FLAT_RATE, 8
   field :ANNUAL, 4
+  field :ANNUAL_FLAT_RATE, 9
+  field :THREE_YEAR, 10
+  field :NONE, 6
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.State do
@@ -27,6 +42,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   field :PIPELINE, 1
   field :QUERY, 2
   field :ML_EXTERNAL, 3
+  field :BACKGROUND, 4
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
@@ -38,6 +54,14 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
   field :ACTIVE, 2
 end
 
+defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.Autoscale do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :current_slots, 1, type: :int64, json_name: "currentSlots", deprecated: false
+  field :max_slots, 2, type: :int64, json_name: "maxSlots"
+end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -45,6 +69,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   field :name, 1, type: :string
   field :slot_capacity, 2, type: :int64, json_name: "slotCapacity"
   field :ignore_idle_slots, 4, type: :bool, json_name: "ignoreIdleSlots"
+  field :autoscale, 7, type: Google.Cloud.Bigquery.Reservation.V1.Reservation.Autoscale
   field :concurrency, 16, type: :int64
 
   field :creation_time, 8,
@@ -58,6 +83,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
     deprecated: false
 
   field :multi_region_auxiliary, 14, type: :bool, json_name: "multiRegionAuxiliary"
+  field :edition, 17, type: Google.Cloud.Bigquery.Reservation.V1.Edition, enum: true
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
@@ -94,6 +120,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
     enum: true
 
   field :multi_region_auxiliary, 10, type: :bool, json_name: "multiRegionAuxiliary"
+  field :edition, 12, type: Google.Cloud.Bigquery.Reservation.V1.Edition, enum: true
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
@@ -329,6 +356,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.MoveAssignmentRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :destination_id, 3, type: :string, json_name: "destinationId", deprecated: false
+  field :assignment_id, 5, type: :string, json_name: "assignmentId"
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateAssignmentRequest do
