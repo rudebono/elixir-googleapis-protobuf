@@ -6,6 +6,7 @@ defmodule Google.Cloud.Connectors.V1.LaunchStage do
   field :PREVIEW, 1
   field :GA, 2
   field :DEPRECATED, 3
+  field :PRIVATE_PREVIEW, 5
 end
 
 defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate.ValueType do
@@ -98,6 +99,7 @@ defmodule Google.Cloud.Connectors.V1.ConfigVariableTemplate do
     json_name: "authorizationCodeLink"
 
   field :state, 10, type: Google.Cloud.Connectors.V1.ConfigVariableTemplate.State, enum: true
+  field :is_advanced, 11, type: :bool, json_name: "isAdvanced"
 end
 
 defmodule Google.Cloud.Connectors.V1.Secret do

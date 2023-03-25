@@ -52,6 +52,10 @@ defmodule Google.Cloud.Connectors.V1.Connectors.Service do
       Google.Cloud.Connectors.V1.GetConnectionSchemaMetadataRequest,
       Google.Cloud.Connectors.V1.ConnectionSchemaMetadata
 
+  rpc :RefreshConnectionSchemaMetadata,
+      Google.Cloud.Connectors.V1.RefreshConnectionSchemaMetadataRequest,
+      Google.Longrunning.Operation
+
   rpc :ListRuntimeEntitySchemas,
       Google.Cloud.Connectors.V1.ListRuntimeEntitySchemasRequest,
       Google.Cloud.Connectors.V1.ListRuntimeEntitySchemasResponse
@@ -63,6 +67,10 @@ defmodule Google.Cloud.Connectors.V1.Connectors.Service do
   rpc :GetRuntimeConfig,
       Google.Cloud.Connectors.V1.GetRuntimeConfigRequest,
       Google.Cloud.Connectors.V1.RuntimeConfig
+
+  rpc :GetGlobalSettings,
+      Google.Cloud.Connectors.V1.GetGlobalSettingsRequest,
+      Google.Cloud.Connectors.V1.Settings
 end
 
 defmodule Google.Cloud.Connectors.V1.Connectors.Stub do

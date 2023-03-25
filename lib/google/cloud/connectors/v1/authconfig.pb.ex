@@ -7,6 +7,7 @@ defmodule Google.Cloud.Connectors.V1.AuthType do
   field :OAUTH2_JWT_BEARER, 2
   field :OAUTH2_CLIENT_CREDENTIALS, 3
   field :SSH_PUBLIC_KEY, 4
+  field :OAUTH2_AUTH_CODE_FLOW, 5
 end
 
 defmodule Google.Cloud.Connectors.V1.AuthConfig.UserPassword do
@@ -50,7 +51,6 @@ defmodule Google.Cloud.Connectors.V1.AuthConfig.SshPublicKey do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :username, 1, type: :string
-  field :password, 2, type: Google.Cloud.Connectors.V1.Secret
   field :ssh_client_cert, 3, type: Google.Cloud.Connectors.V1.Secret, json_name: "sshClientCert"
   field :cert_type, 4, type: :string, json_name: "certType"
 
@@ -109,4 +109,7 @@ defmodule Google.Cloud.Connectors.V1.AuthConfigTemplate do
     repeated: true,
     type: Google.Cloud.Connectors.V1.ConfigVariableTemplate,
     json_name: "configVariableTemplates"
+
+  field :display_name, 3, type: :string, json_name: "displayName"
+  field :description, 4, type: :string
 end

@@ -1,12 +1,3 @@
-defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy do
-  @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :STITCHING_POLICY_UNSPECIFIED, 0
-  field :COMPLETE_AD, 1
-  field :CUT_CURRENT, 3
-end
-
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -14,6 +5,14 @@ defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
   field :ORDER_POLICY_UNSPECIFIED, 0
   field :ASCENDING, 1
   field :DESCENDING, 2
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.GamVodConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :network_code, 1, type: :string, json_name: "networkCode", deprecated: false
+  field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession.AdTagMacroMapEntry do
@@ -40,13 +39,21 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
     json_name: "adTagMacroMap",
     map: true
 
-  field :client_ad_tracking, 8, type: :bool, json_name: "clientAdTracking"
-
   field :manifest_options, 9,
     type: Google.Cloud.Video.Stitcher.V1.ManifestOptions,
     json_name: "manifestOptions"
 
   field :asset_id, 10, type: :string, json_name: "assetId", deprecated: false
+
+  field :ad_tracking, 11,
+    type: Google.Cloud.Video.Stitcher.V1.AdTracking,
+    json_name: "adTracking",
+    enum: true,
+    deprecated: false
+
+  field :gam_vod_config, 12,
+    type: Google.Cloud.Video.Stitcher.V1.GamVodConfig,
+    json_name: "gamVodConfig"
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
@@ -100,12 +107,35 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
   field :start_time_offset, 4, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
 
-defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMapEntry do
+defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamHls do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
 
-  field :key, 1, type: :string
-  field :value, 2, type: Google.Cloud.Video.Stitcher.V1.AdTag
+defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamDash do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :period_template_uri, 1, type: :string, json_name: "periodTemplateUri", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :manifest_fields, 0
+
+  field :gam_hls, 2,
+    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamHls,
+    json_name: "gamHls",
+    oneof: 0
+
+  field :gam_dash, 3,
+    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamDash,
+    json_name: "gamDash",
+    oneof: 0
+
+  field :stream_id, 1, type: :string, json_name: "streamId", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMacrosEntry do
@@ -122,14 +152,6 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
 
   field :name, 1, type: :string, deprecated: false
   field :play_uri, 2, type: :string, json_name: "playUri", deprecated: false
-  field :source_uri, 3, type: :string, json_name: "sourceUri"
-  field :default_ad_tag_id, 4, type: :string, json_name: "defaultAdTagId"
-
-  field :ad_tag_map, 5,
-    repeated: true,
-    type: Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMapEntry,
-    json_name: "adTagMap",
-    map: true
 
   field :ad_tag_macros, 6,
     repeated: true,
@@ -137,26 +159,15 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
     json_name: "adTagMacros",
     map: true
 
-  field :client_ad_tracking, 7, type: :bool, json_name: "clientAdTracking"
-  field :default_slate_id, 8, type: :string, json_name: "defaultSlateId"
-
-  field :stitching_policy, 9,
-    type: Google.Cloud.Video.Stitcher.V1.LiveSession.StitchingPolicy,
-    json_name: "stitchingPolicy",
-    enum: true
-
   field :manifest_options, 10,
     type: Google.Cloud.Video.Stitcher.V1.ManifestOptions,
     json_name: "manifestOptions"
 
-  field :stream_id, 11, type: :string, json_name: "streamId", deprecated: false
-end
+  field :gam_settings, 15,
+    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings,
+    json_name: "gamSettings"
 
-defmodule Google.Cloud.Video.Stitcher.V1.AdTag do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :uri, 1, type: :string
+  field :live_config, 16, type: :string, json_name: "liveConfig", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions do
