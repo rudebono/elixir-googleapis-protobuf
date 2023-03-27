@@ -1,3 +1,55 @@
+defmodule Google.Analytics.Admin.V1beta.RunAccessReportRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :entity, 1, type: :string
+  field :dimensions, 2, repeated: true, type: Google.Analytics.Admin.V1beta.AccessDimension
+  field :metrics, 3, repeated: true, type: Google.Analytics.Admin.V1beta.AccessMetric
+
+  field :date_ranges, 4,
+    repeated: true,
+    type: Google.Analytics.Admin.V1beta.AccessDateRange,
+    json_name: "dateRanges"
+
+  field :dimension_filter, 5,
+    type: Google.Analytics.Admin.V1beta.AccessFilterExpression,
+    json_name: "dimensionFilter"
+
+  field :metric_filter, 6,
+    type: Google.Analytics.Admin.V1beta.AccessFilterExpression,
+    json_name: "metricFilter"
+
+  field :offset, 7, type: :int64
+  field :limit, 8, type: :int64
+  field :time_zone, 9, type: :string, json_name: "timeZone"
+
+  field :order_bys, 10,
+    repeated: true,
+    type: Google.Analytics.Admin.V1beta.AccessOrderBy,
+    json_name: "orderBys"
+
+  field :return_entity_quota, 11, type: :bool, json_name: "returnEntityQuota"
+end
+
+defmodule Google.Analytics.Admin.V1beta.RunAccessReportResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :dimension_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1beta.AccessDimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1beta.AccessMetricHeader,
+    json_name: "metricHeaders"
+
+  field :rows, 3, repeated: true, type: Google.Analytics.Admin.V1beta.AccessRow
+  field :row_count, 4, type: :int32, json_name: "rowCount"
+  field :quota, 5, type: Google.Analytics.Admin.V1beta.AccessQuota
+end
+
 defmodule Google.Analytics.Admin.V1beta.GetAccountRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -789,6 +841,10 @@ defmodule Google.Analytics.Admin.V1beta.AnalyticsAdminService.Service do
   rpc :GetDataStream,
       Google.Analytics.Admin.V1beta.GetDataStreamRequest,
       Google.Analytics.Admin.V1beta.DataStream
+
+  rpc :RunAccessReport,
+      Google.Analytics.Admin.V1beta.RunAccessReportRequest,
+      Google.Analytics.Admin.V1beta.RunAccessReportResponse
 end
 
 defmodule Google.Analytics.Admin.V1beta.AnalyticsAdminService.Stub do

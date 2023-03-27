@@ -58,6 +58,15 @@ defmodule Google.Cloud.Connectors.V1.ConnectionView do
   field :FULL, 2
 end
 
+defmodule Google.Cloud.Connectors.V1.ConnectionSchemaMetadata.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :REFRESHING, 1
+  field :UPDATED, 2
+end
+
 defmodule Google.Cloud.Connectors.V1.ConnectionStatus.State do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -69,6 +78,7 @@ defmodule Google.Cloud.Connectors.V1.ConnectionStatus.State do
   field :DELETING, 4
   field :UPDATING, 5
   field :ERROR, 6
+  field :AUTHORIZATION_REQUIRED, 7
 end
 
 defmodule Google.Cloud.Connectors.V1.Connection.LabelsEntry do
@@ -142,6 +152,11 @@ defmodule Google.Cloud.Connectors.V1.Connection do
     type: Google.Cloud.Connectors.V1.NodeConfig,
     json_name: "nodeConfig",
     deprecated: false
+
+  field :ssl_config, 21,
+    type: Google.Cloud.Connectors.V1.SslConfig,
+    json_name: "sslConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Connectors.V1.NodeConfig do
@@ -158,6 +173,22 @@ defmodule Google.Cloud.Connectors.V1.ConnectionSchemaMetadata do
 
   field :entities, 1, repeated: true, type: :string, deprecated: false
   field :actions, 2, repeated: true, type: :string, deprecated: false
+  field :name, 3, type: :string, deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :refresh_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "refreshTime",
+    deprecated: false
+
+  field :state, 6,
+    type: Google.Cloud.Connectors.V1.ConnectionSchemaMetadata.State,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Connectors.V1.RuntimeEntitySchema.Field do
@@ -305,6 +336,13 @@ defmodule Google.Cloud.Connectors.V1.DeleteConnectionRequest do
 end
 
 defmodule Google.Cloud.Connectors.V1.GetConnectionSchemaMetadataRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Connectors.V1.RefreshConnectionSchemaMetadataRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 

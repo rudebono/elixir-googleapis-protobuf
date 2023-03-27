@@ -175,6 +175,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.CreateSlateRequest do
   field :parent, 1, type: :string, deprecated: false
   field :slate_id, 2, type: :string, json_name: "slateId", deprecated: false
   field :slate, 3, type: Google.Cloud.Video.Stitcher.V1.Slate, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.GetSlateRequest do
@@ -242,6 +243,69 @@ defmodule Google.Cloud.Video.Stitcher.V1.GetLiveSessionRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Video.Stitcher.V1.CreateLiveConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :live_config_id, 2, type: :string, json_name: "liveConfigId", deprecated: false
+
+  field :live_config, 3,
+    type: Google.Cloud.Video.Stitcher.V1.LiveConfig,
+    json_name: "liveConfig",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.ListLiveConfigsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.ListLiveConfigsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :live_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Stitcher.V1.LiveConfig,
+    json_name: "liveConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.GetLiveConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.DeleteLiveConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.OperationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :target, 3, type: :string
+  field :verb, 4, type: :string
+end
+
 defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
   @moduledoc false
   use GRPC.Service,
@@ -250,7 +314,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
 
   rpc :CreateCdnKey,
       Google.Cloud.Video.Stitcher.V1.CreateCdnKeyRequest,
-      Google.Cloud.Video.Stitcher.V1.CdnKey
+      Google.Longrunning.Operation
 
   rpc :ListCdnKeys,
       Google.Cloud.Video.Stitcher.V1.ListCdnKeysRequest,
@@ -260,11 +324,13 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
       Google.Cloud.Video.Stitcher.V1.GetCdnKeyRequest,
       Google.Cloud.Video.Stitcher.V1.CdnKey
 
-  rpc :DeleteCdnKey, Google.Cloud.Video.Stitcher.V1.DeleteCdnKeyRequest, Google.Protobuf.Empty
+  rpc :DeleteCdnKey,
+      Google.Cloud.Video.Stitcher.V1.DeleteCdnKeyRequest,
+      Google.Longrunning.Operation
 
   rpc :UpdateCdnKey,
       Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest,
-      Google.Cloud.Video.Stitcher.V1.CdnKey
+      Google.Longrunning.Operation
 
   rpc :CreateVodSession,
       Google.Cloud.Video.Stitcher.V1.CreateVodSessionRequest,
@@ -300,7 +366,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
 
   rpc :CreateSlate,
       Google.Cloud.Video.Stitcher.V1.CreateSlateRequest,
-      Google.Cloud.Video.Stitcher.V1.Slate
+      Google.Longrunning.Operation
 
   rpc :ListSlates,
       Google.Cloud.Video.Stitcher.V1.ListSlatesRequest,
@@ -312,9 +378,11 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
 
   rpc :UpdateSlate,
       Google.Cloud.Video.Stitcher.V1.UpdateSlateRequest,
-      Google.Cloud.Video.Stitcher.V1.Slate
+      Google.Longrunning.Operation
 
-  rpc :DeleteSlate, Google.Cloud.Video.Stitcher.V1.DeleteSlateRequest, Google.Protobuf.Empty
+  rpc :DeleteSlate,
+      Google.Cloud.Video.Stitcher.V1.DeleteSlateRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateLiveSession,
       Google.Cloud.Video.Stitcher.V1.CreateLiveSessionRequest,
@@ -323,6 +391,22 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
   rpc :GetLiveSession,
       Google.Cloud.Video.Stitcher.V1.GetLiveSessionRequest,
       Google.Cloud.Video.Stitcher.V1.LiveSession
+
+  rpc :CreateLiveConfig,
+      Google.Cloud.Video.Stitcher.V1.CreateLiveConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListLiveConfigs,
+      Google.Cloud.Video.Stitcher.V1.ListLiveConfigsRequest,
+      Google.Cloud.Video.Stitcher.V1.ListLiveConfigsResponse
+
+  rpc :GetLiveConfig,
+      Google.Cloud.Video.Stitcher.V1.GetLiveConfigRequest,
+      Google.Cloud.Video.Stitcher.V1.LiveConfig
+
+  rpc :DeleteLiveConfig,
+      Google.Cloud.Video.Stitcher.V1.DeleteLiveConfigRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Stub do

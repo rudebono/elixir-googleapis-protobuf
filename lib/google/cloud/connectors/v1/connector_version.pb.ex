@@ -87,6 +87,11 @@ defmodule Google.Cloud.Connectors.V1.ConnectorVersion do
     type: Google.Cloud.Connectors.V1.RoleGrant,
     json_name: "roleGrant",
     deprecated: false
+
+  field :ssl_config_template, 17,
+    type: Google.Cloud.Connectors.V1.SslConfigTemplate,
+    json_name: "sslConfigTemplate",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Connectors.V1.GetConnectorVersionRequest do
