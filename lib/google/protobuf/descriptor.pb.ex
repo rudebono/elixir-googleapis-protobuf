@@ -160,11 +160,26 @@ defmodule Google.Protobuf.DescriptorProto do
   field :reserved_name, 10, repeated: true, type: :string
 end
 
+defmodule Google.Protobuf.ExtensionRangeOptions.Declaration do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
+
+  field :number, 1, optional: true, type: :int32
+  field :full_name, 2, optional: true, type: :string
+  field :type, 3, optional: true, type: :string
+  field :is_repeated, 4, optional: true, type: :bool
+end
+
 defmodule Google.Protobuf.ExtensionRangeOptions do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
 
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
+
+  field :declaration, 2,
+    repeated: true,
+    type: Google.Protobuf.ExtensionRangeOptions.Declaration,
+    deprecated: false
 
   extensions [{1000, 536_870_912}]
 end
