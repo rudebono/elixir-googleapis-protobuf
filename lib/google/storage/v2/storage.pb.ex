@@ -364,7 +364,8 @@ defmodule Google.Storage.V2.ReadObjectResponse do
 
   field :checksummed_data, 1,
     type: Google.Storage.V2.ChecksummedData,
-    json_name: "checksummedData"
+    json_name: "checksummedData",
+    deprecated: false
 
   field :object_checksums, 2,
     type: Google.Storage.V2.ObjectChecksums,
@@ -843,7 +844,6 @@ defmodule Google.Storage.V2.Bucket.RetentionPolicy do
 
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :is_locked, 2, type: :bool, json_name: "isLocked"
-  field :retention_period, 3, proto3_optional: true, type: :int64, json_name: "retentionPeriod"
   field :retention_duration, 4, type: Google.Protobuf.Duration, json_name: "retentionDuration"
 end
 
