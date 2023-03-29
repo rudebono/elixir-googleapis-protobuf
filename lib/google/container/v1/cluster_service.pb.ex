@@ -1098,6 +1098,7 @@ defmodule Google.Container.V1.Cluster do
     json_name: "nodePoolAutoConfig"
 
   field :etag, 139, type: :string
+  field :fleet, 140, type: Google.Container.V1.Fleet
 end
 
 defmodule Google.Container.V1.NodePoolAutoConfig do
@@ -2604,6 +2605,15 @@ defmodule Google.Container.V1.ManagedPrometheusConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1.Fleet do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 1, type: :string
+  field :membership, 2, type: :string
+  field :pre_registered, 3, type: :bool, json_name: "preRegistered"
 end
 
 defmodule Google.Container.V1.LocalNvmeSsdBlockConfig do

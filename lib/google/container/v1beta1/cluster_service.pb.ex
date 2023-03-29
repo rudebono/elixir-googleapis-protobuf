@@ -1300,6 +1300,7 @@ defmodule Google.Container.V1beta1.Cluster do
     json_name: "protectConfig"
 
   field :etag, 139, type: :string
+  field :fleet, 140, type: Google.Container.V1beta1.Fleet
 end
 
 defmodule Google.Container.V1beta1.WorkloadConfig do
@@ -2996,6 +2997,15 @@ defmodule Google.Container.V1beta1.MonitoringComponentConfig do
     type: Google.Container.V1beta1.MonitoringComponentConfig.Component,
     json_name: "enableComponents",
     enum: true
+end
+
+defmodule Google.Container.V1beta1.Fleet do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project, 1, type: :string
+  field :membership, 2, type: :string
+  field :pre_registered, 3, type: :bool, json_name: "preRegistered"
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do
