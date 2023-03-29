@@ -126,11 +126,51 @@ defmodule Google.Api.NodeSettings do
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
+defmodule Google.Api.DotnetSettings.RenamedServicesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Api.DotnetSettings.RenamedResourcesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Api.DotnetSettings do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
+
+  field :renamed_services, 2,
+    repeated: true,
+    type: Google.Api.DotnetSettings.RenamedServicesEntry,
+    json_name: "renamedServices",
+    map: true
+
+  field :renamed_resources, 3,
+    repeated: true,
+    type: Google.Api.DotnetSettings.RenamedResourcesEntry,
+    json_name: "renamedResources",
+    map: true
+
+  field :ignored_resources, 4, repeated: true, type: :string, json_name: "ignoredResources"
+
+  field :forced_namespace_aliases, 5,
+    repeated: true,
+    type: :string,
+    json_name: "forcedNamespaceAliases"
+
+  field :handwritten_signatures, 6,
+    repeated: true,
+    type: :string,
+    json_name: "handwrittenSignatures"
 end
 
 defmodule Google.Api.RubySettings do
