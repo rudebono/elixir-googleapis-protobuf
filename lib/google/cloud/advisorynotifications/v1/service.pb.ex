@@ -17,6 +17,15 @@ defmodule Google.Cloud.Advisorynotifications.V1.LocalizationState do
   field :LOCALIZATION_STATE_COMPLETED, 3
 end
 
+defmodule Google.Cloud.Advisorynotifications.V1.NotificationType do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :NOTIFICATION_TYPE_UNSPECIFIED, 0
+  field :NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY, 1
+  field :NOTIFICATION_TYPE_SENSITIVE_ACTIONS, 2
+end
+
 defmodule Google.Cloud.Advisorynotifications.V1.Notification do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -29,6 +38,11 @@ defmodule Google.Cloud.Advisorynotifications.V1.Notification do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :notification_type, 12,
+    type: Google.Cloud.Advisorynotifications.V1.NotificationType,
+    json_name: "notificationType",
+    enum: true
 end
 
 defmodule Google.Cloud.Advisorynotifications.V1.Text do

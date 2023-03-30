@@ -59,10 +59,6 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveConfig do
   field :prefetch_config, 10,
     type: Google.Cloud.Video.Stitcher.V1.PrefetchConfig,
     json_name: "prefetchConfig"
-
-  field :default_ad_break_duration, 11,
-    type: Google.Protobuf.Duration,
-    json_name: "defaultAdBreakDuration"
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.PrefetchConfig do
