@@ -364,8 +364,7 @@ defmodule Google.Storage.V2.ReadObjectResponse do
 
   field :checksummed_data, 1,
     type: Google.Storage.V2.ChecksummedData,
-    json_name: "checksummedData",
-    deprecated: false
+    json_name: "checksummedData"
 
   field :object_checksums, 2,
     type: Google.Storage.V2.ObjectChecksums,
@@ -965,7 +964,7 @@ defmodule Google.Storage.V2.ChecksummedData do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :content, 1, type: :bytes
+  field :content, 1, type: :bytes, deprecated: false
   field :crc32c, 2, proto3_optional: true, type: :fixed32
 end
 
