@@ -48,6 +48,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
     type: Google.Cloud.Aiplatform.V1beta1.PrivateServiceConnectConfig,
     json_name: "privateServiceConnectConfig",
     deprecated: false
+
+  field :public_endpoint_enabled, 13,
+    type: :bool,
+    json_name: "publicEndpointEnabled",
+    deprecated: false
+
+  field :public_endpoint_domain_name, 14,
+    type: :string,
+    json_name: "publicEndpointDomainName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do

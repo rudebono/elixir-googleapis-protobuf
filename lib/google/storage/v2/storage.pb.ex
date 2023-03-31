@@ -964,7 +964,7 @@ defmodule Google.Storage.V2.ChecksummedData do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :content, 1, type: :bytes, deprecated: false
+  field :content, 1, type: :bytes
   field :crc32c, 2, proto3_optional: true, type: :fixed32
 end
 
