@@ -5,7 +5,12 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionRequest do
   field :image_png, 1, type: :bytes, json_name: "imagePng", deprecated: false
   field :request, 2, type: Google.Chromeos.Uidetection.V1.DetectionRequest, deprecated: false
   field :resize_image, 3, proto3_optional: true, type: :bool, json_name: "resizeImage"
-  field :test_id, 4, type: :string, json_name: "testId"
+  field :test_id, 4, type: :string, json_name: "testId", deprecated: true
+
+  field :test_metadata, 5,
+    type: Google.Chromeos.Uidetection.V1.TestMetadata,
+    json_name: "testMetadata",
+    deprecated: false
 end
 
 defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
@@ -28,6 +33,16 @@ defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
     type: Google.Chromeos.Uidetection.V1.CustomIconDetectionRequest,
     json_name: "customIconDetectionRequest",
     oneof: 0
+end
+
+defmodule Google.Chromeos.Uidetection.V1.TestMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :test_id, 1, type: :string, json_name: "testId"
+  field :board, 2, type: :string
+  field :model, 3, type: :string
+  field :cros_build, 4, type: :string, json_name: "crosBuild"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.WordDetectionRequest do

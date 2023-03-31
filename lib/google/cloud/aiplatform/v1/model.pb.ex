@@ -25,6 +25,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType do
   field :AUTOML, 1
   field :CUSTOM, 2
   field :BQML, 3
+  field :MODEL_GARDEN, 4
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
@@ -204,4 +205,6 @@ defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo do
     type: Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType,
     json_name: "sourceType",
     enum: true
+
+  field :copy, 2, type: :bool
 end
