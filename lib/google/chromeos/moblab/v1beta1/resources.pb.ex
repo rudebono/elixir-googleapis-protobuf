@@ -50,6 +50,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build do
   field :type, 5, type: Google.Chromeos.Moblab.V1beta1.Build.BuildType, enum: true
   field :branch, 6, type: :string
   field :rw_firmware_version, 7, type: :string, json_name: "rwFirmwareVersion"
+  field :labels, 8, repeated: true, type: :string
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
