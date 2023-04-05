@@ -8,6 +8,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.UpdateType do
   field :UPDATE_TYPE_INSERT_PROPERTIES_BY_NAMES, 3
   field :UPDATE_TYPE_REPLACE_PROPERTIES_BY_NAMES, 4
   field :UPDATE_TYPE_DELETE_PROPERTIES_BY_NAMES, 5
+  field :UPDATE_TYPE_MERGE_AND_REPLACE_OR_INSERT_PROPERTIES_BY_NAMES, 6
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DatabaseType do
@@ -27,6 +28,16 @@ defmodule Google.Cloud.Contentwarehouse.V1.AccessControlMode do
   field :ACL_MODE_UNIVERSAL_ACCESS, 1
   field :ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID, 2
   field :ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI, 3
+end
+
+defmodule Google.Cloud.Contentwarehouse.V1.DocumentCreatorDefaultRole do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED, 0
+  field :DOCUMENT_ADMIN, 1
+  field :DOCUMENT_EDITOR, 2
+  field :DOCUMENT_VIEWER, 3
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RequestMetadata do

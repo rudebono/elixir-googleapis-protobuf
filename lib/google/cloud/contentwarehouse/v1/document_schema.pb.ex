@@ -1,3 +1,16 @@
+defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition.RetrievalImportance do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RETRIEVAL_IMPORTANCE_UNSPECIFIED, 0
+  field :HIGHEST, 1
+  field :HIGHER, 2
+  field :HIGH, 3
+  field :MEDIUM, 4
+  field :LOW, 5
+  field :LOWEST, 6
+end
+
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentSchema do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -25,6 +38,14 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentSchema do
   field :description, 7, type: :string
 end
 
+defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition.SchemaSource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :processor_type, 2, type: :string, json_name: "processorType"
+end
+
 defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -38,6 +59,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition do
   field :is_searchable, 4, type: :bool, json_name: "isSearchable"
   field :is_metadata, 5, type: :bool, json_name: "isMetadata"
   field :is_required, 14, type: :bool, json_name: "isRequired"
+
+  field :retrieval_importance, 18,
+    type: Google.Cloud.Contentwarehouse.V1.PropertyDefinition.RetrievalImportance,
+    json_name: "retrievalImportance",
+    enum: true
 
   field :integer_type_options, 7,
     type: Google.Cloud.Contentwarehouse.V1.IntegerTypeOptions,
@@ -78,6 +104,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.PropertyDefinition do
     type: Google.Cloud.Contentwarehouse.V1.TimestampTypeOptions,
     json_name: "timestampTypeOptions",
     oneof: 0
+
+  field :schema_sources, 19,
+    repeated: true,
+    type: Google.Cloud.Contentwarehouse.V1.PropertyDefinition.SchemaSource,
+    json_name: "schemaSources"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.IntegerTypeOptions do

@@ -9,6 +9,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.CreateDocumentResponse do
     json_name: "ruleEngineOutput"
 
   field :metadata, 3, type: Google.Cloud.Contentwarehouse.V1.ResponseMetadata
+
+  field :long_running_operations, 4,
+    repeated: true,
+    type: Google.Longrunning.Operation,
+    json_name: "longRunningOperations"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.UpdateDocumentResponse do
@@ -109,6 +114,10 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentService.Service do
   rpc :SearchDocuments,
       Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest,
       Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse
+
+  rpc :LockDocument,
+      Google.Cloud.Contentwarehouse.V1.LockDocumentRequest,
+      Google.Cloud.Contentwarehouse.V1.Document
 
   rpc :FetchAcl,
       Google.Cloud.Contentwarehouse.V1.FetchAclRequest,

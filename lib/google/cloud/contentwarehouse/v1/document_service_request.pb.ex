@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest.TotalResultSize do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TOTAL_RESULT_SIZE_UNSPECIFIED, 0
+  field :ESTIMATED_SIZE, 1
+  field :ACTUAL_SIZE, 2
+end
+
 defmodule Google.Cloud.Contentwarehouse.V1.CloudAIDocumentOption.CustomizedEntitiesPropertiesConversionsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -107,7 +116,25 @@ defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest do
     json_name: "histogramQueries"
 
   field :require_total_size, 10, type: :bool, json_name: "requireTotalSize"
+
+  field :total_result_size, 12,
+    type: Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest.TotalResultSize,
+    json_name: "totalResultSize",
+    enum: true
+
   field :qa_size_limit, 11, type: :int32, json_name: "qaSizeLimit"
+end
+
+defmodule Google.Cloud.Contentwarehouse.V1.LockDocumentRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :collection_id, 2, type: :string, json_name: "collectionId"
+
+  field :locking_user, 3,
+    type: Google.Cloud.Contentwarehouse.V1.UserInfo,
+    json_name: "lockingUser"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.FetchAclRequest do
