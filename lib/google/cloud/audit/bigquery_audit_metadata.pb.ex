@@ -807,7 +807,8 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
   field :reservation_usage, 11,
     repeated: true,
     type: Google.Cloud.Audit.BigQueryAuditMetadata.JobStats.ReservationResourceUsage,
-    json_name: "reservationUsage"
+    json_name: "reservationUsage",
+    deprecated: true
 
   field :parent_job_name, 12, type: :string, json_name: "parentJobName"
 end

@@ -530,7 +530,8 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics do
   field :reservation_usage, 14,
     repeated: true,
     type: Google.Cloud.Bigquery.Logging.V1.JobStatistics.ReservationResourceUsage,
-    json_name: "reservationUsage"
+    json_name: "reservationUsage",
+    deprecated: true
 
   field :referenced_tables, 9,
     repeated: true,

@@ -52,6 +52,10 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentQuery do
     repeated: true,
     type: :string,
     json_name: "documentCreatorFilter"
+
+  field :custom_weights_metadata, 13,
+    type: Google.Cloud.Contentwarehouse.V1.CustomWeightsMetadata,
+    json_name: "customWeightsMetadata"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.TimeFilter do
@@ -86,4 +90,26 @@ defmodule Google.Cloud.Contentwarehouse.V1.FileTypeFilter do
     type: Google.Cloud.Contentwarehouse.V1.FileTypeFilter.FileType,
     json_name: "fileType",
     enum: true
+end
+
+defmodule Google.Cloud.Contentwarehouse.V1.CustomWeightsMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :weighted_schema_properties, 1,
+    repeated: true,
+    type: Google.Cloud.Contentwarehouse.V1.WeightedSchemaProperty,
+    json_name: "weightedSchemaProperties"
+end
+
+defmodule Google.Cloud.Contentwarehouse.V1.WeightedSchemaProperty do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :document_schema_name, 1,
+    type: :string,
+    json_name: "documentSchemaName",
+    deprecated: false
+
+  field :property_names, 2, repeated: true, type: :string, json_name: "propertyNames"
 end

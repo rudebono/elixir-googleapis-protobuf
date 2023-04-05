@@ -8,6 +8,17 @@ defmodule Google.Cloud.Contentwarehouse.V1.RawDocumentFileType do
   field :RAW_DOCUMENT_FILE_TYPE_XLSX, 3
   field :RAW_DOCUMENT_FILE_TYPE_PPTX, 4
   field :RAW_DOCUMENT_FILE_TYPE_TEXT, 5
+  field :RAW_DOCUMENT_FILE_TYPE_TIFF, 6
+end
+
+defmodule Google.Cloud.Contentwarehouse.V1.ContentCategory do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :CONTENT_CATEGORY_UNSPECIFIED, 0
+  field :CONTENT_CATEGORY_IMAGE, 1
+  field :CONTENT_CATEGORY_AUDIO, 2
+  field :CONTENT_CATEGORY_VIDEO, 3
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Document do
@@ -36,7 +47,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.Document do
     json_name: "cloudAiDocument",
     oneof: 0
 
-  field :structured_content_uri, 16, type: :string, json_name: "structuredContentUri"
+  field :structured_content_uri, 16,
+    type: :string,
+    json_name: "structuredContentUri",
+    deprecated: true
+
   field :raw_document_path, 5, type: :string, json_name: "rawDocumentPath", oneof: 1
   field :inline_raw_document, 6, type: :bytes, json_name: "inlineRawDocument", oneof: 1
   field :properties, 7, repeated: true, type: Google.Cloud.Contentwarehouse.V1.Property
@@ -56,8 +71,19 @@ defmodule Google.Cloud.Contentwarehouse.V1.Document do
     json_name: "rawDocumentFileType",
     enum: true
 
-  field :async_enabled, 12, type: :bool, json_name: "asyncEnabled"
-  field :text_extraction_disabled, 19, type: :bool, json_name: "textExtractionDisabled"
+  field :async_enabled, 12, type: :bool, json_name: "asyncEnabled", deprecated: true
+
+  field :content_category, 20,
+    type: Google.Cloud.Contentwarehouse.V1.ContentCategory,
+    json_name: "contentCategory",
+    enum: true
+
+  field :text_extraction_disabled, 19,
+    type: :bool,
+    json_name: "textExtractionDisabled",
+    deprecated: true
+
+  field :text_extraction_enabled, 21, type: :bool, json_name: "textExtractionEnabled"
   field :creator, 13, type: :string
   field :updater, 14, type: :string
 end
