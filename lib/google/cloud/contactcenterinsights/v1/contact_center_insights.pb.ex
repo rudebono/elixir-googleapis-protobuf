@@ -146,6 +146,47 @@ defmodule Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest do
   field :conversation_id, 3, type: :string, json_name: "conversationId"
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :conversation, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation,
+    deprecated: false
+
+  field :conversation_id, 3, type: :string, json_name: "conversationId", deprecated: false
+
+  field :redaction_config, 4,
+    type: Google.Cloud.Contactcenterinsights.V1.RedactionConfig,
+    json_name: "redactionConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationMetadata do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :request, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.UploadConversationRequest,
+    deprecated: false
+
+  field :analysis_operation, 4, type: :string, json_name: "analysisOperation", deprecated: false
+
+  field :applied_redaction_config, 5,
+    type: Google.Cloud.Contactcenterinsights.V1.RedactionConfig,
+    json_name: "appliedRedactionConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -739,6 +780,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :CreateConversation,
       Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest,
       Google.Cloud.Contactcenterinsights.V1.Conversation
+
+  rpc :UploadConversation,
+      Google.Cloud.Contactcenterinsights.V1.UploadConversationRequest,
+      Google.Longrunning.Operation
 
   rpc :UpdateConversation,
       Google.Cloud.Contactcenterinsights.V1.UpdateConversationRequest,

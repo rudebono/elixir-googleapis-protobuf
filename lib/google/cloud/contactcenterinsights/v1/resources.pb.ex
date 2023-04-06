@@ -814,6 +814,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
   field :analysis_config, 7,
     type: Google.Cloud.Contactcenterinsights.V1.Settings.AnalysisConfig,
     json_name: "analysisConfig"
+
+  field :redaction_config, 10,
+    type: Google.Cloud.Contactcenterinsights.V1.RedactionConfig,
+    json_name: "redactionConfig"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.RedactionConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :deidentify_template, 1, type: :string, json_name: "deidentifyTemplate"
+  field :inspect_template, 2, type: :string, json_name: "inspectTemplate"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
