@@ -109,6 +109,11 @@ defmodule Google.Cloud.Security.Privateca.V1.DisableCertificateAuthorityRequest 
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :ignore_dependent_resources, 3,
+    type: :bool,
+    json_name: "ignoreDependentResources",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.EnableCertificateAuthorityRequest do
@@ -185,6 +190,11 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCertificateAuthorityRequest d
     deprecated: false
 
   field :skip_grace_period, 5, type: :bool, json_name: "skipGracePeriod", deprecated: false
+
+  field :ignore_dependent_resources, 6,
+    type: :bool,
+    json_name: "ignoreDependentResources",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.UpdateCertificateAuthorityRequest do
@@ -242,6 +252,11 @@ defmodule Google.Cloud.Security.Privateca.V1.DeleteCaPoolRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :ignore_dependent_resources, 4,
+    type: :bool,
+    json_name: "ignoreDependentResources",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.FetchCaCertsRequest do

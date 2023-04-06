@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.TableView do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :TABLE_VIEW_UNSPECIFIED, 0
+  field :BASIC, 1
+  field :FULL, 2
+end
+
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Database.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -128,6 +137,7 @@ defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Table do
     deprecated: false
 
   field :type, 6, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Table.Type, enum: true
+  field :etag, 8, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Lock do
@@ -264,6 +274,14 @@ defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.UpdateTableRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.RenameTableRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :new_name, 2, type: :string, json_name: "newName", deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.GetTableRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -278,6 +296,7 @@ defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListTablesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :view, 4, type: Google.Cloud.Bigquery.Biglake.V1alpha1.TableView, enum: true
 end
 
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListTablesResponse do
@@ -443,6 +462,10 @@ defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.MetastoreService.Service do
 
   rpc :UpdateTable,
       Google.Cloud.Bigquery.Biglake.V1alpha1.UpdateTableRequest,
+      Google.Cloud.Bigquery.Biglake.V1alpha1.Table
+
+  rpc :RenameTable,
+      Google.Cloud.Bigquery.Biglake.V1alpha1.RenameTableRequest,
       Google.Cloud.Bigquery.Biglake.V1alpha1.Table
 
   rpc :GetTable,

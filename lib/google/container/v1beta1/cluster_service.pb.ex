@@ -660,6 +660,10 @@ defmodule Google.Container.V1beta1.NodeNetworkConfig do
     proto3_optional: true,
     type: Google.Container.V1beta1.NodeNetworkConfig.NetworkPerformanceConfig,
     json_name: "networkPerformanceConfig"
+
+  field :pod_cidr_overprovision_config, 13,
+    type: Google.Container.V1beta1.PodCIDROverprovisionConfig,
+    json_name: "podCidrOverprovisionConfig"
 end
 
 defmodule Google.Container.V1beta1.ShieldedInstanceConfig do
@@ -1016,6 +1020,13 @@ defmodule Google.Container.V1beta1.NetworkPolicy do
   field :enabled, 2, type: :bool
 end
 
+defmodule Google.Container.V1beta1.PodCIDROverprovisionConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :disable, 1, type: :bool
+end
+
 defmodule Google.Container.V1beta1.IPAllocationPolicy do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1044,6 +1055,10 @@ defmodule Google.Container.V1beta1.IPAllocationPolicy do
     type: Google.Container.V1beta1.IPAllocationPolicy.IPv6AccessType,
     json_name: "ipv6AccessType",
     enum: true
+
+  field :pod_cidr_overprovision_config, 21,
+    type: Google.Container.V1beta1.PodCIDROverprovisionConfig,
+    json_name: "podCidrOverprovisionConfig"
 
   field :subnet_ipv6_cidr_block, 22,
     type: :string,
