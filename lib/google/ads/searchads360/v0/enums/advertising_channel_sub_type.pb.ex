@@ -21,6 +21,8 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelSubTypeEnum.Adverti
   field :SMART_CAMPAIGN, 16
   field :VIDEO_SEQUENCE, 17
   field :APP_CAMPAIGN_FOR_PRE_REGISTRATION, 18
+  field :VIDEO_REACH_TARGET_FREQUENCY, 19
+  field :TRAVEL_ACTIVITIES, 20
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelSubTypeEnum do

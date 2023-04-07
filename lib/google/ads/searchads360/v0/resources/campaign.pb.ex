@@ -226,6 +226,7 @@ defmodule Google.Ads.Searchads360.V0.Resources.Campaign do
     enum: true
 
   field :create_time, 79, type: :string, json_name: "createTime", deprecated: false
+  field :creation_time, 84, type: :string, json_name: "creationTime", deprecated: false
   field :last_modified_time, 70, type: :string, json_name: "lastModifiedTime", deprecated: false
 
   field :url_expansion_opt_out, 72,

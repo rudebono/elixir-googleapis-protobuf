@@ -73,6 +73,18 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
 
   field :ad_group, 3, type: Google.Ads.Searchads360.V0.Resources.AdGroup, json_name: "adGroup"
 
+  field :ad_group_ad, 16,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAd,
+    json_name: "adGroupAd"
+
+  field :ad_group_ad_label, 120,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAdLabel,
+    json_name: "adGroupAdLabel"
+
+  field :ad_group_audience_view, 57,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAudienceView,
+    json_name: "adGroupAudienceView"
+
   field :ad_group_bid_modifier, 24,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupBidModifier,
     json_name: "adGroupBidModifier"
@@ -80,6 +92,18 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   field :ad_group_criterion, 17,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterion,
     json_name: "adGroupCriterion"
+
+  field :ad_group_criterion_label, 121,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterionLabel,
+    json_name: "adGroupCriterionLabel"
+
+  field :ad_group_label, 115,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupLabel,
+    json_name: "adGroupLabel"
+
+  field :age_range_view, 48,
+    type: Google.Ads.Searchads360.V0.Resources.AgeRangeView,
+    json_name: "ageRangeView"
 
   field :bidding_strategy, 18,
     type: Google.Ads.Searchads360.V0.Resources.BiddingStrategy,
@@ -91,9 +115,17 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
 
   field :campaign, 2, type: Google.Ads.Searchads360.V0.Resources.Campaign
 
+  field :campaign_audience_view, 69,
+    type: Google.Ads.Searchads360.V0.Resources.CampaignAudienceView,
+    json_name: "campaignAudienceView"
+
   field :campaign_criterion, 20,
     type: Google.Ads.Searchads360.V0.Resources.CampaignCriterion,
     json_name: "campaignCriterion"
+
+  field :campaign_label, 108,
+    type: Google.Ads.Searchads360.V0.Resources.CampaignLabel,
+    json_name: "campaignLabel"
 
   field :conversion_action, 103,
     type: Google.Ads.Searchads360.V0.Resources.ConversionAction,
@@ -109,13 +141,33 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.CustomerClient,
     json_name: "customerClient"
 
+  field :dynamic_search_ads_search_term_view, 106,
+    type: Google.Ads.Searchads360.V0.Resources.DynamicSearchAdsSearchTermView,
+    json_name: "dynamicSearchAdsSearchTermView"
+
+  field :gender_view, 40,
+    type: Google.Ads.Searchads360.V0.Resources.GenderView,
+    json_name: "genderView"
+
   field :keyword_view, 21,
     type: Google.Ads.Searchads360.V0.Resources.KeywordView,
     json_name: "keywordView"
 
+  field :label, 52, type: Google.Ads.Searchads360.V0.Resources.Label
+
+  field :location_view, 123,
+    type: Google.Ads.Searchads360.V0.Resources.LocationView,
+    json_name: "locationView"
+
   field :product_group_view, 54,
     type: Google.Ads.Searchads360.V0.Resources.ProductGroupView,
     json_name: "productGroupView"
+
+  field :user_list, 38, type: Google.Ads.Searchads360.V0.Resources.UserList, json_name: "userList"
+
+  field :webpage_view, 162,
+    type: Google.Ads.Searchads360.V0.Resources.WebpageView,
+    json_name: "webpageView"
 
   field :metrics, 4, type: Google.Ads.Searchads360.V0.Common.Metrics
   field :segments, 102, type: Google.Ads.Searchads360.V0.Common.Segments

@@ -61,6 +61,8 @@ defmodule Google.Ads.Searchads360.V0.Resources.Customer do
     type: Google.Ads.Searchads360.V0.Enums.CustomerStatusEnum.CustomerStatus,
     enum: true,
     deprecated: false
+
+  field :creation_time, 42, type: :string, json_name: "creationTime", deprecated: false
 end
 
 defmodule Google.Ads.Searchads360.V0.Resources.ConversionTrackingSetting do

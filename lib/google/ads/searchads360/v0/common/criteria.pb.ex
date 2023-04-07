@@ -50,6 +50,13 @@ defmodule Google.Ads.Searchads360.V0.Common.GenderInfo do
   field :type, 1, type: Google.Ads.Searchads360.V0.Enums.GenderTypeEnum.GenderType, enum: true
 end
 
+defmodule Google.Ads.Searchads360.V0.Common.UserListInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :user_list, 2, proto3_optional: true, type: :string, json_name: "userList"
+end
+
 defmodule Google.Ads.Searchads360.V0.Common.LanguageInfo do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
