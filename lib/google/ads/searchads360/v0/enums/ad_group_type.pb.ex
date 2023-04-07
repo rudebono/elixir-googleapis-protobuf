@@ -21,6 +21,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdGroupTypeEnum.AdGroupType do
   field :VIDEO_RESPONSIVE, 16
   field :VIDEO_EFFICIENT_REACH, 17
   field :SMART_CAMPAIGN_ADS, 18
+  field :TRAVEL_ADS, 19
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdGroupTypeEnum do

@@ -21,6 +21,17 @@ defmodule Google.Ads.Searchads360.V0.Resources.CampaignCriterion do
     enum: true,
     deprecated: false
 
+  field :status, 35,
+    type: Google.Ads.Searchads360.V0.Enums.CampaignCriterionStatusEnum.CampaignCriterionStatus,
+    enum: true
+
+  field :last_modified_time, 44, type: :string, json_name: "lastModifiedTime", deprecated: false
+
+  field :keyword, 8,
+    type: Google.Ads.Searchads360.V0.Common.KeywordInfo,
+    oneof: 0,
+    deprecated: false
+
   field :location, 12,
     type: Google.Ads.Searchads360.V0.Common.LocationInfo,
     oneof: 0,
@@ -31,8 +42,30 @@ defmodule Google.Ads.Searchads360.V0.Resources.CampaignCriterion do
     oneof: 0,
     deprecated: false
 
+  field :age_range, 16,
+    type: Google.Ads.Searchads360.V0.Common.AgeRangeInfo,
+    json_name: "ageRange",
+    oneof: 0,
+    deprecated: false
+
+  field :gender, 17,
+    type: Google.Ads.Searchads360.V0.Common.GenderInfo,
+    oneof: 0,
+    deprecated: false
+
+  field :user_list, 22,
+    type: Google.Ads.Searchads360.V0.Common.UserListInfo,
+    json_name: "userList",
+    oneof: 0,
+    deprecated: false
+
   field :language, 26,
     type: Google.Ads.Searchads360.V0.Common.LanguageInfo,
+    oneof: 0,
+    deprecated: false
+
+  field :webpage, 31,
+    type: Google.Ads.Searchads360.V0.Common.WebpageInfo,
     oneof: 0,
     deprecated: false
 

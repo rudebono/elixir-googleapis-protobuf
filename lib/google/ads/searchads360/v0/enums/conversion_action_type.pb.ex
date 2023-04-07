@@ -39,6 +39,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.ConversionActionTypeEnum.ConversionAc
   field :SMART_CAMPAIGN_MAP_DIRECTIONS, 34
   field :SMART_CAMPAIGN_TRACKED_CALLS, 35
   field :STORE_VISITS, 36
+  field :WEBPAGE_CODELESS, 37
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.ConversionActionTypeEnum do

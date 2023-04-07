@@ -15,6 +15,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelTypeEnum.Advertisin
   field :PERFORMANCE_MAX, 10
   field :LOCAL_SERVICES, 11
   field :DISCOVERY, 12
+  field :TRAVEL, 13
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelTypeEnum do

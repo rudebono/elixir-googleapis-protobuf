@@ -67,6 +67,8 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     type: :double,
     json_name: "allConversionsFromStoreVisit"
 
+  field :visits, 289, proto3_optional: true, type: :double
+
   field :all_conversions_from_store_website, 202,
     proto3_optional: true,
     type: :double,

@@ -29,6 +29,8 @@ defmodule Google.Ads.Searchads360.V0.Enums.AssetFieldTypeEnum.AssetFieldType do
   field :VIDEO, 23
   field :CALL_TO_ACTION_SELECTION, 25
   field :AD_IMAGE, 26
+  field :BUSINESS_LOGO, 27
+  field :HOTEL_PROPERTY, 28
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AssetFieldTypeEnum do

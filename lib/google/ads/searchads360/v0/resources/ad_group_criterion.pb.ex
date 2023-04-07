@@ -23,6 +23,8 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     json_name: "criterionId",
     deprecated: false
 
+  field :creation_time, 81, type: :string, json_name: "creationTime", deprecated: false
+
   field :status, 3,
     type: Google.Ads.Searchads360.V0.Enums.AdGroupCriterionStatusEnum.AdGroupCriterionStatus,
     enum: true
@@ -43,6 +45,8 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     enum: true,
     deprecated: false
 
+  field :negative, 58, proto3_optional: true, type: :bool, deprecated: false
+  field :labels, 60, repeated: true, type: :string, deprecated: false
   field :bid_modifier, 61, proto3_optional: true, type: :double, json_name: "bidModifier"
   field :cpc_bid_micros, 62, proto3_optional: true, type: :int64, json_name: "cpcBidMicros"
 
@@ -69,6 +73,7 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     type: :string,
     json_name: "trackingUrlTemplate"
 
+  field :engine_id, 76, type: :string, json_name: "engineId", deprecated: false
   field :last_modified_time, 78, type: :string, json_name: "lastModifiedTime", deprecated: false
 
   field :keyword, 27,
@@ -93,8 +98,19 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     oneof: 0,
     deprecated: false
 
+  field :user_list, 42,
+    type: Google.Ads.Searchads360.V0.Common.UserListInfo,
+    json_name: "userList",
+    oneof: 0,
+    deprecated: false
+
   field :webpage, 46,
     type: Google.Ads.Searchads360.V0.Common.WebpageInfo,
+    oneof: 0,
+    deprecated: false
+
+  field :location, 82,
+    type: Google.Ads.Searchads360.V0.Common.LocationInfo,
     oneof: 0,
     deprecated: false
 end
