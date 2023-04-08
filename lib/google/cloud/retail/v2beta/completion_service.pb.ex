@@ -9,6 +9,7 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
   field :device_type, 4, type: :string, json_name: "deviceType"
   field :dataset, 6, type: :string
   field :max_suggestions, 5, type: :int32, json_name: "maxSuggestions"
+  field :entity, 10, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.CompletionResult.AttributesEntry do

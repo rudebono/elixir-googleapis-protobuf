@@ -16,6 +16,15 @@ defmodule Google.Cloud.Retail.V2.SolutionType do
   field :SOLUTION_TYPE_SEARCH, 2
 end
 
+defmodule Google.Cloud.Retail.V2.RecommendationsFilteringOption do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED, 0
+  field :RECOMMENDATIONS_FILTERING_DISABLED, 1
+  field :RECOMMENDATIONS_FILTERING_ENABLED, 3
+end
+
 defmodule Google.Cloud.Retail.V2.SearchSolutionUseCase do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
