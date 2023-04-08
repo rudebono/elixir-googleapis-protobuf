@@ -46,6 +46,7 @@ defmodule Google.Cloud.Retail.V2.UserEvent do
   field :uri, 13, type: :string
   field :referrer_uri, 14, type: :string, json_name: "referrerUri"
   field :page_view_id, 15, type: :string, json_name: "pageViewId"
+  field :entity, 23, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2.ProductDetail do

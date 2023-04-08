@@ -1069,6 +1069,11 @@ defmodule Google.Container.V1beta1.IPAllocationPolicy do
     type: :string,
     json_name: "servicesIpv6CidrBlock",
     deprecated: false
+
+  field :additional_pod_ranges_config, 24,
+    type: Google.Container.V1beta1.AdditionalPodRangesConfig,
+    json_name: "additionalPodRangesConfig",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.BinaryAuthorization do
@@ -1548,6 +1553,19 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
     type: Google.Container.V1beta1.StackType,
     json_name: "desiredStackType",
     enum: true
+
+  field :additional_pod_ranges_config, 120,
+    type: Google.Container.V1beta1.AdditionalPodRangesConfig,
+    json_name: "additionalPodRangesConfig"
+
+  field :removed_additional_pod_ranges_config, 121,
+    type: Google.Container.V1beta1.AdditionalPodRangesConfig,
+    json_name: "removedAdditionalPodRangesConfig"
+end
+
+defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 end
 
 defmodule Google.Container.V1beta1.Operation do
