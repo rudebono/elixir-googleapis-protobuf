@@ -10,6 +10,7 @@ defmodule Google.Cloud.Retail.V2alpha.CompleteQueryRequest do
   field :dataset, 6, type: :string
   field :max_suggestions, 5, type: :int32, json_name: "maxSuggestions"
   field :enable_attribute_suggestions, 9, type: :bool, json_name: "enableAttributeSuggestions"
+  field :entity, 10, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.CompletionResult.AttributesEntry do
@@ -30,6 +31,9 @@ defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.CompletionResult do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.CompleteQueryResponse.CompletionResult.AttributesEntry,
     map: true
+
+  field :facets, 3, repeated: true, type: Google.Cloud.Retail.V2alpha.SearchResponse.Facet
+  field :total_product_count, 4, type: :int32, json_name: "totalProductCount"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.RecentSearchResult do

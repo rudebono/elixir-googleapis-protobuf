@@ -28,6 +28,7 @@ defmodule Google.Cloud.Retail.V2alpha.DeleteProductRequest do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :force, 4, type: :bool
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ListProductsRequest do

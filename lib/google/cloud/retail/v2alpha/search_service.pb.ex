@@ -212,6 +212,8 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
     proto3_optional: true,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec,
     json_name: "spellCorrectionSpec"
+
+  field :entity, 38, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
@@ -309,6 +311,40 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec,
     json_name: "invalidConditionBoostSpecs"
+
+  field :experiment_info, 17,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.ExperimentInfo,
+    json_name: "experimentInfo"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.ExperimentInfo.ServingConfigExperiment do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :original_serving_config, 1,
+    type: :string,
+    json_name: "originalServingConfig",
+    deprecated: false
+
+  field :experiment_serving_config, 2,
+    type: :string,
+    json_name: "experimentServingConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2alpha.ExperimentInfo do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :experiment_metadata, 0
+
+  field :serving_config_experiment, 2,
+    type: Google.Cloud.Retail.V2alpha.ExperimentInfo.ServingConfigExperiment,
+    json_name: "servingConfigExperiment",
+    oneof: 0
+
+  field :experiment, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchService.Service do

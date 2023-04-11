@@ -201,6 +201,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertConfig do
     oneof: 0
 
   field :enable_logging, 2, type: :bool, json_name: "enableLogging"
+
+  field :notification_channels, 3,
+    repeated: true,
+    type: :string,
+    json_name: "notificationChannels",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ThresholdConfig do
