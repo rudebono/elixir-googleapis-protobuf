@@ -69,6 +69,18 @@ defmodule Google.Cloud.Securitycenter.V1.CreateNotificationConfigRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Securitycenter.V1.CreateSecurityHealthAnalyticsCustomModuleRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :security_health_analytics_custom_module, 2,
+    type: Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule,
+    json_name: "securityHealthAnalyticsCustomModule",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Securitycenter.V1.CreateSourceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -85,6 +97,13 @@ defmodule Google.Cloud.Securitycenter.V1.DeleteMuteConfigRequest do
 end
 
 defmodule Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.DeleteSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -113,6 +132,20 @@ defmodule Google.Cloud.Securitycenter.V1.GetNotificationConfigRequest do
 end
 
 defmodule Google.Cloud.Securitycenter.V1.GetOrganizationSettingsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetEffectiveSecurityHealthAnalyticsCustomModuleRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -200,6 +233,27 @@ defmodule Google.Cloud.Securitycenter.V1.GroupResult do
   field :count, 2, type: :int64
 end
 
+defmodule Google.Cloud.Securitycenter.V1.ListDescendantSecurityHealthAnalyticsCustomModulesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListDescendantSecurityHealthAnalyticsCustomModulesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :security_health_analytics_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule,
+    json_name: "securityHealthAnalyticsCustomModules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Securitycenter.V1.ListMuteConfigsRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -238,6 +292,48 @@ defmodule Google.Cloud.Securitycenter.V1.ListNotificationConfigsResponse do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.NotificationConfig,
     json_name: "notificationConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :effective_security_health_analytics_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.EffectiveSecurityHealthAnalyticsCustomModule,
+    json_name: "effectiveSecurityHealthAnalyticsCustomModules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListSecurityHealthAnalyticsCustomModulesRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListSecurityHealthAnalyticsCustomModulesResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :security_health_analytics_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule,
+    json_name: "securityHealthAnalyticsCustomModules"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
@@ -442,6 +538,18 @@ defmodule Google.Cloud.Securitycenter.V1.UpdateOrganizationSettingsRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Securitycenter.V1.UpdateSecurityHealthAnalyticsCustomModuleRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :security_health_analytics_custom_module, 1,
+    type: Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule,
+    json_name: "securityHealthAnalyticsCustomModule",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
 defmodule Google.Cloud.Securitycenter.V1.UpdateSourceRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -527,6 +635,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.BulkMuteFindingsRequest,
       Google.Longrunning.Operation
 
+  rpc :CreateSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.CreateSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule
+
   rpc :CreateSource,
       Google.Cloud.Securitycenter.V1.CreateSourceRequest,
       Google.Cloud.Securitycenter.V1.Source
@@ -551,6 +663,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.DeleteNotificationConfigRequest,
       Google.Protobuf.Empty
 
+  rpc :DeleteSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.DeleteSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Protobuf.Empty
+
   rpc :GetBigQueryExport,
       Google.Cloud.Securitycenter.V1.GetBigQueryExportRequest,
       Google.Cloud.Securitycenter.V1.BigQueryExport
@@ -569,6 +685,14 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.GetOrganizationSettingsRequest,
       Google.Cloud.Securitycenter.V1.OrganizationSettings
 
+  rpc :GetEffectiveSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.GetEffectiveSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.EffectiveSecurityHealthAnalyticsCustomModule
+
+  rpc :GetSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.GetSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule
+
   rpc :GetSource,
       Google.Cloud.Securitycenter.V1.GetSourceRequest,
       Google.Cloud.Securitycenter.V1.Source
@@ -585,6 +709,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
       Google.Cloud.Securitycenter.V1.ListAssetsRequest,
       Google.Cloud.Securitycenter.V1.ListAssetsResponse
 
+  rpc :ListDescendantSecurityHealthAnalyticsCustomModules,
+      Google.Cloud.Securitycenter.V1.ListDescendantSecurityHealthAnalyticsCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListDescendantSecurityHealthAnalyticsCustomModulesResponse
+
   rpc :ListFindings,
       Google.Cloud.Securitycenter.V1.ListFindingsRequest,
       Google.Cloud.Securitycenter.V1.ListFindingsResponse
@@ -596,6 +724,14 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :ListNotificationConfigs,
       Google.Cloud.Securitycenter.V1.ListNotificationConfigsRequest,
       Google.Cloud.Securitycenter.V1.ListNotificationConfigsResponse
+
+  rpc :ListEffectiveSecurityHealthAnalyticsCustomModules,
+      Google.Cloud.Securitycenter.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesResponse
+
+  rpc :ListSecurityHealthAnalyticsCustomModules,
+      Google.Cloud.Securitycenter.V1.ListSecurityHealthAnalyticsCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListSecurityHealthAnalyticsCustomModulesResponse
 
   rpc :ListSources,
       Google.Cloud.Securitycenter.V1.ListSourcesRequest,
@@ -638,6 +774,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :UpdateOrganizationSettings,
       Google.Cloud.Securitycenter.V1.UpdateOrganizationSettingsRequest,
       Google.Cloud.Securitycenter.V1.OrganizationSettings
+
+  rpc :UpdateSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.UpdateSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.SecurityHealthAnalyticsCustomModule
 
   rpc :UpdateSource,
       Google.Cloud.Securitycenter.V1.UpdateSourceRequest,
