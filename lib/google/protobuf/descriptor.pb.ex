@@ -168,6 +168,7 @@ defmodule Google.Protobuf.ExtensionRangeOptions.Declaration do
   field :full_name, 2, optional: true, type: :string
   field :type, 3, optional: true, type: :string
   field :is_repeated, 4, optional: true, type: :bool
+  field :reserved, 5, optional: true, type: :bool
 end
 
 defmodule Google.Protobuf.ExtensionRangeOptions do
