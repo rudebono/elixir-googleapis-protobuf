@@ -83,6 +83,7 @@ defmodule Grafeas.V1.CVSS.AttackComplexity do
   field :ATTACK_COMPLEXITY_UNSPECIFIED, 0
   field :ATTACK_COMPLEXITY_LOW, 1
   field :ATTACK_COMPLEXITY_HIGH, 2
+  field :ATTACK_COMPLEXITY_MEDIUM, 3
 end
 
 defmodule Grafeas.V1.CVSS.Authentication do
@@ -131,6 +132,8 @@ defmodule Grafeas.V1.CVSS.Impact do
   field :IMPACT_HIGH, 1
   field :IMPACT_LOW, 2
   field :IMPACT_NONE, 3
+  field :IMPACT_PARTIAL, 4
+  field :IMPACT_COMPLETE, 5
 end
 
 defmodule Grafeas.V1.CVSSv3 do

@@ -9,6 +9,15 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingState do
   field :FAILED, 4
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :PROCESSING_MODE_UNSPECIFIED, 0
+  field :PROCESSING_MODE_INTERACTIVE, 1
+  field :PROCESSING_MODE_BATCH, 2
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -71,6 +80,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
     map: true
 
   field :error, 17, type: Google.Rpc.Status, deprecated: false
+  field :mode, 20, type: Google.Cloud.Video.Transcoder.V1.Job.ProcessingMode, enum: true
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry do
