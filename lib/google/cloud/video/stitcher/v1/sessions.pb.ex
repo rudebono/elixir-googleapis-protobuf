@@ -7,7 +7,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
   field :DESCENDING, 2
 end
 
-defmodule Google.Cloud.Video.Stitcher.V1.GamVodConfig do
+defmodule Google.Cloud.Video.Stitcher.V1.VodSession.GamSettings do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -51,9 +51,9 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
     enum: true,
     deprecated: false
 
-  field :gam_vod_config, 12,
-    type: Google.Cloud.Video.Stitcher.V1.GamVodConfig,
-    json_name: "gamVodConfig"
+  field :gam_settings, 13,
+    type: Google.Cloud.Video.Stitcher.V1.VodSession.GamSettings,
+    json_name: "gamSettings"
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
@@ -107,33 +107,9 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
   field :start_time_offset, 4, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
 
-defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamHls do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-end
-
-defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamDash do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  field :period_template_uri, 1, type: :string, json_name: "periodTemplateUri", deprecated: false
-end
-
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  oneof :manifest_fields, 0
-
-  field :gam_hls, 2,
-    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamHls,
-    json_name: "gamHls",
-    oneof: 0
-
-  field :gam_dash, 3,
-    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.GamDash,
-    json_name: "gamDash",
-    oneof: 0
 
   field :stream_id, 1, type: :string, json_name: "streamId", deprecated: false
 end
