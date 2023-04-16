@@ -110,6 +110,18 @@ defmodule Google.Cloud.Metastore.V1.Restore.RestoreType do
   field :METADATA_ONLY, 2
 end
 
+defmodule Google.Cloud.Metastore.V1.ScalingConfig.InstanceSize do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :INSTANCE_SIZE_UNSPECIFIED, 0
+  field :EXTRA_SMALL, 1
+  field :SMALL, 2
+  field :MEDIUM, 3
+  field :LARGE, 4
+  field :EXTRA_LARGE, 5
+end
+
 defmodule Google.Cloud.Metastore.V1.DatabaseDumpSpec.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -194,6 +206,10 @@ defmodule Google.Cloud.Metastore.V1.Service do
   field :telemetry_config, 23,
     type: Google.Cloud.Metastore.V1.TelemetryConfig,
     json_name: "telemetryConfig"
+
+  field :scaling_config, 24,
+    type: Google.Cloud.Metastore.V1.ScalingConfig,
+    json_name: "scalingConfig"
 end
 
 defmodule Google.Cloud.Metastore.V1.MaintenanceWindow do
@@ -212,6 +228,14 @@ defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig.ConfigOverridesEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig.AuxiliaryVersionsEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Metastore.V1.AuxiliaryVersionConfig
+end
+
 defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -227,6 +251,12 @@ defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig do
   field :kerberos_config, 3,
     type: Google.Cloud.Metastore.V1.KerberosConfig,
     json_name: "kerberosConfig"
+
+  field :auxiliary_versions, 5,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1.HiveMetastoreConfig.AuxiliaryVersionsEntry,
+    json_name: "auxiliaryVersions",
+    map: true
 end
 
 defmodule Google.Cloud.Metastore.V1.KerberosConfig do
@@ -252,6 +282,32 @@ defmodule Google.Cloud.Metastore.V1.EncryptionConfig do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey"
+end
+
+defmodule Google.Cloud.Metastore.V1.AuxiliaryVersionConfig.ConfigOverridesEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Metastore.V1.AuxiliaryVersionConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :version, 1, type: :string
+
+  field :config_overrides, 2,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1.AuxiliaryVersionConfig.ConfigOverridesEntry,
+    json_name: "configOverrides",
+    map: true
+
+  field :network_config, 3,
+    type: Google.Cloud.Metastore.V1.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1.NetworkConfig.Consumer do
@@ -418,6 +474,21 @@ defmodule Google.Cloud.Metastore.V1.Restore do
     deprecated: false
 
   field :details, 6, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.ScalingConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  oneof :scaling_model, 0
+
+  field :instance_size, 1,
+    type: Google.Cloud.Metastore.V1.ScalingConfig.InstanceSize,
+    json_name: "instanceSize",
+    enum: true,
+    oneof: 0
+
+  field :scaling_factor, 2, type: :float, json_name: "scalingFactor", oneof: 0
 end
 
 defmodule Google.Cloud.Metastore.V1.ListServicesRequest do

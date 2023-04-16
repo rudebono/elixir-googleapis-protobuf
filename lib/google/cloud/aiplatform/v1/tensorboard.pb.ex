@@ -41,4 +41,5 @@ defmodule Google.Cloud.Aiplatform.V1.Tensorboard do
     map: true
 
   field :etag, 9, type: :string
+  field :is_default, 12, type: :bool, json_name: "isDefault"
 end
