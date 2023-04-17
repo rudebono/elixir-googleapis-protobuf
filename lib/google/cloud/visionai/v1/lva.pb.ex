@@ -1,3 +1,24 @@
+defmodule Google.Cloud.Visionai.V1.RunMode do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :RUN_MODE_UNSPECIFIED, 0
+  field :LIVE, 1
+  field :SUBMISSION, 2
+end
+
+defmodule Google.Cloud.Visionai.V1.RunStatus.State do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :INITIALIZING, 1
+  field :RUNNING, 2
+  field :COMPLETED, 3
+  field :FAILED, 4
+  field :PENDING, 5
+end
+
 defmodule Google.Cloud.Visionai.V1.AttributeValue do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -67,4 +88,12 @@ defmodule Google.Cloud.Visionai.V1.AnalysisDefinition do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :analyzers, 1, repeated: true, type: Google.Cloud.Visionai.V1.AnalyzerDefinition
+end
+
+defmodule Google.Cloud.Visionai.V1.RunStatus do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :state, 1, type: Google.Cloud.Visionai.V1.RunStatus.State, enum: true
+  field :reason, 2, type: :string
 end
