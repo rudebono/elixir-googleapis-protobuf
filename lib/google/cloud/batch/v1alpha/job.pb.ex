@@ -63,6 +63,7 @@ defmodule Google.Cloud.Batch.V1alpha.TaskGroup.SchedulingPolicy do
 
   field :SCHEDULING_POLICY_UNSPECIFIED, 0
   field :AS_SOON_AS_POSSIBLE, 1
+  field :IN_ORDER, 2
 end
 
 defmodule Google.Cloud.Batch.V1alpha.Job.LabelsEntry do
@@ -349,6 +350,14 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.NetworkPolicy do
     json_name: "networkInterfaces"
 end
 
+defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.PlacementPolicy do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :collocation, 1, type: :string
+  field :max_distance, 2, type: :int64, json_name: "maxDistance"
+end
+
 defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.LabelsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -399,6 +408,7 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy do
     map: true
 
   field :network, 7, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.NetworkPolicy
+  field :placement, 10, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.PlacementPolicy
 end
 
 defmodule Google.Cloud.Batch.V1alpha.TaskGroup.LabelsEntry do

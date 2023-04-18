@@ -8,6 +8,7 @@ defmodule Google.Cloud.Batch.V1alpha.TaskStatus.State do
   field :RUNNING, 3
   field :FAILED, 4
   field :SUCCEEDED, 5
+  field :UNEXECUTED, 6
 end
 
 defmodule Google.Cloud.Batch.V1alpha.LifecyclePolicy.Action do

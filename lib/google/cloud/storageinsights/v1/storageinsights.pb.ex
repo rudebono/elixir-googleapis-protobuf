@@ -99,7 +99,8 @@ defmodule Google.Cloud.Storageinsights.V1.ReportDetail do
 
   field :name, 1, type: :string
   field :snapshot_time, 2, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
-  field :report_names, 3, repeated: true, type: :string, json_name: "reportNames"
+  field :report_path_prefix, 8, type: :string, json_name: "reportPathPrefix"
+  field :shards_count, 9, type: :int64, json_name: "shardsCount"
   field :status, 4, type: Google.Rpc.Status
 
   field :labels, 5,
@@ -188,6 +189,11 @@ defmodule Google.Cloud.Storageinsights.V1.CSVOptions do
   field :header_required, 3, type: :bool, json_name: "headerRequired"
 end
 
+defmodule Google.Cloud.Storageinsights.V1.ParquetOptions do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Storageinsights.V1.CloudStorageFilters do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -259,6 +265,11 @@ defmodule Google.Cloud.Storageinsights.V1.ReportConfig do
   field :csv_options, 6,
     type: Google.Cloud.Storageinsights.V1.CSVOptions,
     json_name: "csvOptions",
+    oneof: 0
+
+  field :parquet_options, 7,
+    type: Google.Cloud.Storageinsights.V1.ParquetOptions,
+    json_name: "parquetOptions",
     oneof: 0
 
   field :object_metadata_report_options, 8,
