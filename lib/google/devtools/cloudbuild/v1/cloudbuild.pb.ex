@@ -199,6 +199,15 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
   field :generation, 3, type: :int64
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.GitSource do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :url, 1, type: :string
+  field :dir, 5, type: :string
+  field :revision, 6, type: :string
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.RepoSource.SubstitutionsEntry do
   @moduledoc false
   use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -250,6 +259,11 @@ defmodule Google.Devtools.Cloudbuild.V1.Source do
   field :repo_source, 3,
     type: Google.Devtools.Cloudbuild.V1.RepoSource,
     json_name: "repoSource",
+    oneof: 0
+
+  field :git_source, 5,
+    type: Google.Devtools.Cloudbuild.V1.GitSource,
+    json_name: "gitSource",
     oneof: 0
 
   field :storage_source_manifest, 8,
