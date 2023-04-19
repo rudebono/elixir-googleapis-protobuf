@@ -44,6 +44,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   field :NONE, 0
   field :SHA256, 1
   field :MD5, 2
+  field :SHA512, 4
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildApproval.State do
@@ -311,6 +312,19 @@ defmodule Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact do
     deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.UploadedNpmPackage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :file_hashes, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes, json_name: "fileHashes"
+
+  field :push_timing, 3,
+    type: Google.Devtools.Cloudbuild.V1.TimeSpan,
+    json_name: "pushTiming",
+    deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -375,6 +389,11 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact,
     json_name: "mavenArtifacts"
+
+  field :npm_packages, 12,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.UploadedNpmPackage,
+    json_name: "npmPackages"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ArtifactResult do
@@ -526,6 +545,14 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts.PythonPackage do
   field :paths, 2, repeated: true, type: :string
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Artifacts.NpmPackage do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :repository, 1, type: :string
+  field :package_path, 2, type: :string, json_name: "packagePath"
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -542,6 +569,11 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.Artifacts.PythonPackage,
     json_name: "pythonPackages"
+
+  field :npm_packages, 6,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Artifacts.NpmPackage,
+    json_name: "npmPackages"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.TimeSpan do
@@ -1088,6 +1120,11 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption,
     json_name: "egressOption",
     enum: true
+
+  field :peered_network_ip_range, 3,
+    type: :string,
+    json_name: "peeredNetworkIpRange",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
