@@ -1,3 +1,19 @@
+defmodule Google.Cloud.Resourcemanager.V3.Purpose do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :PURPOSE_UNSPECIFIED, 0
+  field :GCE_FIREWALL, 1
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.TagKey.PurposeDataEntry do
+  @moduledoc false
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Resourcemanager.V3.TagKey do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -19,6 +35,14 @@ defmodule Google.Cloud.Resourcemanager.V3.TagKey do
     deprecated: false
 
   field :etag, 8, type: :string, deprecated: false
+  field :purpose, 11, type: Google.Cloud.Resourcemanager.V3.Purpose, enum: true, deprecated: false
+
+  field :purpose_data, 12,
+    repeated: true,
+    type: Google.Cloud.Resourcemanager.V3.TagKey.PurposeDataEntry,
+    json_name: "purposeData",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysRequest do
@@ -43,6 +67,13 @@ defmodule Google.Cloud.Resourcemanager.V3.ListTagKeysResponse do
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetTagKeyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Resourcemanager.V3.GetNamespacedTagKeyRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
@@ -110,6 +141,10 @@ defmodule Google.Cloud.Resourcemanager.V3.TagKeys.Service do
 
   rpc :GetTagKey,
       Google.Cloud.Resourcemanager.V3.GetTagKeyRequest,
+      Google.Cloud.Resourcemanager.V3.TagKey
+
+  rpc :GetNamespacedTagKey,
+      Google.Cloud.Resourcemanager.V3.GetNamespacedTagKeyRequest,
       Google.Cloud.Resourcemanager.V3.TagKey
 
   rpc :CreateTagKey,
