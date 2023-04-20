@@ -60,6 +60,11 @@ defmodule Google.Cloud.Gkehub.V1.Membership do
 
   field :unique_id, 11, type: :string, json_name: "uniqueId", deprecated: false
   field :authority, 12, type: Google.Cloud.Gkehub.V1.Authority, deprecated: false
+
+  field :monitoring_config, 14,
+    type: Google.Cloud.Gkehub.V1.MonitoringConfig,
+    json_name: "monitoringConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
@@ -80,6 +85,8 @@ defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
     type: Google.Cloud.Gkehub.V1.KubernetesResource,
     json_name: "kubernetesResource",
     deprecated: false
+
+  field :google_managed, 8, type: :bool, json_name: "googleManaged", deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.KubernetesResource do
@@ -131,6 +138,7 @@ defmodule Google.Cloud.Gkehub.V1.GkeCluster do
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
   field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
+  field :cluster_missing, 2, type: :bool, json_name: "clusterMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.KubernetesMetadata do
@@ -151,6 +159,17 @@ defmodule Google.Cloud.Gkehub.V1.KubernetesMetadata do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+end
+
+defmodule Google.Cloud.Gkehub.V1.MonitoringConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :location, 2, type: :string, deprecated: false
+  field :cluster, 3, type: :string, deprecated: false
+  field :kubernetes_metrics_prefix, 4, type: :string, json_name: "kubernetesMetricsPrefix"
+  field :cluster_hash, 5, type: :string, json_name: "clusterHash", deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.MembershipState do

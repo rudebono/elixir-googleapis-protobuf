@@ -41,6 +41,7 @@ defmodule Google.Cloud.Gkehub.V1.DeleteMembershipRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :force, 3, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.UpdateMembershipRequest do

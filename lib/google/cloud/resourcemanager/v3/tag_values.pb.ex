@@ -49,6 +49,13 @@ defmodule Google.Cloud.Resourcemanager.V3.GetTagValueRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Resourcemanager.V3.GetNamespacedTagValueRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -114,6 +121,10 @@ defmodule Google.Cloud.Resourcemanager.V3.TagValues.Service do
 
   rpc :GetTagValue,
       Google.Cloud.Resourcemanager.V3.GetTagValueRequest,
+      Google.Cloud.Resourcemanager.V3.TagValue
+
+  rpc :GetNamespacedTagValue,
+      Google.Cloud.Resourcemanager.V3.GetNamespacedTagValueRequest,
       Google.Cloud.Resourcemanager.V3.TagValue
 
   rpc :CreateTagValue,
