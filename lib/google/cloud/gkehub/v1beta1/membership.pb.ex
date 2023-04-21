@@ -91,6 +91,11 @@ defmodule Google.Cloud.Gkehub.V1beta1.Membership do
     json_name: "infrastructureType",
     enum: true,
     deprecated: false
+
+  field :monitoring_config, 14,
+    type: Google.Cloud.Gkehub.V1beta1.MonitoringConfig,
+    json_name: "monitoringConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.MembershipEndpoint do
@@ -264,6 +269,17 @@ defmodule Google.Cloud.Gkehub.V1beta1.Authority do
   field :oidc_jwks, 4, type: :bytes, json_name: "oidcJwks", deprecated: false
 end
 
+defmodule Google.Cloud.Gkehub.V1beta1.MonitoringConfig do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :location, 2, type: :string, deprecated: false
+  field :cluster, 3, type: :string, deprecated: false
+  field :kubernetes_metrics_prefix, 4, type: :string, json_name: "kubernetesMetricsPrefix"
+  field :cluster_hash, 5, type: :string, json_name: "clusterHash", deprecated: false
+end
+
 defmodule Google.Cloud.Gkehub.V1beta1.MembershipState do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -324,6 +340,7 @@ defmodule Google.Cloud.Gkehub.V1beta1.DeleteMembershipRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :force, 5, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1beta1.UpdateMembershipRequest do

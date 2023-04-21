@@ -144,6 +144,14 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :database, 44, type: Google.Cloud.Securitycenter.V1.Database
   field :files, 46, repeated: true, type: Google.Cloud.Securitycenter.V1.File
 
+  field :cloud_dlp_inspection, 48,
+    type: Google.Cloud.Securitycenter.V1.CloudDlpInspection,
+    json_name: "cloudDlpInspection"
+
+  field :cloud_dlp_data_profile, 49,
+    type: Google.Cloud.Securitycenter.V1.CloudDlpDataProfile,
+    json_name: "cloudDlpDataProfile"
+
   field :kernel_rootkit, 50,
     type: Google.Cloud.Securitycenter.V1.KernelRootkit,
     json_name: "kernelRootkit"
