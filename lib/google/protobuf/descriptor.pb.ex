@@ -1,3 +1,11 @@
+defmodule Google.Protobuf.ExtensionRangeOptions.VerificationState do
+  @moduledoc false
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
+
+  field :DECLARATION, 0
+  field :UNVERIFIED, 1
+end
+
 defmodule Google.Protobuf.FieldDescriptorProto.Type do
   @moduledoc false
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto2
@@ -167,8 +175,9 @@ defmodule Google.Protobuf.ExtensionRangeOptions.Declaration do
   field :number, 1, optional: true, type: :int32
   field :full_name, 2, optional: true, type: :string
   field :type, 3, optional: true, type: :string
-  field :is_repeated, 4, optional: true, type: :bool
+  field :is_repeated, 4, optional: true, type: :bool, deprecated: true
   field :reserved, 5, optional: true, type: :bool
+  field :repeated, 6, optional: true, type: :bool
 end
 
 defmodule Google.Protobuf.ExtensionRangeOptions do
@@ -181,6 +190,12 @@ defmodule Google.Protobuf.ExtensionRangeOptions do
     repeated: true,
     type: Google.Protobuf.ExtensionRangeOptions.Declaration,
     deprecated: false
+
+  field :verification, 3,
+    optional: true,
+    type: Google.Protobuf.ExtensionRangeOptions.VerificationState,
+    default: :UNVERIFIED,
+    enum: true
 
   extensions [{1000, 536_870_912}]
 end
