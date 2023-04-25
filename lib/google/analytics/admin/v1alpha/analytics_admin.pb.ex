@@ -1291,6 +1291,68 @@ defmodule Google.Analytics.Admin.V1alpha.ListExpandedDataSetsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateChannelGroupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :channel_group, 2,
+    type: Google.Analytics.Admin.V1alpha.ChannelGroup,
+    json_name: "channelGroup",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateChannelGroupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :channel_group, 1,
+    type: Google.Analytics.Admin.V1alpha.ChannelGroup,
+    json_name: "channelGroup",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteChannelGroupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetChannelGroupRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListChannelGroupsRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListChannelGroupsResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :channel_groups, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ChannelGroup,
+    json_name: "channelGroups"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
@@ -1408,6 +1470,20 @@ defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse do
     repeated: true,
     type: Google.Analytics.Admin.V1alpha.ConnectedSiteTag,
     json_name: "connectedSiteTags"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse do
+  @moduledoc false
+  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  field :property, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
@@ -1804,6 +1880,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.DeleteExpandedDataSetRequest,
       Google.Protobuf.Empty
 
+  rpc :GetChannelGroup,
+      Google.Analytics.Admin.V1alpha.GetChannelGroupRequest,
+      Google.Analytics.Admin.V1alpha.ChannelGroup
+
+  rpc :ListChannelGroups,
+      Google.Analytics.Admin.V1alpha.ListChannelGroupsRequest,
+      Google.Analytics.Admin.V1alpha.ListChannelGroupsResponse
+
+  rpc :CreateChannelGroup,
+      Google.Analytics.Admin.V1alpha.CreateChannelGroupRequest,
+      Google.Analytics.Admin.V1alpha.ChannelGroup
+
+  rpc :UpdateChannelGroup,
+      Google.Analytics.Admin.V1alpha.UpdateChannelGroupRequest,
+      Google.Analytics.Admin.V1alpha.ChannelGroup
+
+  rpc :DeleteChannelGroup,
+      Google.Analytics.Admin.V1alpha.DeleteChannelGroupRequest,
+      Google.Protobuf.Empty
+
   rpc :SetAutomatedGa4ConfigurationOptOut,
       Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest,
       Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse
@@ -1839,6 +1935,10 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :ListConnectedSiteTags,
       Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest,
       Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse
+
+  rpc :FetchConnectedGa4Property,
+      Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest,
+      Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

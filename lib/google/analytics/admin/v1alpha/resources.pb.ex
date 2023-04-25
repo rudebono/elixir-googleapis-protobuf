@@ -152,6 +152,7 @@ defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
   field :DIMENSION_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
   field :USER, 2
+  field :ITEM, 3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MeasurementUnit do
@@ -597,6 +598,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :expanded_data_set, 21,
     type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
     json_name: "expandedDataSet",
+    oneof: 0
+
+  field :channel_group, 22,
+    type: Google.Analytics.Admin.V1alpha.ChannelGroup,
+    json_name: "channelGroup",
     oneof: 0
 
   field :bigquery_link, 23,
