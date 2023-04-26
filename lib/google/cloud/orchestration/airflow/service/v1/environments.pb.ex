@@ -185,6 +185,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
     deprecated: false
 
   field :airflow_uri, 6, type: :string, json_name: "airflowUri"
+  field :airflow_byoid_uri, 20, type: :string, json_name: "airflowByoidUri", deprecated: false
 
   field :master_authorized_networks_config, 17,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.MasterAuthorizedNetworksConfig,

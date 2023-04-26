@@ -225,6 +225,7 @@ defmodule Google.Container.V1beta1.Operation.Type do
   field :SET_NODE_POOL_SIZE, 14
   field :SET_NETWORK_POLICY, 15
   field :SET_MAINTENANCE_POLICY, 16
+  field :RESIZE_CLUSTER, 18
 end
 
 defmodule Google.Container.V1beta1.SetMasterAuthRequest.Action do
@@ -2723,8 +2724,8 @@ defmodule Google.Container.V1beta1.DatabaseEncryption do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
 
-  field :state, 2, type: Google.Container.V1beta1.DatabaseEncryption.State, enum: true
   field :key_name, 1, type: :string, json_name: "keyName"
+  field :state, 2, type: Google.Container.V1beta1.DatabaseEncryption.State, enum: true
 end
 
 defmodule Google.Container.V1beta1.ResourceUsageExportConfig.BigQueryDestination do
