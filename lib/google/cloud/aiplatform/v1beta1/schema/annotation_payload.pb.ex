@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageBoundingBoxAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.MaskAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mask_gcs_uri, 1, type: :string, json_name: "maskGcsUri"
 
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolygonAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vertexes, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Schema.Vertex
   field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation.PolylineAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vertexes, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Schema.Vertex
   field :annotation_spec_id, 2, type: :string, json_name: "annotationSpecId"
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.ImageSegmentationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :annotation, 0
 
@@ -72,7 +78,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec_id, 1, type: :string, json_name: "annotationSpecId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -80,7 +87,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextExtractionAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_segment, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment,
@@ -92,7 +100,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_offset, 1, type: :uint64, json_name: "startOffset"
   field :end_offset, 2, type: :uint64, json_name: "endOffset"
@@ -101,7 +110,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TextSentimentAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sentiment, 1, type: :int32
   field :sentiment_max, 2, type: :int32, json_name: "sentimentMax"
@@ -111,7 +121,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_segment, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment,
@@ -123,7 +134,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
@@ -131,7 +143,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoObjectTrackingAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :x_min, 2, type: :double, json_name: "xMin"
@@ -145,7 +158,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.VideoActionRecognitionAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_segment, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.TimeSegment,

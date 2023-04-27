@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Services.MutateAdGroupCriterionCustomizersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -20,7 +21,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.AdGroupCriterionCustomizerOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -30,7 +32,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateAdGroupCriterionCustomizersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -41,7 +44,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateAdGroupCriterionCustomizerResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -52,9 +56,10 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.AdGroupCriterionCustomizerService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.AdGroupCriterionCustomizerService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateAdGroupCriterionCustomizers,
       Google.Ads.Googleads.V12.Services.MutateAdGroupCriterionCustomizersRequest,
@@ -63,6 +68,7 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.AdGroupCriterionCustomizerService.Stub do
   @moduledoc false
+
   use GRPC.Stub,
     service: Google.Ads.Googleads.V12.Services.AdGroupCriterionCustomizerService.Service
 end

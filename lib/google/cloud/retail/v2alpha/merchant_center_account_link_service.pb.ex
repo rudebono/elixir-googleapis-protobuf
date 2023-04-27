@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Retail.V2alpha.ListMerchantCenterAccountLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ListMerchantCenterAccountLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :merchant_center_account_links, 1,
     repeated: true,
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CreateMerchantCenterAccountLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -29,16 +32,18 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.DeleteMerchantCenterAccountLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLinkService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.MerchantCenterAccountLinkService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListMerchantCenterAccountLinks,
       Google.Cloud.Retail.V2alpha.ListMerchantCenterAccountLinksRequest,
@@ -55,5 +60,6 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLinkService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.MerchantCenterAccountLinkService.Service
 end

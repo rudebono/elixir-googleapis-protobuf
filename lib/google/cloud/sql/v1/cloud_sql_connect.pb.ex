@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1.GetConnectSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.ConnectSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :server_ca_cert, 2, type: Google.Cloud.Sql.V1.SslCert, json_name: "serverCaCert"
@@ -34,7 +36,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -45,16 +48,18 @@ end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ephemeral_cert, 1, type: Google.Cloud.Sql.V1.SslCert, json_name: "ephemeralCert"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlConnectService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlConnectService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetConnectSettings,
       Google.Cloud.Sql.V1.GetConnectSettingsRequest,
@@ -67,5 +72,6 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlConnectService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Sql.V1.SqlConnectService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ShardingStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SHARDING_STRATEGY_UNSPECIFIED, 0
   field :LIQUID, 1
@@ -18,14 +20,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Stream do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
   field :offset, 2, type: :int64
@@ -33,7 +37,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadSession do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -68,7 +73,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_reference, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.TableReference,
@@ -97,7 +103,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :read_position, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.StreamPosition,
@@ -107,7 +114,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.StreamStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :estimated_row_count, 1, type: :int64, json_name: "estimatedRowCount"
   field :fraction_consumed, 2, type: :float, json_name: "fractionConsumed"
@@ -117,7 +125,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.Progress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :at_response_start, 1, type: :float, json_name: "atResponseStart"
   field :at_response_end, 2, type: :float, json_name: "atResponseEnd"
@@ -125,14 +134,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :throttle_percent, 1, type: :int32, json_name: "throttlePercent"
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :rows, 0
 
@@ -156,7 +167,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: Google.Cloud.Bigquery.Storage.V1beta1.ReadSession, deprecated: false
   field :requested_streams, 2, type: :int32, json_name: "requestedStreams", deprecated: false
@@ -164,21 +176,24 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.FinalizeStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream, 2, type: Google.Cloud.Bigquery.Storage.V1beta1.Stream, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :original_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
@@ -190,7 +205,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.SplitReadStreamResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :primary_stream, 1,
     type: Google.Cloud.Bigquery.Storage.V1beta1.Stream,
@@ -203,9 +219,10 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.bigquery.storage.v1beta1.BigQueryStorage",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateReadSession,
       Google.Cloud.Bigquery.Storage.V1beta1.CreateReadSessionRequest,
@@ -230,5 +247,6 @@ end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Bigquery.Storage.V1beta1.BigQueryStorage.Service
 end

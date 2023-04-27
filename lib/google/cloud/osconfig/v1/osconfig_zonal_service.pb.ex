@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Osconfig.V1.OsConfigZonalService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.osconfig.v1.OsConfigZonalService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateOSPolicyAssignment,
       Google.Cloud.Osconfig.V1.CreateOSPolicyAssignmentRequest,
@@ -55,5 +56,6 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.OsConfigZonalService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Osconfig.V1.OsConfigZonalService.Service
 end

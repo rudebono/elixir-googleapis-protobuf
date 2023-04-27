@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GatewayService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.gkeconnect.gateway.v1beta1.GatewayService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetResource, Google.Api.HttpBody, Google.Api.HttpBody
 
@@ -17,5 +18,6 @@ end
 
 defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GatewayService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Gkeconnect.Gateway.V1beta1.GatewayService.Service
 end

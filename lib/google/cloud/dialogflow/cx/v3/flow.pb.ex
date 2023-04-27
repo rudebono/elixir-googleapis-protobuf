@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.NluSettings.ModelType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :MODEL_TYPE_STANDARD, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.NluSettings.ModelTrainingMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODEL_TRAINING_MODE_UNSPECIFIED, 0
   field :MODEL_TRAINING_MODE_AUTOMATIC, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportFlowRequest.ImportOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :IMPORT_OPTION_UNSPECIFIED, 0
   field :KEEP, 1
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.NluSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.NluSettings.ModelType,
@@ -44,7 +48,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Flow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -73,7 +78,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :flow, 2, type: Google.Cloud.Dialogflow.Cx.V3.Flow, deprecated: false
@@ -82,7 +88,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -90,7 +97,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListFlowsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -100,7 +108,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListFlowsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :flows, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Flow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -108,7 +117,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -116,7 +126,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :flow, 1, type: Google.Cloud.Dialogflow.Cx.V3.Flow, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -125,14 +136,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.TrainFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ValidateFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -140,7 +153,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetFlowValidationResultRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -148,7 +162,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.FlowValidationResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -162,7 +177,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :flow, 0
 
@@ -178,14 +194,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportFlowResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :flow, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :flow_uri, 2, type: :string, json_name: "flowUri", deprecated: false
@@ -198,7 +216,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportFlowResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :flow, 0
 
@@ -208,9 +227,10 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Flows.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.Flows",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateFlow,
       Google.Cloud.Dialogflow.Cx.V3.CreateFlowRequest,
@@ -245,5 +265,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Flows.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.Flows.Service
 end

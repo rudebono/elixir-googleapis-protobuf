@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPLETION_SCOPE_UNSPECIFIED, 0
   field :TENANT, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest.CompletionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPLETION_TYPE_UNSPECIFIED, 0
   field :JOB_TITLE, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -38,7 +41,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse.CompletionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -51,7 +55,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompleteQueryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :completion_results, 1,
     repeated: true,
@@ -63,9 +68,10 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.Completion.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.talent.v4beta1.Completion",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Talent.V4beta1.CompleteQueryRequest,
@@ -74,5 +80,6 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.Completion.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Talent.V4beta1.Completion.Service
 end

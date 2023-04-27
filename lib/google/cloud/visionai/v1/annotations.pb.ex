@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Visionai.V1.StreamAnnotationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STREAM_ANNOTATION_TYPE_UNSPECIFIED, 0
   field :STREAM_ANNOTATION_TYPE_ACTIVE_ZONE, 1
@@ -9,14 +10,16 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonEntity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :person_entity_id, 1, type: :int64, json_name: "personEntityId"
 end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEEntity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ppe_label_id, 1, type: :int64, json_name: "ppeLabelId"
   field :ppe_label_string, 2, type: :string, json_name: "ppeLabelString"
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.NormalizedBoundingBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :xmin, 1, type: :float
   field :ymin, 2, type: :float
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PersonIdentifiedBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :box_id, 1, type: :int64, json_name: "boxId"
 
@@ -58,7 +63,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.PPEIdentifiedBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :box_id, 1, type: :int64, json_name: "boxId"
 
@@ -76,7 +82,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput.DetectedPerson do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :person_id, 1, type: :int64, json_name: "personId"
 
@@ -122,7 +129,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_time, 1, type: Google.Protobuf.Timestamp, json_name: "currentTime"
 
@@ -134,7 +142,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.Entity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label_id, 1, type: :int64, json_name: "labelId"
   field :label_string, 2, type: :string, json_name: "labelString"
@@ -142,7 +151,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox.NormalizedBoundingBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :xmin, 1, type: :float
   field :ymin, 2, type: :float
@@ -152,7 +162,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult.IdentifiedBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :box_id, 1, type: :int64, json_name: "boxId"
 
@@ -167,7 +178,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ObjectDetectionPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_time, 1, type: Google.Protobuf.Timestamp, json_name: "currentTime"
 
@@ -179,7 +191,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ImageObjectDetectionPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ids, 1, repeated: true, type: :int64
   field :display_names, 2, repeated: true, type: :string, json_name: "displayNames"
@@ -189,7 +202,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ClassificationPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ids, 1, repeated: true, type: :int64
   field :display_names, 2, repeated: true, type: :string, json_name: "displayNames"
@@ -198,7 +212,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.ImageSegmentationPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :category_mask, 1, type: :string, json_name: "categoryMask"
   field :confidence_mask, 2, type: :string, json_name: "confidenceMask"
@@ -206,7 +221,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoActionRecognitionPredictionResult.IdentifiedAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -215,7 +231,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoActionRecognitionPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :segment_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "segmentStartTime"
   field :segment_end_time, 2, type: Google.Protobuf.Timestamp, json_name: "segmentEndTime"
@@ -227,7 +244,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.BoundingBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :x_min, 1, type: :float, json_name: "xMin"
   field :x_max, 2, type: :float, json_name: "xMax"
@@ -237,7 +255,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult.DetectedObject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -252,7 +271,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoObjectTrackingPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :segment_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "segmentStartTime"
   field :segment_end_time, 2, type: Google.Protobuf.Timestamp, json_name: "segmentEndTime"
@@ -264,7 +284,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoClassificationPredictionResult.IdentifiedClassification do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -273,7 +294,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.VideoClassificationPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :segment_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "segmentStartTime"
   field :segment_end_time, 2, type: Google.Protobuf.Timestamp, json_name: "segmentEndTime"
@@ -285,7 +307,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Entity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label_id, 1, type: :int64, json_name: "labelId"
   field :label_string, 2, type: :string, json_name: "labelString"
@@ -293,7 +316,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox.NormalizedBoundingBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :xmin, 1, type: :float
   field :ymin, 2, type: :float
@@ -303,7 +327,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.IdentifiedBox do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :box_id, 1, type: :int64, json_name: "boxId"
 
@@ -319,7 +344,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ObjectCount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entity, 1, type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Entity
   field :count, 2, type: :int32
@@ -327,7 +353,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.AccumulatedObjectCount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
 
@@ -338,7 +365,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.CrossingLineCount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Cloud.Visionai.V1.StreamAnnotation
 
@@ -365,7 +393,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats.ActiveZoneCount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Cloud.Visionai.V1.StreamAnnotation
 
@@ -376,7 +405,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.Stats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :full_frame_count, 1,
     repeated: true,
@@ -396,7 +426,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.TrackInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :track_id, 1, type: :string, json_name: "trackId"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -404,7 +435,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.DwellTimeInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :track_id, 1, type: :string, json_name: "trackId"
   field :zone_id, 2, type: :string, json_name: "zoneId"
@@ -414,7 +446,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_time, 1, type: Google.Protobuf.Timestamp, json_name: "currentTime"
 
@@ -438,7 +471,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.StreamAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :annotation_payload, 0
 
@@ -460,7 +494,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.StreamAnnotations do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream_annotations, 1,
     repeated: true,
@@ -470,7 +505,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.NormalizedPolygon do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -480,7 +516,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.NormalizedPolyline do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -490,7 +527,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.NormalizedVertex do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :x, 1, type: :float
   field :y, 2, type: :float
@@ -498,7 +536,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :application, 1, type: :string
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -508,7 +547,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionRequest.StructedInputAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ingestion_time_micros, 1, type: :int64, json_name: "ingestionTimeMicros"
   field :annotation, 2, type: Google.Protobuf.Struct
@@ -516,7 +556,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_platform_metadata, 1,
     type: Google.Cloud.Visionai.V1.AppPlatformMetadata,
@@ -529,14 +570,16 @@ end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionResponse.StructedOutputAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Protobuf.Struct
 end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformCloudFunctionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotations, 2,
     repeated: true,
@@ -548,7 +591,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatformEventBody do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_message, 1, type: :string, json_name: "eventMessage"
   field :payload, 2, type: Google.Protobuf.Struct

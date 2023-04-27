@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.Authorization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :service_account_email, 2, type: :string, json_name: "serviceAccountEmail"
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.CreateDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -25,21 +28,24 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ReplaceDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployment, 2, type: Google.Cloud.Gsuiteaddons.V1.Deployment, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GetDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -48,7 +54,8 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.ListDeploymentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Gsuiteaddons.V1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -56,7 +63,8 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.DeleteDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -64,28 +72,32 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.UninstallDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GetInstallStatusRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.InstallStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :installed, 2, type: Google.Protobuf.BoolValue
@@ -93,7 +105,8 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.Deployment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :oauth_scopes, 2, repeated: true, type: :string, json_name: "oauthScopes"
@@ -103,7 +116,8 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.AddOns do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Apps.Script.Type.CommonAddOnManifest
   field :gmail, 2, type: Google.Apps.Script.Type.Gmail.GmailAddOnManifest
@@ -117,9 +131,10 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.gsuiteaddons.v1.GSuiteAddOns",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetAuthorization,
       Google.Cloud.Gsuiteaddons.V1.GetAuthorizationRequest,
@@ -160,5 +175,6 @@ end
 
 defmodule Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Gsuiteaddons.V1.GSuiteAddOns.Service
 end

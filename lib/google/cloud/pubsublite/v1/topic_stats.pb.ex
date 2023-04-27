@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :partition, 2, type: :int64, deprecated: false
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeMessageStatsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :message_count, 1, type: :int64, json_name: "messageCount"
   field :message_bytes, 2, type: :int64, json_name: "messageBytes"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :partition, 2, type: :int64, deprecated: false
@@ -28,14 +31,16 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeHeadCursorResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :head_cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor, json_name: "headCursor"
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :partition, 2, type: :int64, deprecated: false
@@ -44,16 +49,18 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ComputeTimeCursorResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
 end
 
 defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.pubsublite.v1.TopicStatsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ComputeMessageStats,
       Google.Cloud.Pubsublite.V1.ComputeMessageStatsRequest,
@@ -70,5 +77,6 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.TopicStatsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Pubsublite.V1.TopicStatsService.Service
 end

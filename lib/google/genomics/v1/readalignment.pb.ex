@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1.LinearAlignment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :position, 1, type: Google.Genomics.V1.Position
   field :mapping_quality, 2, type: :int32, json_name: "mappingQuality"
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Genomics.V1.Read.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Genomics.V1.Read do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :read_group_id, 2, type: :string, json_name: "readGroupId"

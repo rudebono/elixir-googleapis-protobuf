@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REDACTION_STRATEGY_UNSPECIFIED, 0
   field :REDACT_WITH_SERVICE, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REDACTION_SCOPE_UNSPECIFIED, 0
   field :REDACT_DISK_STORAGE, 2
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PURGE_DATA_TYPE_UNSPECIFIED, 0
   field :DIALOGFLOW_HISTORY, 1
@@ -24,7 +27,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.AudioFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AUDIO_FORMAT_UNSPECIFIED, 0
   field :MULAW, 1
@@ -34,14 +38,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetSecuritySettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateSecuritySettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :security_settings, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings,
@@ -56,7 +62,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -65,7 +72,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListSecuritySettingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :security_settings, 1,
     repeated: true,
@@ -77,7 +85,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateSecuritySettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -89,14 +98,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteSecuritySettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcs_bucket, 1, type: :string, json_name: "gcsBucket"
   field :audio_export_pattern, 2, type: :string, json_name: "audioExportPattern"
@@ -110,14 +121,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_insights_export, 1, type: :bool, json_name: "enableInsightsExport"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :data_retention, 0
 
@@ -160,9 +173,10 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettingsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.SecuritySettingsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateSecuritySettings,
       Google.Cloud.Dialogflow.Cx.V3.CreateSecuritySettingsRequest,
@@ -187,5 +201,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettingsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.SecuritySettingsService.Service
 end

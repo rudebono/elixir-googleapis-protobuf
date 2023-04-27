@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Apigeeregistry.V1.Api.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.Api.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.Api do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -53,7 +56,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiVersion.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -61,7 +65,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiVersion.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -69,7 +74,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -100,7 +106,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiSpec.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -108,7 +115,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiSpec.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -116,7 +124,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :filename, 2, type: :string
@@ -157,7 +166,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiDeployment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -165,7 +175,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiDeployment.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -173,7 +184,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ApiDeployment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -214,7 +226,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.Artifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 

@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Data.V1alpha.UserCriteriaScoping do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :USER_CRITERIA_SCOPING_UNSPECIFIED, 0
   field :USER_CRITERIA_WITHIN_SAME_EVENT, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserExclusionDuration do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :USER_EXCLUSION_DURATION_UNSPECIFIED, 0
   field :USER_EXCLUSION_TEMPORARY, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionCriteriaScoping do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SESSION_CRITERIA_SCOPING_UNSPECIFIED, 0
   field :SESSION_CRITERIA_WITHIN_SAME_EVENT, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionExclusionDuration do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SESSION_EXCLUSION_DURATION_UNSPECIFIED, 0
   field :SESSION_EXCLUSION_TEMPORARY, 1
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventCriteriaScoping do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EVENT_CRITERIA_SCOPING_UNSPECIFIED, 0
   field :EVENT_CRITERIA_WITHIN_SAME_EVENT, 1
@@ -45,7 +50,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventExclusionDuration do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EVENT_EXCLUSION_DURATION_UNSPECIFIED, 0
   field :EVENT_EXCLUSION_PERMANENT, 1
@@ -53,7 +59,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.MetricType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METRIC_TYPE_UNSPECIFIED, 0
   field :TYPE_INTEGER, 1
@@ -72,7 +79,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.StringFilter.MatchType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -85,7 +93,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.NumericFilter.Operation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :EQUAL, 1
@@ -97,7 +106,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.DateRange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
@@ -106,7 +116,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.Dimension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -117,14 +128,16 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionExpression.CaseExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionExpression.ConcatenateExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_names, 1, repeated: true, type: :string, json_name: "dimensionNames"
   field :delimiter, 2, type: :string
@@ -132,7 +145,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_expression, 0
 
@@ -153,7 +167,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -177,14 +192,16 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expressions, 1, repeated: true, type: Google.Analytics.Data.V1alpha.FilterExpression
 end
 
 defmodule Google.Analytics.Data.V1alpha.Filter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -213,7 +230,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.StringFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Data.V1alpha.StringFilter.MatchType,
@@ -226,7 +244,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.InListFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
   field :case_sensitive, 2, type: :bool, json_name: "caseSensitive"
@@ -234,7 +253,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.NumericFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation, 1, type: Google.Analytics.Data.V1alpha.NumericFilter.Operation, enum: true
   field :value, 2, type: Google.Analytics.Data.V1alpha.NumericValue
@@ -242,7 +262,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.BetweenFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :from_value, 1, type: Google.Analytics.Data.V1alpha.NumericValue, json_name: "fromValue"
   field :to_value, 2, type: Google.Analytics.Data.V1alpha.NumericValue, json_name: "toValue"
@@ -250,7 +271,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.NumericValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -260,14 +282,16 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionHeader do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Analytics.Data.V1alpha.MetricHeader do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Analytics.Data.V1alpha.MetricType, enum: true
@@ -275,7 +299,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -290,7 +315,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -299,7 +325,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.MetricValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -308,7 +335,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.PropertyQuota do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tokens_per_day, 1,
     type: Google.Analytics.Data.V1alpha.QuotaStatus,
@@ -333,7 +361,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.QuotaStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :consumed, 1, type: :int32
   field :remaining, 2, type: :int32
@@ -341,7 +370,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelBreakdown do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :breakdown_dimension, 1,
     type: Google.Analytics.Data.V1alpha.Dimension,
@@ -352,7 +382,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelNextAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :next_action_dimension, 1,
     type: Google.Analytics.Data.V1alpha.Dimension,
@@ -363,7 +394,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.Funnel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :is_open_funnel, 1, type: :bool, json_name: "isOpenFunnel"
   field :steps, 2, repeated: true, type: Google.Analytics.Data.V1alpha.FunnelStep
@@ -371,7 +403,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :is_directly_followed_by, 2, type: :bool, json_name: "isDirectlyFollowedBy"
@@ -388,7 +421,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelSubReport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -406,7 +440,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_inclusion_criteria, 1,
     type: Google.Analytics.Data.V1alpha.UserSegmentCriteria,
@@ -417,7 +452,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSegmentCriteria do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :and_condition_groups, 1,
     repeated: true,
@@ -432,7 +468,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSegmentConditionGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition_scoping, 1,
     type: Google.Analytics.Data.V1alpha.UserCriteriaScoping,
@@ -446,7 +483,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSegmentSequenceGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sequence_scoping, 1,
     type: Google.Analytics.Data.V1alpha.UserCriteriaScoping,
@@ -465,7 +503,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSequenceStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :is_directly_followed_by, 1, type: :bool, json_name: "isDirectlyFollowedBy"
 
@@ -481,7 +520,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.UserSegmentExclusion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_exclusion_duration, 1,
     type: Google.Analytics.Data.V1alpha.UserExclusionDuration,
@@ -495,7 +535,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session_inclusion_criteria, 1,
     type: Google.Analytics.Data.V1alpha.SessionSegmentCriteria,
@@ -506,7 +547,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionSegmentCriteria do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :and_condition_groups, 1,
     repeated: true,
@@ -516,7 +558,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionSegmentConditionGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition_scoping, 1,
     type: Google.Analytics.Data.V1alpha.SessionCriteriaScoping,
@@ -530,7 +573,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SessionSegmentExclusion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session_exclusion_duration, 1,
     type: Google.Analytics.Data.V1alpha.SessionExclusionDuration,
@@ -544,7 +588,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_inclusion_criteria, 1,
     type: Google.Analytics.Data.V1alpha.EventSegmentCriteria,
@@ -555,7 +600,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventSegmentCriteria do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :and_condition_groups, 1,
     repeated: true,
@@ -565,7 +611,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventSegmentConditionGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition_scoping, 1,
     type: Google.Analytics.Data.V1alpha.EventCriteriaScoping,
@@ -579,7 +626,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.EventSegmentExclusion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_exclusion_duration, 1,
     type: Google.Analytics.Data.V1alpha.EventExclusionDuration,
@@ -593,7 +641,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.Segment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_segment_scope, 0
 
@@ -617,7 +666,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -649,7 +699,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expressions, 1,
     repeated: true,
@@ -658,7 +709,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -691,7 +743,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentFilterScoping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :at_any_point_in_time, 1,
     proto3_optional: true,
@@ -701,7 +754,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentEventFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_name, 1, proto3_optional: true, type: :string, json_name: "eventName"
 
@@ -713,7 +767,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentParameterFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -740,7 +795,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentParameterFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expressions, 1,
     repeated: true,
@@ -749,7 +805,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentParameterFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_parameter, 0
 
@@ -785,14 +842,16 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SegmentParameterFilterScoping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :in_any_n_day_period, 1, proto3_optional: true, type: :int64, json_name: "inAnyNDayPeriod"
 end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -824,7 +883,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expressions, 1,
     repeated: true,
@@ -833,7 +893,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelFieldFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -862,7 +923,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelEventFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_name, 1, proto3_optional: true, type: :string, json_name: "eventName"
 
@@ -874,7 +936,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelParameterFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -901,7 +964,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelParameterFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expressions, 1,
     repeated: true,
@@ -910,7 +974,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelParameterFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_parameter, 0
 
@@ -942,7 +1007,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.FunnelResponseMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sampling_metadatas, 1,
     repeated: true,
@@ -952,7 +1018,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.SamplingMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :samples_read_count, 1, type: :int64, json_name: "samplesReadCount"
   field :sampling_space_size, 2, type: :int64, json_name: "samplingSpaceSize"

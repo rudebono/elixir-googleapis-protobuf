@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -20,7 +21,8 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.CreateChallengeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :challenge, 2, type: Google.Cloud.Confidentialcomputing.V1.Challenge, deprecated: false
@@ -28,7 +30,8 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :challenge, 1, type: :string, deprecated: false
 
@@ -45,14 +48,16 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :oidc_claims_token, 2, type: :string, json_name: "oidcClaimsToken", deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_account_id_tokens, 2,
     repeated: true,
@@ -62,7 +67,8 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote.PcrValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :bytes
@@ -70,7 +76,8 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hash_algo, 1, type: :int32, json_name: "hashAlgo"
 
@@ -86,7 +93,8 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :quotes, 1,
     repeated: true,
@@ -100,9 +108,10 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.confidentialcomputing.v1.ConfidentialComputing",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateChallenge,
       Google.Cloud.Confidentialcomputing.V1.CreateChallengeRequest,
@@ -115,5 +124,6 @@ end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service
 end

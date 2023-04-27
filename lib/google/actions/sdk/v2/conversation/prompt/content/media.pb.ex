@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Conversation.Media.MediaType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Conversation.Media.OptionalMediaControls do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPTIONAL_MEDIA_CONTROLS_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Conversation.Media do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :media_type, 8,
     type: Google.Actions.Sdk.V2.Conversation.Media.MediaType,
@@ -41,7 +44,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Conversation.MediaObject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -51,7 +55,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Conversation.MediaImage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :image, 0
 

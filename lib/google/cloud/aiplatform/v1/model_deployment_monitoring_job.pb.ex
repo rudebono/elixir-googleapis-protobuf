@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODEL_DEPLOYMENT_MONITORING_OBJECTIVE_TYPE_UNSPECIFIED, 0
   field :RAW_FEATURE_SKEW, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.MonitoringScheduleState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MONITORING_SCHEDULE_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOG_SOURCE_UNSPECIFIED, 0
   field :TRAINING, 1
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOG_TYPE_UNSPECIFIED, 0
   field :PREDICT, 1
@@ -39,7 +43,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.LatestMonitoringPipelineMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :run_time, 1, type: Google.Protobuf.Timestamp, json_name: "runTime"
   field :status, 2, type: Google.Rpc.Status
@@ -47,7 +52,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -147,7 +154,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :log_source, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable.LogSource,
@@ -164,7 +172,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployed_model_id, 1, type: :string, json_name: "deployedModelId"
 
@@ -175,7 +184,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringScheduleConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :monitor_interval, 1,
     type: Google.Protobuf.Duration,
@@ -187,7 +197,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies.FeatureHistoricStatsAnomalies do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :feature_display_name, 1, type: :string, json_name: "featureDisplayName"
   field :threshold, 3, type: Google.Cloud.Aiplatform.V1.ThresholdConfig
@@ -204,7 +215,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelMonitoringStatsAnomalies do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :objective, 1,
     type: Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveType,

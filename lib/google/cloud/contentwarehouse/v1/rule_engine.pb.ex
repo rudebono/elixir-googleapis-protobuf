@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.Rule.TriggerType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ON_CREATE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.AccessControlAction.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ADD_POLICY_BINDING, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.ActionOutput.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ACTION_SUCCEEDED, 1
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 6, type: :string
   field :description, 1, type: :string
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Rule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :description, 1, type: :string
   field :rule_id, 2, type: :string, json_name: "ruleId"
@@ -56,7 +61,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Action do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -100,7 +106,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.AccessControlAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_type, 1,
     type: Google.Cloud.Contentwarehouse.V1.AccessControlAction.OperationType,
@@ -112,7 +119,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DataValidationAction.ConditionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -120,7 +128,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DataValidationAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conditions, 1,
     repeated: true,
@@ -130,7 +139,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DataUpdateAction.EntriesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -138,7 +148,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DataUpdateAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -148,14 +159,16 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.AddToFolderAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :folders, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RemoveFromFolderAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition, 1, type: :string
   field :folder, 2, type: :string, deprecated: false
@@ -163,7 +176,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.PublishAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic_id, 1, type: :string, json_name: "topicId"
   field :messages, 2, repeated: true, type: :string
@@ -171,14 +185,16 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DeleteDocumentAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_hard_delete, 1, type: :bool, json_name: "enableHardDelete"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleEngineOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document_name, 3, type: :string, json_name: "documentName"
 
@@ -193,7 +209,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleEvaluatorOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :triggered_rules, 1,
     repeated: true,
@@ -213,7 +230,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.InvalidRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rule, 1, type: Google.Cloud.Contentwarehouse.V1.Rule
   field :error, 2, type: :string
@@ -221,7 +239,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.ActionExecutorOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rule_actions_pairs, 1,
     repeated: true,
@@ -231,7 +250,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleActionsPair do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rule, 1, type: Google.Cloud.Contentwarehouse.V1.Rule
 
@@ -243,7 +263,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.ActionOutput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :action_id, 1, type: :string, json_name: "actionId"
 

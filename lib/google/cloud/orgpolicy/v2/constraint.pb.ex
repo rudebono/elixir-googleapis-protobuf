@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONSTRAINT_DEFAULT_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ListConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :supports_in, 1, type: :bool, json_name: "supportsIn"
   field :supports_under, 2, type: :bool, json_name: "supportsUnder"
@@ -17,12 +19,14 @@ end
 
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.BooleanConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.Constraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :constraint_type, 0
 

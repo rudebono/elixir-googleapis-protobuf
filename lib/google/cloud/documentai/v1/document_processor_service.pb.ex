@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SKIPPED, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :WAITING, 1
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :URGENT, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REJECTED, 1
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -62,7 +67,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1.HumanReviewStatus.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -71,7 +77,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ProcessResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Documentai.V1.Document
 
@@ -82,7 +89,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -99,12 +107,14 @@ end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.IndividualProcessStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
@@ -117,7 +127,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1.BatchProcessMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -132,14 +143,16 @@ end
 
 defmodule Google.Cloud.Documentai.V1.FetchProcessorTypesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.FetchProcessorTypesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor_types, 1,
     repeated: true,
@@ -149,7 +162,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorTypesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -158,7 +172,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorTypesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor_types, 1,
     repeated: true,
@@ -170,7 +185,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -179,7 +195,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processors, 1, repeated: true, type: Google.Cloud.Documentai.V1.Processor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -187,28 +204,32 @@ end
 
 defmodule Google.Cloud.Documentai.V1.GetProcessorTypeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.GetProcessorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.GetProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -217,7 +238,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListProcessorVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor_versions, 1,
     repeated: true,
@@ -229,14 +251,16 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DeleteProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.DeleteProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -245,19 +269,22 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DeployProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.DeployProcessorVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.DeployProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -266,19 +293,22 @@ end
 
 defmodule Google.Cloud.Documentai.V1.UndeployProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.UndeployProcessorVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.UndeployProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -287,7 +317,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.CreateProcessorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :processor, 2, type: Google.Cloud.Documentai.V1.Processor, deprecated: false
@@ -295,14 +326,16 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DeleteProcessorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.DeleteProcessorMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -311,19 +344,22 @@ end
 
 defmodule Google.Cloud.Documentai.V1.EnableProcessorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.EnableProcessorResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.EnableProcessorMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -332,19 +368,22 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DisableProcessorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.DisableProcessorResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.DisableProcessorMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -353,7 +392,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.SetDefaultProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor, 1, type: :string, deprecated: false
 
@@ -365,12 +405,14 @@ end
 
 defmodule Google.Cloud.Documentai.V1.SetDefaultProcessorVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1.SetDefaultProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -379,7 +421,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.InputData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :training_documents, 3,
     type: Google.Cloud.Documentai.V1.BatchDocumentsInputConfig,
@@ -392,7 +435,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -419,14 +463,16 @@ end
 
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor_version, 1, type: :string, json_name: "processorVersion"
 end
 
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata.DatasetValidation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document_error_count, 3, type: :int32, json_name: "documentErrorCount"
   field :dataset_error_count, 4, type: :int32, json_name: "datasetErrorCount"
@@ -436,7 +482,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -453,7 +500,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -473,7 +521,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
   field :state, 2, type: Google.Cloud.Documentai.V1.ReviewDocumentResponse.State, enum: true
@@ -482,7 +531,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 5,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -493,7 +543,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processor_version, 1, type: :string, json_name: "processorVersion", deprecated: false
 
@@ -505,7 +556,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1.CommonOperationMetadata,
@@ -514,21 +566,24 @@ end
 
 defmodule Google.Cloud.Documentai.V1.EvaluateProcessorVersionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :evaluation, 2, type: :string
 end
 
 defmodule Google.Cloud.Documentai.V1.GetEvaluationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.ListEvaluationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -537,7 +592,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1.ListEvaluationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :evaluations, 1, repeated: true, type: Google.Cloud.Documentai.V1.Evaluation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -545,9 +601,10 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.documentai.v1.DocumentProcessorService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ProcessDocument,
       Google.Cloud.Documentai.V1.ProcessRequest,
@@ -640,5 +697,6 @@ end
 
 defmodule Google.Cloud.Documentai.V1.DocumentProcessorService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Documentai.V1.DocumentProcessorService.Service
 end

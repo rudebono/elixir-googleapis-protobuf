@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Cloudprofiler.V2.ProfileType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROFILE_TYPE_UNSPECIFIED, 0
   field :CPU, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.CreateProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :deployment, 1, type: Google.Devtools.Cloudprofiler.V2.Deployment
@@ -28,7 +30,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.CreateOfflineProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :profile, 2, type: Google.Devtools.Cloudprofiler.V2.Profile
@@ -36,7 +39,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.UpdateProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :profile, 1, type: Google.Devtools.Cloudprofiler.V2.Profile
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -44,7 +48,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -52,7 +57,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Profile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -74,7 +80,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -82,7 +89,8 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :target, 2, type: :string
@@ -95,9 +103,10 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.cloudprofiler.v2.ProfilerService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateProfile,
       Google.Devtools.Cloudprofiler.V2.CreateProfileRequest,
@@ -114,5 +123,6 @@ end
 
 defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Cloudprofiler.V2.ProfilerService.Service
 end

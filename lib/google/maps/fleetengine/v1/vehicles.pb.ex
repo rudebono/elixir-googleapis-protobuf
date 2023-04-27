@@ -1,6 +1,7 @@
 defmodule Maps.Fleetengine.V1.VehicleState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN_VEHICLE_STATE, 0
   field :OFFLINE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Maps.Fleetengine.V1.LocationPowerSaveMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN_LOCATION_POWER_SAVE_MODE, 0
   field :LOCATION_MODE_NO_CHANGE, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Maps.Fleetengine.V1.BatteryStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN_BATTERY_STATUS, 0
   field :BATTERY_STATUS_CHARGING, 1
@@ -33,7 +36,8 @@ end
 
 defmodule Maps.Fleetengine.V1.PowerSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN_POWER_SOURCE, 0
   field :POWER_SOURCE_AC, 1
@@ -44,7 +48,8 @@ end
 
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :AUTO, 1
@@ -55,7 +60,8 @@ end
 
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STYLE_UNSPECIFIED, 0
   field :SLOWER_TRAFFIC, 1
@@ -64,14 +70,16 @@ end
 
 defmodule Maps.Fleetengine.V1.Vehicle.VehicleType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :category, 1, type: Maps.Fleetengine.V1.Vehicle.VehicleType.Category, enum: true
 end
 
 defmodule Maps.Fleetengine.V1.Vehicle do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -149,7 +157,8 @@ end
 
 defmodule Maps.Fleetengine.V1.BatteryInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :battery_status, 1,
     type: Maps.Fleetengine.V1.BatteryStatus,
@@ -166,7 +175,8 @@ end
 
 defmodule Maps.Fleetengine.V1.DeviceSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location_power_save_mode, 1,
     type: Maps.Fleetengine.V1.LocationPowerSaveMode,
@@ -180,7 +190,8 @@ end
 
 defmodule Maps.Fleetengine.V1.LicensePlate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :country_code, 1, type: :string, json_name: "countryCode", deprecated: false
   field :last_character, 2, type: :string, json_name: "lastCharacter"
@@ -188,7 +199,8 @@ end
 
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :style, 1,
     type: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style,
@@ -201,7 +213,8 @@ end
 
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :road_stretch, 1,
     repeated: true,
@@ -212,7 +225,8 @@ end
 
 defmodule Maps.Fleetengine.V1.TrafficPolylineData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :traffic_rendering, 1,
     type: Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering,

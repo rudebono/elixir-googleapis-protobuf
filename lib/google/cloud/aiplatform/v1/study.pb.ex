@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.Study.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Trial.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REQUESTED, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.Algorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ALGORITHM_UNSPECIFIED, 0
   field :GRID_SEARCH, 2
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ObservationNoise do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OBSERVATION_NOISE_UNSPECIFIED, 0
   field :LOW, 1
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.MeasurementSelectionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MEASUREMENT_SELECTION_TYPE_UNSPECIFIED, 0
   field :LAST_MEASUREMENT, 1
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.MetricSpec.GoalType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :GOAL_TYPE_UNSPECIFIED, 0
   field :MAXIMIZE, 1
@@ -58,7 +64,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.ScaleType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SCALE_TYPE_UNSPECIFIED, 0
   field :UNIT_LINEAR_SCALE, 1
@@ -68,7 +75,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Study do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -90,7 +98,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Trial.Parameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameter_id, 1, type: :string, json_name: "parameterId", deprecated: false
   field :value, 2, type: Google.Protobuf.Value, deprecated: false
@@ -98,7 +107,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Trial.WebAccessUrisEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -106,7 +116,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Trial do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -143,7 +154,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.MetricSpec.SafetyMetricConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :safety_threshold, 1, type: :double, json_name: "safetyThreshold"
 
@@ -155,7 +167,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.MetricSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_id, 1, type: :string, json_name: "metricId", deprecated: false
 
@@ -172,7 +185,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.DoubleValueSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_value, 1, type: :double, json_name: "minValue", deprecated: false
   field :max_value, 2, type: :double, json_name: "maxValue", deprecated: false
@@ -181,7 +195,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.IntegerValueSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_value, 1, type: :int64, json_name: "minValue", deprecated: false
   field :max_value, 2, type: :int64, json_name: "maxValue", deprecated: false
@@ -190,7 +205,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.CategoricalValueSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
   field :default_value, 3, proto3_optional: true, type: :string, json_name: "defaultValue"
@@ -198,7 +214,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.DiscreteValueSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :double, deprecated: false
   field :default_value, 3, proto3_optional: true, type: :double, json_name: "defaultValue"
@@ -206,28 +223,32 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.ConditionalParameterSpec.DiscreteValueCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.ConditionalParameterSpec.IntValueCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :int64, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.ConditionalParameterSpec.CategoricalValueCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec.ConditionalParameterSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :parent_value_condition, 0
 
@@ -257,7 +278,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ParameterSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :parameter_value_spec, 0
 
@@ -296,21 +318,24 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.DecayCurveAutomatedStoppingSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :use_elapsed_duration, 1, type: :bool, json_name: "useElapsedDuration"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.MedianAutomatedStoppingSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :use_elapsed_duration, 1, type: :bool, json_name: "useElapsedDuration"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec.ConvexAutomatedStoppingSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_step_count, 1, type: :int64, json_name: "maxStepCount"
   field :min_step_count, 2, type: :int64, json_name: "minStepCount"
@@ -326,7 +351,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.StudySpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :automated_stopping_spec, 0
 
@@ -370,7 +396,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Measurement.Metric do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_id, 1, type: :string, json_name: "metricId", deprecated: false
   field :value, 2, type: :double, deprecated: false
@@ -378,7 +405,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Measurement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :elapsed_duration, 1,
     type: Google.Protobuf.Duration,

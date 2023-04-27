@@ -1,6 +1,7 @@
 defmodule Google.Firestore.Admin.V1.OperationState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATION_STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.IndexConfigDelta.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta.ChangeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.IndexOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -48,7 +52,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.IndexConfigDelta do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :change_type, 1,
     type: Google.Firestore.Admin.V1.FieldOperationMetadata.IndexConfigDelta.ChangeType,
@@ -60,7 +65,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :change_type, 1,
     type: Google.Firestore.Admin.V1.FieldOperationMetadata.TtlConfigDelta.ChangeType,
@@ -70,7 +76,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.FieldOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -96,7 +103,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.ExportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -117,7 +125,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.ImportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -138,14 +147,16 @@ end
 
 defmodule Google.Firestore.Admin.V1.ExportDocumentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
 end
 
 defmodule Google.Firestore.Admin.V1.Progress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :estimated_work, 1, type: :int64, json_name: "estimatedWork"
   field :completed_work, 2, type: :int64, json_name: "completedWork"

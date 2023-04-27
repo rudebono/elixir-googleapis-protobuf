@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.MediaFile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :mediatype, 0
 
@@ -56,7 +57,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.MediaImage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data, 4, proto3_optional: true, type: :bytes, deprecated: false
 
@@ -75,7 +77,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.MediaBundle do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data, 3, proto3_optional: true, type: :bytes, deprecated: false
   field :url, 2, proto3_optional: true, type: :string, deprecated: false
@@ -83,7 +86,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.MediaAudio do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad_duration_millis, 2,
     proto3_optional: true,
@@ -94,7 +98,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.MediaVideo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad_duration_millis, 5,
     proto3_optional: true,

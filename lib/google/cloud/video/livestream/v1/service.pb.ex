@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Video.Livestream.V1.CreateChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListChannelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channels, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Channel
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -30,14 +33,16 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.GetChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.DeleteChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -46,7 +51,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.UpdateChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :channel, 2, type: Google.Cloud.Video.Livestream.V1.Channel, deprecated: false
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.StartChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -63,7 +70,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.StopChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -71,7 +79,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
@@ -81,7 +90,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -92,7 +102,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListInputsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inputs, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Input
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -101,14 +112,16 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.GetInputRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.DeleteInputRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -116,7 +129,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.UpdateInputRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :input, 2, type: Google.Cloud.Video.Livestream.V1.Input, deprecated: false
@@ -125,7 +139,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.CreateEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Video.Livestream.V1.Event, deprecated: false
@@ -135,7 +150,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -146,7 +162,8 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ListEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :events, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Event
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -155,14 +172,16 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.GetEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.DeleteEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -170,12 +189,14 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.ChannelOperationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -196,9 +217,10 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.video.livestream.v1.LivestreamService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateChannel,
       Google.Cloud.Video.Livestream.V1.CreateChannelRequest,
@@ -265,5 +287,6 @@ end
 
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Video.Livestream.V1.LivestreamService.Service
 end

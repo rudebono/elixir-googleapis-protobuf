@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Resources.Asset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :asset_data, 0
 
@@ -178,7 +179,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.AssetPolicySummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :policy_topic_entries, 1,
     repeated: true,

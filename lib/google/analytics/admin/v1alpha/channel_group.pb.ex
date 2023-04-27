@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilter.StringFilter.MatchType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilter.StringFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Admin.V1alpha.ChannelGroupFilter.StringFilter.MatchType,
@@ -26,14 +28,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilter.InListFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value_filter, 0
 
@@ -52,7 +56,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -76,7 +81,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroupFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter_expressions, 1,
     repeated: true,
@@ -86,7 +92,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GroupingRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 
@@ -97,7 +104,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ChannelGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

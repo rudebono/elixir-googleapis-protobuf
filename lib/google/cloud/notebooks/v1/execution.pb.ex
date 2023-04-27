@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.ScaleTier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SCALE_TIER_UNSPECIFIED, 0
   field :BASIC, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -28,7 +30,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.JobType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :JOB_TYPE_UNSPECIFIED, 0
   field :VERTEX_AI, 1
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.Execution.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -53,7 +57,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate.SchedulerAcceleratorType,
@@ -64,14 +69,16 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.DataprocParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters.EnvEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -79,7 +86,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.VertexAIParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network, 1, type: :string
 
@@ -91,7 +99,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -99,7 +108,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.ExecutionTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :job_parameters, 0
 
@@ -148,7 +158,8 @@ end
 
 defmodule Google.Cloud.Notebooks.V1.Execution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :execution_template, 1,
     type: Google.Cloud.Notebooks.V1.ExecutionTemplate,

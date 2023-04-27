@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.V3.CreateSnoozeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :snooze, 2, type: Google.Monitoring.V3.Snooze, deprecated: false
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Monitoring.V3.ListSnoozesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Monitoring.V3.ListSnoozesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :snoozes, 1, repeated: true, type: Google.Monitoring.V3.Snooze
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -26,14 +29,16 @@ end
 
 defmodule Google.Monitoring.V3.GetSnoozeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Monitoring.V3.UpdateSnoozeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :snooze, 1, type: Google.Monitoring.V3.Snooze, deprecated: false
 
@@ -45,9 +50,10 @@ end
 
 defmodule Google.Monitoring.V3.SnoozeService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.monitoring.v3.SnoozeService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateSnooze, Google.Monitoring.V3.CreateSnoozeRequest, Google.Monitoring.V3.Snooze
 
@@ -62,5 +68,6 @@ end
 
 defmodule Google.Monitoring.V3.SnoozeService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Monitoring.V3.SnoozeService.Service
 end

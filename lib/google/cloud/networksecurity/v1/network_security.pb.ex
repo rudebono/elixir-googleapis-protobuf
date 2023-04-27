@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Networksecurity.V1.NetworkSecurity.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.networksecurity.v1.NetworkSecurity",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListAuthorizationPolicies,
       Google.Cloud.Networksecurity.V1.ListAuthorizationPoliciesRequest,
@@ -67,5 +68,6 @@ end
 
 defmodule Google.Cloud.Networksecurity.V1.NetworkSecurity.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Networksecurity.V1.NetworkSecurity.Service
 end

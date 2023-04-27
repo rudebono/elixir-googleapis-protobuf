@@ -1,6 +1,7 @@
 defmodule Google.Maps.Routing.V2.RouteMatrixElementCondition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ROUTE_MATRIX_ELEMENT_CONDITION_UNSPECIFIED, 0
   field :ROUTE_EXISTS, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REFERENCE_ROUTE_UNSPECIFIED, 0
   field :FUEL_EFFICIENT, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXTRA_COMPUTATION_UNSPECIFIED, 0
   field :TOLLS, 1
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXTRA_COMPUTATION_UNSPECIFIED, 0
   field :TOLLS, 1
@@ -35,7 +39,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routing.V2.Waypoint, deprecated: false
   field :destination, 2, type: Google.Maps.Routing.V2.Waypoint, deprecated: false
@@ -105,7 +110,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Maps.Routing.V2.Route
   field :fallback_info, 2, type: Google.Maps.Routing.V2.FallbackInfo, json_name: "fallbackInfo"
@@ -117,7 +123,8 @@ end
 
 defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :origins, 1,
     repeated: true,
@@ -159,7 +166,8 @@ end
 
 defmodule Google.Maps.Routing.V2.RouteMatrixOrigin do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routing.V2.Waypoint, deprecated: false
 
@@ -171,14 +179,16 @@ end
 
 defmodule Google.Maps.Routing.V2.RouteMatrixDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routing.V2.Waypoint, deprecated: false
 end
 
 defmodule Google.Maps.Routing.V2.RouteMatrixElement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :origin_index, 1, proto3_optional: true, type: :int32, json_name: "originIndex"
   field :destination_index, 2, proto3_optional: true, type: :int32, json_name: "destinationIndex"
@@ -197,7 +207,8 @@ end
 
 defmodule Google.Maps.Routing.V2.Routes.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.maps.routing.v2.Routes", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.maps.routing.v2.Routes", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ComputeRoutes,
       Google.Maps.Routing.V2.ComputeRoutesRequest,
@@ -210,5 +221,6 @@ end
 
 defmodule Google.Maps.Routing.V2.Routes.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Maps.Routing.V2.Routes.Service
 end

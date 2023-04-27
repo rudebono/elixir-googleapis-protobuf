@@ -1,6 +1,7 @@
 defmodule Google.Api.Serviceusage.V1beta1.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :QUOTA_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaSafetyCheck do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :QUOTA_SAFETY_CHECK_UNSPECIFIED, 0
   field :LIMIT_DECREASE_BELOW_USAGE, 1
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.Service do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 5, type: :string
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.ServiceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -58,14 +63,16 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_names, 2, repeated: true, type: :string, json_name: "resourceNames"
 end
 
 defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaMetric do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :metric, 4, type: :string
@@ -86,7 +93,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :metric, 8, type: :string
@@ -102,7 +110,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket.DimensionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -110,7 +119,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :effective_limit, 1, type: :int64, json_name: "effectiveLimit"
   field :default_limit, 2, type: :int64, json_name: "defaultLimit"
@@ -135,7 +145,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride.DimensionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -143,7 +154,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :override_value, 2, type: :int64, json_name: "overrideValue"
@@ -160,14 +172,16 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.OverrideInlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
 end
 
 defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy.DimensionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -175,7 +189,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :policy_value, 2, type: :int64, json_name: "policyValue"
@@ -192,7 +207,8 @@ end
 
 defmodule Google.Api.Serviceusage.V1beta1.ServiceIdentity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :unique_id, 2, type: :string, json_name: "uniqueId"

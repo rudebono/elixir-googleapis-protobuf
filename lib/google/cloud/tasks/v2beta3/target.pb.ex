@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta3.HttpMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :HTTP_METHOD_UNSPECIFIED, 0
   field :POST, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.PullMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :payload, 1, type: :bytes
   field :tag, 2, type: :string
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.HttpRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :authorization_header, 0
 
@@ -61,7 +65,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpQueue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_engine_routing_override, 1,
     type: Google.Cloud.Tasks.V2beta3.AppEngineRouting,
@@ -70,7 +75,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest.HeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -78,7 +84,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineHttpRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_method, 1,
     type: Google.Cloud.Tasks.V2beta3.HttpMethod,
@@ -101,7 +108,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.AppEngineRouting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :version, 2, type: :string
@@ -111,7 +119,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.OAuthToken do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :scope, 2, type: :string
@@ -119,7 +128,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta3.OidcToken do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string

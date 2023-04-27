@@ -1,6 +1,7 @@
 defmodule Google.Iam.V1beta.WorkloadIdentityPool.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -34,14 +37,16 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Aws do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account_id, 1, type: :string, json_name: "accountId", deprecated: false
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.Oidc do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issuer_uri, 1, type: :string, json_name: "issuerUri", deprecated: false
   field :allowed_audiences, 2, repeated: true, type: :string, json_name: "allowedAudiences"
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider.AttributeMappingEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -57,7 +63,8 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProvider do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :provider_config, 0
 
@@ -85,7 +92,8 @@ end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -95,7 +103,8 @@ end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workload_identity_pools, 1,
     repeated: true,
@@ -107,14 +116,16 @@ end
 
 defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -131,7 +142,8 @@ end
 
 defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workload_identity_pool, 1,
     type: Google.Iam.V1beta.WorkloadIdentityPool,
@@ -146,21 +158,24 @@ end
 
 defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -170,7 +185,8 @@ end
 
 defmodule Google.Iam.V1beta.ListWorkloadIdentityPoolProvidersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workload_identity_pool_providers, 1,
     repeated: true,
@@ -182,14 +198,16 @@ end
 
 defmodule Google.Iam.V1beta.GetWorkloadIdentityPoolProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.CreateWorkloadIdentityPoolProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -206,7 +224,8 @@ end
 
 defmodule Google.Iam.V1beta.UpdateWorkloadIdentityPoolProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workload_identity_pool_provider, 1,
     type: Google.Iam.V1beta.WorkloadIdentityPoolProvider,
@@ -221,33 +240,38 @@ end
 
 defmodule Google.Iam.V1beta.DeleteWorkloadIdentityPoolProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.UndeleteWorkloadIdentityPoolProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPoolProviderOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPools.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.iam.v1beta.WorkloadIdentityPools",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListWorkloadIdentityPools,
       Google.Iam.V1beta.ListWorkloadIdentityPoolsRequest,
@@ -300,5 +324,6 @@ end
 
 defmodule Google.Iam.V1beta.WorkloadIdentityPools.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Iam.V1beta.WorkloadIdentityPools.Service
 end

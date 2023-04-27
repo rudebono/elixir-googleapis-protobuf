@@ -1,13 +1,15 @@
 defmodule Google.Devtools.Resultstore.V2.GetInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.SearchInvocationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Invocation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation, 1, type: Google.Devtools.Resultstore.V2.Invocation
   field :targets, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Target
@@ -64,21 +69,24 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetConfigurationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -91,7 +99,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ListConfigurationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :configurations, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Configuration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -99,14 +108,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.ListTargetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -119,7 +130,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ListTargetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :targets, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -127,14 +139,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -147,7 +161,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ListConfiguredTargetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :configured_targets, 1,
     repeated: true,
@@ -159,7 +174,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -174,7 +190,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.SearchConfiguredTargetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :configured_targets, 1,
     repeated: true,
@@ -186,14 +203,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetActionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.ListActionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -206,7 +225,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ListActionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -214,7 +234,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -228,7 +249,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.BatchListActionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Devtools.Resultstore.V2.Action
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -237,14 +259,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -257,7 +281,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ListFileSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :file_sets, 1,
     repeated: true,
@@ -269,7 +294,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :page_start, 0
 
@@ -281,7 +307,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TraverseFileSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :file_sets, 1,
     repeated: true,
@@ -293,9 +320,10 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.resultstore.v2.ResultStoreDownload",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetInvocation,
       Google.Devtools.Resultstore.V2.GetInvocationRequest,
@@ -368,5 +396,6 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreDownload.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.Control do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :control, 0
 

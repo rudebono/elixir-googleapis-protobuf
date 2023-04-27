@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Osconfig.V1beta.OsConfigService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.osconfig.v1beta.OsConfigService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ExecutePatchJob,
       Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest,
@@ -79,5 +80,6 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.OsConfigService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Osconfig.V1beta.OsConfigService.Service
 end

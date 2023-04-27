@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Iot.V1.MqttState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MQTT_STATE_UNSPECIFIED, 0
   field :MQTT_ENABLED, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.HttpState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :HTTP_STATE_UNSPECIFIED, 0
   field :HTTP_ENABLED, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.LogLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOG_LEVEL_UNSPECIFIED, 0
   field :NONE, 10
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.GatewayType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :GATEWAY_TYPE_UNSPECIFIED, 0
   field :GATEWAY, 1
@@ -38,7 +42,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.GatewayAuthMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :GATEWAY_AUTH_METHOD_UNSPECIFIED, 0
   field :ASSOCIATION_ONLY, 1
@@ -48,7 +53,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.PublicKeyCertificateFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT, 0
   field :X509_CERTIFICATE_PEM, 1
@@ -56,7 +62,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.PublicKeyFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED_PUBLIC_KEY_FORMAT, 0
   field :RSA_PEM, 3
@@ -67,7 +74,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.Device.MetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -75,7 +83,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.Device do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -102,7 +111,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.GatewayConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gateway_type, 1,
     type: Google.Cloud.Iot.V1.GatewayType,
@@ -123,7 +133,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.DeviceRegistry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -145,7 +156,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.MqttConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mqtt_enabled_state, 1,
     type: Google.Cloud.Iot.V1.MqttState,
@@ -155,7 +167,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.HttpConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_enabled_state, 1,
     type: Google.Cloud.Iot.V1.HttpState,
@@ -165,7 +178,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.EventNotificationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subfolder_matches, 2, type: :string, json_name: "subfolderMatches"
   field :pubsub_topic_name, 1, type: :string, json_name: "pubsubTopicName"
@@ -173,14 +187,16 @@ end
 
 defmodule Google.Cloud.Iot.V1.StateNotificationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pubsub_topic_name, 1, type: :string, json_name: "pubsubTopicName"
 end
 
 defmodule Google.Cloud.Iot.V1.RegistryCredential do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :credential, 0
 
@@ -192,7 +208,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.X509CertificateDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issuer, 1, type: :string
   field :subject, 2, type: :string
@@ -204,7 +221,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.PublicKeyCertificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :format, 1, type: Google.Cloud.Iot.V1.PublicKeyCertificateFormat, enum: true
   field :certificate, 2, type: :string
@@ -216,7 +234,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.DeviceCredential do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :credential, 0
 
@@ -230,7 +249,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.PublicKeyCredential do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :format, 1, type: Google.Cloud.Iot.V1.PublicKeyFormat, enum: true
   field :key, 2, type: :string
@@ -238,7 +258,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.DeviceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :int64
   field :cloud_update_time, 2, type: Google.Protobuf.Timestamp, json_name: "cloudUpdateTime"
@@ -248,7 +269,8 @@ end
 
 defmodule Google.Cloud.Iot.V1.DeviceState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :binary_data, 2, type: :bytes, json_name: "binaryData"

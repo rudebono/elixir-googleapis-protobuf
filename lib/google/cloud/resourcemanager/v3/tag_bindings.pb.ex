@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Resourcemanager.V3.TagBinding do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string
@@ -10,12 +11,14 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_binding, 1,
     type: Google.Cloud.Resourcemanager.V3.TagBinding,
@@ -27,19 +30,22 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -48,7 +54,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagBindingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_bindings, 1,
     repeated: true,
@@ -60,7 +67,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListEffectiveTagsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -69,7 +77,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListEffectiveTagsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :effective_tags, 1,
     repeated: true,
@@ -81,7 +90,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.EffectiveTag do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_value, 1, type: :string, json_name: "tagValue", deprecated: false
   field :namespaced_tag_value, 2, type: :string, json_name: "namespacedTagValue"
@@ -93,9 +103,10 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.resourcemanager.v3.TagBindings",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListTagBindings,
       Google.Cloud.Resourcemanager.V3.ListTagBindingsRequest,
@@ -116,5 +127,6 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagBindings.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.TagBindings.Service
 end

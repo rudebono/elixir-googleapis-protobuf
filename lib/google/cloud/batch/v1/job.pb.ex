@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Batch.V1.LogsPolicy.Destination do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DESTINATION_UNSPECIFIED, 0
   field :CLOUD_LOGGING, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobNotification.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :JOB_STATE_CHANGED, 1
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.ProvisioningModel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROVISIONING_MODEL_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.Job.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -84,7 +90,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.LogsPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination, 1, type: Google.Cloud.Batch.V1.LogsPolicy.Destination, enum: true
   field :logs_path, 2, type: :string, json_name: "logsPath"
@@ -92,7 +99,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.InstanceStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType"
 
@@ -107,7 +115,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.TaskGroupStatus.CountsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -115,7 +124,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.TaskGroupStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :counts, 1,
     repeated: true,
@@ -127,7 +137,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.TaskGroupsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Batch.V1.JobStatus.TaskGroupStatus
@@ -135,7 +146,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Batch.V1.JobStatus.State, enum: true
 
@@ -155,7 +167,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobNotification.Message do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Batch.V1.JobNotification.Type, enum: true
 
@@ -172,7 +185,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.JobNotification do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic"
   field :message, 2, type: Google.Cloud.Batch.V1.JobNotification.Message
@@ -180,14 +194,16 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.LocationPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allowed_locations, 1, repeated: true, type: :string, json_name: "allowedLocations"
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.Disk do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -200,7 +216,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.AttachedDisk do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :attached, 0
 
@@ -215,7 +232,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.Accelerator do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :count, 2, type: :int64
@@ -224,7 +242,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :machine_type, 2, type: :string, json_name: "machineType"
   field :min_cpu_platform, 3, type: :string, json_name: "minCpuPlatform"
@@ -241,7 +260,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicyOrTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :policy_template, 0
 
@@ -252,7 +272,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.NetworkInterface do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network, 1, type: :string
   field :subnetwork, 2, type: :string
@@ -261,7 +282,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.NetworkPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network_interfaces, 1,
     repeated: true,
@@ -271,7 +293,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -279,7 +302,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1, type: Google.Cloud.Batch.V1.AllocationPolicy.LocationPolicy
 
@@ -301,7 +325,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.TaskGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -325,7 +350,8 @@ end
 
 defmodule Google.Cloud.Batch.V1.ServiceAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :scopes, 2, repeated: true, type: :string

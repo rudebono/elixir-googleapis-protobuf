@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Cluster.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Subnet.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -36,7 +39,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.HcxActivationKey.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :AVAILABLE, 1
@@ -46,7 +50,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Hcx.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -55,7 +60,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Nsx.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -64,7 +70,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Vcenter.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NetworkPolicy.NetworkService.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :UNPROVISIONED, 1
@@ -83,7 +91,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -94,7 +103,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :LEGACY, 1
@@ -102,7 +112,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.VpcNetwork.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INTRANET, 1
@@ -112,7 +123,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NetworkConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :management_cidr, 4, type: :string, json_name: "managementCidr", deprecated: false
 
@@ -134,7 +146,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NodeTypeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :node_count, 1, type: :int32, json_name: "nodeCount", deprecated: false
   field :custom_core_count, 2, type: :int32, json_name: "customCoreCount", deprecated: false
@@ -142,7 +155,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud.ManagementCluster.NodeTypeConfigsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Vmwareengine.V1.NodeTypeConfig
@@ -150,7 +164,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud.ManagementCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster_id, 1, type: :string, json_name: "clusterId", deprecated: false
 
@@ -164,7 +179,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Cluster.NodeTypeConfigsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Vmwareengine.V1.NodeTypeConfig
@@ -220,7 +237,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Cluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -248,7 +266,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Subnet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ip_cidr_range, 7, type: :string, json_name: "ipCidrRange"
@@ -259,7 +278,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NodeType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :node_type_id, 2, type: :string, json_name: "nodeTypeId", deprecated: false
@@ -278,7 +298,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Credentials do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -286,7 +307,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.HcxActivationKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -306,7 +328,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Hcx do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :internal_ip, 2, type: :string, json_name: "internalIp"
   field :version, 4, type: :string
@@ -316,7 +339,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Nsx do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :internal_ip, 2, type: :string, json_name: "internalIp"
   field :version, 4, type: :string
@@ -326,7 +350,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.Vcenter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :internal_ip, 2, type: :string, json_name: "internalIp"
   field :version, 4, type: :string
@@ -336,7 +361,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NetworkPolicy.NetworkService do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -348,7 +374,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.NetworkPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -388,7 +415,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.VpcNetwork do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.VpcNetwork.Type,
@@ -400,7 +428,8 @@ end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

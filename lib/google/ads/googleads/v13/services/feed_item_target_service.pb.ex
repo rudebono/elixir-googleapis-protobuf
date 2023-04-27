@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Services.MutateFeedItemTargetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -21,7 +22,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.FeedItemTargetOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -31,7 +33,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateFeedItemTargetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -42,7 +45,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateFeedItemTargetResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -53,9 +57,10 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.FeedItemTargetService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v13.services.FeedItemTargetService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateFeedItemTargets,
       Google.Ads.Googleads.V13.Services.MutateFeedItemTargetsRequest,
@@ -64,5 +69,6 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.FeedItemTargetService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V13.Services.FeedItemTargetService.Service
 end

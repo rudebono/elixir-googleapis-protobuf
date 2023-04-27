@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PENDING, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowNode.NodeState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :NODE_STATE_UNSPECIFIED, 0
   field :BLOCKED, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 2, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
@@ -68,7 +72,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplatePlacement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :placement, 0
 
@@ -85,7 +90,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ManagedCluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -93,7 +99,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ManagedCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
   field :config, 3, type: Google.Cloud.Dataproc.V1.ClusterConfig, deprecated: false
@@ -107,7 +114,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterSelector.ClusterLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -115,7 +123,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :zone, 1, type: :string, deprecated: false
 
@@ -129,7 +138,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.OrderedJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -137,7 +147,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.OrderedJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :job_type, 0
 
@@ -208,7 +219,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.TemplateParameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :fields, 2, repeated: true, type: :string, deprecated: false
@@ -218,7 +230,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ParameterValidation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :validation_type, 0
 
@@ -228,21 +241,24 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.RegexValidation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :regexes, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.ValueValidation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -250,7 +266,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :template, 1, type: :string, deprecated: false
   field :version, 2, type: :int32, deprecated: false
@@ -301,7 +318,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId", deprecated: false
   field :error, 2, type: :string, deprecated: false
@@ -310,14 +328,16 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowGraph do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Dataproc.V1.WorkflowNode, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowNode do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :step_id, 1, type: :string, json_name: "stepId", deprecated: false
 
@@ -339,7 +359,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.CreateWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
@@ -347,7 +368,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GetWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :int32, deprecated: false
@@ -355,7 +377,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -363,7 +386,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.InstantiateWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :int32, deprecated: false
@@ -378,7 +402,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.InstantiateInlineWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :template, 2, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
@@ -387,14 +412,16 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.UpdateWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :template, 1, type: Google.Cloud.Dataproc.V1.WorkflowTemplate, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -403,7 +430,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :templates, 1,
     repeated: true,
@@ -415,7 +443,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :int32, deprecated: false
@@ -423,9 +452,10 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplateService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.WorkflowTemplateService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateWorkflowTemplate,
       Google.Cloud.Dataproc.V1.CreateWorkflowTemplateRequest,
@@ -458,5 +488,6 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplateService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dataproc.V1.WorkflowTemplateService.Service
 end

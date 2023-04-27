@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datastream.Logging.V1.StreamActivityLogEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_code, 1, type: :string, json_name: "eventCode"
   field :event_message, 2, type: :string, json_name: "eventMessage"

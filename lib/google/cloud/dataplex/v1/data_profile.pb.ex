@@ -1,11 +1,13 @@
 defmodule Google.Cloud.Dataplex.V1.DataProfileSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.StringFieldInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_length, 1, type: :int64, json_name: "minLength"
   field :max_length, 2, type: :int64, json_name: "maxLength"
@@ -14,7 +16,8 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.IntegerFieldInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :average, 1, type: :double
   field :standard_deviation, 3, type: :double, json_name: "standardDeviation"
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.DoubleFieldInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :average, 1, type: :double
   field :standard_deviation, 3, type: :double, json_name: "standardDeviation"
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.TopNValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :count, 2, type: :int64
@@ -44,7 +49,8 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :field_info, 0
 
@@ -74,7 +80,8 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -84,14 +91,16 @@ end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :fields, 2, repeated: true, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :row_count, 3, type: :int64, json_name: "rowCount"
   field :profile, 4, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile

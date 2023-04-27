@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED, 0
   field :MATCH_ANY, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -31,14 +33,16 @@ end
 
 defmodule Google.Cloud.Networkservices.V1beta1.TrafficPortSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ports, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label_name, 1, type: :string, json_name: "labelName", deprecated: false
   field :label_value, 2, type: :string, json_name: "labelValue", deprecated: false
@@ -46,7 +50,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher.MetadataLabelMatcher do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metadata_label_match_criteria, 1,
     type:
@@ -63,7 +68,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointMatcher do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :matcher_type, 0
 

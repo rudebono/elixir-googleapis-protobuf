@@ -1,13 +1,15 @@
 defmodule Google.Devtools.Resultstore.V2.Invocation.Id do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
 end
 
 defmodule Google.Devtools.Resultstore.V2.Invocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
@@ -46,12 +48,14 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.WorkspaceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Devtools.Resultstore.V2.WorkspaceInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workspace_context, 1,
     type: Google.Devtools.Resultstore.V2.WorkspaceContext,
@@ -69,7 +73,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CommandLine do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :tool, 2, type: :string
@@ -79,7 +84,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.InvocationAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :users, 2, repeated: true, type: :string
@@ -96,7 +102,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.InvocationContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :url, 2, type: :string

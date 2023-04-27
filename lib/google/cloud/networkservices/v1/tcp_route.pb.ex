@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :matches, 1,
     repeated: true,
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteMatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :address, 1, type: :string, deprecated: false
   field :port, 2, type: :string, deprecated: false
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :weight, 2, type: :int32, deprecated: false
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -48,7 +53,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 11, type: :string, json_name: "selfLink", deprecated: false
@@ -82,7 +88,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.ListTcpRoutesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -91,7 +98,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.ListTcpRoutesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tcp_routes, 1,
     repeated: true,
@@ -103,14 +111,16 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.GetTcpRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.CreateTcpRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tcp_route_id, 2, type: :string, json_name: "tcpRouteId", deprecated: false
@@ -123,7 +133,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.UpdateTcpRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -138,7 +149,8 @@ end
 
 defmodule Google.Cloud.Networkservices.V1.DeleteTcpRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

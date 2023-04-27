@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Services.MutateExperimentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ExperimentOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -27,7 +29,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateExperimentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -38,14 +41,16 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateExperimentResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.EndExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -53,7 +58,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ListExperimentAsyncErrorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -62,7 +68,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ListExperimentAsyncErrorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -70,7 +77,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GraduateExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment, 1, type: :string, deprecated: false
 
@@ -85,7 +93,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.CampaignBudgetMapping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment_campaign, 1, type: :string, json_name: "experimentCampaign", deprecated: false
   field :campaign_budget, 2, type: :string, json_name: "campaignBudget", deprecated: false
@@ -93,7 +102,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ScheduleExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -101,14 +111,16 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ScheduleExperimentMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.PromoteExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -116,16 +128,18 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.PromoteExperimentMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.ExperimentService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.ExperimentService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateExperiments,
       Google.Ads.Googleads.V12.Services.MutateExperimentsRequest,
@@ -154,5 +168,6 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.ExperimentService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V12.Services.ExperimentService.Service
 end

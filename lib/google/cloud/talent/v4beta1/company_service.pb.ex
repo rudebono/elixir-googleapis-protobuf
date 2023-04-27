@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.CreateCompanyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :company, 2, type: Google.Cloud.Talent.V4beta1.Company, deprecated: false
@@ -8,14 +9,16 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.GetCompanyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Talent.V4beta1.UpdateCompanyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :company, 1, type: Google.Cloud.Talent.V4beta1.Company, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -23,14 +26,16 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.DeleteCompanyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Talent.V4beta1.ListCompaniesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -40,7 +45,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.ListCompaniesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :companies, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Company
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -49,9 +55,10 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompanyService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.talent.v4beta1.CompanyService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateCompany,
       Google.Cloud.Talent.V4beta1.CreateCompanyRequest,
@@ -74,5 +81,6 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.CompanyService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Talent.V4beta1.CompanyService.Service
 end

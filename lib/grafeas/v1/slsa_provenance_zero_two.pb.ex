@@ -1,13 +1,15 @@
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaBuilder do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaMaterial.DigestEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -15,7 +17,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaMaterial do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -27,7 +30,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaInvocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config_source, 1,
     type: Grafeas.V1.SlsaProvenanceZeroTwo.SlsaConfigSource,
@@ -39,7 +43,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaConfigSource.DigestEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -47,7 +52,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaConfigSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -61,7 +67,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :build_invocation_id, 1, type: :string, json_name: "buildInvocationId"
   field :build_started_on, 2, type: Google.Protobuf.Timestamp, json_name: "buildStartedOn"
@@ -72,7 +79,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo.SlsaCompleteness do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameters, 1, type: :bool
   field :environment, 2, type: :bool
@@ -81,7 +89,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenanceZeroTwo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :builder, 1, type: Grafeas.V1.SlsaProvenanceZeroTwo.SlsaBuilder
   field :build_type, 2, type: :string, json_name: "buildType"

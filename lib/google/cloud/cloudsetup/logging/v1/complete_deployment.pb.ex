@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Cloudsetup.Logging.V1.CompleteDeploymentEvent.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Cloudsetup.Logging.V1.CompleteDeploymentEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Cloud.Cloudsetup.Logging.V1.CompleteDeploymentResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployment, 1, type: :string, deprecated: false
   field :preview, 3, type: :string, deprecated: false

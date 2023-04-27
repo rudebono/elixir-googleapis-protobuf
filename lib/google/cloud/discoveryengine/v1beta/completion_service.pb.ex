@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -10,14 +11,16 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse.QuerySuggestion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query_suggestions, 1,
     repeated: true,
@@ -27,9 +30,10 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1beta.CompletionService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest,
@@ -38,5 +42,6 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Discoveryengine.V1beta.CompletionService.Service
 end

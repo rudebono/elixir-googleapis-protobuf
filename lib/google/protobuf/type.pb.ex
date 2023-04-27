@@ -1,6 +1,7 @@
 defmodule Google.Protobuf.Syntax do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SYNTAX_PROTO2, 0
   field :SYNTAX_PROTO3, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Protobuf.Field.Kind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNKNOWN, 0
   field :TYPE_DOUBLE, 1
@@ -34,7 +36,8 @@ end
 
 defmodule Google.Protobuf.Field.Cardinality do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CARDINALITY_UNKNOWN, 0
   field :CARDINALITY_OPTIONAL, 1
@@ -44,7 +47,8 @@ end
 
 defmodule Google.Protobuf.Type do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Protobuf.Field
@@ -57,7 +61,8 @@ end
 
 defmodule Google.Protobuf.Field do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: Google.Protobuf.Field.Kind, enum: true
   field :cardinality, 2, type: Google.Protobuf.Field.Cardinality, enum: true
@@ -73,7 +78,8 @@ end
 
 defmodule Google.Protobuf.Enum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :enumvalue, 2, repeated: true, type: Google.Protobuf.EnumValue
@@ -85,7 +91,8 @@ end
 
 defmodule Google.Protobuf.EnumValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :number, 2, type: :int32
@@ -94,7 +101,8 @@ end
 
 defmodule Google.Protobuf.Option do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Protobuf.Any

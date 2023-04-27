@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :catalog, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.CompletionResult.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CustomAttribute
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.CompletionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -38,21 +41,24 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.RecentSearchResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recent_search, 1, type: :string, json_name: "recentSearch"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.AttributeResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestions, 1, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.AttributeResultsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CompleteQueryResponse.AttributeResult
@@ -60,7 +66,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :completion_results, 1,
     repeated: true,
@@ -83,9 +90,10 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompletionService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.CompletionService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Retail.V2alpha.CompleteQueryRequest,
@@ -98,5 +106,6 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CompletionService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.CompletionService.Service
 end

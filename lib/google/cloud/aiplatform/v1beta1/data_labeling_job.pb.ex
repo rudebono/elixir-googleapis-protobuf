@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.SampleConfig.SampleStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SAMPLE_STRATEGY_UNSPECIFIED, 0
   field :UNCERTAINTY, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob.AnnotationLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -24,7 +27,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DataLabelingJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -74,7 +78,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ActiveLearningConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :human_labeling_budget, 0
 
@@ -92,7 +97,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SampleConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :initial_batch_sample_size, 0
 
@@ -116,7 +122,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TrainingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :timeout_training_milli_hours, 1, type: :int64, json_name: "timeoutTrainingMilliHours"
 end

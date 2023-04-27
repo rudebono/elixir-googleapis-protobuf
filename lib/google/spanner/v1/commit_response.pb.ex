@@ -1,13 +1,15 @@
 defmodule Google.Spanner.V1.CommitResponse.CommitStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mutation_count, 1, type: :int64, json_name: "mutationCount"
 end
 
 defmodule Google.Spanner.V1.CommitResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :commit_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "commitTimestamp"
 

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Gaming.V1beta.ListRealmsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.ListRealmsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :realms, 1, repeated: true, type: Google.Cloud.Gaming.V1beta.Realm
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,14 +22,16 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GetRealmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.CreateRealmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :realm_id, 2, type: :string, json_name: "realmId", deprecated: false
@@ -36,14 +40,16 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.DeleteRealmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.UpdateRealmRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :realm, 1, type: Google.Cloud.Gaming.V1beta.Realm, deprecated: false
 
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.PreviewRealmUpdateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :realm, 1, type: Google.Cloud.Gaming.V1beta.Realm, deprecated: false
 
@@ -72,7 +79,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.PreviewRealmUpdateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :etag, 2, type: :string
   field :target_state, 3, type: Google.Cloud.Gaming.V1beta.TargetState, json_name: "targetState"
@@ -80,7 +88,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.Realm.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -88,7 +97,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.Realm do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 

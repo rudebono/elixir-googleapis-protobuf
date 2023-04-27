@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Services.MutateSmartCampaignSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -20,7 +21,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.SmartCampaignSettingOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update, 1, type: Google.Ads.Googleads.V12.Resources.SmartCampaignSetting
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -28,7 +30,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateSmartCampaignSettingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -39,7 +42,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateSmartCampaignSettingResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -50,9 +54,10 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.SmartCampaignSettingService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.SmartCampaignSettingService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateSmartCampaignSettings,
       Google.Ads.Googleads.V12.Services.MutateSmartCampaignSettingsRequest,
@@ -61,5 +66,6 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.SmartCampaignSettingService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V12.Services.SmartCampaignSettingService.Service
 end

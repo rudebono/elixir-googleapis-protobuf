@@ -1,13 +1,15 @@
 defmodule Google.Devtools.Containeranalysis.V1beta1.GeneratePackagesSummaryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Containeranalysis.V1beta1.PackagesSummaryResponse.LicensesSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :license, 1, type: :string
   field :count, 2, type: :int64
@@ -15,7 +17,8 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1beta1.PackagesSummaryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_url, 1, type: :string, json_name: "resourceUrl"
 
@@ -27,9 +30,10 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.containeranalysis.v1beta1.ContainerAnalysisV1Beta1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 
@@ -46,6 +50,7 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Stub do
   @moduledoc false
+
   use GRPC.Stub,
     service: Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Service
 end

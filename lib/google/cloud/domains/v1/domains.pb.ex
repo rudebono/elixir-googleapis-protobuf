@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Domains.V1.ContactPrivacy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONTACT_PRIVACY_UNSPECIFIED, 0
   field :PUBLIC_CONTACT_DATA, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DomainNotice do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DOMAIN_NOTICE_UNSPECIFIED, 0
   field :HSTS_PRELOADED, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ContactNotice do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONTACT_NOTICE_UNSPECIFIED, 0
   field :PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT, 1
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.TransferLockState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TRANSFER_LOCK_STATE_UNSPECIFIED, 0
   field :UNLOCKED, 1
@@ -35,7 +39,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.Registration.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REGISTRATION_PENDING, 1
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.Registration.Issue do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ISSUE_UNSPECIFIED, 0
   field :CONTACT_SUPPORT, 1
@@ -58,7 +64,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ManagementSettings.RenewalMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RENEWAL_METHOD_UNSPECIFIED, 0
   field :AUTOMATIC_RENEWAL, 1
@@ -67,7 +74,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.DsState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DS_STATE_UNSPECIFIED, 0
   field :DS_RECORDS_UNPUBLISHED, 1
@@ -76,7 +84,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.DsRecord.Algorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ALGORITHM_UNSPECIFIED, 0
   field :RSAMD5, 1
@@ -100,7 +109,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.DsRecord.DigestType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DIGEST_TYPE_UNSPECIFIED, 0
   field :SHA1, 1
@@ -111,7 +121,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RegisterParameters.Availability do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AVAILABILITY_UNSPECIFIED, 0
   field :AVAILABLE, 1
@@ -122,7 +133,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.Registration.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -130,7 +142,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.Registration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :domain_name, 2, type: :string, json_name: "domainName", deprecated: false
@@ -184,7 +197,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ManagementSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :renewal_method, 3,
     type: Google.Cloud.Domains.V1.ManagementSettings.RenewalMethod,
@@ -200,7 +214,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.CustomDns do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name_servers, 1,
     repeated: true,
@@ -216,7 +231,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.GoogleDomainsDns do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name_servers, 1,
     repeated: true,
@@ -239,7 +255,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.DsRecord do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key_tag, 1, type: :int32, json_name: "keyTag"
   field :algorithm, 2, type: Google.Cloud.Domains.V1.DnsSettings.DsRecord.Algorithm, enum: true
@@ -254,7 +271,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings.GlueRecord do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :host_name, 1, type: :string, json_name: "hostName", deprecated: false
   field :ipv4_addresses, 2, repeated: true, type: :string, json_name: "ipv4Addresses"
@@ -263,7 +281,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.DnsSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :dns_provider, 0
 
@@ -285,7 +304,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ContactSettings.Contact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :postal_address, 1,
     type: Google.Type.PostalAddress,
@@ -299,7 +319,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ContactSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :privacy, 1, type: Google.Cloud.Domains.V1.ContactPrivacy, enum: true, deprecated: false
 
@@ -321,7 +342,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.SearchDomainsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -329,7 +351,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.SearchDomainsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :register_parameters, 1,
     repeated: true,
@@ -339,7 +362,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RetrieveRegisterParametersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName", deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -347,7 +371,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RetrieveRegisterParametersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :register_parameters, 1,
     type: Google.Cloud.Domains.V1.RegisterParameters,
@@ -356,7 +381,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RegisterDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :registration, 2, type: Google.Cloud.Domains.V1.Registration, deprecated: false
@@ -379,7 +405,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RetrieveTransferParametersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName", deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -387,7 +414,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.RetrieveTransferParametersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_parameters, 1,
     type: Google.Cloud.Domains.V1.TransferParameters,
@@ -396,7 +424,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.TransferDomainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :registration, 2, type: Google.Cloud.Domains.V1.Registration, deprecated: false
@@ -418,7 +447,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ListRegistrationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -428,7 +458,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ListRegistrationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registrations, 1, repeated: true, type: Google.Cloud.Domains.V1.Registration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -436,14 +467,16 @@ end
 
 defmodule Google.Cloud.Domains.V1.GetRegistrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Domains.V1.UpdateRegistrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: Google.Cloud.Domains.V1.Registration
 
@@ -455,7 +488,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ConfigureManagementSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 
@@ -471,7 +505,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ConfigureDnsSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
   field :dns_settings, 2, type: Google.Cloud.Domains.V1.DnsSettings, json_name: "dnsSettings"
@@ -486,7 +521,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.ConfigureContactSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 
@@ -510,35 +546,40 @@ end
 
 defmodule Google.Cloud.Domains.V1.ExportRegistrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Domains.V1.DeleteRegistrationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Domains.V1.RetrieveAuthorizationCodeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Domains.V1.ResetAuthorizationCodeRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :registration, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Domains.V1.RegisterParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName"
 
@@ -563,7 +604,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.TransferParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_name, 1, type: :string, json_name: "domainName"
   field :current_registrar, 2, type: :string, json_name: "currentRegistrar"
@@ -585,14 +627,16 @@ end
 
 defmodule Google.Cloud.Domains.V1.AuthorizationCode do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: :string
 end
 
 defmodule Google.Cloud.Domains.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -604,7 +648,8 @@ end
 
 defmodule Google.Cloud.Domains.V1.Domains.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.domains.v1.Domains", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.domains.v1.Domains", protoc_gen_elixir_version: "0.12.0"
 
   rpc :SearchDomains,
       Google.Cloud.Domains.V1.SearchDomainsRequest,
@@ -665,5 +710,6 @@ end
 
 defmodule Google.Cloud.Domains.V1.Domains.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Domains.V1.Domains.Service
 end

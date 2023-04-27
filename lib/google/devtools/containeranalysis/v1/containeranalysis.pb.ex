@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Containeranalysis.V1.GetVulnerabilityOccurrencesSummaryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary.FixableTotalByDigest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_uri, 1, type: :string, json_name: "resourceUri"
   field :severity, 2, type: Grafeas.V1.Severity, enum: true
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1.VulnerabilityOccurrencesSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :counts, 1,
     repeated: true,
@@ -28,9 +31,10 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.containeranalysis.v1.ContainerAnalysis",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 
@@ -47,5 +51,6 @@ end
 
 defmodule Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Containeranalysis.V1.ContainerAnalysis.Service
 end

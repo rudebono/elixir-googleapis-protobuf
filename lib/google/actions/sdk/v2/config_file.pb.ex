@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.ConfigFiles do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config_files, 1,
     repeated: true,
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.ConfigFile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :file, 0
 

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Visionai.V1alpha1.ListAnalysesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.ListAnalysesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :analyses, 1, repeated: true, type: Google.Cloud.Visionai.V1alpha1.Analysis
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,14 +22,16 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.GetAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1alpha1.CreateAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :analysis_id, 2, type: :string, json_name: "analysisId", deprecated: false
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.UpdateAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.DeleteAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -58,9 +64,10 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.LiveVideoAnalytics.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.visionai.v1alpha1.LiveVideoAnalytics",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListAnalyses,
       Google.Cloud.Visionai.V1alpha1.ListAnalysesRequest,
@@ -85,5 +92,6 @@ end
 
 defmodule Google.Cloud.Visionai.V1alpha1.LiveVideoAnalytics.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Visionai.V1alpha1.LiveVideoAnalytics.Service
 end

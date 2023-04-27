@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Errors.AssetGroupErrorEnum.AssetGroupError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -14,9 +15,16 @@ defmodule Google.Ads.Googleads.V13.Errors.AssetGroupErrorEnum.AssetGroupError do
   field :NOT_ENOUGH_SQUARE_MARKETING_IMAGE_ASSET, 9
   field :NOT_ENOUGH_LOGO_ASSET, 10
   field :FINAL_URL_SHOPPING_MERCHANT_HOME_PAGE_URL_DOMAINS_DIFFER, 11
+  field :PATH1_REQUIRED_WHEN_PATH2_IS_SET, 12
+  field :SHORT_DESCRIPTION_REQUIRED, 13
+  field :FINAL_URL_REQUIRED, 14
+  field :FINAL_URL_CONTAINS_INVALID_DOMAIN_NAME, 15
+  field :AD_CUSTOMIZER_NOT_SUPPORTED, 16
+  field :CANNOT_MUTATE_ASSET_GROUP_FOR_REMOVED_CAMPAIGN, 17
 end
 
 defmodule Google.Ads.Googleads.V13.Errors.AssetGroupErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

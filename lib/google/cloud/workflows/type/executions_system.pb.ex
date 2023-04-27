@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,21 +12,24 @@ end
 
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Start do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :argument, 2, type: :string
 end
 
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Success do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :result, 2, type: :string
 end
 
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog.Failure do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :exception, 1, type: :string
   field :source, 2, type: :string
@@ -33,7 +37,8 @@ end
 
 defmodule Google.Cloud.Workflows.Type.ExecutionsSystemLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 

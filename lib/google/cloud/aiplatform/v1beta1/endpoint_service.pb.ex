@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint, 2, type: Google.Cloud.Aiplatform.V1beta1.Endpoint, deprecated: false
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateEndpointOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -18,14 +20,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEndpointsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -44,7 +49,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: Google.Cloud.Aiplatform.V1beta1.Endpoint, deprecated: false
 
@@ -56,14 +62,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteEndpointRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -71,7 +79,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
 
@@ -89,7 +98,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployed_model, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModel,
@@ -98,7 +108,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -107,7 +118,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -115,7 +127,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId", deprecated: false
@@ -129,12 +142,14 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -143,9 +158,10 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.EndpointService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateEndpoint,
       Google.Cloud.Aiplatform.V1beta1.CreateEndpointRequest,
@@ -178,5 +194,6 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.EndpointService.Service
 end

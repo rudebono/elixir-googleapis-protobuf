@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Layout.Orientation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ORIENTATION_UNSPECIFIED, 0
   field :PAGE_UP, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token.DetectedBreak.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SPACE, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.PageAnchor.PageRef.LayoutType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LAYOUT_TYPE_UNSPECIFIED, 0
   field :BLOCK, 1
@@ -35,7 +38,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance.OperationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -49,7 +53,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.ShardInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :shard_index, 1, type: :int64, json_name: "shardIndex"
   field :shard_count, 2, type: :int64, json_name: "shardCount"
@@ -58,7 +63,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Style.FontSize do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :size, 1, type: :float
   field :unit, 2, type: :string
@@ -66,7 +72,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Style do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_anchor, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.TextAnchor,
@@ -87,7 +94,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Dimension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :width, 1, type: :float
   field :height, 2, type: :float
@@ -96,7 +104,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Image do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -106,7 +115,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Matrix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rows, 1, type: :int32
   field :cols, 2, type: :int32
@@ -116,7 +126,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Layout do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_anchor, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.TextAnchor,
@@ -135,7 +146,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Block do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -151,7 +163,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Paragraph do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -167,7 +180,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Line do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -183,7 +197,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token.DetectedBreak do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.Page.Token.DetectedBreak.Type,
@@ -192,7 +207,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Symbol do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -224,7 +241,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.VisualElement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
   field :type, 2, type: :string
@@ -237,7 +255,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Table.TableRow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cells, 1,
     repeated: true,
@@ -246,7 +265,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Table.TableCell do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
   field :row_span, 2, type: :int32, json_name: "rowSpan"
@@ -260,7 +280,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Table do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
 
@@ -284,7 +305,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.FormField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field_name, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout,
@@ -312,7 +334,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.DetectedBarcode do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :layout, 1, type: Google.Cloud.Documentai.V1beta3.Document.Page.Layout
   field :barcode, 2, type: Google.Cloud.Documentai.V1beta3.Barcode
@@ -320,7 +343,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.DetectedLanguage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
@@ -328,7 +352,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores.DetectedDefect do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :confidence, 2, type: :float
@@ -336,7 +361,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page.ImageQualityScores do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :quality_score, 1, type: :float, json_name: "qualityScore"
 
@@ -348,7 +374,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Page do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :page_number, 1, type: :int32, json_name: "pageNumber"
   field :image, 13, type: Google.Cloud.Documentai.V1beta3.Document.Page.Image
@@ -404,7 +431,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.NormalizedValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :structured_value, 0
 
@@ -420,7 +448,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Entity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_anchor, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.TextAnchor,
@@ -458,7 +487,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.EntityRelation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject_id, 1, type: :string, json_name: "subjectId"
   field :object_id, 2, type: :string, json_name: "objectId"
@@ -467,7 +497,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.TextAnchor.TextSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_index, 1, type: :int64, json_name: "startIndex"
   field :end_index, 2, type: :int64, json_name: "endIndex"
@@ -475,7 +506,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.TextAnchor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_segments, 1,
     repeated: true,
@@ -487,7 +519,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.PageAnchor.PageRef do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :page, 1, type: :int64, deprecated: false
 
@@ -509,7 +542,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.PageAnchor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :page_refs, 1,
     repeated: true,
@@ -519,7 +553,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance.Parent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :revision, 1, type: :int32
   field :index, 3, type: :int32
@@ -528,7 +563,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :revision, 1, type: :int32, deprecated: true
   field :id, 2, type: :int32, deprecated: true
@@ -544,7 +580,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Revision.HumanReview do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: :string
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -552,7 +589,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.Revision do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -570,7 +608,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.TextChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_anchor, 1,
     type: Google.Cloud.Documentai.V1beta3.Document.TextAnchor,
@@ -586,7 +625,8 @@ end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 

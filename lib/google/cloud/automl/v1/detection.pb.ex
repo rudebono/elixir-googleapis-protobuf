@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Automl.V1.ImageObjectDetectionAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bounding_box, 1, type: Google.Cloud.Automl.V1.BoundingPoly, json_name: "boundingBox"
   field :score, 2, type: :float
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.BoundingBoxMetricsEntry.ConfidenceMetricsEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 2, type: :float
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.BoundingBoxMetricsEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :iou_threshold, 1, type: :float, json_name: "iouThreshold"
   field :mean_average_precision, 2, type: :float, json_name: "meanAveragePrecision"
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.ImageObjectDetectionEvaluationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :evaluated_bounding_box_count, 1, type: :int32, json_name: "evaluatedBoundingBoxCount"
 

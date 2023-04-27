@@ -1,6 +1,7 @@
 defmodule Google.Api.Servicecontrol.V1.Operation.Importance do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOW, 0
   field :HIGH, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.Operation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.Operation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :operation_name, 2, type: :string, json_name: "operationName"

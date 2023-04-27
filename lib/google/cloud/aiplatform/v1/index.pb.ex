@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.Index.IndexUpdateMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INDEX_UPDATE_METHOD_UNSPECIFIED, 0
   field :BATCH_UPDATE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Index.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Index do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -58,7 +61,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.Restriction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :allow_list, 2, repeated: true, type: :string, json_name: "allowList"
@@ -67,14 +71,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.CrowdingTag do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :crowding_attribute, 1, type: :string, json_name: "crowdingAttribute"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :datapoint_id, 1, type: :string, json_name: "datapointId", deprecated: false
 
@@ -97,7 +103,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.IndexStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vectors_count, 1, type: :int64, json_name: "vectorsCount", deprecated: false
   field :shards_count, 2, type: :int32, json_name: "shardsCount", deprecated: false

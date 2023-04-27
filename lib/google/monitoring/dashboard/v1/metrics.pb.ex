@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.SparkChartType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SPARK_CHART_TYPE_UNSPECIFIED, 0
   field :SPARK_LINE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Color do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COLOR_UNSPECIFIED, 0
   field :YELLOW, 4
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Threshold.Direction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ABOVE, 1
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Threshold.TargetAxis do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TARGET_AXIS_UNSPECIFIED, 0
   field :Y1, 1
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -61,7 +66,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :output_filter, 0
 
@@ -86,7 +92,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio.RatioPart do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :aggregation, 2, type: Google.Monitoring.Dashboard.V1.Aggregation
@@ -94,7 +101,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilterRatio do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :output_filter, 0
 
@@ -119,7 +127,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Threshold do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :value, 2, type: :double

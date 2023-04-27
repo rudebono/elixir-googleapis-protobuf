@@ -1,6 +1,17 @@
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :int64, deprecated: false
+  field :name, 2, type: :string, deprecated: false
+  field :multi_client, 3, type: :bool, json_name: "multiClient", deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.RecommendationImpact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :base_metrics, 1,
     type: Google.Ads.Googleads.V13.Resources.Recommendation.RecommendationMetrics,
@@ -15,7 +26,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.RecommendationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :impressions, 6, proto3_optional: true, type: :double, deprecated: false
   field :clicks, 7, proto3_optional: true, type: :double, deprecated: false
@@ -37,7 +49,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.CampaignBudgetRecommendation.CampaignBudgetRecommendationOption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :budget_amount_micros, 3,
     proto3_optional: true,
@@ -52,7 +65,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.CampaignBudgetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_budget_amount_micros, 7,
     proto3_optional: true,
@@ -76,7 +90,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.KeywordRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword, 1, type: Google.Ads.Googleads.V13.Common.KeywordInfo, deprecated: false
 
@@ -89,7 +104,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.TextAdRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad, 1, type: Google.Ads.Googleads.V13.Resources.Ad, deprecated: false
 
@@ -108,7 +124,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.TargetCpaOptInRecommendation.TargetCpaOptInRecommendationOption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :goal, 1,
     type:
@@ -135,7 +152,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.TargetCpaOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :options, 1,
     repeated: true,
@@ -152,7 +170,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.MaximizeConversionsOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_budget_amount_micros, 2,
     proto3_optional: true,
@@ -163,17 +182,20 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.EnhancedCpcOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.SearchPartnersOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.MaximizeClicksOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_budget_amount_micros, 2,
     proto3_optional: true,
@@ -184,12 +206,14 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.OptimizeAdRotationRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.CalloutAssetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_campaign_callout_assets, 1,
     repeated: true,
@@ -206,7 +230,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.SitelinkAssetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_campaign_sitelink_assets, 1,
     repeated: true,
@@ -223,12 +248,14 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.CallAssetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.KeywordMatchTypeRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword, 1, type: Google.Ads.Googleads.V13.Common.KeywordInfo, deprecated: false
 
@@ -241,7 +268,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.MoveUnusedBudgetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :excess_campaign_budget, 3,
     proto3_optional: true,
@@ -257,7 +285,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.TargetRoasOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_target_roas, 1,
     proto3_optional: true,
@@ -274,7 +303,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ResponsiveSearchAdAssetRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_assets, 2,
     type: Google.Ads.Googleads.V13.Resources.Ad,
@@ -284,7 +314,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ResponsiveSearchAdImproveAdStrengthRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_ad, 1,
     type: Google.Ads.Googleads.V13.Resources.Ad,
@@ -299,14 +330,16 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ResponsiveSearchAdRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad, 1, type: Google.Ads.Googleads.V13.Resources.Ad, deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.UseBroadMatchKeywordRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword, 1,
     repeated: true,
@@ -336,7 +369,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.UpgradeSmartShoppingCampaignToPerformanceMaxRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :merchant_id, 1, type: :int64, json_name: "merchantId", deprecated: false
   field :sales_country_code, 2, type: :string, json_name: "salesCountryCode", deprecated: false
@@ -344,7 +378,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.RaiseTargetCpaBidTooLowRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_target_multiplier, 1,
     proto3_optional: true,
@@ -361,17 +396,20 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.DisplayExpansionOptInRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.UpgradeLocalCampaignToPerformanceMaxRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ForecastingSetTargetRoasRecommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommended_target_roas, 1,
     type: :double,
@@ -384,9 +422,100 @@ defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ForecastingSetTarget
     deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :feed_label, 2, type: :string, json_name: "feedLabel", deprecated: false
+  field :offers_count, 3, type: :int64, json_name: "offersCount", deprecated: false
+  field :demoted_offers_count, 4, type: :int64, json_name: "demotedOffersCount", deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingFixDisapprovedProductsRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :feed_label, 2, type: :string, json_name: "feedLabel", deprecated: false
+  field :products_count, 3, type: :int64, json_name: "productsCount", deprecated: false
+
+  field :disapproved_products_count, 4,
+    type: :int64,
+    json_name: "disapprovedProductsCount",
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingTargetAllOffersRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :untargeted_offers_count, 2,
+    type: :int64,
+    json_name: "untargetedOffersCount",
+    deprecated: false
+
+  field :feed_label, 3, type: :string, json_name: "feedLabel", deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingAddProductsToCampaignRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :feed_label, 2, type: :string, json_name: "feedLabel", deprecated: false
+
+  field :reason, 3,
+    type: Google.Ads.Googleads.V13.Enums.ShoppingAddProductsToCampaignRecommendationEnum.Reason,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingMerchantCenterAccountSuspensionRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :feed_label, 2, type: :string, json_name: "feedLabel", deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merchant, 1,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.MerchantInfo,
+    deprecated: false
+
+  field :feed_label, 2, type: :string, json_name: "feedLabel", deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation.CampaignBudget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_amount_micros, 1,
     type: :int64,
@@ -403,7 +532,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Recommendation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :recommendation, 0
 
@@ -593,6 +723,83 @@ defmodule Google.Ads.Googleads.V13.Resources.Recommendation do
   field :call_asset_recommendation, 41,
     type: Google.Ads.Googleads.V13.Resources.Recommendation.CallAssetRecommendation,
     json_name: "callAssetRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_age_group_recommendation, 42,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddAgeGroupRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_color_recommendation, 43,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddColorRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_gender_recommendation, 44,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddGenderRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_gtin_recommendation, 45,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddGtinRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_more_identifiers_recommendation, 46,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddMoreIdentifiersRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_size_recommendation, 47,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingOfferAttributeRecommendation,
+    json_name: "shoppingAddSizeRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_add_products_to_campaign_recommendation, 48,
+    type:
+      Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingAddProductsToCampaignRecommendation,
+    json_name: "shoppingAddProductsToCampaignRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_fix_disapproved_products_recommendation, 49,
+    type:
+      Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingFixDisapprovedProductsRecommendation,
+    json_name: "shoppingFixDisapprovedProductsRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_target_all_offers_recommendation, 50,
+    type: Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingTargetAllOffersRecommendation,
+    json_name: "shoppingTargetAllOffersRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_fix_suspended_merchant_center_account_recommendation, 51,
+    type:
+      Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingMerchantCenterAccountSuspensionRecommendation,
+    json_name: "shoppingFixSuspendedMerchantCenterAccountRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_fix_merchant_center_account_suspension_warning_recommendation, 52,
+    type:
+      Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingMerchantCenterAccountSuspensionRecommendation,
+    json_name: "shoppingFixMerchantCenterAccountSuspensionWarningRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :shopping_migrate_regular_shopping_campaign_offers_to_performance_max_recommendation, 53,
+    type:
+      Google.Ads.Googleads.V13.Resources.Recommendation.ShoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation,
+    json_name: "shoppingMigrateRegularShoppingCampaignOffersToPerformanceMaxRecommendation",
     oneof: 0,
     deprecated: false
 end

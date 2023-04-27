@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Bigquery.Logging.V1.AuditData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -110,84 +111,96 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableUpdateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInsertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableUpdateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Table
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :list_all, 1, type: :bool, json_name: "listAll"
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInsertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetUpdateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetUpdateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Dataset
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobInsertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -202,7 +215,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :total_results, 1, type: :uint64, json_name: "totalResults"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
@@ -210,7 +224,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_results, 1, type: :uint32, json_name: "maxResults"
   field :start_row, 2, type: :uint64, json_name: "startRow"
@@ -218,7 +233,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobGetQueryResultsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :total_results, 1, type: :uint64, json_name: "totalResults"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
@@ -226,14 +242,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobQueryDoneResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Bigquery.Logging.V1.Job
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobCompletedEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_name, 1, type: :string, json_name: "eventName"
   field :job, 2, type: Google.Cloud.Bigquery.Logging.V1.Job
@@ -241,7 +259,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDataReadEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: Google.Cloud.Bigquery.Logging.V1.TableName, json_name: "tableName"
   field :referenced_fields, 2, repeated: true, type: :string, json_name: "referencedFields"
@@ -249,7 +268,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDataListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_row, 1, type: :uint64, json_name: "startRow"
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -257,7 +277,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.Table do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: Google.Cloud.Bigquery.Logging.V1.TableName, json_name: "tableName"
   field :info, 2, type: Google.Cloud.Bigquery.Logging.V1.TableInfo
@@ -272,7 +293,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -280,7 +302,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -293,14 +316,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableViewDefinition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query, 1, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.Dataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dataset_name, 1,
     type: Google.Cloud.Bigquery.Logging.V1.DatasetName,
@@ -318,7 +343,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInfo.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -326,7 +352,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :friendly_name, 1, type: :string, json_name: "friendlyName"
   field :description, 2, type: :string
@@ -339,7 +366,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :group_email, 2, type: :string, json_name: "groupEmail"
@@ -351,14 +379,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.BigQueryAcl do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Bigquery.Logging.V1.BigQueryAcl.Entry
 end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: Google.Cloud.Bigquery.Logging.V1.JobName, json_name: "jobName"
 
@@ -375,7 +405,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Query do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query, 1, type: :string
 
@@ -406,7 +437,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Load do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
   field :schema_json, 6, type: :string, json_name: "schemaJson"
@@ -425,7 +457,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.Extract do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination_uris, 1, repeated: true, type: :string, json_name: "destinationUris"
 
@@ -436,7 +469,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.TableCopy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source_tables, 1,
     repeated: true,
@@ -457,7 +491,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -465,7 +500,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :configuration, 0
 
@@ -488,7 +524,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableDefinition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :source_uris, 2, repeated: true, type: :string, json_name: "sourceUris"
@@ -496,7 +533,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
@@ -509,7 +547,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics.ReservationResourceUsage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slot_ms, 2, type: :int64, json_name: "slotMs"
@@ -517,7 +556,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -552,7 +592,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.DatasetName do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -560,7 +601,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.TableName do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -569,7 +611,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.JobName do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -578,7 +621,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Logging.V1.EncryptionInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end

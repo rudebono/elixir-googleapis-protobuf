@@ -1,13 +1,15 @@
 defmodule Google.Firestore.V1beta1.DocumentMask do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field_paths, 1, repeated: true, type: :string, json_name: "fieldPaths"
 end
 
 defmodule Google.Firestore.V1beta1.Precondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :condition_type, 0
 
@@ -17,14 +19,16 @@ end
 
 defmodule Google.Firestore.V1beta1.TransactionOptions.ReadWrite do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :retry_transaction, 1, type: :bytes, json_name: "retryTransaction"
 end
 
 defmodule Google.Firestore.V1beta1.TransactionOptions.ReadOnly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :consistency_selector, 0
 
@@ -33,7 +37,8 @@ end
 
 defmodule Google.Firestore.V1beta1.TransactionOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :mode, 0
 

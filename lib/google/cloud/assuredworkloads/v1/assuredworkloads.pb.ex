@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.ComplianceRegime do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPLIANCE_REGIME_UNSPECIFIED, 0
   field :IL4, 1
@@ -19,7 +20,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.KajEnrollmentState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :KAJ_ENROLLMENT_STATE_UNSPECIFIED, 0
   field :KAJ_ENROLLMENT_STATE_PENDING, 1
@@ -28,7 +30,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.Partner do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PARTNER_UNSPECIFIED, 0
   field :LOCAL_CONTROLS_BY_S3NS, 1
@@ -36,7 +39,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.ResourceInfo.ResourceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :CONSUMER_PROJECT, 1
@@ -47,7 +51,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.SaaEnrollmentResponse.SetupState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SETUP_STATE_UNSPECIFIED, 0
   field :STATUS_PENDING, 1
@@ -56,7 +61,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.SaaEnrollmentResponse.SetupError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SETUP_ERROR_UNSPECIFIED, 0
   field :ERROR_INVALID_BASE_SETUP, 1
@@ -67,7 +73,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest.RestrictionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESTRICTION_TYPE_UNSPECIFIED, 0
   field :ALLOW_ALL_GCP_RESOURCES, 1
@@ -76,7 +83,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RESOLVED, 2
@@ -86,7 +94,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.RemediationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REMEDIATION_TYPE_UNSPECIFIED, 0
   field :REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION, 1
@@ -97,7 +106,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.CreateWorkloadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workload, 2, type: Google.Cloud.Assuredworkloads.V1.Workload, deprecated: false
@@ -106,7 +116,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.UpdateWorkloadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workload, 1, type: Google.Cloud.Assuredworkloads.V1.Workload, deprecated: false
 
@@ -118,7 +129,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.DeleteWorkloadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -126,14 +138,16 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.GetWorkloadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.ListWorkloadsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -143,7 +157,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.ListWorkloadsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workloads, 1, repeated: true, type: Google.Cloud.Assuredworkloads.V1.Workload
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -151,7 +166,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.ResourceInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_id, 1, type: :int64, json_name: "resourceId"
 
@@ -163,7 +179,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.KMSSettings do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :next_rotation_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -178,7 +195,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.ResourceSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_id, 1, type: :string, json_name: "resourceId"
 
@@ -192,7 +210,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.SaaEnrollmentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :setup_status, 1,
     proto3_optional: true,
@@ -209,7 +228,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -217,7 +237,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Workload do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -293,7 +314,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.CreateWorkloadOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -312,7 +334,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -325,12 +348,14 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.RestrictAllowedResourcesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :comment, 2, type: :string, deprecated: false
@@ -343,12 +368,14 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AcknowledgeViolationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.TimeWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -356,7 +383,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.ListViolationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :interval, 2, type: Google.Cloud.Assuredworkloads.V1.TimeWindow, deprecated: false
@@ -367,7 +395,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.ListViolationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :violations, 1, repeated: true, type: Google.Cloud.Assuredworkloads.V1.Violation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -375,14 +404,16 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.GetViolationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Gcloud do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcloud_commands, 1, repeated: true, type: :string, json_name: "gcloudCommands"
   field :steps, 2, repeated: true, type: :string
@@ -391,7 +422,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Console do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :console_uris, 1, repeated: true, type: :string, json_name: "consoleUris"
   field :steps, 2, repeated: true, type: :string
@@ -400,7 +432,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcloud_instructions, 1,
     type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions.Gcloud,
@@ -413,7 +446,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation.Remediation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instructions, 1,
     type: Google.Cloud.Assuredworkloads.V1.Violation.Remediation.Instructions,
@@ -430,7 +464,8 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.Violation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -485,9 +520,10 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.assuredworkloads.v1.AssuredWorkloadsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateWorkload,
       Google.Cloud.Assuredworkloads.V1.CreateWorkloadRequest,
@@ -528,5 +564,6 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Assuredworkloads.V1.AssuredWorkloadsService.Service
 end

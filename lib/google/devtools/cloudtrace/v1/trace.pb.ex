@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SPAN_KIND_UNSPECIFIED, 0
   field :RPC_SERVER, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest.ViewType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :VIEW_TYPE_UNSPECIFIED, 0
   field :MINIMAL, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.Trace do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :trace_id, 2, type: :string, json_name: "traceId"
@@ -28,14 +31,16 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.Traces do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
 end
 
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -43,7 +48,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.TraceSpan do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :span_id, 1, type: :fixed64, json_name: "spanId"
   field :kind, 2, type: Google.Devtools.Cloudtrace.V1.TraceSpan.SpanKind, enum: true
@@ -60,7 +66,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
@@ -79,7 +86,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.ListTracesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :traces, 1, repeated: true, type: Google.Devtools.Cloudtrace.V1.Trace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -87,7 +95,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.GetTraceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trace_id, 2, type: :string, json_name: "traceId", deprecated: false
@@ -95,7 +104,8 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.PatchTracesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :traces, 2, type: Google.Devtools.Cloudtrace.V1.Traces, deprecated: false
@@ -103,9 +113,10 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.TraceService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.cloudtrace.v1.TraceService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListTraces,
       Google.Devtools.Cloudtrace.V1.ListTracesRequest,
@@ -120,5 +131,6 @@ end
 
 defmodule Google.Devtools.Cloudtrace.V1.TraceService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Cloudtrace.V1.TraceService.Service
 end

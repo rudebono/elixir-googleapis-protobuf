@@ -1,8 +1,9 @@
 defmodule Google.Iam.Credentials.V1.IAMCredentials.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.iam.credentials.v1.IAMCredentials",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GenerateAccessToken,
       Google.Iam.Credentials.V1.GenerateAccessTokenRequest,
@@ -23,5 +24,6 @@ end
 
 defmodule Google.Iam.Credentials.V1.IAMCredentials.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Iam.Credentials.V1.IAMCredentials.Service
 end

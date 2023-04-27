@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Asset.V1p7beta1.Asset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -39,7 +40,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p7beta1.Resource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -52,7 +54,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAssets do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1p7beta1.RelationshipAttributes,
@@ -63,7 +66,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p7beta1.RelationshipAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
@@ -73,7 +77,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p7beta1.RelatedAsset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"

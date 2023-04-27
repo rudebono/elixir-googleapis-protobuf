@@ -1,27 +1,31 @@
 defmodule Google.Cloud.Retail.Logging.ServiceContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string
 end
 
 defmodule Google.Cloud.Retail.Logging.HttpRequestContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :response_status_code, 1, type: :int32, json_name: "responseStatusCode"
 end
 
 defmodule Google.Cloud.Retail.Logging.SourceLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :function_name, 1, type: :string, json_name: "functionName"
 end
 
 defmodule Google.Cloud.Retail.Logging.ErrorContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_request, 1,
     type: Google.Cloud.Retail.Logging.HttpRequestContext,
@@ -34,7 +38,8 @@ end
 
 defmodule Google.Cloud.Retail.Logging.ImportErrorContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :line_content, 0
 
@@ -48,7 +53,8 @@ end
 
 defmodule Google.Cloud.Retail.Logging.ErrorLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_context, 1,
     type: Google.Cloud.Retail.Logging.ServiceContext,

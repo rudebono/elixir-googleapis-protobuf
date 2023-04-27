@@ -1,6 +1,7 @@
 defmodule Cloud.Kubernetes.Security.ContainersecurityLogging.FindingType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :FINDING_TYPE_UNSPECIFIED, 0
   field :FINDING_TYPE_MISCONFIG, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Cloud.Kubernetes.Security.ContainersecurityLogging.Severity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :SEVERITY_CRITICAL, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Cloud.Kubernetes.Security.ContainersecurityLogging.Finding.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -29,7 +32,8 @@ end
 
 defmodule Cloud.Kubernetes.Security.ContainersecurityLogging.Vulnerability do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :package_name, 1, type: :string, json_name: "packageName"
   field :affected_package_version, 2, type: :string, json_name: "affectedPackageVersion"
@@ -53,7 +57,8 @@ end
 
 defmodule Cloud.Kubernetes.Security.ContainersecurityLogging.Finding do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 

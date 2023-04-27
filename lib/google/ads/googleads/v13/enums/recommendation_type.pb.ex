@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Enums.RecommendationTypeEnum.RecommendationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -30,9 +31,22 @@ defmodule Google.Ads.Googleads.V13.Enums.RecommendationTypeEnum.RecommendationTy
   field :CALLOUT_ASSET, 28
   field :SITELINK_ASSET, 29
   field :CALL_ASSET, 30
+  field :SHOPPING_ADD_AGE_GROUP, 31
+  field :SHOPPING_ADD_COLOR, 32
+  field :SHOPPING_ADD_GENDER, 33
+  field :SHOPPING_ADD_GTIN, 34
+  field :SHOPPING_ADD_MORE_IDENTIFIERS, 35
+  field :SHOPPING_ADD_SIZE, 36
+  field :SHOPPING_ADD_PRODUCTS_TO_CAMPAIGN, 37
+  field :SHOPPING_FIX_DISAPPROVED_PRODUCTS, 38
+  field :SHOPPING_TARGET_ALL_OFFERS, 39
+  field :SHOPPING_FIX_SUSPENDED_MERCHANT_CENTER_ACCOUNT, 40
+  field :SHOPPING_FIX_MERCHANT_CENTER_ACCOUNT_SUSPENSION_WARNING, 41
+  field :SHOPPING_MIGRATE_REGULAR_SHOPPING_CAMPAIGN_OFFERS_TO_PERFORMANCE_MAX, 42
 end
 
 defmodule Google.Ads.Googleads.V13.Enums.RecommendationTypeEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

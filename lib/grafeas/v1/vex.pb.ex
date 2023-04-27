@@ -1,6 +1,7 @@
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :AFFECTED, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Justification.JustificationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :JUSTIFICATION_TYPE_UNSPECIFIED, 0
   field :COMPONENT_NOT_PRESENT, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Remediation.RemediationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REMEDIATION_TYPE_UNSPECIFIED, 0
   field :MITIGATION, 1
@@ -35,7 +38,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Publisher do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :issuing_authority, 2, type: :string, json_name: "issuingAuthority"
@@ -44,7 +48,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Product do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :identifier, 0
 
@@ -55,7 +60,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Justification do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :justification_type, 1,
     type: Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Justification.JustificationType,
@@ -67,7 +73,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Remediation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :remediation_type, 1,
     type: Grafeas.V1.VulnerabilityAssessmentNote.Assessment.Remediation.RemediationType,
@@ -80,7 +87,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cve, 1, type: :string
   field :short_description, 2, type: :string, json_name: "shortDescription"
@@ -97,7 +105,8 @@ end
 
 defmodule Grafeas.V1.VulnerabilityAssessmentNote do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :short_description, 2, type: :string, json_name: "shortDescription"

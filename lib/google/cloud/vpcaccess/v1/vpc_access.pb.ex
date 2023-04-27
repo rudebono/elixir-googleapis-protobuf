@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Vpcaccess.V1.Connector.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.Connector.Subnet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.Connector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :network, 2, type: :string
@@ -43,7 +46,8 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.CreateConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connector_id, 2, type: :string, json_name: "connectorId", deprecated: false
@@ -52,14 +56,16 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.GetConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -68,7 +74,8 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.ListConnectorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :connectors, 1, repeated: true, type: Google.Cloud.Vpcaccess.V1.Connector
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -76,14 +83,16 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.DeleteConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Vpcaccess.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :method, 1, type: :string, deprecated: false
 
@@ -98,9 +107,10 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.vpcaccess.v1.VpcAccessService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateConnector,
       Google.Cloud.Vpcaccess.V1.CreateConnectorRequest,
@@ -121,5 +131,6 @@ end
 
 defmodule Google.Cloud.Vpcaccess.V1.VpcAccessService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Vpcaccess.V1.VpcAccessService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Iap.V1.ReauthSettings.Method do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :LOGIN, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.ReauthSettings.PolicyType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :POLICY_TYPE_UNSPECIFIED, 0
   field :MINIMUM, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.AttributePropagationSettings.OutputCredentials do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OUTPUT_CREDENTIALS_UNSPECIFIED, 0
   field :HEADER, 1
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.ListTunnelDestGroupsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -39,7 +43,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.ListTunnelDestGroupsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tunnel_dest_groups, 1,
     repeated: true,
@@ -51,7 +56,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.CreateTunnelDestGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -65,21 +71,24 @@ end
 
 defmodule Google.Cloud.Iap.V1.GetTunnelDestGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.DeleteTunnelDestGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.UpdateTunnelDestGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tunnel_dest_group, 1,
     type: Google.Cloud.Iap.V1.TunnelDestGroup,
@@ -91,7 +100,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.TunnelDestGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :cidrs, 2, repeated: true, type: :string, deprecated: false
@@ -100,14 +110,16 @@ end
 
 defmodule Google.Cloud.Iap.V1.GetIapSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.UpdateIapSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :iap_settings, 1,
     type: Google.Cloud.Iap.V1.IapSettings,
@@ -119,7 +131,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.IapSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :access_settings, 5, type: Google.Cloud.Iap.V1.AccessSettings, json_name: "accessSettings"
@@ -131,7 +144,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.AccessSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcip_settings, 1, type: Google.Cloud.Iap.V1.GcipSettings, json_name: "gcipSettings"
   field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings, json_name: "corsSettings"
@@ -145,7 +159,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.GcipSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tenant_ids, 1, repeated: true, type: :string, json_name: "tenantIds"
   field :login_page_uri, 2, type: Google.Protobuf.StringValue, json_name: "loginPageUri"
@@ -153,21 +168,24 @@ end
 
 defmodule Google.Cloud.Iap.V1.CorsSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allow_http_options, 1, type: Google.Protobuf.BoolValue, json_name: "allowHttpOptions"
 end
 
 defmodule Google.Cloud.Iap.V1.OAuthSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :login_hint, 2, type: Google.Protobuf.StringValue, json_name: "loginHint"
 end
 
 defmodule Google.Cloud.Iap.V1.ReauthSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :method, 1, type: Google.Cloud.Iap.V1.ReauthSettings.Method, enum: true
   field :max_age, 2, type: Google.Protobuf.Duration, json_name: "maxAge"
@@ -180,7 +198,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.AllowedDomainsSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable, 1, proto3_optional: true, type: :bool
   field :domains, 2, repeated: true, type: :string
@@ -188,7 +207,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.ApplicationSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :csm_settings, 1, type: Google.Cloud.Iap.V1.CsmSettings, json_name: "csmSettings"
 
@@ -205,14 +225,16 @@ end
 
 defmodule Google.Cloud.Iap.V1.CsmSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rctoken_aud, 1, type: Google.Protobuf.StringValue, json_name: "rctokenAud"
 end
 
 defmodule Google.Cloud.Iap.V1.AccessDeniedPageSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_denied_page_uri, 1,
     type: Google.Protobuf.StringValue,
@@ -230,7 +252,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.AttributePropagationSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expression, 1, proto3_optional: true, type: :string
 
@@ -245,21 +268,24 @@ end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :brands, 1, repeated: true, type: Google.Cloud.Iap.V1.Brand
 end
 
 defmodule Google.Cloud.Iap.V1.CreateBrandRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :brand, 2, type: Google.Cloud.Iap.V1.Brand, deprecated: false
@@ -267,14 +293,16 @@ end
 
 defmodule Google.Cloud.Iap.V1.GetBrandRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -283,7 +311,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.ListIdentityAwareProxyClientsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :identity_aware_proxy_clients, 1,
     repeated: true,
@@ -295,7 +324,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.CreateIdentityAwareProxyClientRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -307,28 +337,32 @@ end
 
 defmodule Google.Cloud.Iap.V1.GetIdentityAwareProxyClientRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.ResetIdentityAwareProxyClientSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.DeleteIdentityAwareProxyClientRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.Brand do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :support_email, 2, type: :string, json_name: "supportEmail"
@@ -338,7 +372,8 @@ end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyClient do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :secret, 2, type: :string, deprecated: false
@@ -347,9 +382,10 @@ end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.iap.v1.IdentityAwareProxyAdminService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 
@@ -388,14 +424,16 @@ end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service
 end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyOAuthService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.iap.v1.IdentityAwareProxyOAuthService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListBrands, Google.Cloud.Iap.V1.ListBrandsRequest, Google.Cloud.Iap.V1.ListBrandsResponse
 
@@ -426,5 +464,6 @@ end
 
 defmodule Google.Cloud.Iap.V1.IdentityAwareProxyOAuthService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Iap.V1.IdentityAwareProxyOAuthService.Service
 end

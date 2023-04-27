@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.LifecycleState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ConversationStage do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONVERSATION_STAGE_UNSPECIFIED, 0
   field :VIRTUAL_AGENT_STAGE, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -49,14 +52,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ConversationPhoneNumber do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phone_number, 3, type: :string, json_name: "phoneNumber", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :conversation, 2, type: Google.Cloud.Dialogflow.V2beta1.Conversation, deprecated: false
@@ -65,7 +70,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -75,7 +81,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversations, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Conversation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -83,21 +90,24 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GetConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CompleteConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateMessageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :message, 2, type: Google.Cloud.Dialogflow.V2beta1.Message, deprecated: false
@@ -105,7 +115,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.BatchCreateMessagesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,14 +128,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.BatchCreateMessagesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Message
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string
@@ -134,7 +147,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Message
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -142,7 +156,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation, 1, type: :string, deprecated: false
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
@@ -155,7 +170,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse.Summary.TextSectionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -163,7 +179,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse.Summary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, type: :string
 
@@ -179,7 +196,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :summary, 1,
     type: Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse.Summary
@@ -190,9 +208,10 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.Conversations",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateConversation,
       Google.Cloud.Dialogflow.V2beta1.CreateConversationRequest,
@@ -225,5 +244,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.V2beta1.Conversations.Service
 end

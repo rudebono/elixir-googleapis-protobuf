@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec.Condition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONDITION_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec.Mode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :SUGGESTION_ONLY, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :intervals, 2, repeated: true, type: Google.Cloud.Discoveryengine.V1beta.Interval
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :facet_key, 1,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec.FacetKey,
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
@@ -53,7 +58,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition_boost_specs, 1,
     repeated: true,
@@ -63,7 +69,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :condition, 1,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec.Condition,
@@ -72,7 +79,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec.Mode,
@@ -81,7 +89,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SnippetSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_snippet_count, 1, type: :int32, json_name: "maxSnippetCount"
   field :reference_only, 2, type: :bool, json_name: "referenceOnly"
@@ -89,14 +98,16 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :summary_result_count, 1, type: :int32, json_name: "summaryResultCount"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :snippet_spec, 1,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SnippetSpec,
@@ -109,7 +120,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -117,7 +129,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :branch, 2, type: :string, deprecated: false
@@ -159,7 +172,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1beta.Document
@@ -167,7 +181,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Facet.FacetValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :facet_value, 0
 
@@ -178,7 +193,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Facet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -191,7 +207,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.GuidedSearchResult.RefinementAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attribute_key, 1, type: :string, json_name: "attributeKey"
   field :attribute_value, 2, type: :string, json_name: "attributeValue"
@@ -199,7 +216,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.GuidedSearchResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :refinement_attributes, 1,
     repeated: true,
@@ -210,14 +228,16 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :summary_text, 1, type: :string, json_name: "summaryText"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -239,9 +259,10 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1beta.SearchService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Search,
       Google.Cloud.Discoveryengine.V1beta.SearchRequest,
@@ -250,5 +271,6 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Discoveryengine.V1beta.SearchService.Service
 end

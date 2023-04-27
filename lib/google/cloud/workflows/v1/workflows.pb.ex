@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Workflows.V1.Workflow.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Workflows.V1.Workflow.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Workflows.V1.Workflow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source_code, 0
 
@@ -51,7 +54,8 @@ end
 
 defmodule Google.Cloud.Workflows.V1.ListWorkflowsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -62,7 +66,8 @@ end
 
 defmodule Google.Cloud.Workflows.V1.ListWorkflowsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workflows, 1, repeated: true, type: Google.Cloud.Workflows.V1.Workflow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -71,14 +76,16 @@ end
 
 defmodule Google.Cloud.Workflows.V1.GetWorkflowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.V1.CreateWorkflowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workflow, 2, type: Google.Cloud.Workflows.V1.Workflow, deprecated: false
@@ -87,14 +94,16 @@ end
 
 defmodule Google.Cloud.Workflows.V1.DeleteWorkflowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.V1.UpdateWorkflowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workflow, 1, type: Google.Cloud.Workflows.V1.Workflow, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -102,7 +111,8 @@ end
 
 defmodule Google.Cloud.Workflows.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -113,9 +123,10 @@ end
 
 defmodule Google.Cloud.Workflows.V1.Workflows.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.workflows.v1.Workflows",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListWorkflows,
       Google.Cloud.Workflows.V1.ListWorkflowsRequest,
@@ -140,5 +151,6 @@ end
 
 defmodule Google.Cloud.Workflows.V1.Workflows.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Workflows.V1.Workflows.Service
 end

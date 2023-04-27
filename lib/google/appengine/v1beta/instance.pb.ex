@@ -1,6 +1,7 @@
 defmodule Google.Appengine.V1beta.Instance.Availability do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :RESIDENT, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Appengine.V1beta.Instance.Liveness.LivenessState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LIVENESS_STATE_UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -21,12 +23,14 @@ end
 
 defmodule Google.Appengine.V1beta.Instance.Liveness do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Appengine.V1beta.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false

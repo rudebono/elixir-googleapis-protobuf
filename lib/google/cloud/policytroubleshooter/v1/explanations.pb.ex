@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Policytroubleshooter.V1.AccessState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ACCESS_STATE_UNSPECIFIED, 0
   field :GRANTED, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.HeuristicRelevance do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :HEURISTIC_RELEVANCE_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.RolePermission do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ROLE_PERMISSION_UNSPECIFIED, 0
   field :ROLE_PERMISSION_INCLUDED, 1
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MEMBERSHIP_UNSPECIFIED, 0
   field :MEMBERSHIP_INCLUDED, 1
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.AccessTuple do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :principal, 1, type: :string, deprecated: false
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName", deprecated: false
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
@@ -66,7 +72,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.AnnotatedMembership do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :membership, 1,
     type: Google.Cloud.Policytroubleshooter.V1.BindingExplanation.Membership,
@@ -77,7 +84,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation.MembershipsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -87,7 +95,8 @@ end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.BindingExplanation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access, 1,
     type: Google.Cloud.Policytroubleshooter.V1.AccessState,

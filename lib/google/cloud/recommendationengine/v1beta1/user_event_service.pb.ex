@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_name, 1, type: :string, json_name: "operationName"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurgeUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :purged_events_count, 1, type: :int64, json_name: "purgedEventsCount"
 
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CollectUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :user_event, 2, type: :string, json_name: "userEvent", deprecated: false
@@ -51,7 +56,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -61,7 +67,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -73,9 +80,10 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.recommendationengine.v1beta1.UserEventService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :WriteUserEvent,
       Google.Cloud.Recommendationengine.V1beta1.WriteUserEventRequest,
@@ -100,5 +108,6 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Recommendationengine.V1beta1.UserEventService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig.InclusionMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INCLUSION_MODE_UNSPECIFIED, 0
   field :INCLUDE_ONLY, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings.AssetDiscoveryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_ids, 1, repeated: true, type: :string, json_name: "projectIds"
 
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Securitycenter.V1p1beta1.OrganizationSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :enable_asset_discovery, 2, type: :bool, json_name: "enableAssetDiscovery"

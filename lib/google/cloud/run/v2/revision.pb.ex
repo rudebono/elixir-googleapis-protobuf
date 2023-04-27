@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Run.V2.GetRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.ListRevisionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Run.V2.ListRevisionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :revisions, 1, repeated: true, type: Google.Cloud.Run.V2.Revision
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Run.V2.DeleteRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -34,7 +38,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Revision.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -42,7 +47,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Revision.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -50,7 +56,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Revision do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -121,7 +128,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Revisions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.run.v2.Revisions", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.run.v2.Revisions", protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetRevision, Google.Cloud.Run.V2.GetRevisionRequest, Google.Cloud.Run.V2.Revision
 
@@ -134,5 +142,6 @@ end
 
 defmodule Google.Cloud.Run.V2.Revisions.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Run.V2.Revisions.Service
 end

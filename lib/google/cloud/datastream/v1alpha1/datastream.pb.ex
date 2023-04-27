@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -32,7 +33,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DiscoverConnectionProfileResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :data_object, 0
 
@@ -49,7 +51,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -58,7 +61,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchStaticIpsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :static_ips, 1, repeated: true, type: :string, json_name: "staticIps"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -66,21 +70,24 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.FetchErrorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Error
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -91,7 +98,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :connection_profiles, 1,
     repeated: true,
@@ -104,14 +112,16 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -130,7 +140,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -147,7 +158,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteConnectionProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -155,7 +167,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -166,7 +179,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListStreamsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -175,14 +189,16 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
@@ -194,7 +210,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.UpdateStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -209,7 +226,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -217,7 +235,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -244,7 +263,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreatePrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -263,7 +283,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -274,7 +295,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListPrivateConnectionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :private_connections, 1,
     repeated: true,
@@ -287,7 +309,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeletePrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -296,14 +319,16 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetPrivateConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.CreateRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :route_id, 2, type: :string, json_name: "routeId", deprecated: false
@@ -313,7 +338,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -324,7 +350,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.ListRoutesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Cloud.Datastream.V1alpha1.Route
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -333,7 +360,8 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.DeleteRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -341,16 +369,18 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.GetRouteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1alpha1.Datastream.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.datastream.v1alpha1.Datastream",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListConnectionProfiles,
       Google.Cloud.Datastream.V1alpha1.ListConnectionProfilesRequest,
@@ -439,5 +469,6 @@ end
 
 defmodule Google.Cloud.Datastream.V1alpha1.Datastream.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Datastream.V1alpha1.Datastream.Service
 end

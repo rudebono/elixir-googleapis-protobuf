@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLink.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLink.MerchantCenterFeedFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :primary_feed_id, 1, type: :int64, json_name: "primaryFeedId"
   field :primary_feed_name, 2, type: :string, json_name: "primaryFeedName"
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 8, type: :string, deprecated: false
@@ -47,7 +50,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CreateMerchantCenterAccountLinkMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"

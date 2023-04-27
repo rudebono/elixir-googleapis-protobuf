@@ -1,6 +1,7 @@
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :area_filter, 1,
     type: Google.Maps.Playablelocations.V3.Sample.AreaFilter,
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse.LocationsPerGameObjectTypeEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Maps.Playablelocations.V3.Sample.PlayableLocationList
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.SamplePlayableLocationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :locations_per_game_object_type, 1,
     repeated: true,
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :player_reports, 1,
     repeated: true,
@@ -55,12 +59,14 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.LogPlayerReportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :impressions, 1,
     repeated: true,
@@ -77,14 +83,16 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.LogImpressionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.maps.playablelocations.v3.PlayableLocations",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SamplePlayableLocations,
       Google.Maps.Playablelocations.V3.SamplePlayableLocationsRequest,
@@ -101,5 +109,6 @@ end
 
 defmodule Google.Maps.Playablelocations.V3.PlayableLocations.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Maps.Playablelocations.V3.PlayableLocations.Service
 end

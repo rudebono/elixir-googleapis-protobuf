@@ -1,6 +1,7 @@
 defmodule Google.Appengine.V1.AuthFailAction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AUTH_FAIL_ACTION_UNSPECIFIED, 0
   field :AUTH_FAIL_ACTION_REDIRECT, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Appengine.V1.LoginRequirement do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOGIN_UNSPECIFIED, 0
   field :LOGIN_OPTIONAL, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Appengine.V1.SecurityLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SECURE_UNSPECIFIED, 0
   field :SECURE_DEFAULT, 0
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Appengine.V1.ErrorHandler.ErrorCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :ERROR_CODE_DEFAULT, 0
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Appengine.V1.UrlMap.RedirectHttpResponseCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED, 0
   field :REDIRECT_HTTP_RESPONSE_CODE_301, 1
@@ -52,7 +57,8 @@ end
 
 defmodule Google.Appengine.V1.ApiConfigHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :auth_fail_action, 1,
     type: Google.Appengine.V1.AuthFailAction,
@@ -72,7 +78,8 @@ end
 
 defmodule Google.Appengine.V1.ErrorHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Appengine.V1.ErrorHandler.ErrorCode,
@@ -85,7 +92,8 @@ end
 
 defmodule Google.Appengine.V1.UrlMap do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :handler_type, 0
 
@@ -123,7 +131,8 @@ end
 
 defmodule Google.Appengine.V1.StaticFilesHandler.HttpHeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -131,7 +140,8 @@ end
 
 defmodule Google.Appengine.V1.StaticFilesHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :upload_path_regex, 2, type: :string, json_name: "uploadPathRegex"
@@ -150,21 +160,24 @@ end
 
 defmodule Google.Appengine.V1.ScriptHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :script_path, 1, type: :string, json_name: "scriptPath"
 end
 
 defmodule Google.Appengine.V1.ApiEndpointHandler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :script_path, 1, type: :string, json_name: "scriptPath"
 end
 
 defmodule Google.Appengine.V1.HealthCheck do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disable_health_check, 1, type: :bool, json_name: "disableHealthCheck"
   field :host, 2, type: :string
@@ -177,7 +190,8 @@ end
 
 defmodule Google.Appengine.V1.ReadinessCheck do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :host, 2, type: :string
@@ -190,7 +204,8 @@ end
 
 defmodule Google.Appengine.V1.LivenessCheck do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :host, 2, type: :string
@@ -203,7 +218,8 @@ end
 
 defmodule Google.Appengine.V1.Library do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest.ReconciliationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RECONCILIATION_MODE_UNSPECIFIED, 0
   field :INCREMENTAL, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
   field :data_schema, 2, type: :string, json_name: "dataSchema"
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.BigQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :partition, 0
 
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportErrorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsRequest.InlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -51,7 +56,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -82,7 +88,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -96,7 +103,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportUserEventsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -106,7 +114,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -116,7 +125,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest.InlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :documents, 1,
     repeated: true,
@@ -126,7 +136,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -159,7 +170,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ImportDocumentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 

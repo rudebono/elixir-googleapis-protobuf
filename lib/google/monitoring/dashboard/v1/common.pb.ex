@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.Aggregation.Aligner do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ALIGN_NONE, 0
   field :ALIGN_DELTA, 1
@@ -25,7 +26,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Aggregation.Reducer do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REDUCE_NONE, 0
   field :REDUCE_MEAN, 1
@@ -45,7 +47,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :METHOD_MEAN, 1
@@ -57,7 +60,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :TOP, 1
@@ -66,7 +70,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :METHOD_CLUSTER_OUTLIER, 1
@@ -74,7 +79,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.Aggregation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 
@@ -93,7 +99,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Method,
@@ -109,7 +116,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ranking_method, 1,
     type: Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter.Method,

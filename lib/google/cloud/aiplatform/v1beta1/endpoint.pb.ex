@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.TrafficSplitEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -74,7 +77,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :prediction_resources, 0
 
@@ -121,7 +125,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri", deprecated: false
   field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri", deprecated: false
@@ -131,7 +136,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :sampling_rate, 2, type: :double, json_name: "samplingRate"

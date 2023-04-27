@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.Evaluation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationConfig
@@ -25,7 +26,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :vertical_option, 0
 
@@ -37,14 +39,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingBoxEvaluationOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :iou_threshold, 1, type: :float, json_name: "iouThreshold"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.EvaluationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :metrics, 0
 
@@ -61,7 +65,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve, json_name: "prCurve"
 
@@ -72,14 +77,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectDetectionMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pr_curve, 1, type: Google.Cloud.Datalabeling.V1beta1.PrCurve, json_name: "prCurve"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve.ConfidenceMetricsEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :recall, 2, type: :float
@@ -95,7 +102,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.PrCurve do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -113,7 +121,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.ConfusionMatrixEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -124,7 +133,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -137,7 +147,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :row, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.ConfusionMatrix.Row
 end

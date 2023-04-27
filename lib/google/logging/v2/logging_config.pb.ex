@@ -1,6 +1,7 @@
 defmodule Google.Logging.V2.LifecycleState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Logging.V2.OperationState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATION_STATE_UNSPECIFIED, 0
   field :OPERATION_STATE_SCHEDULED, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Logging.V2.LogSink.VersionFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :VERSION_FORMAT_UNSPECIFIED, 0
   field :V2, 1
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Logging.V2.LogBucket do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
@@ -61,7 +65,8 @@ end
 
 defmodule Google.Logging.V2.LogView do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 3, type: :string
@@ -81,7 +86,8 @@ end
 
 defmodule Google.Logging.V2.LogSink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :options, 0
 
@@ -120,7 +126,8 @@ end
 
 defmodule Google.Logging.V2.BigQueryOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :use_partitioned_tables, 1,
     type: :bool,
@@ -135,7 +142,8 @@ end
 
 defmodule Google.Logging.V2.ListBucketsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -144,7 +152,8 @@ end
 
 defmodule Google.Logging.V2.ListBucketsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :buckets, 1, repeated: true, type: Google.Logging.V2.LogBucket
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -152,7 +161,8 @@ end
 
 defmodule Google.Logging.V2.CreateBucketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :bucket_id, 2, type: :string, json_name: "bucketId", deprecated: false
@@ -161,7 +171,8 @@ end
 
 defmodule Google.Logging.V2.UpdateBucketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :bucket, 2, type: Google.Logging.V2.LogBucket, deprecated: false
@@ -174,28 +185,32 @@ end
 
 defmodule Google.Logging.V2.GetBucketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.DeleteBucketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.UndeleteBucketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.ListViewsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -204,7 +219,8 @@ end
 
 defmodule Google.Logging.V2.ListViewsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :views, 1, repeated: true, type: Google.Logging.V2.LogView
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Logging.V2.CreateViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :view_id, 2, type: :string, json_name: "viewId", deprecated: false
@@ -221,7 +238,8 @@ end
 
 defmodule Google.Logging.V2.UpdateViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Logging.V2.LogView, deprecated: false
@@ -234,21 +252,24 @@ end
 
 defmodule Google.Logging.V2.GetViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.DeleteViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.ListSinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -257,7 +278,8 @@ end
 
 defmodule Google.Logging.V2.ListSinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sinks, 1, repeated: true, type: Google.Logging.V2.LogSink
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -265,14 +287,16 @@ end
 
 defmodule Google.Logging.V2.GetSinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
 end
 
 defmodule Google.Logging.V2.CreateSinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :sink, 2, type: Google.Logging.V2.LogSink, deprecated: false
@@ -285,7 +309,8 @@ end
 
 defmodule Google.Logging.V2.UpdateSinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
   field :sink, 2, type: Google.Logging.V2.LogSink, deprecated: false
@@ -303,14 +328,16 @@ end
 
 defmodule Google.Logging.V2.DeleteSinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
 end
 
 defmodule Google.Logging.V2.LogExclusion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -330,7 +357,8 @@ end
 
 defmodule Google.Logging.V2.ListExclusionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -339,7 +367,8 @@ end
 
 defmodule Google.Logging.V2.ListExclusionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :exclusions, 1, repeated: true, type: Google.Logging.V2.LogExclusion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -347,14 +376,16 @@ end
 
 defmodule Google.Logging.V2.GetExclusionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.CreateExclusionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :exclusion, 2, type: Google.Logging.V2.LogExclusion, deprecated: false
@@ -362,7 +393,8 @@ end
 
 defmodule Google.Logging.V2.UpdateExclusionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :exclusion, 2, type: Google.Logging.V2.LogExclusion, deprecated: false
@@ -375,21 +407,24 @@ end
 
 defmodule Google.Logging.V2.DeleteExclusionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.GetCmekSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.UpdateCmekSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -406,7 +441,8 @@ end
 
 defmodule Google.Logging.V2.CmekSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
@@ -415,14 +451,16 @@ end
 
 defmodule Google.Logging.V2.GetSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Logging.V2.UpdateSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :settings, 2, type: Google.Logging.V2.Settings, deprecated: false
@@ -435,7 +473,8 @@ end
 
 defmodule Google.Logging.V2.Settings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
@@ -451,7 +490,8 @@ end
 
 defmodule Google.Logging.V2.CopyLogEntriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :filter, 3, type: :string, deprecated: false
@@ -460,7 +500,8 @@ end
 
 defmodule Google.Logging.V2.CopyLogEntriesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -473,14 +514,16 @@ end
 
 defmodule Google.Logging.V2.CopyLogEntriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :log_entries_copied_count, 1, type: :int64, json_name: "logEntriesCopiedCount"
 end
 
 defmodule Google.Logging.V2.ConfigServiceV2.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.logging.v2.ConfigServiceV2", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.logging.v2.ConfigServiceV2", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListBuckets, Google.Logging.V2.ListBucketsRequest, Google.Logging.V2.ListBucketsResponse
 
@@ -541,5 +584,6 @@ end
 
 defmodule Google.Logging.V2.ConfigServiceV2.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Logging.V2.ConfigServiceV2.Service
 end

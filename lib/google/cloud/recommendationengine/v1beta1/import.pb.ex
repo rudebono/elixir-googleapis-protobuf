@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogInlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :catalog_items, 1,
     repeated: true,
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventInlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportErrorsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -38,7 +42,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -56,7 +61,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -74,7 +80,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.InputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -96,7 +103,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_name, 5, type: :string, json_name: "operationName"
   field :request_id, 3, type: :string, json_name: "requestId"
@@ -108,7 +116,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportCatalogItemsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -119,7 +128,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ImportUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -134,7 +144,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEventImportSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :joined_events_count, 1, type: :int64, json_name: "joinedEventsCount"
   field :unjoined_events_count, 2, type: :int64, json_name: "unjoinedEventsCount"

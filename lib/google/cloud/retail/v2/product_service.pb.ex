@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2.CreateProductRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :product, 2, type: Google.Cloud.Retail.V2.Product, deprecated: false
@@ -9,14 +10,16 @@ end
 
 defmodule Google.Cloud.Retail.V2.GetProductRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.UpdateProductRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -25,14 +28,16 @@ end
 
 defmodule Google.Cloud.Retail.V2.DeleteProductRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.ListProductsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -43,7 +48,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ListProductsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -51,7 +57,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inventory, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :set_mask, 2, type: Google.Protobuf.FieldMask, json_name: "setMask"
@@ -61,17 +68,20 @@ end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.SetInventoryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -82,17 +92,20 @@ end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.AddFulfillmentPlacesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
 
@@ -109,17 +122,20 @@ end
 
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.AddLocalInventoriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :place_ids, 2, repeated: true, type: :string, json_name: "placeIds", deprecated: false
@@ -129,17 +145,20 @@ end
 
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveLocalInventoriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -150,19 +169,22 @@ end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.RemoveFulfillmentPlacesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2.ProductService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2.ProductService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateProduct, Google.Cloud.Retail.V2.CreateProductRequest, Google.Cloud.Retail.V2.Product
 
@@ -199,5 +221,6 @@ end
 
 defmodule Google.Cloud.Retail.V2.ProductService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2.ProductService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Streetview.Publish.V1.ProcessingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROCESSING_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.ProcessingFailureReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROCESSING_FAILURE_REASON_UNSPECIFIED, 0
   field :LOW_RESOLUTION, 1
@@ -39,7 +41,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Photo.TransferStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TRANSFER_STATUS_UNKNOWN, 0
   field :NEVER_TRANSFERRED, 1
@@ -53,7 +56,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Photo.MapsPublishStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED_MAPS_PUBLISH_STATUS, 0
   field :PUBLISHED, 1
@@ -62,7 +66,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.PhotoSequence.GpsSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PHOTO_SEQUENCE, 0
   field :CAMERA_MOTION_METADATA_TRACK, 1
@@ -70,7 +75,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.UploadRef do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :file_source, 0
 
@@ -79,14 +85,16 @@ end
 
 defmodule Google.Streetview.Publish.V1.PhotoId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 
 defmodule Google.Streetview.Publish.V1.Level do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :number, 1, type: :double, deprecated: false
   field :name, 2, type: :string, deprecated: false
@@ -94,7 +102,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Pose do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :lat_lng_pair, 1, type: Google.Type.LatLng, json_name: "latLngPair"
   field :altitude, 2, type: :double
@@ -112,7 +121,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Imu.Measurement3d do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :capture_time, 1, type: Google.Protobuf.Timestamp, json_name: "captureTime"
   field :x, 2, type: :float
@@ -122,7 +132,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Imu do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :accel_mpsps, 1,
     repeated: true,
@@ -142,7 +153,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.Place do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
   field :name, 2, type: :string, deprecated: false
@@ -151,14 +163,16 @@ end
 
 defmodule Google.Streetview.Publish.V1.Connection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target, 1, type: Google.Streetview.Publish.V1.PhotoId, deprecated: false
 end
 
 defmodule Google.Streetview.Publish.V1.Photo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :photo_id, 1,
     type: Google.Streetview.Publish.V1.PhotoId,
@@ -208,7 +222,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.PhotoSequence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :photos, 2, repeated: true, type: Google.Streetview.Publish.V1.Photo, deprecated: false
@@ -272,7 +287,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.LatLngBounds do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :southwest, 1, type: Google.Type.LatLng
   field :northeast, 2, type: Google.Type.LatLng
@@ -280,7 +296,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.ProcessingFailureDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -307,14 +324,16 @@ end
 
 defmodule Google.Streetview.Publish.V1.InsufficientGpsFailureDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gps_points_found, 1, proto3_optional: true, type: :int32, json_name: "gpsPointsFound"
 end
 
 defmodule Google.Streetview.Publish.V1.GpsDataGapFailureDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gap_duration, 1,
     proto3_optional: true,
@@ -329,7 +348,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.ImuDataGapFailureDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gap_duration, 1,
     proto3_optional: true,
@@ -344,7 +364,8 @@ end
 
 defmodule Google.Streetview.Publish.V1.NotOutdoorsFailureDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1,
     proto3_optional: true,

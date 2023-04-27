@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Services.MutateAssetSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -20,7 +21,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.AssetSetOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -32,7 +34,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateAssetSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V13.Services.MutateAssetSetResult
   field :partial_failure_error, 2, type: Google.Rpc.Status, json_name: "partialFailureError"
@@ -40,7 +43,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateAssetSetResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :asset_set, 2, type: Google.Ads.Googleads.V13.Resources.AssetSet, json_name: "assetSet"
@@ -48,9 +52,10 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.AssetSetService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v13.services.AssetSetService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateAssetSets,
       Google.Ads.Googleads.V13.Services.MutateAssetSetsRequest,
@@ -59,5 +64,6 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.AssetSetService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V13.Services.AssetSetService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Speech.V1.CreatePhraseSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :phrase_set_id, 2, type: :string, json_name: "phraseSetId", deprecated: false
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Speech.V1.UpdatePhraseSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phrase_set, 1,
     type: Google.Cloud.Speech.V1.PhraseSet,
@@ -25,14 +27,16 @@ end
 
 defmodule Google.Cloud.Speech.V1.GetPhraseSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V1.ListPhraseSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Speech.V1.ListPhraseSetResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phrase_sets, 1,
     repeated: true,
@@ -53,14 +58,16 @@ end
 
 defmodule Google.Cloud.Speech.V1.DeletePhraseSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V1.CreateCustomClassRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :custom_class_id, 2, type: :string, json_name: "customClassId", deprecated: false
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Cloud.Speech.V1.UpdateCustomClassRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_class, 1,
     type: Google.Cloud.Speech.V1.CustomClass,
@@ -85,14 +93,16 @@ end
 
 defmodule Google.Cloud.Speech.V1.GetCustomClassRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V1.ListCustomClassesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -101,7 +111,8 @@ end
 
 defmodule Google.Cloud.Speech.V1.ListCustomClassesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_classes, 1,
     repeated: true,
@@ -113,14 +124,16 @@ end
 
 defmodule Google.Cloud.Speech.V1.DeleteCustomClassRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V1.Adaptation.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.speech.v1.Adaptation", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.speech.v1.Adaptation", protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreatePhraseSet,
       Google.Cloud.Speech.V1.CreatePhraseSetRequest,
@@ -159,5 +172,6 @@ end
 
 defmodule Google.Cloud.Speech.V1.Adaptation.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Speech.V1.Adaptation.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Connectors.V1.RuntimeConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -13,14 +14,16 @@ end
 
 defmodule Google.Cloud.Connectors.V1.GetRuntimeConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Connectors.V1.RuntimeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location_id, 1, type: :string, json_name: "locationId", deprecated: false
   field :connd_topic, 2, type: :string, json_name: "conndTopic", deprecated: false

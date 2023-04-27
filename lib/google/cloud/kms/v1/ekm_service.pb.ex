@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Kms.V1.EkmConnection.KeyManagementMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :KEY_MANAGEMENT_MODE_UNSPECIFIED, 0
   field :MANUAL, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.ListEkmConnectionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ekm_connections, 1,
     repeated: true,
@@ -33,14 +36,16 @@ end
 
 defmodule Google.Cloud.Kms.V1.GetEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.CreateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :ekm_connection_id, 2, type: :string, json_name: "ekmConnectionId", deprecated: false
@@ -53,7 +58,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.UpdateEkmConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ekm_connection, 1,
     type: Google.Cloud.Kms.V1.EkmConnection,
@@ -68,14 +74,16 @@ end
 
 defmodule Google.Cloud.Kms.V1.GetEkmConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.UpdateEkmConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ekm_config, 1,
     type: Google.Cloud.Kms.V1.EkmConfig,
@@ -90,7 +98,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.Certificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :raw_der, 1, type: :bytes, json_name: "rawDer", deprecated: false
   field :parsed, 2, type: :bool, deprecated: false
@@ -119,7 +128,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.EkmConnection.ServiceResolver do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_directory_service, 1,
     type: :string,
@@ -138,7 +148,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.EkmConnection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -165,7 +176,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.EkmConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -177,7 +189,8 @@ end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.kms.v1.EkmService", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.kms.v1.EkmService", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListEkmConnections,
       Google.Cloud.Kms.V1.ListEkmConnectionsRequest,
@@ -202,5 +215,6 @@ end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Kms.V1.EkmService.Service
 end

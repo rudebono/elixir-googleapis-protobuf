@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.MetricType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METRIC_UNSPECIFIED, 0
   field :CONTAINED_SESSION_NO_CALLBACK_RATE, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.CountType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COUNT_TYPE_UNSPECIFIED, 0
   field :TOTAL_NO_MATCH_COUNT, 1
@@ -33,7 +36,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Definition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :variants, 0
 
@@ -47,7 +51,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.ConfidenceInterval do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :confidence_level, 1, type: :double, json_name: "confidenceLevel"
   field :ratio, 2, type: :double
@@ -57,7 +62,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.Metric do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -78,7 +84,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.VersionMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :metrics, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Experiment.Result.Metric
@@ -87,7 +94,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment.Result do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version_metrics, 1,
     repeated: true,
@@ -99,7 +107,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -131,7 +140,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.VersionVariants.Variant do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :traffic_allocation, 2, type: :float, json_name: "trafficAllocation"
@@ -140,14 +150,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.VersionVariants do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :variants, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.VersionVariants.Variant
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.VariantsHistory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :variants, 0
 
@@ -161,7 +173,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutConfig.RolloutStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :traffic_percent, 2, type: :int32, json_name: "trafficPercent"
@@ -170,7 +183,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rollout_steps, 1,
     repeated: true,
@@ -183,7 +197,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RolloutState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :step, 1, type: :string
   field :step_index, 3, type: :int32, json_name: "stepIndex"
@@ -192,7 +207,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListExperimentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -201,7 +217,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListExperimentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Experiment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -209,14 +226,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :experiment, 2, type: Google.Cloud.Dialogflow.Cx.V3.Experiment, deprecated: false
@@ -224,7 +243,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :experiment, 1, type: Google.Cloud.Dialogflow.Cx.V3.Experiment, deprecated: false
 
@@ -236,30 +256,34 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.StartExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.StopExperimentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiments.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.Experiments",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListExperiments,
       Google.Cloud.Dialogflow.Cx.V3.ListExperimentsRequest,
@@ -292,5 +316,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Experiments.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.Experiments.Service
 end

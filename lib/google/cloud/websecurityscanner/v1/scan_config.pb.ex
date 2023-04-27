@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.UserAgent do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :USER_AGENT_UNSPECIFIED, 0
   field :CHROME_LINUX, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.RiskLevel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RISK_LEVEL_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.ExportToSecurityCommandCenter do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.GoogleAccount do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.CustomAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -45,7 +50,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential.IapTestServiceAccountInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_audience_client_id, 1,
     type: :string,
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication.IapCredential do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :iap_credentials, 0
 
@@ -68,7 +75,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Authentication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :authentication, 0
 
@@ -91,7 +99,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig.Schedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :interval_duration_days, 2, type: :int32, json_name: "intervalDurationDays"
@@ -99,7 +108,8 @@ end
 
 defmodule Google.Cloud.Websecurityscanner.V1.ScanConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

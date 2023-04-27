@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.CreateSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateSpecialistPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -21,14 +23,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.GetSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ListSpecialistPoolsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -38,7 +42,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ListSpecialistPoolsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :specialist_pools, 1,
     repeated: true,
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.DeleteSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -58,7 +64,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateSpecialistPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :specialist_pool, 1,
     type: Google.Cloud.Aiplatform.V1.SpecialistPool,
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.UpdateSpecialistPoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :specialist_pool, 1, type: :string, json_name: "specialistPool", deprecated: false
 
@@ -84,9 +92,10 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.SpecialistPoolService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.SpecialistPoolService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateSpecialistPool,
       Google.Cloud.Aiplatform.V1.CreateSpecialistPoolRequest,
@@ -111,5 +120,6 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.SpecialistPoolService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.SpecialistPoolService.Service
 end

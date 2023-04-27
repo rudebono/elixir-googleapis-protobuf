@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :verification_info, 0
 
@@ -17,7 +18,8 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :auxiliary_auth_info, 0
 
@@ -32,7 +34,8 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :enrollment_info, 0
 
@@ -48,7 +51,8 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaEnrollmentResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :enrollment_response, 0
 
@@ -60,7 +64,8 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id_token, 1, type: :string, json_name: "idToken", deprecated: false
   field :mfa_enrollment_id, 2, type: :string, json_name: "mfaEnrollmentId", deprecated: false
@@ -69,7 +74,8 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.WithdrawMfaResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id_token, 1, type: :string, json_name: "idToken"
   field :refresh_token, 2, type: :string, json_name: "refreshToken"
@@ -77,9 +83,10 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.AccountManagementService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.identitytoolkit.v2.AccountManagementService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :FinalizeMfaEnrollment,
       Google.Cloud.Identitytoolkit.V2.FinalizeMfaEnrollmentRequest,
@@ -96,5 +103,6 @@ end
 
 defmodule Google.Cloud.Identitytoolkit.V2.AccountManagementService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Identitytoolkit.V2.AccountManagementService.Service
 end

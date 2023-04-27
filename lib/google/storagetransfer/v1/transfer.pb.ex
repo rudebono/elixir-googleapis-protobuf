@@ -1,13 +1,15 @@
 defmodule Google.Storagetransfer.V1.GetGoogleServiceAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.CreateTransferJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_job, 1,
     type: Google.Storagetransfer.V1.TransferJob,
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Storagetransfer.V1.UpdateTransferJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Storagetransfer.V1.GetTransferJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -42,7 +46,8 @@ end
 
 defmodule Google.Storagetransfer.V1.DeleteTransferJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Storagetransfer.V1.ListTransferJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize"
@@ -59,7 +65,8 @@ end
 
 defmodule Google.Storagetransfer.V1.ListTransferJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_jobs, 1,
     repeated: true,
@@ -71,21 +78,24 @@ end
 
 defmodule Google.Storagetransfer.V1.PauseTransferOperationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.ResumeTransferOperationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.RunTransferJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -93,7 +103,8 @@ end
 
 defmodule Google.Storagetransfer.V1.CreateAgentPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
@@ -107,7 +118,8 @@ end
 
 defmodule Google.Storagetransfer.V1.UpdateAgentPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent_pool, 1,
     type: Google.Storagetransfer.V1.AgentPool,
@@ -119,21 +131,24 @@ end
 
 defmodule Google.Storagetransfer.V1.GetAgentPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.DeleteAgentPoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.ListAgentPoolsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :filter, 2, type: :string
@@ -143,7 +158,8 @@ end
 
 defmodule Google.Storagetransfer.V1.ListAgentPoolsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent_pools, 1,
     repeated: true,
@@ -155,9 +171,10 @@ end
 
 defmodule Google.Storagetransfer.V1.StorageTransferService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.storagetransfer.v1.StorageTransferService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetGoogleServiceAccount,
       Google.Storagetransfer.V1.GetGoogleServiceAccountRequest,
@@ -216,5 +233,6 @@ end
 
 defmodule Google.Storagetransfer.V1.StorageTransferService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Storagetransfer.V1.StorageTransferService.Service
 end

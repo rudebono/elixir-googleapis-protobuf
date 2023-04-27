@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Channel.V1.RebillingBasis do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REBILLING_BASIS_UNSPECIFIED, 0
   field :COST_AT_LIST, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.CustomerRepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -26,7 +28,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ChannelPartnerRepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -43,19 +46,22 @@ end
 
 defmodule Google.Cloud.Channel.V1.RepricingConfig.EntitlementGranularity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entitlement, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Channel.V1.RepricingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :granularity, 0
 
@@ -90,7 +96,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.RepricingAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :adjustment, 0
 
@@ -102,14 +109,16 @@ end
 
 defmodule Google.Cloud.Channel.V1.PercentageAdjustment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :percentage, 2, type: Google.Type.Decimal
 end
 
 defmodule Google.Cloud.Channel.V1.ConditionalOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :adjustment, 1, type: Google.Cloud.Channel.V1.RepricingAdjustment, deprecated: false
 
@@ -127,7 +136,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.RepricingCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :condition, 0
 
@@ -139,7 +149,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.SkuGroupCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sku_group, 1, type: :string, json_name: "skuGroup"
 end

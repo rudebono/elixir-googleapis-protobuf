@@ -1,6 +1,7 @@
 defmodule Grafeas.V1.Occurrence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -31,7 +32,8 @@ end
 
 defmodule Grafeas.V1.Note do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -67,14 +69,16 @@ end
 
 defmodule Grafeas.V1.GetOccurrenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Grafeas.V1.ListOccurrencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -84,7 +88,8 @@ end
 
 defmodule Grafeas.V1.ListOccurrencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -92,14 +97,16 @@ end
 
 defmodule Grafeas.V1.DeleteOccurrenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Grafeas.V1.CreateOccurrenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :occurrence, 2, type: Grafeas.V1.Occurrence, deprecated: false
@@ -107,7 +114,8 @@ end
 
 defmodule Grafeas.V1.UpdateOccurrenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :occurrence, 2, type: Grafeas.V1.Occurrence, deprecated: false
@@ -116,21 +124,24 @@ end
 
 defmodule Grafeas.V1.GetNoteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Grafeas.V1.GetOccurrenceNoteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Grafeas.V1.ListNotesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -140,7 +151,8 @@ end
 
 defmodule Grafeas.V1.ListNotesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :notes, 1, repeated: true, type: Grafeas.V1.Note
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -148,14 +160,16 @@ end
 
 defmodule Grafeas.V1.DeleteNoteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Grafeas.V1.CreateNoteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :note_id, 2, type: :string, json_name: "noteId", deprecated: false
@@ -164,7 +178,8 @@ end
 
 defmodule Grafeas.V1.UpdateNoteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :note, 2, type: Grafeas.V1.Note, deprecated: false
@@ -173,7 +188,8 @@ end
 
 defmodule Grafeas.V1.ListNoteOccurrencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -183,7 +199,8 @@ end
 
 defmodule Grafeas.V1.ListNoteOccurrencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -191,7 +208,8 @@ end
 
 defmodule Grafeas.V1.BatchCreateNotesRequest.NotesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Grafeas.V1.Note
@@ -199,7 +217,8 @@ end
 
 defmodule Grafeas.V1.BatchCreateNotesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -212,14 +231,16 @@ end
 
 defmodule Grafeas.V1.BatchCreateNotesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :notes, 1, repeated: true, type: Grafeas.V1.Note
 end
 
 defmodule Grafeas.V1.BatchCreateOccurrencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :occurrences, 2, repeated: true, type: Grafeas.V1.Occurrence, deprecated: false
@@ -227,14 +248,16 @@ end
 
 defmodule Grafeas.V1.BatchCreateOccurrencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :occurrences, 1, repeated: true, type: Grafeas.V1.Occurrence
 end
 
 defmodule Grafeas.V1.Grafeas.Service do
   @moduledoc false
-  use GRPC.Service, name: "grafeas.v1.Grafeas", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "grafeas.v1.Grafeas", protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetOccurrence, Grafeas.V1.GetOccurrenceRequest, Grafeas.V1.Occurrence
 
@@ -271,5 +294,6 @@ end
 
 defmodule Grafeas.V1.Grafeas.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Grafeas.V1.Grafeas.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Channel.V1.Column.DataType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ReportStatus.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.RunReportJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -39,7 +42,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.RunReportJobResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :report_job, 1, type: Google.Cloud.Channel.V1.ReportJob, json_name: "reportJob"
 
@@ -50,7 +54,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.FetchReportResultsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :report_job, 1, type: :string, json_name: "reportJob", deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -59,7 +64,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.FetchReportResultsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :report_metadata, 1,
     type: Google.Cloud.Channel.V1.ReportResultsMetadata,
@@ -71,7 +77,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ListReportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -81,7 +88,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ListReportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Cloud.Channel.V1.Report
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -89,7 +97,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ReportJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :report_status, 2, type: Google.Cloud.Channel.V1.ReportStatus, json_name: "reportStatus"
@@ -97,7 +106,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ReportResultsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :report, 1, type: Google.Cloud.Channel.V1.Report
   field :row_count, 2, type: :int64, json_name: "rowCount"
@@ -110,7 +120,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Column do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :column_id, 1, type: :string, json_name: "columnId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -123,7 +134,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.DateRange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :usage_start_date_time, 1, type: Google.Type.DateTime, json_name: "usageStartDateTime"
   field :usage_end_date_time, 2, type: Google.Type.DateTime, json_name: "usageEndDateTime"
@@ -133,14 +145,16 @@ end
 
 defmodule Google.Cloud.Channel.V1.Row do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Channel.V1.ReportValue
 end
 
 defmodule Google.Cloud.Channel.V1.ReportValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -154,7 +168,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ReportStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Channel.V1.ReportStatus.State, enum: true
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -163,7 +178,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Report do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -173,9 +189,10 @@ end
 
 defmodule Google.Cloud.Channel.V1.CloudChannelReportsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.channel.v1.CloudChannelReportsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :RunReportJob, Google.Cloud.Channel.V1.RunReportJobRequest, Google.Longrunning.Operation
 
@@ -190,5 +207,6 @@ end
 
 defmodule Google.Cloud.Channel.V1.CloudChannelReportsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Channel.V1.CloudChannelReportsService.Service
 end

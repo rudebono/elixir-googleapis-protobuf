@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommender.V1.ListInsightsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.ListInsightsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :insights, 1, repeated: true, type: Google.Cloud.Recommender.V1.Insight
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -18,14 +20,16 @@ end
 
 defmodule Google.Cloud.Recommender.V1.GetInsightRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommender.V1.MarkInsightAcceptedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -33,7 +37,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkInsightAcceptedRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.ListRecommendationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -59,7 +65,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.ListRecommendationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommendations, 1, repeated: true, type: Google.Cloud.Recommender.V1.Recommendation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -67,14 +74,16 @@ end
 
 defmodule Google.Cloud.Recommender.V1.GetRecommendationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -82,7 +91,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -97,7 +107,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationSucceededRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -105,7 +116,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationSucceededRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -120,7 +132,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest.StateMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -128,7 +141,8 @@ end
 
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationFailedRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -143,14 +157,16 @@ end
 
 defmodule Google.Cloud.Recommender.V1.GetRecommenderConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommender.V1.UpdateRecommenderConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recommender_config, 1,
     type: Google.Cloud.Recommender.V1.RecommenderConfig,
@@ -163,14 +179,16 @@ end
 
 defmodule Google.Cloud.Recommender.V1.GetInsightTypeConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommender.V1.UpdateInsightTypeConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :insight_type_config, 1,
     type: Google.Cloud.Recommender.V1.InsightTypeConfig,
@@ -183,9 +201,10 @@ end
 
 defmodule Google.Cloud.Recommender.V1.Recommender.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.recommender.v1.Recommender",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListInsights,
       Google.Cloud.Recommender.V1.ListInsightsRequest,
@@ -238,5 +257,6 @@ end
 
 defmodule Google.Cloud.Recommender.V1.Recommender.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Recommender.V1.Recommender.Service
 end

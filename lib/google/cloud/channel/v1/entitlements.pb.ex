@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Channel.V1.Entitlement.ProvisioningState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROVISIONING_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Entitlement.SuspensionReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SUSPENSION_REASON_UNSPECIFIED, 0
   field :RESELLER_INITIATED, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.TransferEligibility.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :PENDING_TOS_ACCEPTANCE, 1
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Entitlement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -85,7 +89,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Parameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Cloud.Channel.V1.Value
@@ -94,14 +99,16 @@ end
 
 defmodule Google.Cloud.Channel.V1.AssociationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :base_entitlement, 1, type: :string, json_name: "baseEntitlement", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ProvisionedService do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :provisioning_id, 1, type: :string, json_name: "provisioningId", deprecated: false
   field :product_id, 2, type: :string, json_name: "productId", deprecated: false
@@ -110,7 +117,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.CommitmentSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -123,7 +131,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.RenewalSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_renewal, 1, type: :bool, json_name: "enableRenewal"
   field :resize_unit_count, 2, type: :bool, json_name: "resizeUnitCount"
@@ -138,7 +147,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.TrialSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :trial, 1, type: :bool
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -146,7 +156,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.TransferableSku do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_eligibility, 9,
     type: Google.Cloud.Channel.V1.TransferEligibility,
@@ -162,7 +173,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.TransferEligibility do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :is_eligible, 1, type: :bool, json_name: "isEligible"
   field :description, 2, type: :string

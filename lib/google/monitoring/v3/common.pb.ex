@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.V3.ComparisonType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPARISON_UNSPECIFIED, 0
   field :COMPARISON_GT, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Monitoring.V3.ServiceTier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SERVICE_TIER_UNSPECIFIED, 0
   field :SERVICE_TIER_BASIC, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Monitoring.V3.Aggregation.Aligner do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ALIGN_NONE, 0
   field :ALIGN_DELTA, 1
@@ -47,7 +50,8 @@ end
 
 defmodule Google.Monitoring.V3.Aggregation.Reducer do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REDUCE_NONE, 0
   field :REDUCE_MEAN, 1
@@ -67,7 +71,8 @@ end
 
 defmodule Google.Monitoring.V3.TypedValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -84,7 +89,8 @@ end
 
 defmodule Google.Monitoring.V3.TimeInterval do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -92,7 +98,8 @@ end
 
 defmodule Google.Monitoring.V3.Aggregation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :alignment_period, 1, type: Google.Protobuf.Duration, json_name: "alignmentPeriod"
 

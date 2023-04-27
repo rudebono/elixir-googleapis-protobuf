@@ -1,6 +1,7 @@
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter.PerimeterType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PERIMETER_TYPE_REGULAR, 0
   field :PERIMETER_TYPE_BRIDGE, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IdentityType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :IDENTITY_TYPE_UNSPECIFIED, 0
   field :ANY_IDENTITY, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -38,7 +41,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.VpcAccessibleServices do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_restriction, 1, type: :bool, json_name: "enableRestriction"
   field :allowed_services, 2, repeated: true, type: :string, json_name: "allowedServices"
@@ -46,7 +50,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.MethodSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -56,7 +61,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.ApiOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
 
@@ -68,7 +74,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -78,7 +85,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sources, 1,
     repeated: true,
@@ -94,7 +102,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressTo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operations, 1,
     repeated: true,
@@ -105,7 +114,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ingress_from, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.IngressFrom,
@@ -118,7 +128,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :identities, 1, repeated: true, type: :string
 
@@ -130,7 +141,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressTo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: :string
 
@@ -143,7 +155,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :egress_from, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig.EgressFrom,
@@ -156,7 +169,8 @@ end
 
 defmodule Google.Identity.Accesscontextmanager.V1.ServicePerimeterConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: :string
   field :access_levels, 2, repeated: true, type: :string, json_name: "accessLevels"

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Edgecontainer.V1.KmsKeyState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :KMS_KEY_STATE_UNSPECIFIED, 0
   field :KMS_KEY_STATE_KEY_AVAILABLE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.BgpRoutingMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BGP_ROUTING_MODE_UNSPECIFIED, 0
   field :REGIONAL, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.Details.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_CONNECTED, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.Cluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.Cluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -79,7 +84,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.ClusterNetworking do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster_ipv4_cidr_blocks, 1,
     repeated: true,
@@ -96,7 +102,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.Fleet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :membership, 2, type: :string, deprecated: false
@@ -104,14 +111,16 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.ClusterUser do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Authorization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :admin_users, 1,
     type: Google.Cloud.Edgecontainer.V1.ClusterUser,
@@ -121,7 +130,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.NodePool.LocalDiskEncryption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey", deprecated: false
 
@@ -141,7 +151,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.NodePool.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -149,7 +160,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.NodePool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -180,7 +192,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.Machine.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -188,7 +201,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.Machine do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -214,7 +228,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.VpcProject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
@@ -222,21 +237,24 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.Details.CloudRouter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.Details.CloudVpn do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gateway, 1, type: :string
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.Details do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Edgecontainer.V1.VpnConnection.Details.State, enum: true
   field :error, 2, type: :string
@@ -253,7 +271,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -261,7 +280,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -302,7 +322,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.LocationMetadata.AvailableZonesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Edgecontainer.V1.ZoneMetadata
@@ -310,7 +331,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.LocationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :available_zones, 1,
     repeated: true,
@@ -321,14 +343,16 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.ZoneMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :quota, 1, repeated: true, type: Google.Cloud.Edgecontainer.V1.Quota
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Quota do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric, 1, type: :string
   field :limit, 2, type: :double
@@ -337,14 +361,16 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.MaintenancePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Edgecontainer.V1.MaintenanceWindow
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.MaintenanceWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recurring_window, 1,
     type: Google.Cloud.Edgecontainer.V1.RecurringTimeWindow,
@@ -353,7 +379,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.RecurringTimeWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Edgecontainer.V1.TimeWindow
   field :recurrence, 2, type: :string
@@ -361,7 +388,8 @@ end
 
 defmodule Google.Cloud.Edgecontainer.V1.TimeWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"

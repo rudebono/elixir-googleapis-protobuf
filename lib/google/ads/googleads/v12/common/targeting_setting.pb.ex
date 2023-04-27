@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Common.TargetRestrictionOperation.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.TargetingSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_restrictions, 1,
     repeated: true,
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.TargetRestriction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :targeting_dimension, 1,
     type: Google.Ads.Googleads.V12.Enums.TargetingDimensionEnum.TargetingDimension,
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.TargetRestrictionOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operator, 1,
     type: Google.Ads.Googleads.V12.Common.TargetRestrictionOperation.Operator,

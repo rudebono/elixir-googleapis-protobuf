@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1.Reference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :length, 2, type: :int64
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Genomics.V1.ReferenceSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :reference_ids, 2, repeated: true, type: :string, json_name: "referenceIds"
@@ -27,7 +29,8 @@ end
 
 defmodule Google.Genomics.V1.SearchReferenceSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
@@ -38,7 +41,8 @@ end
 
 defmodule Google.Genomics.V1.SearchReferenceSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reference_sets, 1,
     repeated: true,
@@ -50,14 +54,16 @@ end
 
 defmodule Google.Genomics.V1.GetReferenceSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reference_set_id, 1, type: :string, json_name: "referenceSetId"
 end
 
 defmodule Google.Genomics.V1.SearchReferencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :md5checksums, 1, repeated: true, type: :string
   field :accessions, 2, repeated: true, type: :string
@@ -68,7 +74,8 @@ end
 
 defmodule Google.Genomics.V1.SearchReferencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :references, 1, repeated: true, type: Google.Genomics.V1.Reference
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -76,14 +83,16 @@ end
 
 defmodule Google.Genomics.V1.GetReferenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
 end
 
 defmodule Google.Genomics.V1.ListBasesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
   field :start, 2, type: :int64
@@ -94,7 +103,8 @@ end
 
 defmodule Google.Genomics.V1.ListBasesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :offset, 1, type: :int64
   field :sequence, 2, type: :string
@@ -103,9 +113,10 @@ end
 
 defmodule Google.Genomics.V1.ReferenceServiceV1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.genomics.v1.ReferenceServiceV1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SearchReferenceSets,
       Google.Genomics.V1.SearchReferenceSetsRequest,
@@ -124,5 +135,6 @@ end
 
 defmodule Google.Genomics.V1.ReferenceServiceV1.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Genomics.V1.ReferenceServiceV1.Service
 end

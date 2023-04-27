@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Resourcemanager.V3.TagValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string, deprecated: false
@@ -23,7 +24,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -32,7 +34,8 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagValuesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_values, 1,
     repeated: true,
@@ -44,21 +47,24 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetTagValueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.GetNamespacedTagValueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_value, 1,
     type: Google.Cloud.Resourcemanager.V3.TagValue,
@@ -70,12 +76,14 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagValueMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_value, 1,
     type: Google.Cloud.Resourcemanager.V3.TagValue,
@@ -92,12 +100,14 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.UpdateTagValueMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -106,14 +116,16 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagValueMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagValues.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.resourcemanager.v3.TagValues",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListTagValues,
       Google.Cloud.Resourcemanager.V3.ListTagValuesRequest,
@@ -150,5 +162,6 @@ end
 
 defmodule Google.Cloud.Resourcemanager.V3.TagValues.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Resourcemanager.V3.TagValues.Service
 end

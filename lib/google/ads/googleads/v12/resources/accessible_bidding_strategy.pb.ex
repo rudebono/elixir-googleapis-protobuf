@@ -1,20 +1,23 @@
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.MaximizeConversionValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_roas, 1, type: :double, json_name: "targetRoas", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.MaximizeConversions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_cpa_micros, 2, type: :int64, json_name: "targetCpaMicros", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.TargetCpa do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_cpa_micros, 1,
     proto3_optional: true,
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.TargetImpressionShare do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1,
     type:
@@ -47,7 +51,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.TargetRoas do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_roas, 1,
     proto3_optional: true,
@@ -58,7 +63,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy.TargetSpend do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_spend_micros, 1,
     proto3_optional: true,
@@ -75,7 +81,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.AccessibleBiddingStrategy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :scheme, 0
 

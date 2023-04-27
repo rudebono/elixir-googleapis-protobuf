@@ -1,6 +1,7 @@
 defmodule Google.Spanner.V1.RequestOptions.Priority do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :PRIORITY_LOW, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :NORMAL, 0
   field :PLAN, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Spanner.V1.CreateSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :session, 2, type: Google.Spanner.V1.Session, deprecated: false
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Spanner.V1.BatchCreateSessionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :session_template, 2, type: Google.Spanner.V1.Session, json_name: "sessionTemplate"
@@ -36,14 +40,16 @@ end
 
 defmodule Google.Spanner.V1.BatchCreateSessionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, repeated: true, type: Google.Spanner.V1.Session
 end
 
 defmodule Google.Spanner.V1.Session.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -51,7 +57,8 @@ end
 
 defmodule Google.Spanner.V1.Session do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :labels, 2, repeated: true, type: Google.Spanner.V1.Session.LabelsEntry, map: true
@@ -71,14 +78,16 @@ end
 
 defmodule Google.Spanner.V1.GetSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Spanner.V1.ListSessionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -88,7 +97,8 @@ end
 
 defmodule Google.Spanner.V1.ListSessionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sessions, 1, repeated: true, type: Google.Spanner.V1.Session
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -96,14 +106,16 @@ end
 
 defmodule Google.Spanner.V1.DeleteSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Spanner.V1.RequestOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :priority, 1, type: Google.Spanner.V1.RequestOptions.Priority, enum: true
   field :request_tag, 2, type: :string, json_name: "requestTag"
@@ -112,7 +124,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :optimizer_version, 1, type: :string, json_name: "optimizerVersion"
   field :optimizer_statistics_package, 2, type: :string, json_name: "optimizerStatisticsPackage"
@@ -120,7 +133,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest.ParamTypesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
@@ -128,7 +142,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteSqlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector
@@ -161,7 +176,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
@@ -169,7 +185,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sql, 1, type: :string, deprecated: false
   field :params, 2, type: Google.Protobuf.Struct
@@ -183,7 +200,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector, deprecated: false
@@ -199,7 +217,8 @@ end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :result_sets, 1,
     repeated: true,
@@ -211,7 +230,8 @@ end
 
 defmodule Google.Spanner.V1.PartitionOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partition_size_bytes, 1, type: :int64, json_name: "partitionSizeBytes"
   field :max_partitions, 2, type: :int64, json_name: "maxPartitions"
@@ -219,7 +239,8 @@ end
 
 defmodule Google.Spanner.V1.PartitionQueryRequest.ParamTypesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Spanner.V1.Type
@@ -227,7 +248,8 @@ end
 
 defmodule Google.Spanner.V1.PartitionQueryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector
@@ -247,7 +269,8 @@ end
 
 defmodule Google.Spanner.V1.PartitionReadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector
@@ -263,14 +286,16 @@ end
 
 defmodule Google.Spanner.V1.Partition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partition_token, 1, type: :bytes, json_name: "partitionToken"
 end
 
 defmodule Google.Spanner.V1.PartitionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partitions, 1, repeated: true, type: Google.Spanner.V1.Partition
   field :transaction, 2, type: Google.Spanner.V1.Transaction
@@ -278,7 +303,8 @@ end
 
 defmodule Google.Spanner.V1.ReadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction, 2, type: Google.Spanner.V1.TransactionSelector
@@ -295,7 +321,8 @@ end
 
 defmodule Google.Spanner.V1.BeginTransactionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :options, 2, type: Google.Spanner.V1.TransactionOptions, deprecated: false
@@ -304,7 +331,8 @@ end
 
 defmodule Google.Spanner.V1.CommitRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :transaction, 0
 
@@ -323,7 +351,8 @@ end
 
 defmodule Google.Spanner.V1.RollbackRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :transaction_id, 2, type: :bytes, json_name: "transactionId", deprecated: false
@@ -331,7 +360,8 @@ end
 
 defmodule Google.Spanner.V1.Spanner.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.spanner.v1.Spanner", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.spanner.v1.Spanner", protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateSession, Google.Spanner.V1.CreateSessionRequest, Google.Spanner.V1.Session
 
@@ -374,5 +404,6 @@ end
 
 defmodule Google.Spanner.V1.Spanner.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Spanner.V1.Spanner.Service
 end

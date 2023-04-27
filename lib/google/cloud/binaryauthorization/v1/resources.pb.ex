@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.GlobalPolicyEvaluationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED, 0
   field :ENABLE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EvaluationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EVALUATION_MODE_UNSPECIFIED, 0
   field :ALWAYS_ALLOW, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule.EnforcementMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ENFORCEMENT_MODE_UNSPECIFIED, 0
   field :ENFORCED_BLOCK_AND_AUDIT_LOG, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey.SignatureAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SIGNATURE_ALGORITHM_UNSPECIFIED, 0
   field :RSA_PSS_2048_SHA256, 1
@@ -49,7 +53,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.ClusterAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
@@ -57,7 +62,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesNamespaceAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
@@ -65,7 +71,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.KubernetesServiceAccountAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Policy.IstioServiceIdentityAdmissionRulesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Binaryauthorization.V1.AdmissionRule
@@ -81,7 +89,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Policy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 6, type: :string, deprecated: false
@@ -139,14 +148,16 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionWhitelistPattern do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name_pattern, 1, type: :string, json_name: "namePattern"
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.AdmissionRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :evaluation_mode, 1,
     type: Google.Cloud.Binaryauthorization.V1.AdmissionRule.EvaluationMode,
@@ -169,7 +180,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.Attestor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :attestor_type, 0
 
@@ -189,7 +201,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.UserOwnedGrafeasNote do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :note_reference, 1, type: :string, json_name: "noteReference", deprecated: false
 
@@ -207,7 +220,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.PkixPublicKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :public_key_pem, 1, type: :string, json_name: "publicKeyPem"
 
@@ -219,7 +233,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.AttestorPublicKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :public_key, 0
 

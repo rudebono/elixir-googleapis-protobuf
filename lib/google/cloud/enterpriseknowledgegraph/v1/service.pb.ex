@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.InputConfig.EntityType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :PEOPLE, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.InputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bigquery_input_configs, 1,
     repeated: true,
@@ -34,7 +36,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.BigQueryInputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bigquery_table, 1, type: :string, json_name: "bigqueryTable", deprecated: false
   field :gcs_uri, 2, type: :string, json_name: "gcsUri", deprecated: false
@@ -42,21 +45,24 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.OutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bigquery_dataset, 1, type: :string, json_name: "bigqueryDataset", deprecated: false
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ReconConfig.Options do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_geocoding_separation, 100, type: :bool, json_name: "enableGeocodingSeparation"
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ReconConfig.ModelConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model_name, 1, type: :string, json_name: "modelName"
   field :version_tag, 2, type: :string, json_name: "versionTag"
@@ -64,7 +70,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ReconConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :clustering_config, 0
 
@@ -87,21 +94,24 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ConnectedComponentsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :weight_threshold, 1, type: :float, json_name: "weightThreshold"
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.AffinityClusteringConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :compression_round_count, 1, type: :int64, json_name: "compressionRoundCount"
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.DeleteOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Enterpriseknowledgegraph.V1.CommonOperationMetadata,
@@ -110,7 +120,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.CreateEntityReconciliationJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -122,14 +133,16 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.GetEntityReconciliationJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ListEntityReconciliationJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -139,7 +152,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.ListEntityReconciliationJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entity_reconciliation_jobs, 1,
     repeated: true,
@@ -151,21 +165,24 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.CancelEntityReconciliationJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.DeleteEntityReconciliationJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EntityReconciliationJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -206,7 +223,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :ids, 2, repeated: true, type: :string, deprecated: false
@@ -215,7 +233,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :context, 1, type: Google.Protobuf.Value
   field :type, 2, type: Google.Protobuf.Value
@@ -224,7 +243,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -235,7 +255,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :context, 1, type: Google.Protobuf.Value
   field :type, 2, type: Google.Protobuf.Value
@@ -244,7 +265,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :ids, 2, repeated: true, type: :string, deprecated: false
@@ -253,7 +275,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.LookupPublicKgResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :context, 1, type: Google.Protobuf.Value
   field :type, 2, type: Google.Protobuf.Value
@@ -262,7 +285,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -273,7 +297,8 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.SearchPublicKgResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :context, 1, type: Google.Protobuf.Value
   field :type, 2, type: Google.Protobuf.Value
@@ -282,9 +307,10 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateEntityReconciliationJob,
       Google.Cloud.Enterpriseknowledgegraph.V1.CreateEntityReconciliationJobRequest,
@@ -325,6 +351,7 @@ end
 
 defmodule Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphService.Stub do
   @moduledoc false
+
   use GRPC.Stub,
     service: Google.Cloud.Enterpriseknowledgegraph.V1.EnterpriseKnowledgeGraphService.Service
 end

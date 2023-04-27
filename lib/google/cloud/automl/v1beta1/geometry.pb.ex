@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.NormalizedVertex do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :x, 1, type: :float
   field :y, 2, type: :float
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.BoundingPoly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :normalized_vertices, 2,
     repeated: true,

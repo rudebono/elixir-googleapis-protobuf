@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Vision.V1.ProductSearchParams do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bounding_poly, 9, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
   field :product_set, 6, type: :string, json_name: "productSet", deprecated: false
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.Result do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Vision.V1.Product
   field :score, 2, type: :float
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.ObjectAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mid, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults.GroupedResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bounding_poly, 1, type: Google.Cloud.Vision.V1.BoundingPoly, json_name: "boundingPoly"
   field :results, 2, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result
@@ -42,7 +46,8 @@ end
 
 defmodule Google.Cloud.Vision.V1.ProductSearchResults do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :index_time, 2, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :results, 5, repeated: true, type: Google.Cloud.Vision.V1.ProductSearchResults.Result

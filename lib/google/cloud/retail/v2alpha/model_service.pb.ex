@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.CreateModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :model, 2, type: Google.Cloud.Retail.V2alpha.Model, deprecated: false
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.UpdateModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Retail.V2alpha.Model, deprecated: false
 
@@ -21,28 +23,32 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.GetModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.PauseModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ResumeModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ListModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -51,14 +57,16 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.DeleteModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ListModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -66,35 +74,40 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.TuneModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CreateModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2alpha.TuneModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2alpha.TuneModelResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ModelService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.ModelService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateModel, Google.Cloud.Retail.V2alpha.CreateModelRequest, Google.Longrunning.Operation
 
@@ -123,5 +136,6 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.ModelService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.ModelService.Service
 end

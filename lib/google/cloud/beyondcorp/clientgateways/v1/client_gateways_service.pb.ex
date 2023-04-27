@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGateway.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGateway do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -42,7 +44,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ListClientGatewaysRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -53,7 +56,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ListClientGatewaysResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :client_gateways, 1,
     repeated: true,
@@ -66,14 +70,16 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.GetClientGatewayRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.CreateClientGatewayRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :client_gateway_id, 2, type: :string, json_name: "clientGatewayId", deprecated: false
@@ -89,7 +95,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.DeleteClientGatewayRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -98,7 +105,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGatewayOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -120,9 +128,10 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGatewaysService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.beyondcorp.clientgateways.v1.ClientGatewaysService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListClientGateways,
       Google.Cloud.Beyondcorp.Clientgateways.V1.ListClientGatewaysRequest,
@@ -143,5 +152,6 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGatewaysService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Beyondcorp.Clientgateways.V1.ClientGatewaysService.Service
 end

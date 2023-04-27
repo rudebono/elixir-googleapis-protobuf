@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet.PlotType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PLOT_TYPE_UNSPECIFIED, 0
   field :LINE, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet.TargetAxis do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TARGET_AXIS_UNSPECIFIED, 0
   field :Y1, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.XyChart.Axis.Scale do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SCALE_UNSPECIFIED, 0
   field :LINEAR, 1
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.ChartOptions.Mode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :COLOR, 1
@@ -39,7 +43,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.XyChart.DataSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_series_query, 1,
     type: Google.Monitoring.Dashboard.V1.TimeSeriesQuery,
@@ -67,7 +72,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.XyChart.Axis do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :scale, 2, type: Google.Monitoring.Dashboard.V1.XyChart.Axis.Scale, enum: true
@@ -75,7 +81,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.XyChart do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_sets, 1,
     repeated: true,
@@ -96,7 +103,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.ChartOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mode, 1, type: Google.Monitoring.Dashboard.V1.ChartOptions.Mode, enum: true
 end

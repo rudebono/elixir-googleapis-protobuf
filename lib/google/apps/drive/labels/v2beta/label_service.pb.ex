@@ -1,8 +1,9 @@
 defmodule Google.Apps.Drive.Labels.V2beta.LabelService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.apps.drive.labels.v2beta.LabelService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetUserCapabilities,
       Google.Apps.Drive.Labels.V2beta.GetUserCapabilitiesRequest,
@@ -77,5 +78,6 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.LabelService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Apps.Drive.Labels.V2beta.LabelService.Service
 end

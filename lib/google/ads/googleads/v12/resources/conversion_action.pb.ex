@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Resources.ConversionAction.AttributionModelSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attribution_model, 1,
     type: Google.Ads.Googleads.V12.Enums.AttributionModelEnum.AttributionModel,
@@ -16,7 +17,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.ConversionAction.ValueSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :default_value, 4, proto3_optional: true, type: :double, json_name: "defaultValue"
 
@@ -33,7 +35,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.ConversionAction.ThirdPartyAppAnalyticsSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_name, 2,
     proto3_optional: true,
@@ -46,7 +49,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.ConversionAction.FirebaseSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_name, 3,
     proto3_optional: true,
@@ -66,7 +70,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.ConversionAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 21, proto3_optional: true, type: :int64, deprecated: false

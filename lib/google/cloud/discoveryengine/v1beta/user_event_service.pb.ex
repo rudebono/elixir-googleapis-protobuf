@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.WriteUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CollectUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :user_event, 2, type: :string, json_name: "userEvent", deprecated: false
@@ -23,9 +25,10 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.UserEventService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1beta.UserEventService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :WriteUserEvent,
       Google.Cloud.Discoveryengine.V1beta.WriteUserEventRequest,
@@ -42,5 +45,6 @@ end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.UserEventService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Discoveryengine.V1beta.UserEventService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.NetworkSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_google_search, 5,
     proto3_optional: true,
@@ -25,7 +26,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.DynamicSearchAdsSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_name, 6, type: :string, json_name: "domainName", deprecated: false
   field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
@@ -38,7 +40,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.ShoppingSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :merchant_id, 5,
     proto3_optional: true,
@@ -59,7 +62,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.TrackingSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tracking_url, 2,
     proto3_optional: true,
@@ -70,7 +74,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.GeoTargetTypeSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :positive_geo_target_type, 1,
     type: Google.Ads.Searchads360.V0.Enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType,
@@ -85,7 +90,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.SelectiveOptimization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversion_actions, 2,
     repeated: true,
@@ -96,7 +102,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign.OptimizationGoalSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :optimization_goal_types, 1,
     repeated: true,
@@ -107,7 +114,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.Campaign do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :campaign_bidding_strategy, 0
 

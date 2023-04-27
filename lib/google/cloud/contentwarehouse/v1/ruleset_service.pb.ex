@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Contentwarehouse.V1.RuleSetService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.RuleSetService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateRuleSet,
       Google.Cloud.Contentwarehouse.V1.CreateRuleSetRequest,
@@ -25,5 +26,6 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RuleSetService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Contentwarehouse.V1.RuleSetService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.GetFileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
@@ -10,14 +11,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileTailRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :read_offset, 2, type: :int64, json_name: "readOffset"
@@ -27,16 +30,18 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetFileTailResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.resultstore.v2.ResultStoreFileDownload",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetFile,
       Google.Devtools.Resultstore.V2.GetFileRequest,
@@ -49,5 +54,6 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreFileDownload.Service
 end

@@ -1,13 +1,15 @@
 defmodule Google.Actions.Sdk.V2.Webhook.Handler do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint.HttpHeadersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -15,7 +17,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Webhook.HttpsEndpoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :base_url, 1, type: :string, json_name: "baseUrl"
 
@@ -30,14 +33,16 @@ end
 
 defmodule Google.Actions.Sdk.V2.Webhook.InlineCloudFunction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :execute_function, 1, type: :string, json_name: "executeFunction"
 end
 
 defmodule Google.Actions.Sdk.V2.Webhook do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :webhook_type, 0
 

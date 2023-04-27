@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1.ReadGroup.Experiment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :library_id, 1, type: :string, json_name: "libraryId"
   field :platform_unit, 2, type: :string, json_name: "platformUnit"
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Genomics.V1.ReadGroup.Program do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :command_line, 1, type: :string, json_name: "commandLine"
   field :id, 2, type: :string
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Genomics.V1.ReadGroup.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Genomics.V1.ReadGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"

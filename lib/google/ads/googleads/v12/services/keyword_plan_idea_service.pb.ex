@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordIdeasRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :seed, 0
 
@@ -54,7 +55,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.KeywordAndUrlSeed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :url, 3, proto3_optional: true, type: :string
   field :keywords, 4, repeated: true, type: :string
@@ -62,28 +64,32 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.KeywordSeed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keywords, 2, repeated: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V12.Services.SiteSeed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :site, 2, proto3_optional: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V12.Services.UrlSeed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :url, 2, proto3_optional: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordIdeaResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -99,7 +105,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordIdeaResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 5, proto3_optional: true, type: :string
 
@@ -116,7 +123,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordHistoricalMetricsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :keywords, 2, repeated: true, type: :string
@@ -140,7 +148,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordHistoricalMetricsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -153,7 +162,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateKeywordHistoricalMetricsResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, proto3_optional: true, type: :string
   field :close_variants, 3, repeated: true, type: :string, json_name: "closeVariants"
@@ -165,7 +175,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateAdGroupThemesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :keywords, 2, repeated: true, type: :string, deprecated: false
@@ -174,7 +185,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GenerateAdGroupThemesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad_group_keyword_suggestions, 1,
     repeated: true,
@@ -189,7 +201,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.AdGroupKeywordSuggestion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_text, 1, type: :string, json_name: "keywordText"
   field :suggested_keyword_text, 2, type: :string, json_name: "suggestedKeywordText"
@@ -205,7 +218,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.UnusableAdGroup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad_group, 1, type: :string, json_name: "adGroup"
   field :campaign, 2, type: :string
@@ -213,9 +227,10 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.KeywordPlanIdeaService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.KeywordPlanIdeaService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GenerateKeywordIdeas,
       Google.Ads.Googleads.V12.Services.GenerateKeywordIdeasRequest,
@@ -232,5 +247,6 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.KeywordPlanIdeaService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V12.Services.KeywordPlanIdeaService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.AccountLink do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :linked_account, 0
 
@@ -54,7 +55,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.ThirdPartyAppAnalyticsLinkIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_analytics_provider_id, 4,
     proto3_optional: true,
@@ -73,7 +75,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.DataPartnerLinkIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_partner_id, 1,
     proto3_optional: true,
@@ -84,21 +87,24 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.HotelCenterLinkIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hotel_center_id, 1, type: :int64, json_name: "hotelCenterId", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.GoogleAdsLinkIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer, 3, proto3_optional: true, type: :string, deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Resources.AdvertisingPartnerLinkIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer, 1, proto3_optional: true, type: :string, deprecated: false
 end

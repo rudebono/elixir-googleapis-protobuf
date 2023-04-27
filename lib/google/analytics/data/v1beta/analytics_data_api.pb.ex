@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -22,7 +23,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_compatibilities, 1,
     repeated: true,
@@ -37,7 +39,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.Metadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
@@ -46,7 +49,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -87,7 +91,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -115,7 +120,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -144,7 +150,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pivot_headers, 1,
     repeated: true,
@@ -174,7 +181,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunReportRequest
@@ -182,7 +190,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Analytics.Data.V1beta.RunReportResponse
   field :kind, 2, type: :string
@@ -190,7 +199,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunPivotReportRequest
@@ -198,7 +208,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pivot_reports, 1,
     repeated: true,
@@ -210,14 +221,16 @@ end
 
 defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -254,7 +267,8 @@ end
 
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -281,9 +295,10 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.analytics.data.v1beta.BetaAnalyticsData",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :RunReport,
       Google.Analytics.Data.V1beta.RunReportRequest,
@@ -316,5 +331,6 @@ end
 
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Analytics.Data.V1beta.BetaAnalyticsData.Service
 end

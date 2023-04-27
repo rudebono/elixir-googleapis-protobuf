@@ -1,6 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Resources.Customer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 19, proto3_optional: true, type: :int64, deprecated: false
@@ -67,7 +68,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.ConversionTrackingSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversion_tracking_id, 3,
     proto3_optional: true,
@@ -111,7 +113,8 @@ end
 
 defmodule Google.Ads.Searchads360.V0.Resources.DoubleClickCampaignManagerSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :advertiser_id, 1, type: :int64, json_name: "advertiserId", deprecated: false
   field :network_id, 2, type: :int64, json_name: "networkId", deprecated: false

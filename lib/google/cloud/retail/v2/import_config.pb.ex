@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2.ImportProductsRequest.ReconciliationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RECONCILIATION_MODE_UNSPECIFIED, 0
   field :INCREMENTAL, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
   field :data_schema, 2, type: :string, json_name: "dataSchema"
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.BigQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :partition, 0
 
@@ -31,14 +34,16 @@ end
 
 defmodule Google.Cloud.Retail.V2.ProductInlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2.Product, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.UserEventInlineSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportErrorsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -58,7 +64,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportProductsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 6, type: :string, json_name: "requestId", deprecated: true
@@ -84,7 +91,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -100,7 +108,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportCompletionDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -114,7 +123,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ProductInputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -133,7 +143,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.UserEventInputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -158,7 +169,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CompletionDataInputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -171,7 +183,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -183,7 +196,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportProductsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -194,7 +208,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -209,7 +224,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.UserEventImportSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :joined_events_count, 1, type: :int64, json_name: "joinedEventsCount"
   field :unjoined_events_count, 2, type: :int64, json_name: "unjoinedEventsCount"
@@ -217,7 +233,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ImportCompletionDataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 end
