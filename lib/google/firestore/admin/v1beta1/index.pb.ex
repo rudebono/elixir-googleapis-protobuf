@@ -1,6 +1,7 @@
 defmodule Google.Firestore.Admin.V1beta1.IndexField.Mode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :ASCENDING, 2
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Firestore.Admin.V1beta1.Index.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 3
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Firestore.Admin.V1beta1.IndexField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field_path, 1, type: :string, json_name: "fieldPath"
   field :mode, 2, type: Google.Firestore.Admin.V1beta1.IndexField.Mode, enum: true
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Firestore.Admin.V1beta1.Index do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :collection_id, 2, type: :string, json_name: "collectionId"

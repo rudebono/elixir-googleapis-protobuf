@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AUTHORIZATION_TYPE_UNSPECIFIED, 0
   field :AUTHORIZATION_CODE, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.DataRefreshType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_REFRESH_TYPE_UNSPECIFIED, 0
   field :SLIDING_WINDOW, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest.RunAttempt do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RUN_ATTEMPT_UNSPECIFIED, 0
   field :LATEST, 1
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :param_id, 1, type: :string, json_name: "paramId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -66,7 +71,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data_source_id, 2, type: :string, json_name: "dataSourceId"
@@ -119,14 +125,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
@@ -135,7 +143,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListDataSourcesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_sources, 1,
     repeated: true,
@@ -147,7 +156,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -163,7 +173,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_config, 1,
     type: Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig,
@@ -183,35 +194,40 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.GetTransferRunRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DeleteTransferRunRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
@@ -221,7 +237,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_configs, 1,
     repeated: true,
@@ -234,7 +251,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -254,7 +272,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferRunsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_runs, 1,
     repeated: true,
@@ -267,7 +286,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken"
@@ -282,7 +302,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ListTransferLogsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transfer_messages, 1,
     repeated: true,
@@ -295,21 +316,24 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.CheckValidCredsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :has_valid_creds, 1, type: :bool, json_name: "hasValidCreds"
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -318,14 +342,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleTransferRunsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest.TimeRange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -333,7 +359,8 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :time, 0
 
@@ -352,14 +379,16 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.StartManualTransferRunsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :runs, 1, repeated: true, type: Google.Cloud.Bigquery.Datatransfer.V1.TransferRun
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
@@ -367,9 +396,10 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.bigquery.datatransfer.v1.DataTransferService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetDataSource,
       Google.Cloud.Bigquery.Datatransfer.V1.GetDataSourceRequest,
@@ -434,5 +464,6 @@ end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service
 end

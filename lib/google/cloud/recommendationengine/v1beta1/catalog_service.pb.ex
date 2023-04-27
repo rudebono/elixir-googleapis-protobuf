@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.CreateCatalogItemRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -12,14 +13,16 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.GetCatalogItemRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListCatalogItemsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :catalog_items, 1,
     repeated: true,
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UpdateCatalogItemRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -55,16 +60,18 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeleteCatalogItemRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.recommendationengine.v1beta1.CatalogService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateCatalogItem,
       Google.Cloud.Recommendationengine.V1beta1.CreateCatalogItemRequest,
@@ -93,5 +100,6 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Recommendationengine.V1beta1.CatalogService.Service
 end

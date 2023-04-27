@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnector.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.ListAppConnectorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.ListAppConnectorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_connectors, 1,
     repeated: true,
@@ -36,14 +39,16 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.GetAppConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.CreateAppConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :app_connector_id, 2, type: :string, json_name: "appConnectorId", deprecated: false
@@ -59,7 +64,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.UpdateAppConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -77,7 +83,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.DeleteAppConnectorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -86,7 +93,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.ReportStatusRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_connector, 1, type: :string, json_name: "appConnector", deprecated: false
 
@@ -101,14 +109,16 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnector.PrincipalInfo.ServiceAccount do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :email, 1, type: :string
 end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnector.PrincipalInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -120,7 +130,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnector.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -128,7 +139,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -169,7 +181,8 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnectorOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -191,9 +204,10 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnectorsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListAppConnectors,
       Google.Cloud.Beyondcorp.Appconnectors.V1.ListAppConnectorsRequest,
@@ -222,5 +236,6 @@ end
 
 defmodule Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnectorsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Beyondcorp.Appconnectors.V1.AppConnectorsService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.RejoinUserEventsRequest.UserEventRejoinScope do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :USER_EVENT_REJOIN_SCOPE_UNSPECIFIED, 0
   field :JOINED_EVENTS, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.WriteUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.CollectUserEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :conversion_rule, 0
 
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.RejoinUserEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,21 +53,24 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.RejoinUserEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rejoined_user_events_count, 1, type: :int64, json_name: "rejoinedUserEventsCount"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.RejoinUserEventsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2alpha.UserEventService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.UserEventService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :WriteUserEvent,
       Google.Cloud.Retail.V2alpha.WriteUserEventRequest,
@@ -86,5 +93,6 @@ end
 
 defmodule Google.Cloud.Retail.V2alpha.UserEventService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2alpha.UserEventService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation.ContentType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :SIMPLE_SIGNING_JSON, 1
@@ -16,7 +18,8 @@ end
 
 defmodule Grafeas.V1beta1.Attestation.PgpSignedAttestation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :key_id, 0
 
@@ -32,7 +35,8 @@ end
 
 defmodule Grafeas.V1beta1.Attestation.GenericSignedAttestation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :content_type, 1,
     type: Grafeas.V1beta1.Attestation.GenericSignedAttestation.ContentType,
@@ -45,28 +49,32 @@ end
 
 defmodule Grafeas.V1beta1.Attestation.Authority.Hint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :human_readable_name, 1, type: :string, json_name: "humanReadableName"
 end
 
 defmodule Grafeas.V1beta1.Attestation.Authority do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hint, 1, type: Grafeas.V1beta1.Attestation.Authority.Hint
 end
 
 defmodule Grafeas.V1beta1.Attestation.Details do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attestation, 1, type: Grafeas.V1beta1.Attestation.Attestation
 end
 
 defmodule Grafeas.V1beta1.Attestation.Attestation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :signature, 0
 

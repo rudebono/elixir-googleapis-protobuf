@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Admin.V1alpha.RunAccessReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entity, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Admin.V1alpha.AccessDimension
@@ -33,7 +34,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.RunAccessReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -52,14 +54,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccountsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -68,7 +72,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccountsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :accounts, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Account
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -76,14 +81,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateAccountRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account, 1, type: Google.Analytics.Admin.V1alpha.Account, deprecated: false
 
@@ -95,7 +102,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account, 1, type: Google.Analytics.Admin.V1alpha.Account
   field :redirect_uri, 2, type: :string, json_name: "redirectUri"
@@ -103,21 +111,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ProvisionAccountTicketResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account_ticket_id, 1, type: :string, json_name: "accountTicketId"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetPropertyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListPropertiesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -127,7 +138,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListPropertiesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :properties, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Property
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -135,7 +147,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdatePropertyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
 
@@ -147,28 +160,32 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreatePropertyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DeletePropertyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetUserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string, deprecated: false
@@ -176,7 +193,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_links, 1,
     repeated: true,
@@ -186,7 +204,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -195,7 +214,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListUserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_links, 1,
     repeated: true,
@@ -207,7 +227,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -216,7 +237,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_links, 1,
     repeated: true,
@@ -228,7 +250,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateUserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :notify_new_user, 2, type: :bool, json_name: "notifyNewUser", deprecated: false
@@ -241,7 +264,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :notify_new_users, 2, type: :bool, json_name: "notifyNewUsers", deprecated: false
@@ -254,7 +278,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_links, 1,
     repeated: true,
@@ -264,7 +289,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_link, 1,
     type: Google.Analytics.Admin.V1alpha.UserLink,
@@ -274,7 +300,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -286,7 +313,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_links, 1,
     repeated: true,
@@ -296,14 +324,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -315,7 +345,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -327,14 +358,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteFirebaseLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -343,7 +376,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListFirebaseLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :firebase_links, 1,
     repeated: true,
@@ -355,14 +389,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetGlobalSiteTagRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateGoogleAdsLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -374,7 +410,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleAdsLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :google_ads_link, 1,
     type: Google.Analytics.Admin.V1alpha.GoogleAdsLink,
@@ -388,14 +425,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteGoogleAdsLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -404,7 +443,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListGoogleAdsLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :google_ads_links, 1,
     repeated: true,
@@ -416,14 +456,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetDataSharingSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -431,7 +473,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccountSummariesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account_summaries, 1,
     repeated: true,
@@ -443,7 +486,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
   field :acknowledgement, 2, type: :string, deprecated: false
@@ -451,12 +495,14 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account, 1, type: :string, deprecated: false
   field :property, 2, type: :string, deprecated: false
@@ -492,7 +538,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :change_history_events, 1,
     repeated: true,
@@ -504,14 +551,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetMeasurementProtocolSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateMeasurementProtocolSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -523,14 +572,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteMeasurementProtocolSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :measurement_protocol_secret, 1,
     type: Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret,
@@ -542,7 +593,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -551,7 +603,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :measurement_protocol_secrets, 1,
     repeated: true,
@@ -563,14 +616,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateGoogleSignalsSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :google_signals_settings, 1,
     type: Google.Analytics.Admin.V1alpha.GoogleSignalsSettings,
@@ -585,7 +640,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateConversionEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversion_event, 1,
     type: Google.Analytics.Admin.V1alpha.ConversionEvent,
@@ -597,21 +653,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetConversionEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteConversionEventRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -620,7 +679,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversion_events, 1,
     repeated: true,
@@ -632,14 +692,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -648,7 +710,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_video_360_advertiser_links, 1,
     repeated: true,
@@ -660,7 +723,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -672,14 +736,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_video_360_advertiser_link, 1,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
@@ -693,14 +759,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -709,7 +777,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDisplayVideo360AdvertiserLinkProposalsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_video_360_advertiser_link_proposals, 1,
     repeated: true,
@@ -721,7 +790,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -733,21 +803,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ApproveDisplayVideo360AdvertiserLinkProposalResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_video_360_advertiser_link, 1,
     type: Google.Analytics.Admin.V1alpha.DisplayVideo360AdvertiserLink,
@@ -756,21 +829,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CancelDisplayVideo360AdvertiserLinkProposalRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetSearchAds360LinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListSearchAds360LinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -779,7 +855,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListSearchAds360LinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :search_ads_360_links, 1,
     repeated: true,
@@ -791,7 +868,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateSearchAds360LinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -803,14 +881,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteSearchAds360LinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateSearchAds360LinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :search_ads_360_link, 1,
     type: Google.Analytics.Admin.V1alpha.SearchAds360Link,
@@ -824,7 +904,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomDimensionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -836,7 +917,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateCustomDimensionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_dimension, 1,
     type: Google.Analytics.Admin.V1alpha.CustomDimension,
@@ -850,7 +932,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -859,7 +942,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListCustomDimensionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_dimensions, 1,
     repeated: true,
@@ -871,21 +955,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomDimensionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetCustomDimensionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateCustomMetricRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -897,7 +984,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateCustomMetricRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_metric, 1,
     type: Google.Analytics.Admin.V1alpha.CustomMetric,
@@ -911,7 +999,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -920,7 +1009,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListCustomMetricsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :custom_metrics, 1,
     repeated: true,
@@ -932,28 +1022,32 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ArchiveCustomMetricRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateDataRetentionSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_retention_settings, 1,
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings,
@@ -968,7 +1062,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateDataStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -980,14 +1075,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteDataStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateDataStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_stream, 1, type: Google.Analytics.Admin.V1alpha.DataStream, json_name: "dataStream"
 
@@ -999,7 +1096,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDataStreamsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1008,7 +1106,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListDataStreamsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_streams, 1,
     repeated: true,
@@ -1020,21 +1119,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetDataStreamRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetAudienceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAudiencesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1043,7 +1145,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAudiencesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :audiences, 1, repeated: true, type: Google.Analytics.Admin.V1alpha.Audience
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1051,7 +1154,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateAudienceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :audience, 2, type: Google.Analytics.Admin.V1alpha.Audience, deprecated: false
@@ -1059,7 +1163,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateAudienceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :audience, 1, type: Google.Analytics.Admin.V1alpha.Audience, deprecated: false
 
@@ -1071,21 +1176,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ArchiveAudienceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetAttributionSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateAttributionSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attribution_settings, 1,
     type: Google.Analytics.Admin.V1alpha.AttributionSettings,
@@ -1100,14 +1208,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetAccessBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string, deprecated: false
@@ -1115,7 +1225,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchGetAccessBindingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_bindings, 1,
     repeated: true,
@@ -1125,7 +1236,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccessBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1134,7 +1246,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListAccessBindingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_bindings, 1,
     repeated: true,
@@ -1146,7 +1259,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateAccessBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1158,7 +1272,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1170,7 +1285,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchCreateAccessBindingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_bindings, 1,
     repeated: true,
@@ -1180,7 +1296,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateAccessBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_binding, 1,
     type: Google.Analytics.Admin.V1alpha.AccessBinding,
@@ -1190,7 +1307,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1202,7 +1320,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchUpdateAccessBindingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_bindings, 1,
     repeated: true,
@@ -1212,14 +1331,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteAccessBindingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.BatchDeleteAccessBindingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1231,7 +1352,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateExpandedDataSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1243,7 +1365,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateExpandedDataSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expanded_data_set, 1,
     type: Google.Analytics.Admin.V1alpha.ExpandedDataSet,
@@ -1258,21 +1381,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteExpandedDataSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetExpandedDataSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListExpandedDataSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1281,7 +1407,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListExpandedDataSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expanded_data_sets, 1,
     repeated: true,
@@ -1293,7 +1420,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateChannelGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1305,7 +1433,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateChannelGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channel_group, 1,
     type: Google.Analytics.Admin.V1alpha.ChannelGroup,
@@ -1320,21 +1449,24 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteChannelGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetChannelGroupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListChannelGroupsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1343,7 +1475,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListChannelGroupsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channel_groups, 1,
     repeated: true,
@@ -1355,7 +1488,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
   field :opt_out, 2, type: :bool, json_name: "optOut"
@@ -1363,33 +1497,38 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :opt_out, 1, type: :bool, json_name: "optOut"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetBigQueryLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1398,7 +1537,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bigquery_links, 1,
     repeated: true,
@@ -1410,14 +1550,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enhanced_measurement_settings, 1,
     type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
@@ -1432,7 +1574,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
 
@@ -1444,12 +1587,14 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DeleteConnectedSiteTagRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :tag_id, 2, type: :string, json_name: "tagId"
@@ -1457,14 +1602,16 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :connected_site_tags, 1,
     repeated: true,
@@ -1474,23 +1621,26 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.analytics.admin.v1alpha.AnalyticsAdminService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetAccount,
       Google.Analytics.Admin.V1alpha.GetAccountRequest,
@@ -1943,5 +2093,6 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service
 end

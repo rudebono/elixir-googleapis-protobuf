@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image_versions, 1,
     repeated: true,
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image_version_id, 1, type: :string, json_name: "imageVersionId"
   field :is_default, 2, type: :bool, json_name: "isDefault"
@@ -39,9 +42,10 @@ end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersions.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.orchestration.airflow.service.v1.ImageVersions",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListImageVersions,
       Google.Cloud.Orchestration.Airflow.Service.V1.ListImageVersionsRequest,
@@ -50,5 +54,6 @@ end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersions.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Orchestration.Airflow.Service.V1.ImageVersions.Service
 end

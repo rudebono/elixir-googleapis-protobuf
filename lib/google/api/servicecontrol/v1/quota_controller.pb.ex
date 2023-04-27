@@ -1,6 +1,7 @@
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation.QuotaMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :NORMAL, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaError.Code do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :RESOURCE_EXHAUSTED, 8
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
 
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :method_name, 2, type: :string, json_name: "methodName"
@@ -69,7 +74,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.AllocateQuotaResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -88,7 +94,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.QuotaError.Code, enum: true
   field :subject, 2, type: :string
@@ -98,9 +105,10 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaController.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.api.servicecontrol.v1.QuotaController",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :AllocateQuota,
       Google.Api.Servicecontrol.V1.AllocateQuotaRequest,
@@ -109,5 +117,6 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.QuotaController.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Api.Servicecontrol.V1.QuotaController.Service
 end

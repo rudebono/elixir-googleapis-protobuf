@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.V1.InventoryView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INVENTORY_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.Item.OriginType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ORIGIN_TYPE_UNSPECIFIED, 0
   field :INVENTORY_REPORT, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.Item.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INSTALLED_PACKAGE, 1
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.OsInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hostname, 9, type: :string
   field :long_name, 2, type: :string, json_name: "longName"
@@ -40,7 +44,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.Item do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -68,7 +73,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.SoftwarePackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -120,7 +126,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.VersionedPackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :package_name, 4, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
@@ -129,7 +136,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.ZypperPatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :patch_name, 5, type: :string, json_name: "patchName"
   field :category, 2, type: :string
@@ -139,7 +147,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -147,7 +156,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsUpdatePackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -169,7 +179,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsQuickFixEngineeringPackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :caption, 1, type: :string
   field :description, 2, type: :string
@@ -179,7 +190,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.WindowsApplication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :display_version, 2, type: :string, json_name: "displayVersion"
@@ -190,7 +202,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory.ItemsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Osconfig.V1.Inventory.Item
@@ -198,7 +211,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.Inventory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :os_info, 1, type: Google.Cloud.Osconfig.V1.Inventory.OsInfo, json_name: "osInfo"
@@ -212,7 +226,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.GetInventoryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Osconfig.V1.InventoryView, enum: true
@@ -220,7 +235,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.ListInventoriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Osconfig.V1.InventoryView, enum: true
@@ -231,7 +247,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1.ListInventoriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inventories, 1, repeated: true, type: Google.Cloud.Osconfig.V1.Inventory
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"

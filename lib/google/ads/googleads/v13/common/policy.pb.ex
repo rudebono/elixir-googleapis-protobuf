@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Common.PolicyViolationKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :policy_name, 3, proto3_optional: true, type: :string, json_name: "policyName"
   field :violating_text, 4, proto3_optional: true, type: :string, json_name: "violatingText"
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyValidationParameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ignorable_policy_topics, 3,
     repeated: true,
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 5, proto3_optional: true, type: :string
 
@@ -40,28 +43,32 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence.TextList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :texts, 2, repeated: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence.WebsiteList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :websites, 2, repeated: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence.DestinationTextList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination_texts, 2, repeated: true, type: :string, json_name: "destinationTexts"
 end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence.DestinationMismatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :url_types, 1,
     repeated: true,
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence.DestinationNotWorking do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -101,7 +109,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicEvidence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -135,7 +144,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicConstraint.CountryConstraintList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :total_targeted_countries, 3,
     proto3_optional: true,
@@ -149,19 +159,22 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicConstraint.ResellerConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicConstraint.CountryConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :country_criterion, 2, proto3_optional: true, type: :string, json_name: "countryCriterion"
 end
 
 defmodule Google.Ads.Googleads.V13.Common.PolicyTopicConstraint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 

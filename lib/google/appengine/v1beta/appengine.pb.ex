@@ -1,6 +1,7 @@
 defmodule Google.Appengine.V1beta.VersionView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BASIC, 0
   field :FULL, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Appengine.V1beta.AuthorizedCertificateView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BASIC_CERTIFICATE, 0
   field :FULL_CERTIFICATE, 1
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Appengine.V1beta.DomainOverrideStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY, 0
   field :STRICT, 1
@@ -25,21 +28,24 @@ end
 
 defmodule Google.Appengine.V1beta.GetApplicationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.CreateApplicationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :application, 2, type: Google.Appengine.V1beta.Application
 end
 
 defmodule Google.Appengine.V1beta.UpdateApplicationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :application, 2, type: Google.Appengine.V1beta.Application
@@ -48,14 +54,16 @@ end
 
 defmodule Google.Appengine.V1beta.RepairApplicationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.ListServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -64,7 +72,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListServicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Appengine.V1beta.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -72,14 +81,16 @@ end
 
 defmodule Google.Appengine.V1beta.GetServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :service, 2, type: Google.Appengine.V1beta.Service
@@ -89,14 +100,16 @@ end
 
 defmodule Google.Appengine.V1beta.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.ListVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
@@ -106,7 +119,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Appengine.V1beta.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -114,7 +128,8 @@ end
 
 defmodule Google.Appengine.V1beta.GetVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.VersionView, enum: true
@@ -122,7 +137,8 @@ end
 
 defmodule Google.Appengine.V1beta.CreateVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
@@ -130,7 +146,8 @@ end
 
 defmodule Google.Appengine.V1beta.UpdateVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: Google.Appengine.V1beta.Version
@@ -139,14 +156,16 @@ end
 
 defmodule Google.Appengine.V1beta.DeleteVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -155,7 +174,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Appengine.V1beta.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -163,21 +183,24 @@ end
 
 defmodule Google.Appengine.V1beta.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.DebugInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ssh_key, 2, type: :string, json_name: "sshKey"
@@ -185,7 +208,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListIngressRulesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -195,7 +219,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListIngressRulesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ingress_rules, 1,
     repeated: true,
@@ -207,7 +232,8 @@ end
 
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -219,7 +245,8 @@ end
 
 defmodule Google.Appengine.V1beta.BatchUpdateIngressRulesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ingress_rules, 1,
     repeated: true,
@@ -229,7 +256,8 @@ end
 
 defmodule Google.Appengine.V1beta.CreateIngressRuleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
@@ -237,14 +265,16 @@ end
 
 defmodule Google.Appengine.V1beta.GetIngressRuleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.UpdateIngressRuleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :rule, 2, type: Google.Appengine.V1beta.FirewallRule
@@ -253,14 +283,16 @@ end
 
 defmodule Google.Appengine.V1beta.DeleteIngressRuleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -269,7 +301,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedDomainsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domains, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedDomain
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -277,7 +310,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :view, 4, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
@@ -287,7 +321,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListAuthorizedCertificatesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: Google.Appengine.V1beta.AuthorizedCertificate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -295,7 +330,8 @@ end
 
 defmodule Google.Appengine.V1beta.GetAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Appengine.V1beta.AuthorizedCertificateView, enum: true
@@ -303,7 +339,8 @@ end
 
 defmodule Google.Appengine.V1beta.CreateAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
@@ -311,7 +348,8 @@ end
 
 defmodule Google.Appengine.V1beta.UpdateAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :certificate, 2, type: Google.Appengine.V1beta.AuthorizedCertificate
@@ -320,14 +358,16 @@ end
 
 defmodule Google.Appengine.V1beta.DeleteAuthorizedCertificateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.ListDomainMappingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -336,7 +376,8 @@ end
 
 defmodule Google.Appengine.V1beta.ListDomainMappingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :domain_mappings, 1,
     repeated: true,
@@ -348,14 +389,16 @@ end
 
 defmodule Google.Appengine.V1beta.GetDomainMappingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.CreateDomainMappingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
 
@@ -371,7 +414,8 @@ end
 
 defmodule Google.Appengine.V1beta.UpdateDomainMappingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -384,16 +428,18 @@ end
 
 defmodule Google.Appengine.V1beta.DeleteDomainMappingRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Appengine.V1beta.Applications.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.appengine.v1beta.Applications",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetApplication,
       Google.Appengine.V1beta.GetApplicationRequest,
@@ -414,12 +460,14 @@ end
 
 defmodule Google.Appengine.V1beta.Applications.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.Applications.Service
 end
 
 defmodule Google.Appengine.V1beta.Services.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Services", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.appengine.v1beta.Services", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListServices,
       Google.Appengine.V1beta.ListServicesRequest,
@@ -434,12 +482,14 @@ end
 
 defmodule Google.Appengine.V1beta.Services.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.Services.Service
 end
 
 defmodule Google.Appengine.V1beta.Versions.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Versions", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.appengine.v1beta.Versions", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListVersions,
       Google.Appengine.V1beta.ListVersionsRequest,
@@ -456,12 +506,14 @@ end
 
 defmodule Google.Appengine.V1beta.Versions.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.Versions.Service
 end
 
 defmodule Google.Appengine.V1beta.Instances.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Instances", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.appengine.v1beta.Instances", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListInstances,
       Google.Appengine.V1beta.ListInstancesRequest,
@@ -476,12 +528,14 @@ end
 
 defmodule Google.Appengine.V1beta.Instances.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.Instances.Service
 end
 
 defmodule Google.Appengine.V1beta.Firewall.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.appengine.v1beta.Firewall", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.appengine.v1beta.Firewall", protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListIngressRules,
       Google.Appengine.V1beta.ListIngressRulesRequest,
@@ -508,14 +562,16 @@ end
 
 defmodule Google.Appengine.V1beta.Firewall.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.Firewall.Service
 end
 
 defmodule Google.Appengine.V1beta.AuthorizedDomains.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.appengine.v1beta.AuthorizedDomains",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListAuthorizedDomains,
       Google.Appengine.V1beta.ListAuthorizedDomainsRequest,
@@ -524,14 +580,16 @@ end
 
 defmodule Google.Appengine.V1beta.AuthorizedDomains.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.AuthorizedDomains.Service
 end
 
 defmodule Google.Appengine.V1beta.AuthorizedCertificates.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.appengine.v1beta.AuthorizedCertificates",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListAuthorizedCertificates,
       Google.Appengine.V1beta.ListAuthorizedCertificatesRequest,
@@ -556,14 +614,16 @@ end
 
 defmodule Google.Appengine.V1beta.AuthorizedCertificates.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.AuthorizedCertificates.Service
 end
 
 defmodule Google.Appengine.V1beta.DomainMappings.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.appengine.v1beta.DomainMappings",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListDomainMappings,
       Google.Appengine.V1beta.ListDomainMappingsRequest,
@@ -588,5 +648,6 @@ end
 
 defmodule Google.Appengine.V1beta.DomainMappings.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Appengine.V1beta.DomainMappings.Service
 end

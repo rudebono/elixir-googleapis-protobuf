@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.ExecutionStrategy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXECUTION_STRATEGY_UNSPECIFIED, 0
   field :OTHER_ENVIRONMENT, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestCaching do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TEST_CACHING_UNSPECIFIED, 0
   field :LOCAL_CACHE_HIT, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.Action.Id do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.Action do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :action_type, 0
 
@@ -76,7 +80,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.BuildAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :primary_input_path, 2, type: :string, json_name: "primaryInputPath"
@@ -85,7 +90,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :test_timing, 1, type: Google.Devtools.Resultstore.V2.TestTiming, json_name: "testTiming"
   field :shard_number, 2, type: :int32, json_name: "shardNumber"
@@ -98,7 +104,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ActionAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :execution_strategy, 1,
     type: Google.Devtools.Resultstore.V2.ExecutionStrategy,
@@ -115,7 +122,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.InputFileInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :count, 1, type: :int64
   field :distinct_count, 2, type: :int64, json_name: "distinctCount"
@@ -126,7 +134,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.LocalTestTiming do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :test_process_duration, 1,
     type: Google.Protobuf.Duration,
@@ -135,7 +144,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.RemoteTestAttemptTiming do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :queue_duration, 1, type: Google.Protobuf.Duration, json_name: "queueDuration"
   field :upload_duration, 2, type: Google.Protobuf.Duration, json_name: "uploadDuration"
@@ -153,7 +163,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.RemoteTestTiming do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :local_analysis_duration, 1,
     type: Google.Protobuf.Duration,
@@ -164,7 +175,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestTiming do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :location, 0
 
@@ -181,7 +193,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestWarning do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :warning_message, 1, type: :string, json_name: "warningMessage"
 end

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Errors.UserListErrorEnum.UserListError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -30,9 +31,13 @@ defmodule Google.Ads.Googleads.V13.Errors.UserListErrorEnum.UserListError do
   field :RULE_TYPE_IS_NOT_SUPPORTED, 34
   field :CAN_NOT_ADD_A_SIMILAR_USERLIST_AS_LOGICAL_LIST_OPERAND, 35
   field :CAN_NOT_MIX_CRM_BASED_IN_LOGICAL_LIST_WITH_OTHER_LISTS, 36
+  field :APP_ID_NOT_ALLOWED, 39
+  field :CANNOT_MUTATE_SYSTEM_LIST, 40
+  field :MOBILE_APP_IS_SENSITIVE, 41
 end
 
 defmodule Google.Ads.Googleads.V13.Errors.UserListErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

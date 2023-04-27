@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Common.Metrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :absolute_top_impression_percentage, 183,
     proto3_optional: true,
@@ -475,6 +476,16 @@ defmodule Google.Ads.Googleads.V13.Common.Metrics do
     json_name: "searchTopImpressionShare"
 
   field :speed_score, 147, proto3_optional: true, type: :int64, json_name: "speedScore"
+
+  field :average_target_cpa_micros, 290,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "averageTargetCpaMicros"
+
+  field :average_target_roas, 250,
+    proto3_optional: true,
+    type: :double,
+    json_name: "averageTargetRoas"
 
   field :top_impression_percentage, 148,
     proto3_optional: true,

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Gkehub.V1alpha.ListFeaturesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.ListFeaturesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resources, 1, repeated: true, type: Google.Cloud.Gkehub.V1alpha.Feature
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -19,14 +21,16 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.GetFeatureRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Cloud.Gkehub.V1alpha.CreateFeatureRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :feature_id, 2, type: :string, json_name: "featureId"
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.DeleteFeatureRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -45,7 +50,8 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.UpdateFeatureRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -72,9 +79,10 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.GkeHub.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.gkehub.v1alpha.GkeHub",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListFeatures,
       Google.Cloud.Gkehub.V1alpha.ListFeaturesRequest,
@@ -99,5 +107,6 @@ end
 
 defmodule Google.Cloud.Gkehub.V1alpha.GkeHub.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Gkehub.V1alpha.GkeHub.Service
 end

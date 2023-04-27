@@ -1,6 +1,7 @@
 defmodule Google.Api.Servicecontrol.V1.CheckError.Code do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :NOT_FOUND, 5
@@ -27,7 +28,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.CheckError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: Google.Api.Servicecontrol.V1.CheckError.Code, enum: true
   field :subject, 4, type: :string

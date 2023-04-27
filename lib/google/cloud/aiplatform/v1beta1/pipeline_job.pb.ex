@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -16,7 +17,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.InputArtifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.Value
@@ -33,7 +36,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParameterValuesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.InputArtifactsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.InputArtifact
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -82,7 +88,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -90,7 +97,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -147,14 +155,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 3, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJobDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pipeline_context, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Context,
@@ -175,7 +185,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.PipelineTaskStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -192,7 +203,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :artifacts, 1,
     repeated: true,
@@ -202,7 +214,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.InputsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList
@@ -210,7 +223,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.OutputsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.ArtifactList
@@ -218,7 +232,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :task_id, 1, type: :int64, json_name: "taskId", deprecated: false
   field :parent_task_id, 12, type: :int64, json_name: "parentTaskId", deprecated: false
@@ -266,7 +281,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.ContainerDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :main_job, 1, type: :string, json_name: "mainJob", deprecated: false
 
@@ -290,7 +306,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.CustomJobDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job, 1, type: :string, deprecated: false
   field :failed_jobs, 3, repeated: true, type: :string, json_name: "failedJobs", deprecated: false
@@ -298,7 +315,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 

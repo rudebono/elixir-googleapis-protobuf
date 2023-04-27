@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.Component do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPONENT_UNSPECIFIED, 0
   field :ANACONDA, 5
@@ -21,7 +22,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.FailureAction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :FAILURE_ACTION_UNSPECIFIED, 0
   field :NO_ACTION, 1
@@ -30,7 +32,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget.Role do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -41,7 +44,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -49,7 +53,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
   field :container_image, 2, type: :string, json_name: "containerImage", deprecated: false
@@ -63,7 +68,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :execution_config, 1,
     type: Google.Cloud.Dataproc.V1.ExecutionConfig,
@@ -78,7 +84,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :network, 0
 
@@ -99,14 +106,16 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.SparkHistoryServerConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster", deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.PeripheralsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metastore_service, 1, type: :string, json_name: "metastoreService", deprecated: false
 
@@ -118,7 +127,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo.EndpointsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -126,7 +136,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoints, 1,
     repeated: true,
@@ -154,7 +165,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.UsageMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :milli_dcu_seconds, 1, type: :int64, json_name: "milliDcuSeconds", deprecated: false
 
@@ -166,7 +178,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.UsageSnapshot do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :milli_dcu, 1, type: :int64, json_name: "milliDcu", deprecated: false
   field :shuffle_storage_gb, 2, type: :int64, json_name: "shuffleStorageGb", deprecated: false
@@ -179,7 +192,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeClusterConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gke_cluster_target, 2, type: :string, json_name: "gkeClusterTarget", deprecated: false
 
@@ -192,7 +206,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.KubernetesClusterConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -215,7 +230,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig.ComponentVersionEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -223,7 +239,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig.PropertiesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -231,7 +248,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.KubernetesSoftwareConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :component_version, 1,
     repeated: true,
@@ -247,7 +265,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :node_pool, 1, type: :string, json_name: "nodePool", deprecated: false
 
@@ -265,7 +284,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
   field :local_ssd_count, 7, type: :int32, json_name: "localSsdCount", deprecated: false
@@ -283,7 +303,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAcceleratorConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
   field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
@@ -292,7 +313,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
   field :max_node_count, 3, type: :int32, json_name: "maxNodeCount"
@@ -300,7 +322,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :config, 2,
     type: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodeConfig,

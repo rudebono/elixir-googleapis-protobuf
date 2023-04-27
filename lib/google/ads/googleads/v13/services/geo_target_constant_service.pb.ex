@@ -1,20 +1,23 @@
 defmodule Google.Ads.Googleads.V13.Services.SuggestGeoTargetConstantsRequest.LocationNames do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :names, 2, repeated: true, type: :string
 end
 
 defmodule Google.Ads.Googleads.V13.Services.SuggestGeoTargetConstantsRequest.GeoTargets do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :geo_target_constants, 2, repeated: true, type: :string, json_name: "geoTargetConstants"
 end
 
 defmodule Google.Ads.Googleads.V13.Services.SuggestGeoTargetConstantsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.SuggestGeoTargetConstantsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :geo_target_constant_suggestions, 1,
     repeated: true,
@@ -44,7 +48,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GeoTargetConstantSuggestion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :locale, 6, proto3_optional: true, type: :string
   field :reach, 7, proto3_optional: true, type: :int64
@@ -62,9 +67,10 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GeoTargetConstantService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v13.services.GeoTargetConstantService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SuggestGeoTargetConstants,
       Google.Ads.Googleads.V13.Services.SuggestGeoTargetConstantsRequest,
@@ -73,5 +79,6 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GeoTargetConstantService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V13.Services.GeoTargetConstantService.Service
 end

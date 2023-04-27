@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.Invoice.AccountSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -97,7 +98,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Invoice.AccountBudgetSummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer, 10, proto3_optional: true, type: :string, deprecated: false
 
@@ -181,7 +183,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Invoice.InvalidActivitySummary do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :original_month_of_service, 1,
     proto3_optional: true,
@@ -223,7 +226,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.Invoice do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 25, proto3_optional: true, type: :string, deprecated: false

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Resources.FeedAttributeOperation.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.Feed.PlacesLocationFeedData.OAuthInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :http_method, 4, proto3_optional: true, type: :string, json_name: "httpMethod"
   field :http_request_url, 5, proto3_optional: true, type: :string, json_name: "httpRequestUrl"
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.Feed.PlacesLocationFeedData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :oauth_info, 1,
     type: Google.Ads.Googleads.V12.Resources.Feed.PlacesLocationFeedData.OAuthInfo,
@@ -43,7 +46,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.Feed.AffiliateLocationFeedData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :chain_ids, 3, repeated: true, type: :int64, json_name: "chainIds"
 
@@ -56,7 +60,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.Feed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :system_feed_generation_data, 0
 
@@ -93,7 +98,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.FeedAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 5, proto3_optional: true, type: :int64
   field :name, 6, proto3_optional: true, type: :string
@@ -107,7 +113,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.FeedAttributeOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operator, 1,
     type: Google.Ads.Googleads.V12.Resources.FeedAttributeOperation.Operator,

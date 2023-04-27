@@ -1,6 +1,7 @@
 defmodule Google.Maps.Regionlookup.V1alpha.RegionSearchValue.PlaceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PLACE_TYPE_UNSPECIFIED, 0
   field :POSTAL_CODE, 1
@@ -17,7 +18,8 @@ end
 
 defmodule Google.Maps.Regionlookup.V1alpha.RegionSearchValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :location, 0
 

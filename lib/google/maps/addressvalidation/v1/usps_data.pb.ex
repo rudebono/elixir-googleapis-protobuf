@@ -1,6 +1,7 @@
 defmodule Google.Maps.Addressvalidation.V1.UspsAddress do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :first_address_line, 1, type: :string, json_name: "firstAddressLine"
   field :firm, 2, type: :string
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Maps.Addressvalidation.V1.UspsData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :standardized_address, 1,
     type: Google.Maps.Addressvalidation.V1.UspsAddress,

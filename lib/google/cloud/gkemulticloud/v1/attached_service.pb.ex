@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :attached_cluster_id, 2, type: :string, json_name: "attachedClusterId", deprecated: false
@@ -9,14 +10,16 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :manifest, 1, type: :string
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAttachedClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.ImportAttachedClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -42,7 +46,8 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAttachedClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attached_cluster, 1,
     type: Google.Cloud.Gkemulticloud.V1.AttachedCluster,
@@ -59,14 +64,16 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.GetAttachedClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.ListAttachedClustersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -75,7 +82,8 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.ListAttachedClustersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attached_clusters, 1,
     repeated: true,
@@ -87,7 +95,8 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.DeleteAttachedClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -98,16 +107,18 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.GetAttachedServerConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusters.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.gkemulticloud.v1.AttachedClusters",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateAttachedCluster,
       Google.Cloud.Gkemulticloud.V1.CreateAttachedClusterRequest,
@@ -144,5 +155,6 @@ end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusters.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Gkemulticloud.V1.AttachedClusters.Service
 end

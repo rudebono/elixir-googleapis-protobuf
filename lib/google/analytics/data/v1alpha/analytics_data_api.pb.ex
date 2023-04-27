@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :FUNNEL_VISUALIZATION_TYPE_UNSPECIFIED, 0
   field :STANDARD_FUNNEL, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string
 
@@ -45,7 +47,8 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :funnel_table, 1,
     type: Google.Analytics.Data.V1alpha.FunnelSubReport,
@@ -64,9 +67,10 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.analytics.data.v1alpha.AlphaAnalyticsData",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :RunFunnelReport,
       Google.Analytics.Data.V1alpha.RunFunnelReportRequest,
@@ -75,5 +79,6 @@ end
 
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service
 end

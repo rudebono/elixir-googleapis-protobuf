@@ -1,6 +1,7 @@
 defmodule Google.Api.ClientLibraryOrganization do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED, 0
   field :CLOUD, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Api.ClientLibraryDestination do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CLIENT_LIBRARY_DESTINATION_UNSPECIFIED, 0
   field :GITHUB, 10
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Api.CommonLanguageSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reference_docs_uri, 1, type: :string, json_name: "referenceDocsUri", deprecated: true
   field :destinations, 2, repeated: true, type: Google.Api.ClientLibraryDestination, enum: true
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Api.ClientLibrarySettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :launch_stage, 2, type: Google.Api.LaunchStage, json_name: "launchStage", enum: true
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Api.Publishing do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :method_settings, 2,
     repeated: true,
@@ -77,7 +82,8 @@ end
 
 defmodule Google.Api.JavaSettings.ServiceClassNamesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -85,7 +91,8 @@ end
 
 defmodule Google.Api.JavaSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :library_package, 1, type: :string, json_name: "libraryPackage"
 
@@ -100,35 +107,40 @@ end
 
 defmodule Google.Api.CppSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.PhpSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.PythonSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.NodeSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.DotnetSettings.RenamedServicesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -136,7 +148,8 @@ end
 
 defmodule Google.Api.DotnetSettings.RenamedResourcesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -144,7 +157,8 @@ end
 
 defmodule Google.Api.DotnetSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 
@@ -175,21 +189,24 @@ end
 
 defmodule Google.Api.RubySettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.GoSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
 defmodule Google.Api.MethodSettings.LongRunning do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :initial_poll_delay, 1, type: Google.Protobuf.Duration, json_name: "initialPollDelay"
   field :poll_delay_multiplier, 2, type: :float, json_name: "pollDelayMultiplier"
@@ -199,28 +216,9 @@ end
 
 defmodule Google.Api.MethodSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :long_running, 2, type: Google.Api.MethodSettings.LongRunning, json_name: "longRunning"
-end
-
-defmodule Google.Api.PbExtension do
-  @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
-
-  extend Google.Protobuf.MethodOptions, :method_signature, 1051,
-    repeated: true,
-    type: :string,
-    json_name: "methodSignature"
-
-  extend Google.Protobuf.ServiceOptions, :default_host, 1049,
-    optional: true,
-    type: :string,
-    json_name: "defaultHost"
-
-  extend Google.Protobuf.ServiceOptions, :oauth_scopes, 1050,
-    optional: true,
-    type: :string,
-    json_name: "oauthScopes"
 end

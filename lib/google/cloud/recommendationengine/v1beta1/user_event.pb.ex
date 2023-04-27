@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent.EventSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EVENT_SOURCE_UNSPECIFIED, 0
   field :AUTOML, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
 
@@ -40,7 +42,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.UserInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :visitor_id, 1, type: :string, json_name: "visitorId", deprecated: false
   field :user_id, 2, type: :string, json_name: "userId", deprecated: false
@@ -51,7 +54,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.EventDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :referrer_uri, 6, type: :string, json_name: "referrerUri", deprecated: false
@@ -76,7 +80,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductEventDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :search_query, 1, type: :string, json_name: "searchQuery"
 
@@ -101,7 +106,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.TaxesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
@@ -109,7 +115,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction.CostsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
@@ -117,7 +124,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.PurchaseTransaction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :revenue, 2, type: :float, deprecated: false
@@ -139,7 +147,8 @@ end
 
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :currency_code, 2, type: :string, json_name: "currencyCode", deprecated: false

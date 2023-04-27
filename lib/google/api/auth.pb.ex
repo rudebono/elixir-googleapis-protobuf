@@ -1,6 +1,7 @@
 defmodule Google.Api.Authentication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rules, 3, repeated: true, type: Google.Api.AuthenticationRule
   field :providers, 4, repeated: true, type: Google.Api.AuthProvider
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Api.AuthenticationRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :selector, 1, type: :string
   field :oauth, 2, type: Google.Api.OAuthRequirements
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Api.JwtLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :in, 0
 
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Api.AuthProvider do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :issuer, 2, type: :string
@@ -42,14 +46,16 @@ end
 
 defmodule Google.Api.OAuthRequirements do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :canonical_scopes, 1, type: :string, json_name: "canonicalScopes"
 end
 
 defmodule Google.Api.AuthRequirement do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :provider_id, 1, type: :string, json_name: "providerId"
   field :audiences, 2, type: :string

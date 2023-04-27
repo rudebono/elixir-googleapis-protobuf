@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItemChangeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LINE_ITEM_CHANGE_TYPE_UNSPECIFIED, 0
   field :LINE_ITEM_CHANGE_TYPE_CREATE, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItemChangeState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LINE_ITEM_CHANGE_STATE_UNSPECIFIED, 0
   field :LINE_ITEM_CHANGE_STATE_PENDING_APPROVAL, 1
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItemChangeStateReasonType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LINE_ITEM_CHANGE_STATE_REASON_TYPE_UNSPECIFIED, 0
   field :LINE_ITEM_CHANGE_STATE_REASON_TYPE_EXPIRED, 1
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.Order do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 10, type: :string, json_name: "displayName", deprecated: false
@@ -66,7 +70,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :line_item_id, 1, type: :string, json_name: "lineItemId", deprecated: false
 
@@ -89,7 +94,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItemChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :change_id, 1, type: :string, json_name: "changeId", deprecated: false
 
@@ -140,7 +146,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.LineItemInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :offer, 13, type: :string, deprecated: false
 
@@ -156,7 +163,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.Parameter.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -167,7 +175,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.Parameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.Parameter.Value
@@ -175,7 +184,8 @@ end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1alpha1.Subscription do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 1, type: Google.Protobuf.Timestamp, json_name: "endTime"

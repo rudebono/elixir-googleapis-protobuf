@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2.CreateServingConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.UpdateServingConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_config, 1,
     type: Google.Cloud.Retail.V2.ServingConfig,
@@ -26,21 +28,24 @@ end
 
 defmodule Google.Cloud.Retail.V2.DeleteServingConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.GetServingConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.ListServingConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ListServingConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_configs, 1,
     repeated: true,
@@ -61,7 +67,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.AddControlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :control_id, 2, type: :string, json_name: "controlId", deprecated: false
@@ -69,7 +76,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.RemoveControlRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :control_id, 2, type: :string, json_name: "controlId", deprecated: false
@@ -77,9 +85,10 @@ end
 
 defmodule Google.Cloud.Retail.V2.ServingConfigService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.retail.v2.ServingConfigService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateServingConfig,
       Google.Cloud.Retail.V2.CreateServingConfigRequest,
@@ -110,5 +119,6 @@ end
 
 defmodule Google.Cloud.Retail.V2.ServingConfigService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Retail.V2.ServingConfigService.Service
 end

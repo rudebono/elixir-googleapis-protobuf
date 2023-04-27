@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest.TotalResultSize do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TOTAL_RESULT_SIZE_UNSPECIFIED, 0
   field :ESTIMATED_SIZE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.CloudAIDocumentOption.CustomizedEntitiesPropertiesConversionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.CloudAIDocumentOption do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_entities_conversions, 1, type: :bool, json_name: "enableEntitiesConversions"
 
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.CreateDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Contentwarehouse.V1.Document, deprecated: false
@@ -51,7 +55,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.GetDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -62,7 +67,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.UpdateDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Contentwarehouse.V1.Document, deprecated: false
@@ -82,7 +88,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DeleteDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -93,7 +100,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -127,7 +135,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.LockDocumentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :collection_id, 2, type: :string, json_name: "collectionId"
@@ -139,7 +148,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.FetchAclRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
 
@@ -152,7 +162,8 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.SetAclRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :policy, 2, type: Google.Iam.V1.Policy, deprecated: false

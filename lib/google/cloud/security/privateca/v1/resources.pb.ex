@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Security.Privateca.V1.RevocationReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REVOCATION_REASON_UNSPECIFIED, 0
   field :KEY_COMPROMISE, 1
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.SubjectRequestMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SUBJECT_REQUEST_MODE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SELF_SIGNED, 1
@@ -33,7 +36,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.SignHashAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SIGN_HASH_ALGORITHM_UNSPECIFIED, 0
   field :RSA_PSS_2048_SHA256, 1
@@ -60,7 +65,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.Tier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :ENTERPRISE, 1
@@ -69,7 +75,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType.EcKeyType.EcSignatureAlgorithm do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EC_SIGNATURE_ALGORITHM_UNSPECIFIED, 0
   field :ECDSA_P256, 1
@@ -79,7 +86,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateRevocationList.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -88,7 +96,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.PublicKey.KeyFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :KEY_FORMAT_UNSPECIFIED, 0
   field :PEM, 1
@@ -96,7 +105,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateExtensionConstraints.KnownCertificateExtension do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :KNOWN_CERTIFICATE_EXTENSION_UNSPECIFIED, 0
   field :BASE_KEY_USAGE, 1
@@ -109,7 +119,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.AccessUrls do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ca_certificate_access_url, 1, type: :string, json_name: "caCertificateAccessUrl"
   field :crl_access_urls, 2, repeated: true, type: :string, json_name: "crlAccessUrls"
@@ -117,7 +128,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.KeyVersionSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :KeyVersion, 0
 
@@ -131,7 +143,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -139,7 +152,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -219,7 +233,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.PublishingOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :publish_ca_cert, 1, type: :bool, json_name: "publishCaCert", deprecated: false
   field :publish_crl, 2, type: :bool, json_name: "publishCrl", deprecated: false
@@ -227,7 +242,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType.RsaKeyType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_modulus_size, 1, type: :int64, json_name: "minModulusSize", deprecated: false
   field :max_modulus_size, 2, type: :int64, json_name: "maxModulusSize", deprecated: false
@@ -235,7 +251,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType.EcKeyType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :signature_algorithm, 1,
     type:
@@ -247,7 +264,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :key_type, 0
 
@@ -263,7 +281,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.IssuanceModes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allow_csr_based_issuance, 1,
     type: :bool,
@@ -278,7 +297,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allowed_key_types, 1,
     repeated: true,
@@ -314,7 +334,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -322,7 +343,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -350,7 +372,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateRevocationList.RevokedCertificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :certificate, 1, type: :string, deprecated: false
   field :hex_serial_number, 2, type: :string, json_name: "hexSerialNumber"
@@ -363,7 +386,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateRevocationList.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -371,7 +395,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateRevocationList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :sequence_number, 2, type: :int64, json_name: "sequenceNumber", deprecated: false
@@ -411,7 +436,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.Certificate.RevocationDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :revocation_state, 1,
     type: Google.Cloud.Security.Privateca.V1.RevocationReason,
@@ -423,7 +449,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.Certificate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -431,7 +458,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.Certificate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :certificate_config, 0
 
@@ -498,7 +526,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateTemplate.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -506,7 +535,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -546,7 +576,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.X509Parameters.CaOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :is_ca, 1, proto3_optional: true, type: :bool, json_name: "isCa", deprecated: false
 
@@ -559,7 +590,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.X509Parameters.NameConstraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :critical, 1, type: :bool
   field :permitted_dns_names, 2, repeated: true, type: :string, json_name: "permittedDnsNames"
@@ -583,7 +615,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.X509Parameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key_usage, 1,
     type: Google.Cloud.Security.Privateca.V1.KeyUsage,
@@ -621,7 +654,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.SubordinateConfig.SubordinateConfigChain do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pem_certificates, 1,
     repeated: true,
@@ -632,7 +666,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.SubordinateConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :subordinate_config, 0
 
@@ -651,7 +686,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.PublicKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :bytes, deprecated: false
 
@@ -663,7 +699,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig.SubjectConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject, 1, type: Google.Cloud.Security.Privateca.V1.Subject, deprecated: false
 
@@ -675,7 +712,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject_config, 1,
     type: Google.Cloud.Security.Privateca.V1.CertificateConfig.SubjectConfig,
@@ -695,7 +733,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateDescription.SubjectDescription do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject, 1, type: Google.Cloud.Security.Privateca.V1.Subject
 
@@ -711,21 +750,24 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateDescription.KeyId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId", deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateDescription.CertificateFingerprint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sha256_hash, 1, type: :string, json_name: "sha256Hash"
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateDescription do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subject_description, 1,
     type: Google.Cloud.Security.Privateca.V1.CertificateDescription.SubjectDescription,
@@ -762,7 +804,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.ObjectId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :object_id_path, 1,
     repeated: true,
@@ -773,7 +816,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.X509Extension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :object_id, 1,
     type: Google.Cloud.Security.Privateca.V1.ObjectId,
@@ -786,7 +830,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.KeyUsage.KeyUsageOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :digital_signature, 1, type: :bool, json_name: "digitalSignature"
   field :content_commitment, 2, type: :bool, json_name: "contentCommitment"
@@ -801,7 +846,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.KeyUsage.ExtendedKeyUsageOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :server_auth, 1, type: :bool, json_name: "serverAuth"
   field :client_auth, 2, type: :bool, json_name: "clientAuth"
@@ -813,7 +859,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.KeyUsage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :base_key_usage, 1,
     type: Google.Cloud.Security.Privateca.V1.KeyUsage.KeyUsageOptions,
@@ -831,7 +878,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.Subject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
   field :country_code, 2, type: :string, json_name: "countryCode"
@@ -845,7 +893,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.SubjectAltNames do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dns_names, 1, repeated: true, type: :string, json_name: "dnsNames"
   field :uris, 2, repeated: true, type: :string
@@ -860,7 +909,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateIdentityConstraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cel_expression, 1, type: Google.Type.Expr, json_name: "celExpression", deprecated: false
 
@@ -879,7 +929,8 @@ end
 
 defmodule Google.Cloud.Security.Privateca.V1.CertificateExtensionConstraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :known_extensions, 1,
     repeated: true,

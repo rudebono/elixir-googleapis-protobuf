@@ -1,6 +1,7 @@
 defmodule Google.Api.MonitoredResourceDescriptor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 5, type: :string
   field :type, 1, type: :string
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Api.MonitoredResource.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Api.MonitoredResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :labels, 2, repeated: true, type: Google.Api.MonitoredResource.LabelsEntry, map: true
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Api.MonitoredResourceMetadata.UserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Api.MonitoredResourceMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :system_labels, 1, type: Google.Protobuf.Struct, json_name: "systemLabels"
 

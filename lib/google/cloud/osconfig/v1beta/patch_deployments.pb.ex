@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule.Frequency do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :FREQUENCY_UNSPECIFIED, 0
   field :WEEKLY, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.PatchDeployment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :schedule, 0
 
@@ -75,7 +78,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.OneTimeSchedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :execute_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -85,7 +89,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.RecurringSchedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :schedule_config, 0
 
@@ -119,7 +124,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.WeeklySchedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :day_of_week, 1,
     type: Google.Type.DayOfWeek,
@@ -130,7 +136,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.MonthlySchedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :day_of_month, 0
 
@@ -145,7 +152,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.WeekDayOfMonth do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :week_ordinal, 1, type: :int32, json_name: "weekOrdinal", deprecated: false
 
@@ -160,7 +168,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.CreatePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :patch_deployment_id, 2, type: :string, json_name: "patchDeploymentId", deprecated: false
@@ -173,14 +182,16 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.GetPatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -189,7 +200,8 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.ListPatchDeploymentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :patch_deployments, 1,
     repeated: true,
@@ -201,14 +213,16 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.DeletePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.UpdatePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :patch_deployment, 1,
     type: Google.Cloud.Osconfig.V1beta.PatchDeployment,
@@ -223,14 +237,16 @@ end
 
 defmodule Google.Cloud.Osconfig.V1beta.PausePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Osconfig.V1beta.ResumePatchDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

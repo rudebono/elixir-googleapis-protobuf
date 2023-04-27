@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Errors.RecommendationErrorEnum.RecommendationError do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -18,9 +19,11 @@ defmodule Google.Ads.Googleads.V13.Errors.RecommendationErrorEnum.Recommendation
   field :DUPLICATE_RESOURCE_NAME, 13
   field :RECOMMENDATION_ALREADY_DISMISSED, 14
   field :INVALID_APPLY_REQUEST, 15
+  field :RECOMMENDATION_TYPE_APPLY_NOT_SUPPORTED, 17
 end
 
 defmodule Google.Ads.Googleads.V13.Errors.RecommendationErrorEnum do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

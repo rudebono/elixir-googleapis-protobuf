@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.Batch.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.CreateBatchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :batch, 2, type: Google.Cloud.Dataproc.V1.Batch, deprecated: false
@@ -23,14 +25,16 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.GetBatchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.ListBatchesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.ListBatchesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :batches, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Batch
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -49,14 +54,16 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteBatchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.Batch.StateHistory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataproc.V1.Batch.State, enum: true, deprecated: false
   field :state_message, 2, type: :string, json_name: "stateMessage", deprecated: false
@@ -69,7 +76,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.Batch.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -77,7 +85,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.Batch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :batch_config, 0
 
@@ -155,7 +164,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.PySparkBatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri", deprecated: false
   field :args, 2, repeated: true, type: :string, deprecated: false
@@ -183,7 +193,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.SparkBatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -213,7 +224,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.SparkRBatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri", deprecated: false
   field :args, 2, repeated: true, type: :string, deprecated: false
@@ -228,7 +240,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch.QueryVariablesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -236,7 +249,8 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.SparkSqlBatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query_file_uri, 1, type: :string, json_name: "queryFileUri", deprecated: false
 
@@ -256,9 +270,10 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.BatchController.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.BatchController",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateBatch, Google.Cloud.Dataproc.V1.CreateBatchRequest, Google.Longrunning.Operation
 
@@ -273,5 +288,6 @@ end
 
 defmodule Google.Cloud.Dataproc.V1.BatchController.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dataproc.V1.BatchController.Service
 end

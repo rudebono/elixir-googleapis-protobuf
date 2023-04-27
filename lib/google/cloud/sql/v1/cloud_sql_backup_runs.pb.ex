@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1.SqlBackupRunStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_RUN_STATUS_UNSPECIFIED, 0
   field :ENQUEUED, 1
@@ -16,7 +17,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupKind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_KIND_UNSPECIFIED, 0
   field :SNAPSHOT, 1
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_RUN_TYPE_UNSPECIFIED, 0
   field :AUTOMATED, 1
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsDeleteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
@@ -43,7 +47,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsGetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
@@ -52,7 +57,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -61,7 +67,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :int32, json_name: "maxResults"
@@ -71,7 +78,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.BackupRun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :status, 2, type: Google.Cloud.Sql.V1.SqlBackupRunStatus, enum: true
@@ -103,7 +111,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.BackupRunsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.BackupRun
@@ -112,9 +121,10 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlBackupRunsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlBackupRunsDeleteRequest, Google.Cloud.Sql.V1.Operation
 
@@ -129,5 +139,6 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlBackupRunsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Sql.V1.SqlBackupRunsService.Service
 end

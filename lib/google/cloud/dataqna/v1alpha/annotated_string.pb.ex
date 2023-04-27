@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MARKUP_TYPE_UNSPECIFIED, 0
   field :METRIC, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString.SemanticMarkupType,
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Cloud.Dataqna.V1alpha.AnnotatedString do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_formatted, 1, type: :string, json_name: "textFormatted"
   field :html_formatted, 2, type: :string, json_name: "htmlFormatted"

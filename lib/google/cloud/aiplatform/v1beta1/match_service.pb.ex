@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FindNeighborsRequest.Query do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :datapoint, 1, type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint, deprecated: false
   field :neighbor_count, 2, type: :int32, json_name: "neighborCount"
@@ -18,7 +19,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FindNeighborsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
@@ -32,7 +34,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FindNeighborsResponse.Neighbor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :datapoint, 1, type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint
   field :distance, 2, type: :double
@@ -40,7 +43,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FindNeighborsResponse.NearestNeighbors do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -51,7 +55,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FindNeighborsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :nearest_neighbors, 1,
     repeated: true,
@@ -61,7 +66,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadIndexDatapointsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId"
@@ -70,16 +76,18 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadIndexDatapointsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :datapoints, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.MatchService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.MatchService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :FindNeighbors,
       Google.Cloud.Aiplatform.V1beta1.FindNeighborsRequest,
@@ -92,5 +100,6 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.MatchService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.MatchService.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.ConversionValueRule.ValueRuleAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation, 1,
     type: Google.Ads.Googleads.V13.Enums.ValueRuleOperationEnum.ValueRuleOperation,
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.ConversionValueRule.ValueRuleGeoLocationCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :excluded_geo_target_constants, 1,
     repeated: true,
@@ -40,7 +42,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.ConversionValueRule.ValueRuleDeviceCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :device_types, 1,
     repeated: true,
@@ -51,7 +54,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.ConversionValueRule.ValueRuleAudienceCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_lists, 1, repeated: true, type: :string, json_name: "userLists", deprecated: false
 
@@ -64,7 +68,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.ConversionValueRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

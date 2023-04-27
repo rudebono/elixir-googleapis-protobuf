@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hostname, 1, type: :string
   field :long_name, 2, type: :string, json_name: "longName"
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -66,7 +68,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :package_name, 1, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
@@ -75,7 +78,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :patch_name, 1, type: :string, json_name: "patchName"
   field :category, 2, type: :string
@@ -85,7 +89,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage.WindowsUpdateCategory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -93,7 +98,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsUpdatePackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :description, 2, type: :string
@@ -116,7 +122,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsQuickFixEngineeringPackage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :caption, 1, type: :string
   field :description, 2, type: :string
@@ -126,7 +133,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.WindowsApplication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :display_version, 2, type: :string, json_name: "displayVersion"
@@ -137,7 +145,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :os_info, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.OsInfo,

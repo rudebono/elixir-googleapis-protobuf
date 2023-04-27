@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse.Result do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :VERIFIED, 1
@@ -9,21 +10,24 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.GetPolicyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.UpdatePolicyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :policy, 1, type: Google.Cloud.Binaryauthorization.V1.Policy, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.CreateAttestorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :attestor_id, 2, type: :string, json_name: "attestorId", deprecated: false
@@ -32,21 +36,24 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.GetAttestorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.UpdateAttestorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attestor, 1, type: Google.Cloud.Binaryauthorization.V1.Attestor, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -55,7 +62,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ListAttestorsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attestors, 1, repeated: true, type: Google.Cloud.Binaryauthorization.V1.Attestor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -63,21 +71,24 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.DeleteAttestorRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attestor, 1, type: :string, deprecated: false
   field :attestation, 2, type: Grafeas.V1.AttestationOccurrence, deprecated: false
@@ -91,7 +102,8 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceResponse.Result,
@@ -102,9 +114,10 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetPolicy,
       Google.Cloud.Binaryauthorization.V1.GetPolicyRequest,
@@ -137,14 +150,16 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1.BinauthzManagementServiceV1.Service
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.binaryauthorization.v1.SystemPolicyV1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetSystemPolicy,
       Google.Cloud.Binaryauthorization.V1.GetSystemPolicyRequest,
@@ -153,14 +168,16 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1.SystemPolicyV1.Service
 end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidationHelperV1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.binaryauthorization.v1.ValidationHelperV1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ValidateAttestationOccurrence,
       Google.Cloud.Binaryauthorization.V1.ValidateAttestationOccurrenceRequest,
@@ -169,5 +186,6 @@ end
 
 defmodule Google.Cloud.Binaryauthorization.V1.ValidationHelperV1.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Binaryauthorization.V1.ValidationHelperV1.Service
 end

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MULTIPROTOCOL_TYPE_UNSPECIFIED, 0
   field :LINUX, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.StorageType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STORAGE_TYPE_UNSPECIFIED, 0
   field :SSD, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Lun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 10, type: :string
@@ -54,14 +58,16 @@ end
 
 defmodule Google.Cloud.Baremetalsolution.V2.GetLunRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.ListLunsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -70,7 +76,8 @@ end
 
 defmodule Google.Cloud.Baremetalsolution.V2.ListLunsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :luns, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"

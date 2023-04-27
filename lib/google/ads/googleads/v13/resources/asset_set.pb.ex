@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.AssetSet.MerchantCenterFeed do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :merchant_id, 1, type: :int64, json_name: "merchantId", deprecated: false
 
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.AssetSet.HotelPropertyData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hotel_center_id, 1,
     proto3_optional: true,
@@ -30,7 +32,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.AssetSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :asset_set_source, 0
 

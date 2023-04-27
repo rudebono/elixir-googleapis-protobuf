@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Networksecurity.V1beta1.GrpcEndpoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.ValidationCA do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -24,14 +26,16 @@ end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProviderInstance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :plugin_instance, 1, type: :string, json_name: "pluginInstance", deprecated: false
 end
 
 defmodule Google.Cloud.Networksecurity.V1beta1.CertificateProvider do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
 

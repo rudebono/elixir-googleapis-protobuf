@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -43,7 +47,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
@@ -52,9 +57,10 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.PredictionService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Predict,
       Google.Cloud.Aiplatform.V1beta1.PredictRequest,
@@ -69,5 +75,6 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.PredictionService.Service
 end

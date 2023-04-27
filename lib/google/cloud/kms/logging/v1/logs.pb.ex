@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyEvent.RotationEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 end
 
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rotation_event, 1,
     type: Google.Cloud.Kms.Logging.V1.CryptoKeyEvent.RotationEvent,
@@ -16,7 +18,8 @@ end
 
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyVersionEvent.ScheduledDestructionEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyVersionEvent.KeyGenerationEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 
@@ -38,14 +42,16 @@ end
 
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyVersionEvent.ImportEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 end
 
 defmodule Google.Cloud.Kms.Logging.V1.CryptoKeyVersionEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :event, 0
 

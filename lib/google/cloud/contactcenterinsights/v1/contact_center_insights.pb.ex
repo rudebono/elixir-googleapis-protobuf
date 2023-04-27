@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONVERSATION_VIEW_UNSPECIFIED, 0
   field :FULL, 2
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.WriteDisposition do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :WRITE_DISPOSITION_UNSPECIFIED, 0
   field :WRITE_TRUNCATE, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries.Interval do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :conversation_count, 2, type: :int32, json_name: "conversationCount"
@@ -34,7 +38,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.TimeSeries do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :interval_duration, 1, type: Google.Protobuf.Duration, json_name: "intervalDuration"
 
@@ -45,7 +50,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.SmartHighlighterMatchesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -53,7 +59,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.CustomHighlighterMatchesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -61,7 +68,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -69,7 +77,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse.IssueMatchesStatsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats
@@ -77,7 +86,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateStatsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :average_duration, 1, type: Google.Protobuf.Duration, json_name: "averageDuration"
   field :average_turn_count, 2, type: :int32, json_name: "averageTurnCount"
@@ -117,7 +127,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -135,7 +146,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -148,7 +160,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -166,7 +179,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -189,7 +203,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -200,7 +215,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversations, 1,
     repeated: true,
@@ -211,7 +227,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Contactcenterinsights.V1.ConversationView, enum: true
@@ -219,7 +236,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation, 1,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation,
@@ -230,7 +248,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteConversationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -238,14 +257,16 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bucket_uri, 1, type: :string, json_name: "bucketUri", deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.TranscriptObjectConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :medium, 1,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.Medium,
@@ -255,14 +276,16 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.ConversationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent_id, 1, type: :string, json_name: "agentId"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -287,7 +310,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata.IngestConversationsStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :processed_object_count, 1,
     type: :int32,
@@ -309,7 +333,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -337,12 +362,14 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :analysis, 2, type: Google.Cloud.Contactcenterinsights.V1.Analysis, deprecated: false
@@ -350,7 +377,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -360,7 +388,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListAnalysesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :analyses, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.Analysis
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -368,21 +397,24 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteAnalysisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -395,7 +427,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -407,7 +440,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.BulkAnalyzeConversationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :successful_analysis_count, 1, type: :int32, json_name: "successfulAnalysisCount"
   field :failed_analysis_count, 2, type: :int32, json_name: "failedAnalysisCount"
@@ -415,7 +449,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest.BigQueryDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 3, type: :string, json_name: "projectId"
   field :dataset, 1, type: :string, deprecated: false
@@ -424,7 +459,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -445,7 +481,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -459,12 +496,14 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ExportInsightsDataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -476,7 +515,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateIssueModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -489,7 +529,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issue_model, 1,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModel,
@@ -501,14 +542,16 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssueModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issue_models, 1,
     repeated: true,
@@ -518,21 +561,24 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -545,19 +591,22 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeployIssueModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -570,19 +619,22 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -595,28 +647,32 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListIssuesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issues, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.Issue
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateIssueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issue, 1, type: Google.Cloud.Contactcenterinsights.V1.Issue, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -624,21 +680,24 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteIssueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :issue_model, 1, type: :string, json_name: "issueModel", deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CalculateIssueModelStatsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_stats, 4,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats,
@@ -647,7 +706,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreatePhraseMatcherRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -659,7 +719,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -669,7 +730,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListPhraseMatchersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phrase_matchers, 1,
     repeated: true,
@@ -681,21 +743,24 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetPhraseMatcherRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeletePhraseMatcherRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdatePhraseMatcherRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phrase_matcher, 1,
     type: Google.Cloud.Contactcenterinsights.V1.PhraseMatcher,
@@ -707,14 +772,16 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :settings, 1, type: Google.Cloud.Contactcenterinsights.V1.Settings, deprecated: false
 
@@ -726,7 +793,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Contactcenterinsights.V1.View, deprecated: false
@@ -734,14 +802,16 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.GetViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListViewsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -750,7 +820,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ListViewsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :views, 1, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.View
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -758,7 +829,8 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UpdateViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :view, 1, type: Google.Cloud.Contactcenterinsights.V1.View, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -766,16 +838,18 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.DeleteViewRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.contactcenterinsights.v1.ContactCenterInsights",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateConversation,
       Google.Cloud.Contactcenterinsights.V1.CreateConversationRequest,
@@ -930,5 +1004,6 @@ end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service
 end

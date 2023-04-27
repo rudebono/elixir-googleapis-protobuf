@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Resources.SmartCampaignSetting.PhoneNumber do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phone_number, 1, proto3_optional: true, type: :string, json_name: "phoneNumber"
   field :country_code, 2, proto3_optional: true, type: :string, json_name: "countryCode"
@@ -8,14 +9,16 @@ end
 
 defmodule Google.Ads.Googleads.V12.Resources.SmartCampaignSetting.AdOptimizedBusinessProfileSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :include_lead_form, 1, proto3_optional: true, type: :bool, json_name: "includeLeadForm"
 end
 
 defmodule Google.Ads.Googleads.V12.Resources.SmartCampaignSetting do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :landing_page, 0
 

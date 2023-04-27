@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Apigeeregistry.V1.ListApisRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApisResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :apis, 1, repeated: true, type: Google.Cloud.Apigeeregistry.V1.Api
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -18,14 +20,16 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetApiRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.CreateApiRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api, 2, type: Google.Cloud.Apigeeregistry.V1.Api, deprecated: false
@@ -34,7 +38,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.UpdateApiRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api, 1, type: Google.Cloud.Apigeeregistry.V1.Api, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -43,7 +48,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -51,7 +57,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -61,7 +68,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_versions, 1,
     repeated: true,
@@ -73,14 +81,16 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetApiVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.CreateApiVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -94,7 +104,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.UpdateApiVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_version, 1,
     type: Google.Cloud.Apigeeregistry.V1.ApiVersion,
@@ -107,7 +118,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -115,7 +127,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiSpecsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -125,7 +138,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiSpecsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_specs, 1,
     repeated: true,
@@ -137,21 +151,24 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetApiSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetApiSpecContentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.CreateApiSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -165,7 +182,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.UpdateApiSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_spec, 1,
     type: Google.Cloud.Apigeeregistry.V1.ApiSpec,
@@ -178,7 +196,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -186,7 +205,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.TagApiSpecRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false
@@ -194,7 +214,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiSpecRevisionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -203,7 +224,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiSpecRevisionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_specs, 1,
     repeated: true,
@@ -215,7 +237,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.RollbackApiSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -223,14 +246,16 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiSpecRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiDeploymentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -240,7 +265,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiDeploymentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_deployments, 1,
     repeated: true,
@@ -252,14 +278,16 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetApiDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.CreateApiDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -273,7 +301,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.UpdateApiDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_deployment, 1,
     type: Google.Cloud.Apigeeregistry.V1.ApiDeployment,
@@ -286,7 +315,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -294,7 +324,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.TagApiDeploymentRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false
@@ -302,7 +333,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiDeploymentRevisionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -311,7 +343,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListApiDeploymentRevisionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :api_deployments, 1,
     repeated: true,
@@ -323,7 +356,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.RollbackApiDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -331,14 +365,16 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteApiDeploymentRevisionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListArtifactsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -348,7 +384,8 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ListArtifactsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :artifacts, 1, repeated: true, type: Google.Cloud.Apigeeregistry.V1.Artifact
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -356,21 +393,24 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetArtifactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.GetArtifactContentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.CreateArtifactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :artifact, 2, type: Google.Cloud.Apigeeregistry.V1.Artifact, deprecated: false
@@ -379,23 +419,26 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.ReplaceArtifactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :artifact, 1, type: Google.Cloud.Apigeeregistry.V1.Artifact, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteArtifactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Apigeeregistry.V1.Registry.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.apigeeregistry.v1.Registry",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListApis,
       Google.Cloud.Apigeeregistry.V1.ListApisRequest,
@@ -532,5 +575,6 @@ end
 
 defmodule Google.Cloud.Apigeeregistry.V1.Registry.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Apigeeregistry.V1.Registry.Service
 end

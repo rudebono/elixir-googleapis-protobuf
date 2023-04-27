@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Common.AppFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :link_text, 9, proto3_optional: true, type: :string, json_name: "linkText"
   field :app_id, 10, proto3_optional: true, type: :string, json_name: "appId"
@@ -28,7 +29,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.CallFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :phone_number, 7, proto3_optional: true, type: :string, json_name: "phoneNumber"
   field :country_code, 8, proto3_optional: true, type: :string, json_name: "countryCode"
@@ -57,14 +59,16 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.CalloutFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :callout_text, 2, proto3_optional: true, type: :string, json_name: "calloutText"
 end
 
 defmodule Google.Ads.Googleads.V12.Common.LocationFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :business_name, 9, proto3_optional: true, type: :string, json_name: "businessName"
   field :address_line_1, 10, proto3_optional: true, type: :string, json_name: "addressLine1"
@@ -78,7 +82,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.AffiliateLocationFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :business_name, 11, proto3_optional: true, type: :string, json_name: "businessName"
   field :address_line_1, 12, proto3_optional: true, type: :string, json_name: "addressLine1"
@@ -94,7 +99,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.TextMessageFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :business_name, 6, proto3_optional: true, type: :string, json_name: "businessName"
   field :country_code, 7, proto3_optional: true, type: :string, json_name: "countryCode"
@@ -105,7 +111,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.PriceFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V12.Enums.PriceExtensionTypeEnum.PriceExtensionType,
@@ -134,7 +141,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.PriceOffer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 7, proto3_optional: true, type: :string
   field :description, 8, proto3_optional: true, type: :string
@@ -150,7 +158,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.PromotionFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :discount_type, 0
 
@@ -211,7 +220,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.StructuredSnippetFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 3, proto3_optional: true, type: :string
   field :values, 4, repeated: true, type: :string
@@ -219,7 +229,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.SitelinkFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :link_text, 9, proto3_optional: true, type: :string, json_name: "linkText"
   field :line1, 10, proto3_optional: true, type: :string
@@ -242,7 +253,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.HotelCalloutFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 3, proto3_optional: true, type: :string
   field :language_code, 4, proto3_optional: true, type: :string, json_name: "languageCode"
@@ -250,7 +262,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Common.ImageFeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image_asset, 1, type: :string, json_name: "imageAsset", deprecated: false
 end

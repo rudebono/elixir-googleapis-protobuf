@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.ExamplesOverride.DataFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :INSTANCES, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Explanation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attributions, 1,
     repeated: true,
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelExplanation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mean_attributions, 1,
     repeated: true,
@@ -35,7 +38,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Attribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :baseline_output_value, 1,
     type: :double,
@@ -65,7 +69,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.Neighbor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :neighbor_id, 1, type: :string, json_name: "neighborId", deprecated: false
   field :neighbor_distance, 2, type: :double, json_name: "neighborDistance", deprecated: false
@@ -73,7 +78,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters, deprecated: false
   field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata, deprecated: false
@@ -81,7 +87,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :method, 0
 
@@ -106,14 +113,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.SampledShapleyAttribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :path_count, 1, type: :int32, json_name: "pathCount", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.IntegratedGradientsAttribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :step_count, 1, type: :int32, json_name: "stepCount", deprecated: false
 
@@ -128,7 +137,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.XraiAttribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :step_count, 1, type: :int32, json_name: "stepCount", deprecated: false
 
@@ -143,7 +153,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.SmoothGradConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :GradientNoiseSigma, 0
 
@@ -159,7 +170,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma.NoiseSigmaForFeature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :sigma, 2, type: :float
@@ -167,7 +179,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureNoiseSigma do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :noise_sigma, 1,
     repeated: true,
@@ -177,14 +190,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.BlurBaselineConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpecOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameters, 1, type: Google.Cloud.Aiplatform.V1.ExplanationParameters
   field :metadata, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride
@@ -196,7 +211,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputMetadataOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_baselines, 1,
     repeated: true,
@@ -206,7 +222,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride.InputsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -216,7 +233,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadataOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inputs, 1,
     repeated: true,
@@ -227,7 +245,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExamplesOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :neighbor_count, 1, type: :int32, json_name: "neighborCount"
   field :crowding_count, 2, type: :int32, json_name: "crowdingCount"
@@ -246,7 +265,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExamplesRestrictionsNamespace do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :namespace_name, 1, type: :string, json_name: "namespaceName"
   field :allow, 2, repeated: true, type: :string

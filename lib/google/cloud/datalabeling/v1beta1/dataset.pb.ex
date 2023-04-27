@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.DataType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :IMAGE, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Dataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -29,7 +31,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.InputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :data_type_metadata, 0
 
@@ -67,21 +70,24 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ClassificationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :is_multi_label, 1, type: :bool, json_name: "isMultiLabel"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsSource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -89,14 +95,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BigQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.OutputConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -113,7 +121,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_uri, 1, type: :string, json_name: "outputUri"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -121,14 +130,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.GcsFolderDestination do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_folder_uri, 1, type: :string, json_name: "outputFolderUri"
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.DataItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -152,7 +163,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -182,7 +194,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats.ExampleCountEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -190,7 +203,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :example_count, 1,
     repeated: true,
@@ -201,7 +215,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotatedDatasetMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :annotation_request_config, 0
 
@@ -262,7 +277,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Example do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :payload, 0
 

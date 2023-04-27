@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Eventarc.V1.GetTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListTriggersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.ListTriggersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :triggers, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Trigger
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.CreateTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :trigger, 2, type: Google.Cloud.Eventarc.V1.Trigger, deprecated: false
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.UpdateTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :trigger, 1, type: Google.Cloud.Eventarc.V1.Trigger
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -47,7 +52,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.DeleteTriggerRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -57,14 +63,16 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.GetChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListChannelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -74,7 +82,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.ListChannelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channels, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Channel
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -83,7 +92,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.CreateChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :channel, 2, type: Google.Cloud.Eventarc.V1.Channel, deprecated: false
@@ -93,7 +103,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.UpdateChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channel, 1, type: Google.Cloud.Eventarc.V1.Channel
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -102,7 +113,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.DeleteChannelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -110,14 +122,16 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.GetProviderRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListProvidersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -128,7 +142,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.ListProvidersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :providers, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Provider
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -137,14 +152,16 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.GetChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -153,7 +170,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.ListChannelConnectionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :channel_connections, 1,
     repeated: true,
@@ -166,7 +184,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.CreateChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -183,14 +202,16 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.DeleteChannelConnectionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.UpdateGoogleChannelConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :google_channel_config, 1,
     type: Google.Cloud.Eventarc.V1.GoogleChannelConfig,
@@ -202,14 +223,16 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.GetGoogleChannelConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -231,7 +254,8 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.eventarc.v1.Eventarc", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.eventarc.v1.Eventarc", protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetTrigger, Google.Cloud.Eventarc.V1.GetTriggerRequest, Google.Cloud.Eventarc.V1.Trigger
 
@@ -290,5 +314,6 @@ end
 
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Eventarc.V1.Eventarc.Service
 end

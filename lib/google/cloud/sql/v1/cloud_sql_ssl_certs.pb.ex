@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1.SqlSslCertsDeleteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlSslCertsGetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlSslCertsInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlSslCertsListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -35,14 +39,16 @@ end
 
 defmodule Google.Cloud.Sql.V1.SslCertsInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
 end
 
 defmodule Google.Cloud.Sql.V1.SslCertsInsertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :operation, 2, type: Google.Cloud.Sql.V1.Operation
@@ -52,7 +58,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SslCertsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.SslCert
@@ -60,9 +67,10 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlSslCertsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlSslCertsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlSslCertsDeleteRequest, Google.Cloud.Sql.V1.Operation
 
@@ -77,5 +85,6 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlSslCertsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Sql.V1.SqlSslCertsService.Service
 end

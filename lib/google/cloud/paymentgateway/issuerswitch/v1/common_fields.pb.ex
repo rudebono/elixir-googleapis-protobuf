@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ApiType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :API_TYPE_UNSPECIFIED, 0
   field :BALANCE, 1
@@ -21,7 +22,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TRANSACTION_TYPE_UNSPECIFIED, 0
   field :TRANSACTION_TYPE_AUTOUPDATE, 1
@@ -53,7 +55,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.XmlApiType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :XML_API_TYPE_UNSPECIFIED, 0
   field :REQ_BAL_ENQ, 1
@@ -90,7 +93,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant.Persona do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PERSONA_UNSPECIFIED, 0
   field :ENTITY, 1
@@ -99,7 +103,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantAdditionalInfo.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :LARGE, 1
@@ -108,7 +113,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantAdditionalInfo.Genre do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :GENRE_UNSPECIFIED, 0
   field :OFFLINE, 1
@@ -117,7 +123,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantAdditionalInfo.OnboardingType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ONBOARDING_TYPE_UNSPECIFIED, 0
   field :AGGREGATOR, 1
@@ -128,7 +135,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantAdditionalInfo.OwnershipType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OWNERSHIP_TYPE_UNSPECIFIED, 0
   field :PROPRIETARY, 1
@@ -140,7 +148,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ifsc, 1, type: :string
   field :account_type, 2, type: :string, json_name: "accountType"
@@ -149,7 +158,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant.SettlementDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :backend_settlement_id, 1,
     type: :string,
@@ -163,7 +173,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :participant, 1, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant
 
@@ -180,7 +191,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.DeviceDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :payment_app, 1, type: :string, json_name: "paymentApp"
   field :capability, 2, type: :string
@@ -195,7 +207,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :payment_address, 1, type: :string, json_name: "paymentAddress"
 
@@ -217,7 +230,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :merchant, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantName
@@ -229,7 +243,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantName do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :brand, 1, type: :string
   field :legal, 2, type: :string
@@ -238,7 +253,8 @@ end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantAdditionalInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :category_code, 1, type: :string, json_name: "categoryCode"
   field :store_id, 2, type: :string, json_name: "storeId"

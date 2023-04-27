@@ -1,6 +1,7 @@
 defmodule Google.Firestore.Admin.V1.Database.DatabaseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :FIRESTORE_NATIVE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Database.ConcurrencyMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :OPTIMISTIC, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Database.AppEngineIntegrationMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Database do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :location_id, 9, type: :string, json_name: "locationId"

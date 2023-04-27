@@ -1,6 +1,7 @@
 defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :READ_WRITE, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GOOGLE_MANAGED, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :type, 2, type: Google.Spanner.Admin.Instance.V1.ReplicaInfo.ReplicaType, enum: true
@@ -46,7 +51,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -54,7 +60,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -92,7 +99,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -100,7 +108,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: :string, deprecated: false
@@ -133,7 +142,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -142,7 +152,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_configs, 1,
     repeated: true,
@@ -154,14 +165,16 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.GetInstanceConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_config_id, 2, type: :string, json_name: "instanceConfigId", deprecated: false
@@ -176,7 +189,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_config, 1,
     type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
@@ -193,7 +207,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -202,7 +217,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstanceConfigOperationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -220,7 +237,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.GetInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
@@ -228,7 +246,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -237,7 +256,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstancesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -247,7 +267,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Spanner.Admin.Instance.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -255,7 +276,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance, deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask", deprecated: false
@@ -263,14 +285,16 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.DeleteInstanceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -280,7 +304,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: Google.Spanner.Admin.Instance.V1.Instance
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -290,7 +315,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_config, 1,
     type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
@@ -302,7 +328,8 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance_config, 1,
     type: Google.Spanner.Admin.Instance.V1.InstanceConfig,
@@ -314,9 +341,10 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.spanner.admin.instance.v1.InstanceAdmin",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListInstanceConfigs,
       Google.Spanner.Admin.Instance.V1.ListInstanceConfigsRequest,
@@ -373,5 +401,6 @@ end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service
 end

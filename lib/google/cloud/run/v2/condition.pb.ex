@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Run.V2.Condition.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CONDITION_PENDING, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Condition.Severity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Condition.CommonReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMMON_REASON_UNDEFINED, 0
   field :UNKNOWN, 1
@@ -42,7 +45,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REVISION_REASON_UNDEFINED, 0
   field :PENDING, 1
@@ -61,7 +65,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXECUTION_REASON_UNDEFINED, 0
   field :JOB_STATUS_SERVICE_POLLING_ERROR, 1
@@ -71,7 +76,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Condition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :reasons, 0
 

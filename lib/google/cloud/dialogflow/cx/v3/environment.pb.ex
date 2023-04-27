@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult.AggregatedTestResult do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :AGGREGATED_TEST_RESULT_UNSPECIFIED, 0
   field :PASSED, 1
@@ -9,14 +10,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.VersionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.TestCasesConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :test_cases, 1, repeated: true, type: :string, json_name: "testCases", deprecated: false
   field :enable_continuous_run, 2, type: :bool, json_name: "enableContinuousRun"
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment.WebhookConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :webhook_overrides, 1,
     repeated: true,
@@ -35,7 +39,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -62,7 +67,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -71,7 +77,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -79,14 +86,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :environment, 2, type: Google.Cloud.Dialogflow.Cx.V3.Environment, deprecated: false
@@ -94,7 +103,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environment, 1, type: Google.Cloud.Dialogflow.Cx.V3.Environment, deprecated: false
 
@@ -106,14 +116,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteEnvironmentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -122,7 +134,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.LookupEnvironmentHistoryResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Environment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -130,7 +143,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -149,14 +163,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environment, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :continuous_test_result, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.ContinuousTestResult,
@@ -165,14 +181,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RunContinuousTestMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.TestError
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -181,7 +199,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListContinuousTestResultsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :continuous_test_results, 1,
     repeated: true,
@@ -193,7 +212,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environment, 1, type: :string, deprecated: false
   field :flow_version, 2, type: :string, json_name: "flowVersion", deprecated: false
@@ -201,7 +221,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :environment, 1, type: Google.Cloud.Dialogflow.Cx.V3.Environment
   field :deployment, 2, type: :string
@@ -209,7 +230,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeployFlowMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :test_errors, 1,
     repeated: true,
@@ -219,9 +241,10 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.Environments",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListEnvironments,
       Google.Cloud.Dialogflow.Cx.V3.ListEnvironmentsRequest,
@@ -260,5 +283,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Environments.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.Cx.V3.Environments.Service
 end

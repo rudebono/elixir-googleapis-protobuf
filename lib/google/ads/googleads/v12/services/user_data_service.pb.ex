@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V12.Services.UploadUserDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -19,7 +20,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.UserDataOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -29,7 +31,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.UploadUserDataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :upload_date_time, 3, proto3_optional: true, type: :string, json_name: "uploadDateTime"
 
@@ -41,9 +44,10 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.UserDataService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.UserDataService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :UploadUserData,
       Google.Ads.Googleads.V12.Services.UploadUserDataRequest,
@@ -52,5 +56,6 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.UserDataService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V12.Services.UserDataService.Service
 end

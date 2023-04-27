@@ -1,6 +1,7 @@
 defmodule Maps.Fleetengine.Delivery.V1.Task.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PICKUP, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Maps.Fleetengine.Delivery.V1.Task.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OPEN, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcome do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TASK_OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -29,7 +32,8 @@ end
 
 defmodule Maps.Fleetengine.Delivery.V1.Task.TaskOutcomeLocationSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED, 0
   field :PROVIDER, 2
@@ -38,7 +42,8 @@ end
 
 defmodule Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :remaining_vehicle_journey_segments, 1,
     repeated: true,
@@ -54,7 +59,8 @@ end
 
 defmodule Maps.Fleetengine.Delivery.V1.Task do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Maps.Fleetengine.Delivery.V1.Task.Type, enum: true, deprecated: false

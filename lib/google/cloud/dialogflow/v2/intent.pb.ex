@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.IntentView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INTENT_VIEW_UNSPECIFIED, 0
   field :INTENT_VIEW_FULL, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.WebhookState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :WEBHOOK_STATE_UNSPECIFIED, 0
   field :WEBHOOK_STATE_ENABLED, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EXAMPLE, 1
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Platform do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :FACEBOOK, 1
@@ -42,7 +46,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESPONSE_MEDIA_TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.ImageDisplayOptions do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :IMAGE_DISPLAY_OPTIONS_UNSPECIFIED, 0
   field :GRAY, 1
@@ -61,7 +67,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction.UrlTypeHint do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :URL_TYPE_HINT_UNSPECIFIED, 0
   field :AMP_ACTION, 1
@@ -70,7 +77,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties.HorizontalAlignment do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :HORIZONTAL_ALIGNMENT_UNSPECIFIED, 0
   field :LEADING, 1
@@ -80,7 +88,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase.Part do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :entity_type, 2, type: :string, json_name: "entityType", deprecated: false
@@ -90,7 +99,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.TrainingPhrase do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -109,7 +119,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Parameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -128,14 +139,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Text do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Image do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :accessibility_text, 2, type: :string, json_name: "accessibilityText", deprecated: false
@@ -143,7 +156,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.QuickReplies do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
 
@@ -156,7 +170,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card.Button do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :postback, 2, type: :string, deprecated: false
@@ -164,7 +179,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Card do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false
@@ -178,7 +194,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text_to_speech, 1, type: :string, json_name: "textToSpeech"
   field :ssml, 2, type: :string
@@ -187,7 +204,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SimpleResponses do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :simple_responses, 1,
     repeated: true,
@@ -198,14 +216,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button.OpenUriAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard.Button do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string
 
@@ -217,7 +237,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BasicCard do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false
@@ -232,14 +253,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.Suggestions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -249,7 +272,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.LinkOutSuggestion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination_name, 1, type: :string, json_name: "destinationName", deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -257,7 +281,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect.Item do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :info, 1,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.SelectItemInfo,
@@ -270,7 +295,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ListSelect do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
 
@@ -284,7 +310,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect.Item do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :info, 1,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.SelectItemInfo,
@@ -297,7 +324,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.CarouselSelect do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,
@@ -307,7 +335,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.SelectItemInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :synonyms, 2, repeated: true, type: :string, deprecated: false
@@ -315,7 +344,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaObject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -338,7 +368,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :media_type, 1,
     type: Google.Cloud.Dialogflow.V2.Intent.Message.MediaContent.ResponseMediaType,
@@ -354,7 +385,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem.OpenUrlAction do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :url, 1, type: :string
 
@@ -368,7 +400,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard.BrowseCarouselCardItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :open_uri_action, 1,
     type:
@@ -383,7 +416,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.BrowseCarouselCard do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :items, 1,
     repeated: true,
@@ -398,7 +432,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCard do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string, deprecated: false
@@ -423,7 +458,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.ColumnProperties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: :string
 
@@ -436,7 +472,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardRow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cells, 1,
     repeated: true,
@@ -448,14 +485,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message.TableCardCell do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.Message do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :message, 0
 
@@ -520,7 +559,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent.FollowupIntentInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :followup_intent_name, 1, type: :string, json_name: "followupIntentName"
   field :parent_followup_intent_name, 2, type: :string, json_name: "parentFollowupIntentName"
@@ -528,7 +568,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -602,7 +643,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ListIntentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -619,7 +661,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ListIntentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -627,7 +670,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.GetIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -641,7 +685,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :intent, 2, type: Google.Cloud.Dialogflow.V2.Intent, deprecated: false
@@ -656,7 +701,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :intent, 1, type: Google.Cloud.Dialogflow.V2.Intent, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -675,14 +721,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteIntentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :intent_batch, 0
 
@@ -710,14 +758,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchUpdateIntentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
 end
 
 defmodule Google.Cloud.Dialogflow.V2.BatchDeleteIntentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :intents, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent, deprecated: false
@@ -725,16 +775,18 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.IntentBatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.Intent
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Intents.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.Intents",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListIntents,
       Google.Cloud.Dialogflow.V2.ListIntentsRequest,
@@ -763,5 +815,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.Intents.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.Intents.Service
 end

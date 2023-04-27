@@ -1,13 +1,15 @@
 defmodule Google.Ads.Googleads.V12.Services.ListMerchantCenterLinksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.ListMerchantCenterLinksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :merchant_center_links, 1,
     repeated: true,
@@ -17,14 +19,16 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.GetMerchantCenterLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateMerchantCenterLinkRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MerchantCenterLinkOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -48,23 +53,26 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateMerchantCenterLinkResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :result, 2, type: Google.Ads.Googleads.V12.Services.MutateMerchantCenterLinkResult
 end
 
 defmodule Google.Ads.Googleads.V12.Services.MutateMerchantCenterLinkResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V12.Services.MerchantCenterLinkService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v12.services.MerchantCenterLinkService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListMerchantCenterLinks,
       Google.Ads.Googleads.V12.Services.ListMerchantCenterLinksRequest,
@@ -81,5 +89,6 @@ end
 
 defmodule Google.Ads.Googleads.V12.Services.MerchantCenterLinkService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V12.Services.MerchantCenterLinkService.Service
 end

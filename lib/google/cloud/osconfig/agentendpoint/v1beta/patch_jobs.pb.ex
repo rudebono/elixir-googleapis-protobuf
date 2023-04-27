@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REBOOT_CONFIG_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :DIST, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings.Classification do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CLASSIFICATION_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -35,7 +38,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig.Interpreter do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :NONE, 3
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reboot_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.PatchConfig.RebootConfig,
@@ -78,7 +83,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Osconfig.Agentendpoint.V1beta.AptSettings.Type, enum: true
   field :excludes, 2, repeated: true, type: :string
@@ -87,7 +93,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.YumSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :security, 1, type: :bool
   field :minimal, 2, type: :bool
@@ -97,12 +104,14 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GooSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ZypperSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :with_optional, 1, type: :bool, json_name: "withOptional"
   field :with_update, 2, type: :bool, json_name: "withUpdate"
@@ -114,7 +123,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.WindowsUpdateSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :classifications, 1,
     repeated: true,
@@ -127,14 +137,16 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.RetryStrategy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStep do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :linux_exec_step_config, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig,
@@ -147,7 +159,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.ExecStepConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :executable, 0
 
@@ -167,7 +180,8 @@ end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1beta.GcsObject do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :object, 2, type: :string

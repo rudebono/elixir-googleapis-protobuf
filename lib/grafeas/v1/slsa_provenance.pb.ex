@@ -1,6 +1,7 @@
 defmodule Grafeas.V1.SlsaProvenance.SlsaRecipe do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :defined_in_material, 2, type: :int64, json_name: "definedInMaterial"
@@ -11,7 +12,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaCompleteness do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :arguments, 1, type: :bool
   field :environment, 2, type: :bool
@@ -20,7 +22,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :build_invocation_id, 1, type: :string, json_name: "buildInvocationId"
   field :build_started_on, 2, type: Google.Protobuf.Timestamp, json_name: "buildStartedOn"
@@ -31,14 +34,16 @@ end
 
 defmodule Grafeas.V1.SlsaProvenance.SlsaBuilder do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
 
 defmodule Grafeas.V1.SlsaProvenance.Material.DigestEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -46,7 +51,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenance.Material do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -58,7 +64,8 @@ end
 
 defmodule Grafeas.V1.SlsaProvenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :builder, 1, type: Grafeas.V1.SlsaProvenance.SlsaBuilder
   field :recipe, 2, type: Grafeas.V1.SlsaProvenance.SlsaRecipe

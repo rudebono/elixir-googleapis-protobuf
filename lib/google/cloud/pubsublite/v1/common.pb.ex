@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig.DeliveryRequirement do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DELIVERY_REQUIREMENT_UNSPECIFIED, 0
   field :DELIVER_IMMEDIATELY, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ExportConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -20,14 +22,16 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.AttributeValues do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :bytes
 end
 
 defmodule Google.Cloud.Pubsublite.V1.PubSubMessage.AttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Pubsublite.V1.AttributeValues
@@ -35,7 +39,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.PubSubMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :bytes
   field :data, 2, type: :bytes
@@ -50,14 +55,16 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Cursor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :offset, 1, type: :int64
 end
 
 defmodule Google.Cloud.Pubsublite.V1.SequencedMessage do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cursor, 1, type: Google.Cloud.Pubsublite.V1.Cursor
   field :publish_time, 2, type: Google.Protobuf.Timestamp, json_name: "publishTime"
@@ -67,7 +74,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Reservation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :throughput_capacity, 2, type: :int64, json_name: "throughputCapacity"
@@ -75,7 +83,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig.Capacity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :publish_mib_per_sec, 1, type: :int32, json_name: "publishMibPerSec"
   field :subscribe_mib_per_sec, 2, type: :int32, json_name: "subscribeMibPerSec"
@@ -83,7 +92,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.PartitionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :dimension, 0
 
@@ -94,7 +104,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.RetentionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :per_partition_bytes, 1, type: :int64, json_name: "perPartitionBytes"
   field :period, 2, type: Google.Protobuf.Duration
@@ -102,7 +113,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic.ReservationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :throughput_reservation, 1,
     type: :string,
@@ -112,7 +124,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Topic do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -131,7 +144,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :delivery_requirement, 3,
     type: Google.Cloud.Pubsublite.V1.Subscription.DeliveryConfig.DeliveryRequirement,
@@ -141,7 +155,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.Subscription do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :topic, 2, type: :string, deprecated: false
@@ -157,14 +172,16 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.ExportConfig.PubSubConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string
 end
 
 defmodule Google.Cloud.Pubsublite.V1.ExportConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -189,7 +206,8 @@ end
 
 defmodule Google.Cloud.Pubsublite.V1.TimeTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :time, 0
 

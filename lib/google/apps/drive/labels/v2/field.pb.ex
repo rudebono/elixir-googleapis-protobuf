@@ -1,6 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.Field.DateOptions.DateFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATE_FORMAT_UNSPECIFIED, 0
   field :LONG_DATE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.Properties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :required, 2, type: :bool
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.DisplayHints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :required, 1, type: :bool
   field :disabled, 2, type: :bool
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SchemaCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_update, 1, type: :bool, json_name: "canUpdate"
   field :can_delete, 2, type: :bool, json_name: "canDelete"
@@ -38,7 +42,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.AppliedCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_read, 1, type: :bool, json_name: "canRead"
   field :can_search, 2, type: :bool, json_name: "canSearch"
@@ -47,14 +52,16 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.ListOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_entries, 1, type: :int32, json_name: "maxEntries"
 end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.TextOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_length, 1, type: :int32, json_name: "minLength", deprecated: false
   field :max_length, 2, type: :int32, json_name: "maxLength", deprecated: false
@@ -62,7 +69,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.IntegerOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_value, 1, type: :int64, json_name: "minValue", deprecated: false
   field :max_value, 2, type: :int64, json_name: "maxValue", deprecated: false
@@ -70,7 +78,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.DateOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :date_format_type, 1,
     type: Google.Apps.Drive.Labels.V2.Field.DateOptions.DateFormat,
@@ -84,7 +93,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice.Properties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :description, 2, type: :string
@@ -98,7 +108,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice.DisplayHints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disabled, 1, type: :bool
   field :hidden_in_search, 2, type: :bool, json_name: "hiddenInSearch"
@@ -114,7 +125,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice.SchemaCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_update, 1, type: :bool, json_name: "canUpdate"
   field :can_delete, 2, type: :bool, json_name: "canDelete"
@@ -124,7 +136,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice.AppliedCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_read, 1, type: :bool, json_name: "canRead"
   field :can_search, 2, type: :bool, json_name: "canSearch"
@@ -133,7 +146,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :properties, 2, type: Google.Apps.Drive.Labels.V2.Field.SelectionOptions.Choice.Properties
@@ -190,7 +204,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.SelectionOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :list_options, 1,
     type: Google.Apps.Drive.Labels.V2.Field.ListOptions,
@@ -203,7 +218,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field.UserOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :list_options, 1,
     type: Google.Apps.Drive.Labels.V2.Field.ListOptions,
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.Field do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type, 0
 

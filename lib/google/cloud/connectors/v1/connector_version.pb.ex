@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Connectors.V1.ConnectorVersionView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONNECTOR_VERSION_VIEW_UNSPECIFIED, 0
   field :CONNECTOR_VERSION_VIEW_BASIC, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ExtractionRule.SourceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SOURCE_TYPE_UNSPECIFIED, 0
   field :CONFIG_VARIABLE, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ConnectorVersion.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ConnectorVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -96,7 +100,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.GetConnectorVersionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Connectors.V1.ConnectorVersionView, enum: true
@@ -104,7 +109,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ListConnectorVersionsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -114,7 +120,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ListConnectorVersionsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :connector_versions, 1,
     repeated: true,
@@ -127,7 +134,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.SupportedRuntimeFeatures do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entity_apis, 1, type: :bool, json_name: "entityApis"
   field :action_apis, 2, type: :bool, json_name: "actionApis"
@@ -136,7 +144,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.EgressControlConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :oneof_backends, 0
 
@@ -150,7 +159,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ExtractionRules do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :extraction_rule, 1,
     repeated: true,
@@ -160,7 +170,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ExtractionRule.Source do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source_type, 1,
     type: Google.Cloud.Connectors.V1.ExtractionRule.SourceType,
@@ -172,7 +183,8 @@ end
 
 defmodule Google.Cloud.Connectors.V1.ExtractionRule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Connectors.V1.ExtractionRule.Source
   field :extraction_regex, 2, type: :string, json_name: "extractionRegex"

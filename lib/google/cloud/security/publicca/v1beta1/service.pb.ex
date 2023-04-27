@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Security.Publicca.V1beta1.CreateExternalAccountKeyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -12,9 +13,10 @@ end
 
 defmodule Google.Cloud.Security.Publicca.V1beta1.PublicCertificateAuthorityService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.security.publicca.v1beta1.PublicCertificateAuthorityService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateExternalAccountKey,
       Google.Cloud.Security.Publicca.V1beta1.CreateExternalAccountKeyRequest,
@@ -23,6 +25,7 @@ end
 
 defmodule Google.Cloud.Security.Publicca.V1beta1.PublicCertificateAuthorityService.Stub do
   @moduledoc false
+
   use GRPC.Stub,
     service: Google.Cloud.Security.Publicca.V1beta1.PublicCertificateAuthorityService.Service
 end

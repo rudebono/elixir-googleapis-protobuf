@@ -1,6 +1,7 @@
 defmodule Google.Api.Distribution.Range do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min, 1, type: :double
   field :max, 2, type: :double
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Api.Distribution.BucketOptions.Linear do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :width, 2, type: :double
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Api.Distribution.BucketOptions.Exponential do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :growth_factor, 2, type: :double, json_name: "growthFactor"
@@ -26,14 +29,16 @@ end
 
 defmodule Google.Api.Distribution.BucketOptions.Explicit do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bounds, 1, repeated: true, type: :double
 end
 
 defmodule Google.Api.Distribution.BucketOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :options, 0
 
@@ -55,7 +60,8 @@ end
 
 defmodule Google.Api.Distribution.Exemplar do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :value, 1, type: :double
   field :timestamp, 2, type: Google.Protobuf.Timestamp
@@ -64,7 +70,8 @@ end
 
 defmodule Google.Api.Distribution do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :count, 1, type: :int64
   field :mean, 2, type: :double

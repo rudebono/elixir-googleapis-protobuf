@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PRIMITIVE_TYPE_UNSPECIFIED, 0
   field :DOUBLE, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.Tag.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.TagField
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.Tag do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :scope, 0
 
@@ -43,14 +46,16 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.TagField.EnumValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Datacatalog.V1.TagField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -75,7 +80,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.TagTemplate.FieldsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.TagTemplateField
@@ -83,7 +89,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -98,7 +105,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.TagTemplateField do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
   field :display_name, 1, type: :string, json_name: "displayName"
@@ -110,14 +118,16 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.FieldType.EnumType.EnumValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.FieldType.EnumType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allowed_values, 1,
     repeated: true,
@@ -127,7 +137,8 @@ end
 
 defmodule Google.Cloud.Datacatalog.V1.FieldType do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :type_decl, 0
 

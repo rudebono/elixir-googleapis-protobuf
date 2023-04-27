@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Automl.V1.CreateDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: Google.Cloud.Automl.V1.Dataset, deprecated: false
@@ -8,14 +9,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.GetDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.ListDatasetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.ListDatasetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Automl.V1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -33,7 +37,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.UpdateDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Automl.V1.Dataset, deprecated: false
 
@@ -45,14 +50,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.DeleteDatasetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.ImportDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -64,7 +71,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.ExportDataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -76,14 +84,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.GetAnnotationSpecRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.CreateModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :model, 4, type: Google.Cloud.Automl.V1.Model, deprecated: false
@@ -91,14 +101,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.GetModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string
@@ -108,7 +120,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.ListModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, repeated: true, type: Google.Cloud.Automl.V1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -116,14 +129,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.DeleteModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.UpdateModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Automl.V1.Model, deprecated: false
 
@@ -135,7 +150,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.DeployModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :model_deployment_metadata, 0
 
@@ -154,14 +170,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.UndeployModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.ExportModelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -173,14 +191,16 @@ end
 
 defmodule Google.Cloud.Automl.V1.GetModelEvaluationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Automl.V1.ListModelEvaluationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 3, type: :string, deprecated: false
@@ -190,7 +210,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.ListModelEvaluationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model_evaluation, 1,
     repeated: true,
@@ -202,7 +223,8 @@ end
 
 defmodule Google.Cloud.Automl.V1.AutoMl.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.automl.v1.AutoMl", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.automl.v1.AutoMl", protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateDataset, Google.Cloud.Automl.V1.CreateDatasetRequest, Google.Longrunning.Operation
 
@@ -253,5 +275,6 @@ end
 
 defmodule Google.Cloud.Automl.V1.AutoMl.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Automl.V1.AutoMl.Service
 end

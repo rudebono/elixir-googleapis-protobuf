@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerDeploymentsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.ListGameServerDeploymentsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :game_server_deployments, 1,
     repeated: true,
@@ -24,21 +26,24 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.GetGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.CreateGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -51,14 +56,16 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.DeleteGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerDeploymentRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :game_server_deployment, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerDeployment,
@@ -73,7 +80,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.UpdateGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rollout, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerDeploymentRollout,
@@ -87,14 +95,16 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.FetchDeploymentStateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gaming.V1beta.FetchDeploymentStateResponse.DeployedClusterState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster, 1, type: :string
 
@@ -106,7 +116,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.FetchDeploymentStateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cluster_state, 1,
     repeated: true,
@@ -118,7 +129,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerDeployment.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -126,7 +138,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerDeployment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -151,7 +164,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerConfigOverride do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :selector, 0
 
@@ -167,7 +181,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.GameServerDeploymentRollout do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -193,7 +208,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.PreviewGameServerDeploymentRolloutRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rollout, 1,
     type: Google.Cloud.Gaming.V1beta.GameServerDeploymentRollout,
@@ -212,7 +228,8 @@ end
 
 defmodule Google.Cloud.Gaming.V1beta.PreviewGameServerDeploymentRolloutResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :unavailable, 2, repeated: true, type: :string
   field :etag, 3, type: :string

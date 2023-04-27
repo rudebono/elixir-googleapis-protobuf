@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Remoteworkers.V1test2.BotStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BOT_STATUS_UNSPECIFIED, 0
   field :OK, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.LeaseState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LEASE_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :BOT_UPDATE, 1
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.BotSession do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :bot_id, 2, type: :string, json_name: "botId"
@@ -47,7 +51,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Lease do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 7, type: :string
   field :payload, 8, type: Google.Protobuf.Any
@@ -66,7 +71,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.AdminTemp do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :command, 1, type: Google.Devtools.Remoteworkers.V1test2.AdminTemp.Command, enum: true
   field :arg, 2, type: :string
@@ -74,7 +80,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -86,7 +93,8 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.UpdateBotSessionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -103,9 +111,10 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.remoteworkers.v1test2.Bots",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateBotSession,
       Google.Devtools.Remoteworkers.V1test2.CreateBotSessionRequest,
@@ -118,5 +127,6 @@ end
 
 defmodule Google.Devtools.Remoteworkers.V1test2.Bots.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Remoteworkers.V1test2.Bots.Service
 end

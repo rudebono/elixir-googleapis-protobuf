@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Run.V2.CreateJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job, 2, type: Google.Cloud.Run.V2.Job, deprecated: false
@@ -10,14 +11,16 @@ end
 
 defmodule Google.Cloud.Run.V2.GetJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.UpdateJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Run.V2.Job, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Cloud.Run.V2.ListJobsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Run.V2.ListJobsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Run.V2.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -44,7 +49,8 @@ end
 
 defmodule Google.Cloud.Run.V2.DeleteJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -53,7 +59,8 @@ end
 
 defmodule Google.Cloud.Run.V2.RunJobRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -62,7 +69,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Job.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -70,7 +78,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Job.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -78,7 +87,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Job do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :uid, 2, type: :string, deprecated: false
@@ -138,7 +148,8 @@ end
 
 defmodule Google.Cloud.Run.V2.ExecutionReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -147,7 +158,8 @@ end
 
 defmodule Google.Cloud.Run.V2.Jobs.Service do
   @moduledoc false
-  use GRPC.Service, name: "google.cloud.run.v2.Jobs", protoc_gen_elixir_version: "0.11.0"
+
+  use GRPC.Service, name: "google.cloud.run.v2.Jobs", protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateJob, Google.Cloud.Run.V2.CreateJobRequest, Google.Longrunning.Operation
 
@@ -172,5 +184,6 @@ end
 
 defmodule Google.Cloud.Run.V2.Jobs.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Run.V2.Jobs.Service
 end

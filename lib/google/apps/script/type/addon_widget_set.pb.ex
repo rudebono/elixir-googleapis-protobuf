@@ -1,6 +1,7 @@
 defmodule Google.Apps.Script.Type.AddOnWidgetSet.WidgetType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :WIDGET_TYPE_UNSPECIFIED, 0
   field :DATE_PICKER, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Apps.Script.Type.AddOnWidgetSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :used_widgets, 1,
     repeated: true,

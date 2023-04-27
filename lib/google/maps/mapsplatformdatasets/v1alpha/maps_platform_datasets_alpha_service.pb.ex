@@ -1,8 +1,9 @@
 defmodule Google.Maps.Mapsplatformdatasets.V1alpha.MapsPlatformDatasetsV1Alpha.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.maps.mapsplatformdatasets.v1alpha.MapsPlatformDatasetsV1Alpha",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateDataset,
       Google.Maps.Mapsplatformdatasets.V1alpha.CreateDatasetRequest,
@@ -35,6 +36,7 @@ end
 
 defmodule Google.Maps.Mapsplatformdatasets.V1alpha.MapsPlatformDatasetsV1Alpha.Stub do
   @moduledoc false
+
   use GRPC.Stub,
     service: Google.Maps.Mapsplatformdatasets.V1alpha.MapsPlatformDatasetsV1Alpha.Service
 end

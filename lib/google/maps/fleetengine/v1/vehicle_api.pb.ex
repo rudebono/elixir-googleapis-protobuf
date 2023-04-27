@@ -1,6 +1,7 @@
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.VehicleMatchOrder do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN_VEHICLE_MATCH_ORDER, 0
   field :PICKUP_POINT_ETA, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest.CurrentTripsPresent do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CURRENT_TRIPS_PRESENT_UNSPECIFIED, 0
   field :NONE, 1
@@ -21,7 +23,8 @@ end
 
 defmodule Maps.Fleetengine.V1.VehicleMatch.VehicleMatchType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :EXCLUSIVE, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Maps.Fleetengine.V1.CreateVehicleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -42,7 +46,8 @@ end
 
 defmodule Maps.Fleetengine.V1.GetVehicleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -56,7 +61,8 @@ end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -70,7 +76,8 @@ end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
   @moduledoc false
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -88,7 +95,8 @@ end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -101,7 +109,8 @@ end
 
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attributes, 1,
     repeated: true,
@@ -111,7 +120,8 @@ end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -173,14 +183,16 @@ end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :matches, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleMatch
 end
 
 defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 12, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 1, type: :string, deprecated: false
@@ -225,7 +237,8 @@ end
 
 defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vehicles, 1, repeated: true, type: Maps.Fleetengine.V1.Vehicle
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -234,7 +247,8 @@ end
 
 defmodule Maps.Fleetengine.V1.Waypoint do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :eta, 2, type: Google.Protobuf.Timestamp
@@ -242,7 +256,8 @@ end
 
 defmodule Maps.Fleetengine.V1.VehicleMatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vehicle, 1, type: Maps.Fleetengine.V1.Vehicle, deprecated: false
   field :vehicle_pickup_eta, 2, type: Google.Protobuf.Timestamp, json_name: "vehiclePickupEta"
@@ -291,16 +306,18 @@ end
 
 defmodule Maps.Fleetengine.V1.VehicleAttributeList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :attributes, 1, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
 end
 
 defmodule Maps.Fleetengine.V1.VehicleService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "maps.fleetengine.v1.VehicleService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateVehicle, Maps.Fleetengine.V1.CreateVehicleRequest, Maps.Fleetengine.V1.Vehicle
 
@@ -331,5 +348,6 @@ end
 
 defmodule Maps.Fleetengine.V1.VehicleService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Maps.Fleetengine.V1.VehicleService.Service
 end

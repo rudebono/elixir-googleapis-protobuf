@@ -1,6 +1,7 @@
 defmodule Google.Api.Servicecontrol.V1.CheckResponse.ConsumerInfo.ConsumerType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONSUMER_TYPE_UNSPECIFIED, 0
   field :PROJECT, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.CheckRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :operation, 2, type: Google.Api.Servicecontrol.V1.Operation
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.CheckResponse.CheckInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :unused_arguments, 1, repeated: true, type: :string, json_name: "unusedArguments"
 
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.CheckResponse.ConsumerInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_number, 1, type: :int64, json_name: "projectNumber"
 
@@ -44,7 +48,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.CheckResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -63,7 +68,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.ReportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :operations, 2, repeated: true, type: Google.Api.Servicecontrol.V1.Operation
@@ -72,7 +78,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.ReportResponse.ReportError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
   field :status, 2, type: Google.Rpc.Status
@@ -80,7 +87,8 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.ReportResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :report_errors, 1,
     repeated: true,
@@ -93,9 +101,10 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.ServiceController.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.api.servicecontrol.v1.ServiceController",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Check,
       Google.Api.Servicecontrol.V1.CheckRequest,
@@ -108,5 +117,6 @@ end
 
 defmodule Google.Api.Servicecontrol.V1.ServiceController.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Api.Servicecontrol.V1.ServiceController.Service
 end

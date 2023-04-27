@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Services.MutateKeywordPlansRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -15,7 +16,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanOperation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -27,7 +29,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateKeywordPlansResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -38,21 +41,24 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.MutateKeywordPlansResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastCurveRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan, 1, type: :string, json_name: "keywordPlan", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastCurveResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :campaign_forecast_curves, 1,
     repeated: true,
@@ -62,14 +68,16 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastTimeSeriesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan, 1, type: :string, json_name: "keywordPlan", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastTimeSeriesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :weekly_time_series_forecasts, 1,
     repeated: true,
@@ -79,14 +87,16 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastMetricsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan, 1, type: :string, json_name: "keywordPlan", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateForecastMetricsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :campaign_forecasts, 1,
     repeated: true,
@@ -106,7 +116,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanCampaignForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan_campaign, 3,
     proto3_optional: true,
@@ -120,7 +131,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanAdGroupForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan_ad_group, 3,
     proto3_optional: true,
@@ -134,7 +146,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanKeywordForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan_ad_group_keyword, 3,
     proto3_optional: true,
@@ -148,7 +161,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanCampaignForecastCurve do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan_campaign, 3,
     proto3_optional: true,
@@ -162,7 +176,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanMaxCpcBidForecastCurve do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_cpc_bid_forecasts, 1,
     repeated: true,
@@ -172,7 +187,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanMaxCpcBidForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_cpc_bid_micros, 3, proto3_optional: true, type: :int64, json_name: "maxCpcBidMicros"
 
@@ -183,7 +199,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanWeeklyTimeSeriesForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan_campaign, 1,
     proto3_optional: true,
@@ -198,7 +215,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanWeeklyForecast do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_date, 1, proto3_optional: true, type: :string, json_name: "startDate"
   field :forecast, 2, type: Google.Ads.Googleads.V13.Services.ForecastMetrics
@@ -206,7 +224,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.ForecastMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :impressions, 7, proto3_optional: true, type: :double
   field :ctr, 8, proto3_optional: true, type: :double
@@ -217,7 +236,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateHistoricalMetricsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword_plan, 1, type: :string, json_name: "keywordPlan", deprecated: false
 
@@ -232,7 +252,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.GenerateHistoricalMetricsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metrics, 1,
     repeated: true,
@@ -245,7 +266,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanKeywordHistoricalMetrics do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :search_query, 4, proto3_optional: true, type: :string, json_name: "searchQuery"
   field :close_variants, 3, repeated: true, type: :string, json_name: "closeVariants"
@@ -257,9 +279,10 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.ads.googleads.v13.services.KeywordPlanService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :MutateKeywordPlans,
       Google.Ads.Googleads.V13.Services.MutateKeywordPlansRequest,
@@ -284,5 +307,6 @@ end
 
 defmodule Google.Ads.Googleads.V13.Services.KeywordPlanService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Ads.Googleads.V13.Services.KeywordPlanService.Service
 end

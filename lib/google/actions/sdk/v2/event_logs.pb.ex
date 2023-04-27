@@ -1,6 +1,7 @@
 defmodule Google.Actions.Sdk.V2.ExecutionEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :EventData, 0
 
@@ -79,7 +80,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.ExecutionState do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_scene_id, 1, type: :string, json_name: "currentSceneId"
   field :session_storage, 2, type: Google.Protobuf.Struct, json_name: "sessionStorage"
@@ -96,7 +98,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Slots.SlotsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.Slot
@@ -104,7 +107,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Slots do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 2, type: Google.Actions.Sdk.V2.Conversation.SlotFillingStatus, enum: true
   field :slots, 3, repeated: true, type: Google.Actions.Sdk.V2.Slots.SlotsEntry, map: true
@@ -112,7 +116,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.UserConversationInput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :original_query, 2, type: :string, json_name: "originalQuery"
@@ -120,7 +125,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.IntentMatch.IntentParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
@@ -128,7 +134,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.IntentMatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :intent_id, 1, type: :string, json_name: "intentId"
 
@@ -144,7 +151,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.ConditionsEvaluated do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :failed_conditions, 1,
     repeated: true,
@@ -158,7 +166,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.Condition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :expression, 1, type: :string
   field :handler, 2, type: :string
@@ -167,35 +176,40 @@ end
 
 defmodule Google.Actions.Sdk.V2.OnSceneEnter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :handler, 1, type: :string
 end
 
 defmodule Google.Actions.Sdk.V2.WebhookInitiatedTransition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :next_scene_id, 1, type: :string, json_name: "nextSceneId"
 end
 
 defmodule Google.Actions.Sdk.V2.WebhookRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_json, 1, type: :string, json_name: "requestJson"
 end
 
 defmodule Google.Actions.Sdk.V2.WebhookResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :response_json, 1, type: :string, json_name: "responseJson"
 end
 
 defmodule Google.Actions.Sdk.V2.SlotMatch.NluParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Conversation.IntentParameterValue
@@ -203,7 +217,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.SlotMatch do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :nlu_parameters, 2,
     repeated: true,
@@ -214,7 +229,8 @@ end
 
 defmodule Google.Actions.Sdk.V2.SlotRequested do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :slot, 1, type: :string
   field :prompt, 3, type: Google.Actions.Sdk.V2.Conversation.Prompt
@@ -222,20 +238,24 @@ end
 
 defmodule Google.Actions.Sdk.V2.SlotValidated do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Actions.Sdk.V2.FormFilled do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Actions.Sdk.V2.WaitingForUserInput do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Actions.Sdk.V2.EndConversation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

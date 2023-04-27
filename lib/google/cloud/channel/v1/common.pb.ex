@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Channel.V1.EduData.InstituteType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INSTITUTE_TYPE_UNSPECIFIED, 0
   field :K12, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.EduData.InstituteSize do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INSTITUTE_SIZE_UNSPECIFIED, 0
   field :SIZE_1_100, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CUSTOMER_TYPE_UNSPECIFIED, 0
   field :DOMAIN, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.EduData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :institute_type, 1,
     type: Google.Cloud.Channel.V1.EduData.InstituteType,
@@ -49,7 +53,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.CloudIdentityInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_type, 1,
     type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
@@ -67,7 +72,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Value do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -80,7 +86,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.AdminUser do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :email, 1, type: :string
   field :given_name, 2, type: :string, json_name: "givenName"

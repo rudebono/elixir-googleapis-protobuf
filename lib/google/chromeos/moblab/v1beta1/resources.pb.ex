@@ -1,6 +1,7 @@
 defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BUILD_STATUS_UNSPECIFIED, 0
   field :PASS, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BUILD_TYPE_UNSPECIFIED, 0
   field :RELEASE, 1
@@ -20,28 +22,32 @@ end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildTarget do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Milestone do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.Build do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :milestone, 2, type: :string, deprecated: false
@@ -55,7 +61,8 @@ end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :build, 2, type: :string, deprecated: false

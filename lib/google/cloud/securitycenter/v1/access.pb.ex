@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.Access do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :caller_ip, 2, type: :string, json_name: "callerIp"
@@ -25,7 +26,8 @@ end
 
 defmodule Google.Cloud.Securitycenter.V1.ServiceAccountDelegationInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :principal_subject, 2, type: :string, json_name: "principalSubject"
@@ -33,7 +35,8 @@ end
 
 defmodule Google.Cloud.Securitycenter.V1.Geolocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :region_code, 1, type: :string, json_name: "regionCode"
 end

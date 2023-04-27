@@ -1,6 +1,7 @@
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilter.StringFilter.MatchType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilter.StringFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Admin.V1alpha.ExpandedDataSetFilter.StringFilter.MatchType,
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilter.InListFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
   field :case_sensitive, 2, type: :bool, json_name: "caseSensitive", deprecated: false
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -50,7 +54,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilterExpression do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -69,7 +74,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSetFilterExpressionList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter_expressions, 1,
     repeated: true,
@@ -79,7 +85,8 @@ end
 
 defmodule Google.Analytics.Admin.V1alpha.ExpandedDataSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

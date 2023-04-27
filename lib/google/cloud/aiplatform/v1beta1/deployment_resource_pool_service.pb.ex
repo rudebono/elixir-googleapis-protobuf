@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateDeploymentResourcePoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -17,7 +18,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateDeploymentResourcePoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -26,14 +28,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetDeploymentResourcePoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDeploymentResourcePoolsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -42,7 +46,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDeploymentResourcePoolsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployment_resource_pools, 1,
     repeated: true,
@@ -54,7 +59,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateDeploymentResourcePoolOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -63,14 +69,16 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteDeploymentResourcePoolRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryDeployedModelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployment_resource_pool, 1,
     type: :string,
@@ -83,7 +91,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryDeployedModelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :deployed_models, 1,
     repeated: true,
@@ -104,9 +113,10 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeploymentResourcePoolService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.DeploymentResourcePoolService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateDeploymentResourcePool,
       Google.Cloud.Aiplatform.V1beta1.CreateDeploymentResourcePoolRequest,
@@ -131,5 +141,6 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeploymentResourcePoolService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.DeploymentResourcePoolService.Service
 end

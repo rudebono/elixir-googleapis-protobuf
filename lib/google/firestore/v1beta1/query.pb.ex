@@ -1,6 +1,7 @@
 defmodule Google.Firestore.V1beta1.StructuredQuery.Direction do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.CompositeFilter.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :AND, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.FieldFilter.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS_THAN, 1
@@ -34,7 +37,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.UnaryFilter.Operator do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :IS_NAN, 2
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.CollectionSelector do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :collection_id, 2, type: :string, json_name: "collectionId"
   field :all_descendants, 3, type: :bool, json_name: "allDescendants"
@@ -53,7 +58,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.Filter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :filter_type, 0
 
@@ -75,7 +81,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.CompositeFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :op, 1,
     type: Google.Firestore.V1beta1.StructuredQuery.CompositeFilter.Operator,
@@ -86,7 +93,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.FieldFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field, 1, type: Google.Firestore.V1beta1.StructuredQuery.FieldReference
   field :op, 2, type: Google.Firestore.V1beta1.StructuredQuery.FieldFilter.Operator, enum: true
@@ -95,7 +103,8 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.UnaryFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operand_type, 0
 
@@ -105,14 +114,16 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.FieldReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field_path, 2, type: :string, json_name: "fieldPath"
 end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.Order do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field, 1, type: Google.Firestore.V1beta1.StructuredQuery.FieldReference
   field :direction, 2, type: Google.Firestore.V1beta1.StructuredQuery.Direction, enum: true
@@ -120,14 +131,16 @@ end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery.Projection do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :fields, 2, repeated: true, type: Google.Firestore.V1beta1.StructuredQuery.FieldReference
 end
 
 defmodule Google.Firestore.V1beta1.StructuredQuery do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :select, 1, type: Google.Firestore.V1beta1.StructuredQuery.Projection
 
@@ -150,7 +163,8 @@ end
 
 defmodule Google.Firestore.V1beta1.Cursor do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Firestore.V1beta1.Value
   field :before, 2, type: :bool

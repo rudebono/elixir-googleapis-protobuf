@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.TestCase.Result do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :COMPLETED, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestSuite do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suite_name, 1, type: :string, json_name: "suiteName"
   field :tests, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Test
@@ -26,7 +28,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.Test do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :test_type, 0
 
@@ -43,7 +46,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestCase do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :case_name, 1, type: :string, json_name: "caseName"
   field :class_name, 2, type: :string, json_name: "className"
@@ -57,7 +61,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestFailure do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :failure_message, 1, type: :string, json_name: "failureMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"
@@ -68,7 +73,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_message, 1, type: :string, json_name: "errorMessage"
   field :exception_type, 2, type: :string, json_name: "exceptionType"

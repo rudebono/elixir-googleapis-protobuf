@@ -1,6 +1,7 @@
 defmodule Google.Firestore.Admin.V1.Field.TtlConfig.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Field.IndexConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1.Index
   field :uses_ancestor_config, 2, type: :bool, json_name: "usesAncestorConfig"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Field.TtlConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Firestore.Admin.V1.Field.TtlConfig.State,
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Firestore.Admin.V1.Field do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

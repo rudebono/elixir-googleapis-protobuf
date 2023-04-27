@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Secrets.V1beta1.SecretVersion.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.Secret.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.Secret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :replication, 2, type: Google.Cloud.Secrets.V1beta1.Replication, deprecated: false
@@ -36,7 +39,8 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.SecretVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -58,19 +62,22 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.Automatic do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged.Replica do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1, type: :string
 end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication.UserManaged do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :replicas, 1,
     repeated: true,
@@ -80,7 +87,8 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.Replication do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :replication, 0
 
@@ -94,7 +102,8 @@ end
 
 defmodule Google.Cloud.Secrets.V1beta1.SecretPayload do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 end

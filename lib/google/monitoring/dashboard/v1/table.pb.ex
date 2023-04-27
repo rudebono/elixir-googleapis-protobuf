@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable.MetricVisualization do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METRIC_VISUALIZATION_UNSPECIFIED, 0
   field :NUMBER, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable.TableDataSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_series_query, 1,
     type: Google.Monitoring.Dashboard.V1.TimeSeriesQuery,
@@ -31,7 +33,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable.ColumnSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :column, 1, type: :string, deprecated: false
   field :visible, 2, type: :bool, deprecated: false
@@ -39,7 +42,8 @@ end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesTable do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_sets, 1,
     repeated: true,

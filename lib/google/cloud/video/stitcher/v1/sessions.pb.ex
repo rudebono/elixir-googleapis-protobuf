@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions.OrderPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ORDER_POLICY_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession.GamSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network_code, 1, type: :string, json_name: "networkCode", deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession.AdTagMacroMapEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -25,7 +28,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :interstitials, 2, type: Google.Cloud.Video.Stitcher.V1.Interstitials, deprecated: false
@@ -58,7 +62,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ad_breaks, 1,
     repeated: true,
@@ -72,7 +77,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAd do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 
@@ -88,14 +94,16 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionContent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :progress_events, 1,
     repeated: true,
@@ -109,14 +117,16 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMacrosEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -124,7 +134,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :play_uri, 2, type: :string, json_name: "playUri", deprecated: false
@@ -148,7 +159,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :include_renditions, 1,
     repeated: true,
@@ -163,7 +175,8 @@ end
 
 defmodule Google.Cloud.Video.Stitcher.V1.RenditionFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bitrate_bps, 1, type: :int32, json_name: "bitrateBps"
   field :codecs, 2, type: :string

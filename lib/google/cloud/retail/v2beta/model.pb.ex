@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.Model.ServingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Retail.V2beta.Model.TrainingState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TRAINING_STATE_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Retail.V2beta.Model.PeriodicTuningState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PERIODIC_TUNING_STATE_UNSPECIFIED, 0
   field :PERIODIC_TUNING_DISABLED, 1
@@ -29,7 +32,8 @@ end
 
 defmodule Google.Cloud.Retail.V2beta.Model.DataState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATA_STATE_UNSPECIFIED, 0
   field :DATA_OK, 1
@@ -38,7 +42,8 @@ end
 
 defmodule Google.Cloud.Retail.V2beta.Model.ServingConfigList do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :serving_config_ids, 1,
     repeated: true,
@@ -49,7 +54,8 @@ end
 
 defmodule Google.Cloud.Retail.V2beta.Model do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

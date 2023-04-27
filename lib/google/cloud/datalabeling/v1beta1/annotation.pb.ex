@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSource do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ANNOTATION_SOURCE_UNSPECIFIED, 0
   field :OPERATOR, 3
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationSentiment do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ANNOTATION_SENTIMENT_UNSPECIFIED, 0
   field :NEGATIVE, 1
@@ -17,7 +19,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :IMAGE_CLASSIFICATION_ANNOTATION, 1
@@ -37,7 +40,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Annotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -62,7 +66,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -114,7 +119,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -123,7 +129,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Vertex do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :x, 1, type: :int32
   field :y, 2, type: :int32
@@ -131,7 +138,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedVertex do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :x, 1, type: :float
   field :y, 2, type: :float
@@ -139,14 +147,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.BoundingPoly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedBoundingPoly do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -156,7 +166,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageBoundingPolyAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :bounded_area, 0
 
@@ -177,14 +188,16 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.Polyline do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vertices, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Vertex
 end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.NormalizedPolyline do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :normalized_vertices, 1,
     repeated: true,
@@ -194,7 +207,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImagePolylineAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :poly, 0
 
@@ -212,7 +226,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation.AnnotationColorsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec
@@ -220,7 +235,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ImageSegmentationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_colors, 1,
     repeated: true,
@@ -234,7 +250,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -243,7 +260,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TextEntityExtractionAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -256,7 +274,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.SequentialSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
@@ -264,7 +283,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.TimeSegment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
@@ -272,7 +292,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoClassificationAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time_segment, 1,
     type: Google.Cloud.Datalabeling.V1beta1.TimeSegment,
@@ -285,7 +306,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.ObjectTrackingFrame do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :bounded_area, 0
 
@@ -304,7 +326,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoObjectTrackingAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -322,7 +345,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.VideoEventAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_spec, 1,
     type: Google.Cloud.Datalabeling.V1beta1.AnnotationSpec,
@@ -335,7 +359,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.AnnotationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operator_metadata, 2,
     type: Google.Cloud.Datalabeling.V1beta1.OperatorMetadata,
@@ -344,7 +369,8 @@ end
 
 defmodule Google.Cloud.Datalabeling.V1beta1.OperatorMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :score, 1, type: :float
   field :total_votes, 2, type: :int32, json_name: "totalVotes"

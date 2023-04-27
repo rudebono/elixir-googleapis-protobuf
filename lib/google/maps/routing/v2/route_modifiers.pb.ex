@@ -1,6 +1,7 @@
 defmodule Google.Maps.Routing.V2.RouteModifiers do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :avoid_tolls, 1, type: :bool, json_name: "avoidTolls"
   field :avoid_highways, 2, type: :bool, json_name: "avoidHighways"

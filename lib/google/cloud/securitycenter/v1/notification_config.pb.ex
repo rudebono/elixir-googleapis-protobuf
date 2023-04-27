@@ -1,13 +1,15 @@
 defmodule Google.Cloud.Securitycenter.V1.NotificationConfig.StreamingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :filter, 1, type: :string
 end
 
 defmodule Google.Cloud.Securitycenter.V1.NotificationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :notify_config, 0
 

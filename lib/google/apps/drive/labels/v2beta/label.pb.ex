@@ -1,6 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2beta.Label.LabelType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LABEL_TYPE_UNSPECIFIED, 0
   field :SHARED, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.AppliedLabelPolicy.CopyMode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COPY_MODE_UNSPECIFIED, 0
   field :DO_NOT_COPY, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.Properties do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.DisplayHints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disabled, 1, type: :bool
   field :hidden_in_search, 2, type: :bool, json_name: "hiddenInSearch"
@@ -37,7 +41,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.AppliedCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_read, 1, type: :bool, json_name: "canRead"
   field :can_apply, 2, type: :bool, json_name: "canApply"
@@ -46,7 +51,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.SchemaCapabilities do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :can_update, 1, type: :bool, json_name: "canUpdate"
   field :can_delete, 2, type: :bool, json_name: "canDelete"
@@ -56,7 +62,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label.AppliedLabelPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :copy_mode, 1,
     type: Google.Apps.Drive.Labels.V2beta.Label.AppliedLabelPolicy.CopyMode,
@@ -66,7 +73,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2beta.Label do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false

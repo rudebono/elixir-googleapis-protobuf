@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Common.OfflineUserAddressInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hashed_first_name, 7, proto3_optional: true, type: :string, json_name: "hashedFirstName"
   field :hashed_last_name, 8, proto3_optional: true, type: :string, json_name: "hashedLastName"
@@ -17,7 +18,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.UserIdentifier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :identifier, 0
 
@@ -39,7 +41,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.TransactionAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transaction_date_time, 8,
     proto3_optional: true,
@@ -73,14 +76,16 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.StoreAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :store_code, 2, proto3_optional: true, type: :string, json_name: "storeCode"
 end
 
 defmodule Google.Ads.Googleads.V13.Common.ItemAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :item_id, 1, type: :string, json_name: "itemId"
   field :merchant_id, 2, proto3_optional: true, type: :int64, json_name: "merchantId"
@@ -91,7 +96,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.UserData do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_identifiers, 1,
     repeated: true,
@@ -109,7 +115,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.UserAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :lifetime_value_micros, 1,
     proto3_optional: true,
@@ -147,7 +154,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.EventAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event, 1, type: :string, deprecated: false
   field :event_date_time, 2, type: :string, json_name: "eventDateTime", deprecated: false
@@ -161,28 +169,32 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.EventItemAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :item_id, 1, type: :string, json_name: "itemId", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V13.Common.ShoppingLoyalty do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :loyalty_tier, 1, proto3_optional: true, type: :string, json_name: "loyaltyTier"
 end
 
 defmodule Google.Ads.Googleads.V13.Common.CustomerMatchUserListMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :user_list, 2, proto3_optional: true, type: :string, json_name: "userList"
 end
 
 defmodule Google.Ads.Googleads.V13.Common.StoreSalesMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :loyalty_fraction, 5, proto3_optional: true, type: :double, json_name: "loyaltyFraction"
 
@@ -200,7 +212,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Common.StoreSalesThirdPartyMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :advertiser_upload_date_time, 7,
     proto3_optional: true,

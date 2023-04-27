@@ -1,13 +1,15 @@
 defmodule Google.Devtools.Testing.V1.ApkDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :apk_manifest, 1, type: Google.Devtools.Testing.V1.ApkManifest, json_name: "apkManifest"
 end
 
 defmodule Google.Devtools.Testing.V1.ApkManifest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :package_name, 1, type: :string, json_name: "packageName"
   field :min_sdk_version, 2, type: :int32, json_name: "minSdkVersion"
@@ -33,7 +35,8 @@ end
 
 defmodule Google.Devtools.Testing.V1.IntentFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :action_names, 1, repeated: true, type: :string, json_name: "actionNames"
   field :category_names, 2, repeated: true, type: :string, json_name: "categoryNames"
@@ -42,7 +45,8 @@ end
 
 defmodule Google.Devtools.Testing.V1.Metadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -50,7 +54,8 @@ end
 
 defmodule Google.Devtools.Testing.V1.UsesFeature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :is_required, 2, type: :bool, json_name: "isRequired"
@@ -58,23 +63,26 @@ end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :location, 1, type: Google.Devtools.Testing.V1.FileReference
 end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :apk_detail, 1, type: Google.Devtools.Testing.V1.ApkDetail, json_name: "apkDetail"
 end
 
 defmodule Google.Devtools.Testing.V1.ApplicationDetailService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.testing.v1.ApplicationDetailService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetApkDetails,
       Google.Devtools.Testing.V1.GetApkDetailsRequest,
@@ -83,5 +91,6 @@ end
 
 defmodule Google.Devtools.Testing.V1.ApplicationDetailService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Testing.V1.ApplicationDetailService.Service
 end

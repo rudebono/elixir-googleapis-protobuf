@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.AdGroupCriterion.QualityInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :quality_score, 5,
     proto3_optional: true,
@@ -29,7 +30,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.AdGroupCriterion.PositionEstimates do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :first_page_cpc_micros, 6,
     proto3_optional: true,
@@ -64,7 +66,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.AdGroupCriterion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :criterion, 0
 

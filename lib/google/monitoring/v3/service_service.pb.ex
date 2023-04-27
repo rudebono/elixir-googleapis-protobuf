@@ -1,6 +1,7 @@
 defmodule Google.Monitoring.V3.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_id, 3, type: :string, json_name: "serviceId"
@@ -9,14 +10,16 @@ end
 
 defmodule Google.Monitoring.V3.GetServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ListServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -26,7 +29,8 @@ end
 
 defmodule Google.Monitoring.V3.ListServicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Monitoring.V3.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -34,7 +38,8 @@ end
 
 defmodule Google.Monitoring.V3.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: Google.Monitoring.V3.Service, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -42,14 +47,16 @@ end
 
 defmodule Google.Monitoring.V3.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Monitoring.V3.CreateServiceLevelObjectiveRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_level_objective_id, 3, type: :string, json_name: "serviceLevelObjectiveId"
@@ -62,7 +69,8 @@ end
 
 defmodule Google.Monitoring.V3.GetServiceLevelObjectiveRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Monitoring.V3.ServiceLevelObjective.View, enum: true
@@ -70,7 +78,8 @@ end
 
 defmodule Google.Monitoring.V3.ListServiceLevelObjectivesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -81,7 +90,8 @@ end
 
 defmodule Google.Monitoring.V3.ListServiceLevelObjectivesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_level_objectives, 1,
     repeated: true,
@@ -93,7 +103,8 @@ end
 
 defmodule Google.Monitoring.V3.UpdateServiceLevelObjectiveRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service_level_objective, 1,
     type: Google.Monitoring.V3.ServiceLevelObjective,
@@ -105,16 +116,18 @@ end
 
 defmodule Google.Monitoring.V3.DeleteServiceLevelObjectiveRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ServiceMonitoringService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.monitoring.v3.ServiceMonitoringService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateService, Google.Monitoring.V3.CreateServiceRequest, Google.Monitoring.V3.Service
 
@@ -151,5 +164,6 @@ end
 
 defmodule Google.Monitoring.V3.ServiceMonitoringService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Monitoring.V3.ServiceMonitoringService.Service
 end

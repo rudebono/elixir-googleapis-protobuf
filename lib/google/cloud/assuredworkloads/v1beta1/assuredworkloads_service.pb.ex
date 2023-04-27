@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateWorkload,
       Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadRequest,
@@ -35,5 +36,6 @@ end
 
 defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service
 end

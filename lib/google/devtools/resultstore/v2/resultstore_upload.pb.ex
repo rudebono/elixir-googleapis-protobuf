@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.UploadRequest.UploadOperation do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UPLOAD_OPERATION_UNSPECIFIED, 0
   field :CREATE, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :invocation_id, 2, type: :string, json_name: "invocationId"
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -33,7 +36,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.MergeInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :invocation, 3, type: Google.Devtools.Resultstore.V2.Invocation
@@ -43,7 +47,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken"
@@ -51,7 +56,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TouchInvocationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
@@ -59,14 +65,16 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.DeleteInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
@@ -74,7 +82,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeInvocationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Invocation.Id
@@ -82,7 +91,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -93,7 +103,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -103,7 +114,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.MergeTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :target, 3, type: Google.Devtools.Resultstore.V2.Target
@@ -114,7 +126,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
@@ -122,7 +135,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeTargetResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
@@ -130,7 +144,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -146,7 +161,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :configured_target, 3,
     type: Google.Devtools.Resultstore.V2.ConfiguredTarget,
@@ -159,7 +175,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.MergeConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 
@@ -174,7 +191,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 3, type: :string, json_name: "authorizationToken"
@@ -182,7 +200,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.FinalizeConfiguredTargetResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.ConfiguredTarget.Id
@@ -190,7 +209,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateActionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -201,7 +221,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateActionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -211,7 +232,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.MergeActionRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :action, 3, type: Google.Devtools.Resultstore.V2.Action
@@ -222,7 +244,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateConfigurationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -233,7 +256,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateConfigurationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :configuration, 3, type: Google.Devtools.Resultstore.V2.Configuration
   field :update_mask, 4, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -243,7 +267,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.CreateFileSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :parent, 2, type: :string, deprecated: false
@@ -259,7 +284,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UpdateFileSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :file_set, 1, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -269,7 +295,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.MergeFileSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
   field :file_set, 2, type: Google.Devtools.Resultstore.V2.FileSet, json_name: "fileSet"
@@ -280,7 +307,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UploadBatchRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken", deprecated: false
@@ -296,12 +324,14 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UploadBatchResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Devtools.Resultstore.V2.UploadRequest.Id do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :configuration_id, 2, type: :string, json_name: "configurationId"
@@ -311,7 +341,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.UploadRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -339,7 +370,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.GetInvocationUploadMetadataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authorization_token, 2, type: :string, json_name: "authorizationToken", deprecated: false
@@ -347,9 +379,10 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.devtools.resultstore.v2.ResultStoreUpload",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateInvocation,
       Google.Devtools.Resultstore.V2.CreateInvocationRequest,
@@ -450,5 +483,6 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.ResultStoreUpload.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Devtools.Resultstore.V2.ResultStoreUpload.Service
 end

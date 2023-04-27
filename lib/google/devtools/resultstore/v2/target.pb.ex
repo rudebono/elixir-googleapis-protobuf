@@ -1,6 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.TargetType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TARGET_TYPE_UNSPECIFIED, 0
   field :APPLICATION, 1
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestSize do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TEST_SIZE_UNSPECIFIED, 0
   field :SMALL, 1
@@ -24,7 +26,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.Target.Id do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :target_id, 2, type: :string, json_name: "targetId"
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.Target do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: Google.Devtools.Resultstore.V2.Target.Id
@@ -58,7 +62,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TargetAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Resultstore.V2.TargetType, enum: true
   field :language, 2, type: Google.Devtools.Resultstore.V2.Language, enum: true
@@ -67,7 +72,8 @@ end
 
 defmodule Google.Devtools.Resultstore.V2.TestAttributes do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :size, 1, type: Google.Devtools.Resultstore.V2.TestSize, enum: true
 end

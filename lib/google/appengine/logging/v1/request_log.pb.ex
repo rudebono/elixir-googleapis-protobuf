@@ -1,6 +1,7 @@
 defmodule Google.Appengine.Logging.V1.LogLine do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :severity, 2, type: Google.Logging.Type.LogSeverity, enum: true
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Appengine.Logging.V1.SourceLocation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :file, 1, type: :string
   field :line, 2, type: :int64
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Appengine.Logging.V1.SourceReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :repository, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Appengine.Logging.V1.RequestLog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :app_id, 1, type: :string, json_name: "appId"
   field :module_id, 37, type: :string, json_name: "moduleId"

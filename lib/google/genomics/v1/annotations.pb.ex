@@ -1,6 +1,7 @@
 defmodule Google.Genomics.V1.AnnotationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :GENERIC, 1
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Genomics.V1.VariantAnnotation.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TYPE_OTHER, 1
@@ -25,7 +27,8 @@ end
 
 defmodule Google.Genomics.V1.VariantAnnotation.Effect do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EFFECT_UNSPECIFIED, 0
   field :EFFECT_OTHER, 1
@@ -40,7 +43,8 @@ end
 
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalSignificance do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CLINICAL_SIGNIFICANCE_UNSPECIFIED, 0
   field :CLINICAL_SIGNIFICANCE_OTHER, 1
@@ -60,7 +64,8 @@ end
 
 defmodule Google.Genomics.V1.AnnotationSet.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
@@ -68,7 +73,8 @@ end
 
 defmodule Google.Genomics.V1.AnnotationSet do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -81,7 +87,8 @@ end
 
 defmodule Google.Genomics.V1.Annotation.InfoEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
@@ -89,7 +96,8 @@ end
 
 defmodule Google.Genomics.V1.Annotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -109,7 +117,8 @@ end
 
 defmodule Google.Genomics.V1.VariantAnnotation.ClinicalCondition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :names, 1, repeated: true, type: :string
 
@@ -124,7 +133,8 @@ end
 
 defmodule Google.Genomics.V1.VariantAnnotation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Genomics.V1.VariantAnnotation.Type, enum: true
   field :effect, 2, type: Google.Genomics.V1.VariantAnnotation.Effect, enum: true
@@ -144,7 +154,8 @@ end
 
 defmodule Google.Genomics.V1.Transcript.Exon do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
@@ -153,7 +164,8 @@ end
 
 defmodule Google.Genomics.V1.Transcript.CodingSequence do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
@@ -161,7 +173,8 @@ end
 
 defmodule Google.Genomics.V1.Transcript do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gene_id, 1, type: :string, json_name: "geneId"
   field :exons, 2, repeated: true, type: Google.Genomics.V1.Transcript.Exon
@@ -173,7 +186,8 @@ end
 
 defmodule Google.Genomics.V1.ExternalId do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :source_name, 1, type: :string, json_name: "sourceName"
   field :id, 2, type: :string
@@ -181,21 +195,24 @@ end
 
 defmodule Google.Genomics.V1.CreateAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_set, 1, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
 end
 
 defmodule Google.Genomics.V1.GetAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
 end
 
 defmodule Google.Genomics.V1.UpdateAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
   field :annotation_set, 2, type: Google.Genomics.V1.AnnotationSet, json_name: "annotationSet"
@@ -204,14 +221,16 @@ end
 
 defmodule Google.Genomics.V1.DeleteAnnotationSetRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_set_id, 1, type: :string, json_name: "annotationSetId"
 end
 
 defmodule Google.Genomics.V1.SearchAnnotationSetsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :reference_set_id, 2, type: :string, json_name: "referenceSetId"
@@ -223,7 +242,8 @@ end
 
 defmodule Google.Genomics.V1.SearchAnnotationSetsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_sets, 1,
     repeated: true,
@@ -235,14 +255,16 @@ end
 
 defmodule Google.Genomics.V1.CreateAnnotationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Genomics.V1.Annotation
 end
 
 defmodule Google.Genomics.V1.BatchCreateAnnotationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -250,7 +272,8 @@ end
 
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :annotation, 2, type: Google.Genomics.V1.Annotation
@@ -258,21 +281,24 @@ end
 
 defmodule Google.Genomics.V1.BatchCreateAnnotationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Genomics.V1.BatchCreateAnnotationsResponse.Entry
 end
 
 defmodule Google.Genomics.V1.GetAnnotationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
 end
 
 defmodule Google.Genomics.V1.UpdateAnnotationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
   field :annotation, 2, type: Google.Genomics.V1.Annotation
@@ -281,14 +307,16 @@ end
 
 defmodule Google.Genomics.V1.DeleteAnnotationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotation_id, 1, type: :string, json_name: "annotationId"
 end
 
 defmodule Google.Genomics.V1.SearchAnnotationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :reference, 0
 
@@ -303,7 +331,8 @@ end
 
 defmodule Google.Genomics.V1.SearchAnnotationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Genomics.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -311,9 +340,10 @@ end
 
 defmodule Google.Genomics.V1.AnnotationServiceV1.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.genomics.v1.AnnotationServiceV1",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateAnnotationSet,
       Google.Genomics.V1.CreateAnnotationSetRequest,
@@ -352,5 +382,6 @@ end
 
 defmodule Google.Genomics.V1.AnnotationServiceV1.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Genomics.V1.AnnotationServiceV1.Service
 end

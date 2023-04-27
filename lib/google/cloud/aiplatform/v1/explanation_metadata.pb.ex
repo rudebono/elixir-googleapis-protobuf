@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Encoding do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :IDENTITY, 1
@@ -13,7 +14,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PIXELS, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Polarity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :POLARITY_UNSPECIFIED, 0
   field :POSITIVE, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.ColorMap do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COLOR_MAP_UNSPECIFIED, 0
   field :PINK_GREEN, 1
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.OverlayType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :OVERLAY_TYPE_UNSPECIFIED, 0
   field :NONE, 1
@@ -56,7 +61,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.FeatureValueDomain do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_value, 1, type: :float, json_name: "minValue"
   field :max_value, 2, type: :float, json_name: "maxValue"
@@ -66,7 +72,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata.Visualization.Type,
@@ -92,7 +99,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_baselines, 1,
     repeated: true,
@@ -129,7 +137,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :display_name_mapping, 0
 
@@ -144,7 +153,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.InputMetadata
@@ -152,7 +162,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.ExplanationMetadata.OutputMetadata
@@ -160,7 +171,8 @@ end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inputs, 1,
     repeated: true,

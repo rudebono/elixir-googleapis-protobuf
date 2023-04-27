@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Essentialcontacts.V1.Contact do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :email, 2, type: :string
@@ -23,7 +24,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ListContactsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -32,7 +34,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ListContactsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :contacts, 1, repeated: true, type: Google.Cloud.Essentialcontacts.V1.Contact
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -40,21 +43,24 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.GetContactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.DeleteContactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Essentialcontacts.V1.CreateContactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :contact, 2, type: Google.Cloud.Essentialcontacts.V1.Contact, deprecated: false
@@ -62,7 +68,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.UpdateContactRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :contact, 2, type: Google.Cloud.Essentialcontacts.V1.Contact, deprecated: false
 
@@ -74,7 +81,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -90,7 +98,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.ComputeContactsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :contacts, 1, repeated: true, type: Google.Cloud.Essentialcontacts.V1.Contact
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -98,7 +107,8 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.SendTestMessageRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :contacts, 1, repeated: true, type: :string, deprecated: false
   field :resource, 2, type: :string, deprecated: false
@@ -112,9 +122,10 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.essentialcontacts.v1.EssentialContactsService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateContact,
       Google.Cloud.Essentialcontacts.V1.CreateContactRequest,
@@ -147,5 +158,6 @@ end
 
 defmodule Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Essentialcontacts.V1.EssentialContactsService.Service
 end

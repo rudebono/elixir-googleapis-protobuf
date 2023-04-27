@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta2.Queue.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.Queue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :target_type, 0
 
@@ -37,7 +39,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.RateLimits do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_tasks_dispatched_per_second, 1,
     type: :double,
@@ -49,7 +52,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.RetryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :num_attempts, 0
 
@@ -63,7 +67,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.QueueStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 

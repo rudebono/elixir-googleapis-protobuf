@@ -1,6 +1,7 @@
 defmodule Google.Maps.Mapsplatformdatasets.V1alpha.Usage do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :USAGE_UNSPECIFIED, 0
   field :USAGE_DATA_DRIVEN_STYLING, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Maps.Mapsplatformdatasets.V1alpha.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_IMPORTING, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Maps.Mapsplatformdatasets.V1alpha.Dataset do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :data_source, 0
 

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.PostMethod do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :POST_METHOD_UNSPECIFIED, 0
   field :POST, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecutionState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EVENT_EXECUTION_STATE_UNSPECIFIED, 0
   field :ON_HOLD, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails.TaskExecutionState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TASK_EXECUTION_STATE_UNSPECIFIED, 0
   field :PENDING_EXECUTION, 1
@@ -42,7 +45,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.RequestParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
@@ -50,7 +54,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ResponseParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
@@ -58,7 +63,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_execution_info_id, 1, type: :string, json_name: "eventExecutionInfoId"
   field :integration, 2, type: :string
@@ -99,7 +105,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :event_execution_state, 1,
     type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecutionState,
@@ -122,7 +129,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :task_number, 1, type: :string, json_name: "taskNumber"
   field :task, 2, type: :string
@@ -132,7 +140,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
@@ -140,7 +149,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
@@ -148,7 +158,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :checkpoint_task_number, 1, type: :string, json_name: "checkpointTaskNumber"
   field :snapshot_time, 2, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
@@ -182,7 +193,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :task_number, 1, type: :string, json_name: "taskNumber"
 
@@ -199,7 +211,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.AttemptStats do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -207,7 +220,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.ErrorDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :error_message, 1, type: :string, json_name: "errorMessage"
   field :task_number, 2, type: :int32, json_name: "taskNumber"
@@ -215,7 +229,8 @@ end
 
 defmodule Google.Cloud.Integrations.V1alpha.ConditionResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :current_task_number, 1, type: :string, json_name: "currentTaskNumber"
   field :next_task_number, 2, type: :string, json_name: "nextTaskNumber"

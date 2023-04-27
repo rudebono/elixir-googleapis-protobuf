@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.ReclaimPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RECLAIM_POLICY_UNSPECIFIED, 0
   field :DELETE, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstation.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_STARTING, 1
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationCluster.PrivateClusterConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_private_endpoint, 1,
     type: :bool,
@@ -39,7 +42,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationCluster.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -47,7 +51,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationCluster.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -55,7 +60,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationCluster do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -101,7 +107,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceShieldedInstanceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
   field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm"
@@ -110,14 +117,16 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceConfidentialInstanceConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_confidential_compute, 1, type: :bool, json_name: "enableConfidentialCompute"
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType"
   field :service_account, 2, type: :string, json_name: "serviceAccount"
@@ -141,7 +150,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -153,7 +163,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :fs_type, 2, type: :string, json_name: "fsType"
@@ -169,7 +180,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :directory_type, 0
 
@@ -184,7 +196,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Container.EnvEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -192,7 +205,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Container do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image, 1, type: :string
   field :command, 2, repeated: true, type: :string
@@ -209,7 +223,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey"
   field :kms_key_service_account, 2, type: :string, json_name: "kmsKeyServiceAccount"
@@ -217,7 +232,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -225,7 +241,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -233,7 +250,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -287,7 +305,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstation.AnnotationsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -295,7 +314,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstation.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -303,7 +323,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -347,14 +368,16 @@ end
 
 defmodule Google.Cloud.Workstations.V1.GetWorkstationClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationClustersRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -363,7 +386,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationClustersResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation_clusters, 1,
     repeated: true,
@@ -376,7 +400,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.CreateWorkstationClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -395,7 +420,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation_cluster, 1,
     type: Google.Cloud.Workstations.V1.WorkstationCluster,
@@ -413,7 +439,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationClusterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -423,14 +450,16 @@ end
 
 defmodule Google.Cloud.Workstations.V1.GetWorkstationConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -439,7 +468,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation_configs, 1,
     repeated: true,
@@ -452,7 +482,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationConfigsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -461,7 +492,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationConfigsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation_configs, 1,
     repeated: true,
@@ -474,7 +506,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.CreateWorkstationConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -493,7 +526,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation_config, 1,
     type: Google.Cloud.Workstations.V1.WorkstationConfig,
@@ -511,7 +545,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -521,14 +556,16 @@ end
 
 defmodule Google.Cloud.Workstations.V1.GetWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -537,7 +574,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstations, 1, repeated: true, type: Google.Cloud.Workstations.V1.Workstation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -546,7 +584,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -555,7 +594,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstations, 1, repeated: true, type: Google.Cloud.Workstations.V1.Workstation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -564,7 +604,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.CreateWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workstation_id, 2, type: :string, json_name: "workstationId", deprecated: false
@@ -574,7 +615,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstation, 1, type: Google.Cloud.Workstations.V1.Workstation, deprecated: false
 
@@ -589,7 +631,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -598,7 +641,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.StartWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -607,7 +651,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.StopWorkstationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -616,7 +661,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.GenerateAccessTokenRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -627,7 +673,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.GenerateAccessTokenResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken"
   field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
@@ -635,7 +682,8 @@ end
 
 defmodule Google.Cloud.Workstations.V1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -657,9 +705,10 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstations.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.workstations.v1.Workstations",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :GetWorkstationCluster,
       Google.Cloud.Workstations.V1.GetWorkstationClusterRequest,
@@ -744,5 +793,6 @@ end
 
 defmodule Google.Cloud.Workstations.V1.Workstations.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Workstations.V1.Workstations.Service
 end

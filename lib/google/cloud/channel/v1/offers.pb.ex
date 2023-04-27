@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Channel.V1.PromotionalOrderType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PROMOTIONAL_TYPE_UNSPECIFIED, 0
   field :NEW_UPGRADE, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PaymentPlan do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PAYMENT_PLAN_UNSPECIFIED, 0
   field :COMMITMENT, 1
@@ -22,7 +24,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PaymentType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PAYMENT_TYPE_UNSPECIFIED, 0
   field :PREPAY, 1
@@ -31,7 +34,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ResourceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :SEAT, 1
@@ -45,7 +49,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PeriodType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PERIOD_TYPE_UNSPECIFIED, 0
   field :DAY, 1
@@ -55,7 +60,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ParameterDefinition.ParameterType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :PARAMETER_TYPE_UNSPECIFIED, 0
   field :INT64, 1
@@ -65,7 +71,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Offer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -95,7 +102,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.ParameterDefinition do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -117,7 +125,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Constraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :customer_constraints, 1,
     type: Google.Cloud.Channel.V1.CustomerConstraints,
@@ -126,7 +135,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.CustomerConstraints do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :allowed_regions, 1, repeated: true, type: :string, json_name: "allowedRegions"
 
@@ -145,7 +155,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Plan do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :payment_plan, 1,
     type: Google.Cloud.Channel.V1.PaymentPlan,
@@ -164,7 +175,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PriceByResource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_type, 1,
     type: Google.Cloud.Channel.V1.ResourceType,
@@ -181,7 +193,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Price do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :base_price, 1, type: Google.Type.Money, json_name: "basePrice"
   field :discount, 2, type: :double
@@ -191,7 +204,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PricePhase do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :period_type, 1,
     type: Google.Cloud.Channel.V1.PeriodType,
@@ -210,7 +224,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.PriceTier do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :first_resource, 1, type: :int32, json_name: "firstResource"
   field :last_resource, 2, type: :int32, json_name: "lastResource"
@@ -219,7 +234,8 @@ end
 
 defmodule Google.Cloud.Channel.V1.Period do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :duration, 1, type: :int32
 

@@ -1,6 +1,7 @@
 defmodule Google.Firestore.V1.DocumentTransform.FieldTransform.ServerValue do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SERVER_VALUE_UNSPECIFIED, 0
   field :REQUEST_TIME, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Firestore.V1.Write do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -27,7 +29,8 @@ end
 
 defmodule Google.Firestore.V1.DocumentTransform.FieldTransform do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :transform_type, 0
 
@@ -56,7 +59,8 @@ end
 
 defmodule Google.Firestore.V1.DocumentTransform do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: :string
 
@@ -68,7 +72,8 @@ end
 
 defmodule Google.Firestore.V1.WriteResult do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_time, 1, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 
@@ -80,7 +85,8 @@ end
 
 defmodule Google.Firestore.V1.DocumentChange do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: Google.Firestore.V1.Document
   field :target_ids, 5, repeated: true, type: :int32, json_name: "targetIds"
@@ -89,7 +95,8 @@ end
 
 defmodule Google.Firestore.V1.DocumentDelete do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 6, repeated: true, type: :int32, json_name: "removedTargetIds"
@@ -98,7 +105,8 @@ end
 
 defmodule Google.Firestore.V1.DocumentRemove do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :removed_target_ids, 2, repeated: true, type: :int32, json_name: "removedTargetIds"
@@ -107,7 +115,8 @@ end
 
 defmodule Google.Firestore.V1.ExistenceFilter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :target_id, 1, type: :int32, json_name: "targetId"
   field :count, 2, type: :int32

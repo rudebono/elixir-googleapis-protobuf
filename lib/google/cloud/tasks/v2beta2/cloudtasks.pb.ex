@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta2.ListQueuesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -11,7 +12,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListQueuesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :queues, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Queue
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.GetQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.CreateQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :queue, 2, type: Google.Cloud.Tasks.V2beta2.Queue, deprecated: false
@@ -35,7 +39,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.UpdateQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :queue, 1, type: Google.Cloud.Tasks.V2beta2.Queue, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -43,35 +48,40 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.DeleteQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.PurgeQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.PauseQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ResumeQueueRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListTasksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -86,7 +96,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.ListTasksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -94,7 +105,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.GetTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -106,7 +118,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.CreateTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :task, 2, type: Google.Cloud.Tasks.V2beta2.Task, deprecated: false
@@ -119,14 +132,16 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.DeleteTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :max_tasks, 2, type: :int32, json_name: "maxTasks"
@@ -146,14 +161,16 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.LeaseTasksResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Tasks.V2beta2.Task
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.AcknowledgeTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -165,7 +182,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.RenewLeaseRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -187,7 +205,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.CancelLeaseRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -204,7 +223,8 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -216,9 +236,10 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.tasks.v2beta2.CloudTasks",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListQueues,
       Google.Cloud.Tasks.V2beta2.ListQueuesRequest,
@@ -277,5 +298,6 @@ end
 
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Tasks.V2beta2.CloudTasks.Service
 end

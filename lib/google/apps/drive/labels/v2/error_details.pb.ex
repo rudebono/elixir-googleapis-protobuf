@@ -1,6 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.InvalidArgument.FieldViolation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :FIELD_REQUIRED, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.PreconditionFailure.Violation.Reason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :CANNOT_DISABLE, 1
@@ -31,7 +33,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.InvalidArgument.FieldViolation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field, 1, type: :string
 
@@ -44,7 +47,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.InvalidArgument do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field_violations, 1,
     repeated: true,
@@ -54,7 +58,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.PreconditionFailure.Violation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :field, 1, type: :string
 
@@ -67,7 +72,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.PreconditionFailure do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :violation, 1,
     repeated: true,

@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1beta4.SqlFileType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_FILE_TYPE_UNSPECIFIED, 0
   field :SQL, 1
@@ -10,7 +11,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_RUN_STATUS_UNSPECIFIED, 0
   field :ENQUEUED, 1
@@ -26,7 +28,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_RUN_TYPE_UNSPECIFIED, 0
   field :AUTOMATED, 1
@@ -35,7 +38,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupKind do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKUP_KIND_UNSPECIFIED, 0
   field :SNAPSHOT, 1
@@ -44,7 +48,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackendType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_BACKEND_TYPE_UNSPECIFIED, 0
   field :FIRST_GEN, 1
@@ -54,7 +59,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlIpAddressType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_IP_ADDRESS_TYPE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -65,7 +71,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstanceType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_INSTANCE_TYPE_UNSPECIFIED, 0
   field :CLOUD_SQL_INSTANCE, 1
@@ -75,7 +82,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_DATABASE_VERSION_UNSPECIFIED, 0
   field :MYSQL_5_1, 2
@@ -105,7 +113,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSuspensionReason do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_SUSPENSION_REASON_UNSPECIFIED, 0
   field :BILLING_ISSUE, 2
@@ -116,7 +125,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlPricingPlan do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_PRICING_PLAN_UNSPECIFIED, 0
   field :PACKAGE, 1
@@ -125,7 +135,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlReplicationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_REPLICATION_TYPE_UNSPECIFIED, 0
   field :SYNCHRONOUS, 1
@@ -134,7 +145,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlDataDiskType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_DATA_DISK_TYPE_UNSPECIFIED, 0
   field :PD_SSD, 1
@@ -144,7 +156,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlAvailabilityType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_AVAILABILITY_TYPE_UNSPECIFIED, 0
   field :ZONAL, 1
@@ -153,7 +166,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlUpdateTrack do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_UPDATE_TRACK_UNSPECIFIED, 0
   field :canary, 1
@@ -162,7 +176,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_FLAG_TYPE_UNSPECIFIED, 0
   field :BOOLEAN, 1
@@ -176,7 +191,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ApiWarning.SqlApiWarningCode do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_API_WARNING_CODE_UNSPECIFIED, 0
   field :REGION_UNREACHABLE, 1
@@ -184,7 +200,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRetentionSettings.RetentionUnit do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RETENTION_UNIT_UNSPECIFIED, 0
   field :COUNT, 1
@@ -192,7 +209,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlInstanceState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_INSTANCE_STATE_UNSPECIFIED, 0
   field :RUNNABLE, 1
@@ -206,7 +224,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlOutOfDiskReport.SqlOutOfDiskState do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_OUT_OF_DISK_STATE_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -215,7 +234,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSettingErrorType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED, 0
   field :CONNECTION_FAILURE, 1
@@ -248,7 +268,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_OPERATION_TYPE_UNSPECIFIED, 0
   field :IMPORT, 1
@@ -289,7 +310,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationStatus do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_OPERATION_STATUS_UNSPECIFIED, 0
   field :PENDING, 1
@@ -299,7 +321,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.PasswordValidationPolicy.Complexity do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :COMPLEXITY_UNSPECIFIED, 0
   field :COMPLEXITY_DEFAULT, 1
@@ -307,7 +330,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Settings.SqlActivationPolicy do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SQL_ACTIVATION_POLICY_UNSPECIFIED, 0
   field :ALWAYS, 1
@@ -317,7 +341,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.RescheduleType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESCHEDULE_TYPE_UNSPECIFIED, 0
   field :IMMEDIATE, 1
@@ -327,7 +352,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.AclEntry do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -337,7 +363,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ApiWarning do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Sql.V1beta4.ApiWarning.SqlApiWarningCode, enum: true
   field :message, 2, type: :string
@@ -346,7 +373,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRetentionSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :retention_unit, 1,
     type: Google.Cloud.Sql.V1beta4.BackupRetentionSettings.RetentionUnit,
@@ -358,7 +386,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: :string, json_name: "startTime"
   field :enabled, 2, type: Google.Protobuf.BoolValue
@@ -386,7 +415,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRun do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :status, 2, type: Google.Cloud.Sql.V1beta4.SqlBackupRunStatus, enum: true
@@ -418,7 +448,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRunsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.BackupRun
@@ -427,7 +458,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BinLogCoordinates do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bin_log_file_name, 1, type: :string, json_name: "binLogFileName"
   field :bin_log_position, 2, type: :int64, json_name: "binLogPosition"
@@ -436,7 +468,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :backup_id, 1, type: :int64, json_name: "backupId"
   field :kind, 2, type: :string
@@ -444,7 +477,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.CloneContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :pitr_timestamp_ms, 2, type: :int64, json_name: "pitrTimestampMs"
@@ -460,7 +494,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Database do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :database_details, 0
 
@@ -481,7 +516,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlServerDatabaseDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :compatibility_level, 1, type: :int32, json_name: "compatibilityLevel"
   field :recovery_model, 2, type: :string, json_name: "recoveryModel"
@@ -489,7 +525,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseFlags do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -497,7 +534,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SyncFlags do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -505,7 +543,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstanceReference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :region, 2, type: :string
@@ -514,7 +553,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlFailoverReplica do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :available, 2, type: Google.Protobuf.BoolValue
@@ -522,7 +562,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlScheduledMaintenance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :can_defer, 2, type: :bool, json_name: "canDefer", deprecated: true
@@ -536,7 +577,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlOutOfDiskReport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sql_out_of_disk_state, 1,
     proto3_optional: true,
@@ -552,7 +594,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :state, 2, type: Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlInstanceState, enum: true
@@ -666,7 +709,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabasesListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.Database
@@ -674,7 +718,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DemoteMasterConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
 
@@ -685,7 +730,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DemoteMasterContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
 
@@ -704,7 +750,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DemoteMasterMySqlReplicaConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :username, 2, type: :string
@@ -716,7 +763,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlCsvExportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :select_query, 1, type: :string, json_name: "selectQuery"
   field :escape_character, 2, type: :string, json_name: "escapeCharacter"
@@ -727,14 +775,16 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlExportOptions.MysqlExportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :master_data, 1, type: Google.Protobuf.Int32Value, json_name: "masterData"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlExportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tables, 1, repeated: true, type: :string
   field :schema_only, 2, type: Google.Protobuf.BoolValue, json_name: "schemaOnly"
@@ -746,7 +796,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ExportContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :databases, 2, repeated: true, type: :string
@@ -770,7 +821,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.FailoverContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :settings_version, 1, type: :int64, json_name: "settingsVersion"
   field :kind, 2, type: :string
@@ -778,7 +830,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Flag do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Sql.V1beta4.SqlFlagType, enum: true
@@ -800,7 +853,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.FlagsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.Flag
@@ -808,7 +862,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlCsvImportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :columns, 2, repeated: true, type: :string
@@ -820,7 +875,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions.EncryptionOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cert_path, 1, type: :string, json_name: "certPath"
   field :pvk_path, 2, type: :string, json_name: "pvkPath"
@@ -829,7 +885,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :encryption_options, 1,
     type: Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions.EncryptionOptions,
@@ -838,7 +895,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ImportContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :database, 2, type: :string
@@ -862,14 +920,16 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesCloneRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :clone_context, 1, type: Google.Cloud.Sql.V1beta4.CloneContext, json_name: "cloneContext"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :demote_master_context, 1,
     type: Google.Cloud.Sql.V1beta4.DemoteMasterContext,
@@ -878,7 +938,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesExportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :export_context, 1,
     type: Google.Cloud.Sql.V1beta4.ExportContext,
@@ -887,7 +948,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesFailoverRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :failover_context, 1,
     type: Google.Cloud.Sql.V1beta4.FailoverContext,
@@ -896,7 +958,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesImportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :import_context, 1,
     type: Google.Cloud.Sql.V1beta4.ImportContext,
@@ -905,7 +968,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.MySqlSyncConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :initial_sync_flags, 1,
     repeated: true,
@@ -915,7 +979,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :warnings, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.ApiWarning
@@ -925,7 +990,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesListServerCasResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :certs, 1, repeated: true, type: Google.Cloud.Sql.V1beta4.SslCert
   field :active_version, 2, type: :string, json_name: "activeVersion"
@@ -934,7 +1000,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesRestoreBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :restore_backup_context, 1,
     type: Google.Cloud.Sql.V1beta4.RestoreBackupContext,
@@ -943,7 +1010,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesRotateServerCaRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rotate_server_ca_context, 1,
     type: Google.Cloud.Sql.V1beta4.RotateServerCaContext,
@@ -952,7 +1020,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :truncate_log_context, 1,
     type: Google.Cloud.Sql.V1beta4.TruncateLogContext,
@@ -961,7 +1030,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :errors, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError
@@ -970,7 +1040,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
 
@@ -983,7 +1054,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.IpConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ipv4_enabled, 1, type: Google.Protobuf.BoolValue, json_name: "ipv4Enabled"
   field :private_network, 2, type: :string, json_name: "privateNetwork"
@@ -999,7 +1071,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.IpMapping do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Sql.V1beta4.SqlIpAddressType, enum: true
   field :ip_address, 2, type: :string, json_name: "ipAddress"
@@ -1008,7 +1081,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.LocationPreference do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :follow_gae_application, 1,
     type: :string,
@@ -1022,7 +1096,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.MaintenanceWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hour, 1, type: Google.Protobuf.Int32Value
   field :day, 2, type: Google.Protobuf.Int32Value
@@ -1037,7 +1112,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DenyMaintenancePeriod do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
@@ -1046,7 +1122,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.InsightsConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :query_insights_enabled, 1, type: :bool, json_name: "queryInsightsEnabled"
   field :record_client_address, 2, type: :bool, json_name: "recordClientAddress"
@@ -1060,7 +1137,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.MySqlReplicaConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dump_file_path, 1, type: :string, json_name: "dumpFilePath"
   field :username, 2, type: :string
@@ -1088,7 +1166,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.OnPremisesConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :host_port, 1, type: :string, json_name: "hostPort"
   field :kind, 2, type: :string
@@ -1106,7 +1185,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DiskEncryptionConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
   field :kind, 2, type: :string
@@ -1114,7 +1194,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.DiskEncryptionStatus do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName"
   field :kind, 2, type: :string
@@ -1122,7 +1203,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :target_link, 2, type: :string, json_name: "targetLink"
@@ -1158,7 +1240,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :code, 2, type: :string
@@ -1167,7 +1250,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationErrors do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :errors, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.OperationError
@@ -1175,7 +1259,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.PasswordValidationPolicy do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :min_length, 1, type: Google.Protobuf.Int32Value, json_name: "minLength"
 
@@ -1200,7 +1285,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.Operation
@@ -1209,7 +1295,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.ReplicaConfiguration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
 
@@ -1222,7 +1309,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.RestoreBackupContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :backup_run_id, 2, type: :int64, json_name: "backupRunId"
@@ -1232,7 +1320,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.RotateServerCaContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :next_version, 2, type: :string, json_name: "nextVersion"
@@ -1240,7 +1329,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Settings.UserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1248,7 +1338,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.Settings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :settings_version, 1, type: Google.Protobuf.Int64Value, json_name: "settingsVersion"
 
@@ -1357,7 +1448,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCert do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :cert_serial_number, 2, type: :string, json_name: "certSerialNumber"
@@ -1372,7 +1464,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCertDetail do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :cert_info, 1, type: Google.Cloud.Sql.V1beta4.SslCert, json_name: "certInfo"
   field :cert_private_key, 2, type: :string, json_name: "certPrivateKey"
@@ -1380,7 +1473,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCertsCreateEphemeralRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :public_key, 1, type: :string, json_name: "publicKey"
   field :access_token, 2, type: :string, json_name: "accessToken"
@@ -1388,14 +1482,16 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCertsInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common_name, 1, type: :string, json_name: "commonName"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.Reschedule do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reschedule_type, 1,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.RescheduleType,
@@ -1410,7 +1506,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :reschedule, 3,
     type: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.Reschedule
@@ -1418,7 +1515,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCertsInsertResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :operation, 2, type: Google.Cloud.Sql.V1beta4.Operation
@@ -1428,7 +1526,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCertsListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.SslCert
@@ -1436,7 +1535,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.TruncateLogContext do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :log_type, 2, type: :string, json_name: "logType"
@@ -1444,7 +1544,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlActiveDirectoryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :domain, 2, type: :string
@@ -1452,7 +1553,8 @@ end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlServerAuditConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :bucket, 2, type: :string

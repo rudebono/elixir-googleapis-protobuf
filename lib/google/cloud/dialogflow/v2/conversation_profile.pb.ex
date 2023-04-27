@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.NotificationConfig.MessageFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :MESSAGE_FORMAT_UNSPECIFIED, 0
   field :PROTO, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ARTICLE_SUGGESTION, 1
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfile do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -73,7 +76,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ListConversationProfilesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -82,7 +86,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ListConversationProfilesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profiles, 1,
     repeated: true,
@@ -94,14 +99,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.GetConversationProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -113,7 +120,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.UpdateConversationProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profile, 1,
     type: Google.Cloud.Dialogflow.V2.ConversationProfile,
@@ -128,21 +136,24 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.DeleteConversationProfileRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionTriggerSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :no_smalltalk, 1, type: :bool, json_name: "noSmalltalk"
   field :only_end_user, 2, type: :bool, json_name: "onlyEndUser"
@@ -150,7 +161,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeatureConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestion_feature, 5,
     type: Google.Cloud.Dialogflow.V2.SuggestionFeature,
@@ -177,7 +189,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :feature_configs, 2,
     repeated: true,
@@ -189,7 +202,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :knowledge_bases, 1,
     repeated: true,
@@ -200,21 +214,24 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.DocumentQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :documents, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :drop_handoff_messages, 1, type: :bool, json_name: "dropHandoffMessages"
   field :drop_virtual_agent_messages, 2, type: :bool, json_name: "dropVirtualAgentMessages"
@@ -223,7 +240,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :query_source, 0
 
@@ -256,21 +274,24 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModelConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationProcessConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recent_sentences_count, 2, type: :int32, json_name: "recentSentencesCount"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.MessageAnalysisConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_entity_extraction, 2, type: :bool, json_name: "enableEntityExtraction"
   field :enable_sentiment_analysis, 3, type: :bool, json_name: "enableSentimentAnalysis"
@@ -278,7 +299,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :notification_config, 2,
     type: Google.Cloud.Dialogflow.V2.NotificationConfig,
@@ -299,14 +321,16 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentHandoffConfig.LivePersonConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :account_number, 1, type: :string, json_name: "accountNumber", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentHandoffConfig.SalesforceLiveAgentConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :organization_id, 1, type: :string, json_name: "organizationId", deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -316,7 +340,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentHandoffConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :agent_service, 0
 
@@ -333,7 +358,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.NotificationConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string
 
@@ -345,21 +371,24 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.LoggingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_stackdriver_logging, 3, type: :bool, json_name: "enableStackdriverLogging"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2.SuggestionFeature.Type, enum: true
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SetSuggestionFeatureConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profile, 1,
     type: :string,
@@ -380,7 +409,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ClearSuggestionFeatureConfigRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profile, 1,
     type: :string,
@@ -402,7 +432,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.SetSuggestionFeatureConfigOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profile, 1, type: :string, json_name: "conversationProfile"
 
@@ -423,7 +454,8 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ClearSuggestionFeatureConfigOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :conversation_profile, 1, type: :string, json_name: "conversationProfile"
 
@@ -444,9 +476,10 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.ConversationProfiles",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListConversationProfiles,
       Google.Cloud.Dialogflow.V2.ListConversationProfilesRequest,
@@ -479,5 +512,6 @@ end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfiles.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Dialogflow.V2.ConversationProfiles.Service
 end

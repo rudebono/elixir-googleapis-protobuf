@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Sql.V1.User.SqlUserType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :BUILT_IN, 0
   field :CLOUD_IAM_USER, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersDeleteRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :host, 1, type: :string
   field :instance, 2, type: :string
@@ -19,7 +21,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersInsertRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -28,7 +31,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersListRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersUpdateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :host, 1, type: :string, deprecated: false
   field :instance, 2, type: :string
@@ -47,7 +52,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.User do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :user_details, 0
 
@@ -68,7 +74,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlServerUserDetails do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disabled, 1, type: :bool
   field :server_roles, 2, repeated: true, type: :string, json_name: "serverRoles"
@@ -76,7 +83,8 @@ end
 
 defmodule Google.Cloud.Sql.V1.UsersListResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.User
@@ -85,9 +93,10 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlUsersService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :Delete, Google.Cloud.Sql.V1.SqlUsersDeleteRequest, Google.Cloud.Sql.V1.Operation
 
@@ -100,5 +109,6 @@ end
 
 defmodule Google.Cloud.Sql.V1.SqlUsersService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Sql.V1.SqlUsersService.Service
 end

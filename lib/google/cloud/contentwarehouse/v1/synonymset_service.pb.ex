@@ -1,8 +1,9 @@
 defmodule Google.Cloud.Contentwarehouse.V1.SynonymSetService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.SynonymSetService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateSynonymSet,
       Google.Cloud.Contentwarehouse.V1.CreateSynonymSetRequest,
@@ -27,5 +28,6 @@ end
 
 defmodule Google.Cloud.Contentwarehouse.V1.SynonymSetService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Contentwarehouse.V1.SynonymSetService.Service
 end

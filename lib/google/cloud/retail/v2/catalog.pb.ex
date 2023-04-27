@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.AttributeType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :TEXTUAL, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.IndexableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INDEXABLE_OPTION_UNSPECIFIED, 0
   field :INDEXABLE_ENABLED, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.DynamicFacetableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DYNAMIC_FACETABLE_OPTION_UNSPECIFIED, 0
   field :DYNAMIC_FACETABLE_ENABLED, 1
@@ -27,7 +30,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.SearchableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :SEARCHABLE_ENABLED, 1
@@ -36,7 +40,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.ExactSearchableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :EXACT_SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :EXACT_SEARCHABLE_ENABLED, 1
@@ -45,7 +50,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute.RetrievableOption do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RETRIEVABLE_OPTION_UNSPECIFIED, 0
   field :RETRIEVABLE_ENABLED, 1
@@ -54,7 +60,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.ProductLevelConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ingestion_product_type, 1, type: :string, json_name: "ingestionProductType"
 
@@ -65,7 +72,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CatalogAttribute do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :in_use, 9, type: :bool, json_name: "inUse", deprecated: false
@@ -103,7 +111,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.AttributesConfig.CatalogAttributesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2.CatalogAttribute
@@ -111,7 +120,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.AttributesConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -130,7 +140,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.CompletionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :matching_order, 2, type: :string, json_name: "matchingOrder"
@@ -171,7 +182,8 @@ end
 
 defmodule Google.Cloud.Retail.V2.Catalog do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

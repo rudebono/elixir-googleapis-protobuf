@@ -1,6 +1,7 @@
 defmodule Google.Dataflow.V1beta3.ParameterType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DEFAULT, 0
   field :TEXT, 1
@@ -16,7 +17,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :JAVA, 1
@@ -25,14 +27,16 @@ end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METADATA_ONLY, 0
 end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateResponse.TemplateType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :LEGACY, 1
@@ -41,14 +45,16 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
 end
 
 defmodule Google.Dataflow.V1beta3.ContainerSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image, 1, type: :string
   field :metadata, 2, type: Google.Dataflow.V1beta3.TemplateMetadata
@@ -61,7 +67,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -69,7 +76,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.LaunchOptionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -77,7 +85,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.TransformNameMappingsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -85,7 +94,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -121,7 +131,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment.AdditionalUserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -129,7 +140,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :num_workers, 1, type: :int32, json_name: "numWorkers"
   field :max_workers, 2, type: :int32, json_name: "maxWorkers"
@@ -184,7 +196,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
 
@@ -198,7 +211,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment.AdditionalUserLabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -206,7 +220,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :num_workers, 11, type: :int32, json_name: "numWorkers"
   field :max_workers, 1, type: :int32, json_name: "maxWorkers"
@@ -244,7 +259,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -252,7 +268,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.ParameterMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :label, 2, type: :string
@@ -274,7 +291,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.TemplateMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -283,7 +301,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.SDKInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :language, 1, type: Google.Dataflow.V1beta3.SDKInfo.Language, enum: true
   field :version, 2, type: :string
@@ -291,7 +310,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.RuntimeMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sdk_info, 1, type: Google.Dataflow.V1beta3.SDKInfo, json_name: "sdkInfo"
   field :parameters, 2, repeated: true, type: Google.Dataflow.V1beta3.ParameterMetadata
@@ -299,7 +319,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -307,7 +328,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.CreateJobFromTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -326,7 +348,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -338,7 +361,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :metadata, 2, type: Google.Dataflow.V1beta3.TemplateMetadata
@@ -355,7 +379,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.ParametersEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -363,7 +388,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters.TransformNameMappingEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -371,7 +397,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName"
 
@@ -392,7 +419,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :template, 0
 
@@ -414,14 +442,16 @@ end
 
 defmodule Google.Dataflow.V1beta3.LaunchTemplateResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :job, 1, type: Google.Dataflow.V1beta3.Job
 end
 
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters.ParameterViolation do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameter, 1, type: :string
   field :description, 2, type: :string
@@ -429,7 +459,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.InvalidTemplateParameters do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parameter_violations, 1,
     repeated: true,
@@ -439,7 +470,8 @@ end
 
 defmodule Google.Dataflow.V1beta3.DynamicTemplateLaunchParams do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcs_path, 1, type: :string, json_name: "gcsPath"
   field :staging_location, 2, type: :string, json_name: "stagingLocation"
@@ -447,9 +479,10 @@ end
 
 defmodule Google.Dataflow.V1beta3.TemplatesService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.dataflow.v1beta3.TemplatesService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :CreateJobFromTemplate,
       Google.Dataflow.V1beta3.CreateJobFromTemplateRequest,
@@ -466,14 +499,16 @@ end
 
 defmodule Google.Dataflow.V1beta3.TemplatesService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Dataflow.V1beta3.TemplatesService.Service
 end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplatesService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.dataflow.v1beta3.FlexTemplatesService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :LaunchFlexTemplate,
       Google.Dataflow.V1beta3.LaunchFlexTemplateRequest,
@@ -482,5 +517,6 @@ end
 
 defmodule Google.Dataflow.V1beta3.FlexTemplatesService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Dataflow.V1beta3.FlexTemplatesService.Service
 end

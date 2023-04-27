@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :scope, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -12,7 +13,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllResourcesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,7 +22,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :scope, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -30,7 +33,8 @@ end
 
 defmodule Google.Cloud.Asset.V1p1beta1.SearchAllIamPoliciesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -38,9 +42,10 @@ end
 
 defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.asset.v1p1beta1.AssetService",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :SearchAllResources,
       Google.Cloud.Asset.V1p1beta1.SearchAllResourcesRequest,
@@ -53,5 +58,6 @@ end
 
 defmodule Google.Cloud.Asset.V1p1beta1.AssetService.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Asset.V1p1beta1.AssetService.Service
 end

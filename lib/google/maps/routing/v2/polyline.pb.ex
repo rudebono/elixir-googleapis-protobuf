@@ -1,6 +1,7 @@
 defmodule Google.Maps.Routing.V2.PolylineQuality do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :POLYLINE_QUALITY_UNSPECIFIED, 0
   field :HIGH_QUALITY, 1
@@ -9,7 +10,8 @@ end
 
 defmodule Google.Maps.Routing.V2.PolylineEncoding do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :POLYLINE_ENCODING_UNSPECIFIED, 0
   field :ENCODED_POLYLINE, 1
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Maps.Routing.V2.Polyline do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :polyline_type, 0
 

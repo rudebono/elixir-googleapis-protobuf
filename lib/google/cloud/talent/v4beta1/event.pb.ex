@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.JobEvent.JobEventType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :JOB_EVENT_TYPE_UNSPECIFIED, 0
   field :IMPRESSION, 1
@@ -22,7 +23,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.ClientEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :event, 0
 
@@ -40,7 +42,8 @@ end
 
 defmodule Google.Cloud.Talent.V4beta1.JobEvent do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4beta1.JobEvent.JobEventType,

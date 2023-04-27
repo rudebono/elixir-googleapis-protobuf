@@ -1,6 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.LabelView do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LABEL_VIEW_BASIC, 0
   field :LABEL_VIEW_FULL, 1
@@ -8,7 +9,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.GetLabelRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -18,7 +20,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.ListLabelsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :access, 0
 
@@ -39,7 +42,8 @@ end
 
 defmodule Google.Apps.Drive.Labels.V2.ListLabelsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: Google.Apps.Drive.Labels.V2.Label
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"

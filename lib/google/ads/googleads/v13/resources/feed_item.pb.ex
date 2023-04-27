@@ -1,6 +1,7 @@
 defmodule Google.Ads.Googleads.V13.Resources.FeedItem do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :feed, 11, proto3_optional: true, type: :string, deprecated: false
@@ -37,7 +38,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.FeedItemAttributeValue do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :feed_attribute_id, 11, proto3_optional: true, type: :int64, json_name: "feedAttributeId"
   field :integer_value, 12, proto3_optional: true, type: :int64, json_name: "integerValue"
@@ -53,7 +55,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.FeedItemPlaceholderPolicyInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :placeholder_type_enum, 10,
     type: Google.Ads.Googleads.V13.Enums.PlaceholderTypeEnum.PlaceholderType,
@@ -115,7 +118,8 @@ end
 
 defmodule Google.Ads.Googleads.V13.Resources.FeedItemValidationError do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :validation_error, 1,
     type: Google.Ads.Googleads.V13.Errors.FeedItemValidationErrorEnum.FeedItemValidationError,

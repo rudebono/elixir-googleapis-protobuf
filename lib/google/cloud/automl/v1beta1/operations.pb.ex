@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -62,32 +63,38 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.DeleteOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Automl.V1beta1.DeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Automl.V1beta1.UndeployModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Automl.V1beta1.CreateModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ImportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutputInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :output_location, 0
 
@@ -97,7 +104,8 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_info, 1,
     type: Google.Cloud.Automl.V1beta1.ExportDataOperationMetadata.ExportDataOutputInfo,
@@ -106,7 +114,8 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata.BatchPredictOutputInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :output_location, 0
 
@@ -116,7 +125,8 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.BatchPredictOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1beta1.BatchPredictInputConfig,
@@ -129,14 +139,16 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.ExportModelOutputInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gcs_output_directory, 1, type: :string, json_name: "gcsOutputDirectory"
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_info, 2,
     type: Google.Cloud.Automl.V1beta1.ExportModelOperationMetadata.ExportModelOutputInfo,
@@ -145,14 +157,16 @@ end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata.ExportEvaluatedExamplesOutputInfo do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bigquery_output_dataset, 2, type: :string, json_name: "bigqueryOutputDataset"
 end
 
 defmodule Google.Cloud.Automl.V1beta1.ExportEvaluatedExamplesOperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_info, 2,
     type:

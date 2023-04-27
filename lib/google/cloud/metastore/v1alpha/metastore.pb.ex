@@ -1,6 +1,7 @@
 defmodule Google.Cloud.Metastore.V1alpha.Service.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +15,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service.Tier do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :DEVELOPER, 1
@@ -23,7 +25,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service.ReleaseChannel do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RELEASE_CHANNEL_UNSPECIFIED, 0
   field :CANARY, 1
@@ -32,7 +35,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service.DatabaseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -41,7 +45,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.EndpointProtocol do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ENDPOINT_PROTOCOL_UNSPECIFIED, 0
   field :THRIFT, 1
@@ -50,7 +55,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.TelemetryConfig.LogFormat do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :LOG_FORMAT_UNSPECIFIED, 0
   field :LEGACY, 1
@@ -59,7 +65,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -70,7 +77,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump.DatabaseType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -78,7 +86,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataExport.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -89,7 +98,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Backup.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -101,7 +111,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Restore.State do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -112,7 +123,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Restore.RestoreType do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESTORE_TYPE_UNSPECIFIED, 0
   field :FULL, 1
@@ -121,7 +133,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ScalingConfig.InstanceSize do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INSTANCE_SIZE_UNSPECIFIED, 0
   field :EXTRA_SMALL, 1
@@ -133,7 +146,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec.Type do
   @moduledoc false
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -142,7 +156,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service.LabelsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -150,7 +165,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Service do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :metastore_config, 0
 
@@ -236,7 +252,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataIntegration do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :data_catalog_config, 1,
     type: Google.Cloud.Metastore.V1alpha.DataCatalogConfig,
@@ -249,14 +266,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataCatalogConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 2, type: :bool
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataplexConfig.LakeResourcesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Metastore.V1alpha.Lake
@@ -264,7 +283,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataplexConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :lake_resources, 1,
     repeated: true,
@@ -275,14 +295,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Lake do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MaintenanceWindow do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :hour_of_day, 1, type: Google.Protobuf.Int32Value, json_name: "hourOfDay"
   field :day_of_week, 2, type: Google.Type.DayOfWeek, json_name: "dayOfWeek", enum: true
@@ -290,7 +312,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.ConfigOverridesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -298,7 +321,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig.AuxiliaryVersionsEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig
@@ -306,7 +330,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.HiveMetastoreConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string, deprecated: false
 
@@ -334,7 +359,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.KerberosConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keytab, 1, type: Google.Cloud.Metastore.V1alpha.Secret
   field :principal, 2, type: :string
@@ -343,7 +369,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Secret do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -352,14 +379,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.EncryptionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey"
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig.ConfigOverridesEntry do
   @moduledoc false
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -367,7 +396,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.AuxiliaryVersionConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
 
@@ -385,7 +415,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.NetworkConfig.Consumer do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :vpc_resource, 0
 
@@ -395,7 +426,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.NetworkConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :consumers, 1,
     repeated: true,
@@ -407,7 +439,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.TelemetryConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :log_format, 1,
     type: Google.Cloud.Metastore.V1alpha.TelemetryConfig.LogFormat,
@@ -417,7 +450,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataManagementActivity do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metadata_exports, 1,
     repeated: true,
@@ -433,7 +467,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :database_type, 1,
     type: Google.Cloud.Metastore.V1alpha.MetadataImport.DatabaseDump.DatabaseType,
@@ -452,7 +487,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataImport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -485,7 +521,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MetadataExport do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -512,7 +549,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Backup do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -544,7 +582,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.Restore do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -566,7 +605,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ScalingConfig do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :scaling_model, 0
 
@@ -581,7 +621,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListServicesRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -592,7 +633,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListServicesResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -601,14 +643,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_id, 2, type: :string, json_name: "serviceId", deprecated: false
@@ -618,7 +662,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.UpdateServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -631,7 +676,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DeleteServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -639,7 +685,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -650,7 +697,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListMetadataImportsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metadata_imports, 1,
     repeated: true,
@@ -663,14 +711,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetMetadataImportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateMetadataImportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :metadata_import_id, 2, type: :string, json_name: "metadataImportId", deprecated: false
@@ -685,7 +735,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.UpdateMetadataImportRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -702,7 +753,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListBackupsRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -713,7 +765,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ListBackupsResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -722,14 +775,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.GetBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.CreateBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -739,7 +794,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DeleteBackupRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -747,7 +803,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.ExportMetadataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -764,7 +821,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.RestoreServiceRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :backup, 2, type: :string, deprecated: false
@@ -780,7 +838,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.OperationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -802,7 +861,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata.HiveMetastoreVersion do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :is_default, 2, type: :bool, json_name: "isDefault"
@@ -810,7 +870,8 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.LocationMetadata do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :supported_hive_metastore_versions, 1,
     repeated: true,
@@ -820,12 +881,14 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DatabaseDumpSpec do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.RemoveIamPolicyRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :asynchronous, 2, type: :bool, deprecated: false
@@ -833,14 +896,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.RemoveIamPolicyResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :success, 1, type: :bool
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.QueryMetadataRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -848,14 +913,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.QueryMetadataResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :result_manifest_uri, 1, type: :string, json_name: "resultManifestUri"
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.MoveTableToDatabaseRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :table_name, 2, type: :string, json_name: "tableName", deprecated: false
@@ -865,12 +932,14 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.MoveTableToDatabaseResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.AlterMetadataResourceLocationRequest do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :resource_name, 2, type: :string, json_name: "resourceName", deprecated: false
@@ -879,14 +948,16 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.AlterMetadataResourceLocationResponse do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.11.0", syntax: :proto3
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastore.Service do
   @moduledoc false
+
   use GRPC.Service,
     name: "google.cloud.metastore.v1alpha.DataprocMetastore",
-    protoc_gen_elixir_version: "0.11.0"
+    protoc_gen_elixir_version: "0.12.0"
 
   rpc :ListServices,
       Google.Cloud.Metastore.V1alpha.ListServicesRequest,
@@ -967,5 +1038,6 @@ end
 
 defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastore.Stub do
   @moduledoc false
+
   use GRPC.Stub, service: Google.Cloud.Metastore.V1alpha.DataprocMetastore.Service
 end
