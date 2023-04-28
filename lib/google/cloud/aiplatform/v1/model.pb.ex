@@ -29,6 +29,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType do
   field :CUSTOM, 2
   field :BQML, 3
   field :MODEL_GARDEN, 4
+  field :GENIE, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do

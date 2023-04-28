@@ -9,6 +9,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schedule.State do
   field :COMPLETED, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Schedule.RunResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :scheduled_run_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduledRunTime"
+  field :run_response, 2, type: :string, json_name: "runResponse"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Schedule do
   @moduledoc false
 
@@ -42,6 +51,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schedule do
     json_name: "createTime",
     deprecated: false
 
+  field :update_time, 19,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :next_run_time, 7,
     type: Google.Protobuf.Timestamp,
     json_name: "nextRunTime",
@@ -64,4 +78,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schedule do
 
   field :allow_queueing, 12, type: :bool, json_name: "allowQueueing", deprecated: false
   field :catch_up, 13, type: :bool, json_name: "catchUp", deprecated: false
+
+  field :last_scheduled_run_response, 18,
+    type: Google.Cloud.Aiplatform.V1beta1.Schedule.RunResponse,
+    json_name: "lastScheduledRunResponse",
+    deprecated: false
 end

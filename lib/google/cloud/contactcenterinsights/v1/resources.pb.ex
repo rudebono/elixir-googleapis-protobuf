@@ -94,6 +94,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role do
   field :ANY_AGENT, 4
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationConfig.SummarizationModel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SUMMARIZATION_MODEL_UNSPECIFIED, 0
+  field :BASELINE_MODEL, 1
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
   @moduledoc false
 
@@ -235,6 +244,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
   field :latest_analysis, 12,
     type: Google.Cloud.Contactcenterinsights.V1.Analysis,
     json_name: "latestAnalysis",
+    deprecated: false
+
+  field :latest_summary, 20,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData,
+    json_name: "latestSummary",
     deprecated: false
 
   field :runtime_annotations, 13,
@@ -917,6 +931,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
     json_name: "dialogflowInteraction",
     oneof: 0
 
+  field :conversation_summarization_suggestion, 12,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData,
+    json_name: "conversationSummarizationSuggestion",
+    oneof: 0
+
   field :annotation_id, 1, type: :string, json_name: "annotationId"
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
@@ -1060,6 +1079,50 @@ defmodule Google.Cloud.Contactcenterinsights.V1.DialogflowInteractionData do
   field :confidence, 2, type: :float
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData.TextSectionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData.MetadataEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :text_sections, 5,
+    repeated: true,
+    type:
+      Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData.TextSectionsEntry,
+    json_name: "textSections",
+    map: true
+
+  field :confidence, 2, type: :float
+
+  field :metadata, 3,
+    repeated: true,
+    type:
+      Google.Cloud.Contactcenterinsights.V1.ConversationSummarizationSuggestionData.MetadataEntry,
+    map: true
+
+  field :answer_record, 4, type: :string, json_name: "answerRecord"
+  field :conversation_model, 6, type: :string, json_name: "conversationModel"
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationParticipant do
   @moduledoc false
 
@@ -1108,6 +1171,27 @@ defmodule Google.Cloud.Contactcenterinsights.V1.View do
   field :value, 5, type: :string
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :model_source, 0
+
+  field :conversation_profile, 1,
+    type: :string,
+    json_name: "conversationProfile",
+    oneof: 0,
+    deprecated: false
+
+  field :summarization_model, 2,
+    type:
+      Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationConfig.SummarizationModel,
+    json_name: "summarizationModel",
+    enum: true,
+    oneof: 0
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector do
   @moduledoc false
 
@@ -1133,4 +1217,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector do
     type: :string,
     json_name: "issueModels",
     deprecated: false
+
+  field :run_summarization_annotator, 9, type: :bool, json_name: "runSummarizationAnnotator"
+
+  field :summarization_config, 11,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationConfig,
+    json_name: "summarizationConfig"
 end

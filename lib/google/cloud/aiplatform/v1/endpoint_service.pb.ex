@@ -157,6 +157,44 @@ defmodule Google.Cloud.Aiplatform.V1.UndeployModelOperationMetadata do
     json_name: "genericMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.MutateDeployedModelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+
+  field :deployed_model, 2,
+    type: Google.Cloud.Aiplatform.V1.DeployedModel,
+    json_name: "deployedModel",
+    deprecated: false
+
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.MutateDeployedModelResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :deployed_model, 1,
+    type: Google.Cloud.Aiplatform.V1.DeployedModel,
+    json_name: "deployedModel"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.MutateDeployedModelOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.EndpointService.Service do
   @moduledoc false
 
@@ -188,6 +226,10 @@ defmodule Google.Cloud.Aiplatform.V1.EndpointService.Service do
 
   rpc :UndeployModel,
       Google.Cloud.Aiplatform.V1.UndeployModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :MutateDeployedModel,
+      Google.Cloud.Aiplatform.V1.MutateDeployedModelRequest,
       Google.Longrunning.Operation
 end
 
