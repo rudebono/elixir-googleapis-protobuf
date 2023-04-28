@@ -95,6 +95,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
     type: :bool,
     json_name: "enableDashboardAccess",
     deprecated: false
+
+  field :experiment, 17, type: :string, deprecated: false
+  field :experiment_run, 18, type: :string, json_name: "experimentRun", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do

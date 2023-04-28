@@ -75,6 +75,11 @@ defmodule Google.Cloud.Aiplatform.V1.Featurestore do
     enum: true,
     deprecated: false
 
+  field :online_storage_ttl_days, 13,
+    type: :int32,
+    json_name: "onlineStorageTtlDays",
+    deprecated: false
+
   field :encryption_spec, 10,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec",
