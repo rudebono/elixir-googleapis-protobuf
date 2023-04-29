@@ -8,6 +8,9 @@ defmodule Google.Api.ClientLibraryOrganization do
   field :ADS, 2
   field :PHOTOS, 3
   field :STREET_VIEW, 4
+  field :SHOPPING, 5
+  field :GEO, 6
+  field :GENERATIVE_AI, 7
 end
 
 defmodule Google.Api.ClientLibraryDestination do
