@@ -137,6 +137,20 @@ defmodule Google.Bigtable.V2.MutateRowsResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Bigtable.V2.MutateRowsResponse.Entry
+
+  field :rate_limit_info, 3,
+    proto3_optional: true,
+    type: Google.Bigtable.V2.RateLimitInfo,
+    json_name: "rateLimitInfo"
+end
+
+defmodule Google.Bigtable.V2.RateLimitInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :period, 1, type: Google.Protobuf.Duration
+  field :factor, 2, type: :double
 end
 
 defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
