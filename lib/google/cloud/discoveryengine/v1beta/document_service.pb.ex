@@ -82,6 +82,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.DocumentService.Service do
   rpc :ImportDocuments,
       Google.Cloud.Discoveryengine.V1beta.ImportDocumentsRequest,
       Google.Longrunning.Operation
+
+  rpc :PurgeDocuments,
+      Google.Cloud.Discoveryengine.V1beta.PurgeDocumentsRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.DocumentService.Stub do
