@@ -52,12 +52,18 @@ defmodule Google.Cloud.Run.V2.Task do
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
-  field :labels, 4, repeated: true, type: Google.Cloud.Run.V2.Task.LabelsEntry, map: true
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Run.V2.Task.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Run.V2.Task.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -121,6 +127,7 @@ defmodule Google.Cloud.Run.V2.Task do
     deprecated: false
 
   field :log_uri, 32, type: :string, json_name: "logUri", deprecated: false
+  field :satisfies_pzs, 33, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 

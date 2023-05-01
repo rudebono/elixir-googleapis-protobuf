@@ -41,6 +41,7 @@ defmodule Google.Cloud.Run.V2.ResourceRequirements do
     map: true
 
   field :cpu_idle, 2, type: :bool, json_name: "cpuIdle"
+  field :startup_cpu_boost, 3, type: :bool, json_name: "startupCpuBoost"
 end
 
 defmodule Google.Cloud.Run.V2.EnvVar do
@@ -170,6 +171,8 @@ defmodule Google.Cloud.Run.V2.HTTPGetAction do
     repeated: true,
     type: Google.Cloud.Run.V2.HTTPHeader,
     json_name: "httpHeaders"
+
+  field :port, 5, type: :int32
 end
 
 defmodule Google.Cloud.Run.V2.HTTPHeader do

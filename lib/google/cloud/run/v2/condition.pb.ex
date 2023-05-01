@@ -72,6 +72,7 @@ defmodule Google.Cloud.Run.V2.Condition.ExecutionReason do
   field :JOB_STATUS_SERVICE_POLLING_ERROR, 1
   field :NON_ZERO_EXIT_CODE, 2
   field :CANCELLED, 3
+  field :CANCELLING, 4
 end
 
 defmodule Google.Cloud.Run.V2.Condition do

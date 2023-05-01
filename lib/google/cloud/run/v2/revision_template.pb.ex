@@ -50,4 +50,6 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
   field :max_instance_request_concurrency, 15,
     type: :int32,
     json_name: "maxInstanceRequestConcurrency"
+
+  field :session_affinity, 19, type: :bool, json_name: "sessionAffinity"
 end
