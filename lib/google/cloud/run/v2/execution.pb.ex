@@ -62,12 +62,18 @@ defmodule Google.Cloud.Run.V2.Execution do
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
-  field :labels, 4, repeated: true, type: Google.Cloud.Run.V2.Execution.LabelsEntry, map: true
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Run.V2.Execution.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Run.V2.Execution.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -113,6 +119,7 @@ defmodule Google.Cloud.Run.V2.Execution do
   field :cancelled_count, 24, type: :int32, json_name: "cancelledCount", deprecated: false
   field :retried_count, 25, type: :int32, json_name: "retriedCount", deprecated: false
   field :log_uri, 26, type: :string, json_name: "logUri", deprecated: false
+  field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 

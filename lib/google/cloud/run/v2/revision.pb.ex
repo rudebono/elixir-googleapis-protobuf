@@ -62,12 +62,18 @@ defmodule Google.Cloud.Run.V2.Revision do
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
-  field :labels, 4, repeated: true, type: Google.Cloud.Run.V2.Revision.LabelsEntry, map: true
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Run.V2.Revision.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Run.V2.Revision.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -123,6 +129,8 @@ defmodule Google.Cloud.Run.V2.Revision do
   field :conditions, 31, repeated: true, type: Google.Cloud.Run.V2.Condition, deprecated: false
   field :observed_generation, 32, type: :int64, json_name: "observedGeneration", deprecated: false
   field :log_uri, 33, type: :string, json_name: "logUri", deprecated: false
+  field :satisfies_pzs, 37, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :session_affinity, 38, type: :bool, json_name: "sessionAffinity"
   field :etag, 99, type: :string, deprecated: false
 end
 

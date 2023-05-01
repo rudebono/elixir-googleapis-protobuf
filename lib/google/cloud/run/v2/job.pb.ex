@@ -143,6 +143,7 @@ defmodule Google.Cloud.Run.V2.Job do
     deprecated: false
 
   field :reconciling, 23, type: :bool, deprecated: false
+  field :satisfies_pzs, 25, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 
