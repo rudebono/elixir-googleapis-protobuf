@@ -951,6 +951,7 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifact do
     deprecated: false
 
   field :manifest_path, 3, type: :string, json_name: "manifestPath", deprecated: false
+  field :job_manifests_path, 4, type: :string, json_name: "jobManifestsPath", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifactsEntry do
@@ -983,6 +984,20 @@ defmodule Google.Cloud.Deploy.V1.TargetArtifact do
     type: Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifactsEntry,
     json_name: "phaseArtifacts",
     map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployArtifact do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :artifact_uri, 1, type: :string, json_name: "artifactUri", deprecated: false
+
+  field :manifest_paths, 2,
+    repeated: true,
+    type: :string,
+    json_name: "manifestPaths",
     deprecated: false
 end
 
@@ -1506,6 +1521,7 @@ defmodule Google.Cloud.Deploy.V1.DeployJobRun do
 
   field :failure_message, 3, type: :string, json_name: "failureMessage", deprecated: false
   field :metadata, 4, type: Google.Cloud.Deploy.V1.DeployJobRunMetadata, deprecated: false
+  field :artifact, 5, type: Google.Cloud.Deploy.V1.DeployArtifact, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.VerifyJobRun do

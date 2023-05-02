@@ -172,6 +172,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
   field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.LargeModelReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictSchemata do
   @moduledoc false
 
