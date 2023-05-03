@@ -112,6 +112,16 @@ defmodule Google.Cloud.Dataplex.V1.StorageFormat.CompressionFormat do
   field :BZIP2, 3
 end
 
+defmodule Google.Cloud.Dataplex.V1.StorageAccess.AccessMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ACCESS_MODE_UNSPECIFIED, 0
+  field :DIRECT, 1
+  field :MANAGED, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.CreateEntityRequest do
   @moduledoc false
 
@@ -283,6 +293,8 @@ defmodule Google.Cloud.Dataplex.V1.Entity do
     type: Google.Cloud.Dataplex.V1.Entity.CompatibilityStatus,
     deprecated: false
 
+  field :access, 21, type: Google.Cloud.Dataplex.V1.StorageAccess, deprecated: false
+  field :uid, 22, type: :string, deprecated: false
   field :schema, 50, type: Google.Cloud.Dataplex.V1.Schema, deprecated: false
 end
 
@@ -407,6 +419,17 @@ defmodule Google.Cloud.Dataplex.V1.StorageFormat do
   field :iceberg, 12,
     type: Google.Cloud.Dataplex.V1.StorageFormat.IcebergOptions,
     oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.StorageAccess do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :read, 21,
+    type: Google.Cloud.Dataplex.V1.StorageAccess.AccessMode,
+    enum: true,
     deprecated: false
 end
 

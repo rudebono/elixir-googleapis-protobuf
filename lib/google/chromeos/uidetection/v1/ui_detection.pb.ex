@@ -12,6 +12,13 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionRequest do
     type: Google.Chromeos.Uidetection.V1.TestMetadata,
     json_name: "testMetadata",
     deprecated: false
+
+  field :force_image_resizing, 6, type: :bool, json_name: "forceImageResizing", deprecated: false
+
+  field :return_transformed_image, 7,
+    type: :bool,
+    json_name: "returnTransformedImage",
+    deprecated: false
 end
 
 defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
@@ -92,6 +99,7 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionResponse do
     json_name: "boundingBoxes"
 
   field :transformed_image_png, 2, type: :bytes, json_name: "transformedImagePng"
+  field :resizing_scale_factor, 3, type: :float, json_name: "resizingScaleFactor"
 end
 
 defmodule Google.Chromeos.Uidetection.V1.BoundingBox do

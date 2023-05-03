@@ -35,6 +35,7 @@ defmodule Google.Cloud.Dataplex.V1.DataSource do
   oneof :source, 0
 
   field :entity, 100, type: :string, oneof: 0, deprecated: false
+  field :resource, 101, type: :string, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.ScannedData.IncrementalField do

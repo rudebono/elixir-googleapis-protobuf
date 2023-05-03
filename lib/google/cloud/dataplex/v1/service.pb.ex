@@ -326,6 +326,22 @@ defmodule Google.Cloud.Dataplex.V1.GetJobRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.RunTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.RunTaskResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :job, 1, type: Google.Cloud.Dataplex.V1.Job
+end
+
 defmodule Google.Cloud.Dataplex.V1.ListJobsRequest do
   @moduledoc false
 
@@ -505,6 +521,8 @@ defmodule Google.Cloud.Dataplex.V1.DataplexService.Service do
   rpc :ListJobs,
       Google.Cloud.Dataplex.V1.ListJobsRequest,
       Google.Cloud.Dataplex.V1.ListJobsResponse
+
+  rpc :RunTask, Google.Cloud.Dataplex.V1.RunTaskRequest, Google.Cloud.Dataplex.V1.RunTaskResponse
 
   rpc :GetJob, Google.Cloud.Dataplex.V1.GetJobRequest, Google.Cloud.Dataplex.V1.Job
 

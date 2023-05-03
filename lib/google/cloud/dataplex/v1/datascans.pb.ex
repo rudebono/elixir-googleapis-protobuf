@@ -55,6 +55,7 @@ defmodule Google.Cloud.Dataplex.V1.CreateDataScanRequest do
     deprecated: false
 
   field :data_scan_id, 3, type: :string, json_name: "dataScanId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.UpdateDataScanRequest do
@@ -71,6 +72,8 @@ defmodule Google.Cloud.Dataplex.V1.UpdateDataScanRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "updateMask",
     deprecated: false
+
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DeleteDataScanRequest do

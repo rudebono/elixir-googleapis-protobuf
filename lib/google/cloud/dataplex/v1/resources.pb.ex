@@ -94,6 +94,16 @@ defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec.Type do
   field :BIGQUERY_DATASET, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec.AccessMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ACCESS_MODE_UNSPECIFIED, 0
+  field :DIRECT, 1
+  field :MANAGED, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceStatus.State do
   @moduledoc false
 
@@ -543,6 +553,12 @@ defmodule Google.Cloud.Dataplex.V1.Asset.ResourceSpec do
     type: Google.Cloud.Dataplex.V1.Asset.ResourceSpec.Type,
     enum: true,
     deprecated: false
+
+  field :read_access_mode, 5,
+    type: Google.Cloud.Dataplex.V1.Asset.ResourceSpec.AccessMode,
+    json_name: "readAccessMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.Asset.ResourceStatus do
@@ -553,6 +569,11 @@ defmodule Google.Cloud.Dataplex.V1.Asset.ResourceStatus do
   field :state, 1, type: Google.Cloud.Dataplex.V1.Asset.ResourceStatus.State, enum: true
   field :message, 2, type: :string
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+
+  field :managed_access_identity, 4,
+    type: :string,
+    json_name: "managedAccessIdentity",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.Asset.DiscoveryStatus.Stats do
