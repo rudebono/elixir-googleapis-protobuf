@@ -600,14 +600,6 @@ defmodule Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest do
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 
-defmodule Google.Cloud.Tpu.V2alpha1.ResetQueuedResourceRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
   @moduledoc false
 
@@ -839,10 +831,6 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
 
   rpc :DeleteQueuedResource,
       Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest,
-      Google.Longrunning.Operation
-
-  rpc :ResetQueuedResource,
-      Google.Cloud.Tpu.V2alpha1.ResetQueuedResourceRequest,
       Google.Longrunning.Operation
 
   rpc :GenerateServiceIdentity,
