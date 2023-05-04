@@ -242,7 +242,7 @@ defmodule Google.Devtools.Testing.V1.SystraceSetup do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :duration_seconds, 1, type: :int32, json_name: "durationSeconds"
+  field :duration_seconds, 1, type: :int32, json_name: "durationSeconds", deprecated: true
 end
 
 defmodule Google.Devtools.Testing.V1.TestSetup do

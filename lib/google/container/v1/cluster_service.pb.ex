@@ -1383,6 +1383,8 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
 
+  field :desired_fleet, 117, type: Google.Container.V1.Fleet, json_name: "desiredFleet"
+
   field :desired_stack_type, 119,
     type: Google.Container.V1.StackType,
     json_name: "desiredStackType",
