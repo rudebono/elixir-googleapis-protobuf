@@ -120,4 +120,5 @@ defmodule Google.Firestore.V1.ExistenceFilter do
 
   field :target_id, 1, type: :int32, json_name: "targetId"
   field :count, 2, type: :int32
+  field :unchanged_names, 3, type: Google.Firestore.V1.BloomFilter, json_name: "unchangedNames"
 end
