@@ -4,6 +4,7 @@ defmodule Google.Monitoring.V3.ListUptimeCheckConfigsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end

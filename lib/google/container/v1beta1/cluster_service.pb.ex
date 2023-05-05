@@ -933,6 +933,10 @@ defmodule Google.Container.V1beta1.AddonsConfig do
   field :gke_backup_agent_config, 16,
     type: Google.Container.V1beta1.GkeBackupAgentConfig,
     json_name: "gkeBackupAgentConfig"
+
+  field :gcs_fuse_csi_driver_config, 17,
+    type: Google.Container.V1beta1.GcsFuseCsiDriverConfig,
+    json_name: "gcsFuseCsiDriverConfig"
 end
 
 defmodule Google.Container.V1beta1.HttpLoadBalancing do
@@ -1008,6 +1012,14 @@ defmodule Google.Container.V1beta1.GcePersistentDiskCsiDriverConfig do
 end
 
 defmodule Google.Container.V1beta1.GcpFilestoreCsiDriverConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1beta1.GcsFuseCsiDriverConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1654,6 +1666,8 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_node_pool_logging_config, 116,
     type: Google.Container.V1beta1.NodePoolLoggingConfig,
     json_name: "desiredNodePoolLoggingConfig"
+
+  field :desired_fleet, 117, type: Google.Container.V1beta1.Fleet, json_name: "desiredFleet"
 
   field :desired_stack_type, 119,
     type: Google.Container.V1beta1.StackType,

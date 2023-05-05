@@ -398,6 +398,7 @@ defmodule Google.Firestore.V1.Target do
   field :read_time, 11, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
   field :target_id, 5, type: :int32, json_name: "targetId"
   field :once, 6, type: :bool
+  field :expected_count, 12, type: Google.Protobuf.Int32Value, json_name: "expectedCount"
 end
 
 defmodule Google.Firestore.V1.TargetChange do
