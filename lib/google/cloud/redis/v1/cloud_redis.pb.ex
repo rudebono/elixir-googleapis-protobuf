@@ -54,6 +54,37 @@ defmodule Google.Cloud.Redis.V1.Instance.ReadReplicasMode do
   field :READ_REPLICAS_ENABLED, 2
 end
 
+defmodule Google.Cloud.Redis.V1.Instance.SuspensionReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SUSPENSION_REASON_UNSPECIFIED, 0
+  field :CUSTOMER_MANAGED_KEY_ISSUE, 1
+end
+
+defmodule Google.Cloud.Redis.V1.PersistenceConfig.PersistenceMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PERSISTENCE_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :RDB, 2
+end
+
+defmodule Google.Cloud.Redis.V1.PersistenceConfig.SnapshotPeriod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SNAPSHOT_PERIOD_UNSPECIFIED, 0
+  field :ONE_HOUR, 3
+  field :SIX_HOURS, 4
+  field :TWELVE_HOURS, 5
+  field :TWENTY_FOUR_HOURS, 6
+end
+
 defmodule Google.Cloud.Redis.V1.RescheduleMaintenanceRequest.RescheduleType do
   @moduledoc false
 
@@ -187,6 +218,62 @@ defmodule Google.Cloud.Redis.V1.Instance do
     type: Google.Cloud.Redis.V1.Instance.ReadReplicasMode,
     json_name: "readReplicasMode",
     enum: true,
+    deprecated: false
+
+  field :customer_managed_key, 36,
+    type: :string,
+    json_name: "customerManagedKey",
+    deprecated: false
+
+  field :persistence_config, 37,
+    type: Google.Cloud.Redis.V1.PersistenceConfig,
+    json_name: "persistenceConfig",
+    deprecated: false
+
+  field :suspension_reasons, 38,
+    repeated: true,
+    type: Google.Cloud.Redis.V1.Instance.SuspensionReason,
+    json_name: "suspensionReasons",
+    enum: true,
+    deprecated: false
+
+  field :maintenance_version, 39,
+    type: :string,
+    json_name: "maintenanceVersion",
+    deprecated: false
+
+  field :available_maintenance_versions, 40,
+    repeated: true,
+    type: :string,
+    json_name: "availableMaintenanceVersions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.V1.PersistenceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :persistence_mode, 1,
+    type: Google.Cloud.Redis.V1.PersistenceConfig.PersistenceMode,
+    json_name: "persistenceMode",
+    enum: true,
+    deprecated: false
+
+  field :rdb_snapshot_period, 2,
+    type: Google.Cloud.Redis.V1.PersistenceConfig.SnapshotPeriod,
+    json_name: "rdbSnapshotPeriod",
+    enum: true,
+    deprecated: false
+
+  field :rdb_next_snapshot_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "rdbNextSnapshotTime",
+    deprecated: false
+
+  field :rdb_snapshot_start_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "rdbSnapshotStartTime",
     deprecated: false
 end
 
