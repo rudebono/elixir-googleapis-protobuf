@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.Examples.ExampleGcsSource.DataFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :JSONL, 1
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Presets.Query do
   @moduledoc false
 
@@ -220,19 +229,39 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BlurBaselineConfig do
   field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Examples.ExampleGcsSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_format, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Examples.ExampleGcsSource.DataFormat,
+    json_name: "dataFormat",
+    enum: true
+
+  field :gcs_source, 2, type: Google.Cloud.Aiplatform.V1beta1.GcsSource, json_name: "gcsSource"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Examples do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  oneof :config, 0
+  oneof :source, 0
+
+  oneof :config, 1
+
+  field :example_gcs_source, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.Examples.ExampleGcsSource,
+    json_name: "exampleGcsSource",
+    oneof: 0
 
   field :nearest_neighbor_search_config, 2,
     type: Google.Protobuf.Value,
     json_name: "nearestNeighborSearchConfig",
-    oneof: 0
+    oneof: 1
 
-  field :presets, 4, type: Google.Cloud.Aiplatform.V1beta1.Presets, oneof: 0
+  field :presets, 4, type: Google.Cloud.Aiplatform.V1beta1.Presets, oneof: 1
   field :gcs_source, 1, type: Google.Cloud.Aiplatform.V1beta1.GcsSource, json_name: "gcsSource"
   field :neighbor_count, 3, type: :int32, json_name: "neighborCount"
 end

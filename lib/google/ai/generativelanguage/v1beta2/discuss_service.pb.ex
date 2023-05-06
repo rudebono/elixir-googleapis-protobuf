@@ -24,6 +24,7 @@ defmodule Google.Ai.Generativelanguage.V1beta2.GenerateMessageResponse do
 
   field :candidates, 1, repeated: true, type: Google.Ai.Generativelanguage.V1beta2.Message
   field :messages, 2, repeated: true, type: Google.Ai.Generativelanguage.V1beta2.Message
+  field :filters, 3, repeated: true, type: Google.Ai.Generativelanguage.V1beta2.ContentFilter
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta2.Message do

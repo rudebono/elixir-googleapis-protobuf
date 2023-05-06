@@ -85,6 +85,7 @@ defmodule Google.Cloud.Channel.V1.Entitlement do
     json_name: "associationInfo"
 
   field :parameters, 26, repeated: true, type: Google.Cloud.Channel.V1.Parameter
+  field :billing_account, 28, type: :string, json_name: "billingAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.Parameter do
