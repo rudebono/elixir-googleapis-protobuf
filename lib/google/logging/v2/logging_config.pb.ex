@@ -1,13 +1,3 @@
-defmodule Google.Logging.V2.LifecycleState do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :LIFECYCLE_STATE_UNSPECIFIED, 0
-  field :ACTIVE, 1
-  field :DELETE_REQUESTED, 2
-end
-
 defmodule Google.Logging.V2.OperationState do
   @moduledoc false
 
@@ -22,6 +12,29 @@ defmodule Google.Logging.V2.OperationState do
   field :OPERATION_STATE_CANCELLED, 6
 end
 
+defmodule Google.Logging.V2.LifecycleState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LIFECYCLE_STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :DELETE_REQUESTED, 2
+  field :UPDATING, 3
+  field :CREATING, 4
+  field :FAILED, 5
+end
+
+defmodule Google.Logging.V2.IndexType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :INDEX_TYPE_UNSPECIFIED, 0
+  field :INDEX_TYPE_STRING, 1
+  field :INDEX_TYPE_INTEGER, 2
+end
+
 defmodule Google.Logging.V2.LogSink.VersionFormat do
   @moduledoc false
 
@@ -30,6 +43,20 @@ defmodule Google.Logging.V2.LogSink.VersionFormat do
   field :VERSION_FORMAT_UNSPECIFIED, 0
   field :V2, 1
   field :V1, 2
+end
+
+defmodule Google.Logging.V2.IndexConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_path, 1, type: :string, json_name: "fieldPath", deprecated: false
+  field :type, 2, type: Google.Logging.V2.IndexType, enum: true, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Logging.V2.LogBucket do
@@ -59,7 +86,14 @@ defmodule Google.Logging.V2.LogBucket do
     enum: true,
     deprecated: false
 
+  field :analytics_enabled, 14, type: :bool, json_name: "analyticsEnabled"
   field :restricted_fields, 15, repeated: true, type: :string, json_name: "restrictedFields"
+
+  field :index_configs, 17,
+    repeated: true,
+    type: Google.Logging.V2.IndexConfig,
+    json_name: "indexConfigs"
+
   field :cmek_settings, 19, type: Google.Logging.V2.CmekSettings, json_name: "cmekSettings"
 end
 
@@ -122,6 +156,38 @@ defmodule Google.Logging.V2.LogSink do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+end
+
+defmodule Google.Logging.V2.BigQueryDataset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
+end
+
+defmodule Google.Logging.V2.Link do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :description, 2, type: :string
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :lifecycle_state, 4,
+    type: Google.Logging.V2.LifecycleState,
+    json_name: "lifecycleState",
+    enum: true,
+    deprecated: false
+
+  field :bigquery_dataset, 5,
+    type: Google.Logging.V2.BigQueryDataset,
+    json_name: "bigqueryDataset"
 end
 
 defmodule Google.Logging.V2.BigQueryOptions do
@@ -334,6 +400,51 @@ defmodule Google.Logging.V2.DeleteSinkRequest do
   field :sink_name, 1, type: :string, json_name: "sinkName", deprecated: false
 end
 
+defmodule Google.Logging.V2.CreateLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :link, 2, type: Google.Logging.V2.Link, deprecated: false
+  field :link_id, 3, type: :string, json_name: "linkId", deprecated: false
+end
+
+defmodule Google.Logging.V2.DeleteLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Logging.V2.ListLinksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+end
+
+defmodule Google.Logging.V2.ListLinksResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :links, 1, repeated: true, type: Google.Logging.V2.Link
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Logging.V2.GetLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Logging.V2.LogExclusion do
   @moduledoc false
 
@@ -446,6 +557,7 @@ defmodule Google.Logging.V2.CmekSettings do
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName"
+  field :kms_key_version_name, 4, type: :string, json_name: "kmsKeyVersionName"
   field :service_account_id, 3, type: :string, json_name: "serviceAccountId", deprecated: false
 end
 
@@ -520,6 +632,58 @@ defmodule Google.Logging.V2.CopyLogEntriesResponse do
   field :log_entries_copied_count, 1, type: :int64, json_name: "logEntriesCopiedCount"
 end
 
+defmodule Google.Logging.V2.BucketMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :request, 0
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :state, 3, type: Google.Logging.V2.OperationState, enum: true
+
+  field :create_bucket_request, 4,
+    type: Google.Logging.V2.CreateBucketRequest,
+    json_name: "createBucketRequest",
+    oneof: 0
+
+  field :update_bucket_request, 5,
+    type: Google.Logging.V2.UpdateBucketRequest,
+    json_name: "updateBucketRequest",
+    oneof: 0
+end
+
+defmodule Google.Logging.V2.LinkMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :request, 0
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :state, 3, type: Google.Logging.V2.OperationState, enum: true
+
+  field :create_link_request, 4,
+    type: Google.Logging.V2.CreateLinkRequest,
+    json_name: "createLinkRequest",
+    oneof: 0
+
+  field :delete_link_request, 5,
+    type: Google.Logging.V2.DeleteLinkRequest,
+    json_name: "deleteLinkRequest",
+    oneof: 0
+end
+
+defmodule Google.Logging.V2.LocationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :log_analytics_enabled, 1, type: :bool, json_name: "logAnalyticsEnabled"
+end
+
 defmodule Google.Logging.V2.ConfigServiceV2.Service do
   @moduledoc false
 
@@ -528,6 +692,10 @@ defmodule Google.Logging.V2.ConfigServiceV2.Service do
   rpc :ListBuckets, Google.Logging.V2.ListBucketsRequest, Google.Logging.V2.ListBucketsResponse
 
   rpc :GetBucket, Google.Logging.V2.GetBucketRequest, Google.Logging.V2.LogBucket
+
+  rpc :CreateBucketAsync, Google.Logging.V2.CreateBucketRequest, Google.Longrunning.Operation
+
+  rpc :UpdateBucketAsync, Google.Logging.V2.UpdateBucketRequest, Google.Longrunning.Operation
 
   rpc :CreateBucket, Google.Logging.V2.CreateBucketRequest, Google.Logging.V2.LogBucket
 
@@ -556,6 +724,14 @@ defmodule Google.Logging.V2.ConfigServiceV2.Service do
   rpc :UpdateSink, Google.Logging.V2.UpdateSinkRequest, Google.Logging.V2.LogSink
 
   rpc :DeleteSink, Google.Logging.V2.DeleteSinkRequest, Google.Protobuf.Empty
+
+  rpc :CreateLink, Google.Logging.V2.CreateLinkRequest, Google.Longrunning.Operation
+
+  rpc :DeleteLink, Google.Logging.V2.DeleteLinkRequest, Google.Longrunning.Operation
+
+  rpc :ListLinks, Google.Logging.V2.ListLinksRequest, Google.Logging.V2.ListLinksResponse
+
+  rpc :GetLink, Google.Logging.V2.GetLinkRequest, Google.Logging.V2.Link
 
   rpc :ListExclusions,
       Google.Logging.V2.ListExclusionsRequest,

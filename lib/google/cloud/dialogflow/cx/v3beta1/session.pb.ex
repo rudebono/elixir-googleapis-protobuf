@@ -99,6 +99,66 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest do
     json_name: "outputAudioConfig"
 
   field :enable_partial_response, 5, type: :bool, json_name: "enablePartialResponse"
+  field :enable_debugging_info, 8, type: :bool, json_name: "enableDebuggingInfo"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CloudConversationDebuggingInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audio_data_chunks, 1, type: :int32, json_name: "audioDataChunks"
+
+  field :result_end_time_offset, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "resultEndTimeOffset"
+
+  field :first_audio_duration, 3, type: Google.Protobuf.Duration, json_name: "firstAudioDuration"
+  field :single_utterance, 5, type: :bool, json_name: "singleUtterance"
+
+  field :speech_partial_results_end_times, 6,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "speechPartialResultsEndTimes"
+
+  field :speech_final_results_end_times, 7,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "speechFinalResultsEndTimes"
+
+  field :partial_responses, 8, type: :int32, json_name: "partialResponses"
+
+  field :speaker_id_passive_latency_ms_offset, 9,
+    type: :int32,
+    json_name: "speakerIdPassiveLatencyMsOffset"
+
+  field :bargein_event_triggered, 10, type: :bool, json_name: "bargeinEventTriggered"
+  field :speech_single_utterance, 11, type: :bool, json_name: "speechSingleUtterance"
+
+  field :dtmf_partial_results_times, 12,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "dtmfPartialResultsTimes"
+
+  field :dtmf_final_results_times, 13,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "dtmfFinalResultsTimes"
+
+  field :single_utterance_end_time_offset, 14,
+    type: Google.Protobuf.Duration,
+    json_name: "singleUtteranceEndTimeOffset"
+
+  field :no_speech_timeout, 15, type: Google.Protobuf.Duration, json_name: "noSpeechTimeout"
+  field :is_input_text, 16, type: :bool, json_name: "isInputText"
+
+  field :client_half_close_time_offset, 17,
+    type: Google.Protobuf.Duration,
+    json_name: "clientHalfCloseTimeOffset"
+
+  field :client_half_close_streaming_time_offset, 18,
+    type: Google.Protobuf.Duration,
+    json_name: "clientHalfCloseStreamingTimeOffset"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentResponse do
@@ -117,6 +177,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentResponse do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse,
     json_name: "detectIntentResponse",
     oneof: 0
+
+  field :debugging_info, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.CloudConversationDebuggingInfo,
+    json_name: "debuggingInfo"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult do

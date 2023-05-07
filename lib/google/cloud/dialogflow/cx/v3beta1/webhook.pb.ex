@@ -211,6 +211,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest do
 
   field :transcript, 12, type: :string, oneof: 0
   field :trigger_event, 14, type: :string, json_name: "triggerEvent", oneof: 0
+  field :dtmf_digits, 17, type: :string, json_name: "dtmfDigits", oneof: 0
   field :language_code, 15, type: :string, json_name: "languageCode"
 
   field :fulfillment_info, 6,
