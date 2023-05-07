@@ -24,6 +24,7 @@ defmodule Google.Logging.V2.LogMetric do
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :filter, 3, type: :string, deprecated: false
+  field :bucket_name, 13, type: :string, json_name: "bucketName", deprecated: false
   field :disabled, 12, type: :bool, deprecated: false
 
   field :metric_descriptor, 5,
