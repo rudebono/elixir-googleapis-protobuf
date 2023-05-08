@@ -206,6 +206,74 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest.MinimalConversation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :messages, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.Message,
+    deprecated: false
+
+  field :parent, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :stateless_conversation, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest.MinimalConversation,
+    json_name: "statelessConversation",
+    deprecated: false
+
+  field :conversation_profile, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.ConversationProfile,
+    json_name: "conversationProfile",
+    deprecated: false
+
+  field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
+  field :max_context_size, 4, type: :int32, json_name: "maxContextSize"
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse.Summary.TextSectionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse.Summary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :text_sections, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse.Summary.TextSectionsEntry,
+    json_name: "textSections",
+    map: true
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :summary, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse.Summary
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   @moduledoc false
 
@@ -240,6 +308,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   rpc :SuggestConversationSummary,
       Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryRequest,
       Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse
+
+  rpc :GenerateStatelessSummary,
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest,
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Stub do

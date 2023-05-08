@@ -255,6 +255,8 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentRequest do
   field :enable_partial_automated_agent_reply, 12,
     type: :bool,
     json_name: "enablePartialAutomatedAgentReply"
+
+  field :enable_debugging_info, 19, type: :bool, json_name: "enableDebuggingInfo"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentResponse do
@@ -288,6 +290,10 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentResponse do
   field :dtmf_parameters, 10,
     type: Google.Cloud.Dialogflow.V2.DtmfParameters,
     json_name: "dtmfParameters"
+
+  field :debugging_info, 11,
+    type: Google.Cloud.Dialogflow.V2.CloudConversationDebuggingInfo,
+    json_name: "debuggingInfo"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do

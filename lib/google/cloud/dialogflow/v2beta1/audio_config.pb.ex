@@ -142,6 +142,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
   field :barge_in_config, 15,
     type: Google.Cloud.Dialogflow.V2beta1.BargeInConfig,
     json_name: "bargeInConfig"
+
+  field :enable_automatic_punctuation, 17, type: :bool, json_name: "enableAutomaticPunctuation"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams do

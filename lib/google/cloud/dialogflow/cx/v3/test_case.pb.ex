@@ -18,6 +18,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.TestRunDifference.DiffType do
   field :PAGE, 2
   field :PARAMETERS, 3
   field :UTTERANCE, 4
+  field :FLOW, 5
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CalculateCoverageRequest.CoverageType do

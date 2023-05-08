@@ -450,6 +450,7 @@ defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
     json_name: "excludeObjects"
 
   field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
+  field :max_concurrent_backfill_tasks, 4, type: :int32, json_name: "maxConcurrentBackfillTasks"
 
   field :drop_large_objects, 100,
     type: Google.Cloud.Datastream.V1.OracleSourceConfig.DropLargeObjects,
@@ -529,6 +530,7 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlSourceConfig do
 
   field :replication_slot, 3, type: :string, json_name: "replicationSlot", deprecated: false
   field :publication, 4, type: :string, deprecated: false
+  field :max_concurrent_backfill_tasks, 5, type: :int32, json_name: "maxConcurrentBackfillTasks"
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlColumn do
@@ -596,6 +598,7 @@ defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
     json_name: "excludeObjects"
 
   field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
+  field :max_concurrent_backfill_tasks, 4, type: :int32, json_name: "maxConcurrentBackfillTasks"
 end
 
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
