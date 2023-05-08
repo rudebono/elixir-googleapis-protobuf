@@ -353,6 +353,7 @@ defmodule Google.Cloud.Datastream.V1.CreatePrivateConnectionRequest do
     deprecated: false
 
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :force, 6, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsRequest do

@@ -129,6 +129,8 @@ defmodule Google.Cloud.Dialogflow.V2.InputAudioConfig do
   field :disable_no_speech_recognized_event, 14,
     type: :bool,
     json_name: "disableNoSpeechRecognizedEvent"
+
+  field :enable_automatic_punctuation, 17, type: :bool, json_name: "enableAutomaticPunctuation"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.VoiceSelectionParams do
