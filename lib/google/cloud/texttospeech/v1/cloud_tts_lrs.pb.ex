@@ -11,8 +11,8 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesizeLongAudioRequest do
     json_name: "audioConfig",
     deprecated: false
 
-  field :output_gcs_uri, 4, type: :string, json_name: "outputGcsUri"
-  field :voice, 5, type: Google.Cloud.Texttospeech.V1.VoiceSelectionParams
+  field :output_gcs_uri, 4, type: :string, json_name: "outputGcsUri", deprecated: false
+  field :voice, 5, type: Google.Cloud.Texttospeech.V1.VoiceSelectionParams, deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1.SynthesizeLongAudioResponse do
