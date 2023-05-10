@@ -18,6 +18,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ApiType do
   field :VALIDATE_CUSTOMER, 12
   field :VOUCHER, 13
   field :VOUCHER_CONFIRMATION, 14
+  field :ACTIVATION, 15
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionType do
@@ -51,6 +52,8 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionType do
   field :TRANSACTION_TYPE_UPDATE, 23
   field :TRANSACTION_TYPE_UPDATE_CREDENTIALS, 24
   field :TRANSACTION_TYPE_VALIDATE_CUSTOMER, 25
+  field :TRANSACTION_TYPE_ACTIVATION_INTERNATIONAL, 26
+  field :TRANSACTION_TYPE_ACTIVATION_UPI_SERVICES, 27
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.XmlApiType do
@@ -89,6 +92,8 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.XmlApiType do
   field :RESP_VOUCHER, 28
   field :RESP_VOUCHER_CONFIRMATION, 29
   field :RESP_TXN_CONFIRMATION, 30
+  field :REQ_ACTIVATION, 31
+  field :RESP_ACTIVATION, 32
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant.Persona do
