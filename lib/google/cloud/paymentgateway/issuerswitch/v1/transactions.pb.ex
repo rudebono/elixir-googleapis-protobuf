@@ -21,6 +21,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :BENEFICIARY, 4
   field :REMITTER, 5
   field :REFUND, 6
+  field :CREDIT, 7
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule.PaymentRuleName do

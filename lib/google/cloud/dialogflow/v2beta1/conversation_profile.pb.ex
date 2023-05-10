@@ -199,6 +199,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.Conversation
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
+  field :baseline_model_version, 8, type: :string, json_name: "baselineModelVersion"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationProcessConfig do

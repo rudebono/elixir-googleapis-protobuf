@@ -291,6 +291,15 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.NetworkPolicy do
     json_name: "networkInterfaces"
 end
 
+defmodule Google.Cloud.Batch.V1.AllocationPolicy.PlacementPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :collocation, 1, type: :string
+  field :max_distance, 2, type: :int64, json_name: "maxDistance"
+end
+
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.LabelsEntry do
   @moduledoc false
 
@@ -321,6 +330,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy do
     map: true
 
   field :network, 7, type: Google.Cloud.Batch.V1.AllocationPolicy.NetworkPolicy
+  field :placement, 10, type: Google.Cloud.Batch.V1.AllocationPolicy.PlacementPolicy
 end
 
 defmodule Google.Cloud.Batch.V1.TaskGroup do

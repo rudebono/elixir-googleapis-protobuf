@@ -96,6 +96,7 @@ defmodule Google.Cloud.Workstations.V1.WorkstationCluster do
   field :etag, 9, type: :string
   field :network, 10, type: :string, deprecated: false
   field :subnetwork, 11, type: :string, deprecated: false
+  field :control_plane_ip, 16, type: :string, json_name: "controlPlaneIp", deprecated: false
 
   field :private_cluster_config, 12,
     type: Google.Cloud.Workstations.V1.WorkstationCluster.PrivateClusterConfig,
@@ -132,6 +133,7 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance do
   field :service_account, 2, type: :string, json_name: "serviceAccount"
   field :tags, 4, repeated: true, type: :string
   field :pool_size, 5, type: :int32, json_name: "poolSize"
+  field :pooled_instances, 12, type: :int32, json_name: "pooledInstances", deprecated: false
   field :disable_public_ip_addresses, 6, type: :bool, json_name: "disablePublicIpAddresses"
   field :enable_nested_virtualization, 7, type: :bool, json_name: "enableNestedVirtualization"
 
@@ -226,8 +228,12 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey d
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :kms_key, 1, type: :string, json_name: "kmsKey"
-  field :kms_key_service_account, 2, type: :string, json_name: "kmsKeyServiceAccount"
+  field :kms_key, 1, type: :string, json_name: "kmsKey", deprecated: false
+
+  field :kms_key_service_account, 2,
+    type: :string,
+    json_name: "kmsKeyServiceAccount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.AnnotationsEntry do
@@ -297,7 +303,8 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig do
 
   field :encryption_key, 17,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey,
-    json_name: "encryptionKey"
+    json_name: "encryptionKey",
+    deprecated: false
 
   field :degraded, 15, type: :bool, deprecated: false
   field :conditions, 16, repeated: true, type: Google.Rpc.Status, deprecated: false
