@@ -127,6 +127,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
   field :value, 2, type: Google.Protobuf.Value
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   @moduledoc false
 
@@ -140,6 +149,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :offset, 6, type: :int32
   field :filter, 7, type: :string
   field :order_by, 8, type: :string, json_name: "orderBy"
+  field :user_info, 21, type: Google.Cloud.Discoveryengine.V1beta.UserInfo, json_name: "userInfo"
 
   field :facet_specs, 9,
     repeated: true,
@@ -168,6 +178,14 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :content_search_spec, 24,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec,
     json_name: "contentSearchSpec"
+
+  field :safe_search, 20, type: :bool, json_name: "safeSearch"
+
+  field :user_label, 22,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelEntry,
+    json_name: "userLabel",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do

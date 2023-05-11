@@ -187,6 +187,20 @@ defmodule Google.Cloud.Kms.V1.EkmConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Kms.V1.VerifyConnectivityRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Kms.V1.VerifyConnectivityResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Kms.V1.EkmService.Service do
   @moduledoc false
 
@@ -211,6 +225,10 @@ defmodule Google.Cloud.Kms.V1.EkmService.Service do
   rpc :GetEkmConfig, Google.Cloud.Kms.V1.GetEkmConfigRequest, Google.Cloud.Kms.V1.EkmConfig
 
   rpc :UpdateEkmConfig, Google.Cloud.Kms.V1.UpdateEkmConfigRequest, Google.Cloud.Kms.V1.EkmConfig
+
+  rpc :VerifyConnectivity,
+      Google.Cloud.Kms.V1.VerifyConnectivityRequest,
+      Google.Cloud.Kms.V1.VerifyConnectivityResponse
 end
 
 defmodule Google.Cloud.Kms.V1.EkmService.Stub do

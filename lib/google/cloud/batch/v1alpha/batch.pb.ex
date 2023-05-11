@@ -34,6 +34,7 @@ defmodule Google.Cloud.Batch.V1alpha.ListJobsRequest do
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
@@ -55,6 +56,7 @@ defmodule Google.Cloud.Batch.V1alpha.ListTasksRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
 end
