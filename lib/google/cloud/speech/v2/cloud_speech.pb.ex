@@ -28,6 +28,15 @@ defmodule Google.Cloud.Speech.V2.RecognitionFeatures.MultiChannelMode do
   field :SEPARATE_RECOGNITION_PER_CHANNEL, 1
 end
 
+defmodule Google.Cloud.Speech.V2.BatchRecognizeRequest.ProcessingStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROCESSING_STRATEGY_UNSPECIFIED, 0
+  field :DYNAMIC_BATCHING, 1
+end
+
 defmodule Google.Cloud.Speech.V2.StreamingRecognizeResponse.SpeechEventType do
   @moduledoc false
 
@@ -529,6 +538,11 @@ defmodule Google.Cloud.Speech.V2.BatchRecognizeRequest do
   field :recognition_output_config, 6,
     type: Google.Cloud.Speech.V2.RecognitionOutputConfig,
     json_name: "recognitionOutputConfig"
+
+  field :processing_strategy, 7,
+    type: Google.Cloud.Speech.V2.BatchRecognizeRequest.ProcessingStrategy,
+    json_name: "processingStrategy",
+    enum: true
 end
 
 defmodule Google.Cloud.Speech.V2.GcsOutputConfig do
