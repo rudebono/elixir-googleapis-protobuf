@@ -20,6 +20,17 @@ defmodule Google.Pubsub.V1.BigQueryConfig.State do
   field :SCHEMA_MISMATCH, 4
 end
 
+defmodule Google.Pubsub.V1.CloudStorageConfig.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :PERMISSION_DENIED, 2
+  field :NOT_FOUND, 3
+end
+
 defmodule Google.Pubsub.V1.MessageStoragePolicy do
   @moduledoc false
 
@@ -233,6 +244,11 @@ defmodule Google.Pubsub.V1.Subscription do
   field :topic, 2, type: :string, deprecated: false
   field :push_config, 4, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
   field :bigquery_config, 18, type: Google.Pubsub.V1.BigQueryConfig, json_name: "bigqueryConfig"
+
+  field :cloud_storage_config, 22,
+    type: Google.Pubsub.V1.CloudStorageConfig,
+    json_name: "cloudStorageConfig"
+
   field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds"
   field :retain_acked_messages, 7, type: :bool, json_name: "retainAckedMessages"
 
@@ -339,6 +355,46 @@ defmodule Google.Pubsub.V1.BigQueryConfig do
   field :write_metadata, 3, type: :bool, json_name: "writeMetadata"
   field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields"
   field :state, 5, type: Google.Pubsub.V1.BigQueryConfig.State, enum: true, deprecated: false
+end
+
+defmodule Google.Pubsub.V1.CloudStorageConfig.TextConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.CloudStorageConfig.AvroConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :write_metadata, 1, type: :bool, json_name: "writeMetadata"
+end
+
+defmodule Google.Pubsub.V1.CloudStorageConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :output_format, 0
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :filename_prefix, 2, type: :string, json_name: "filenamePrefix"
+  field :filename_suffix, 3, type: :string, json_name: "filenameSuffix"
+
+  field :text_config, 4,
+    type: Google.Pubsub.V1.CloudStorageConfig.TextConfig,
+    json_name: "textConfig",
+    oneof: 0
+
+  field :avro_config, 5,
+    type: Google.Pubsub.V1.CloudStorageConfig.AvroConfig,
+    json_name: "avroConfig",
+    oneof: 0
+
+  field :max_duration, 6, type: Google.Protobuf.Duration, json_name: "maxDuration"
+  field :max_bytes, 7, type: :int64, json_name: "maxBytes"
+  field :state, 9, type: Google.Pubsub.V1.CloudStorageConfig.State, enum: true, deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ReceivedMessage do

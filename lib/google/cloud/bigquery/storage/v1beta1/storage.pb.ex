@@ -147,6 +147,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
 
   oneof :rows, 0
 
+  oneof :schema, 1
+
   field :avro_rows, 3,
     type: Google.Cloud.Bigquery.Storage.V1beta1.AvroRows,
     json_name: "avroRows",
@@ -163,6 +165,18 @@ defmodule Google.Cloud.Bigquery.Storage.V1beta1.ReadRowsResponse do
   field :throttle_status, 5,
     type: Google.Cloud.Bigquery.Storage.V1beta1.ThrottleStatus,
     json_name: "throttleStatus"
+
+  field :avro_schema, 7,
+    type: Google.Cloud.Bigquery.Storage.V1beta1.AvroSchema,
+    json_name: "avroSchema",
+    oneof: 1,
+    deprecated: false
+
+  field :arrow_schema, 8,
+    type: Google.Cloud.Bigquery.Storage.V1beta1.ArrowSchema,
+    json_name: "arrowSchema",
+    oneof: 1,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1beta1.BatchCreateReadSessionStreamsRequest do
