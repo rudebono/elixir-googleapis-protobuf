@@ -9,7 +9,6 @@ defmodule Google.Cloud.Batch.V1.TaskStatus.State do
   field :RUNNING, 3
   field :FAILED, 4
   field :SUCCEEDED, 5
-  field :UNEXECUTED, 6
 end
 
 defmodule Google.Cloud.Batch.V1.LifecyclePolicy.Action do
@@ -103,15 +102,6 @@ defmodule Google.Cloud.Batch.V1.Runnable.Barrier do
   field :name, 1, type: :string
 end
 
-defmodule Google.Cloud.Batch.V1.Runnable.LabelsEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
 defmodule Google.Cloud.Batch.V1.Runnable do
   @moduledoc false
 
@@ -127,7 +117,6 @@ defmodule Google.Cloud.Batch.V1.Runnable do
   field :always_run, 5, type: :bool, json_name: "alwaysRun"
   field :environment, 7, type: Google.Cloud.Batch.V1.Environment
   field :timeout, 8, type: Google.Protobuf.Duration
-  field :labels, 9, repeated: true, type: Google.Cloud.Batch.V1.Runnable.LabelsEntry, map: true
 end
 
 defmodule Google.Cloud.Batch.V1.TaskSpec.EnvironmentsEntry do

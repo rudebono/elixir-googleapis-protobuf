@@ -96,6 +96,7 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationCluster do
   field :etag, 9, type: :string
   field :network, 10, type: :string, deprecated: false
   field :subnetwork, 11, type: :string, deprecated: false
+  field :control_plane_ip, 16, type: :string, json_name: "controlPlaneIp", deprecated: false
 
   field :private_cluster_config, 12,
     type: Google.Cloud.Workstations.V1beta.WorkstationCluster.PrivateClusterConfig,
@@ -123,6 +124,15 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance.Gc
   field :enable_confidential_compute, 1, type: :bool, json_name: "enableConfidentialCompute"
 end
 
+defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance.Accelerator do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1, type: :string
+  field :count, 2, type: :int32
+end
+
 defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance do
   @moduledoc false
 
@@ -132,6 +142,7 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance do
   field :service_account, 2, type: :string, json_name: "serviceAccount"
   field :tags, 4, repeated: true, type: :string
   field :pool_size, 5, type: :int32, json_name: "poolSize"
+  field :pooled_instances, 12, type: :int32, json_name: "pooledInstances", deprecated: false
   field :disable_public_ip_addresses, 6, type: :bool, json_name: "disablePublicIpAddresses"
 
   field :shielded_instance_config, 8,
@@ -145,6 +156,10 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance do
     json_name: "confidentialInstanceConfig"
 
   field :boot_disk_size_gb, 9, type: :int32, json_name: "bootDiskSizeGb"
+
+  field :accelerators, 11,
+    repeated: true,
+    type: Google.Cloud.Workstations.V1beta.WorkstationConfig.Host.GceInstance.Accelerator
 end
 
 defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.Host do
@@ -225,8 +240,21 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.CustomerEncryptionK
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :kms_key, 1, type: :string, json_name: "kmsKey"
-  field :kms_key_service_account, 2, type: :string, json_name: "kmsKeyServiceAccount"
+  field :kms_key, 1, type: :string, json_name: "kmsKey", deprecated: false
+
+  field :kms_key_service_account, 2,
+    type: :string,
+    json_name: "kmsKeyServiceAccount",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.ReadinessCheck do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string
+  field :port, 2, type: :int32
 end
 
 defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig.AnnotationsEntry do
@@ -296,10 +324,17 @@ defmodule Google.Cloud.Workstations.V1beta.WorkstationConfig do
 
   field :encryption_key, 17,
     type: Google.Cloud.Workstations.V1beta.WorkstationConfig.CustomerEncryptionKey,
-    json_name: "encryptionKey"
+    json_name: "encryptionKey",
+    deprecated: false
+
+  field :readiness_checks, 19,
+    repeated: true,
+    type: Google.Cloud.Workstations.V1beta.WorkstationConfig.ReadinessCheck,
+    json_name: "readinessChecks"
 
   field :degraded, 15, type: :bool, deprecated: false
   field :conditions, 16, repeated: true, type: Google.Rpc.Status, deprecated: false
+  field :enable_audit_agent, 20, type: :bool, json_name: "enableAuditAgent"
 end
 
 defmodule Google.Cloud.Workstations.V1beta.Workstation.AnnotationsEntry do
@@ -312,6 +347,15 @@ defmodule Google.Cloud.Workstations.V1beta.Workstation.AnnotationsEntry do
 end
 
 defmodule Google.Cloud.Workstations.V1beta.Workstation.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Workstations.V1beta.Workstation.EnvEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -363,6 +407,11 @@ defmodule Google.Cloud.Workstations.V1beta.Workstation do
     deprecated: false
 
   field :host, 11, type: :string, deprecated: false
+
+  field :env, 12,
+    repeated: true,
+    type: Google.Cloud.Workstations.V1beta.Workstation.EnvEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Workstations.V1beta.GetWorkstationClusterRequest do
