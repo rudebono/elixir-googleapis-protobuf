@@ -97,6 +97,9 @@ defmodule Google.Spanner.Admin.Database.V1.Database do
     json_name: "databaseDialect",
     enum: true,
     deprecated: false
+
+  field :enable_drop_protection, 11, type: :bool, json_name: "enableDropProtection"
+  field :reconciling, 12, type: :bool, deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
@@ -158,6 +161,29 @@ defmodule Google.Spanner.Admin.Database.V1.GetDatabaseRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :database, 1, type: Google.Spanner.Admin.Database.V1.Database, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :request, 1, type: Google.Spanner.Admin.Database.V1.UpdateDatabaseRequest
+  field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
 end
 
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
@@ -347,6 +373,10 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   rpc :GetDatabase,
       Google.Spanner.Admin.Database.V1.GetDatabaseRequest,
       Google.Spanner.Admin.Database.V1.Database
+
+  rpc :UpdateDatabase,
+      Google.Spanner.Admin.Database.V1.UpdateDatabaseRequest,
+      Google.Longrunning.Operation
 
   rpc :UpdateDatabaseDdl,
       Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest,
