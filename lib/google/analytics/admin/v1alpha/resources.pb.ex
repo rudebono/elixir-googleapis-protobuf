@@ -88,6 +88,9 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :EXPANDED_DATA_SET, 21
   field :CHANNEL_GROUP, 22
   field :ENHANCED_MEASUREMENT_SETTINGS, 24
+  field :ADSENSE_LINK, 27
+  field :AUDIENCE, 28
+  field :EVENT_CREATE_RULE, 29
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -650,6 +653,18 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
     json_name: "enhancedMeasurementSettings",
     oneof: 0
+
+  field :adsense_link, 27,
+    type: Google.Analytics.Admin.V1alpha.AdSenseLink,
+    json_name: "adsenseLink",
+    oneof: 0
+
+  field :audience, 28, type: Google.Analytics.Admin.V1alpha.Audience, oneof: 0
+
+  field :event_create_rule, 29,
+    type: Google.Analytics.Admin.V1alpha.EventCreateRule,
+    json_name: "eventCreateRule",
+    oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -971,4 +986,13 @@ defmodule Google.Analytics.Admin.V1alpha.ConnectedSiteTag do
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :tag_id, 2, type: :string, json_name: "tagId", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.AdSenseLink do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :ad_client_code, 2, type: :string, json_name: "adClientCode", deprecated: false
 end

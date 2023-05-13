@@ -1619,6 +1619,58 @@ defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse do
     json_name: "connectedSiteTags"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateAdSenseLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :adsense_link, 2,
+    type: Google.Analytics.Admin.V1alpha.AdSenseLink,
+    json_name: "adsenseLink",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetAdSenseLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteAdSenseLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListAdSenseLinksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListAdSenseLinksResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :adsense_links, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.AdSenseLink,
+    json_name: "adsenseLinks"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest do
   @moduledoc false
 
@@ -1633,6 +1685,74 @@ defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateEventCreateRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :event_create_rule, 2,
+    type: Google.Analytics.Admin.V1alpha.EventCreateRule,
+    json_name: "eventCreateRule",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateEventCreateRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_create_rule, 1,
+    type: Google.Analytics.Admin.V1alpha.EventCreateRule,
+    json_name: "eventCreateRule",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteEventCreateRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetEventCreateRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListEventCreateRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListEventCreateRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_create_rules, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.EventCreateRule,
+    json_name: "eventCreateRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
@@ -2089,6 +2209,42 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :FetchConnectedGa4Property,
       Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest,
       Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse
+
+  rpc :GetAdSenseLink,
+      Google.Analytics.Admin.V1alpha.GetAdSenseLinkRequest,
+      Google.Analytics.Admin.V1alpha.AdSenseLink
+
+  rpc :CreateAdSenseLink,
+      Google.Analytics.Admin.V1alpha.CreateAdSenseLinkRequest,
+      Google.Analytics.Admin.V1alpha.AdSenseLink
+
+  rpc :DeleteAdSenseLink,
+      Google.Analytics.Admin.V1alpha.DeleteAdSenseLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListAdSenseLinks,
+      Google.Analytics.Admin.V1alpha.ListAdSenseLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListAdSenseLinksResponse
+
+  rpc :GetEventCreateRule,
+      Google.Analytics.Admin.V1alpha.GetEventCreateRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventCreateRule
+
+  rpc :ListEventCreateRules,
+      Google.Analytics.Admin.V1alpha.ListEventCreateRulesRequest,
+      Google.Analytics.Admin.V1alpha.ListEventCreateRulesResponse
+
+  rpc :CreateEventCreateRule,
+      Google.Analytics.Admin.V1alpha.CreateEventCreateRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventCreateRule
+
+  rpc :UpdateEventCreateRule,
+      Google.Analytics.Admin.V1alpha.UpdateEventCreateRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventCreateRule
+
+  rpc :DeleteEventCreateRule,
+      Google.Analytics.Admin.V1alpha.DeleteEventCreateRuleRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
