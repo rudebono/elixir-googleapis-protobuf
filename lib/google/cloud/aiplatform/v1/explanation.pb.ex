@@ -1,3 +1,32 @@
+defmodule Google.Cloud.Aiplatform.V1.Examples.ExampleGcsSource.DataFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :JSONL, 1
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Presets.Query do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PRECISE, 0
+  field :FAST, 1
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Presets.Modality do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODALITY_UNSPECIFIED, 0
+  field :IMAGE, 1
+  field :TEXT, 2
+  field :TABULAR, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ExamplesOverride.DataFormat do
   @moduledoc false
 
@@ -107,6 +136,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExplanationParameters do
     json_name: "xraiAttribution",
     oneof: 0
 
+  field :examples, 7, type: Google.Cloud.Aiplatform.V1.Examples, oneof: 0
   field :top_k, 4, type: :int32, json_name: "topK"
   field :output_indices, 5, type: Google.Protobuf.ListValue, json_name: "outputIndices"
 end
@@ -194,6 +224,55 @@ defmodule Google.Cloud.Aiplatform.V1.BlurBaselineConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :max_blur_sigma, 1, type: :float, json_name: "maxBlurSigma"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Examples.ExampleGcsSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_format, 1,
+    type: Google.Cloud.Aiplatform.V1.Examples.ExampleGcsSource.DataFormat,
+    json_name: "dataFormat",
+    enum: true
+
+  field :gcs_source, 2, type: Google.Cloud.Aiplatform.V1.GcsSource, json_name: "gcsSource"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Examples do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :config, 1
+
+  field :example_gcs_source, 5,
+    type: Google.Cloud.Aiplatform.V1.Examples.ExampleGcsSource,
+    json_name: "exampleGcsSource",
+    oneof: 0
+
+  field :nearest_neighbor_search_config, 2,
+    type: Google.Protobuf.Value,
+    json_name: "nearestNeighborSearchConfig",
+    oneof: 1
+
+  field :presets, 4, type: Google.Cloud.Aiplatform.V1.Presets, oneof: 1
+  field :neighbor_count, 3, type: :int32, json_name: "neighborCount"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Presets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :query, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.Presets.Query,
+    enum: true
+
+  field :modality, 2, type: Google.Cloud.Aiplatform.V1.Presets.Modality, enum: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExplanationSpecOverride do
