@@ -60,6 +60,12 @@ defmodule Google.Cloud.Channel.V1.FetchReportResultsRequest do
   field :report_job, 1, type: :string, json_name: "reportJob", deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+
+  field :partition_keys, 4,
+    repeated: true,
+    type: :string,
+    json_name: "partitionKeys",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.FetchReportResultsResponse do
@@ -149,6 +155,7 @@ defmodule Google.Cloud.Channel.V1.Row do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Channel.V1.ReportValue
+  field :partition_key, 2, type: :string, json_name: "partitionKey"
 end
 
 defmodule Google.Cloud.Channel.V1.ReportValue do
