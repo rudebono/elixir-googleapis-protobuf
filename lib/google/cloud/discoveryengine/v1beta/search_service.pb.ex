@@ -127,7 +127,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
   field :value, 2, type: Google.Protobuf.Value
 end
 
-defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelEntry do
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -181,10 +181,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
 
   field :safe_search, 20, type: :bool, json_name: "safeSearch"
 
-  field :user_label, 22,
+  field :user_labels, 22,
     repeated: true,
-    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelEntry,
-    json_name: "userLabel",
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.UserLabelsEntry,
+    json_name: "userLabels",
     map: true
 end
 
