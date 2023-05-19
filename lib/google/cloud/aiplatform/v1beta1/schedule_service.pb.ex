@@ -61,6 +61,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResumeScheduleRequest do
   field :catch_up, 2, type: :bool, json_name: "catchUp", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateScheduleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :schedule, 1, type: Google.Cloud.Aiplatform.V1beta1.Schedule, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ScheduleService.Service do
   @moduledoc false
 
@@ -89,6 +102,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ScheduleService.Service do
   rpc :ResumeSchedule,
       Google.Cloud.Aiplatform.V1beta1.ResumeScheduleRequest,
       Google.Protobuf.Empty
+
+  rpc :UpdateSchedule,
+      Google.Cloud.Aiplatform.V1beta1.UpdateScheduleRequest,
+      Google.Cloud.Aiplatform.V1beta1.Schedule
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ScheduleService.Stub do
