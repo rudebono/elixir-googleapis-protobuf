@@ -6,6 +6,16 @@ defmodule Google.Firestore.Admin.V1.Index.QueryScope do
   field :QUERY_SCOPE_UNSPECIFIED, 0
   field :COLLECTION, 1
   field :COLLECTION_GROUP, 2
+  field :COLLECTION_RECURSIVE, 3
+end
+
+defmodule Google.Firestore.Admin.V1.Index.ApiScope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ANY_API, 0
+  field :DATASTORE_MODE_API, 1
 end
 
 defmodule Google.Firestore.Admin.V1.Index.State do
@@ -65,6 +75,11 @@ defmodule Google.Firestore.Admin.V1.Index do
   field :query_scope, 2,
     type: Google.Firestore.Admin.V1.Index.QueryScope,
     json_name: "queryScope",
+    enum: true
+
+  field :api_scope, 5,
+    type: Google.Firestore.Admin.V1.Index.ApiScope,
+    json_name: "apiScope",
     enum: true
 
   field :fields, 3, repeated: true, type: Google.Firestore.Admin.V1.Index.IndexField

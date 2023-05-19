@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesRequest.DBTreeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DB_TREE_TYPE_UNSPECIFIED, 0
+  field :SOURCE_TREE, 1
+  field :DRAFT_TREE, 2
+  field :DESTINATION_TREE, 3
+end
+
 defmodule Google.Cloud.Clouddms.V1.ListMigrationJobsRequest do
   @moduledoc false
 
@@ -224,7 +235,9 @@ defmodule Google.Cloud.Clouddms.V1.CreateConnectionProfileRequest do
     json_name: "connectionProfile",
     deprecated: false
 
-  field :request_id, 4, type: :string, json_name: "requestId"
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+  field :skip_validation, 6, type: :bool, json_name: "skipValidation", deprecated: false
 end
 
 defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
@@ -242,7 +255,9 @@ defmodule Google.Cloud.Clouddms.V1.UpdateConnectionProfileRequest do
     json_name: "connectionProfile",
     deprecated: false
 
-  field :request_id, 3, type: :string, json_name: "requestId"
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :skip_validation, 5, type: :bool, json_name: "skipValidation", deprecated: false
 end
 
 defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
@@ -253,6 +268,70 @@ defmodule Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest do
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
   field :force, 3, type: :bool
+end
+
+defmodule Google.Cloud.Clouddms.V1.CreatePrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :private_connection_id, 2,
+    type: :string,
+    json_name: "privateConnectionId",
+    deprecated: false
+
+  field :private_connection, 3,
+    type: Google.Cloud.Clouddms.V1.PrivateConnection,
+    json_name: "privateConnection",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :skip_validation, 5, type: :bool, json_name: "skipValidation", deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.ListPrivateConnectionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Clouddms.V1.ListPrivateConnectionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_connections, 1,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.PrivateConnection,
+    json_name: "privateConnections"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.V1.DeletePrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.GetPrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
@@ -276,6 +355,281 @@ defmodule Google.Cloud.Clouddms.V1.OperationMetadata do
     deprecated: false
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.ListConversionWorkspacesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.V1.ListConversionWorkspacesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_workspaces, 1,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.ConversionWorkspace,
+    json_name: "conversionWorkspaces"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.V1.GetConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.CreateConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :conversion_workspace_id, 2,
+    type: :string,
+    json_name: "conversionWorkspaceId",
+    deprecated: false
+
+  field :conversion_workspace, 3,
+    type: Google.Cloud.Clouddms.V1.ConversionWorkspace,
+    json_name: "conversionWorkspace",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Clouddms.V1.UpdateConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :conversion_workspace, 2,
+    type: Google.Cloud.Clouddms.V1.ConversionWorkspace,
+    json_name: "conversionWorkspace",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Clouddms.V1.DeleteConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Clouddms.V1.CommitConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :commit_name, 2, type: :string, json_name: "commitName", deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.RollbackConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.ApplyConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :connection_profile, 100, type: :string, json_name: "connectionProfile", oneof: 0
+end
+
+defmodule Google.Cloud.Clouddms.V1.SeedConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :seed_from, 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :auto_commit, 2, type: :bool, json_name: "autoCommit"
+
+  field :source_connection_profile, 100,
+    type: :string,
+    json_name: "sourceConnectionProfile",
+    oneof: 0
+
+  field :destination_connection_profile, 101,
+    type: :string,
+    json_name: "destinationConnectionProfile",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Clouddms.V1.ConvertConversionWorkspaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :auto_commit, 4, type: :bool, json_name: "autoCommit"
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.V1.ImportMappingRulesRequest.RulesFile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rules_source_filename, 1, type: :string, json_name: "rulesSourceFilename"
+  field :rules_content, 2, type: :string, json_name: "rulesContent"
+end
+
+defmodule Google.Cloud.Clouddms.V1.ImportMappingRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :rules_format, 2,
+    type: Google.Cloud.Clouddms.V1.ImportRulesFileFormat,
+    json_name: "rulesFormat",
+    enum: true
+
+  field :rules_files, 3,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.ImportMappingRulesRequest.RulesFile,
+    json_name: "rulesFiles"
+
+  field :auto_commit, 6, type: :bool, json_name: "autoCommit"
+end
+
+defmodule Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_workspace, 1,
+    type: :string,
+    json_name: "conversionWorkspace",
+    deprecated: false
+
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+
+  field :tree, 6,
+    type: Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesRequest.DBTreeType,
+    enum: true
+
+  field :uncommitted, 11, type: :bool
+  field :commit_id, 12, type: :string, json_name: "commitId"
+  field :filter, 13, type: :string
+end
+
+defmodule Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :database_entities, 1,
+    repeated: true,
+    type: Google.Cloud.Clouddms.V1.DatabaseEntity,
+    json_name: "databaseEntities"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Clouddms.V1.SearchBackgroundJobsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_workspace, 1,
+    type: :string,
+    json_name: "conversionWorkspace",
+    deprecated: false
+
+  field :return_most_recent_per_job_type, 2,
+    type: :bool,
+    json_name: "returnMostRecentPerJobType",
+    deprecated: false
+
+  field :max_size, 3, type: :int32, json_name: "maxSize", deprecated: false
+
+  field :completed_until_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "completedUntilTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.SearchBackgroundJobsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :jobs, 1, repeated: true, type: Google.Cloud.Clouddms.V1.BackgroundJobLogEntry
+end
+
+defmodule Google.Cloud.Clouddms.V1.DescribeConversionWorkspaceRevisionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_workspace, 1,
+    type: :string,
+    json_name: "conversionWorkspace",
+    deprecated: false
+
+  field :commit_id, 2, type: :string, json_name: "commitId", deprecated: false
+end
+
+defmodule Google.Cloud.Clouddms.V1.DescribeConversionWorkspaceRevisionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :revisions, 1, repeated: true, type: Google.Cloud.Clouddms.V1.ConversionWorkspace
+end
+
+defmodule Google.Cloud.Clouddms.V1.FetchStaticIpsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Clouddms.V1.FetchStaticIpsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :static_ips, 1, repeated: true, type: :string, json_name: "staticIps"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Service do
@@ -352,6 +706,82 @@ defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Service do
   rpc :DeleteConnectionProfile,
       Google.Cloud.Clouddms.V1.DeleteConnectionProfileRequest,
       Google.Longrunning.Operation
+
+  rpc :CreatePrivateConnection,
+      Google.Cloud.Clouddms.V1.CreatePrivateConnectionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetPrivateConnection,
+      Google.Cloud.Clouddms.V1.GetPrivateConnectionRequest,
+      Google.Cloud.Clouddms.V1.PrivateConnection
+
+  rpc :ListPrivateConnections,
+      Google.Cloud.Clouddms.V1.ListPrivateConnectionsRequest,
+      Google.Cloud.Clouddms.V1.ListPrivateConnectionsResponse
+
+  rpc :DeletePrivateConnection,
+      Google.Cloud.Clouddms.V1.DeletePrivateConnectionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetConversionWorkspace,
+      Google.Cloud.Clouddms.V1.GetConversionWorkspaceRequest,
+      Google.Cloud.Clouddms.V1.ConversionWorkspace
+
+  rpc :ListConversionWorkspaces,
+      Google.Cloud.Clouddms.V1.ListConversionWorkspacesRequest,
+      Google.Cloud.Clouddms.V1.ListConversionWorkspacesResponse
+
+  rpc :CreateConversionWorkspace,
+      Google.Cloud.Clouddms.V1.CreateConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateConversionWorkspace,
+      Google.Cloud.Clouddms.V1.UpdateConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteConversionWorkspace,
+      Google.Cloud.Clouddms.V1.DeleteConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :SeedConversionWorkspace,
+      Google.Cloud.Clouddms.V1.SeedConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportMappingRules,
+      Google.Cloud.Clouddms.V1.ImportMappingRulesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ConvertConversionWorkspace,
+      Google.Cloud.Clouddms.V1.ConvertConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :CommitConversionWorkspace,
+      Google.Cloud.Clouddms.V1.CommitConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :RollbackConversionWorkspace,
+      Google.Cloud.Clouddms.V1.RollbackConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ApplyConversionWorkspace,
+      Google.Cloud.Clouddms.V1.ApplyConversionWorkspaceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DescribeDatabaseEntities,
+      Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesRequest,
+      Google.Cloud.Clouddms.V1.DescribeDatabaseEntitiesResponse
+
+  rpc :SearchBackgroundJobs,
+      Google.Cloud.Clouddms.V1.SearchBackgroundJobsRequest,
+      Google.Cloud.Clouddms.V1.SearchBackgroundJobsResponse
+
+  rpc :DescribeConversionWorkspaceRevisions,
+      Google.Cloud.Clouddms.V1.DescribeConversionWorkspaceRevisionsRequest,
+      Google.Cloud.Clouddms.V1.DescribeConversionWorkspaceRevisionsResponse
+
+  rpc :FetchStaticIps,
+      Google.Cloud.Clouddms.V1.FetchStaticIpsRequest,
+      Google.Cloud.Clouddms.V1.FetchStaticIpsResponse
 end
 
 defmodule Google.Cloud.Clouddms.V1.DataMigrationService.Stub do

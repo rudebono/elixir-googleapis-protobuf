@@ -30,6 +30,64 @@ defmodule Google.Cloud.Webrisk.V1.ComputeThreatListDiffResponse.ResponseType do
   field :RESET, 2
 end
 
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo.AbuseType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ABUSE_TYPE_UNSPECIFIED, 0
+  field :MALWARE, 1
+  field :SOCIAL_ENGINEERING, 2
+  field :UNWANTED_SOFTWARE, 3
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo.Confidence.ConfidenceLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONFIDENCE_LEVEL_UNSPECIFIED, 0
+  field :LOW, 1
+  field :MEDIUM, 2
+  field :HIGH, 3
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo.ThreatJustification.JustificationLabel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :JUSTIFICATION_LABEL_UNSPECIFIED, 0
+  field :MANUAL_VERIFICATION, 1
+  field :USER_REPORT, 2
+  field :AUTOMATED_REPORT, 3
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatDiscovery.Platform do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PLATFORM_UNSPECIFIED, 0
+  field :ANDROID, 1
+  field :IOS, 2
+  field :MACOS, 3
+  field :WINDOWS, 4
+end
+
+defmodule Google.Cloud.Webrisk.V1.SubmitUriMetadata.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :SUCCEEDED, 2
+  field :CANCELLED, 3
+  field :FAILED, 4
+  field :CLOSED, 5
+end
+
 defmodule Google.Cloud.Webrisk.V1.ComputeThreatListDiffRequest.Constraints do
   @moduledoc false
 
@@ -226,6 +284,69 @@ defmodule Google.Cloud.Webrisk.V1.Submission do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
+
+  field :threat_types, 2,
+    repeated: true,
+    type: Google.Cloud.Webrisk.V1.ThreatType,
+    json_name: "threatTypes",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo.Confidence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :value, 0
+
+  field :score, 1, type: :float, oneof: 0
+
+  field :level, 2,
+    type: Google.Cloud.Webrisk.V1.ThreatInfo.Confidence.ConfidenceLevel,
+    enum: true,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo.ThreatJustification do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :labels, 1,
+    repeated: true,
+    type: Google.Cloud.Webrisk.V1.ThreatInfo.ThreatJustification.JustificationLabel,
+    enum: true
+
+  field :comments, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :abuse_type, 1,
+    type: Google.Cloud.Webrisk.V1.ThreatInfo.AbuseType,
+    json_name: "abuseType",
+    enum: true
+
+  field :threat_confidence, 2,
+    type: Google.Cloud.Webrisk.V1.ThreatInfo.Confidence,
+    json_name: "threatConfidence"
+
+  field :threat_justification, 3,
+    type: Google.Cloud.Webrisk.V1.ThreatInfo.ThreatJustification,
+    json_name: "threatJustification"
+end
+
+defmodule Google.Cloud.Webrisk.V1.ThreatDiscovery do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :platform, 1, type: Google.Cloud.Webrisk.V1.ThreatDiscovery.Platform, enum: true
+  field :region_codes, 2, repeated: true, type: :string, json_name: "regionCodes"
 end
 
 defmodule Google.Cloud.Webrisk.V1.CreateSubmissionRequest do
@@ -235,6 +356,30 @@ defmodule Google.Cloud.Webrisk.V1.CreateSubmissionRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :submission, 2, type: Google.Cloud.Webrisk.V1.Submission, deprecated: false
+end
+
+defmodule Google.Cloud.Webrisk.V1.SubmitUriRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :submission, 2, type: Google.Cloud.Webrisk.V1.Submission, deprecated: false
+  field :threat_info, 3, type: Google.Cloud.Webrisk.V1.ThreatInfo, json_name: "threatInfo"
+
+  field :threat_discovery, 4,
+    type: Google.Cloud.Webrisk.V1.ThreatDiscovery,
+    json_name: "threatDiscovery"
+end
+
+defmodule Google.Cloud.Webrisk.V1.SubmitUriMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1, type: Google.Cloud.Webrisk.V1.SubmitUriMetadata.State, enum: true
+  field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
 
 defmodule Google.Cloud.Webrisk.V1.WebRiskService.Service do
@@ -259,6 +404,8 @@ defmodule Google.Cloud.Webrisk.V1.WebRiskService.Service do
   rpc :CreateSubmission,
       Google.Cloud.Webrisk.V1.CreateSubmissionRequest,
       Google.Cloud.Webrisk.V1.Submission
+
+  rpc :SubmitUri, Google.Cloud.Webrisk.V1.SubmitUriRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Webrisk.V1.WebRiskService.Stub do
