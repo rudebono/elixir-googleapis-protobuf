@@ -767,6 +767,11 @@ defmodule Google.Devtools.Testing.V1.ShardingOption do
     type: Google.Devtools.Testing.V1.ManualSharding,
     json_name: "manualSharding",
     oneof: 0
+
+  field :smart_sharding, 3,
+    type: Google.Devtools.Testing.V1.SmartSharding,
+    json_name: "smartSharding",
+    oneof: 0
 end
 
 defmodule Google.Devtools.Testing.V1.UniformSharding do
@@ -794,6 +799,16 @@ defmodule Google.Devtools.Testing.V1.TestTargetsForShard do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :test_targets, 1, repeated: true, type: :string, json_name: "testTargets"
+end
+
+defmodule Google.Devtools.Testing.V1.SmartSharding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :targeted_shard_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "targetedShardDuration"
 end
 
 defmodule Google.Devtools.Testing.V1.Shard do
