@@ -67,6 +67,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
     json_name: "avroSerializationOptions",
     oneof: 0,
     deprecated: false
+
+  field :sample_percentage, 5,
+    proto3_optional: true,
+    type: :double,
+    json_name: "samplePercentage",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession do

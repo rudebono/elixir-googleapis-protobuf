@@ -23,6 +23,11 @@ defmodule Google.Cloud.Bigquery.Storage.V1.StorageError.StorageErrorCode do
   field :SCHEMA_MISMATCH_EXTRA_FIELDS, 7
   field :OFFSET_ALREADY_EXISTS, 8
   field :OFFSET_OUT_OF_RANGE, 9
+  field :CMEK_NOT_PROVIDED, 10
+  field :INVALID_CMEK_PROVIDED, 11
+  field :CMEK_ENCRYPTION_ERROR, 12
+  field :KMS_SERVICE_ERROR, 13
+  field :KMS_PERMISSION_DENIED, 14
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.RowError.RowErrorCode do
