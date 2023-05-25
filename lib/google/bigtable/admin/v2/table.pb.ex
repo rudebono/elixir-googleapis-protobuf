@@ -90,6 +90,14 @@ defmodule Google.Bigtable.Admin.V2.RestoreInfo do
     oneof: 0
 end
 
+defmodule Google.Bigtable.Admin.V2.ChangeStreamConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_period, 1, type: Google.Protobuf.Duration, json_name: "retentionPeriod"
+end
+
 defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
   @moduledoc false
 
@@ -155,6 +163,10 @@ defmodule Google.Bigtable.Admin.V2.Table do
     type: Google.Bigtable.Admin.V2.RestoreInfo,
     json_name: "restoreInfo",
     deprecated: false
+
+  field :change_stream_config, 8,
+    type: Google.Bigtable.Admin.V2.ChangeStreamConfig,
+    json_name: "changeStreamConfig"
 
   field :deletion_protection, 9, type: :bool, json_name: "deletionProtection"
 end
