@@ -316,6 +316,20 @@ defmodule Google.Pubsub.V1.PushConfig.OidcToken do
   field :audience, 2, type: :string
 end
 
+defmodule Google.Pubsub.V1.PushConfig.PubsubWrapper do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.PushConfig.NoWrapper do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :write_metadata, 1, type: :bool, json_name: "writeMetadata"
+end
+
 defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
   @moduledoc false
 
@@ -332,6 +346,8 @@ defmodule Google.Pubsub.V1.PushConfig do
 
   oneof :authentication_method, 0
 
+  oneof :wrapper, 1
+
   field :push_endpoint, 1, type: :string, json_name: "pushEndpoint"
 
   field :attributes, 2,
@@ -343,6 +359,16 @@ defmodule Google.Pubsub.V1.PushConfig do
     type: Google.Pubsub.V1.PushConfig.OidcToken,
     json_name: "oidcToken",
     oneof: 0
+
+  field :pubsub_wrapper, 4,
+    type: Google.Pubsub.V1.PushConfig.PubsubWrapper,
+    json_name: "pubsubWrapper",
+    oneof: 1
+
+  field :no_wrapper, 5,
+    type: Google.Pubsub.V1.PushConfig.NoWrapper,
+    json_name: "noWrapper",
+    oneof: 1
 end
 
 defmodule Google.Pubsub.V1.BigQueryConfig do

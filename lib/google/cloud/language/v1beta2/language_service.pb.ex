@@ -612,6 +612,25 @@ defmodule Google.Cloud.Language.V1beta2.ClassifyTextResponse do
   field :categories, 1, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
 end
 
+defmodule Google.Cloud.Language.V1beta2.ModerateTextRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document, 1, type: Google.Cloud.Language.V1beta2.Document, deprecated: false
+end
+
+defmodule Google.Cloud.Language.V1beta2.ModerateTextResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :moderation_categories, 1,
+    repeated: true,
+    type: Google.Cloud.Language.V1beta2.ClassificationCategory,
+    json_name: "moderationCategories"
+end
+
 defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
   @moduledoc false
 
@@ -622,6 +641,7 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextRequest.Features do
   field :extract_document_sentiment, 3, type: :bool, json_name: "extractDocumentSentiment"
   field :extract_entity_sentiment, 4, type: :bool, json_name: "extractEntitySentiment"
   field :classify_text, 6, type: :bool, json_name: "classifyText"
+  field :moderate_text, 11, type: :bool, json_name: "moderateText"
 
   field :classification_model_options, 10,
     type: Google.Cloud.Language.V1beta2.ClassificationModelOptions,
@@ -660,6 +680,11 @@ defmodule Google.Cloud.Language.V1beta2.AnnotateTextResponse do
 
   field :language, 5, type: :string
   field :categories, 6, repeated: true, type: Google.Cloud.Language.V1beta2.ClassificationCategory
+
+  field :moderation_categories, 8,
+    repeated: true,
+    type: Google.Cloud.Language.V1beta2.ClassificationCategory,
+    json_name: "moderationCategories"
 end
 
 defmodule Google.Cloud.Language.V1beta2.LanguageService.Service do
@@ -688,6 +713,10 @@ defmodule Google.Cloud.Language.V1beta2.LanguageService.Service do
   rpc :ClassifyText,
       Google.Cloud.Language.V1beta2.ClassifyTextRequest,
       Google.Cloud.Language.V1beta2.ClassifyTextResponse
+
+  rpc :ModerateText,
+      Google.Cloud.Language.V1beta2.ModerateTextRequest,
+      Google.Cloud.Language.V1beta2.ModerateTextResponse
 
   rpc :AnnotateText,
       Google.Cloud.Language.V1beta2.AnnotateTextRequest,
