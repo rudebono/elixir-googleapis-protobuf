@@ -137,7 +137,6 @@ defmodule Google.Cloud.Functions.V2.Function do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :environment, 10, type: Google.Cloud.Functions.V2.Environment, enum: true
   field :description, 2, type: :string
   field :build_config, 3, type: Google.Cloud.Functions.V2.BuildConfig, json_name: "buildConfig"
 
@@ -164,8 +163,9 @@ defmodule Google.Cloud.Functions.V2.Function do
     json_name: "stateMessages",
     deprecated: false
 
-  field :kms_key_name, 25, type: :string, json_name: "kmsKeyName", deprecated: false
+  field :environment, 10, type: Google.Cloud.Functions.V2.Environment, enum: true
   field :url, 14, type: :string, deprecated: false
+  field :kms_key_name, 25, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2.StateMessage do
@@ -271,8 +271,7 @@ defmodule Google.Cloud.Functions.V2.BuildConfig do
   field :docker_registry, 10,
     type: Google.Cloud.Functions.V2.BuildConfig.DockerRegistry,
     json_name: "dockerRegistry",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
 end
@@ -550,6 +549,14 @@ defmodule Google.Cloud.Functions.V2.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion"
   field :request_resource, 8, type: Google.Protobuf.Any, json_name: "requestResource"
   field :stages, 9, repeated: true, type: Google.Cloud.Functions.V2.Stage
+end
+
+defmodule Google.Cloud.Functions.V2.LocationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environments, 1, repeated: true, type: Google.Cloud.Functions.V2.Environment, enum: true
 end
 
 defmodule Google.Cloud.Functions.V2.Stage do
