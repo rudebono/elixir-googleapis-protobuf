@@ -126,6 +126,7 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SearchCatalogResult
+  field :total_size, 2, type: :int32, json_name: "totalSize"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
   field :unreachable, 6, repeated: true, type: :string
 end
@@ -239,6 +240,8 @@ defmodule Google.Cloud.Datacatalog.V1.LookupEntryRequest do
   field :linked_resource, 1, type: :string, json_name: "linkedResource", oneof: 0
   field :sql_resource, 3, type: :string, json_name: "sqlResource", oneof: 0
   field :fully_qualified_name, 5, type: :string, json_name: "fullyQualifiedName", oneof: 0
+  field :project, 6, type: :string
+  field :location, 7, type: :string
 end
 
 defmodule Google.Cloud.Datacatalog.V1.Entry.LabelsEntry do
@@ -290,6 +293,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     json_name: "lookerSystemSpec",
     oneof: 2
 
+  field :cloud_bigtable_system_spec, 41,
+    type: Google.Cloud.Datacatalog.V1.CloudBigtableSystemSpec,
+    json_name: "cloudBigtableSystemSpec",
+    oneof: 2
+
   field :gcs_fileset_spec, 6,
     type: Google.Cloud.Datacatalog.V1.GcsFilesetSpec,
     json_name: "gcsFilesetSpec",
@@ -325,6 +333,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
   field :fileset_spec, 33,
     type: Google.Cloud.Datacatalog.V1.FilesetSpec,
     json_name: "filesetSpec",
+    oneof: 4
+
+  field :service_spec, 42,
+    type: Google.Cloud.Datacatalog.V1.ServiceSpec,
+    json_name: "serviceSpec",
     oneof: 4
 
   field :display_name, 3, type: :string, json_name: "displayName"
@@ -470,6 +483,49 @@ defmodule Google.Cloud.Datacatalog.V1.LookerSystemSpec do
   field :parent_model_display_name, 4, type: :string, json_name: "parentModelDisplayName"
   field :parent_view_id, 5, type: :string, json_name: "parentViewId"
   field :parent_view_display_name, 6, type: :string, json_name: "parentViewDisplayName"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.CloudBigtableSystemSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_display_name, 1, type: :string, json_name: "instanceDisplayName"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec.CloudBigtableClusterSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :location, 2, type: :string
+  field :type, 3, type: :string
+  field :linked_resource, 4, type: :string, json_name: "linkedResource"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cloud_bigtable_cluster_specs, 1,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec.CloudBigtableClusterSpec,
+    json_name: "cloudBigtableClusterSpecs"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ServiceSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :system_spec, 0
+
+  field :cloud_bigtable_instance_spec, 1,
+    type: Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec,
+    json_name: "cloudBigtableInstanceSpec",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Datacatalog.V1.BusinessContext do
@@ -786,6 +842,7 @@ defmodule Google.Cloud.Datacatalog.V1.ImportEntriesRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :gcs_bucket_path, 2, type: :string, json_name: "gcsBucketPath", oneof: 0
+  field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ImportEntriesResponse do
