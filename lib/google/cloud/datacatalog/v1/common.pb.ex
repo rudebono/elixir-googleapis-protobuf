@@ -8,6 +8,8 @@ defmodule Google.Cloud.Datacatalog.V1.IntegratedSystem do
   field :CLOUD_PUBSUB, 2
   field :DATAPROC_METASTORE, 3
   field :DATAPLEX, 4
+  field :CLOUD_SPANNER, 6
+  field :CLOUD_BIGTABLE, 7
   field :CLOUD_SQL, 8
   field :LOOKER, 9
 end

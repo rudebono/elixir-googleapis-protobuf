@@ -10,12 +10,14 @@ defmodule Google.Cloud.Datacatalog.V1.TaggedEntry do
   field :present_tags, 2,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.Tag,
-    json_name: "presentTags"
+    json_name: "presentTags",
+    deprecated: false
 
   field :absent_tags, 3,
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.Tag,
-    json_name: "absentTags"
+    json_name: "absentTags",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DumpItem do
