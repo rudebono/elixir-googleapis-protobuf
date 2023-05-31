@@ -428,6 +428,7 @@ defmodule Google.Protobuf.EnumValueOptions do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :deprecated, 1, optional: true, type: :bool, default: false
+  field :debug_redact, 3, optional: true, type: :bool, default: false
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
