@@ -30,6 +30,7 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest.DiversificationLevel do
   field :SIMPLE, 2
   field :ONE_PER_COMPANY, 3
   field :TWO_PER_COMPANY, 4
+  field :MAX_THREE_PER_COMPANY, 6
   field :DIVERSIFY_BY_LOOSER_SIMILARITY, 5
 end
 

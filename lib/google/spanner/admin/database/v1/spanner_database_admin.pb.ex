@@ -196,6 +196,16 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
   field :operation_id, 3, type: :string, json_name: "operationId"
 end
 
+defmodule Google.Spanner.Admin.Database.V1.DdlStatementActionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :action, 1, type: :string
+  field :entity_type, 2, type: :string, json_name: "entityType"
+  field :entity_names, 3, repeated: true, type: :string, json_name: "entityNames"
+end
+
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlMetadata do
   @moduledoc false
 
@@ -211,6 +221,7 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlMetadata do
 
   field :throttled, 4, type: :bool, deprecated: false
   field :progress, 5, repeated: true, type: Google.Spanner.Admin.Database.V1.OperationProgress
+  field :actions, 6, repeated: true, type: Google.Spanner.Admin.Database.V1.DdlStatementActionInfo
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DropDatabaseRequest do
