@@ -101,6 +101,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
     deprecated: false
 
   field :training_pipeline, 7, type: :string, json_name: "trainingPipeline", deprecated: false
+  field :pipeline_job, 47, type: :string, json_name: "pipelineJob", deprecated: false
 
   field :container_spec, 9,
     type: Google.Cloud.Aiplatform.V1.ModelContainerSpec,
@@ -166,6 +167,14 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
     deprecated: false
 
   field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.LargeModelReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do

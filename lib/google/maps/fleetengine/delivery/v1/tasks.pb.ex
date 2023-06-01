@@ -103,4 +103,66 @@ defmodule Maps.Fleetengine.Delivery.V1.Task do
     type: Maps.Fleetengine.Delivery.V1.Task.JourneySharingInfo,
     json_name: "journeySharingInfo",
     deprecated: false
+
+  field :task_tracking_view_config, 13,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig,
+    json_name: "taskTrackingViewConfig"
+
+  field :attributes, 15, repeated: true, type: Maps.Fleetengine.Delivery.V1.TaskAttribute
+end
+
+defmodule Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :visibility_option, 0
+
+  field :remaining_stop_count_threshold, 1,
+    type: :int32,
+    json_name: "remainingStopCountThreshold",
+    oneof: 0
+
+  field :duration_until_estimated_arrival_time_threshold, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "durationUntilEstimatedArrivalTimeThreshold",
+    oneof: 0
+
+  field :remaining_driving_distance_meters_threshold, 3,
+    type: :int32,
+    json_name: "remainingDrivingDistanceMetersThreshold",
+    oneof: 0
+
+  field :always, 4, type: :bool, oneof: 0
+  field :never, 5, type: :bool, oneof: 0
+end
+
+defmodule Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :route_polyline_points_visibility, 1,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "routePolylinePointsVisibility"
+
+  field :estimated_arrival_time_visibility, 2,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "estimatedArrivalTimeVisibility"
+
+  field :estimated_task_completion_time_visibility, 3,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "estimatedTaskCompletionTimeVisibility"
+
+  field :remaining_driving_distance_visibility, 4,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "remainingDrivingDistanceVisibility"
+
+  field :remaining_stop_count_visibility, 5,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "remainingStopCountVisibility"
+
+  field :vehicle_location_visibility, 6,
+    type: Maps.Fleetengine.Delivery.V1.TaskTrackingViewConfig.VisibilityOption,
+    json_name: "vehicleLocationVisibility"
 end

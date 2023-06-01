@@ -144,3 +144,16 @@ defmodule Maps.Fleetengine.Delivery.V1.TimeWindow do
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
+
+defmodule Maps.Fleetengine.Delivery.V1.TaskAttribute do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :task_attribute_value, 0
+
+  field :key, 1, type: :string
+  field :string_value, 2, type: :string, json_name: "stringValue", oneof: 0
+  field :bool_value, 3, type: :bool, json_name: "boolValue", oneof: 0
+  field :number_value, 4, type: :double, json_name: "numberValue", oneof: 0
+end

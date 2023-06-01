@@ -98,6 +98,16 @@ defmodule Google.Container.V1beta1.ReservationAffinity.Type do
   field :SPECIFIC_RESERVATION, 3
 end
 
+defmodule Google.Container.V1beta1.SoleTenantConfig.NodeAffinity.Operator do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OPERATOR_UNSPECIFIED, 0
+  field :IN, 1
+  field :NOT_IN, 2
+end
+
 defmodule Google.Container.V1beta1.NodeTaint.Effect do
   @moduledoc false
 
@@ -671,6 +681,10 @@ defmodule Google.Container.V1beta1.NodeConfig do
   field :ephemeral_storage_local_ssd_config, 41,
     type: Google.Container.V1beta1.EphemeralStorageLocalSsdConfig,
     json_name: "ephemeralStorageLocalSsdConfig"
+
+  field :sole_tenant_config, 42,
+    type: Google.Container.V1beta1.SoleTenantConfig,
+    json_name: "soleTenantConfig"
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -785,6 +799,31 @@ defmodule Google.Container.V1beta1.ReservationAffinity do
 
   field :key, 2, type: :string
   field :values, 3, repeated: true, type: :string
+end
+
+defmodule Google.Container.V1beta1.SoleTenantConfig.NodeAffinity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :operator, 2,
+    type: Google.Container.V1beta1.SoleTenantConfig.NodeAffinity.Operator,
+    enum: true
+
+  field :values, 3, repeated: true, type: :string
+end
+
+defmodule Google.Container.V1beta1.SoleTenantConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_affinities, 1,
+    repeated: true,
+    type: Google.Container.V1beta1.SoleTenantConfig.NodeAffinity,
+    json_name: "nodeAffinities"
 end
 
 defmodule Google.Container.V1beta1.NodeTaint do
