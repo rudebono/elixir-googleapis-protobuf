@@ -48,4 +48,6 @@ defmodule Maps.Fleetengine.Delivery.V1.TaskTrackingInfo do
   field :target_time_window, 13,
     type: Maps.Fleetengine.Delivery.V1.TimeWindow,
     json_name: "targetTimeWindow"
+
+  field :attributes, 14, repeated: true, type: Maps.Fleetengine.Delivery.V1.TaskAttribute
 end

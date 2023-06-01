@@ -32,6 +32,16 @@ defmodule Google.Cloud.Functions.V2alpha.StateMessage.Severity do
   field :INFO, 3
 end
 
+defmodule Google.Cloud.Functions.V2alpha.BuildConfig.DockerRegistry do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DOCKER_REGISTRY_UNSPECIFIED, 0
+  field :CONTAINER_REGISTRY, 1
+  field :ARTIFACT_REGISTRY, 2
+end
+
 defmodule Google.Cloud.Functions.V2alpha.ServiceConfig.VpcConnectorEgressSettings do
   @moduledoc false
 
@@ -51,6 +61,16 @@ defmodule Google.Cloud.Functions.V2alpha.ServiceConfig.IngressSettings do
   field :ALLOW_ALL, 1
   field :ALLOW_INTERNAL_ONLY, 2
   field :ALLOW_INTERNAL_AND_GCLB, 3
+end
+
+defmodule Google.Cloud.Functions.V2alpha.ServiceConfig.SecurityLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SECURITY_LEVEL_UNSPECIFIED, 0
+  field :SECURE_ALWAYS, 1
+  field :SECURE_OPTIONAL, 2
 end
 
 defmodule Google.Cloud.Functions.V2alpha.EventTrigger.RetryPolicy do
@@ -117,7 +137,6 @@ defmodule Google.Cloud.Functions.V2alpha.Function do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :environment, 10, type: Google.Cloud.Functions.V2alpha.Environment, enum: true
   field :description, 2, type: :string
 
   field :build_config, 3,
@@ -152,6 +171,10 @@ defmodule Google.Cloud.Functions.V2alpha.Function do
     type: Google.Cloud.Functions.V2alpha.StateMessage,
     json_name: "stateMessages",
     deprecated: false
+
+  field :environment, 10, type: Google.Cloud.Functions.V2alpha.Environment, enum: true
+  field :url, 14, type: :string, deprecated: false
+  field :kms_key_name, 25, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.StateMessage do
@@ -254,6 +277,11 @@ defmodule Google.Cloud.Functions.V2alpha.BuildConfig do
     json_name: "environmentVariables",
     map: true
 
+  field :docker_registry, 10,
+    type: Google.Cloud.Functions.V2alpha.BuildConfig.DockerRegistry,
+    json_name: "dockerRegistry",
+    enum: true
+
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
 end
 
@@ -274,6 +302,7 @@ defmodule Google.Cloud.Functions.V2alpha.ServiceConfig do
   field :service, 1, type: :string, deprecated: false
   field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds"
   field :available_memory, 13, type: :string, json_name: "availableMemory"
+  field :available_cpu, 22, type: :string, json_name: "availableCpu"
 
   field :environment_variables, 4,
     repeated: true,
@@ -310,6 +339,15 @@ defmodule Google.Cloud.Functions.V2alpha.ServiceConfig do
     json_name: "secretVolumes"
 
   field :revision, 18, type: :string, deprecated: false
+
+  field :max_instance_request_concurrency, 20,
+    type: :int32,
+    json_name: "maxInstanceRequestConcurrency"
+
+  field :security_level, 21,
+    type: Google.Cloud.Functions.V2alpha.ServiceConfig.SecurityLevel,
+    json_name: "securityLevel",
+    enum: true
 end
 
 defmodule Google.Cloud.Functions.V2alpha.SecretEnvVar do
@@ -449,6 +487,7 @@ defmodule Google.Cloud.Functions.V2alpha.GenerateUploadUrlRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.GenerateUploadUrlResponse do
@@ -528,6 +567,17 @@ defmodule Google.Cloud.Functions.V2alpha.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion"
   field :request_resource, 8, type: Google.Protobuf.Any, json_name: "requestResource"
   field :stages, 9, repeated: true, type: Google.Cloud.Functions.V2alpha.Stage
+end
+
+defmodule Google.Cloud.Functions.V2alpha.LocationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environments, 1,
+    repeated: true,
+    type: Google.Cloud.Functions.V2alpha.Environment,
+    enum: true
 end
 
 defmodule Google.Cloud.Functions.V2alpha.Stage do
