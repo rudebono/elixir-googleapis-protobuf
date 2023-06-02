@@ -11,6 +11,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.OpenSourceCategory do
   field :THIRD_PARTY_OWNED_OSS, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.LaunchStage do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LAUNCH_STAGE_UNSPECIFIED, 0
+  field :EXPERIMENTAL, 1
+  field :PRIVATE_PREVIEW, 2
+  field :PUBLIC_PREVIEW, 3
+  field :GA, 4
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.ResourceReference do
   @moduledoc false
 
@@ -145,6 +157,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction do
     type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences,
     json_name: "openGenerationAiStudio",
     deprecated: false
+
+  field :request_access, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences,
+    json_name: "requestAccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel do
@@ -167,6 +184,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel do
     deprecated: false
 
   field :frameworks, 23, repeated: true, type: :string, deprecated: false
+
+  field :launch_stage, 29,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.LaunchStage,
+    json_name: "launchStage",
+    enum: true,
+    deprecated: false
 
   field :publisher_model_template, 30,
     type: :string,

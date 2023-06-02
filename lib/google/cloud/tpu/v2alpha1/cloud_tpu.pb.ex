@@ -267,6 +267,8 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
   field :shielded_instance_config, 45,
     type: Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig,
     json_name: "shieldedInstanceConfig"
+
+  field :multislice_node, 47, type: :bool, json_name: "multisliceNode", deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec do
@@ -598,6 +600,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
+  field :force, 3, type: :bool
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
