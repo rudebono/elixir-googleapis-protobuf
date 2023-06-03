@@ -477,6 +477,11 @@ defmodule Google.Cloud.Aiplatform.V1.ImportFeatureValuesOperationMetadata do
   field :timestamp_outside_retention_rows_count, 7,
     type: :int64,
     json_name: "timestampOutsideRetentionRowsCount"
+
+  field :blocking_operation_ids, 8,
+    repeated: true,
+    type: :int64,
+    json_name: "blockingOperationIds"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportFeatureValuesOperationMetadata do
