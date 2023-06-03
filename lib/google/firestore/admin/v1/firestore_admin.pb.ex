@@ -6,6 +6,22 @@ defmodule Google.Firestore.Admin.V1.ListDatabasesRequest do
   field :parent, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Firestore.Admin.V1.CreateDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :database, 2, type: Google.Firestore.Admin.V1.Database, deprecated: false
+  field :database_id, 3, type: :string, json_name: "databaseId", deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.CreateDatabaseMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Firestore.Admin.V1.ListDatabasesResponse do
   @moduledoc false
 
@@ -170,6 +186,10 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
 
   rpc :ImportDocuments,
       Google.Firestore.Admin.V1.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateDatabase,
+      Google.Firestore.Admin.V1.CreateDatabaseRequest,
       Google.Longrunning.Operation
 
   rpc :GetDatabase,
