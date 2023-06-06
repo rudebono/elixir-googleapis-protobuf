@@ -132,6 +132,12 @@ defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
 
   field :projects, 1, repeated: true, type: :string, deprecated: false
 
+  field :resource_ancestors, 2,
+    repeated: true,
+    type: :string,
+    json_name: "resourceAncestors",
+    deprecated: false
+
   field :credit_types, 7,
     repeated: true,
     type: :string,
