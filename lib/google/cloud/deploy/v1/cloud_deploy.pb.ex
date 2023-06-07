@@ -335,6 +335,11 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
 
   field :service, 1, type: :string, deprecated: false
   field :deployment, 2, type: :string, deprecated: false
+
+  field :disable_pod_overprovisioning, 3,
+    type: :bool,
+    json_name: "disablePodOverprovisioning",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig do

@@ -332,6 +332,17 @@ defmodule Google.Container.V1.GatewayAPIConfig.Channel do
   field :CHANNEL_STANDARD, 4
 end
 
+defmodule Google.Container.V1.AutopilotCompatibilityIssue.IssueType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :INCOMPATIBILITY, 1
+  field :ADDITIONAL_CONFIG_REQUIRED, 2
+  field :PASSED_WITH_OPTIONAL_CONFIG, 3
+end
+
 defmodule Google.Container.V1.ReleaseChannel.Channel do
   @moduledoc false
 
@@ -1240,6 +1251,18 @@ defmodule Google.Container.V1.Cluster do
 
   field :etag, 139, type: :string
   field :fleet, 140, type: Google.Container.V1.Fleet
+
+  field :enable_k8s_beta_apis, 143,
+    type: Google.Container.V1.K8sBetaAPIConfig,
+    json_name: "enableK8sBetaApis"
+end
+
+defmodule Google.Container.V1.K8sBetaAPIConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled_apis, 1, repeated: true, type: :string, json_name: "enabledApis"
 end
 
 defmodule Google.Container.V1.NodePoolAutoConfig do
@@ -1432,6 +1455,19 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :removed_additional_pod_ranges_config, 121,
     type: Google.Container.V1.AdditionalPodRangesConfig,
     json_name: "removedAdditionalPodRangesConfig"
+
+  field :enable_k8s_beta_apis, 122,
+    type: Google.Container.V1.K8sBetaAPIConfig,
+    json_name: "enableK8sBetaApis"
+
+  field :desired_enable_fqdn_network_policy, 126,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredEnableFqdnNetworkPolicy"
+
+  field :desired_k8s_beta_apis, 131,
+    type: Google.Container.V1.K8sBetaAPIConfig,
+    json_name: "desiredK8sBetaApis"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -1986,6 +2022,10 @@ defmodule Google.Container.V1.NodePool do
     deprecated: false
 
   field :etag, 110, type: :string
+
+  field :best_effort_provisioning, 113,
+    type: Google.Container.V1.BestEffortProvisioning,
+    json_name: "bestEffortProvisioning"
 end
 
 defmodule Google.Container.V1.NodeManagement do
@@ -1999,6 +2039,15 @@ defmodule Google.Container.V1.NodeManagement do
   field :upgrade_options, 10,
     type: Google.Container.V1.AutoUpgradeOptions,
     json_name: "upgradeOptions"
+end
+
+defmodule Google.Container.V1.BestEffortProvisioning do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+  field :min_provision_nodes, 2, type: :int32, json_name: "minProvisionNodes"
 end
 
 defmodule Google.Container.V1.AutoUpgradeOptions do
@@ -2409,6 +2458,11 @@ defmodule Google.Container.V1.NetworkConfig do
   field :gateway_api_config, 16,
     type: Google.Container.V1.GatewayAPIConfig,
     json_name: "gatewayApiConfig"
+
+  field :enable_fqdn_network_policy, 19,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableFqdnNetworkPolicy"
 end
 
 defmodule Google.Container.V1.GatewayAPIConfig do
@@ -2492,6 +2546,41 @@ defmodule Google.Container.V1.GetJSONWebKeysResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Container.V1.Jwk
+end
+
+defmodule Google.Container.V1.CheckAutopilotCompatibilityRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Container.V1.AutopilotCompatibilityIssue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :last_observation, 1, type: Google.Protobuf.Timestamp, json_name: "lastObservation"
+  field :constraint_type, 2, type: :string, json_name: "constraintType"
+
+  field :incompatibility_type, 3,
+    type: Google.Container.V1.AutopilotCompatibilityIssue.IssueType,
+    json_name: "incompatibilityType",
+    enum: true
+
+  field :subjects, 4, repeated: true, type: :string
+  field :documentation_url, 5, type: :string, json_name: "documentationUrl"
+  field :description, 6, type: :string
+end
+
+defmodule Google.Container.V1.CheckAutopilotCompatibilityResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :issues, 1, repeated: true, type: Google.Container.V1.AutopilotCompatibilityIssue
+  field :summary, 2, type: :string
 end
 
 defmodule Google.Container.V1.ReleaseChannel do
@@ -3007,6 +3096,10 @@ defmodule Google.Container.V1.ClusterManager.Service do
   rpc :ListUsableSubnetworks,
       Google.Container.V1.ListUsableSubnetworksRequest,
       Google.Container.V1.ListUsableSubnetworksResponse
+
+  rpc :CheckAutopilotCompatibility,
+      Google.Container.V1.CheckAutopilotCompatibilityRequest,
+      Google.Container.V1.CheckAutopilotCompatibilityResponse
 end
 
 defmodule Google.Container.V1.ClusterManager.Stub do
