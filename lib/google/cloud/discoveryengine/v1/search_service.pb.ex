@@ -47,14 +47,6 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.Snippe
   field :reference_only, 2, type: :bool, json_name: "referenceOnly"
 end
 
-defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SummarySpec do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :summary_result_count, 1, type: :int32, json_name: "summaryResultCount"
-end
-
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
   @moduledoc false
 
@@ -63,10 +55,6 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
   field :snippet_spec, 1,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SnippetSpec,
     json_name: "snippetSpec"
-
-  field :summary_spec, 2,
-    type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SummarySpec,
-    json_name: "summarySpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ParamsEntry do
@@ -137,14 +125,6 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult do
   field :document, 2, type: Google.Cloud.Discoveryengine.V1.Document
 end
 
-defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :summary_text, 1, type: :string, json_name: "summaryText"
-end
-
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse do
   @moduledoc false
 
@@ -158,7 +138,6 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse do
   field :attribution_token, 4, type: :string, json_name: "attributionToken"
   field :next_page_token, 5, type: :string, json_name: "nextPageToken"
   field :corrected_query, 7, type: :string, json_name: "correctedQuery"
-  field :summary, 9, type: Google.Cloud.Discoveryengine.V1.SearchResponse.Summary
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchService.Service do
