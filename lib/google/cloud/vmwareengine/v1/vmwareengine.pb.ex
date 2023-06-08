@@ -175,6 +175,28 @@ defmodule Google.Cloud.Vmwareengine.V1.ListSubnetsResponse do
 
   field :subnets, 1, repeated: true, type: Google.Cloud.Vmwareengine.V1.Subnet
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.GetSubnetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.UpdateSubnetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :subnet, 2, type: Google.Cloud.Vmwareengine.V1.Subnet, deprecated: false
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.OperationMetadata do
@@ -478,6 +500,110 @@ defmodule Google.Cloud.Vmwareengine.V1.ListVmwareEngineNetworksResponse do
   field :unreachable, 3, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Vmwareengine.V1.CreatePrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :private_connection_id, 2,
+    type: :string,
+    json_name: "privateConnectionId",
+    deprecated: false
+
+  field :private_connection, 3,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection,
+    json_name: "privateConnection",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.GetPrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_connections, 1,
+    repeated: true,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection,
+    json_name: "privateConnections"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.UpdatePrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_connection, 1,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection,
+    json_name: "privateConnection",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.DeletePrivateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :peering_routes, 1,
+    repeated: true,
+    type: Google.Cloud.Vmwareengine.V1.PeeringRoute,
+    json_name: "peeringRoutes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngine.Service do
   @moduledoc false
 
@@ -532,6 +658,14 @@ defmodule Google.Cloud.Vmwareengine.V1.VmwareEngine.Service do
   rpc :ListSubnets,
       Google.Cloud.Vmwareengine.V1.ListSubnetsRequest,
       Google.Cloud.Vmwareengine.V1.ListSubnetsResponse
+
+  rpc :GetSubnet,
+      Google.Cloud.Vmwareengine.V1.GetSubnetRequest,
+      Google.Cloud.Vmwareengine.V1.Subnet
+
+  rpc :UpdateSubnet,
+      Google.Cloud.Vmwareengine.V1.UpdateSubnetRequest,
+      Google.Longrunning.Operation
 
   rpc :ListNodeTypes,
       Google.Cloud.Vmwareengine.V1.ListNodeTypesRequest,
@@ -608,6 +742,30 @@ defmodule Google.Cloud.Vmwareengine.V1.VmwareEngine.Service do
   rpc :ListVmwareEngineNetworks,
       Google.Cloud.Vmwareengine.V1.ListVmwareEngineNetworksRequest,
       Google.Cloud.Vmwareengine.V1.ListVmwareEngineNetworksResponse
+
+  rpc :CreatePrivateConnection,
+      Google.Cloud.Vmwareengine.V1.CreatePrivateConnectionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetPrivateConnection,
+      Google.Cloud.Vmwareengine.V1.GetPrivateConnectionRequest,
+      Google.Cloud.Vmwareengine.V1.PrivateConnection
+
+  rpc :ListPrivateConnections,
+      Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsRequest,
+      Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsResponse
+
+  rpc :UpdatePrivateConnection,
+      Google.Cloud.Vmwareengine.V1.UpdatePrivateConnectionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeletePrivateConnection,
+      Google.Cloud.Vmwareengine.V1.DeletePrivateConnectionRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListPrivateConnectionPeeringRoutes,
+      Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesRequest,
+      Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesResponse
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.VmwareEngine.Stub do

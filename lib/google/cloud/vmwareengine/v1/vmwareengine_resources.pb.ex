@@ -12,6 +12,15 @@ defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud.State do
   field :PURGING, 7
 end
 
+defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STANDARD, 0
+  field :TIME_LIMITED, 1
+end
+
 defmodule Google.Cloud.Vmwareengine.V1.Cluster.State do
   @moduledoc false
 
@@ -35,6 +44,8 @@ defmodule Google.Cloud.Vmwareengine.V1.Subnet.State do
   field :CREATING, 2
   field :UPDATING, 3
   field :DELETING, 4
+  field :RECONCILING, 5
+  field :FAILED, 6
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.HcxActivationKey.State do
@@ -78,6 +89,27 @@ defmodule Google.Cloud.Vmwareengine.V1.Vcenter.State do
   field :CREATING, 2
 end
 
+defmodule Google.Cloud.Vmwareengine.V1.PeeringRoute.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :DYNAMIC_PEERING_ROUTE, 1
+  field :STATIC_PEERING_ROUTE, 2
+  field :SUBNET_PEERING_ROUTE, 3
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PeeringRoute.Direction do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DIRECTION_UNSPECIFIED, 0
+  field :INCOMING, 1
+  field :OUTGOING, 2
+end
+
 defmodule Google.Cloud.Vmwareengine.V1.NetworkPolicy.NetworkService.State do
   @moduledoc false
 
@@ -119,6 +151,52 @@ defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork.VpcNetwork.Type do
   field :INTRANET, 1
   field :INTERNET, 2
   field :GOOGLE_CLOUD, 3
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PrivateConnection.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :UPDATING, 3
+  field :DELETING, 4
+  field :UNPROVISIONED, 5
+  field :FAILED, 6
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PrivateConnection.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :PRIVATE_SERVICE_ACCESS, 1
+  field :NETAPP_CLOUD_VOLUMES, 2
+  field :DELL_POWERSCALE, 3
+  field :THIRD_PARTY_SERVICE, 4
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PrivateConnection.RoutingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ROUTING_MODE_UNSPECIFIED, 0
+  field :GLOBAL, 1
+  field :REGIONAL, 2
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PrivateConnection.PeeringState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PEERING_STATE_UNSPECIFIED, 0
+  field :PEERING_ACTIVE, 1
+  field :PEERING_INACTIVE, 2
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.NetworkConfig do
@@ -224,6 +302,11 @@ defmodule Google.Cloud.Vmwareengine.V1.PrivateCloud do
   field :nsx, 18, type: Google.Cloud.Vmwareengine.V1.Nsx, deprecated: false
   field :vcenter, 19, type: Google.Cloud.Vmwareengine.V1.Vcenter, deprecated: false
   field :uid, 20, type: :string, deprecated: false
+
+  field :type, 22,
+    type: Google.Cloud.Vmwareengine.V1.PrivateCloud.Type,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.Cluster.NodeTypeConfigsEntry do
@@ -359,6 +442,28 @@ defmodule Google.Cloud.Vmwareengine.V1.Vcenter do
   field :fqdn, 6, type: :string
 end
 
+defmodule Google.Cloud.Vmwareengine.V1.PeeringRoute do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dest_range, 1, type: :string, json_name: "destRange", deprecated: false
+
+  field :type, 2,
+    type: Google.Cloud.Vmwareengine.V1.PeeringRoute.Type,
+    enum: true,
+    deprecated: false
+
+  field :next_hop_region, 3, type: :string, json_name: "nextHopRegion", deprecated: false
+  field :priority, 4, type: :int64, deprecated: false
+  field :imported, 5, type: :bool, deprecated: false
+
+  field :direction, 6,
+    type: Google.Cloud.Vmwareengine.V1.PeeringRoute.Direction,
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Vmwareengine.V1.NetworkPolicy.NetworkService do
   @moduledoc false
 
@@ -463,4 +568,61 @@ defmodule Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork do
 
   field :uid, 9, type: :string, deprecated: false
   field :etag, 10, type: :string
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.PrivateConnection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :description, 4, type: :string, deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection.State,
+    enum: true,
+    deprecated: false
+
+  field :vmware_engine_network, 8,
+    type: :string,
+    json_name: "vmwareEngineNetwork",
+    deprecated: false
+
+  field :vmware_engine_network_canonical, 9,
+    type: :string,
+    json_name: "vmwareEngineNetworkCanonical",
+    deprecated: false
+
+  field :type, 10,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection.Type,
+    enum: true,
+    deprecated: false
+
+  field :peering_id, 12, type: :string, json_name: "peeringId", deprecated: false
+
+  field :routing_mode, 13,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection.RoutingMode,
+    json_name: "routingMode",
+    enum: true,
+    deprecated: false
+
+  field :uid, 14, type: :string, deprecated: false
+  field :service_network, 16, type: :string, json_name: "serviceNetwork", deprecated: false
+
+  field :peering_state, 17,
+    type: Google.Cloud.Vmwareengine.V1.PrivateConnection.PeeringState,
+    json_name: "peeringState",
+    enum: true,
+    deprecated: false
 end
