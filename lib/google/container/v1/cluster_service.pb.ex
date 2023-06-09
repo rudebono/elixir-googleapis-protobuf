@@ -172,6 +172,26 @@ defmodule Google.Container.V1.Cluster.Status do
   field :DEGRADED, 6
 end
 
+defmodule Google.Container.V1.SecurityPostureConfig.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :BASIC, 2
+end
+
+defmodule Google.Container.V1.SecurityPostureConfig.VulnerabilityMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :VULNERABILITY_MODE_UNSPECIFIED, 0
+  field :VULNERABILITY_DISABLED, 1
+  field :VULNERABILITY_BASIC, 2
+end
+
 defmodule Google.Container.V1.Operation.Status do
   @moduledoc false
 
@@ -295,6 +315,17 @@ defmodule Google.Container.V1.GPUSharingConfig.GPUSharingStrategy do
 
   field :GPU_SHARING_STRATEGY_UNSPECIFIED, 0
   field :TIME_SHARING, 1
+end
+
+defmodule Google.Container.V1.GPUDriverInstallationConfig.GPUDriverVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :GPU_DRIVER_VERSION_UNSPECIFIED, 0
+  field :INSTALLATION_DISABLED, 1
+  field :DEFAULT, 2
+  field :LATEST, 3
 end
 
 defmodule Google.Container.V1.WorkloadMetadataConfig.Mode do
@@ -1252,6 +1283,10 @@ defmodule Google.Container.V1.Cluster do
   field :etag, 139, type: :string
   field :fleet, 140, type: Google.Container.V1.Fleet
 
+  field :security_posture_config, 145,
+    type: Google.Container.V1.SecurityPostureConfig,
+    json_name: "securityPostureConfig"
+
   field :enable_k8s_beta_apis, 143,
     type: Google.Container.V1.K8sBetaAPIConfig,
     json_name: "enableK8sBetaApis"
@@ -1263,6 +1298,23 @@ defmodule Google.Container.V1.K8sBetaAPIConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled_apis, 1, repeated: true, type: :string, json_name: "enabledApis"
+end
+
+defmodule Google.Container.V1.SecurityPostureConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1,
+    proto3_optional: true,
+    type: Google.Container.V1.SecurityPostureConfig.Mode,
+    enum: true
+
+  field :vulnerability_mode, 2,
+    proto3_optional: true,
+    type: Google.Container.V1.SecurityPostureConfig.VulnerabilityMode,
+    json_name: "vulnerabilityMode",
+    enum: true
 end
 
 defmodule Google.Container.V1.NodePoolAutoConfig do
@@ -1460,10 +1512,18 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.K8sBetaAPIConfig,
     json_name: "enableK8sBetaApis"
 
+  field :desired_security_posture_config, 124,
+    type: Google.Container.V1.SecurityPostureConfig,
+    json_name: "desiredSecurityPostureConfig"
+
   field :desired_enable_fqdn_network_policy, 126,
     proto3_optional: true,
     type: :bool,
     json_name: "desiredEnableFqdnNetworkPolicy"
+
+  field :desired_autopilot_workload_policy_config, 128,
+    type: Google.Container.V1.WorkloadPolicyConfig,
+    json_name: "desiredAutopilotWorkloadPolicyConfig"
 
   field :desired_k8s_beta_apis, 131,
     type: Google.Container.V1.K8sBetaAPIConfig,
@@ -2356,6 +2416,11 @@ defmodule Google.Container.V1.AcceleratorConfig do
     proto3_optional: true,
     type: Google.Container.V1.GPUSharingConfig,
     json_name: "gpuSharingConfig"
+
+  field :gpu_driver_installation_config, 6,
+    proto3_optional: true,
+    type: Google.Container.V1.GPUDriverInstallationConfig,
+    json_name: "gpuDriverInstallationConfig"
 end
 
 defmodule Google.Container.V1.GPUSharingConfig do
@@ -2369,6 +2434,18 @@ defmodule Google.Container.V1.GPUSharingConfig do
     proto3_optional: true,
     type: Google.Container.V1.GPUSharingConfig.GPUSharingStrategy,
     json_name: "gpuSharingStrategy",
+    enum: true
+end
+
+defmodule Google.Container.V1.GPUDriverInstallationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :gpu_driver_version, 1,
+    proto3_optional: true,
+    type: Google.Container.V1.GPUDriverInstallationConfig.GPUDriverVersion,
+    json_name: "gpuDriverVersion",
     enum: true
 end
 
@@ -2892,6 +2969,18 @@ defmodule Google.Container.V1.Autopilot do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
+
+  field :workload_policy_config, 2,
+    type: Google.Container.V1.WorkloadPolicyConfig,
+    json_name: "workloadPolicyConfig"
+end
+
+defmodule Google.Container.V1.WorkloadPolicyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :allow_net_admin, 1, proto3_optional: true, type: :bool, json_name: "allowNetAdmin"
 end
 
 defmodule Google.Container.V1.LoggingConfig do
