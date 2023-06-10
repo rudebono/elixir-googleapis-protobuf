@@ -11,6 +11,7 @@ defmodule Google.Cloud.Securitycenter.V1.Access do
     json_name: "callerIpGeo"
 
   field :user_agent_family, 4, type: :string, json_name: "userAgentFamily"
+  field :user_agent, 12, type: :string, json_name: "userAgent"
   field :service_name, 5, type: :string, json_name: "serviceName"
   field :method_name, 6, type: :string, json_name: "methodName"
   field :principal_subject, 7, type: :string, json_name: "principalSubject"
