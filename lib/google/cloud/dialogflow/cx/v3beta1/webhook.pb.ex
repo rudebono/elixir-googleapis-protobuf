@@ -1,3 +1,28 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.WebhookType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :WEBHOOK_TYPE_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :FLEXIBLE, 2
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.HttpMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HTTP_METHOD_UNSPECIFIED, 0
+  field :POST, 1
+  field :GET, 2
+  field :HEAD, 3
+  field :PUT, 4
+  field :DELETE, 5
+  field :PATCH, 6
+  field :OPTIONS, 7
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse.MergeBehavior do
   @moduledoc false
 
@@ -28,6 +53,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHe
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.ParameterMappingEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
   @moduledoc false
 
@@ -47,6 +81,27 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
     repeated: true,
     type: :bytes,
     json_name: "allowedCaCerts",
+    deprecated: false
+
+  field :webhook_type, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.WebhookType,
+    json_name: "webhookType",
+    enum: true,
+    deprecated: false
+
+  field :http_method, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.HttpMethod,
+    json_name: "httpMethod",
+    enum: true,
+    deprecated: false
+
+  field :request_body, 8, type: :string, json_name: "requestBody", deprecated: false
+
+  field :parameter_mapping, 9,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.ParameterMappingEntry,
+    json_name: "parameterMapping",
+    map: true,
     deprecated: false
 end
 
