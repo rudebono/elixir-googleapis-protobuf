@@ -12,6 +12,8 @@ defmodule Google.Cloud.Visionai.V1.ModelType do
   field :OCCUPANCY_COUNTING, 6
   field :PERSON_BLUR, 7
   field :VERTEX_CUSTOM, 8
+  field :PRODUCT_RECOGNIZER, 9
+  field :TAG_RECOGNIZER, 10
 end
 
 defmodule Google.Cloud.Visionai.V1.AcceleratorType do
@@ -28,6 +30,18 @@ defmodule Google.Cloud.Visionai.V1.AcceleratorType do
   field :NVIDIA_TESLA_A100, 8
   field :TPU_V2, 6
   field :TPU_V3, 7
+end
+
+defmodule Google.Cloud.Visionai.V1.DataType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATA_TYPE_UNSPECIFIED, 0
+  field :VIDEO, 1
+  field :IMAGE, 3
+  field :PROTO, 2
+  field :PLACEHOLDER, 4
 end
 
 defmodule Google.Cloud.Visionai.V1.Application.State do
@@ -48,6 +62,27 @@ defmodule Google.Cloud.Visionai.V1.Application.State do
   field :FIXING, 10
 end
 
+defmodule Google.Cloud.Visionai.V1.Application.BillingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BILLING_MODE_UNSPECIFIED, 0
+  field :PAYG, 1
+  field :MONTHLY, 2
+end
+
+defmodule Google.Cloud.Visionai.V1.Instance.InstanceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :INSTANCE_TYPE_UNSPECIFIED, 0
+  field :STREAMING_PREDICTION, 1
+  field :BATCH_PREDICTION, 2
+  field :ONLINE_PREDICTION, 3
+end
+
 defmodule Google.Cloud.Visionai.V1.Instance.State do
   @moduledoc false
 
@@ -64,6 +99,7 @@ defmodule Google.Cloud.Visionai.V1.Instance.State do
   field :UPDATING, 8
   field :DELETING, 9
   field :FIXING, 10
+  field :FINISHED, 11
 end
 
 defmodule Google.Cloud.Visionai.V1.Processor.ProcessorType do
@@ -89,16 +125,6 @@ defmodule Google.Cloud.Visionai.V1.Processor.ProcessorState do
   field :FAILED, 4
 end
 
-defmodule Google.Cloud.Visionai.V1.ProcessorIOSpec.DataType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :DATA_TYPE_UNSPECIFIED, 0
-  field :VIDEO, 1
-  field :PROTO, 2
-end
-
 defmodule Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.SourceType do
   @moduledoc false
 
@@ -107,6 +133,7 @@ defmodule Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.SourceType do
   field :SOURCE_TYPE_UNSPECIFIED, 0
   field :VERTEX_AUTOML, 1
   field :VERTEX_CUSTOM, 2
+  field :PRODUCT_RECOGNIZER, 3
 end
 
 defmodule Google.Cloud.Visionai.V1.PersonBlurConfig.PersonBlurType do
@@ -117,6 +144,16 @@ defmodule Google.Cloud.Visionai.V1.PersonBlurConfig.PersonBlurType do
   field :PERSON_BLUR_TYPE_UNSPECIFIED, 0
   field :FULL_OCCULUSION, 1
   field :BLUR_FILTER, 2
+end
+
+defmodule Google.Cloud.Visionai.V1.TagParsingConfig.EntityParsingConfig.EntityMatchingStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENTITY_MATCHING_STRATEGY_UNSPECIFIED, 0
+  field :MULTI_LINE_MATCHING, 1
+  field :MAX_OVERLAP_AREA, 2
 end
 
 defmodule Google.Cloud.Visionai.V1.DeleteApplicationInstancesResponse do
@@ -632,6 +669,11 @@ defmodule Google.Cloud.Visionai.V1.Application do
     deprecated: false
 
   field :state, 9, type: Google.Cloud.Visionai.V1.Application.State, enum: true, deprecated: false
+
+  field :billing_mode, 12,
+    type: Google.Cloud.Visionai.V1.Application.BillingMode,
+    json_name: "billingMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Visionai.V1.ApplicationConfigs.EventDeliveryConfig do
@@ -737,6 +779,7 @@ defmodule Google.Cloud.Visionai.V1.Instance.InputResource do
     oneof: 0,
     deprecated: true
 
+  field :data_type, 6, type: Google.Cloud.Visionai.V1.DataType, json_name: "dataType", enum: true
   field :consumer_node, 2, type: :string, json_name: "consumerNode"
   field :input_resource_binding, 3, type: :string, json_name: "inputResourceBinding"
   field :annotations, 5, type: Google.Cloud.Visionai.V1.ResourceAnnotations
@@ -783,6 +826,11 @@ defmodule Google.Cloud.Visionai.V1.Instance do
   field :labels, 3, repeated: true, type: Google.Cloud.Visionai.V1.Instance.LabelsEntry, map: true
   field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
   field :description, 5, type: :string
+
+  field :instance_type, 10,
+    type: Google.Cloud.Visionai.V1.Instance.InstanceType,
+    json_name: "instanceType",
+    enum: true
 
   field :input_resources, 6,
     repeated: true,
@@ -878,6 +926,12 @@ defmodule Google.Cloud.Visionai.V1.Processor do
     deprecated: false
 
   field :supports_post_processing, 17, type: :bool, json_name: "supportsPostProcessing"
+
+  field :supported_instance_types, 18,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.Instance.InstanceType,
+    json_name: "supportedInstanceTypes",
+    enum: true
 end
 
 defmodule Google.Cloud.Visionai.V1.ProcessorIOSpec.GraphInputChannelSpec do
@@ -886,11 +940,7 @@ defmodule Google.Cloud.Visionai.V1.ProcessorIOSpec.GraphInputChannelSpec do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-
-  field :data_type, 2,
-    type: Google.Cloud.Visionai.V1.ProcessorIOSpec.DataType,
-    json_name: "dataType",
-    enum: true
+  field :data_type, 2, type: Google.Cloud.Visionai.V1.DataType, json_name: "dataType", enum: true
 
   field :accepted_data_type_uris, 5,
     repeated: true,
@@ -907,12 +957,7 @@ defmodule Google.Cloud.Visionai.V1.ProcessorIOSpec.GraphOutputChannelSpec do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-
-  field :data_type, 2,
-    type: Google.Cloud.Visionai.V1.ProcessorIOSpec.DataType,
-    json_name: "dataType",
-    enum: true
-
+  field :data_type, 2, type: Google.Cloud.Visionai.V1.DataType, json_name: "dataType", enum: true
   field :data_type_uri, 3, type: :string, json_name: "dataTypeUri"
 end
 
@@ -964,6 +1009,19 @@ defmodule Google.Cloud.Visionai.V1.ProcessorIOSpec do
     json_name: "instanceResourceOutputBindingSpecs"
 end
 
+defmodule Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.ProductRecognizerArtifact do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retail_product_recognition_index, 1,
+    type: :string,
+    json_name: "retailProductRecognitionIndex",
+    deprecated: false
+
+  field :vertex_model, 2, type: :string, json_name: "vertexModel", deprecated: false
+end
+
 defmodule Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.ModelSchema do
   @moduledoc false
 
@@ -999,6 +1057,11 @@ defmodule Google.Cloud.Visionai.V1.CustomProcessorSourceInfo do
   oneof :artifact_path, 0
 
   field :vertex_model, 2, type: :string, json_name: "vertexModel", oneof: 0
+
+  field :product_recognizer_artifact, 3,
+    type: Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.ProductRecognizerArtifact,
+    json_name: "productRecognizerArtifact",
+    oneof: 0
 
   field :source_type, 1,
     type: Google.Cloud.Visionai.V1.CustomProcessorSourceInfo.SourceType,
@@ -1079,10 +1142,32 @@ defmodule Google.Cloud.Visionai.V1.ProcessorConfig do
     json_name: "bigQueryConfig",
     oneof: 0
 
+  field :gcs_output_config, 27,
+    type: Google.Cloud.Visionai.V1.GcsOutputConfig,
+    json_name: "gcsOutputConfig",
+    oneof: 0
+
+  field :product_recognizer_config, 21,
+    type: Google.Cloud.Visionai.V1.ProductRecognizerConfig,
+    json_name: "productRecognizerConfig",
+    oneof: 0
+
   field :personal_protective_equipment_detection_config, 22,
     type: Google.Cloud.Visionai.V1.PersonalProtectiveEquipmentDetectionConfig,
     json_name: "personalProtectiveEquipmentDetectionConfig",
     oneof: 0
+
+  field :tag_recognizer_config, 25,
+    type: Google.Cloud.Visionai.V1.TagRecognizerConfig,
+    json_name: "tagRecognizerConfig",
+    oneof: 0
+
+  field :universal_input_config, 28,
+    type: Google.Cloud.Visionai.V1.UniversalInputConfig,
+    json_name: "universalInputConfig",
+    oneof: 0
+
+  field :experimental_config, 26, type: Google.Protobuf.Struct, json_name: "experimentalConfig"
 end
 
 defmodule Google.Cloud.Visionai.V1.StreamWithAnnotation.NodeAnnotation do
@@ -1283,6 +1368,20 @@ defmodule Google.Cloud.Visionai.V1.VertexCustomConfig do
   field :attach_application_metadata, 4, type: :bool, json_name: "attachApplicationMetadata"
 end
 
+defmodule Google.Cloud.Visionai.V1.GcsOutputConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :gcs_path, 1, type: :string, json_name: "gcsPath"
+end
+
+defmodule Google.Cloud.Visionai.V1.UniversalInputConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Visionai.V1.MachineSpec do
   @moduledoc false
 
@@ -1326,6 +1425,58 @@ defmodule Google.Cloud.Visionai.V1.DedicatedResources do
     type: Google.Cloud.Visionai.V1.AutoscalingMetricSpec,
     json_name: "autoscalingMetricSpecs",
     deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.ProductRecognizerConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retail_endpoint, 1, type: :string, json_name: "retailEndpoint"
+
+  field :recognition_confidence_threshold, 2,
+    type: :float,
+    json_name: "recognitionConfidenceThreshold"
+end
+
+defmodule Google.Cloud.Visionai.V1.TagRecognizerConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity_detection_confidence_threshold, 1,
+    type: :float,
+    json_name: "entityDetectionConfidenceThreshold"
+
+  field :tag_parsing_config, 2,
+    type: Google.Cloud.Visionai.V1.TagParsingConfig,
+    json_name: "tagParsingConfig"
+end
+
+defmodule Google.Cloud.Visionai.V1.TagParsingConfig.EntityParsingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity_class, 1, type: :string, json_name: "entityClass", deprecated: false
+  field :regex, 2, type: :string, deprecated: false
+
+  field :entity_matching_strategy, 3,
+    type: Google.Cloud.Visionai.V1.TagParsingConfig.EntityParsingConfig.EntityMatchingStrategy,
+    json_name: "entityMatchingStrategy",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.TagParsingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity_parsing_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.TagParsingConfig.EntityParsingConfig,
+    json_name: "entityParsingConfigs"
 end
 
 defmodule Google.Cloud.Visionai.V1.AppPlatform.Service do
