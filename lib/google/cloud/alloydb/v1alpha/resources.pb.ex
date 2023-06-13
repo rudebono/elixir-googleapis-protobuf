@@ -1,13 +1,3 @@
-defmodule Google.Cloud.Alloydb.V1alpha.DatabaseVersion do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :DATABASE_VERSION_UNSPECIFIED, 0
-  field :POSTGRES_13, 1
-  field :POSTGRES_14, 2
-end
-
 defmodule Google.Cloud.Alloydb.V1alpha.InstanceView do
   @moduledoc false
 
@@ -16,6 +6,26 @@ defmodule Google.Cloud.Alloydb.V1alpha.InstanceView do
   field :INSTANCE_VIEW_UNSPECIFIED, 0
   field :INSTANCE_VIEW_BASIC, 1
   field :INSTANCE_VIEW_FULL, 2
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ClusterView do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLUSTER_VIEW_UNSPECIFIED, 0
+  field :CLUSTER_VIEW_BASIC, 1
+  field :CLUSTER_VIEW_CONTINUOUS_BACKUP, 2
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.DatabaseVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATABASE_VERSION_UNSPECIFIED, 0
+  field :POSTGRES_13, 1
+  field :POSTGRES_14, 2
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.MigrationSource.MigrationSourceType do
@@ -46,6 +56,8 @@ defmodule Google.Cloud.Alloydb.V1alpha.SslConfig.SslMode do
   field :SSL_MODE_ALLOW, 1
   field :SSL_MODE_REQUIRE, 2
   field :SSL_MODE_VERIFY_CA, 3
+  field :ALLOW_UNENCRYPTED_AND_ENCRYPTED, 4
+  field :ENCRYPTED_ONLY, 5
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.SslConfig.CaSource do
@@ -121,6 +133,16 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance.AvailabilityType do
   field :REGIONAL, 2
 end
 
+defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :DEFAULT, 1
+  field :FORCE_APPLY, 2
+end
+
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.State do
   @moduledoc false
 
@@ -154,6 +176,16 @@ defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.ValueType do
   field :INTEGER, 2
   field :FLOAT, 3
   field :NONE, 4
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.User.UserType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :USER_TYPE_UNSPECIFIED, 0
+  field :ALLOYDB_BUILT_IN, 1
+  field :ALLOYDB_IAM_USER, 2
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.UserPassword do
@@ -332,6 +364,11 @@ defmodule Google.Cloud.Alloydb.V1alpha.ContinuousBackupInfo do
     deprecated: false
 
   field :schedule, 3, repeated: true, type: Google.Type.DayOfWeek, enum: true, deprecated: false
+
+  field :earliest_restorable_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "earliestRestorableTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.BackupSource do
@@ -354,6 +391,15 @@ defmodule Google.Cloud.Alloydb.V1alpha.ContinuousBackupSource do
     type: Google.Protobuf.Timestamp,
     json_name: "pointInTime",
     deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.Cluster.NetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :network, 1, type: :string, deprecated: false
+  field :allocated_ip_range, 2, type: :string, json_name: "allocatedIpRange", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.SecondaryConfig do
@@ -451,6 +497,11 @@ defmodule Google.Cloud.Alloydb.V1alpha.Cluster do
     enum: true,
     deprecated: false
 
+  field :network_config, 29,
+    type: Google.Cloud.Alloydb.V1alpha.Cluster.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
+
   field :network, 10, type: :string, deprecated: false
   field :etag, 11, type: :string
 
@@ -470,7 +521,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.Cluster do
     type: Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy,
     json_name: "automatedBackupPolicy"
 
-  field :ssl_config, 18, type: Google.Cloud.Alloydb.V1alpha.SslConfig, json_name: "sslConfig"
+  field :ssl_config, 18,
+    type: Google.Cloud.Alloydb.V1alpha.SslConfig,
+    json_name: "sslConfig",
+    deprecated: true
 
   field :encryption_config, 19,
     type: Google.Cloud.Alloydb.V1alpha.EncryptionConfig,
@@ -550,6 +604,14 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance.ReadPoolConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :node_count, 1, type: :int32, json_name: "nodeCount"
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1, type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode, enum: true
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.LabelsEntry do
@@ -662,6 +724,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance do
     repeated: true,
     type: Google.Cloud.Alloydb.V1alpha.Instance.AnnotationsEntry,
     map: true
+
+  field :update_policy, 22,
+    type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy,
+    json_name: "updatePolicy"
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
@@ -676,7 +742,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
     repeated: true,
     type: :string,
     json_name: "pemCertificateChain",
-    deprecated: false
+    deprecated: true
 
   field :instance_uid, 4, type: :string, json_name: "instanceUid", deprecated: false
 end
@@ -811,4 +877,25 @@ defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag do
     enum: true
 
   field :requires_db_restart, 6, type: :bool, json_name: "requiresDbRestart"
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.User do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :password, 2, type: :string, deprecated: false
+
+  field :database_roles, 4,
+    repeated: true,
+    type: :string,
+    json_name: "databaseRoles",
+    deprecated: false
+
+  field :user_type, 5,
+    type: Google.Cloud.Alloydb.V1alpha.User.UserType,
+    json_name: "userType",
+    enum: true,
+    deprecated: false
 end

@@ -816,12 +816,18 @@ defmodule Google.Devtools.Testing.V1.Shard do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :shard_index, 1, type: :int32, json_name: "shardIndex"
-  field :num_shards, 2, type: :int32, json_name: "numShards"
+  field :shard_index, 1, type: :int32, json_name: "shardIndex", deprecated: false
+  field :num_shards, 2, type: :int32, json_name: "numShards", deprecated: false
 
   field :test_targets_for_shard, 3,
     type: Google.Devtools.Testing.V1.TestTargetsForShard,
-    json_name: "testTargetsForShard"
+    json_name: "testTargetsForShard",
+    deprecated: false
+
+  field :estimated_shard_duration, 4,
+    type: Google.Protobuf.Duration,
+    json_name: "estimatedShardDuration",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Testing.V1.CreateTestMatrixRequest do
