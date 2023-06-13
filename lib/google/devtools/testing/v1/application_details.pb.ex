@@ -31,6 +31,21 @@ defmodule Google.Devtools.Testing.V1.ApkManifest do
     repeated: true,
     type: Google.Devtools.Testing.V1.UsesFeature,
     json_name: "usesFeature"
+
+  field :services, 12, repeated: true, type: Google.Devtools.Testing.V1.Service
+end
+
+defmodule Google.Devtools.Testing.V1.Service do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :intent_filter, 2,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.IntentFilter,
+    json_name: "intentFilter"
 end
 
 defmodule Google.Devtools.Testing.V1.IntentFilter do

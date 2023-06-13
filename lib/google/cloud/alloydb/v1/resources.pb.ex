@@ -1,13 +1,3 @@
-defmodule Google.Cloud.Alloydb.V1.DatabaseVersion do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :DATABASE_VERSION_UNSPECIFIED, 0
-  field :POSTGRES_13, 1
-  field :POSTGRES_14, 2
-end
-
 defmodule Google.Cloud.Alloydb.V1.InstanceView do
   @moduledoc false
 
@@ -16,6 +6,26 @@ defmodule Google.Cloud.Alloydb.V1.InstanceView do
   field :INSTANCE_VIEW_UNSPECIFIED, 0
   field :INSTANCE_VIEW_BASIC, 1
   field :INSTANCE_VIEW_FULL, 2
+end
+
+defmodule Google.Cloud.Alloydb.V1.ClusterView do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLUSTER_VIEW_UNSPECIFIED, 0
+  field :CLUSTER_VIEW_BASIC, 1
+  field :CLUSTER_VIEW_CONTINUOUS_BACKUP, 2
+end
+
+defmodule Google.Cloud.Alloydb.V1.DatabaseVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATABASE_VERSION_UNSPECIFIED, 0
+  field :POSTGRES_13, 1
+  field :POSTGRES_14, 2
 end
 
 defmodule Google.Cloud.Alloydb.V1.MigrationSource.MigrationSourceType do
@@ -46,6 +56,8 @@ defmodule Google.Cloud.Alloydb.V1.SslConfig.SslMode do
   field :SSL_MODE_ALLOW, 1
   field :SSL_MODE_REQUIRE, 2
   field :SSL_MODE_VERIFY_CA, 3
+  field :ALLOW_UNENCRYPTED_AND_ENCRYPTED, 4
+  field :ENCRYPTED_ONLY, 5
 end
 
 defmodule Google.Cloud.Alloydb.V1.SslConfig.CaSource do
@@ -154,6 +166,16 @@ defmodule Google.Cloud.Alloydb.V1.SupportedDatabaseFlag.ValueType do
   field :INTEGER, 2
   field :FLOAT, 3
   field :NONE, 4
+end
+
+defmodule Google.Cloud.Alloydb.V1.User.UserType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :USER_TYPE_UNSPECIFIED, 0
+  field :ALLOYDB_BUILT_IN, 1
+  field :ALLOYDB_IAM_USER, 2
 end
 
 defmodule Google.Cloud.Alloydb.V1.UserPassword do
@@ -303,6 +325,42 @@ defmodule Google.Cloud.Alloydb.V1.AutomatedBackupPolicy do
     map: true
 end
 
+defmodule Google.Cloud.Alloydb.V1.ContinuousBackupConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
+  field :recovery_window_days, 4, type: :int32, json_name: "recoveryWindowDays"
+
+  field :encryption_config, 3,
+    type: Google.Cloud.Alloydb.V1.EncryptionConfig,
+    json_name: "encryptionConfig"
+end
+
+defmodule Google.Cloud.Alloydb.V1.ContinuousBackupInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :encryption_info, 1,
+    type: Google.Cloud.Alloydb.V1.EncryptionInfo,
+    json_name: "encryptionInfo",
+    deprecated: false
+
+  field :enabled_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "enabledTime",
+    deprecated: false
+
+  field :schedule, 3, repeated: true, type: Google.Type.DayOfWeek, enum: true, deprecated: false
+
+  field :earliest_restorable_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "earliestRestorableTime",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.BackupSource do
   @moduledoc false
 
@@ -310,6 +368,19 @@ defmodule Google.Cloud.Alloydb.V1.BackupSource do
 
   field :backup_uid, 2, type: :string, json_name: "backupUid", deprecated: false
   field :backup_name, 1, type: :string, json_name: "backupName", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ContinuousBackupSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cluster, 1, type: :string, deprecated: false
+
+  field :point_in_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "pointInTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.Cluster.SecondaryConfig do
@@ -422,7 +493,10 @@ defmodule Google.Cloud.Alloydb.V1.Cluster do
     type: Google.Cloud.Alloydb.V1.AutomatedBackupPolicy,
     json_name: "automatedBackupPolicy"
 
-  field :ssl_config, 18, type: Google.Cloud.Alloydb.V1.SslConfig, json_name: "sslConfig"
+  field :ssl_config, 18,
+    type: Google.Cloud.Alloydb.V1.SslConfig,
+    json_name: "sslConfig",
+    deprecated: true
 
   field :encryption_config, 19,
     type: Google.Cloud.Alloydb.V1.EncryptionConfig,
@@ -432,6 +506,16 @@ defmodule Google.Cloud.Alloydb.V1.Cluster do
   field :encryption_info, 20,
     type: Google.Cloud.Alloydb.V1.EncryptionInfo,
     json_name: "encryptionInfo",
+    deprecated: false
+
+  field :continuous_backup_config, 27,
+    type: Google.Cloud.Alloydb.V1.ContinuousBackupConfig,
+    json_name: "continuousBackupConfig",
+    deprecated: false
+
+  field :continuous_backup_info, 28,
+    type: Google.Cloud.Alloydb.V1.ContinuousBackupInfo,
+    json_name: "continuousBackupInfo",
     deprecated: false
 
   field :secondary_config, 22,
@@ -722,4 +806,25 @@ defmodule Google.Cloud.Alloydb.V1.SupportedDatabaseFlag do
     enum: true
 
   field :requires_db_restart, 6, type: :bool, json_name: "requiresDbRestart"
+end
+
+defmodule Google.Cloud.Alloydb.V1.User do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :password, 2, type: :string, deprecated: false
+
+  field :database_roles, 4,
+    repeated: true,
+    type: :string,
+    json_name: "databaseRoles",
+    deprecated: false
+
+  field :user_type, 5,
+    type: Google.Cloud.Alloydb.V1.User.UserType,
+    json_name: "userType",
+    enum: true,
+    deprecated: false
 end

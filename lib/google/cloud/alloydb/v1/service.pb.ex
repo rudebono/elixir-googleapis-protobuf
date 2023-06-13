@@ -12,6 +12,15 @@ defmodule Google.Cloud.Alloydb.V1.BatchCreateInstanceStatus.State do
   field :ROLLED_BACK, 6
 end
 
+defmodule Google.Cloud.Alloydb.V1.InjectFaultRequest.FaultType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FAULT_TYPE_UNSPECIFIED, 0
+  field :STOP_VM, 1
+end
+
 defmodule Google.Cloud.Alloydb.V1.ListClustersRequest do
   @moduledoc false
 
@@ -40,6 +49,19 @@ defmodule Google.Cloud.Alloydb.V1.GetClusterRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :view, 2, type: Google.Cloud.Alloydb.V1.ClusterView, enum: true, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.CreateSecondaryClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
+  field :cluster, 3, type: Google.Cloud.Alloydb.V1.Cluster, deprecated: false
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 6, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.CreateClusterRequest do
@@ -82,6 +104,17 @@ defmodule Google.Cloud.Alloydb.V1.DeleteClusterRequest do
   field :force, 5, type: :bool, deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.PromoteClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.RestoreClusterRequest do
   @moduledoc false
 
@@ -92,6 +125,11 @@ defmodule Google.Cloud.Alloydb.V1.RestoreClusterRequest do
   field :backup_source, 4,
     type: Google.Cloud.Alloydb.V1.BackupSource,
     json_name: "backupSource",
+    oneof: 0
+
+  field :continuous_backup_source, 8,
+    type: Google.Cloud.Alloydb.V1.ContinuousBackupSource,
+    json_name: "continuousBackupSource",
     oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
@@ -133,6 +171,18 @@ defmodule Google.Cloud.Alloydb.V1.GetInstanceRequest do
 end
 
 defmodule Google.Cloud.Alloydb.V1.CreateInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
+  field :instance, 3, type: Google.Cloud.Alloydb.V1.Instance, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.CreateSecondaryInstanceRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -243,6 +293,22 @@ defmodule Google.Cloud.Alloydb.V1.FailoverInstanceRequest do
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.InjectFaultRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :fault_type, 1,
+    type: Google.Cloud.Alloydb.V1.InjectFaultRequest.FaultType,
+    json_name: "faultType",
+    enum: true,
+    deprecated: false
+
+  field :name, 2, type: :string, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.RestartInstanceRequest do
@@ -378,6 +444,74 @@ defmodule Google.Cloud.Alloydb.V1.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.ListUsersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ListUsersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :users, 1, repeated: true, type: Google.Cloud.Alloydb.V1.User
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Alloydb.V1.GetUserRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.CreateUserRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :user_id, 2, type: :string, json_name: "userId", deprecated: false
+  field :user, 3, type: Google.Cloud.Alloydb.V1.User, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpdateUserRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :user, 2, type: Google.Cloud.Alloydb.V1.User, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :allow_missing, 5, type: :bool, json_name: "allowMissing", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.DeleteUserRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   @moduledoc false
 
@@ -397,7 +531,13 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
 
   rpc :DeleteCluster, Google.Cloud.Alloydb.V1.DeleteClusterRequest, Google.Longrunning.Operation
 
+  rpc :PromoteCluster, Google.Cloud.Alloydb.V1.PromoteClusterRequest, Google.Longrunning.Operation
+
   rpc :RestoreCluster, Google.Cloud.Alloydb.V1.RestoreClusterRequest, Google.Longrunning.Operation
+
+  rpc :CreateSecondaryCluster,
+      Google.Cloud.Alloydb.V1.CreateSecondaryClusterRequest,
+      Google.Longrunning.Operation
 
   rpc :ListInstances,
       Google.Cloud.Alloydb.V1.ListInstancesRequest,
@@ -406,6 +546,10 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :GetInstance, Google.Cloud.Alloydb.V1.GetInstanceRequest, Google.Cloud.Alloydb.V1.Instance
 
   rpc :CreateInstance, Google.Cloud.Alloydb.V1.CreateInstanceRequest, Google.Longrunning.Operation
+
+  rpc :CreateSecondaryInstance,
+      Google.Cloud.Alloydb.V1.CreateSecondaryInstanceRequest,
+      Google.Longrunning.Operation
 
   rpc :BatchCreateInstances,
       Google.Cloud.Alloydb.V1.BatchCreateInstancesRequest,
@@ -418,6 +562,8 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :FailoverInstance,
       Google.Cloud.Alloydb.V1.FailoverInstanceRequest,
       Google.Longrunning.Operation
+
+  rpc :InjectFault, Google.Cloud.Alloydb.V1.InjectFaultRequest, Google.Longrunning.Operation
 
   rpc :RestartInstance,
       Google.Cloud.Alloydb.V1.RestartInstanceRequest,
@@ -438,6 +584,18 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :ListSupportedDatabaseFlags,
       Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsRequest,
       Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsResponse
+
+  rpc :ListUsers,
+      Google.Cloud.Alloydb.V1.ListUsersRequest,
+      Google.Cloud.Alloydb.V1.ListUsersResponse
+
+  rpc :GetUser, Google.Cloud.Alloydb.V1.GetUserRequest, Google.Cloud.Alloydb.V1.User
+
+  rpc :CreateUser, Google.Cloud.Alloydb.V1.CreateUserRequest, Google.Cloud.Alloydb.V1.User
+
+  rpc :UpdateUser, Google.Cloud.Alloydb.V1.UpdateUserRequest, Google.Cloud.Alloydb.V1.User
+
+  rpc :DeleteUser, Google.Cloud.Alloydb.V1.DeleteUserRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Stub do
