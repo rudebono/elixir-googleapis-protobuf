@@ -22,6 +22,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata.T
   field :CHECK, 4
   field :SAVE_SNAPSHOT, 5
   field :LOAD_SNAPSHOT, 6
+  field :DATABASE_FAILOVER, 7
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.OperationMetadata do

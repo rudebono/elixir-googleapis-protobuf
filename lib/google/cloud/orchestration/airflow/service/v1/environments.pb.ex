@@ -9,6 +9,15 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig.Enviro
   field :ENVIRONMENT_SIZE_LARGE, 3
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig.ResilienceMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESILIENCE_MODE_UNSPECIFIED, 0
+  field :HIGH_RESILIENCE, 1
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.NetworkingConfig.ConnectionType do
   @moduledoc false
 
@@ -99,6 +108,95 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.UpdateEnvironmentRequest
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ExecuteAirflowCommandRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+  field :command, 2, type: :string
+  field :subcommand, 3, type: :string
+  field :parameters, 4, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.ExecuteAirflowCommandResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :execution_id, 1, type: :string, json_name: "executionId"
+  field :pod, 2, type: :string
+  field :pod_namespace, 3, type: :string, json_name: "podNamespace"
+  field :error, 4, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.StopAirflowCommandRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+  field :execution_id, 2, type: :string, json_name: "executionId"
+  field :pod, 3, type: :string
+  field :pod_namespace, 4, type: :string, json_name: "podNamespace"
+  field :force, 5, type: :bool
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.StopAirflowCommandResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :is_done, 1, type: :bool, json_name: "isDone"
+  field :output, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+  field :execution_id, 2, type: :string, json_name: "executionId"
+  field :pod, 3, type: :string
+  field :pod_namespace, 4, type: :string, json_name: "podNamespace"
+  field :next_line_number, 5, type: :int32, json_name: "nextLineNumber"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse.Line do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :line_number, 1, type: :int32, json_name: "lineNumber"
+  field :content, 2, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse.ExitInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :exit_code, 1, type: :int32, json_name: "exitCode"
+  field :error, 2, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :output, 1,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse.Line
+
+  field :output_end, 2, type: :bool, json_name: "outputEnd"
+
+  field :exit_info, 3,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse.ExitInfo,
+    json_name: "exitInfo"
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.SaveSnapshotRequest do
   @moduledoc false
 
@@ -140,6 +238,38 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.LoadSnapshotResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseFailoverRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseFailoverResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.FetchDatabasePropertiesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.FetchDatabasePropertiesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :primary_gce_zone, 1, type: :string, json_name: "primaryGceZone"
+  field :secondary_gce_zone, 2, type: :string, json_name: "secondaryGceZone"
+  field :is_failover_replica_available, 3, type: :bool, json_name: "isFailoverReplicaAvailable"
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
@@ -210,6 +340,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig do
   field :recovery_config, 18,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.RecoveryConfig,
     json_name: "recoveryConfig",
+    deprecated: false
+
+  field :resilience_mode, 19,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.EnvironmentConfig.ResilienceMode,
+    json_name: "resilienceMode",
+    enum: true,
     deprecated: false
 end
 
@@ -668,6 +804,18 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do
       Google.Cloud.Orchestration.Airflow.Service.V1.DeleteEnvironmentRequest,
       Google.Longrunning.Operation
 
+  rpc :ExecuteAirflowCommand,
+      Google.Cloud.Orchestration.Airflow.Service.V1.ExecuteAirflowCommandRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1.ExecuteAirflowCommandResponse
+
+  rpc :StopAirflowCommand,
+      Google.Cloud.Orchestration.Airflow.Service.V1.StopAirflowCommandRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1.StopAirflowCommandResponse
+
+  rpc :PollAirflowCommand,
+      Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1.PollAirflowCommandResponse
+
   rpc :SaveSnapshot,
       Google.Cloud.Orchestration.Airflow.Service.V1.SaveSnapshotRequest,
       Google.Longrunning.Operation
@@ -675,6 +823,14 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do
   rpc :LoadSnapshot,
       Google.Cloud.Orchestration.Airflow.Service.V1.LoadSnapshotRequest,
       Google.Longrunning.Operation
+
+  rpc :DatabaseFailover,
+      Google.Cloud.Orchestration.Airflow.Service.V1.DatabaseFailoverRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchDatabaseProperties,
+      Google.Cloud.Orchestration.Airflow.Service.V1.FetchDatabasePropertiesRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1.FetchDatabasePropertiesResponse
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Stub do

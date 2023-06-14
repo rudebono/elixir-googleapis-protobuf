@@ -529,6 +529,11 @@ defmodule Google.Devtools.Testing.V1.RoboStartingIntent do
     json_name: "startActivity",
     oneof: 0
 
+  field :no_activity, 4,
+    type: Google.Devtools.Testing.V1.NoActivityIntent,
+    json_name: "noActivity",
+    oneof: 0
+
   field :timeout, 3, type: Google.Protobuf.Duration
 end
 
@@ -546,6 +551,12 @@ defmodule Google.Devtools.Testing.V1.StartActivityIntent do
   field :action, 2, type: :string
   field :uri, 3, type: :string
   field :categories, 4, repeated: true, type: :string
+end
+
+defmodule Google.Devtools.Testing.V1.NoActivityIntent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Devtools.Testing.V1.EnvironmentMatrix do
