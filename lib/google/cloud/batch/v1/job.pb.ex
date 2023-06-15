@@ -43,6 +43,16 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.ProvisioningModel do
   field :PREEMPTIBLE, 3
 end
 
+defmodule Google.Cloud.Batch.V1.TaskGroup.SchedulingPolicy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SCHEDULING_POLICY_UNSPECIFIED, 0
+  field :AS_SOON_AS_POSSIBLE, 1
+  field :IN_ORDER, 2
+end
+
 defmodule Google.Cloud.Batch.V1.Job.LabelsEntry do
   @moduledoc false
 
@@ -347,6 +357,11 @@ defmodule Google.Cloud.Batch.V1.TaskGroup do
 
   field :task_count, 4, type: :int64, json_name: "taskCount"
   field :parallelism, 5, type: :int64
+
+  field :scheduling_policy, 6,
+    type: Google.Cloud.Batch.V1.TaskGroup.SchedulingPolicy,
+    json_name: "schedulingPolicy",
+    enum: true
 
   field :task_environments, 9,
     repeated: true,
