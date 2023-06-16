@@ -10,6 +10,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplana
     json_name: "explanationSpec"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.BiasConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bias_slices, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec,
+    json_name: "biasSlices"
+
+  field :labels, 2, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
   @moduledoc false
 
@@ -37,4 +49,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
     json_name: "explanationSpecs"
 
   field :metadata, 11, type: Google.Protobuf.Value
+
+  field :bias_configs, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.BiasConfig,
+    json_name: "biasConfigs"
 end
