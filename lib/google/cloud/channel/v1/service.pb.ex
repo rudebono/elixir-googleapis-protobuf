@@ -423,6 +423,72 @@ defmodule Google.Cloud.Channel.V1.DeleteChannelPartnerRepricingConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Channel.V1.ListSkuGroupsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Channel.V1.ListSkuGroupBillableSkusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Channel.V1.ListSkuGroupsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sku_groups, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.SkuGroup,
+    json_name: "skuGroups"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Channel.V1.ListSkuGroupBillableSkusResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :billable_skus, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.BillableSku,
+    json_name: "billableSkus"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Channel.V1.SkuGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
+end
+
+defmodule Google.Cloud.Channel.V1.BillableSku do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sku, 1, type: :string
+  field :sku_display_name, 2, type: :string, json_name: "skuDisplayName"
+  field :service, 3, type: :string
+  field :service_display_name, 4, type: :string, json_name: "serviceDisplayName"
+end
+
 defmodule Google.Cloud.Channel.V1.CreateEntitlementRequest do
   @moduledoc false
 
@@ -966,6 +1032,14 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
   rpc :DeleteChannelPartnerRepricingConfig,
       Google.Cloud.Channel.V1.DeleteChannelPartnerRepricingConfigRequest,
       Google.Protobuf.Empty
+
+  rpc :ListSkuGroups,
+      Google.Cloud.Channel.V1.ListSkuGroupsRequest,
+      Google.Cloud.Channel.V1.ListSkuGroupsResponse
+
+  rpc :ListSkuGroupBillableSkus,
+      Google.Cloud.Channel.V1.ListSkuGroupBillableSkusRequest,
+      Google.Cloud.Channel.V1.ListSkuGroupBillableSkusResponse
 
   rpc :LookupOffer, Google.Cloud.Channel.V1.LookupOfferRequest, Google.Cloud.Channel.V1.Offer
 
