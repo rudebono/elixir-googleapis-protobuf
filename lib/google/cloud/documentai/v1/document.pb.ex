@@ -199,6 +199,28 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.Token.DetectedBreak do
     enum: true
 end
 
+defmodule Google.Cloud.Documentai.V1.Document.Page.Token.StyleInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :font_size, 1, type: :int32, json_name: "fontSize"
+  field :pixel_font_size, 2, type: :double, json_name: "pixelFontSize"
+  field :letter_spacing, 3, type: :double, json_name: "letterSpacing"
+  field :font_type, 4, type: :string, json_name: "fontType"
+  field :bold, 5, type: :bool
+  field :italic, 6, type: :bool
+  field :underlined, 7, type: :bool
+  field :strikeout, 8, type: :bool
+  field :subscript, 9, type: :bool
+  field :superscript, 10, type: :bool
+  field :smallcaps, 11, type: :bool
+  field :font_weight, 12, type: :int32, json_name: "fontWeight"
+  field :handwritten, 13, type: :bool
+  field :text_color, 14, type: Google.Type.Color, json_name: "textColor"
+  field :background_color, 15, type: Google.Type.Color, json_name: "backgroundColor"
+end
+
 defmodule Google.Cloud.Documentai.V1.Document.Page.Token do
   @moduledoc false
 
@@ -216,6 +238,10 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.Token do
     json_name: "detectedLanguages"
 
   field :provenance, 4, type: Google.Cloud.Documentai.V1.Document.Provenance, deprecated: true
+
+  field :style_info, 5,
+    type: Google.Cloud.Documentai.V1.Document.Page.Token.StyleInfo,
+    json_name: "styleInfo"
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.Page.Symbol do
@@ -290,7 +316,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.Table do
     type: Google.Cloud.Documentai.V1.Document.Page.DetectedLanguage,
     json_name: "detectedLanguages"
 
-  field :provenance, 5, type: Google.Cloud.Documentai.V1.Document.Provenance
+  field :provenance, 5, type: Google.Cloud.Documentai.V1.Document.Provenance, deprecated: true
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.Page.FormField do

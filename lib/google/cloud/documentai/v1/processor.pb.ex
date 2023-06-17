@@ -11,6 +11,7 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion.State do
   field :CREATING, 5
   field :DELETING, 6
   field :FAILED, 7
+  field :IMPORTING, 8
 end
 
 defmodule Google.Cloud.Documentai.V1.Processor.State do

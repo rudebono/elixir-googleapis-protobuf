@@ -14,10 +14,10 @@ defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :project_id, 2, type: :string, json_name: "projectId"
+  field :name, 1, type: :string, deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
   field :billing_account_name, 3, type: :string, json_name: "billingAccountName"
-  field :billing_enabled, 4, type: :bool, json_name: "billingEnabled"
+  field :billing_enabled, 4, type: :bool, json_name: "billingEnabled", deprecated: false
 end
 
 defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do

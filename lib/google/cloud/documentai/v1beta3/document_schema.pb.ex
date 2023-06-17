@@ -10,6 +10,22 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.Occ
   field :REQUIRED_MULTIPLE, 4
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.PropertyMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :inactive, 3, type: :bool
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.EntityTypeMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :inactive, 5, type: :bool
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.EnumValues do
   @moduledoc false
 
@@ -30,6 +46,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property do
     type: Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.OccurrenceType,
     json_name: "occurrenceType",
     enum: true
+
+  field :property_metadata, 5,
+    type: Google.Cloud.Documentai.V1beta3.PropertyMetadata,
+    json_name: "propertyMetadata"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType do
@@ -51,6 +71,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType do
   field :properties, 6,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property
+
+  field :entity_type_metadata, 11,
+    type: Google.Cloud.Documentai.V1beta3.EntityTypeMetadata,
+    json_name: "entityTypeMetadata"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.Metadata do
