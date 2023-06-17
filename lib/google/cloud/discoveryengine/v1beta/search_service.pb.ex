@@ -104,6 +104,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
   field :summary_result_count, 1, type: :int32, json_name: "summaryResultCount"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :max_extractive_answer_count, 1, type: :int32, json_name: "maxExtractiveAnswerCount"
+  field :max_extractive_segment_count, 2, type: :int32, json_name: "maxExtractiveSegmentCount"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
   @moduledoc false
 
@@ -116,6 +125,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
   field :summary_spec, 2,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec,
     json_name: "summarySpec"
+
+  field :extractive_content_spec, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
+    json_name: "extractiveContentSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
@@ -269,6 +283,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
 
   field :total_size, 3, type: :int32, json_name: "totalSize"
   field :attribution_token, 4, type: :string, json_name: "attributionToken"
+  field :redirect_uri, 12, type: :string, json_name: "redirectUri"
   field :next_page_token, 5, type: :string, json_name: "nextPageToken"
   field :corrected_query, 7, type: :string, json_name: "correctedQuery"
   field :summary, 9, type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary

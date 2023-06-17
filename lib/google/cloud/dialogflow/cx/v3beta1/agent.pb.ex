@@ -140,6 +140,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentRequest do
     deprecated: false
 
   field :environment, 5, type: :string, deprecated: false
+
+  field :include_bigquery_export_settings, 7,
+    type: :bool,
+    json_name: "includeBigqueryExportSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportAgentResponse do

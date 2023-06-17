@@ -24,6 +24,16 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessMetadata.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions.TrainingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRAINING_METHOD_UNSPECIFIED, 0
+  field :MODEL_BASED, 1
+  field :TEMPLATE_BASED, 2
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentRequest.Priority do
   @moduledoc false
 
@@ -501,10 +511,30 @@ defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.InputData
     json_name: "testDocuments"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :training_method, 3,
+    type:
+      Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions.TrainingMethod,
+    json_name: "trainingMethod",
+    enum: true
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :processor_flags, 0
+
+  field :custom_document_extraction_options, 5,
+    type:
+      Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions,
+    json_name: "customDocumentExtractionOptions",
+    oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
 

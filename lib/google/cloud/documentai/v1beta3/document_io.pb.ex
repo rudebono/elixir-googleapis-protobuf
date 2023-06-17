@@ -103,4 +103,5 @@ defmodule Google.Cloud.Documentai.V1beta3.OcrConfig do
   field :enable_image_quality_scores, 4, type: :bool, json_name: "enableImageQualityScores"
   field :advanced_ocr_options, 5, repeated: true, type: :string, json_name: "advancedOcrOptions"
   field :enable_symbol, 6, type: :bool, json_name: "enableSymbol"
+  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo"
 end
