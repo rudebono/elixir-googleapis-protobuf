@@ -94,6 +94,25 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateModelRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :model, 1, type: :string, deprecated: false
+  field :examples, 2, type: Google.Cloud.Aiplatform.V1.Examples
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.DeleteModelRequest do
   @moduledoc false
 
@@ -151,6 +170,12 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
     type: Google.Cloud.Aiplatform.V1.ExportModelRequest.OutputConfig,
     json_name: "outputConfig",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo do
@@ -371,6 +396,10 @@ defmodule Google.Cloud.Aiplatform.V1.ModelService.Service do
   rpc :UpdateModel,
       Google.Cloud.Aiplatform.V1.UpdateModelRequest,
       Google.Cloud.Aiplatform.V1.Model
+
+  rpc :UpdateExplanationDataset,
+      Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteModel, Google.Cloud.Aiplatform.V1.DeleteModelRequest, Google.Longrunning.Operation
 
