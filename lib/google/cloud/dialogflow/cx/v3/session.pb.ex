@@ -248,6 +248,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryParameters do
     deprecated: false
 
   field :channel, 15, type: :string
+
+  field :session_ttl, 16,
+    type: Google.Protobuf.Duration,
+    json_name: "sessionTtl",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.QueryInput do
