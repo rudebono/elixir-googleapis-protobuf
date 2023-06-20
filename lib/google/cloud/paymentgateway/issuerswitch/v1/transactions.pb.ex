@@ -93,6 +93,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.Transactio
   field :description, 5, type: :string, deprecated: false
   field :initiation_mode, 6, type: :string, json_name: "initiationMode", deprecated: false
   field :purpose_code, 7, type: :string, json_name: "purposeCode", deprecated: false
+  field :reference_category, 8, type: :string, json_name: "referenceCategory", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionErrorDetails do
@@ -271,42 +272,44 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction do
     json_name: "uniqueMandateNumber",
     deprecated: false
 
-  field :payer_vpa, 4, type: :string, json_name: "payerVpa", deprecated: false
-  field :payee_vpa, 5, type: :string, json_name: "payeeVpa", deprecated: false
-  field :payee_merchant_id, 6, type: :string, json_name: "payeeMerchantId", deprecated: false
-  field :payer_mobile_number, 7, type: :string, json_name: "payerMobileNumber", deprecated: false
-  field :payee_mobile_number, 8, type: :string, json_name: "payeeMobileNumber", deprecated: false
+  field :payer, 4,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant,
+    deprecated: false
 
-  field :recurrence_pattern, 9,
+  field :payee, 5,
+    type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant,
+    deprecated: false
+
+  field :recurrence_pattern, 6,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.RecurrencePatternType,
     json_name: "recurrencePattern",
     enum: true,
     deprecated: false
 
-  field :recurrence_rule_type, 10,
+  field :recurrence_rule_type, 7,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.RecurrenceRuleType,
     json_name: "recurrenceRuleType",
     enum: true,
     deprecated: false
 
-  field :recurrence_rule_value, 11,
+  field :recurrence_rule_value, 8,
     type: :int32,
     json_name: "recurrenceRuleValue",
     deprecated: false
 
-  field :start_date, 12, type: Google.Type.Date, json_name: "startDate", deprecated: false
-  field :end_date, 13, type: Google.Type.Date, json_name: "endDate", deprecated: false
-  field :revokable, 14, type: :bool, deprecated: false
-  field :amount, 15, type: :double, deprecated: false
+  field :start_date, 9, type: Google.Type.Date, json_name: "startDate", deprecated: false
+  field :end_date, 10, type: Google.Type.Date, json_name: "endDate", deprecated: false
+  field :revokable, 11, type: :bool, deprecated: false
+  field :amount, 12, type: :double, deprecated: false
 
-  field :amount_rule, 16,
+  field :amount_rule, 13,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.AmountRuleType,
     json_name: "amountRule",
     enum: true,
     deprecated: false
 
-  field :approval_reference, 17, type: :string, json_name: "approvalReference", deprecated: false
-  field :block_funds, 18, type: :bool, json_name: "blockFunds", deprecated: false
+  field :approval_reference, 14, type: :string, json_name: "approvalReference", deprecated: false
+  field :block_funds, 15, type: :bool, json_name: "blockFunds", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ComplaintTransaction do

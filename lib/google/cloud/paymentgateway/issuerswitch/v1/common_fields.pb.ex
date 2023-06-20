@@ -157,7 +157,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ifsc, 1, type: :string
-  field :account_type, 2, type: :string, json_name: "accountType"
+  field :account_type, 2, type: :string, json_name: "accountType", deprecated: false
   field :account_number, 3, type: :string, json_name: "accountNumber"
 end
 
