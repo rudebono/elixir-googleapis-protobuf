@@ -28,6 +28,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   field :ARTICLE_SUGGESTION, 1
   field :FAQ, 2
   field :SMART_REPLY, 3
+  field :DIALOGFLOW_ASSIST, 4
   field :CONVERSATION_SUMMARIZATION, 8
 end
 
@@ -204,6 +205,33 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
   field :cx_current_page, 11, type: :string, json_name: "cxCurrentPage"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answer_record, 1, type: :string, json_name: "answerRecord"
+
+  field :text_override, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.TextInput,
+    json_name: "textOverride"
+
+  field :parameters, 4, type: Google.Protobuf.Struct
+
+  field :intent_input, 6,
+    type: Google.Cloud.Dialogflow.V2beta1.IntentInput,
+    json_name: "intentInput"
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.IntentInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :intent, 1, type: :string, deprecated: false
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
   @moduledoc false
 
@@ -255,6 +283,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
   field :event_input, 8,
     type: Google.Cloud.Dialogflow.V2beta1.EventInput,
     json_name: "eventInput",
+    oneof: 0
+
+  field :suggestion_input, 12,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestionInput,
+    json_name: "suggestionInput",
     oneof: 0
 
   field :reply_audio_config, 5,
@@ -496,6 +529,38 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer do
   field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.IntentSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :intent, 0
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :intent_v2, 2, type: :string, json_name: "intentV2", oneof: 0
+  field :description, 5, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.DialogflowAssistAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :result, 0
+
+  field :query_result, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.QueryResult,
+    json_name: "queryResult",
+    oneof: 0
+
+  field :intent_suggestion, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.IntentSuggestion,
+    json_name: "intentSuggestion",
+    oneof: 0
+
+  field :answer_record, 2, type: :string, json_name: "answerRecord"
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
   @moduledoc false
 
@@ -518,6 +583,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
   field :suggest_smart_replies_response, 4,
     type: Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse,
     json_name: "suggestSmartRepliesResponse",
+    oneof: 0
+
+  field :suggest_dialogflow_assists_response, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestDialogflowAssistsResponse,
+    json_name: "suggestDialogflowAssistsResponse",
+    oneof: 0
+
+  field :suggest_entity_extraction_response, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestDialogflowAssistsResponse,
+    json_name: "suggestEntityExtractionResponse",
     oneof: 0
 end
 
@@ -605,6 +680,20 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
     json_name: "smartReplyAnswers"
 
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SuggestDialogflowAssistsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dialogflow_assist_answers, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.DialogflowAssistAnswer,
+    json_name: "dialogflowAssistAnswers"
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
