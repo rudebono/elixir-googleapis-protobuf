@@ -69,6 +69,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
+
+  field :session_ttl, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "sessionTtl",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings do
@@ -141,12 +146,25 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   field :documents, 1, repeated: true, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource.HumanAgentSideConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :agent, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
+
+  field :human_agent_side_config, 3,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource.HumanAgentSideConfig,
+    json_name: "humanAgentSideConfig"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings do

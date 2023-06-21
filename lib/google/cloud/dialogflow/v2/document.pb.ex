@@ -137,7 +137,8 @@ defmodule Google.Cloud.Dialogflow.V2.ImportDocumentsRequest do
   field :gcs_source, 2,
     type: Google.Cloud.Dialogflow.V2.GcsSources,
     json_name: "gcsSource",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :document_template, 3,
     type: Google.Cloud.Dialogflow.V2.ImportDocumentTemplate,

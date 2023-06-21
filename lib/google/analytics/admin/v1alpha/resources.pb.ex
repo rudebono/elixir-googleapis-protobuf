@@ -256,6 +256,17 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributio
   field :ADS_PREFERRED_LAST_CLICK, 7
 end
 
+defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.AdsWebConversionDataExportScope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ADS_WEB_CONVERSION_DATA_EXPORT_SCOPE_UNSPECIFIED, 0
+  field :NOT_SELECTED_YET, 1
+  field :CROSS_CHANNEL, 2
+  field :ADS_PREFERRED, 3
+end
+
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
 
@@ -338,7 +349,7 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream.WebStreamData do
 
   field :measurement_id, 1, type: :string, json_name: "measurementId", deprecated: false
   field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
-  field :default_uri, 3, type: :string, json_name: "defaultUri", deprecated: false
+  field :default_uri, 3, type: :string, json_name: "defaultUri"
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DataStream.AndroidAppStreamData do
@@ -919,6 +930,12 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings do
   field :reporting_attribution_model, 4,
     type: Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributionModel,
     json_name: "reportingAttributionModel",
+    enum: true,
+    deprecated: false
+
+  field :ads_web_conversion_data_export_scope, 5,
+    type: Google.Analytics.Admin.V1alpha.AttributionSettings.AdsWebConversionDataExportScope,
+    json_name: "adsWebConversionDataExportScope",
     enum: true,
     deprecated: false
 end

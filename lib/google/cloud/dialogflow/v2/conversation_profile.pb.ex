@@ -148,6 +148,11 @@ defmodule Google.Cloud.Dialogflow.V2.AutomatedAgentConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
+
+  field :session_ttl, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "sessionTtl",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionTriggerSettings do

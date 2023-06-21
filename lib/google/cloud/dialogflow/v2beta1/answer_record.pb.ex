@@ -76,6 +76,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
     json_name: "faqAnswer",
     oneof: 0,
     deprecated: false
+
+  field :dialogflow_assist_answer, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.DialogflowAssistAnswer,
+    json_name: "dialogflowAssistAnswer",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
