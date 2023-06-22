@@ -3,16 +3,17 @@ defmodule Google.Cloud.Essentialcontacts.V1.Contact do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :email, 2, type: :string
+  field :name, 1, type: :string, deprecated: false
+  field :email, 2, type: :string, deprecated: false
 
   field :notification_category_subscriptions, 3,
     repeated: true,
     type: Google.Cloud.Essentialcontacts.V1.NotificationCategory,
     json_name: "notificationCategorySubscriptions",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :language_tag, 4, type: :string, json_name: "languageTag"
+  field :language_tag, 4, type: :string, json_name: "languageTag", deprecated: false
 
   field :validation_state, 8,
     type: Google.Cloud.Essentialcontacts.V1.ValidationState,
