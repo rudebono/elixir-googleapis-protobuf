@@ -242,6 +242,49 @@ defmodule Google.Cloud.Deploy.V1.Stage do
   field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
   field :strategy, 5, type: Google.Cloud.Deploy.V1.Strategy, deprecated: false
+
+  field :deploy_parameters, 6,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.DeployParameters,
+    json_name: "deployParameters",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployParameters.ValuesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployParameters.MatchTargetLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.DeployParameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.DeployParameters.ValuesEntry,
+    map: true,
+    deprecated: false
+
+  field :match_target_labels, 2,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.DeployParameters.MatchTargetLabelsEntry,
+    json_name: "matchTargetLabels",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Strategy do
@@ -541,6 +584,15 @@ defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Deploy.V1.Target.DeployParametersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Deploy.V1.Target do
   @moduledoc false
 
@@ -597,6 +649,13 @@ defmodule Google.Cloud.Deploy.V1.Target do
     repeated: true,
     type: Google.Cloud.Deploy.V1.ExecutionConfig,
     json_name: "executionConfigs"
+
+  field :deploy_parameters, 20,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.Target.DeployParametersEntry,
+    json_name: "deployParameters",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
@@ -859,6 +918,15 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
   field :value, 2, type: Google.Cloud.Deploy.V1.Release.TargetRender
 end
 
+defmodule Google.Cloud.Deploy.V1.Release.DeployParametersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Deploy.V1.Release do
   @moduledoc false
 
@@ -934,6 +1002,13 @@ defmodule Google.Cloud.Deploy.V1.Release do
     deprecated: false
 
   field :condition, 24, type: Google.Cloud.Deploy.V1.Release.ReleaseCondition, deprecated: false
+
+  field :deploy_parameters, 25,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.Release.DeployParametersEntry,
+    json_name: "deployParameters",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
