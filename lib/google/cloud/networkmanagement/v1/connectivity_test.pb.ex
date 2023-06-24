@@ -71,6 +71,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Endpoint do
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
   field :instance, 3, type: :string
+  field :forwarding_rule, 13, type: :string, json_name: "forwardingRule"
   field :gke_master_cluster, 7, type: :string, json_name: "gkeMasterCluster"
   field :cloud_sql_instance, 8, type: :string, json_name: "cloudSqlInstance"
   field :network, 4, type: :string
