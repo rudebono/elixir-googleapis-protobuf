@@ -113,9 +113,10 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequ
   field :account_reference, 2,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference,
     json_name: "accountReference",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :mobile_number, 3, type: :string, json_name: "mobileNumber", oneof: 0
+  field :mobile_number, 3, type: :string, json_name: "mobileNumber", oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participants do

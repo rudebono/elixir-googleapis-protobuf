@@ -187,7 +187,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantInfo,
     json_name: "merchantInfo"
 
-  field :mobile, 3, type: :string, deprecated: false
+  field :mobile, 3, type: :string, deprecated: true
 
   field :details, 4,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.SettlementParticipant.SettlementDetails,
@@ -231,6 +231,8 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participant do
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.DeviceDetails,
     json_name: "deviceDetails",
     deprecated: false
+
+  field :mobile_number, 6, type: :string, json_name: "mobileNumber", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MerchantInfo do
