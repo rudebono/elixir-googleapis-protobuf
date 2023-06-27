@@ -34,6 +34,8 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
     type: Google.Bigtable.V2.ReadRowsRequest.RequestStatsView,
     json_name: "requestStatsView",
     enum: true
+
+  field :reversed, 7, type: :bool
 end
 
 defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
