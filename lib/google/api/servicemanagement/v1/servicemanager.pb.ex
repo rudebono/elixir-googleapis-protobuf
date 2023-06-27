@@ -173,6 +173,12 @@ defmodule Google.Api.Servicemanagement.V1.GetServiceRolloutRequest do
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
 end
 
+defmodule Google.Api.Servicemanagement.V1.EnableServiceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Api.Servicemanagement.V1.GenerateConfigReportRequest do
   @moduledoc false
 

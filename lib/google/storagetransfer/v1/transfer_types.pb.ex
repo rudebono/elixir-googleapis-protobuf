@@ -219,6 +219,7 @@ defmodule Google.Storagetransfer.V1.TransferOperation.Status do
   field :FAILED, 4
   field :ABORTED, 5
   field :QUEUED, 6
+  field :SUSPENDING, 7
 end
 
 defmodule Google.Storagetransfer.V1.GoogleServiceAccount do
@@ -289,6 +290,7 @@ defmodule Google.Storagetransfer.V1.AwsS3Data do
 
   field :path, 3, type: :string
   field :role_arn, 4, type: :string, json_name: "roleArn"
+  field :credentials_secret, 7, type: :string, json_name: "credentialsSecret", deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
@@ -305,6 +307,7 @@ defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
 
   field :container, 4, type: :string, deprecated: false
   field :path, 5, type: :string
+  field :credentials_secret, 7, type: :string, json_name: "credentialsSecret", deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.HttpData do
@@ -541,6 +544,22 @@ defmodule Google.Storagetransfer.V1.Schedule do
   field :repeat_interval, 5, type: Google.Protobuf.Duration, json_name: "repeatInterval"
 end
 
+defmodule Google.Storagetransfer.V1.EventStream do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :event_stream_start_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "eventStreamStartTime"
+
+  field :event_stream_expiration_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "eventStreamExpirationTime"
+end
+
 defmodule Google.Storagetransfer.V1.TransferJob do
   @moduledoc false
 
@@ -560,6 +579,7 @@ defmodule Google.Storagetransfer.V1.TransferJob do
     json_name: "loggingConfig"
 
   field :schedule, 5, type: Google.Storagetransfer.V1.Schedule
+  field :event_stream, 15, type: Google.Storagetransfer.V1.EventStream, json_name: "eventStream"
   field :status, 6, type: Google.Storagetransfer.V1.TransferJob.Status, enum: true
 
   field :creation_time, 7,
@@ -714,6 +734,10 @@ defmodule Google.Storagetransfer.V1.TransferOperation do
   field :notification_config, 10,
     type: Google.Storagetransfer.V1.NotificationConfig,
     json_name: "notificationConfig"
+
+  field :logging_config, 12,
+    type: Google.Storagetransfer.V1.LoggingConfig,
+    json_name: "loggingConfig"
 
   field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime"
