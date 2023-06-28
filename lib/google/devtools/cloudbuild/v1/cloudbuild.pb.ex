@@ -73,6 +73,17 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
   field :REJECTED, 2
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.RepositoryEventConfig.RepositoryType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REPOSITORY_TYPE_UNSPECIFIED, 0
+  field :GITHUB, 1
+  field :GITHUB_ENTERPRISE, 2
+  field :GITLAB_ENTERPRISE, 3
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.PubsubConfig.State do
   @moduledoc false
 
@@ -920,6 +931,33 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :included_files, 16, repeated: true, type: :string, json_name: "includedFiles"
   field :filter, 30, type: :string, deprecated: false
   field :service_account, 33, type: :string, json_name: "serviceAccount", deprecated: false
+
+  field :repository_event_config, 39,
+    type: Google.Devtools.Cloudbuild.V1.RepositoryEventConfig,
+    json_name: "repositoryEventConfig"
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.RepositoryEventConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :filter, 0
+
+  field :repository, 1, type: :string, deprecated: false
+
+  field :repository_type, 2,
+    type: Google.Devtools.Cloudbuild.V1.RepositoryEventConfig.RepositoryType,
+    json_name: "repositoryType",
+    enum: true,
+    deprecated: false
+
+  field :pull_request, 3,
+    type: Google.Devtools.Cloudbuild.V1.PullRequestFilter,
+    json_name: "pullRequest",
+    oneof: 0
+
+  field :push, 4, type: Google.Devtools.Cloudbuild.V1.PushFilter, oneof: 0
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GitHubEventsConfig do

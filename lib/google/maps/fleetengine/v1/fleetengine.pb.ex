@@ -187,46 +187,34 @@ defmodule Maps.Fleetengine.V1.VehicleLocation do
   field :num_stale_updates, 15,
     type: Google.Protobuf.Int32Value,
     json_name: "numStaleUpdates",
-    deprecated: false
+    deprecated: true
 
   field :raw_location, 16, type: Google.Type.LatLng, json_name: "rawLocation"
-
-  field :raw_location_time, 17,
-    type: Google.Protobuf.Timestamp,
-    json_name: "rawLocationTime",
-    deprecated: false
+  field :raw_location_time, 17, type: Google.Protobuf.Timestamp, json_name: "rawLocationTime"
 
   field :raw_location_sensor, 28,
     type: Maps.Fleetengine.V1.LocationSensor,
     json_name: "rawLocationSensor",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :raw_location_accuracy, 25,
     type: Google.Protobuf.DoubleValue,
-    json_name: "rawLocationAccuracy",
-    deprecated: false
+    json_name: "rawLocationAccuracy"
 
-  field :supplemental_location, 18,
-    type: Google.Type.LatLng,
-    json_name: "supplementalLocation",
-    deprecated: false
+  field :supplemental_location, 18, type: Google.Type.LatLng, json_name: "supplementalLocation"
 
   field :supplemental_location_time, 19,
     type: Google.Protobuf.Timestamp,
-    json_name: "supplementalLocationTime",
-    deprecated: false
+    json_name: "supplementalLocationTime"
 
   field :supplemental_location_sensor, 20,
     type: Maps.Fleetengine.V1.LocationSensor,
     json_name: "supplementalLocationSensor",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :supplemental_location_accuracy, 21,
     type: Google.Protobuf.DoubleValue,
-    json_name: "supplementalLocationAccuracy",
-    deprecated: false
+    json_name: "supplementalLocationAccuracy"
 
   field :road_snapped, 26, type: :bool, json_name: "roadSnapped", deprecated: true
 end

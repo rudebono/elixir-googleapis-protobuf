@@ -233,6 +233,7 @@ defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
     enum: true
 
   field :on_trip_only, 14, type: :bool, json_name: "onTripOnly"
+  field :viewport, 17, type: Google.Geo.Type.Viewport, deprecated: false
 end
 
 defmodule Maps.Fleetengine.V1.ListVehiclesResponse do
