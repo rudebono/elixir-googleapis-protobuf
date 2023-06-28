@@ -1,3 +1,17 @@
+defmodule Google.Cloud.Gkebackup.V1.BackupPlan.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CLUSTER_PENDING, 1
+  field :PROVISIONING, 2
+  field :READY, 3
+  field :FAILED, 4
+  field :DEACTIVATED, 5
+  field :DELETING, 6
+end
+
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.RetentionPolicy do
   @moduledoc false
 
@@ -95,4 +109,11 @@ defmodule Google.Cloud.Gkebackup.V1.BackupPlan do
     json_name: "backupConfig"
 
   field :protected_pod_count, 13, type: :int32, json_name: "protectedPodCount", deprecated: false
+
+  field :state, 14,
+    type: Google.Cloud.Gkebackup.V1.BackupPlan.State,
+    enum: true,
+    deprecated: false
+
+  field :state_reason, 15, type: :string, json_name: "stateReason", deprecated: false
 end

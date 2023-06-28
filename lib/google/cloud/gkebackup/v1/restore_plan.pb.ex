@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Gkebackup.V1.RestorePlan.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CLUSTER_PENDING, 1
+  field :READY, 2
+  field :FAILED, 3
+  field :DELETING, 4
+end
+
 defmodule Google.Cloud.Gkebackup.V1.RestorePlan.LabelsEntry do
   @moduledoc false
 
@@ -40,4 +52,11 @@ defmodule Google.Cloud.Gkebackup.V1.RestorePlan do
     map: true
 
   field :etag, 10, type: :string, deprecated: false
+
+  field :state, 11,
+    type: Google.Cloud.Gkebackup.V1.RestorePlan.State,
+    enum: true,
+    deprecated: false
+
+  field :state_reason, 12, type: :string, json_name: "stateReason", deprecated: false
 end
