@@ -10,6 +10,16 @@ defmodule Google.Devtools.Cloudbuild.V2.InstallationState.Stage do
   field :COMPLETE, 10
 end
 
+defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest.RefType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REF_TYPE_UNSPECIFIED, 0
+  field :TAG, 1
+  field :BRANCH, 2
+end
+
 defmodule Google.Devtools.Cloudbuild.V2.Connection.AnnotationsEntry do
   @moduledoc false
 
@@ -46,6 +56,11 @@ defmodule Google.Devtools.Cloudbuild.V2.Connection do
   field :github_enterprise_config, 6,
     type: Google.Devtools.Cloudbuild.V2.GitHubEnterpriseConfig,
     json_name: "githubEnterpriseConfig",
+    oneof: 0
+
+  field :gitlab_config, 7,
+    type: Google.Devtools.Cloudbuild.V2.GitLabConfig,
+    json_name: "gitlabConfig",
     oneof: 0
 
   field :installation_state, 12,
@@ -139,6 +154,36 @@ defmodule Google.Devtools.Cloudbuild.V2.GitHubEnterpriseConfig do
   field :server_version, 14, type: :string, json_name: "serverVersion", deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V2.GitLabConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :host_uri, 1, type: :string, json_name: "hostUri"
+
+  field :webhook_secret_secret_version, 2,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :read_authorizer_credential, 3,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "readAuthorizerCredential",
+    deprecated: false
+
+  field :authorizer_credential, 4,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "authorizerCredential",
+    deprecated: false
+
+  field :service_directory_config, 5,
+    type: Google.Devtools.Cloudbuild.V2.ServiceDirectoryConfig,
+    json_name: "serviceDirectoryConfig"
+
+  field :ssl_ca, 6, type: :string, json_name: "sslCa"
+  field :server_version, 7, type: :string, json_name: "serverVersion", deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V2.ServiceDirectoryConfig do
   @moduledoc false
 
@@ -180,6 +225,7 @@ defmodule Google.Devtools.Cloudbuild.V2.Repository do
     map: true
 
   field :etag, 7, type: :string
+  field :webhook_id, 8, type: :string, json_name: "webhookId", deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V2.OAuthCredential do
@@ -190,6 +236,19 @@ defmodule Google.Devtools.Cloudbuild.V2.OAuthCredential do
   field :oauth_token_secret_version, 1,
     type: :string,
     json_name: "oauthTokenSecretVersion",
+    deprecated: false
+
+  field :username, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V2.UserCredential do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_token_secret_version, 1,
+    type: :string,
+    json_name: "userTokenSecretVersion",
     deprecated: false
 
   field :username, 2, type: :string, deprecated: false
@@ -356,6 +415,37 @@ defmodule Google.Devtools.Cloudbuild.V2.FetchReadWriteTokenResponse do
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
 end
 
+defmodule Google.Devtools.Cloudbuild.V2.ProcessWebhookRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :body, 2, type: Google.Api.HttpBody
+  field :webhook_key, 3, type: :string, json_name: "webhookKey"
+end
+
+defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :repository, 1, type: :string, deprecated: false
+
+  field :ref_type, 2,
+    type: Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest.RefType,
+    json_name: "refType",
+    enum: true
+end
+
+defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ref_names, 1, repeated: true, type: :string, json_name: "refNames"
+end
+
 defmodule Google.Devtools.Cloudbuild.V2.RepositoryManager.Service do
   @moduledoc false
 
@@ -414,6 +504,10 @@ defmodule Google.Devtools.Cloudbuild.V2.RepositoryManager.Service do
   rpc :FetchLinkableRepositories,
       Google.Devtools.Cloudbuild.V2.FetchLinkableRepositoriesRequest,
       Google.Devtools.Cloudbuild.V2.FetchLinkableRepositoriesResponse
+
+  rpc :FetchGitRefs,
+      Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest,
+      Google.Devtools.Cloudbuild.V2.FetchGitRefsResponse
 end
 
 defmodule Google.Devtools.Cloudbuild.V2.RepositoryManager.Stub do

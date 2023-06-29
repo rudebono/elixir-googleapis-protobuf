@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Sql.V1beta4.BackupReencryptionConfig.BackupType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BACKUP_TYPE_UNSPECIFIED, 0
+  field :AUTOMATED, 1
+  field :ON_DEMAND, 2
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode do
   @moduledoc false
 
@@ -6,6 +16,17 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
   field :ONLINE, 1
   field :OFFLINE, 2
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED, 0
+  field :MIN, 1
+  field :OPTIMAL, 2
+  field :MAX, 3
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
@@ -308,6 +329,41 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
 end
 
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReencryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :body, 3, type: Google.Cloud.Sql.V1beta4.InstancesReencryptRequest
+end
+
+defmodule Google.Cloud.Sql.V1beta4.InstancesReencryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_reencryption_config, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.BackupReencryptionConfig,
+    json_name: "backupReencryptionConfig"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.BackupReencryptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_limit, 1, proto3_optional: true, type: :int32, json_name: "backupLimit"
+
+  field :backup_type, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.BackupReencryptionConfig.BackupType,
+    json_name: "backupType",
+    enum: true
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
   @moduledoc false
 
@@ -316,6 +372,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPerformDiskShrinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :body, 100, type: Google.Cloud.Sql.V1beta4.PerformDiskShrinkContext
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest do
@@ -367,6 +433,21 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
     type: Google.Cloud.Sql.V1beta4.MySqlSyncConfig,
     json_name: "mysqlSyncConfig",
     oneof: 0
+
+  field :sync_parallel_level, 7,
+    type: Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel,
+    json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetReplicaSizeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
@@ -387,6 +468,15 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
   field :max_results, 2, type: :uint32, json_name: "maxResults"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :project, 4, type: :string
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlOperationsCancelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation, 1, type: :string
+  field :project, 2, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
@@ -430,6 +520,15 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -551,6 +650,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
       Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest,
       Google.Cloud.Sql.V1beta4.Operation
 
+  rpc :Reencrypt,
+      Google.Cloud.Sql.V1beta4.SqlInstancesReencryptRequest,
+      Google.Cloud.Sql.V1beta4.Operation
+
   rpc :Get,
       Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest,
       Google.Cloud.Sql.V1beta4.DatabaseInstance
@@ -626,6 +729,18 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
   rpc :StartExternalSync,
       Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest,
       Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :PerformDiskShrink,
+      Google.Cloud.Sql.V1beta4.SqlInstancesPerformDiskShrinkRequest,
+      Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :GetDiskShrinkConfig,
+      Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigRequest,
+      Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigResponse
+
+  rpc :ResetReplicaSize,
+      Google.Cloud.Sql.V1beta4.SqlInstancesResetReplicaSizeRequest,
+      Google.Cloud.Sql.V1beta4.Operation
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Stub do
@@ -646,6 +761,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsService.Service do
   rpc :List,
       Google.Cloud.Sql.V1beta4.SqlOperationsListRequest,
       Google.Cloud.Sql.V1beta4.OperationsListResponse
+
+  rpc :Cancel, Google.Cloud.Sql.V1beta4.SqlOperationsCancelRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsService.Stub do

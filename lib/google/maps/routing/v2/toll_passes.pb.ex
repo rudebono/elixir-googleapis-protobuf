@@ -62,6 +62,7 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :US_MI_BCPASS, 94
   field :US_MI_GROSSE_ILE_TOLL_BRIDGE_PASS_TAG, 37
   field :US_MI_IQ_PROX_CARD, 38
+  field :US_MI_IQ_TAG, 95
   field :US_MI_MACKINAC_BRIDGE_MAC_PASS, 39
   field :US_MI_NEXPRESS_TOLL, 40
   field :US_MN_EZPASSMN, 41
@@ -77,6 +78,7 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :US_PA_EZPASSPA, 45
   field :US_RI_EZPASSRI, 46
   field :US_SC_PALPASS, 47
+  field :US_TX_AVI_TAG, 97
   field :US_TX_BANCPASS, 48
   field :US_TX_DEL_RIO_PASS, 49
   field :US_TX_EFAST_PASS, 50
@@ -84,6 +86,7 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :US_TX_EPTOLL, 52
   field :US_TX_EZ_CROSS, 53
   field :US_TX_EZTAG, 54
+  field :US_TX_FUEGO_TAG, 96
   field :US_TX_LAREDO_TRADE_TAG, 55
   field :US_TX_PLUSPASS, 56
   field :US_TX_TOLLTAG, 57

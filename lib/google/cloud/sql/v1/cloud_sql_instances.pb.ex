@@ -21,6 +21,16 @@ defmodule Google.Cloud.Sql.V1.SqlSuspensionReason do
   field :KMS_KEY_ISSUE, 5
 end
 
+defmodule Google.Cloud.Sql.V1.BackupReencryptionConfig.BackupType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BACKUP_TYPE_UNSPECIFIED, 0
+  field :AUTOMATED, 1
+  field :ON_DEMAND, 2
+end
+
 defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode do
   @moduledoc false
 
@@ -29,6 +39,17 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.Exte
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
   field :ONLINE, 1
   field :OFFLINE, 2
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED, 0
+  field :MIN, 1
+  field :OPTIMAL, 2
+  field :MAX, 3
 end
 
 defmodule Google.Cloud.Sql.V1.DatabaseInstance.SqlInstanceState do
@@ -98,6 +119,14 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :PRIMARY_ALREADY_SETUP, 23
   field :UNSUPPORTED_BINLOG_FORMAT, 24
   field :BINLOG_RETENTION_SETTING, 25
+  field :UNSUPPORTED_STORAGE_ENGINE, 26
+  field :LIMITED_SUPPORT_TABLES, 27
+  field :EXISTING_DATA_IN_REPLICA, 28
+  field :MISSING_OPTIONAL_PRIVILEGES, 29
+  field :RISKY_BACKUP_ADMIN_PRIVILEGE, 30
+  field :INSUFFICIENT_GCS_PERMISSIONS, 31
+  field :INVALID_FILE_INFO, 32
+  field :UNSUPPORTED_DATABASE_SETTINGS, 33
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
@@ -291,6 +320,16 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesTruncateLogRequest do
   field :body, 100, type: Google.Cloud.Sql.V1.InstancesTruncateLogRequest
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesPerformDiskShrinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :body, 100, type: Google.Cloud.Sql.V1.PerformDiskShrinkContext
+end
+
 defmodule Google.Cloud.Sql.V1.SqlInstancesUpdateRequest do
   @moduledoc false
 
@@ -309,6 +348,50 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesRescheduleMaintenanceRequest do
   field :instance, 1, type: :string
   field :project, 2, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1.SqlInstancesRescheduleMaintenanceRequestBody
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesReencryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :body, 3, type: Google.Cloud.Sql.V1.InstancesReencryptRequest
+end
+
+defmodule Google.Cloud.Sql.V1.InstancesReencryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_reencryption_config, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.BackupReencryptionConfig,
+    json_name: "backupReencryptionConfig"
+end
+
+defmodule Google.Cloud.Sql.V1.BackupReencryptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_limit, 1, proto3_optional: true, type: :int32, json_name: "backupLimit"
+
+  field :backup_type, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.BackupReencryptionConfig.BackupType,
+    json_name: "backupType",
+    enum: true
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesGetDiskShrinkConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest do
@@ -360,6 +443,21 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest do
     type: Google.Cloud.Sql.V1.MySqlSyncConfig,
     json_name: "mysqlSyncConfig",
     oneof: 0
+
+  field :sync_parallel_level, 7,
+    type: Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel,
+    json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesResetReplicaSizeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesCreateEphemeralCertRequest do
@@ -486,6 +584,16 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsResponse do
   field :warnings, 3, repeated: true, type: Google.Cloud.Sql.V1.SqlExternalSyncSettingError
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesGetDiskShrinkConfigResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+  field :minimal_target_size_gb, 2, type: :int64, json_name: "minimalTargetSizeGb"
+  field :message, 3, type: :string
+end
+
 defmodule Google.Cloud.Sql.V1.CloneContext do
   @moduledoc false
 
@@ -500,6 +608,8 @@ defmodule Google.Cloud.Sql.V1.CloneContext do
     json_name: "binLogCoordinates"
 
   field :point_in_time, 5, type: Google.Protobuf.Timestamp, json_name: "pointInTime"
+  field :allocated_ip_range, 6, type: :string, json_name: "allocatedIpRange"
+  field :database_names, 9, repeated: true, type: :string, json_name: "databaseNames"
 end
 
 defmodule Google.Cloud.Sql.V1.BinLogCoordinates do
@@ -645,6 +755,11 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
 
   field :satisfies_pzs, 35, type: Google.Protobuf.BoolValue, json_name: "satisfiesPzs"
 
+  field :database_installed_version, 40,
+    type: :string,
+    json_name: "databaseInstalledVersion",
+    deprecated: false
+
   field :out_of_disk_report, 38,
     proto3_optional: true,
     type: Google.Cloud.Sql.V1.DatabaseInstance.SqlOutOfDiskReport,
@@ -654,6 +769,14 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :available_maintenance_versions, 41,
+    repeated: true,
+    type: :string,
+    json_name: "availableMaintenanceVersions",
+    deprecated: false
+
+  field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesRescheduleMaintenanceRequestBody.Reschedule do
@@ -809,6 +932,8 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
 
   rpc :Failover, Google.Cloud.Sql.V1.SqlInstancesFailoverRequest, Google.Cloud.Sql.V1.Operation
 
+  rpc :Reencrypt, Google.Cloud.Sql.V1.SqlInstancesReencryptRequest, Google.Cloud.Sql.V1.Operation
+
   rpc :Get, Google.Cloud.Sql.V1.SqlInstancesGetRequest, Google.Cloud.Sql.V1.DatabaseInstance
 
   rpc :Import, Google.Cloud.Sql.V1.SqlInstancesImportRequest, Google.Cloud.Sql.V1.Operation
@@ -871,6 +996,18 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
 
   rpc :StartExternalSync,
       Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest,
+      Google.Cloud.Sql.V1.Operation
+
+  rpc :PerformDiskShrink,
+      Google.Cloud.Sql.V1.SqlInstancesPerformDiskShrinkRequest,
+      Google.Cloud.Sql.V1.Operation
+
+  rpc :GetDiskShrinkConfig,
+      Google.Cloud.Sql.V1.SqlInstancesGetDiskShrinkConfigRequest,
+      Google.Cloud.Sql.V1.SqlInstancesGetDiskShrinkConfigResponse
+
+  rpc :ResetReplicaSize,
+      Google.Cloud.Sql.V1.SqlInstancesResetReplicaSizeRequest,
       Google.Cloud.Sql.V1.Operation
 end
 

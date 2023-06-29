@@ -65,8 +65,8 @@ defmodule Google.Ai.Generativelanguage.V1beta2.Example do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :input, 1, type: Google.Ai.Generativelanguage.V1beta2.Message
-  field :output, 2, type: Google.Ai.Generativelanguage.V1beta2.Message
+  field :input, 1, type: Google.Ai.Generativelanguage.V1beta2.Message, deprecated: false
+  field :output, 2, type: Google.Ai.Generativelanguage.V1beta2.Message, deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta2.CountMessageTokensRequest do

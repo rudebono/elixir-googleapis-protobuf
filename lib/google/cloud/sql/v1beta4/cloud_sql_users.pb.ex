@@ -8,6 +8,17 @@ defmodule Google.Cloud.Sql.V1beta4.User.SqlUserType do
   field :CLOUD_IAM_SERVICE_ACCOUNT, 2
 end
 
+defmodule Google.Cloud.Sql.V1beta4.User.DualPasswordType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DUAL_PASSWORD_TYPE_UNSPECIFIED, 0
+  field :NO_MODIFY_DUAL_PASSWORD, 1
+  field :NO_DUAL_PASSWORD, 2
+  field :DUAL_PASSWORD, 3
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlUsersDeleteRequest do
   @moduledoc false
 
@@ -17,6 +28,17 @@ defmodule Google.Cloud.Sql.V1beta4.SqlUsersDeleteRequest do
   field :instance, 2, type: :string
   field :name, 3, type: :string
   field :project, 4, type: :string
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlUsersGetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :name, 2, type: :string
+  field :project, 3, type: :string
+  field :host, 4, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlUsersInsertRequest do
@@ -63,6 +85,7 @@ defmodule Google.Cloud.Sql.V1beta4.UserPasswordValidationPolicy do
 
   field :enable_failed_attempts_check, 3, type: :bool, json_name: "enableFailedAttemptsCheck"
   field :status, 4, type: Google.Cloud.Sql.V1beta4.PasswordStatus, deprecated: false
+  field :enable_password_verification, 5, type: :bool, json_name: "enablePasswordVerification"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.PasswordStatus do
@@ -101,6 +124,12 @@ defmodule Google.Cloud.Sql.V1beta4.User do
   field :password_policy, 12,
     type: Google.Cloud.Sql.V1beta4.UserPasswordValidationPolicy,
     json_name: "passwordPolicy"
+
+  field :dual_password_type, 13,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.User.DualPasswordType,
+    json_name: "dualPasswordType",
+    enum: true
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlServerUserDetails do
@@ -119,7 +148,7 @@ defmodule Google.Cloud.Sql.V1beta4.UsersListResponse do
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.User
-  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken", deprecated: true
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlUsersService.Service do
@@ -130,6 +159,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlUsersService.Service do
     protoc_gen_elixir_version: "0.12.0"
 
   rpc :Delete, Google.Cloud.Sql.V1beta4.SqlUsersDeleteRequest, Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :Get, Google.Cloud.Sql.V1beta4.SqlUsersGetRequest, Google.Cloud.Sql.V1beta4.User
 
   rpc :Insert, Google.Cloud.Sql.V1beta4.SqlUsersInsertRequest, Google.Cloud.Sql.V1beta4.Operation
 

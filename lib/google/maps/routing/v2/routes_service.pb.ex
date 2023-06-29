@@ -26,6 +26,7 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation do
   field :TOLLS, 1
   field :FUEL_CONSUMPTION, 2
   field :TRAFFIC_ON_POLYLINE, 3
+  field :HTML_FORMATTED_NAVIGATION_INSTRUCTIONS, 4
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation do
@@ -79,6 +80,11 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
     json_name: "departureTime",
     deprecated: false
 
+  field :arrival_time, 19,
+    type: Google.Protobuf.Timestamp,
+    json_name: "arrivalTime",
+    deprecated: false
+
   field :compute_alternative_routes, 8,
     type: :bool,
     json_name: "computeAlternativeRoutes",
@@ -93,6 +99,11 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
   field :region_code, 16, type: :string, json_name: "regionCode", deprecated: false
   field :units, 11, type: Google.Maps.Routing.V2.Units, enum: true, deprecated: false
 
+  field :optimize_waypoint_order, 13,
+    type: :bool,
+    json_name: "optimizeWaypointOrder",
+    deprecated: false
+
   field :requested_reference_routes, 14,
     repeated: true,
     type: Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute,
@@ -105,6 +116,17 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest do
     type: Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation,
     json_name: "extraComputations",
     enum: true,
+    deprecated: false
+
+  field :traffic_model, 18,
+    type: Google.Maps.Routing.V2.TrafficModel,
+    json_name: "trafficModel",
+    enum: true,
+    deprecated: false
+
+  field :transit_preferences, 20,
+    type: Google.Maps.Routing.V2.TransitPreferences,
+    json_name: "transitPreferences",
     deprecated: false
 end
 
@@ -153,6 +175,11 @@ defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
     json_name: "departureTime",
     deprecated: false
 
+  field :arrival_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "arrivalTime",
+    deprecated: false
+
   field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
   field :region_code, 9, type: :string, json_name: "regionCode", deprecated: false
 
@@ -161,6 +188,17 @@ defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
     type: Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation,
     json_name: "extraComputations",
     enum: true,
+    deprecated: false
+
+  field :traffic_model, 10,
+    type: Google.Maps.Routing.V2.TrafficModel,
+    json_name: "trafficModel",
+    enum: true,
+    deprecated: false
+
+  field :transit_preferences, 12,
+    type: Google.Maps.Routing.V2.TransitPreferences,
+    json_name: "transitPreferences",
     deprecated: false
 end
 
@@ -185,6 +223,17 @@ defmodule Google.Maps.Routing.V2.RouteMatrixDestination do
   field :waypoint, 1, type: Google.Maps.Routing.V2.Waypoint, deprecated: false
 end
 
+defmodule Google.Maps.Routing.V2.RouteMatrixElement.LocalizedValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :distance, 1, type: Google.Type.LocalizedText
+  field :duration, 2, type: Google.Type.LocalizedText
+  field :static_duration, 3, type: Google.Type.LocalizedText, json_name: "staticDuration"
+  field :transit_fare, 4, type: Google.Type.LocalizedText, json_name: "transitFare"
+end
+
 defmodule Google.Maps.Routing.V2.RouteMatrixElement do
   @moduledoc false
 
@@ -203,6 +252,10 @@ defmodule Google.Maps.Routing.V2.RouteMatrixElement do
     json_name: "travelAdvisory"
 
   field :fallback_info, 8, type: Google.Maps.Routing.V2.FallbackInfo, json_name: "fallbackInfo"
+
+  field :localized_values, 10,
+    type: Google.Maps.Routing.V2.RouteMatrixElement.LocalizedValues,
+    json_name: "localizedValues"
 end
 
 defmodule Google.Maps.Routing.V2.Routes.Service do

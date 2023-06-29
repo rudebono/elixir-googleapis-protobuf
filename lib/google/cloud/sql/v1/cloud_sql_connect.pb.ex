@@ -32,6 +32,8 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
     type: Google.Cloud.Sql.V1.SqlBackendType,
     json_name: "backendType",
     enum: true
+
+  field :dns_name, 34, type: :string, json_name: "dnsName"
 end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
@@ -44,6 +46,11 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
   field :public_key, 3, type: :string, json_name: "publicKey"
   field :access_token, 4, type: :string, json_name: "accessToken", deprecated: false
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", deprecated: false
+
+  field :valid_duration, 12,
+    type: Google.Protobuf.Duration,
+    json_name: "validDuration",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertResponse do
