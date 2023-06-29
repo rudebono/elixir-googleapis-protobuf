@@ -107,6 +107,8 @@ defmodule Google.Cloud.Sql.V1.BackupRun do
     type: Google.Cloud.Sql.V1.SqlBackupKind,
     json_name: "backupKind",
     enum: true
+
+  field :time_zone, 23, type: :string, json_name: "timeZone"
 end
 
 defmodule Google.Cloud.Sql.V1.BackupRunsListResponse do

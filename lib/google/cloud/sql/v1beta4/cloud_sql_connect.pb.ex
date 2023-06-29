@@ -32,6 +32,8 @@ defmodule Google.Cloud.Sql.V1beta4.ConnectSettings do
     type: Google.Cloud.Sql.V1beta4.SqlBackendType,
     json_name: "backendType",
     enum: true
+
+  field :dns_name, 34, type: :string, json_name: "dnsName"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.GenerateEphemeralCertRequest do

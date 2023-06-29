@@ -28,6 +28,15 @@ defmodule Google.Cloud.Sql.V1.OperationsListResponse do
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Sql.V1.SqlOperationsCancelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation, 1, type: :string
+  field :project, 2, type: :string
+end
+
 defmodule Google.Cloud.Sql.V1.SqlOperationsService.Service do
   @moduledoc false
 
@@ -40,6 +49,8 @@ defmodule Google.Cloud.Sql.V1.SqlOperationsService.Service do
   rpc :List,
       Google.Cloud.Sql.V1.SqlOperationsListRequest,
       Google.Cloud.Sql.V1.OperationsListResponse
+
+  rpc :Cancel, Google.Cloud.Sql.V1.SqlOperationsCancelRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Sql.V1.SqlOperationsService.Stub do

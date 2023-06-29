@@ -9,6 +9,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlFileType do
   field :BAK, 4
 end
 
+defmodule Google.Cloud.Sql.V1beta4.BakType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BAK_TYPE_UNSPECIFIED, 0
+  field :FULL, 1
+  field :DIFF, 2
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunStatus do
   @moduledoc false
 
@@ -90,25 +100,38 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   field :MYSQL_5_5, 3
   field :MYSQL_5_6, 5
   field :MYSQL_5_7, 6
-  field :POSTGRES_9_6, 9
-  field :POSTGRES_11, 10
   field :SQLSERVER_2017_STANDARD, 11
   field :SQLSERVER_2017_ENTERPRISE, 14
   field :SQLSERVER_2017_EXPRESS, 15
   field :SQLSERVER_2017_WEB, 16
+  field :POSTGRES_9_6, 9
   field :POSTGRES_10, 18
+  field :POSTGRES_11, 10
   field :POSTGRES_12, 19
+  field :POSTGRES_13, 23
+  field :POSTGRES_14, 110
+  field :POSTGRES_15, 172
   field :MYSQL_8_0, 20
   field :MYSQL_8_0_18, 41
   field :MYSQL_8_0_26, 85
   field :MYSQL_8_0_27, 111
   field :MYSQL_8_0_28, 132
-  field :POSTGRES_13, 23
-  field :POSTGRES_14, 110
+  field :MYSQL_8_0_29, 148
+  field :MYSQL_8_0_30, 174
+  field :MYSQL_8_0_31, 197
+  field :MYSQL_8_0_32, 213
+  field :MYSQL_8_0_33, 238
+  field :MYSQL_8_0_34, 239
+  field :MYSQL_8_0_35, 240
+  field :MYSQL_8_0_36, 241
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28
   field :SQLSERVER_2019_WEB, 29
+  field :SQLSERVER_2022_STANDARD, 199
+  field :SQLSERVER_2022_ENTERPRISE, 200
+  field :SQLSERVER_2022_EXPRESS, 201
+  field :SQLSERVER_2022_WEB, 202
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlSuspensionReason do
@@ -196,6 +219,7 @@ defmodule Google.Cloud.Sql.V1beta4.ApiWarning.SqlApiWarningCode do
 
   field :SQL_API_WARNING_CODE_UNSPECIFIED, 0
   field :REGION_UNREACHABLE, 1
+  field :MAX_RESULTS_EXCEEDS_LIMIT, 2
 end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRetentionSettings.RetentionUnit do
@@ -264,6 +288,13 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :UNSUPPORTED_BINLOG_FORMAT, 24
   field :BINLOG_RETENTION_SETTING, 25
   field :UNSUPPORTED_STORAGE_ENGINE, 26
+  field :LIMITED_SUPPORT_TABLES, 27
+  field :EXISTING_DATA_IN_REPLICA, 28
+  field :MISSING_OPTIONAL_PRIVILEGES, 29
+  field :RISKY_BACKUP_ADMIN_PRIVILEGE, 30
+  field :INSUFFICIENT_GCS_PERMISSIONS, 31
+  field :INVALID_FILE_INFO, 32
+  field :UNSUPPORTED_DATABASE_SETTINGS, 33
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
@@ -306,6 +337,10 @@ defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
   field :CREATE_CLONE, 33
   field :RESCHEDULE_MAINTENANCE, 34
   field :START_EXTERNAL_SYNC, 35
+  field :LOG_CLEANUP, 36
+  field :AUTO_RESTART, 37
+  field :REENCRYPT, 38
+  field :SWITCHOVER, 39
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationStatus do
@@ -337,6 +372,26 @@ defmodule Google.Cloud.Sql.V1beta4.Settings.SqlActivationPolicy do
   field :ALWAYS, 1
   field :NEVER, 2
   field :ON_DEMAND, 3
+end
+
+defmodule Google.Cloud.Sql.V1beta4.Settings.Edition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EDITION_UNSPECIFIED, 0
+  field :ENTERPRISE, 2
+  field :ENTERPRISE_PLUS, 3
+end
+
+defmodule Google.Cloud.Sql.V1beta4.Settings.ConnectorEnforcement do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONNECTOR_ENFORCEMENT_UNSPECIFIED, 0
+  field :NOT_REQUIRED, 1
+  field :REQUIRED, 2
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequestBody.RescheduleType do
@@ -444,6 +499,8 @@ defmodule Google.Cloud.Sql.V1beta4.BackupRun do
     type: Google.Cloud.Sql.V1beta4.SqlBackupKind,
     json_name: "backupKind",
     enum: true
+
+  field :time_zone, 23, type: :string, json_name: "timeZone"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRunsListResponse do
@@ -490,6 +547,7 @@ defmodule Google.Cloud.Sql.V1beta4.CloneContext do
 
   field :point_in_time, 5, type: Google.Protobuf.Timestamp, json_name: "pointInTime"
   field :allocated_ip_range, 6, type: :string, json_name: "allocatedIpRange"
+  field :database_names, 9, repeated: true, type: :string, json_name: "databaseNames"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Database do
@@ -702,7 +760,8 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
   field :available_maintenance_versions, 41,
     repeated: true,
     type: :string,
-    json_name: "availableMaintenanceVersions"
+    json_name: "availableMaintenanceVersions",
+    deprecated: false
 
   field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
 end
@@ -794,6 +853,18 @@ defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlExportOptions do
     json_name: "mysqlExportOptions"
 end
 
+defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlBakExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :striped, 1, type: Google.Protobuf.BoolValue
+  field :stripe_count, 2, type: Google.Protobuf.Int32Value, json_name: "stripeCount"
+  field :bak_type, 4, type: Google.Cloud.Sql.V1beta4.BakType, json_name: "bakType", enum: true
+  field :copy_only, 5, type: Google.Protobuf.BoolValue, json_name: "copyOnly", deprecated: true
+  field :differential_base, 6, type: Google.Protobuf.BoolValue, json_name: "differentialBase"
+end
+
 defmodule Google.Cloud.Sql.V1beta4.ExportContext do
   @moduledoc false
 
@@ -817,6 +888,10 @@ defmodule Google.Cloud.Sql.V1beta4.ExportContext do
     enum: true
 
   field :offload, 8, type: Google.Protobuf.BoolValue
+
+  field :bak_export_options, 9,
+    type: Google.Cloud.Sql.V1beta4.ExportContext.SqlBakExportOptions,
+    json_name: "bakExportOptions"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.FailoverContext do
@@ -891,6 +966,11 @@ defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions do
   field :encryption_options, 1,
     type: Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions.EncryptionOptions,
     json_name: "encryptionOptions"
+
+  field :striped, 2, type: Google.Protobuf.BoolValue
+  field :no_recovery, 4, type: Google.Protobuf.BoolValue, json_name: "noRecovery"
+  field :recovery_only, 5, type: Google.Protobuf.BoolValue, json_name: "recoveryOnly"
+  field :bak_type, 6, type: Google.Cloud.Sql.V1beta4.BakType, json_name: "bakType", enum: true
 end
 
 defmodule Google.Cloud.Sql.V1beta4.ImportContext do
@@ -1028,6 +1108,24 @@ defmodule Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest do
     json_name: "truncateLogContext"
 end
 
+defmodule Google.Cloud.Sql.V1beta4.PerformDiskShrinkContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_size_gb, 1, type: :int64, json_name: "targetSizeGb"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+  field :minimal_target_size_gb, 2, type: :int64, json_name: "minimalTargetSizeGb"
+  field :message, 3, type: :string
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsResponse do
   @moduledoc false
 
@@ -1067,6 +1165,10 @@ defmodule Google.Cloud.Sql.V1beta4.IpConfiguration do
     json_name: "authorizedNetworks"
 
   field :allocated_ip_range, 6, type: :string, json_name: "allocatedIpRange"
+
+  field :enable_private_path_for_google_cloud_services, 7,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enablePrivatePathForGoogleCloudServices"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpMapping do
@@ -1327,6 +1429,14 @@ defmodule Google.Cloud.Sql.V1beta4.RotateServerCaContext do
   field :next_version, 2, type: :string, json_name: "nextVersion"
 end
 
+defmodule Google.Cloud.Sql.V1beta4.DataCacheConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_cache_enabled, 1, type: :bool, json_name: "dataCacheEnabled"
+end
+
 defmodule Google.Cloud.Sql.V1beta4.Settings.UserLabelsEntry do
   @moduledoc false
 
@@ -1444,6 +1554,38 @@ defmodule Google.Cloud.Sql.V1beta4.Settings do
   field :sql_server_audit_config, 29,
     type: Google.Cloud.Sql.V1beta4.SqlServerAuditConfig,
     json_name: "sqlServerAuditConfig"
+
+  field :edition, 38,
+    type: Google.Cloud.Sql.V1beta4.Settings.Edition,
+    enum: true,
+    deprecated: false
+
+  field :connector_enforcement, 32,
+    type: Google.Cloud.Sql.V1beta4.Settings.ConnectorEnforcement,
+    json_name: "connectorEnforcement",
+    enum: true
+
+  field :deletion_protection_enabled, 33,
+    type: Google.Protobuf.BoolValue,
+    json_name: "deletionProtectionEnabled"
+
+  field :time_zone, 34, type: :string, json_name: "timeZone"
+
+  field :advanced_machine_features, 35,
+    type: Google.Cloud.Sql.V1beta4.AdvancedMachineFeatures,
+    json_name: "advancedMachineFeatures"
+
+  field :data_cache_config, 37,
+    type: Google.Cloud.Sql.V1beta4.DataCacheConfig,
+    json_name: "dataCacheConfig"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.AdvancedMachineFeatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :threads_per_core, 1, type: :int32, json_name: "threadsPerCore"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SslCert do

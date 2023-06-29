@@ -22,4 +22,6 @@ defmodule Google.Maps.Routing.V2.Maneuver do
   field :FERRY_TRAIN, 16
   field :ROUNDABOUT_LEFT, 17
   field :ROUNDABOUT_RIGHT, 18
+  field :DEPART, 19
+  field :NAME_CHANGE, 20
 end

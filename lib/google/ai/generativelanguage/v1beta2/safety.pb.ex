@@ -43,7 +43,6 @@ defmodule Google.Ai.Generativelanguage.V1beta2.SafetySetting.HarmBlockThreshold 
   field :BLOCK_LOW_AND_ABOVE, 1
   field :BLOCK_MEDIUM_AND_ABOVE, 2
   field :BLOCK_ONLY_HIGH, 3
-  field :BLOCK_NONE, 4
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta2.ContentFilter do
