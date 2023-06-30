@@ -352,6 +352,15 @@ defmodule Google.Container.V1.StatusCondition.Code do
   field :CA_EXPIRING, 9
 end
 
+defmodule Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig.Tier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TIER_UNSPECIFIED, 0
+  field :TIER_1, 1
+end
+
 defmodule Google.Container.V1.GatewayAPIConfig.Channel do
   @moduledoc false
 
@@ -393,6 +402,7 @@ defmodule Google.Container.V1.DNSConfig.Provider do
   field :PROVIDER_UNSPECIFIED, 0
   field :PLATFORM_DEFAULT, 1
   field :CLOUD_DNS, 2
+  field :KUBE_DNS, 3
 end
 
 defmodule Google.Container.V1.DNSConfig.DNSScope do
@@ -1516,6 +1526,10 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.SecurityPostureConfig,
     json_name: "desiredSecurityPostureConfig"
 
+  field :desired_network_performance_config, 125,
+    type: Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig,
+    json_name: "desiredNetworkPerformanceConfig"
+
   field :desired_enable_fqdn_network_policy, 126,
     proto3_optional: true,
     type: :bool,
@@ -2501,6 +2515,18 @@ defmodule Google.Container.V1.StatusCondition do
   field :canonical_code, 3, type: Google.Rpc.Code, json_name: "canonicalCode", enum: true
 end
 
+defmodule Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :total_egress_bandwidth_tier, 1,
+    proto3_optional: true,
+    type: Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig.Tier,
+    json_name: "totalEgressBandwidthTier",
+    enum: true
+end
+
 defmodule Google.Container.V1.NetworkConfig do
   @moduledoc false
 
@@ -2535,6 +2561,10 @@ defmodule Google.Container.V1.NetworkConfig do
   field :gateway_api_config, 16,
     type: Google.Container.V1.GatewayAPIConfig,
     json_name: "gatewayApiConfig"
+
+  field :network_performance_config, 18,
+    type: Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig,
+    json_name: "networkPerformanceConfig"
 
   field :enable_fqdn_network_policy, 19,
     proto3_optional: true,
