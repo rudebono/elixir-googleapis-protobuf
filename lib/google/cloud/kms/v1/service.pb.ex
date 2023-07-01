@@ -332,6 +332,76 @@ defmodule Google.Cloud.Kms.V1.DecryptRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Kms.V1.RawEncryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :plaintext, 2, type: :bytes, deprecated: false
+
+  field :additional_authenticated_data, 3,
+    type: :bytes,
+    json_name: "additionalAuthenticatedData",
+    deprecated: false
+
+  field :plaintext_crc32c, 4,
+    type: Google.Protobuf.Int64Value,
+    json_name: "plaintextCrc32c",
+    deprecated: false
+
+  field :additional_authenticated_data_crc32c, 5,
+    type: Google.Protobuf.Int64Value,
+    json_name: "additionalAuthenticatedDataCrc32c",
+    deprecated: false
+
+  field :initialization_vector, 6,
+    type: :bytes,
+    json_name: "initializationVector",
+    deprecated: false
+
+  field :initialization_vector_crc32c, 7,
+    type: Google.Protobuf.Int64Value,
+    json_name: "initializationVectorCrc32c",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Kms.V1.RawDecryptRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :ciphertext, 2, type: :bytes, deprecated: false
+
+  field :additional_authenticated_data, 3,
+    type: :bytes,
+    json_name: "additionalAuthenticatedData",
+    deprecated: false
+
+  field :initialization_vector, 4,
+    type: :bytes,
+    json_name: "initializationVector",
+    deprecated: false
+
+  field :tag_length, 5, type: :int32, json_name: "tagLength"
+
+  field :ciphertext_crc32c, 6,
+    type: Google.Protobuf.Int64Value,
+    json_name: "ciphertextCrc32c",
+    deprecated: false
+
+  field :additional_authenticated_data_crc32c, 7,
+    type: Google.Protobuf.Int64Value,
+    json_name: "additionalAuthenticatedDataCrc32c",
+    deprecated: false
+
+  field :initialization_vector_crc32c, 8,
+    type: Google.Protobuf.Int64Value,
+    json_name: "initializationVectorCrc32c",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Kms.V1.AsymmetricSignRequest do
   @moduledoc false
 
@@ -449,6 +519,62 @@ defmodule Google.Cloud.Kms.V1.DecryptResponse do
     type: Google.Cloud.Kms.V1.ProtectionLevel,
     json_name: "protectionLevel",
     enum: true
+end
+
+defmodule Google.Cloud.Kms.V1.RawEncryptResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ciphertext, 1, type: :bytes
+  field :initialization_vector, 2, type: :bytes, json_name: "initializationVector"
+  field :tag_length, 3, type: :int32, json_name: "tagLength"
+  field :ciphertext_crc32c, 4, type: Google.Protobuf.Int64Value, json_name: "ciphertextCrc32c"
+
+  field :initialization_vector_crc32c, 5,
+    type: Google.Protobuf.Int64Value,
+    json_name: "initializationVectorCrc32c"
+
+  field :verified_plaintext_crc32c, 6, type: :bool, json_name: "verifiedPlaintextCrc32c"
+
+  field :verified_additional_authenticated_data_crc32c, 7,
+    type: :bool,
+    json_name: "verifiedAdditionalAuthenticatedDataCrc32c"
+
+  field :verified_initialization_vector_crc32c, 10,
+    type: :bool,
+    json_name: "verifiedInitializationVectorCrc32c"
+
+  field :name, 8, type: :string
+
+  field :protection_level, 9,
+    type: Google.Cloud.Kms.V1.ProtectionLevel,
+    json_name: "protectionLevel",
+    enum: true
+end
+
+defmodule Google.Cloud.Kms.V1.RawDecryptResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :plaintext, 1, type: :bytes
+  field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value, json_name: "plaintextCrc32c"
+
+  field :protection_level, 3,
+    type: Google.Cloud.Kms.V1.ProtectionLevel,
+    json_name: "protectionLevel",
+    enum: true
+
+  field :verified_ciphertext_crc32c, 4, type: :bool, json_name: "verifiedCiphertextCrc32c"
+
+  field :verified_additional_authenticated_data_crc32c, 5,
+    type: :bool,
+    json_name: "verifiedAdditionalAuthenticatedDataCrc32c"
+
+  field :verified_initialization_vector_crc32c, 6,
+    type: :bool,
+    json_name: "verifiedInitializationVectorCrc32c"
 end
 
 defmodule Google.Cloud.Kms.V1.AsymmetricSignResponse do
@@ -616,6 +742,10 @@ defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
   rpc :Encrypt, Google.Cloud.Kms.V1.EncryptRequest, Google.Cloud.Kms.V1.EncryptResponse
 
   rpc :Decrypt, Google.Cloud.Kms.V1.DecryptRequest, Google.Cloud.Kms.V1.DecryptResponse
+
+  rpc :RawEncrypt, Google.Cloud.Kms.V1.RawEncryptRequest, Google.Cloud.Kms.V1.RawEncryptResponse
+
+  rpc :RawDecrypt, Google.Cloud.Kms.V1.RawDecryptRequest, Google.Cloud.Kms.V1.RawDecryptResponse
 
   rpc :AsymmetricSign,
       Google.Cloud.Kms.V1.AsymmetricSignRequest,

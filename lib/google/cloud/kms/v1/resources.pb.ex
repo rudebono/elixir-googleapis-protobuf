@@ -19,6 +19,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   field :ENCRYPT_DECRYPT, 1
   field :ASYMMETRIC_SIGN, 5
   field :ASYMMETRIC_DECRYPT, 6
+  field :RAW_ENCRYPT_DECRYPT, 7
   field :MAC, 9
 end
 
@@ -39,6 +40,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
 
   field :CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED, 0
   field :GOOGLE_SYMMETRIC_ENCRYPTION, 1
+  field :AES_128_GCM, 41
+  field :AES_256_GCM, 19
   field :RSA_SIGN_PSS_2048_SHA256, 2
   field :RSA_SIGN_PSS_3072_SHA256, 3
   field :RSA_SIGN_PSS_4096_SHA256, 4
