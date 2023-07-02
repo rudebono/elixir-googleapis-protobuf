@@ -109,6 +109,68 @@ defmodule Google.Protobuf.MethodOptions.IdempotencyLevel do
   field :IDEMPOTENT, 2
 end
 
+defmodule Google.Protobuf.FeatureSet.FieldPresence do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :FIELD_PRESENCE_UNKNOWN, 0
+  field :EXPLICIT, 1
+  field :IMPLICIT, 2
+  field :LEGACY_REQUIRED, 3
+end
+
+defmodule Google.Protobuf.FeatureSet.EnumType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :ENUM_TYPE_UNKNOWN, 0
+  field :OPEN, 1
+  field :CLOSED, 2
+end
+
+defmodule Google.Protobuf.FeatureSet.RepeatedFieldEncoding do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :REPEATED_FIELD_ENCODING_UNKNOWN, 0
+  field :PACKED, 1
+  field :EXPANDED, 2
+end
+
+defmodule Google.Protobuf.FeatureSet.StringFieldValidation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :STRING_FIELD_VALIDATION_UNKNOWN, 0
+  field :MANDATORY, 1
+  field :HINT, 2
+  field :NONE, 3
+end
+
+defmodule Google.Protobuf.FeatureSet.MessageEncoding do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :MESSAGE_ENCODING_UNKNOWN, 0
+  field :LENGTH_PREFIXED, 1
+  field :DELIMITED, 2
+end
+
+defmodule Google.Protobuf.FeatureSet.JsonFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :JSON_FORMAT_UNKNOWN, 0
+  field :ALLOW, 1
+  field :LEGACY_BEST_EFFORT, 2
+end
+
 defmodule Google.Protobuf.GeneratedCodeInfo.Annotation.Semantic do
   @moduledoc false
 
@@ -207,6 +269,8 @@ defmodule Google.Protobuf.ExtensionRangeOptions do
     repeated: true,
     type: Google.Protobuf.ExtensionRangeOptions.Declaration,
     deprecated: false
+
+  field :features, 50, optional: true, type: Google.Protobuf.FeatureSet
 
   field :verification, 3,
     optional: true,
@@ -333,6 +397,7 @@ defmodule Google.Protobuf.FileOptions do
   field :php_namespace, 41, optional: true, type: :string
   field :php_metadata_namespace, 44, optional: true, type: :string
   field :ruby_package, 45, optional: true, type: :string
+  field :features, 50, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
@@ -348,9 +413,19 @@ defmodule Google.Protobuf.MessageOptions do
   field :deprecated, 3, optional: true, type: :bool, default: false
   field :map_entry, 7, optional: true, type: :bool
   field :deprecated_legacy_json_field_conflicts, 11, optional: true, type: :bool, deprecated: true
+  field :features, 12, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
+end
+
+defmodule Google.Protobuf.FieldOptions.EditionDefault do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :edition, 1, optional: true, type: :string
+  field :value, 2, optional: true, type: :string
 end
 
 defmodule Google.Protobuf.FieldOptions do
@@ -388,6 +463,8 @@ defmodule Google.Protobuf.FieldOptions do
     type: Google.Protobuf.FieldOptions.OptionTargetType,
     enum: true
 
+  field :edition_defaults, 20, repeated: true, type: Google.Protobuf.FieldOptions.EditionDefault
+  field :features, 21, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   field :target_obsolete_do_not_use, 18,
@@ -404,6 +481,7 @@ defmodule Google.Protobuf.OneofOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
+  field :features, 1, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
@@ -417,6 +495,7 @@ defmodule Google.Protobuf.EnumOptions do
   field :allow_alias, 2, optional: true, type: :bool
   field :deprecated, 3, optional: true, type: :bool, default: false
   field :deprecated_legacy_json_field_conflicts, 6, optional: true, type: :bool, deprecated: true
+  field :features, 7, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
@@ -428,6 +507,7 @@ defmodule Google.Protobuf.EnumValueOptions do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :deprecated, 1, optional: true, type: :bool, default: false
+  field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
   field :debug_redact, 3, optional: true, type: :bool, default: false
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
@@ -439,6 +519,7 @@ defmodule Google.Protobuf.ServiceOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
+  field :features, 34, optional: true, type: Google.Protobuf.FeatureSet
   field :deprecated, 33, optional: true, type: :bool, default: false
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
@@ -458,6 +539,7 @@ defmodule Google.Protobuf.MethodOptions do
     default: :IDEMPOTENCY_UNKNOWN,
     enum: true
 
+  field :features, 35, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
@@ -484,6 +566,50 @@ defmodule Google.Protobuf.UninterpretedOption do
   field :double_value, 6, optional: true, type: :double
   field :string_value, 7, optional: true, type: :bytes
   field :aggregate_value, 8, optional: true, type: :string
+end
+
+defmodule Google.Protobuf.FeatureSet do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :field_presence, 1,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.FieldPresence,
+    enum: true,
+    deprecated: false
+
+  field :enum_type, 2,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.EnumType,
+    enum: true,
+    deprecated: false
+
+  field :repeated_field_encoding, 3,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.RepeatedFieldEncoding,
+    enum: true,
+    deprecated: false
+
+  field :string_field_validation, 4,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.StringFieldValidation,
+    enum: true,
+    deprecated: false
+
+  field :message_encoding, 5,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.MessageEncoding,
+    enum: true,
+    deprecated: false
+
+  field :json_format, 6,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.JsonFormat,
+    enum: true,
+    deprecated: false
+
+  extensions [{1000, 1001}, {1001, 1002}, {9995, 10000}]
 end
 
 defmodule Google.Protobuf.SourceCodeInfo.Location do
