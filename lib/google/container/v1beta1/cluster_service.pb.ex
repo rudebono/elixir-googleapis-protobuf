@@ -602,6 +602,11 @@ defmodule Google.Container.V1beta1.NodeKubeletConfig do
   field :cpu_cfs_quota, 2, type: Google.Protobuf.BoolValue, json_name: "cpuCfsQuota"
   field :cpu_cfs_quota_period, 3, type: :string, json_name: "cpuCfsQuotaPeriod"
   field :pod_pids_limit, 4, type: :int64, json_name: "podPidsLimit"
+
+  field :insecure_kubelet_readonly_port_enabled, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "insecureKubeletReadonlyPortEnabled"
 end
 
 defmodule Google.Container.V1beta1.NodeConfig.MetadataEntry do
@@ -787,6 +792,11 @@ defmodule Google.Container.V1beta1.NodeNetworkConfig do
   field :pod_cidr_overprovision_config, 13,
     type: Google.Container.V1beta1.PodCIDROverprovisionConfig,
     json_name: "podCidrOverprovisionConfig"
+
+  field :pod_ipv4_range_utilization, 16,
+    type: :double,
+    json_name: "podIpv4RangeUtilization",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.ShieldedInstanceConfig do
@@ -1270,6 +1280,11 @@ defmodule Google.Container.V1beta1.IPAllocationPolicy do
   field :additional_pod_ranges_config, 24,
     type: Google.Container.V1beta1.AdditionalPodRangesConfig,
     json_name: "additionalPodRangesConfig",
+    deprecated: false
+
+  field :default_pod_ipv4_range_utilization, 25,
+    type: :double,
+    json_name: "defaultPodIpv4RangeUtilization",
     deprecated: false
 end
 
@@ -1838,6 +1853,21 @@ defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pod_range_names, 1, repeated: true, type: :string, json_name: "podRangeNames"
+
+  field :pod_range_info, 2,
+    repeated: true,
+    type: Google.Container.V1beta1.RangeInfo,
+    json_name: "podRangeInfo",
+    deprecated: false
+end
+
+defmodule Google.Container.V1beta1.RangeInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :range_name, 1, type: :string, json_name: "rangeName", deprecated: false
+  field :utilization, 2, type: :double, deprecated: false
 end
 
 defmodule Google.Container.V1beta1.Operation do
@@ -2406,6 +2436,7 @@ defmodule Google.Container.V1beta1.NodePool.PlacementPolicy do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Container.V1beta1.NodePool.PlacementPolicy.Type, enum: true
+  field :tpu_topology, 2, type: :string, json_name: "tpuTopology"
 end
 
 defmodule Google.Container.V1beta1.NodePool do
@@ -2671,6 +2702,11 @@ defmodule Google.Container.V1beta1.AutoprovisioningNodePoolDefaults do
 
   field :boot_disk_kms_key, 9, type: :string, json_name: "bootDiskKmsKey"
   field :image_type, 10, type: :string, json_name: "imageType"
+
+  field :insecure_kubelet_readonly_port_enabled, 13,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "insecureKubeletReadonlyPortEnabled"
 end
 
 defmodule Google.Container.V1beta1.ResourceLimit do
