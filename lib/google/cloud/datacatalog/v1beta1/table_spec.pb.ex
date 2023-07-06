@@ -6,6 +6,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.TableSourceType do
   field :TABLE_SOURCE_TYPE_UNSPECIFIED, 0
   field :BIGQUERY_VIEW, 2
   field :BIGQUERY_TABLE, 5
+  field :BIGQUERY_MATERIALIZED_VIEW, 7
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.BigQueryTableSpec do

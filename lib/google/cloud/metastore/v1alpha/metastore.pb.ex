@@ -919,6 +919,26 @@ defmodule Google.Cloud.Metastore.V1alpha.QueryMetadataResponse do
   field :result_manifest_uri, 1, type: :string, json_name: "resultManifestUri"
 end
 
+defmodule Google.Cloud.Metastore.V1alpha.ErrorDetails.DetailsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Metastore.V1alpha.ErrorDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :details, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1alpha.ErrorDetails.DetailsEntry,
+    map: true
+end
+
 defmodule Google.Cloud.Metastore.V1alpha.MoveTableToDatabaseRequest do
   @moduledoc false
 

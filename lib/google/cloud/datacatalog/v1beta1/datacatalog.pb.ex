@@ -18,6 +18,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogRequest.Scope do
   field :include_org_ids, 2, repeated: true, type: :string, json_name: "includeOrgIds"
   field :include_project_ids, 3, repeated: true, type: :string, json_name: "includeProjectIds"
   field :include_gcp_public_datasets, 7, type: :bool, json_name: "includeGcpPublicDatasets"
+
+  field :restricted_locations, 16,
+    repeated: true,
+    type: :string,
+    json_name: "restrictedLocations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogRequest do
@@ -41,7 +47,9 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult
+  field :total_size, 2, type: :int32, json_name: "totalSize"
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
+  field :unreachable, 6, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.CreateEntryGroupRequest do
@@ -205,6 +213,11 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Entry do
     type: Google.Cloud.Datacatalog.V1beta1.SystemTimestamps,
     json_name: "sourceSystemTimestamps",
     deprecated: false
+
+  field :usage_signal, 13,
+    type: Google.Cloud.Datacatalog.V1beta1.UsageSignal,
+    json_name: "usageSignal",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.EntryGroup do
@@ -341,6 +354,19 @@ defmodule Google.Cloud.Datacatalog.V1beta1.RenameTagTemplateFieldRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Datacatalog.V1beta1.RenameTagTemplateFieldEnumValueRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :new_enum_value_display_name, 2,
+    type: :string,
+    json_name: "newEnumValueDisplayName",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Datacatalog.V1beta1.DeleteTagTemplateFieldRequest do
   @moduledoc false
 
@@ -468,6 +494,10 @@ defmodule Google.Cloud.Datacatalog.V1beta1.DataCatalog.Service do
 
   rpc :RenameTagTemplateField,
       Google.Cloud.Datacatalog.V1beta1.RenameTagTemplateFieldRequest,
+      Google.Cloud.Datacatalog.V1beta1.TagTemplateField
+
+  rpc :RenameTagTemplateFieldEnumValue,
+      Google.Cloud.Datacatalog.V1beta1.RenameTagTemplateFieldEnumValueRequest,
       Google.Cloud.Datacatalog.V1beta1.TagTemplateField
 
   rpc :DeleteTagTemplateField,

@@ -10,6 +10,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SerializedTaxonomy do
     repeated: true,
     type: Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag,
     json_name: "policyTags"
+
+  field :activated_policy_types, 4,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType,
+    json_name: "activatedPolicyTypes",
+    enum: true
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag do
@@ -17,6 +23,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SerializedPolicyTag do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :policy_tag, 1, type: :string, json_name: "policyTag"
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
 
