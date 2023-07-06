@@ -109,6 +109,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.TagTemplateField do
   field :display_name, 1, type: :string, json_name: "displayName"
   field :type, 2, type: Google.Cloud.Datacatalog.V1beta1.FieldType, deprecated: false
   field :is_required, 3, type: :bool, json_name: "isRequired"
+  field :description, 4, type: :string
   field :order, 5, type: :int32
 end
 

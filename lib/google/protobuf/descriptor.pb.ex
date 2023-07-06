@@ -253,7 +253,6 @@ defmodule Google.Protobuf.ExtensionRangeOptions.Declaration do
   field :number, 1, optional: true, type: :int32
   field :full_name, 2, optional: true, type: :string
   field :type, 3, optional: true, type: :string
-  field :is_repeated, 4, optional: true, type: :bool, deprecated: true
   field :reserved, 5, optional: true, type: :bool
   field :repeated, 6, optional: true, type: :bool
 end
@@ -466,12 +465,6 @@ defmodule Google.Protobuf.FieldOptions do
   field :edition_defaults, 20, repeated: true, type: Google.Protobuf.FieldOptions.EditionDefault
   field :features, 21, optional: true, type: Google.Protobuf.FeatureSet
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
-
-  field :target_obsolete_do_not_use, 18,
-    optional: true,
-    type: Google.Protobuf.FieldOptions.OptionTargetType,
-    enum: true,
-    deprecated: true
 
   extensions [{1000, Protobuf.Extension.max()}]
 end

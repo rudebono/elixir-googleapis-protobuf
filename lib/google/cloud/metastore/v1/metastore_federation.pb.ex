@@ -17,6 +17,7 @@ defmodule Google.Cloud.Metastore.V1.BackendMetastore.MetastoreType do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :METASTORE_TYPE_UNSPECIFIED, 0
+  field :BIGQUERY, 2
   field :DATAPROC_METASTORE, 3
 end
 

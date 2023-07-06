@@ -22,4 +22,5 @@ defmodule Google.Cloud.Datacatalog.V1beta1.SearchCatalogResult do
   field :search_result_subtype, 2, type: :string, json_name: "searchResultSubtype"
   field :relative_resource_name, 3, type: :string, json_name: "relativeResourceName"
   field :linked_resource, 4, type: :string, json_name: "linkedResource"
+  field :modify_time, 7, type: Google.Protobuf.Timestamp, json_name: "modifyTime"
 end

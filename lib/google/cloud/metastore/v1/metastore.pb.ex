@@ -43,6 +43,16 @@ defmodule Google.Cloud.Metastore.V1.Service.DatabaseType do
   field :SPANNER, 2
 end
 
+defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig.EndpointProtocol do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENDPOINT_PROTOCOL_UNSPECIFIED, 0
+  field :THRIFT, 1
+  field :GRPC, 2
+end
+
 defmodule Google.Cloud.Metastore.V1.TelemetryConfig.LogFormat do
   @moduledoc false
 
@@ -271,6 +281,11 @@ defmodule Google.Cloud.Metastore.V1.HiveMetastoreConfig do
     type: Google.Cloud.Metastore.V1.KerberosConfig,
     json_name: "kerberosConfig"
 
+  field :endpoint_protocol, 4,
+    type: Google.Cloud.Metastore.V1.HiveMetastoreConfig.EndpointProtocol,
+    json_name: "endpointProtocol",
+    enum: true
+
   field :auxiliary_versions, 5,
     repeated: true,
     type: Google.Cloud.Metastore.V1.HiveMetastoreConfig.AuxiliaryVersionsEntry,
@@ -393,6 +408,7 @@ defmodule Google.Cloud.Metastore.V1.MetadataImport.DatabaseDump do
     deprecated: true
 
   field :gcs_uri, 2, type: :string, json_name: "gcsUri"
+  field :source_database, 3, type: :string, json_name: "sourceDatabase", deprecated: true
 
   field :type, 4,
     type: Google.Cloud.Metastore.V1.DatabaseDumpSpec.Type,
@@ -791,6 +807,76 @@ defmodule Google.Cloud.Metastore.V1.DatabaseDumpSpec do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Metastore.V1.QueryMetadataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.QueryMetadataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :result_manifest_uri, 1, type: :string, json_name: "resultManifestUri"
+end
+
+defmodule Google.Cloud.Metastore.V1.ErrorDetails.DetailsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Metastore.V1.ErrorDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :details, 1,
+    repeated: true,
+    type: Google.Cloud.Metastore.V1.ErrorDetails.DetailsEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Metastore.V1.MoveTableToDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :table_name, 2, type: :string, json_name: "tableName", deprecated: false
+  field :db_name, 3, type: :string, json_name: "dbName", deprecated: false
+  field :destination_db_name, 4, type: :string, json_name: "destinationDbName", deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.MoveTableToDatabaseResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Metastore.V1.AlterMetadataResourceLocationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+  field :resource_name, 2, type: :string, json_name: "resourceName", deprecated: false
+  field :location_uri, 3, type: :string, json_name: "locationUri", deprecated: false
+end
+
+defmodule Google.Cloud.Metastore.V1.AlterMetadataResourceLocationResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Metastore.V1.DataprocMetastore.Service do
   @moduledoc false
 
@@ -843,6 +929,16 @@ defmodule Google.Cloud.Metastore.V1.DataprocMetastore.Service do
   rpc :CreateBackup, Google.Cloud.Metastore.V1.CreateBackupRequest, Google.Longrunning.Operation
 
   rpc :DeleteBackup, Google.Cloud.Metastore.V1.DeleteBackupRequest, Google.Longrunning.Operation
+
+  rpc :QueryMetadata, Google.Cloud.Metastore.V1.QueryMetadataRequest, Google.Longrunning.Operation
+
+  rpc :MoveTableToDatabase,
+      Google.Cloud.Metastore.V1.MoveTableToDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :AlterMetadataResourceLocation,
+      Google.Cloud.Metastore.V1.AlterMetadataResourceLocationRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Metastore.V1.DataprocMetastore.Stub do

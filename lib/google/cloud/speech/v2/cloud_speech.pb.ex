@@ -250,13 +250,13 @@ defmodule Google.Cloud.Speech.V2.Recognizer do
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
-  field :model, 4, type: :string, deprecated: false
+  field :model, 4, type: :string, deprecated: true
 
   field :language_codes, 17,
     repeated: true,
     type: :string,
     json_name: "languageCodes",
-    deprecated: false
+    deprecated: true
 
   field :default_recognition_config, 6,
     type: Google.Cloud.Speech.V2.RecognitionConfig,
@@ -399,6 +399,14 @@ defmodule Google.Cloud.Speech.V2.RecognitionConfig do
     type: Google.Cloud.Speech.V2.ExplicitDecodingConfig,
     json_name: "explicitDecodingConfig",
     oneof: 0
+
+  field :model, 9, type: :string, deprecated: false
+
+  field :language_codes, 10,
+    repeated: true,
+    type: :string,
+    json_name: "languageCodes",
+    deprecated: false
 
   field :features, 2, type: Google.Cloud.Speech.V2.RecognitionFeatures
   field :adaptation, 6, type: Google.Cloud.Speech.V2.SpeechAdaptation

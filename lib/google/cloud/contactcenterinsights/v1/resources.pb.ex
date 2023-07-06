@@ -51,6 +51,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.State do
   field :DELETING, 5
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel.ModelType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODEL_TYPE_UNSPECIFIED, 0
+  field :TYPE_V1, 1
+  field :TYPE_V2, 2
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatcher.PhraseMatcherType do
   @moduledoc false
 
@@ -673,6 +683,13 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModel do
     type: Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats,
     json_name: "trainingStats",
     deprecated: false
+
+  field :model_type, 9,
+    type: Google.Cloud.Contactcenterinsights.V1.IssueModel.ModelType,
+    json_name: "modelType",
+    enum: true
+
+  field :language_code, 10, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Issue do

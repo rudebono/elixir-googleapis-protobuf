@@ -119,7 +119,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequ
   field :mobile_number, 3, type: :string, json_name: "mobileNumber", oneof: 0, deprecated: false
 end
 
-defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.Participants do
+defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipants do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -147,15 +147,15 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchParticipants.S
 
   rpc :ActivateParticipant,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequest,
-      Google.Cloud.Paymentgateway.Issuerswitch.V1.Participants
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipants
 
   rpc :DeactivateParticipant,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequest,
-      Google.Cloud.Paymentgateway.Issuerswitch.V1.Participants
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipants
 
   rpc :MobileNumberChanged,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequest,
-      Google.Cloud.Paymentgateway.Issuerswitch.V1.Participants
+      Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipants
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchParticipants.Stub do

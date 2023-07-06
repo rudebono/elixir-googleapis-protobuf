@@ -7,6 +7,15 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy.PolicyType do
   field :FINE_GRAINED_ACCESS_CONTROL, 1
 end
 
+defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy.Service do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: Google.Cloud.Datacatalog.V1beta1.ManagingSystem, enum: true
+  field :identity, 2, type: :string
+end
+
 defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy do
   @moduledoc false
 
@@ -15,6 +24,12 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy do
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
+  field :policy_tag_count, 4, type: :int32, json_name: "policyTagCount", deprecated: false
+
+  field :taxonomy_timestamps, 5,
+    type: Google.Cloud.Datacatalog.V1beta1.SystemTimestamps,
+    json_name: "taxonomyTimestamps",
+    deprecated: false
 
   field :activated_policy_types, 6,
     repeated: true,
@@ -22,6 +37,8 @@ defmodule Google.Cloud.Datacatalog.V1beta1.Taxonomy do
     json_name: "activatedPolicyTypes",
     enum: true,
     deprecated: false
+
+  field :service, 7, type: Google.Cloud.Datacatalog.V1beta1.Taxonomy.Service, deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.PolicyTag do
@@ -75,6 +92,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
 end
 
 defmodule Google.Cloud.Datacatalog.V1beta1.ListTaxonomiesResponse do
