@@ -135,6 +135,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.MachineType do
   field :N1_HIGHCPU_32, 2
   field :E2_HIGHCPU_8, 5
   field :E2_HIGHCPU_32, 6
+  field :E2_MEDIUM, 7
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.SubstitutionOption do
