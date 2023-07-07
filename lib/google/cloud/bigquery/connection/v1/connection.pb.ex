@@ -97,6 +97,13 @@ defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
     oneof: 0
 
   field :spark, 23, type: Google.Cloud.Bigquery.Connection.V1.SparkProperties, oneof: 0
+
+  field :salesforce_data_cloud, 24,
+    type: Google.Cloud.Bigquery.Connection.V1.SalesforceDataCloudProperties,
+    json_name: "salesforceDataCloud",
+    oneof: 0,
+    deprecated: false
+
   field :creation_time, 5, type: :int64, json_name: "creationTime", deprecated: false
   field :last_modified_time, 6, type: :int64, json_name: "lastModifiedTime", deprecated: false
   field :has_credential, 7, type: :bool, json_name: "hasCredential", deprecated: false
@@ -137,7 +144,9 @@ defmodule Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties do
 
   field :database, 1, type: :string
   field :use_parallelism, 2, type: :bool, json_name: "useParallelism"
+  field :max_parallelism, 5, type: :int32, json_name: "maxParallelism"
   field :use_serverless_analytics, 3, type: :bool, json_name: "useServerlessAnalytics"
+  field :use_data_boost, 6, type: :bool, json_name: "useDataBoost"
   field :database_role, 4, type: :string, json_name: "databaseRole", deprecated: false
 end
 
@@ -237,6 +246,16 @@ defmodule Google.Cloud.Bigquery.Connection.V1.SparkProperties do
     type: Google.Cloud.Bigquery.Connection.V1.SparkHistoryServerConfig,
     json_name: "sparkHistoryServerConfig",
     deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Connection.V1.SalesforceDataCloudProperties do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_uri, 1, type: :string, json_name: "instanceUri"
+  field :identity, 2, type: :string, deprecated: false
+  field :tenant_id, 3, type: :string, json_name: "tenantId"
 end
 
 defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
