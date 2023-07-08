@@ -179,6 +179,8 @@ defmodule Maps.Fleetengine.V1.SearchVehiclesRequest do
     type: Maps.Fleetengine.V1.SearchVehiclesRequest.CurrentTripsPresent,
     json_name: "currentTripsPresent",
     enum: true
+
+  field :filter, 22, type: :string, deprecated: false
 end
 
 defmodule Maps.Fleetengine.V1.SearchVehiclesResponse do
@@ -233,6 +235,7 @@ defmodule Maps.Fleetengine.V1.ListVehiclesRequest do
     enum: true
 
   field :on_trip_only, 14, type: :bool, json_name: "onTripOnly"
+  field :filter, 16, type: :string, deprecated: false
   field :viewport, 17, type: Google.Geo.Type.Viewport, deprecated: false
 end
 
