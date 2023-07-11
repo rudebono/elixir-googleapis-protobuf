@@ -357,6 +357,10 @@ defmodule Google.Analytics.Data.V1alpha.PropertyQuota do
   field :potentially_thresholded_requests_per_hour, 5,
     type: Google.Analytics.Data.V1alpha.QuotaStatus,
     json_name: "potentiallyThresholdedRequestsPerHour"
+
+  field :tokens_per_project_per_hour, 6,
+    type: Google.Analytics.Data.V1alpha.QuotaStatus,
+    json_name: "tokensPerProjectPerHour"
 end
 
 defmodule Google.Analytics.Data.V1alpha.QuotaStatus do

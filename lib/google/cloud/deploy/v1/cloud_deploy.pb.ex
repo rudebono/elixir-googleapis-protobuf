@@ -369,6 +369,11 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
   field :http_route, 1, type: :string, json_name: "httpRoute", deprecated: false
   field :service, 2, type: :string, deprecated: false
   field :deployment, 3, type: :string, deprecated: false
+
+  field :route_update_wait_time, 4,
+    type: Google.Protobuf.Duration,
+    json_name: "routeUpdateWaitTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
@@ -629,19 +634,21 @@ defmodule Google.Cloud.Deploy.V1.Target do
     json_name: "updateTime",
     deprecated: false
 
-  field :gke, 15, type: Google.Cloud.Deploy.V1.GkeCluster, oneof: 0
+  field :gke, 15, type: Google.Cloud.Deploy.V1.GkeCluster, oneof: 0, deprecated: false
 
   field :anthos_cluster, 17,
     type: Google.Cloud.Deploy.V1.AnthosCluster,
     json_name: "anthosCluster",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :run, 18, type: Google.Cloud.Deploy.V1.CloudRunLocation, oneof: 0
+  field :run, 18, type: Google.Cloud.Deploy.V1.CloudRunLocation, oneof: 0, deprecated: false
 
   field :multi_target, 19,
     type: Google.Cloud.Deploy.V1.MultiTarget,
     json_name: "multiTarget",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :etag, 12, type: :string, deprecated: false
 
