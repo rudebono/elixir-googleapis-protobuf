@@ -26,6 +26,31 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechToTextSettings do
   field :enable_speech_adaptation, 1, type: :bool, json_name: "enableSpeechAdaptation"
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.GitIntegrationSettings.GithubSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :repository_uri, 2, type: :string, json_name: "repositoryUri"
+  field :tracking_branch, 3, type: :string, json_name: "trackingBranch"
+  field :access_token, 4, type: :string, json_name: "accessToken"
+  field :branches, 5, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.GitIntegrationSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :git_settings, 0
+
+  field :github_settings, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.Agent.GitIntegrationSettings.GithubSettings,
+    json_name: "githubSettings",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   @moduledoc false
 
@@ -66,6 +91,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   field :advanced_settings, 22,
     type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings,
     json_name: "advancedSettings"
+
+  field :git_integration_settings, 30,
+    type: Google.Cloud.Dialogflow.Cx.V3.Agent.GitIntegrationSettings,
+    json_name: "gitIntegrationSettings"
 
   field :text_to_speech_settings, 31,
     type: Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings,
@@ -125,6 +154,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteAgentRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.ExportAgentRequest.GitDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tracking_branch, 1, type: :string, json_name: "trackingBranch"
+  field :commit_message, 2, type: :string, json_name: "commitMessage"
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportAgentRequest do
   @moduledoc false
 
@@ -141,6 +179,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ExportAgentRequest do
 
   field :environment, 5, type: :string, deprecated: false
 
+  field :git_destination, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3.ExportAgentRequest.GitDestination,
+    json_name: "gitDestination",
+    deprecated: false
+
   field :include_bigquery_export_settings, 7,
     type: :bool,
     json_name: "includeBigqueryExportSettings",
@@ -156,6 +199,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ExportAgentResponse do
 
   field :agent_uri, 1, type: :string, json_name: "agentUri", oneof: 0
   field :agent_content, 2, type: :bytes, json_name: "agentContent", oneof: 0
+  field :commit_sha, 3, type: :string, json_name: "commitSha", oneof: 0
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest.GitSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tracking_branch, 1, type: :string, json_name: "trackingBranch"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest do
@@ -168,6 +220,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest do
   field :name, 1, type: :string, deprecated: false
   field :agent_uri, 2, type: :string, json_name: "agentUri", oneof: 0
   field :agent_content, 3, type: :bytes, json_name: "agentContent", oneof: 0
+
+  field :git_source, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest.GitSource,
+    json_name: "gitSource",
+    oneof: 0
 
   field :restore_option, 5,
     type: Google.Cloud.Dialogflow.Cx.V3.RestoreAgentRequest.RestoreOption,

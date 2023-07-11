@@ -1069,6 +1069,16 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager.ListManagedInstancesResul
   field :PAGINATED, 40_190_637
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy.ForceUpdateOnRepair do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_FORCE_UPDATE_ON_REPAIR, 0
+  field :NO, 2497
+  field :YES, 87751
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
   @moduledoc false
 
@@ -2500,6 +2510,18 @@ defmodule Google.Cloud.Compute.V1.RouterInterface.ManagementType do
   field :UNDEFINED_MANAGEMENT_TYPE, 0
   field :MANAGED_BY_ATTACHMENT, 458_926_411
   field :MANAGED_BY_USER, 317_294_067
+end
+
+defmodule Google.Cloud.Compute.V1.RouterNat.AutoNetworkTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_AUTO_NETWORK_TIER, 0
+  field :FIXED_STANDARD, 310_464_328
+  field :PREMIUM, 399_530_551
+  field :STANDARD, 484_642_493
+  field :STANDARD_OVERRIDES_FIXED_STANDARD, 465_847_234
 end
 
 defmodule Google.Cloud.Compute.V1.RouterNat.EndpointTypes do
@@ -13564,6 +13586,11 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
     type: :string,
     json_name: "instanceGroup"
 
+  field :instance_lifecycle_policy, 447_961_617,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy,
+    json_name: "instanceLifecyclePolicy"
+
   field :instance_template, 309_248_228,
     proto3_optional: true,
     type: :string,
@@ -13679,6 +13706,17 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerAutoHealingPolicy do
     proto3_optional: true,
     type: :int32,
     json_name: "initialDelaySec"
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :force_update_on_repair, 356_302_027,
+    proto3_optional: true,
+    type: :string,
+    json_name: "forceUpdateOnRepair"
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerList do
@@ -22242,6 +22280,7 @@ defmodule Google.Cloud.Compute.V1.Route do
     type: :string,
     json_name: "nextHopGateway"
 
+  field :next_hop_hub, 198_679_219, proto3_optional: true, type: :string, json_name: "nextHopHub"
   field :next_hop_ilb, 198_679_901, proto3_optional: true, type: :string, json_name: "nextHopIlb"
 
   field :next_hop_instance, 393_508_247,
@@ -22595,6 +22634,11 @@ defmodule Google.Cloud.Compute.V1.RouterNat do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :auto_network_tier, 269_770_211,
+    proto3_optional: true,
+    type: :string,
+    json_name: "autoNetworkTier"
 
   field :drain_nat_ips, 504_078_535, repeated: true, type: :string, json_name: "drainNatIps"
 
@@ -26210,6 +26254,12 @@ defmodule Google.Cloud.Compute.V1.TargetHttpProxy do
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+
+  field :http_keep_alive_timeout_sec, 447_326_046,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "httpKeepAliveTimeoutSec"
+
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -26337,6 +26387,12 @@ defmodule Google.Cloud.Compute.V1.TargetHttpsProxy do
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+
+  field :http_keep_alive_timeout_sec, 447_326_046,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "httpKeepAliveTimeoutSec"
+
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string

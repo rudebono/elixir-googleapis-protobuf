@@ -20,6 +20,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job.ProcessingMode do
   field :PROCESSING_MODE_BATCH, 2
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.Job.OptimizationStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OPTIMIZATION_STRATEGY_UNSPECIFIED, 0
+  field :AUTODETECT, 1
+  field :DISABLED, 2
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType do
   @moduledoc false
 
@@ -28,6 +38,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.Manifest.ManifestType do
   field :MANIFEST_TYPE_UNSPECIFIED, 0
   field :HLS, 1
   field :DASH, 2
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Manifest.DashConfig.SegmentReferenceScheme do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEGMENT_REFERENCE_SCHEME_UNSPECIFIED, 0
+  field :SEGMENT_LIST, 1
+  field :SEGMENT_TEMPLATE_NUMBER, 2
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Overlay.FadeType do
@@ -87,6 +107,12 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
 
   field :error, 17, type: Google.Rpc.Status, deprecated: false
   field :mode, 20, type: Google.Cloud.Video.Transcoder.V1.Job.ProcessingMode, enum: true
+  field :batch_mode_priority, 21, type: :int32, json_name: "batchModePriority"
+
+  field :optimization, 22,
+    type: Google.Cloud.Video.Transcoder.V1.Job.OptimizationStrategy,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry do
@@ -152,6 +178,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.JobConfig do
     json_name: "spriteSheets"
 
   field :overlays, 10, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Overlay
+  field :encryptions, 11, repeated: true, type: Google.Cloud.Video.Transcoder.V1.Encryption
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Input do
@@ -232,12 +259,27 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
   field :segment_settings, 5,
     type: Google.Cloud.Video.Transcoder.V1.SegmentSettings,
     json_name: "segmentSettings"
+
+  field :encryption_id, 7, type: :string, json_name: "encryptionId"
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Manifest.DashConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :segment_reference_scheme, 1,
+    type: Google.Cloud.Video.Transcoder.V1.Manifest.DashConfig.SegmentReferenceScheme,
+    json_name: "segmentReferenceScheme",
+    enum: true
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :manifest_config, 0
 
   field :file_name, 1, type: :string, json_name: "fileName"
 
@@ -247,6 +289,7 @@ defmodule Google.Cloud.Video.Transcoder.V1.Manifest do
     deprecated: false
 
   field :mux_streams, 3, repeated: true, type: :string, json_name: "muxStreams", deprecated: false
+  field :dash, 4, type: Google.Cloud.Video.Transcoder.V1.Manifest.DashConfig, oneof: 0
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.PubsubDestination do
@@ -620,4 +663,104 @@ defmodule Google.Cloud.Video.Transcoder.V1.SegmentSettings do
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
   field :individual_segments, 3, type: :bool, json_name: "individualSegments", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Aes128Encryption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.SampleAesEncryption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.MpegCommonEncryption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :scheme, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.SecretManagerSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :secret_version, 1, type: :string, json_name: "secretVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Widevine do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Fairplay do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Playready do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.Clearkey do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption.DrmSystems do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :widevine, 1, type: Google.Cloud.Video.Transcoder.V1.Encryption.Widevine
+  field :fairplay, 2, type: Google.Cloud.Video.Transcoder.V1.Encryption.Fairplay
+  field :playready, 3, type: Google.Cloud.Video.Transcoder.V1.Encryption.Playready
+  field :clearkey, 4, type: Google.Cloud.Video.Transcoder.V1.Encryption.Clearkey
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.Encryption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :encryption_mode, 0
+
+  oneof :secret_source, 1
+
+  field :id, 6, type: :string, deprecated: false
+
+  field :aes_128, 3,
+    type: Google.Cloud.Video.Transcoder.V1.Encryption.Aes128Encryption,
+    json_name: "aes128",
+    oneof: 0
+
+  field :sample_aes, 4,
+    type: Google.Cloud.Video.Transcoder.V1.Encryption.SampleAesEncryption,
+    json_name: "sampleAes",
+    oneof: 0
+
+  field :mpeg_cenc, 5,
+    type: Google.Cloud.Video.Transcoder.V1.Encryption.MpegCommonEncryption,
+    json_name: "mpegCenc",
+    oneof: 0
+
+  field :secret_manager_key_source, 7,
+    type: Google.Cloud.Video.Transcoder.V1.Encryption.SecretManagerSource,
+    json_name: "secretManagerKeySource",
+    oneof: 1
+
+  field :drm_systems, 8,
+    type: Google.Cloud.Video.Transcoder.V1.Encryption.DrmSystems,
+    json_name: "drmSystems",
+    deprecated: false
 end
