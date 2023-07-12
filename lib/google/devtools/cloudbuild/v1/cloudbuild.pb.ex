@@ -189,6 +189,7 @@ defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.State do
   field :RUNNING, 2
   field :DELETING, 3
   field :DELETED, 4
+  field :UPDATING, 5
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig.EgressOption do
@@ -1295,7 +1296,7 @@ defmodule Google.Devtools.Cloudbuild.V1.DeleteWorkerPoolRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :etag, 2, type: :string
+  field :etag, 2, type: :string, deprecated: false
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
   field :validate_only, 4, type: :bool, json_name: "validateOnly"
 end
