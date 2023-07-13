@@ -14,4 +14,5 @@ defmodule Google.Cloud.Aiplatform.V1.JobState do
   field :JOB_STATE_PAUSED, 8
   field :JOB_STATE_EXPIRED, 9
   field :JOB_STATE_UPDATING, 10
+  field :JOB_STATE_PARTIALLY_SUCCEEDED, 11
 end

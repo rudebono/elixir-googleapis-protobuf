@@ -1,0 +1,152 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PROVISIONING, 1
+  field :RUNNING, 3
+  field :STOPPING, 4
+  field :ERROR, 5
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+
+  field :resource_pools, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ResourcePool,
+    json_name: "resourcePools",
+    deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.PersistentResource.State,
+    enum: true,
+    deprecated: false
+
+  field :error, 6, type: Google.Rpc.Status, deprecated: false
+
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 8, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PersistentResource.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :network, 11, type: :string, deprecated: false
+
+  field :encryption_spec, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
+
+  field :resource_runtime_spec, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.ResourceRuntimeSpec,
+    json_name: "resourceRuntimeSpec",
+    deprecated: false
+
+  field :reserved_ip_ranges, 15,
+    repeated: true,
+    type: :string,
+    json_name: "reservedIpRanges",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ResourcePool.AutoscalingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :min_replica_count, 1,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "minReplicaCount",
+    deprecated: false
+
+  field :max_replica_count, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxReplicaCount",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ResourcePool do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :machine_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec",
+    deprecated: false
+
+  field :replica_count, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "replicaCount",
+    deprecated: false
+
+  field :disk_spec, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.DiskSpec,
+    json_name: "diskSpec",
+    deprecated: false
+
+  field :idle_replica_count, 5, type: :int64, json_name: "idleReplicaCount", deprecated: true
+  field :used_replica_count, 6, type: :int64, json_name: "usedReplicaCount", deprecated: false
+
+  field :autoscaling_spec, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.ResourcePool.AutoscalingSpec,
+    json_name: "autoscalingSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntimeSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service_account_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec,
+    json_name: "serviceAccountSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_custom_service_account, 1,
+    type: :bool,
+    json_name: "enableCustomServiceAccount",
+    deprecated: false
+
+  field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+end

@@ -243,6 +243,14 @@ defmodule Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.DeleteSavedQueryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest do
   @moduledoc false
 
@@ -316,6 +324,10 @@ defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   rpc :ListSavedQueries,
       Google.Cloud.Aiplatform.V1.ListSavedQueriesRequest,
       Google.Cloud.Aiplatform.V1.ListSavedQueriesResponse
+
+  rpc :DeleteSavedQuery,
+      Google.Cloud.Aiplatform.V1.DeleteSavedQueryRequest,
+      Google.Longrunning.Operation
 
   rpc :GetAnnotationSpec,
       Google.Cloud.Aiplatform.V1.GetAnnotationSpecRequest,

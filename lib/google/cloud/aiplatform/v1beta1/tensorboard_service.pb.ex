@@ -15,6 +15,49 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :order_by, 5, type: :string, json_name: "orderBy"
+  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tensorboards, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :tensorboard, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageRequest do
   @moduledoc false
 
@@ -66,47 +109,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse do
     map: true
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsRequest do
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardSizeRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :parent, 1, type: :string, deprecated: false
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
-  field :order_by, 5, type: :string, json_name: "orderBy"
-  field :read_mask, 6, type: Google.Protobuf.FieldMask, json_name: "readMask"
+  field :tensorboard, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ListTensorboardsResponse do
+defmodule Google.Cloud.Aiplatform.V1beta1.ReadTensorboardSizeResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :tensorboards, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :update_mask, 1,
-    type: Google.Protobuf.FieldMask,
-    json_name: "updateMask",
-    deprecated: false
-
-  field :tensorboard, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensorboard, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
+  field :storage_size_byte, 1, type: :int64, json_name: "storageSizeByte"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest do
@@ -549,10 +565,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
       Google.Cloud.Aiplatform.V1beta1.GetTensorboardRequest,
       Google.Cloud.Aiplatform.V1beta1.Tensorboard
 
-  rpc :ReadTensorboardUsage,
-      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageRequest,
-      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse
-
   rpc :UpdateTensorboard,
       Google.Cloud.Aiplatform.V1beta1.UpdateTensorboardRequest,
       Google.Longrunning.Operation
@@ -564,6 +576,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TensorboardService.Service do
   rpc :DeleteTensorboard,
       Google.Cloud.Aiplatform.V1beta1.DeleteTensorboardRequest,
       Google.Longrunning.Operation
+
+  rpc :ReadTensorboardUsage,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageRequest,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardUsageResponse
+
+  rpc :ReadTensorboardSize,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardSizeRequest,
+      Google.Cloud.Aiplatform.V1beta1.ReadTensorboardSizeResponse
 
   rpc :CreateTensorboardExperiment,
       Google.Cloud.Aiplatform.V1beta1.CreateTensorboardExperimentRequest,
