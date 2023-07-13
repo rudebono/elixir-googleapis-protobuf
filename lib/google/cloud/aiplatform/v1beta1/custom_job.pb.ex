@@ -68,6 +68,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :persistent_resource_id, 14,
+    type: :string,
+    json_name: "persistentResourceId",
+    deprecated: false
+
   field :worker_pool_specs, 1,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec,

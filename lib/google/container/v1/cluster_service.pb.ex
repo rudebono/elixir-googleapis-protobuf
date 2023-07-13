@@ -461,6 +461,17 @@ defmodule Google.Container.V1.LoggingComponentConfig.Component do
   field :CONTROLLER_MANAGER, 5
 end
 
+defmodule Google.Container.V1.AdvancedDatapathObservabilityConfig.RelayMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELAY_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :INTERNAL_VPC_LB, 3
+  field :EXTERNAL_LB, 4
+end
+
 defmodule Google.Container.V1.LoggingVariantConfig.Variant do
   @moduledoc false
 
@@ -528,6 +539,11 @@ defmodule Google.Container.V1.NodeKubeletConfig do
   field :cpu_cfs_quota, 2, type: Google.Protobuf.BoolValue, json_name: "cpuCfsQuota"
   field :cpu_cfs_quota_period, 3, type: :string, json_name: "cpuCfsQuotaPeriod"
   field :pod_pids_limit, 4, type: :int64, json_name: "podPidsLimit"
+
+  field :insecure_kubelet_readonly_port_enabled, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "insecureKubeletReadonlyPortEnabled"
 end
 
 defmodule Google.Container.V1.NodeConfig.MetadataEntry do
@@ -693,6 +709,11 @@ defmodule Google.Container.V1.NodeNetworkConfig do
   field :pod_cidr_overprovision_config, 13,
     type: Google.Container.V1.PodCIDROverprovisionConfig,
     json_name: "podCidrOverprovisionConfig"
+
+  field :pod_ipv4_range_utilization, 16,
+    type: :double,
+    json_name: "podIpv4RangeUtilization",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.ShieldedInstanceConfig do
@@ -888,6 +909,10 @@ defmodule Google.Container.V1.AddonsConfig do
   field :gke_backup_agent_config, 16,
     type: Google.Container.V1.GkeBackupAgentConfig,
     json_name: "gkeBackupAgentConfig"
+
+  field :gcs_fuse_csi_driver_config, 17,
+    type: Google.Container.V1.GcsFuseCsiDriverConfig,
+    json_name: "gcsFuseCsiDriverConfig"
 end
 
 defmodule Google.Container.V1.HttpLoadBalancing do
@@ -996,6 +1021,14 @@ defmodule Google.Container.V1.GcePersistentDiskCsiDriverConfig do
 end
 
 defmodule Google.Container.V1.GcpFilestoreCsiDriverConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1.GcsFuseCsiDriverConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1118,6 +1151,11 @@ defmodule Google.Container.V1.IPAllocationPolicy do
   field :additional_pod_ranges_config, 24,
     type: Google.Container.V1.AdditionalPodRangesConfig,
     json_name: "additionalPodRangesConfig",
+    deprecated: false
+
+  field :default_pod_ipv4_range_utilization, 25,
+    type: :double,
+    json_name: "defaultPodIpv4RangeUtilization",
     deprecated: false
 end
 
@@ -1550,6 +1588,21 @@ defmodule Google.Container.V1.AdditionalPodRangesConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pod_range_names, 1, repeated: true, type: :string, json_name: "podRangeNames"
+
+  field :pod_range_info, 2,
+    repeated: true,
+    type: Google.Container.V1.RangeInfo,
+    json_name: "podRangeInfo",
+    deprecated: false
+end
+
+defmodule Google.Container.V1.RangeInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :range_name, 1, type: :string, json_name: "rangeName", deprecated: false
+  field :utilization, 2, type: :double, deprecated: false
 end
 
 defmodule Google.Container.V1.Operation do
@@ -2322,6 +2375,11 @@ defmodule Google.Container.V1.AutoprovisioningNodePoolDefaults do
 
   field :boot_disk_kms_key, 9, type: :string, json_name: "bootDiskKmsKey"
   field :image_type, 10, type: :string, json_name: "imageType"
+
+  field :insecure_kubelet_readonly_port_enabled, 13,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "insecureKubeletReadonlyPortEnabled"
 end
 
 defmodule Google.Container.V1.ResourceLimit do
@@ -3047,6 +3105,23 @@ defmodule Google.Container.V1.MonitoringConfig do
   field :managed_prometheus_config, 2,
     type: Google.Container.V1.ManagedPrometheusConfig,
     json_name: "managedPrometheusConfig"
+
+  field :advanced_datapath_observability_config, 3,
+    type: Google.Container.V1.AdvancedDatapathObservabilityConfig,
+    json_name: "advancedDatapathObservabilityConfig"
+end
+
+defmodule Google.Container.V1.AdvancedDatapathObservabilityConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_metrics, 1, type: :bool, json_name: "enableMetrics"
+
+  field :relay_mode, 2,
+    type: Google.Container.V1.AdvancedDatapathObservabilityConfig.RelayMode,
+    json_name: "relayMode",
+    enum: true
 end
 
 defmodule Google.Container.V1.NodePoolLoggingConfig do

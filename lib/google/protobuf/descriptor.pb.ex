@@ -602,6 +602,8 @@ defmodule Google.Protobuf.FeatureSet do
     enum: true,
     deprecated: false
 
+  field :raw_features, 999, optional: true, type: Google.Protobuf.FeatureSet, deprecated: false
+
   extensions [{1000, 1001}, {1001, 1002}, {9995, 10000}]
 end
 

@@ -554,6 +554,8 @@ defmodule Google.Cloud.Alloydb.V1alpha.Cluster do
     type: Google.Cloud.Alloydb.V1alpha.Cluster.PrimaryConfig,
     json_name: "primaryConfig",
     deprecated: false
+
+  field :satisfies_pzs, 30, type: :bool, json_name: "satisfiesPzs"
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.MachineConfig do
@@ -728,6 +730,8 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance do
   field :update_policy, 22,
     type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy,
     json_name: "updatePolicy"
+
+  field :satisfies_pzs, 24, type: :bool, json_name: "satisfiesPzs"
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
@@ -745,6 +749,19 @@ defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
     deprecated: true
 
   field :instance_uid, 4, type: :string, json_name: "instanceUid", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.Backup.QuantityBasedExpiry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_count, 1, type: :int32, json_name: "retentionCount", deprecated: false
+
+  field :total_retention_count, 2,
+    type: :int32,
+    json_name: "totalRetentionCount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.LabelsEntry do
@@ -824,6 +841,13 @@ defmodule Google.Cloud.Alloydb.V1alpha.Backup do
     type: Google.Protobuf.Timestamp,
     json_name: "expiryTime",
     deprecated: false
+
+  field :expiry_quantity, 20,
+    type: Google.Cloud.Alloydb.V1alpha.Backup.QuantityBasedExpiry,
+    json_name: "expiryQuantity",
+    deprecated: false
+
+  field :satisfies_pzs, 21, type: :bool, json_name: "satisfiesPzs"
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.StringRestrictions do

@@ -534,6 +534,17 @@ defmodule Google.Container.V1beta1.LoggingComponentConfig.Component do
   field :CONTROLLER_MANAGER, 5
 end
 
+defmodule Google.Container.V1beta1.AdvancedDatapathObservabilityConfig.RelayMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELAY_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :INTERNAL_VPC_LB, 3
+  field :EXTERNAL_LB, 4
+end
+
 defmodule Google.Container.V1beta1.LoggingVariantConfig.Variant do
   @moduledoc false
 
@@ -3526,6 +3537,23 @@ defmodule Google.Container.V1beta1.MonitoringConfig do
   field :managed_prometheus_config, 2,
     type: Google.Container.V1beta1.ManagedPrometheusConfig,
     json_name: "managedPrometheusConfig"
+
+  field :advanced_datapath_observability_config, 3,
+    type: Google.Container.V1beta1.AdvancedDatapathObservabilityConfig,
+    json_name: "advancedDatapathObservabilityConfig"
+end
+
+defmodule Google.Container.V1beta1.AdvancedDatapathObservabilityConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_metrics, 1, type: :bool, json_name: "enableMetrics"
+
+  field :relay_mode, 2,
+    type: Google.Container.V1beta1.AdvancedDatapathObservabilityConfig.RelayMode,
+    json_name: "relayMode",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.NodePoolLoggingConfig do

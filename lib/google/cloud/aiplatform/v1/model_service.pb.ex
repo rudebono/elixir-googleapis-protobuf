@@ -172,12 +172,6 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelRequest do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
 defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo do
   @moduledoc false
 
@@ -200,6 +194,12 @@ defmodule Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata do
     type: Google.Cloud.Aiplatform.V1.ExportModelOperationMetadata.OutputInfo,
     json_name: "outputInfo",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateExplanationDatasetResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportModelResponse do

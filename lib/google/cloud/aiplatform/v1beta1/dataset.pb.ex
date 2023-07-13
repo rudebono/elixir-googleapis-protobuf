@@ -17,6 +17,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Dataset do
   field :description, 16, type: :string
   field :metadata_schema_uri, 3, type: :string, json_name: "metadataSchemaUri", deprecated: false
   field :metadata, 8, type: Google.Protobuf.Value, deprecated: false
+  field :data_item_count, 10, type: :int64, json_name: "dataItemCount", deprecated: false
 
   field :create_time, 4,
     type: Google.Protobuf.Timestamp,
