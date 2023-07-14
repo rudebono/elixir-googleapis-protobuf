@@ -69,6 +69,12 @@ defmodule Google.Cloud.Kms.Inventory.V1.SearchProtectedResourcesRequest do
   field :crypto_key, 1, type: :string, json_name: "cryptoKey", deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
+
+  field :resource_types, 5,
+    repeated: true,
+    type: :string,
+    json_name: "resourceTypes",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Kms.Inventory.V1.SearchProtectedResourcesResponse do
