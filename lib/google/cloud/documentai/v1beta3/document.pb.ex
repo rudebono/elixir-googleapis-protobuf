@@ -51,6 +51,17 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance.OperationType do
   field :EVAL_SKIPPED, 6
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.RevisionRef.RevisionCase do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REVISION_CASE_UNSPECIFIED, 0
+  field :LATEST_HUMAN_REVIEW, 1
+  field :LATEST_TIMESTAMP, 2
+  field :BASE_OCR_REVISION, 3
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.ShardInfo do
   @moduledoc false
 
@@ -688,4 +699,21 @@ defmodule Google.Cloud.Documentai.V1beta3.Document do
 
   field :error, 10, type: Google.Rpc.Status
   field :revisions, 13, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Revision
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.RevisionRef do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :revision_case, 1,
+    type: Google.Cloud.Documentai.V1beta3.RevisionRef.RevisionCase,
+    json_name: "revisionCase",
+    enum: true,
+    oneof: 0
+
+  field :revision_id, 2, type: :string, json_name: "revisionId", oneof: 0
+  field :latest_processor_version, 3, type: :string, json_name: "latestProcessorVersion", oneof: 0
 end

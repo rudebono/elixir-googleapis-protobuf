@@ -91,6 +91,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
     json_name: "rawDocument",
     oneof: 0
 
+  field :gcs_document, 8,
+    type: Google.Cloud.Documentai.V1beta3.GcsDocument,
+    json_name: "gcsDocument",
+    oneof: 0
+
   field :name, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Documentai.V1beta3.Document, deprecated: true
   field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"

@@ -84,3 +84,24 @@ defmodule Google.Cloud.Documentai.V1.DocumentOutputConfig do
     json_name: "gcsOutputConfig",
     oneof: 0
 end
+
+defmodule Google.Cloud.Documentai.V1.OcrConfig.Hints do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
+end
+
+defmodule Google.Cloud.Documentai.V1.OcrConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :hints, 2, type: Google.Cloud.Documentai.V1.OcrConfig.Hints
+  field :enable_native_pdf_parsing, 3, type: :bool, json_name: "enableNativePdfParsing"
+  field :enable_image_quality_scores, 4, type: :bool, json_name: "enableImageQualityScores"
+  field :advanced_ocr_options, 5, repeated: true, type: :string, json_name: "advancedOcrOptions"
+  field :enable_symbol, 6, type: :bool, json_name: "enableSymbol"
+  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo"
+end

@@ -63,7 +63,7 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion do
 
   field :kms_key_name, 9, type: :string, json_name: "kmsKeyName"
   field :kms_key_version_name, 10, type: :string, json_name: "kmsKeyVersionName"
-  field :google_managed, 11, type: :bool, json_name: "googleManaged"
+  field :google_managed, 11, type: :bool, json_name: "googleManaged", deprecated: false
 
   field :deprecation_info, 13,
     type: Google.Cloud.Documentai.V1beta3.ProcessorVersion.DeprecationInfo,
