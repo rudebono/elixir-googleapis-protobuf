@@ -24,6 +24,16 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessMetadata.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocumentExtractionOptions.TrainingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRAINING_METHOD_UNSPECIFIED, 0
+  field :MODEL_BASED, 1
+  field :TEMPLATE_BASED, 2
+end
+
 defmodule Google.Cloud.Documentai.V1.ReviewDocumentRequest.Priority do
   @moduledoc false
 
@@ -43,6 +53,14 @@ defmodule Google.Cloud.Documentai.V1.ReviewDocumentResponse.State do
   field :SUCCEEDED, 2
 end
 
+defmodule Google.Cloud.Documentai.V1.ProcessOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ocr_config, 1, type: Google.Cloud.Documentai.V1.OcrConfig, json_name: "ocrConfig"
+end
+
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   @moduledoc false
 
@@ -60,9 +78,18 @@ defmodule Google.Cloud.Documentai.V1.ProcessRequest do
     json_name: "rawDocument",
     oneof: 0
 
+  field :gcs_document, 8,
+    type: Google.Cloud.Documentai.V1.GcsDocument,
+    json_name: "gcsDocument",
+    oneof: 0
+
   field :name, 1, type: :string, deprecated: false
   field :skip_human_review, 3, type: :bool, json_name: "skipHumanReview"
   field :field_mask, 6, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
+
+  field :process_options, 7,
+    type: Google.Cloud.Documentai.V1.ProcessOptions,
+    json_name: "processOptions"
 end
 
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
@@ -103,6 +130,10 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
     json_name: "documentOutputConfig"
 
   field :skip_human_review, 4, type: :bool, json_name: "skipHumanReview"
+
+  field :process_options, 7,
+    type: Google.Cloud.Documentai.V1.ProcessOptions,
+    json_name: "processOptions"
 end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessResponse do
@@ -433,10 +464,29 @@ defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.InputData do
     json_name: "testDocuments"
 end
 
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocumentExtractionOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :training_method, 3,
+    type:
+      Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocumentExtractionOptions.TrainingMethod,
+    json_name: "trainingMethod",
+    enum: true
+end
+
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :processor_flags, 0
+
+  field :custom_document_extraction_options, 5,
+    type: Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocumentExtractionOptions,
+    json_name: "customDocumentExtractionOptions",
+    oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
 

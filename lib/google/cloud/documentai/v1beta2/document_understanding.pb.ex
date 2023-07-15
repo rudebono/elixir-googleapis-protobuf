@@ -39,8 +39,7 @@ defmodule Google.Cloud.Documentai.V1beta2.ProcessDocumentRequest do
 
   field :output_config, 2,
     type: Google.Cloud.Documentai.V1beta2.OutputConfig,
-    json_name: "outputConfig",
-    deprecated: false
+    json_name: "outputConfig"
 
   field :document_type, 3, type: :string, json_name: "documentType"
 

@@ -1,0 +1,150 @@
+defmodule Google.Cloud.Netapp.V1beta1.StoragePool.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :READY, 1
+  field :CREATING, 2
+  field :DELETING, 3
+  field :UPDATING, 4
+  field :RESTORING, 5
+  field :DISABLED, 6
+  field :ERROR, 7
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.GetStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.ListStoragePoolsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.ListStoragePoolsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_pools, 1,
+    repeated: true,
+    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    json_name: "storagePools"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.CreateStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :storage_pool_id, 2, type: :string, json_name: "storagePoolId", deprecated: false
+
+  field :storage_pool, 3,
+    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    json_name: "storagePool",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.UpdateStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :storage_pool, 2,
+    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    json_name: "storagePool",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.DeleteStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.StoragePool.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :service_level, 2,
+    type: Google.Cloud.Netapp.V1beta1.ServiceLevel,
+    json_name: "serviceLevel",
+    enum: true,
+    deprecated: false
+
+  field :capacity_gib, 3, type: :int64, json_name: "capacityGib", deprecated: false
+  field :volume_capacity_gib, 4, type: :int64, json_name: "volumeCapacityGib", deprecated: false
+  field :volume_count, 5, type: :int32, json_name: "volumeCount", deprecated: false
+
+  field :state, 6,
+    type: Google.Cloud.Netapp.V1beta1.StoragePool.State,
+    enum: true,
+    deprecated: false
+
+  field :state_details, 7, type: :string, json_name: "stateDetails", deprecated: false
+
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :description, 9, type: :string
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Netapp.V1beta1.StoragePool.LabelsEntry,
+    map: true
+
+  field :network, 11, type: :string, deprecated: false
+  field :active_directory, 12, type: :string, json_name: "activeDirectory", deprecated: false
+  field :kms_config, 13, type: :string, json_name: "kmsConfig", deprecated: false
+  field :ldap_enabled, 14, type: :bool, json_name: "ldapEnabled"
+  field :psa_range, 15, type: :string, json_name: "psaRange"
+
+  field :encryption_type, 16,
+    type: Google.Cloud.Netapp.V1beta1.EncryptionType,
+    json_name: "encryptionType",
+    enum: true,
+    deprecated: false
+
+  field :global_access_allowed, 17,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "globalAccessAllowed",
+    deprecated: false
+end
