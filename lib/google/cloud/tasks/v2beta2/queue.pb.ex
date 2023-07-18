@@ -28,6 +28,11 @@ defmodule Google.Cloud.Tasks.V2beta2.Queue do
     json_name: "pullTarget",
     oneof: 0
 
+  field :http_target, 17,
+    type: Google.Cloud.Tasks.V2beta2.HttpTarget,
+    json_name: "httpTarget",
+    oneof: 0
+
   field :rate_limits, 5, type: Google.Cloud.Tasks.V2beta2.RateLimits, json_name: "rateLimits"
   field :retry_config, 6, type: Google.Cloud.Tasks.V2beta2.RetryConfig, json_name: "retryConfig"
   field :state, 7, type: Google.Cloud.Tasks.V2beta2.Queue.State, enum: true

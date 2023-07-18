@@ -78,6 +78,15 @@ defmodule Google.Cloud.Tasks.V2beta2.ResumeQueueRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Tasks.V2beta2.UploadQueueYamlRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :app_id, 1, type: :string, json_name: "appId", deprecated: false
+  field :http_body, 2, proto3_optional: true, type: Google.Api.HttpBody, json_name: "httpBody"
+end
+
 defmodule Google.Cloud.Tasks.V2beta2.ListTasksRequest do
   @moduledoc false
 
@@ -234,6 +243,24 @@ defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
     enum: true
 end
 
+defmodule Google.Cloud.Tasks.V2beta2.BufferTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :queue, 1, type: :string, deprecated: false
+  field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
+  field :body, 3, type: Google.Api.HttpBody, deprecated: false
+end
+
+defmodule Google.Cloud.Tasks.V2beta2.BufferTaskResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :task, 1, type: Google.Cloud.Tasks.V2beta2.Task
+end
+
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
   @moduledoc false
 
@@ -265,6 +292,8 @@ defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
       Google.Cloud.Tasks.V2beta2.ResumeQueueRequest,
       Google.Cloud.Tasks.V2beta2.Queue
 
+  rpc :UploadQueueYaml, Google.Cloud.Tasks.V2beta2.UploadQueueYamlRequest, Google.Protobuf.Empty
+
   rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
@@ -294,6 +323,10 @@ defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
   rpc :CancelLease, Google.Cloud.Tasks.V2beta2.CancelLeaseRequest, Google.Cloud.Tasks.V2beta2.Task
 
   rpc :RunTask, Google.Cloud.Tasks.V2beta2.RunTaskRequest, Google.Cloud.Tasks.V2beta2.Task
+
+  rpc :BufferTask,
+      Google.Cloud.Tasks.V2beta2.BufferTaskRequest,
+      Google.Cloud.Tasks.V2beta2.BufferTaskResponse
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Stub do

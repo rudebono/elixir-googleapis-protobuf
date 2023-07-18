@@ -27,6 +27,11 @@ defmodule Google.Cloud.Tasks.V2beta2.Task do
     json_name: "pullMessage",
     oneof: 0
 
+  field :http_request, 13,
+    type: Google.Cloud.Tasks.V2beta2.HttpRequest,
+    json_name: "httpRequest",
+    oneof: 0
+
   field :schedule_time, 5, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :status, 7, type: Google.Cloud.Tasks.V2beta2.TaskStatus
