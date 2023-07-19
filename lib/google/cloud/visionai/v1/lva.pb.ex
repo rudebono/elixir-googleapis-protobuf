@@ -21,6 +21,67 @@ defmodule Google.Cloud.Visionai.V1.RunStatus.State do
   field :PENDING, 5
 end
 
+defmodule Google.Cloud.Visionai.V1.OperatorDefinition.ArgumentDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :argument, 1, type: :string
+  field :type, 2, type: :string
+end
+
+defmodule Google.Cloud.Visionai.V1.OperatorDefinition.AttributeDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attribute, 1, type: :string
+  field :type, 2, type: :string
+
+  field :default_value, 3,
+    type: Google.Cloud.Visionai.V1.AttributeValue,
+    json_name: "defaultValue"
+end
+
+defmodule Google.Cloud.Visionai.V1.OperatorDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operator, 1, type: :string
+
+  field :input_args, 2,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.OperatorDefinition.ArgumentDefinition,
+    json_name: "inputArgs"
+
+  field :output_args, 3,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.OperatorDefinition.ArgumentDefinition,
+    json_name: "outputArgs"
+
+  field :attributes, 4,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.OperatorDefinition.AttributeDefinition
+
+  field :resources, 5, type: Google.Cloud.Visionai.V1.ResourceSpecification
+  field :short_description, 6, type: :string, json_name: "shortDescription"
+  field :description, 7, type: :string
+end
+
+defmodule Google.Cloud.Visionai.V1.ResourceSpecification do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cpu, 1, type: :string
+  field :cpu_limits, 5, type: :string, json_name: "cpuLimits"
+  field :memory, 2, type: :string
+  field :memory_limits, 6, type: :string, json_name: "memoryLimits"
+  field :gpus, 3, type: :int32
+  field :latency_budget_ms, 4, type: :int32, json_name: "latencyBudgetMs"
+end
+
 defmodule Google.Cloud.Visionai.V1.AttributeValue do
   @moduledoc false
 
@@ -63,6 +124,15 @@ defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.DebugOptions do
     map: true
 end
 
+defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.OperatorOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tag, 1, type: :string
+  field :registry, 2, type: :string
+end
+
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.AttrsEntry do
   @moduledoc false
 
@@ -89,6 +159,10 @@ defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition do
   field :debug_options, 5,
     type: Google.Cloud.Visionai.V1.AnalyzerDefinition.DebugOptions,
     json_name: "debugOptions"
+
+  field :operator_option, 6,
+    type: Google.Cloud.Visionai.V1.AnalyzerDefinition.OperatorOption,
+    json_name: "operatorOption"
 end
 
 defmodule Google.Cloud.Visionai.V1.AnalysisDefinition do
