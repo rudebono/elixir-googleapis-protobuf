@@ -710,10 +710,43 @@ defmodule Google.Container.V1.NodeNetworkConfig do
     type: Google.Container.V1.PodCIDROverprovisionConfig,
     json_name: "podCidrOverprovisionConfig"
 
+  field :additional_node_network_configs, 14,
+    repeated: true,
+    type: Google.Container.V1.AdditionalNodeNetworkConfig,
+    json_name: "additionalNodeNetworkConfigs"
+
+  field :additional_pod_network_configs, 15,
+    repeated: true,
+    type: Google.Container.V1.AdditionalPodNetworkConfig,
+    json_name: "additionalPodNetworkConfigs"
+
   field :pod_ipv4_range_utilization, 16,
     type: :double,
     json_name: "podIpv4RangeUtilization",
     deprecated: false
+end
+
+defmodule Google.Container.V1.AdditionalNodeNetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :network, 1, type: :string
+  field :subnetwork, 2, type: :string
+end
+
+defmodule Google.Container.V1.AdditionalPodNetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subnetwork, 1, type: :string
+  field :secondary_pod_range, 2, type: :string, json_name: "secondaryPodRange"
+
+  field :max_pods_per_node, 3,
+    proto3_optional: true,
+    type: Google.Container.V1.MaxPodsConstraint,
+    json_name: "maxPodsPerNode"
 end
 
 defmodule Google.Container.V1.ShieldedInstanceConfig do
@@ -2104,6 +2137,7 @@ defmodule Google.Container.V1.NodePool.PlacementPolicy do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Container.V1.NodePool.PlacementPolicy.Type, enum: true
+  field :policy_name, 3, type: :string, json_name: "policyName"
 end
 
 defmodule Google.Container.V1.NodePool do
@@ -2619,6 +2653,8 @@ defmodule Google.Container.V1.NetworkConfig do
   field :gateway_api_config, 16,
     type: Google.Container.V1.GatewayAPIConfig,
     json_name: "gatewayApiConfig"
+
+  field :enable_multi_networking, 17, type: :bool, json_name: "enableMultiNetworking"
 
   field :network_performance_config, 18,
     type: Google.Container.V1.NetworkConfig.ClusterNetworkPerformanceConfig,

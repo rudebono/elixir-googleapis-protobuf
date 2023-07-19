@@ -1,3 +1,77 @@
+defmodule Google.Cloud.Visionai.V1.Registry do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REGISTRY_UNSPECIFIED, 0
+  field :PUBLIC, 1
+  field :PRIVATE, 2
+end
+
+defmodule Google.Cloud.Visionai.V1.ListOperatorsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Visionai.V1.ListOperatorsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Visionai.V1.GetOperatorRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.CreateOperatorRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :operator_id, 2, type: :string, json_name: "operatorId", deprecated: false
+  field :operator, 3, type: Google.Cloud.Visionai.V1.Operator, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.UpdateOperatorRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :operator, 2, type: Google.Cloud.Visionai.V1.Operator, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.DeleteOperatorRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Visionai.V1.ListAnalysesRequest do
   @moduledoc false
 
@@ -163,12 +237,90 @@ defmodule Google.Cloud.Visionai.V1.BatchRunProcessResponse do
   field :processes, 2, repeated: true, type: Google.Cloud.Visionai.V1.Process
 end
 
+defmodule Google.Cloud.Visionai.V1.ResolveOperatorInfoRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :queries, 2,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.OperatorQuery,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.OperatorQuery do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operator, 1, type: :string, deprecated: false
+  field :tag, 2, type: :string, deprecated: false
+  field :registry, 3, type: Google.Cloud.Visionai.V1.Registry, enum: true, deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.ResolveOperatorInfoResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
+end
+
+defmodule Google.Cloud.Visionai.V1.ListPublicOperatorsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Visionai.V1.ListPublicOperatorsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Visionai.V1.LiveVideoAnalytics.Service do
   @moduledoc false
 
   use GRPC.Service,
     name: "google.cloud.visionai.v1.LiveVideoAnalytics",
     protoc_gen_elixir_version: "0.12.0"
+
+  rpc :ListPublicOperators,
+      Google.Cloud.Visionai.V1.ListPublicOperatorsRequest,
+      Google.Cloud.Visionai.V1.ListPublicOperatorsResponse
+
+  rpc :ResolveOperatorInfo,
+      Google.Cloud.Visionai.V1.ResolveOperatorInfoRequest,
+      Google.Cloud.Visionai.V1.ResolveOperatorInfoResponse
+
+  rpc :ListOperators,
+      Google.Cloud.Visionai.V1.ListOperatorsRequest,
+      Google.Cloud.Visionai.V1.ListOperatorsResponse
+
+  rpc :GetOperator, Google.Cloud.Visionai.V1.GetOperatorRequest, Google.Cloud.Visionai.V1.Operator
+
+  rpc :CreateOperator,
+      Google.Cloud.Visionai.V1.CreateOperatorRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateOperator,
+      Google.Cloud.Visionai.V1.UpdateOperatorRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteOperator,
+      Google.Cloud.Visionai.V1.DeleteOperatorRequest,
+      Google.Longrunning.Operation
 
   rpc :ListAnalyses,
       Google.Cloud.Visionai.V1.ListAnalysesRequest,

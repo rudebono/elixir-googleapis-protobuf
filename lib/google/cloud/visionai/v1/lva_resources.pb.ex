@@ -1,3 +1,38 @@
+defmodule Google.Cloud.Visionai.V1.Operator.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Visionai.V1.Operator do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 4, repeated: true, type: Google.Cloud.Visionai.V1.Operator.LabelsEntry, map: true
+
+  field :operator_definition, 5,
+    type: Google.Cloud.Visionai.V1.OperatorDefinition,
+    json_name: "operatorDefinition"
+
+  field :docker_image, 6, type: :string, json_name: "dockerImage"
+end
+
 defmodule Google.Cloud.Visionai.V1.Analysis.LabelsEntry do
   @moduledoc false
 

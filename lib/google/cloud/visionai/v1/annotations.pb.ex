@@ -467,6 +467,8 @@ defmodule Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult do
     repeated: true,
     type: Google.Cloud.Visionai.V1.OccupancyCountingPredictionResult.DwellTimeInfo,
     json_name: "dwellTimeInfo"
+
+  field :pts, 6, proto3_optional: true, type: :int64
 end
 
 defmodule Google.Cloud.Visionai.V1.StreamAnnotation do

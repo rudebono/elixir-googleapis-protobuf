@@ -10,6 +10,15 @@ defmodule Google.Cloud.Visionai.V1.FacetBucketType do
   field :FACET_BUCKET_TYPE_CUSTOM_RANGE, 4
 end
 
+defmodule Google.Cloud.Visionai.V1.Corpus.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :STREAM_VIDEO, 1
+end
+
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.DataType do
   @moduledoc false
 
@@ -23,6 +32,8 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.DataType do
   field :GEO_COORDINATE, 7
   field :PROTO_ANY, 8
   field :BOOLEAN, 9
+  field :LIST, 10
+  field :CUSTOMIZED_STRUCT, 6
 end
 
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity do
@@ -63,6 +74,16 @@ defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType.Container
 
   field :CONTAINER_FORMAT_UNSPECIFIED, 0
   field :CONTAINER_FORMAT_MP4, 1
+end
+
+defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option.AggregateMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :AGGREGATE_METHOD_UNSPECIFIED, 0
+  field :AGGREGATE_METHOD_LARGEST, 1
+  field :AGGREGATE_METHOD_SMALLEST, 2
 end
 
 defmodule Google.Cloud.Visionai.V1.CreateAssetRequest do
@@ -161,6 +182,8 @@ defmodule Google.Cloud.Visionai.V1.Corpus do
     type: Google.Protobuf.Duration,
     json_name: "defaultTtl",
     deprecated: false
+
+  field :type, 7, type: Google.Cloud.Visionai.V1.Corpus.Type, enum: true, deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.GetCorpusRequest do
@@ -241,6 +264,37 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig do
   field :type_uri, 1, type: :string, json_name: "typeUri"
 end
 
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.ListConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :value_schema, 1,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails,
+    json_name: "valueSchema"
+end
+
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig.FieldSchemasEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Visionai.V1.DataSchemaDetails
+end
+
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_schemas, 1,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig.FieldSchemasEntry,
+    json_name: "fieldSchemas",
+    map: true
+end
+
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy do
   @moduledoc false
 
@@ -262,6 +316,14 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
   field :proto_any_config, 6,
     type: Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig,
     json_name: "protoAnyConfig"
+
+  field :list_config, 8,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.ListConfig,
+    json_name: "listConfig"
+
+  field :customized_struct_config, 9,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig,
+    json_name: "customizedStructConfig"
 
   field :granularity, 5, type: Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity, enum: true
 
@@ -392,6 +454,44 @@ defmodule Google.Cloud.Visionai.V1.AnnotationValue do
     type: Google.Protobuf.Struct,
     json_name: "customizedStructDataValue",
     oneof: 0
+
+  field :list_value, 11,
+    type: Google.Cloud.Visionai.V1.AnnotationList,
+    json_name: "listValue",
+    oneof: 0
+
+  field :customized_struct_value, 6,
+    type: Google.Cloud.Visionai.V1.AnnotationCustomizedStruct,
+    json_name: "customizedStructValue",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Visionai.V1.AnnotationList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: Google.Cloud.Visionai.V1.AnnotationValue
+end
+
+defmodule Google.Cloud.Visionai.V1.AnnotationCustomizedStruct.ElementsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Visionai.V1.AnnotationValue
+end
+
+defmodule Google.Cloud.Visionai.V1.AnnotationCustomizedStruct do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :elements, 2,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.AnnotationCustomizedStruct.ElementsEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Visionai.V1.ListAnnotationsRequest do
@@ -586,6 +686,87 @@ defmodule Google.Cloud.Visionai.V1.FacetProperty do
     enum: true
 end
 
+defmodule Google.Cloud.Visionai.V1.SearchHypernym do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :hypernym, 2, type: :string
+  field :hyponyms, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Visionai.V1.CreateSearchHypernymRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :search_hypernym, 2,
+    type: Google.Cloud.Visionai.V1.SearchHypernym,
+    json_name: "searchHypernym",
+    deprecated: false
+
+  field :search_hypernym_id, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "searchHypernymId",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.UpdateSearchHypernymRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :search_hypernym, 1,
+    type: Google.Cloud.Visionai.V1.SearchHypernym,
+    json_name: "searchHypernym",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Visionai.V1.GetSearchHypernymRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.DeleteSearchHypernymRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Visionai.V1.ListSearchHypernymsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Visionai.V1.ListSearchHypernymsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :search_hypernyms, 1,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.SearchHypernym,
+    json_name: "searchHypernyms"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Visionai.V1.SearchCriteriaProperty do
   @moduledoc false
 
@@ -753,8 +934,9 @@ defmodule Google.Cloud.Visionai.V1.GenerateHlsUriRequest do
   field :temporal_partitions, 2,
     repeated: true,
     type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
-    json_name: "temporalPartitions",
-    deprecated: false
+    json_name: "temporalPartitions"
+
+  field :live_view_enabled, 3, type: :bool, json_name: "liveViewEnabled"
 end
 
 defmodule Google.Cloud.Visionai.V1.GenerateHlsUriResponse do
@@ -775,6 +957,13 @@ defmodule Google.Cloud.Visionai.V1.SearchAssetsRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :sort_spec, 0
+
+  field :schema_key_sorting_strategy, 9,
+    type: Google.Cloud.Visionai.V1.SchemaKeySortingStrategy,
+    json_name: "schemaKeySortingStrategy",
+    oneof: 0
+
   field :corpus, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
@@ -794,6 +983,33 @@ defmodule Google.Cloud.Visionai.V1.SearchAssetsRequest do
     repeated: true,
     type: :string,
     json_name: "resultAnnotationKeys"
+
+  field :search_query, 10, type: :string, json_name: "searchQuery"
+end
+
+defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_schema_key, 1, type: :string, json_name: "dataSchemaKey"
+  field :sort_decreasing, 2, type: :bool, json_name: "sortDecreasing"
+
+  field :aggregate_method, 3,
+    proto3_optional: true,
+    type: Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option.AggregateMethod,
+    json_name: "aggregateMethod",
+    enum: true
+end
+
+defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :options, 1,
+    repeated: true,
+    type: Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option
 end
 
 defmodule Google.Cloud.Visionai.V1.DeleteAssetMetadata do
@@ -1014,6 +1230,15 @@ defmodule Google.Cloud.Visionai.V1.Partition.SpatialPartition do
   field :y_max, 4, proto3_optional: true, type: :int64, json_name: "yMax"
 end
 
+defmodule Google.Cloud.Visionai.V1.Partition.RelativeTemporalPartition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
+  field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
+end
+
 defmodule Google.Cloud.Visionai.V1.Partition do
   @moduledoc false
 
@@ -1026,6 +1251,10 @@ defmodule Google.Cloud.Visionai.V1.Partition do
   field :spatial_partition, 2,
     type: Google.Cloud.Visionai.V1.Partition.SpatialPartition,
     json_name: "spatialPartition"
+
+  field :relative_temporal_partition, 3,
+    type: Google.Cloud.Visionai.V1.Partition.RelativeTemporalPartition,
+    json_name: "relativeTemporalPartition"
 end
 
 defmodule Google.Cloud.Visionai.V1.Warehouse.Service do
@@ -1126,6 +1355,26 @@ defmodule Google.Cloud.Visionai.V1.Warehouse.Service do
   rpc :ListSearchConfigs,
       Google.Cloud.Visionai.V1.ListSearchConfigsRequest,
       Google.Cloud.Visionai.V1.ListSearchConfigsResponse
+
+  rpc :CreateSearchHypernym,
+      Google.Cloud.Visionai.V1.CreateSearchHypernymRequest,
+      Google.Cloud.Visionai.V1.SearchHypernym
+
+  rpc :UpdateSearchHypernym,
+      Google.Cloud.Visionai.V1.UpdateSearchHypernymRequest,
+      Google.Cloud.Visionai.V1.SearchHypernym
+
+  rpc :GetSearchHypernym,
+      Google.Cloud.Visionai.V1.GetSearchHypernymRequest,
+      Google.Cloud.Visionai.V1.SearchHypernym
+
+  rpc :DeleteSearchHypernym,
+      Google.Cloud.Visionai.V1.DeleteSearchHypernymRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListSearchHypernyms,
+      Google.Cloud.Visionai.V1.ListSearchHypernymsRequest,
+      Google.Cloud.Visionai.V1.ListSearchHypernymsResponse
 
   rpc :SearchAssets,
       Google.Cloud.Visionai.V1.SearchAssetsRequest,

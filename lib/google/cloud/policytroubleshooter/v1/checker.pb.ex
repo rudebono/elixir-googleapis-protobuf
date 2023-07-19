@@ -19,6 +19,8 @@ defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
     repeated: true,
     type: Google.Cloud.Policytroubleshooter.V1.ExplainedPolicy,
     json_name: "explainedPolicies"
+
+  field :errors, 3, repeated: true, type: Google.Rpc.Status
 end
 
 defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Service do

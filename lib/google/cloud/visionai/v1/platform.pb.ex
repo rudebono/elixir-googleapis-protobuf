@@ -14,6 +14,7 @@ defmodule Google.Cloud.Visionai.V1.ModelType do
   field :VERTEX_CUSTOM, 8
   field :PRODUCT_RECOGNIZER, 9
   field :TAG_RECOGNIZER, 10
+  field :SYNTH_ID, 15
 end
 
 defmodule Google.Cloud.Visionai.V1.AcceleratorType do
@@ -1366,6 +1367,12 @@ defmodule Google.Cloud.Visionai.V1.VertexCustomConfig do
     json_name: "postProcessingCloudFunction"
 
   field :attach_application_metadata, 4, type: :bool, json_name: "attachApplicationMetadata"
+
+  field :dynamic_config_input_topic, 6,
+    proto3_optional: true,
+    type: :string,
+    json_name: "dynamicConfigInputTopic",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.GcsOutputConfig do
