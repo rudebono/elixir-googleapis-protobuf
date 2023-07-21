@@ -71,6 +71,18 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   field :STOPPED, 6
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Asset.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :DELETING, 3
+  field :ERROR, 4
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Input.SecurityRule do
   @moduledoc false
 
@@ -338,6 +350,15 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.AdBreakTask do
   field :duration, 1, type: Google.Protobuf.Duration
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Event.SlateTask do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :duration, 1, type: Google.Protobuf.Duration
+  field :asset, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.ReturnToProgramTask do
   @moduledoc false
 
@@ -394,31 +415,21 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
   field :input_switch, 5,
     type: Google.Cloud.Video.Livestream.V1.Event.InputSwitchTask,
     json_name: "inputSwitch",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :ad_break, 6,
     type: Google.Cloud.Video.Livestream.V1.Event.AdBreakTask,
     json_name: "adBreak",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :return_to_program, 13,
     type: Google.Cloud.Video.Livestream.V1.Event.ReturnToProgramTask,
     json_name: "returnToProgram",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
-  field :mute, 15,
-    type: Google.Cloud.Video.Livestream.V1.Event.MuteTask,
-    oneof: 0,
-    deprecated: false
-
-  field :unmute, 16,
-    type: Google.Cloud.Video.Livestream.V1.Event.UnmuteTask,
-    oneof: 0,
-    deprecated: false
-
+  field :slate, 14, type: Google.Cloud.Video.Livestream.V1.Event.SlateTask, oneof: 0
+  field :mute, 15, type: Google.Cloud.Video.Livestream.V1.Event.MuteTask, oneof: 0
+  field :unmute, 16, type: Google.Cloud.Video.Livestream.V1.Event.UnmuteTask, oneof: 0
   field :execute_now, 9, type: :bool, json_name: "executeNow"
   field :execution_time, 10, type: Google.Protobuf.Timestamp, json_name: "executionTime"
 
@@ -428,6 +439,67 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
     deprecated: false
 
   field :error, 12, type: Google.Rpc.Status, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Asset.VideoAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Asset.ImageAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Asset.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Asset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource, 0
+
+  field :name, 1, type: :string
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Asset.LabelsEntry,
+    map: true
+
+  field :video, 5, type: Google.Cloud.Video.Livestream.V1.Asset.VideoAsset, oneof: 0
+  field :image, 6, type: Google.Cloud.Video.Livestream.V1.Asset.ImageAsset, oneof: 0
+  field :crc32c, 7, type: :string
+
+  field :state, 8,
+    type: Google.Cloud.Video.Livestream.V1.Asset.State,
+    enum: true,
+    deprecated: false
+
+  field :error, 9, type: Google.Rpc.Status, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Encryption.SecretManagerSource do
@@ -525,4 +597,48 @@ defmodule Google.Cloud.Video.Livestream.V1.Encryption do
     type: Google.Cloud.Video.Livestream.V1.Encryption.MpegCommonEncryption,
     json_name: "mpegCenc",
     oneof: 1
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Pool.NetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :peered_network, 1, type: :string, json_name: "peeredNetwork", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Pool.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Pool do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Pool.LabelsEntry,
+    map: true
+
+  field :network_config, 5,
+    type: Google.Cloud.Video.Livestream.V1.Pool.NetworkConfig,
+    json_name: "networkConfig"
 end

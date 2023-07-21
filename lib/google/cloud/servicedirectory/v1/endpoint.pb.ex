@@ -21,4 +21,7 @@ defmodule Google.Cloud.Servicedirectory.V1.Endpoint do
     type: Google.Cloud.Servicedirectory.V1.Endpoint.AnnotationsEntry,
     map: true,
     deprecated: false
+
+  field :network, 8, type: :string, deprecated: false
+  field :uid, 9, type: :string, deprecated: false
 end

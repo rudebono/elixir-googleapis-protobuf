@@ -34,4 +34,6 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.Service do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :uid, 8, type: :string, deprecated: false
 end

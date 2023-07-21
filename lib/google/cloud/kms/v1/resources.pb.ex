@@ -42,6 +42,10 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :GOOGLE_SYMMETRIC_ENCRYPTION, 1
   field :AES_128_GCM, 41
   field :AES_256_GCM, 19
+  field :AES_128_CBC, 42
+  field :AES_256_CBC, 43
+  field :AES_128_CTR, 44
+  field :AES_256_CTR, 45
   field :RSA_SIGN_PSS_2048_SHA256, 2
   field :RSA_SIGN_PSS_3072_SHA256, 3
   field :RSA_SIGN_PSS_4096_SHA256, 4
