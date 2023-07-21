@@ -24,4 +24,6 @@ defmodule Google.Cloud.Servicedirectory.V1.Service do
     repeated: true,
     type: Google.Cloud.Servicedirectory.V1.Endpoint,
     deprecated: false
+
+  field :uid, 7, type: :string, deprecated: false
 end

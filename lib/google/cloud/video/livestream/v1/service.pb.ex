@@ -1,3 +1,53 @@
+defmodule Google.Cloud.Video.Livestream.V1.CreateAssetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :asset, 2, type: Google.Cloud.Video.Livestream.V1.Asset, deprecated: false
+  field :asset_id, 3, type: :string, json_name: "assetId", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DeleteAssetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.ListAssetsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.ListAssetsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :assets, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Asset
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.GetAssetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.CreateChannelRequest do
   @moduledoc false
 
@@ -215,6 +265,24 @@ defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   field :api_version, 6, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.GetPoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.UpdatePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :pool, 2, type: Google.Cloud.Video.Livestream.V1.Pool, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   @moduledoc false
 
@@ -283,6 +351,30 @@ defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
       Google.Cloud.Video.Livestream.V1.Event
 
   rpc :DeleteEvent, Google.Cloud.Video.Livestream.V1.DeleteEventRequest, Google.Protobuf.Empty
+
+  rpc :CreateAsset,
+      Google.Cloud.Video.Livestream.V1.CreateAssetRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAsset,
+      Google.Cloud.Video.Livestream.V1.DeleteAssetRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetAsset,
+      Google.Cloud.Video.Livestream.V1.GetAssetRequest,
+      Google.Cloud.Video.Livestream.V1.Asset
+
+  rpc :ListAssets,
+      Google.Cloud.Video.Livestream.V1.ListAssetsRequest,
+      Google.Cloud.Video.Livestream.V1.ListAssetsResponse
+
+  rpc :GetPool,
+      Google.Cloud.Video.Livestream.V1.GetPoolRequest,
+      Google.Cloud.Video.Livestream.V1.Pool
+
+  rpc :UpdatePool,
+      Google.Cloud.Video.Livestream.V1.UpdatePoolRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Stub do

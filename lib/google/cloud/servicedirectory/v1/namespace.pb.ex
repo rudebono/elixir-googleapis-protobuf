@@ -19,4 +19,6 @@ defmodule Google.Cloud.Servicedirectory.V1.Namespace do
     type: Google.Cloud.Servicedirectory.V1.Namespace.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :uid, 5, type: :string, deprecated: false
 end
