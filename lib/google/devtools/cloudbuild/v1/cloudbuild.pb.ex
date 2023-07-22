@@ -73,6 +73,18 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult.Decision do
   field :REJECTED, 2
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.GitFileSource.RepoType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNKNOWN, 0
+  field :CLOUD_SOURCE_REPOSITORIES, 1
+  field :GITHUB, 2
+  field :BITBUCKET_SERVER, 3
+  field :GITLAB, 4
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.RepositoryEventConfig.RepositoryType do
   @moduledoc false
 
@@ -877,6 +889,58 @@ defmodule Google.Devtools.Cloudbuild.V1.ApprovalResult do
   field :url, 6, type: :string, deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.GitRepoSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :enterprise_config, 1
+
+  field :uri, 1, type: :string
+  field :repository, 6, type: :string, oneof: 0, deprecated: false
+  field :ref, 2, type: :string
+
+  field :repo_type, 3,
+    type: Google.Devtools.Cloudbuild.V1.GitFileSource.RepoType,
+    json_name: "repoType",
+    enum: true
+
+  field :github_enterprise_config, 4,
+    type: :string,
+    json_name: "githubEnterpriseConfig",
+    oneof: 1,
+    deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.GitFileSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :enterprise_config, 1
+
+  field :path, 1, type: :string
+  field :uri, 2, type: :string
+  field :repository, 7, type: :string, oneof: 0, deprecated: false
+
+  field :repo_type, 3,
+    type: Google.Devtools.Cloudbuild.V1.GitFileSource.RepoType,
+    json_name: "repoType",
+    enum: true
+
+  field :revision, 4, type: :string
+
+  field :github_enterprise_config, 5,
+    type: :string,
+    json_name: "githubEnterpriseConfig",
+    oneof: 1,
+    deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger.SubstitutionsEntry do
   @moduledoc false
 
@@ -917,6 +981,11 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :build, 4, type: Google.Devtools.Cloudbuild.V1.Build, oneof: 0
   field :filename, 8, type: :string, oneof: 0
 
+  field :git_file_source, 24,
+    type: Google.Devtools.Cloudbuild.V1.GitFileSource,
+    json_name: "gitFileSource",
+    oneof: 0
+
   field :create_time, 5,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
@@ -932,6 +1001,11 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildTrigger do
   field :ignored_files, 15, repeated: true, type: :string, json_name: "ignoredFiles"
   field :included_files, 16, repeated: true, type: :string, json_name: "includedFiles"
   field :filter, 30, type: :string, deprecated: false
+
+  field :source_to_build, 26,
+    type: Google.Devtools.Cloudbuild.V1.GitRepoSource,
+    json_name: "sourceToBuild"
+
   field :service_account, 33, type: :string, json_name: "serviceAccount", deprecated: false
 
   field :repository_event_config, 39,
@@ -1170,6 +1244,53 @@ defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.GitHubEnterpriseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 7, type: :string, deprecated: false
+  field :host_url, 3, type: :string, json_name: "hostUrl"
+  field :app_id, 4, type: :int64, json_name: "appId", deprecated: false
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :webhook_key, 8, type: :string, json_name: "webhookKey"
+  field :peered_network, 9, type: :string, json_name: "peeredNetwork", deprecated: false
+  field :secrets, 10, type: Google.Devtools.Cloudbuild.V1.GitHubEnterpriseSecrets
+  field :display_name, 11, type: :string, json_name: "displayName"
+  field :ssl_ca, 12, type: :string, json_name: "sslCa", deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.GitHubEnterpriseSecrets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_key_version_name, 5,
+    type: :string,
+    json_name: "privateKeyVersionName",
+    deprecated: false
+
+  field :webhook_secret_version_name, 6,
+    type: :string,
+    json_name: "webhookSecretVersionName",
+    deprecated: false
+
+  field :oauth_secret_version_name, 7,
+    type: :string,
+    json_name: "oauthSecretVersionName",
+    deprecated: false
+
+  field :oauth_client_id_version_name, 8,
+    type: :string,
+    json_name: "oauthClientIdVersionName",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.WorkerPool.AnnotationsEntry do
