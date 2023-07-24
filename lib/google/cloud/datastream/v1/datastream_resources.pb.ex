@@ -545,6 +545,8 @@ defmodule Google.Cloud.Datastream.V1.MysqlColumn do
   field :primary_key, 5, type: :bool, json_name: "primaryKey"
   field :nullable, 6, type: :bool
   field :ordinal_position, 7, type: :int32, json_name: "ordinalPosition"
+  field :precision, 8, type: :int32
+  field :scale, 9, type: :int32
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlTable do
