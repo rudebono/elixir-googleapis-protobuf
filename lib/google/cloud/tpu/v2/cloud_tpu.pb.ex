@@ -239,6 +239,9 @@ defmodule Google.Cloud.Tpu.V2.Node do
   field :accelerator_config, 46,
     type: Google.Cloud.Tpu.V2.AcceleratorConfig,
     json_name: "acceleratorConfig"
+
+  field :queued_resource, 47, type: :string, json_name: "queuedResource", deprecated: false
+  field :multislice_node, 48, type: :bool, json_name: "multisliceNode", deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2.ListNodesRequest do
