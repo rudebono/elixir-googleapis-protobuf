@@ -680,6 +680,7 @@ defmodule Google.Cloud.Compute.V1.DistributionPolicy.TargetShape do
 
   field :UNDEFINED_TARGET_SHAPE, 0
   field :ANY, 64972
+  field :ANY_SINGLE_ZONE, 61_100_880
   field :BALANCED, 468_409_608
   field :EVEN, 2_140_442
 end
@@ -2250,6 +2251,16 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :VPN_GATEWAYS, 35_620_282
   field :VPN_TUNNELS, 104_327_296
   field :XPN_SERVICE_PROJECTS, 95_191_981
+end
+
+defmodule Google.Cloud.Compute.V1.QuotaExceededInfo.RolloutStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_ROLLOUT_STATUS, 0
+  field :IN_PROGRESS, 469_193_735
+  field :ROLLOUT_STATUS_UNSPECIFIED, 26_864_568
 end
 
 defmodule Google.Cloud.Compute.V1.RawDisk.ContainerType do
@@ -20159,6 +20170,28 @@ defmodule Google.Cloud.Compute.V1.PatchRegionUrlMapRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.PatchResourcePolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :resource_policy, 159_240_835,
+    type: :string,
+    json_name: "resourcePolicy",
+    deprecated: false
+
+  field :resource_policy_resource, 76_826_186,
+    type: Google.Cloud.Compute.V1.ResourcePolicy,
+    json_name: "resourcePolicyResource",
+    deprecated: false
+
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
+end
+
 defmodule Google.Cloud.Compute.V1.PatchRouterRequest do
   @moduledoc false
 
@@ -20891,9 +20924,15 @@ defmodule Google.Cloud.Compute.V1.QuotaExceededInfo do
     type: Google.Cloud.Compute.V1.QuotaExceededInfo.DimensionsEntry,
     map: true
 
+  field :future_limit, 456_564_287, proto3_optional: true, type: :double, json_name: "futureLimit"
   field :limit, 102_976_443, proto3_optional: true, type: :double
   field :limit_name, 398_197_903, proto3_optional: true, type: :string, json_name: "limitName"
   field :metric_name, 409_881_530, proto3_optional: true, type: :string, json_name: "metricName"
+
+  field :rollout_status, 476_426_816,
+    proto3_optional: true,
+    type: :string,
+    json_name: "rolloutStatus"
 end
 
 defmodule Google.Cloud.Compute.V1.RawDisk do
@@ -23097,6 +23136,11 @@ defmodule Google.Cloud.Compute.V1.Scheduling do
     type: :string,
     json_name: "instanceTerminationAction"
 
+  field :local_ssd_recovery_timeout, 268_015_590,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Duration,
+    json_name: "localSsdRecoveryTimeout"
+
   field :location_hint, 350_519_505,
     proto3_optional: true,
     type: :string,
@@ -23762,6 +23806,11 @@ defmodule Google.Cloud.Compute.V1.ServiceAttachmentConnectedEndpoint do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :consumer_network, 254_357_221,
+    proto3_optional: true,
+    type: :string,
+    json_name: "consumerNetwork"
 
   field :endpoint, 130_489_749, proto3_optional: true, type: :string
 
@@ -31712,6 +31761,10 @@ defmodule Google.Cloud.Compute.V1.ResourcePolicies.Service do
   rpc :List,
       Google.Cloud.Compute.V1.ListResourcePoliciesRequest,
       Google.Cloud.Compute.V1.ResourcePolicyList
+
+  rpc :Patch,
+      Google.Cloud.Compute.V1.PatchResourcePolicyRequest,
+      Google.Cloud.Compute.V1.Operation
 
   rpc :SetIamPolicy,
       Google.Cloud.Compute.V1.SetIamPolicyResourcePolicyRequest,

@@ -31,6 +31,16 @@ defmodule Google.Cloud.Dataplex.V1.Job.State do
   field :ABORTED, 6
 end
 
+defmodule Google.Cloud.Dataplex.V1.Job.Trigger do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRIGGER_UNSPECIFIED, 0
+  field :TASK_CONFIG, 1
+  field :RUN_REQUEST, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.BatchComputeResources do
   @moduledoc false
 
@@ -283,6 +293,15 @@ defmodule Google.Cloud.Dataplex.V1.Task do
   field :notebook, 302, type: Google.Cloud.Dataplex.V1.Task.NotebookTaskConfig, oneof: 0
 end
 
+defmodule Google.Cloud.Dataplex.V1.Job.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Dataplex.V1.Job do
   @moduledoc false
 
@@ -297,4 +316,17 @@ defmodule Google.Cloud.Dataplex.V1.Job do
   field :service, 7, type: Google.Cloud.Dataplex.V1.Job.Service, enum: true, deprecated: false
   field :service_job, 8, type: :string, json_name: "serviceJob", deprecated: false
   field :message, 9, type: :string, deprecated: false
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.Job.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :trigger, 11, type: Google.Cloud.Dataplex.V1.Job.Trigger, enum: true, deprecated: false
+
+  field :execution_spec, 100,
+    type: Google.Cloud.Dataplex.V1.Task.ExecutionSpec,
+    json_name: "executionSpec",
+    deprecated: false
 end

@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :SUCCEEDED, 1
+  field :FAILED, 2
+  field :SKIPPED, 3
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation.ColumnStatistic do
   @moduledoc false
 
@@ -9,12 +20,67 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation.Col
   field :MAX, 3
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :results_table, 1, type: :string, json_name: "resultsTable", deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bigquery_export, 1,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExport,
+    json_name: "bigqueryExport",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :rules, 1, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRule
+  field :rules, 1,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataQualityRule,
+    deprecated: false
+
+  field :sampling_percent, 4, type: :float, json_name: "samplingPercent", deprecated: false
+  field :row_filter, 5, type: :string, json_name: "rowFilter", deprecated: false
+
+  field :post_scan_actions, 6,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions,
+    json_name: "postScanActions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type:
+      Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult.State,
+    enum: true,
+    deprecated: false
+
+  field :message, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bigquery_export_result, 1,
+    type: Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult,
+    json_name: "bigqueryExportResult",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
@@ -27,6 +93,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   field :rules, 3, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRuleResult
   field :row_count, 4, type: :int64, json_name: "rowCount"
   field :scanned_data, 7, type: Google.Cloud.Dataplex.V1.ScannedData, json_name: "scannedData"
+
+  field :post_scan_actions_result, 8,
+    type: Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult,
+    json_name: "postScanActionsResult",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRuleResult do
@@ -73,7 +144,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.SetExpectation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :values, 1, repeated: true, type: :string
+  field :values, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RegexExpectation do
@@ -81,7 +152,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RegexExpectation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :regex, 1, type: :string
+  field :regex, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.UniquenessExpectation do
@@ -97,12 +168,13 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation do
 
   field :statistic, 1,
     type: Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation.ColumnStatistic,
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :min_value, 2, type: :string, json_name: "minValue"
-  field :max_value, 3, type: :string, json_name: "maxValue"
-  field :strict_min_enabled, 4, type: :bool, json_name: "strictMinEnabled"
-  field :strict_max_enabled, 5, type: :bool, json_name: "strictMaxEnabled"
+  field :min_value, 2, type: :string, json_name: "minValue", deprecated: false
+  field :max_value, 3, type: :string, json_name: "maxValue", deprecated: false
+  field :strict_min_enabled, 4, type: :bool, json_name: "strictMinEnabled", deprecated: false
+  field :strict_max_enabled, 5, type: :bool, json_name: "strictMaxEnabled", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RowConditionExpectation do
@@ -110,7 +182,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RowConditionExpectation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :sql_expression, 1, type: :string, json_name: "sqlExpression"
+  field :sql_expression, 1, type: :string, json_name: "sqlExpression", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.TableConditionExpectation do
@@ -118,7 +190,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.TableConditionExpectation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :sql_expression, 1, type: :string, json_name: "sqlExpression"
+  field :sql_expression, 1, type: :string, json_name: "sqlExpression", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
@@ -172,4 +244,6 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   field :ignore_null, 501, type: :bool, json_name: "ignoreNull", deprecated: false
   field :dimension, 502, type: :string, deprecated: false
   field :threshold, 503, type: :double, deprecated: false
+  field :name, 504, type: :string, deprecated: false
+  field :description, 505, type: :string, deprecated: false
 end

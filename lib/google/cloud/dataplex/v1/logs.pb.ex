@@ -54,6 +54,16 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent.Service do
   field :DATAPROC, 1
 end
 
+defmodule Google.Cloud.Dataplex.V1.JobEvent.ExecutionTrigger do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXECUTION_TRIGGER_UNSPECIFIED, 0
+  field :TASK_CONFIG, 1
+  field :RUN_REQUEST, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
   @moduledoc false
 
@@ -96,6 +106,7 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.State do
   field :SUCCEEDED, 2
   field :FAILED, 3
   field :CANCELLED, 4
+  field :CREATED, 5
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Trigger do
@@ -116,6 +127,53 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Scope do
   field :SCOPE_UNSPECIFIED, 0
   field :FULL, 1
   field :INCREMENTAL, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :SUCCEEDED, 1
+  field :FAILED, 2
+  field :SKIPPED, 3
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.RuleType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RULE_TYPE_UNSPECIFIED, 0
+  field :NON_NULL_EXPECTATION, 1
+  field :RANGE_EXPECTATION, 2
+  field :REGEX_EXPECTATION, 3
+  field :ROW_CONDITION_EXPECTATION, 4
+  field :SET_EXPECTATION, 5
+  field :STATISTIC_RANGE_EXPECTATION, 6
+  field :TABLE_CONDITION_EXPECTATION, 7
+  field :UNIQUENESS_EXPECTATION, 8
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.EvaluationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EVALUATION_TYPE_UNSPECIFIED, 0
+  field :PER_ROW, 1
+  field :AGGREGATE, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.Result do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESULT_UNSPECIFIED, 0
+  field :PASSED, 1
+  field :FAILED, 2
 end
 
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
@@ -203,6 +261,11 @@ defmodule Google.Cloud.Dataplex.V1.JobEvent do
   field :type, 7, type: Google.Cloud.Dataplex.V1.JobEvent.Type, enum: true
   field :service, 8, type: Google.Cloud.Dataplex.V1.JobEvent.Service, enum: true
   field :service_job, 9, type: :string, json_name: "serviceJob"
+
+  field :execution_trigger, 11,
+    type: Google.Cloud.Dataplex.V1.JobEvent.ExecutionTrigger,
+    json_name: "executionTrigger",
+    enum: true
 end
 
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
@@ -267,6 +330,47 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult do
     map: true
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileAppliedConfigs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sampling_percent, 1, type: :float, json_name: "samplingPercent"
+  field :row_filter_applied, 2, type: :bool, json_name: "rowFilterApplied"
+  field :column_filter_applied, 3, type: :bool, json_name: "columnFilterApplied"
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityAppliedConfigs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sampling_percent, 1, type: :float, json_name: "samplingPercent"
+  field :row_filter_applied, 2, type: :bool, json_name: "rowFilterApplied"
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult.State,
+    enum: true
+
+  field :message, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bigquery_export_result, 1,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult,
+    json_name: "bigqueryExportResult"
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
   @moduledoc false
 
@@ -274,8 +378,11 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
 
   oneof :result, 0
 
+  oneof :appliedConfigs, 1
+
   field :data_source, 1, type: :string, json_name: "dataSource"
   field :job_id, 2, type: :string, json_name: "jobId"
+  field :create_time, 12, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :type, 5, type: Google.Cloud.Dataplex.V1.DataScanEvent.ScanType, enum: true
@@ -294,4 +401,46 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
     type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult,
     json_name: "dataQuality",
     oneof: 0
+
+  field :data_profile_configs, 201,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileAppliedConfigs,
+    json_name: "dataProfileConfigs",
+    oneof: 1
+
+  field :data_quality_configs, 202,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityAppliedConfigs,
+    json_name: "dataQualityConfigs",
+    oneof: 1
+
+  field :post_scan_actions_result, 11,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult,
+    json_name: "postScanActionsResult"
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :job_id, 1, type: :string, json_name: "jobId"
+  field :data_source, 2, type: :string, json_name: "dataSource"
+  field :column, 3, type: :string
+  field :rule_name, 4, type: :string, json_name: "ruleName"
+
+  field :rule_type, 5,
+    type: Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.RuleType,
+    json_name: "ruleType",
+    enum: true
+
+  field :evalution_type, 6,
+    type: Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.EvaluationType,
+    json_name: "evalutionType",
+    enum: true
+
+  field :rule_dimension, 7, type: :string, json_name: "ruleDimension"
+  field :threshold_percent, 8, type: :double, json_name: "thresholdPercent"
+  field :result, 9, type: Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.Result, enum: true
+  field :evaluated_row_count, 10, type: :int64, json_name: "evaluatedRowCount"
+  field :passed_row_count, 11, type: :int64, json_name: "passedRowCount"
+  field :null_row_count, 12, type: :int64, json_name: "nullRowCount"
 end
