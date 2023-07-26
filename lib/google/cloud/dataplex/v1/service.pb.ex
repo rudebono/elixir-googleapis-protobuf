@@ -326,12 +326,42 @@ defmodule Google.Cloud.Dataplex.V1.GetJobRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.RunTaskRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataplex.V1.RunTaskRequest.ArgsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Dataplex.V1.RunTaskRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :labels, 3,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.RunTaskRequest.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :args, 4,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.RunTaskRequest.ArgsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.RunTaskResponse do

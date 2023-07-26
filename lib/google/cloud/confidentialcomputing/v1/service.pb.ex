@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Confidentialcomputing.V1.SigningAlgorithm do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SIGNING_ALGORITHM_UNSPECIFIED, 0
+  field :RSASSA_PSS_SHA256, 1
+  field :RSASSA_PKCS1V15_SHA256, 2
+  field :ECDSA_P256_SHA256, 3
+end
+
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
   @moduledoc false
 
@@ -44,6 +55,16 @@ defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest do
     type: Google.Cloud.Confidentialcomputing.V1.TpmAttestation,
     json_name: "tpmAttestation",
     deprecated: false
+
+  field :confidential_space_info, 4,
+    type: Google.Cloud.Confidentialcomputing.V1.ConfidentialSpaceInfo,
+    json_name: "confidentialSpaceInfo",
+    deprecated: false
+
+  field :token_options, 5,
+    type: Google.Cloud.Confidentialcomputing.V1.TokenOptions,
+    json_name: "tokenOptions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse do
@@ -63,6 +84,15 @@ defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do
     repeated: true,
     type: :string,
     json_name: "serviceAccountIdTokens"
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audience, 1, type: :string, deprecated: false
+  field :nonce, 2, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote.PcrValuesEntry do
@@ -104,6 +134,46 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation do
   field :canonical_event_log, 3, type: :bytes, json_name: "canonicalEventLog"
   field :ak_cert, 4, type: :bytes, json_name: "akCert"
   field :cert_chain, 5, repeated: true, type: :bytes, json_name: "certChain"
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialSpaceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :signed_entities, 1,
+    repeated: true,
+    type: Google.Cloud.Confidentialcomputing.V1.SignedEntity,
+    json_name: "signedEntities",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.SignedEntity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :container_image_signatures, 1,
+    repeated: true,
+    type: Google.Cloud.Confidentialcomputing.V1.ContainerImageSignature,
+    json_name: "containerImageSignatures",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.ContainerImageSignature do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :payload, 1, type: :bytes, deprecated: false
+  field :signature, 2, type: :bytes, deprecated: false
+  field :public_key, 3, type: :bytes, json_name: "publicKey", deprecated: false
+
+  field :sig_alg, 4,
+    type: Google.Cloud.Confidentialcomputing.V1.SigningAlgorithm,
+    json_name: "sigAlg",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service do

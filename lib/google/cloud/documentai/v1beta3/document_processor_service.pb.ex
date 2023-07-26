@@ -714,6 +714,15 @@ defmodule Google.Cloud.Documentai.V1beta3.ListEvaluationsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest.ExternalProcessorVersionSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :processor_version, 1, type: :string, json_name: "processorVersion", deprecated: false
+  field :service_endpoint, 2, type: :string, json_name: "serviceEndpoint", deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest do
   @moduledoc false
 
@@ -726,6 +735,12 @@ defmodule Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest do
     json_name: "processorVersionSource",
     oneof: 0,
     deprecated: false
+
+  field :external_processor_version_source, 3,
+    type:
+      Google.Cloud.Documentai.V1beta3.ImportProcessorVersionRequest.ExternalProcessorVersionSource,
+    json_name: "externalProcessorVersionSource",
+    oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
 end
