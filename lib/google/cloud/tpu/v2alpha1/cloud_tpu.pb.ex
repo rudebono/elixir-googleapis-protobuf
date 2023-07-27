@@ -298,6 +298,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.BestEffort do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Spot do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Guaranteed do
   @moduledoc false
 
@@ -359,6 +365,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource do
     oneof: 1
 
   field :guaranteed, 4, type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Guaranteed, oneof: 1
+  field :spot, 9, type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Spot, oneof: 1, deprecated: false
 
   field :queueing_policy, 5,
     type: Google.Cloud.Tpu.V2alpha1.QueuedResource.QueueingPolicy,

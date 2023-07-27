@@ -247,13 +247,13 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributio
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED, 0
-  field :CROSS_CHANNEL_DATA_DRIVEN, 1
-  field :CROSS_CHANNEL_LAST_CLICK, 2
-  field :CROSS_CHANNEL_FIRST_CLICK, 3
-  field :CROSS_CHANNEL_LINEAR, 4
-  field :CROSS_CHANNEL_POSITION_BASED, 5
-  field :CROSS_CHANNEL_TIME_DECAY, 6
-  field :ADS_PREFERRED_LAST_CLICK, 7
+  field :PAID_AND_ORGANIC_CHANNELS_DATA_DRIVEN, 1
+  field :PAID_AND_ORGANIC_CHANNELS_LAST_CLICK, 2
+  field :PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK, 3
+  field :PAID_AND_ORGANIC_CHANNELS_LINEAR, 4
+  field :PAID_AND_ORGANIC_CHANNELS_POSITION_BASED, 5
+  field :PAID_AND_ORGANIC_CHANNELS_TIME_DECAY, 6
+  field :GOOGLE_PAID_CHANNELS_LAST_CLICK, 7
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.AdsWebConversionDataExportScope do
@@ -263,8 +263,8 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.AdsWebConversionDat
 
   field :ADS_WEB_CONVERSION_DATA_EXPORT_SCOPE_UNSPECIFIED, 0
   field :NOT_SELECTED_YET, 1
-  field :CROSS_CHANNEL, 2
-  field :ADS_PREFERRED, 3
+  field :PAID_AND_ORGANIC_CHANNELS, 2
+  field :GOOGLE_PAID_CHANNELS, 3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.Account do

@@ -5,4 +5,5 @@ defmodule Google.Bigtable.V2.FeatureFlags do
 
   field :reverse_scans, 1, type: :bool, json_name: "reverseScans"
   field :mutate_rows_rate_limit, 3, type: :bool, json_name: "mutateRowsRateLimit"
+  field :last_scanned_row_responses, 4, type: :bool, json_name: "lastScannedRowResponses"
 end

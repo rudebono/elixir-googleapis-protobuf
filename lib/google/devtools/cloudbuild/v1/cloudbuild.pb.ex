@@ -411,6 +411,11 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildStep do
   field :exit_code, 16, type: :int32, json_name: "exitCode", deprecated: false
   field :allow_exit_codes, 18, repeated: true, type: :int32, json_name: "allowExitCodes"
   field :script, 19, type: :string
+
+  field :automap_substitutions, 20,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "automapSubstitutions"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Volume do
@@ -1208,6 +1213,7 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
     enum: true
 
   field :dynamic_substitutions, 17, type: :bool, json_name: "dynamicSubstitutions"
+  field :automap_substitutions, 22, type: :bool, json_name: "automapSubstitutions"
 
   field :log_streaming_option, 5,
     type: Google.Devtools.Cloudbuild.V1.BuildOptions.LogStreamingOption,

@@ -588,7 +588,10 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateMeasurementProtocolSecretRequest 
     json_name: "measurementProtocolSecret",
     deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsRequest do
