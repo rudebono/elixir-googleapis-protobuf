@@ -18,6 +18,27 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec.
   field :AUTO, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkippedReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SUMMARY_SKIPPED_REASON_UNSPECIFIED, 0
+  field :ADVERSARIAL_QUERY_IGNORED, 1
+  field :NON_SUMMARY_SEEKING_QUERY_IGNORED, 2
+  field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :image, 0
+
+  field :image_bytes, 1, type: :string, json_name: "imageBytes", oneof: 0
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
 
@@ -92,8 +113,9 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Sn
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :max_snippet_count, 1, type: :int32, json_name: "maxSnippetCount"
-  field :reference_only, 2, type: :bool, json_name: "referenceOnly"
+  field :max_snippet_count, 1, type: :int32, json_name: "maxSnippetCount", deprecated: true
+  field :reference_only, 2, type: :bool, json_name: "referenceOnly", deprecated: true
+  field :return_snippet, 3, type: :bool, json_name: "returnSnippet"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec do
@@ -102,6 +124,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :summary_result_count, 1, type: :int32, json_name: "summaryResultCount"
+  field :include_citations, 2, type: :bool, json_name: "includeCitations"
+  field :ignore_adversarial_query, 3, type: :bool, json_name: "ignoreAdversarialQuery"
+
+  field :ignore_non_summary_seeking_query, 4,
+    type: :bool,
+    json_name: "ignoreNonSummarySeekingQuery"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
@@ -158,6 +186,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :branch, 2, type: :string, deprecated: false
   field :query, 3, type: :string
+
+  field :image_query, 19,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery,
+    json_name: "imageQuery"
+
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
@@ -256,6 +289,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.GuidedSearchResult 
     type:
       Google.Cloud.Discoveryengine.V1beta.SearchResponse.GuidedSearchResult.RefinementAttribute,
     json_name: "refinementAttributes"
+
+  field :follow_up_questions, 2, repeated: true, type: :string, json_name: "followUpQuestions"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
@@ -264,6 +299,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :summary_text, 1, type: :string, json_name: "summaryText"
+
+  field :summary_skipped_reasons, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkippedReason,
+    json_name: "summarySkippedReasons",
+    enum: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do

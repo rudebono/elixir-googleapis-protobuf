@@ -7,6 +7,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest do
   field :query, 2, type: :string, deprecated: false
   field :query_model, 3, type: :string, json_name: "queryModel"
   field :user_pseudo_id, 4, type: :string, json_name: "userPseudoId"
+  field :include_tail_suggestions, 5, type: :bool, json_name: "includeTailSuggestions"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse.QuerySuggestion do
@@ -26,6 +27,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse do
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse.QuerySuggestion,
     json_name: "querySuggestions"
+
+  field :tail_match_triggered, 2, type: :bool, json_name: "tailMatchTriggered"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Service do

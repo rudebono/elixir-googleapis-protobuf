@@ -18,6 +18,8 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   field :RENDER, 1
   field :DEPLOY, 2
   field :VERIFY, 3
+  field :PREDEPLOY, 4
+  field :POSTDEPLOY, 5
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
@@ -51,6 +53,7 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
   field :CLOUD_BUILD_UNAVAILABLE, 1
   field :EXECUTION_FAILED, 2
   field :CLOUD_BUILD_REQUEST_FAILED, 3
+  field :CUSTOM_ACTION_NOT_FOUND, 5
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
@@ -165,6 +168,30 @@ defmodule Google.Cloud.Deploy.V1.VerifyJobRun.FailureCause do
   field :DEADLINE_EXCEEDED, 3
   field :VERIFICATION_CONFIG_NOT_FOUND, 4
   field :CLOUD_BUILD_REQUEST_FAILED, 5
+end
+
+defmodule Google.Cloud.Deploy.V1.PredeployJobRun.FailureCause do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+  field :DEADLINE_EXCEEDED, 3
+  field :CLOUD_BUILD_REQUEST_FAILED, 4
+end
+
+defmodule Google.Cloud.Deploy.V1.PostdeployJobRun.FailureCause do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FAILURE_CAUSE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_UNAVAILABLE, 1
+  field :EXECUTION_FAILED, 2
+  field :DEADLINE_EXCEEDED, 3
+  field :CLOUD_BUILD_REQUEST_FAILED, 4
 end
 
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
@@ -298,12 +325,30 @@ defmodule Google.Cloud.Deploy.V1.Strategy do
   field :canary, 2, type: Google.Cloud.Deploy.V1.Canary, oneof: 0
 end
 
+defmodule Google.Cloud.Deploy.V1.Predeploy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :actions, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Postdeploy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :actions, 1, repeated: true, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Deploy.V1.Standard do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :verify, 1, type: :bool
+  field :predeploy, 2, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
+  field :postdeploy, 3, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Canary do
@@ -336,6 +381,8 @@ defmodule Google.Cloud.Deploy.V1.CanaryDeployment do
 
   field :percentages, 1, repeated: true, type: :int32, deprecated: false
   field :verify, 2, type: :bool
+  field :predeploy, 3, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
+  field :postdeploy, 4, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment.PhaseConfig do
@@ -347,6 +394,8 @@ defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment.PhaseConfig do
   field :percentage, 2, type: :int32, deprecated: false
   field :profiles, 3, repeated: true, type: :string
   field :verify, 4, type: :bool
+  field :predeploy, 5, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
+  field :postdeploy, 6, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment do
@@ -1308,6 +1357,16 @@ defmodule Google.Cloud.Deploy.V1.DeploymentJobs do
     type: Google.Cloud.Deploy.V1.Job,
     json_name: "verifyJob",
     deprecated: false
+
+  field :predeploy_job, 3,
+    type: Google.Cloud.Deploy.V1.Job,
+    json_name: "predeployJob",
+    deprecated: false
+
+  field :postdeploy_job, 4,
+    type: Google.Cloud.Deploy.V1.Job,
+    json_name: "postdeployJob",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ChildRolloutJobs do
@@ -1352,6 +1411,18 @@ defmodule Google.Cloud.Deploy.V1.Job do
     oneof: 0,
     deprecated: false
 
+  field :predeploy_job, 9,
+    type: Google.Cloud.Deploy.V1.PredeployJob,
+    json_name: "predeployJob",
+    oneof: 0,
+    deprecated: false
+
+  field :postdeploy_job, 10,
+    type: Google.Cloud.Deploy.V1.PostdeployJob,
+    json_name: "postdeployJob",
+    oneof: 0,
+    deprecated: false
+
   field :create_child_rollout_job, 6,
     type: Google.Cloud.Deploy.V1.CreateChildRolloutJob,
     json_name: "createChildRolloutJob",
@@ -1375,6 +1446,22 @@ defmodule Google.Cloud.Deploy.V1.VerifyJob do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Deploy.V1.PredeployJob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :actions, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.PostdeployJob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :actions, 1, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateChildRolloutJob do
@@ -1578,6 +1665,18 @@ defmodule Google.Cloud.Deploy.V1.JobRun do
     oneof: 0,
     deprecated: false
 
+  field :predeploy_job_run, 14,
+    type: Google.Cloud.Deploy.V1.PredeployJobRun,
+    json_name: "predeployJobRun",
+    oneof: 0,
+    deprecated: false
+
+  field :postdeploy_job_run, 15,
+    type: Google.Cloud.Deploy.V1.PostdeployJobRun,
+    json_name: "postdeployJobRun",
+    oneof: 0,
+    deprecated: false
+
   field :create_child_rollout_job_run, 12,
     type: Google.Cloud.Deploy.V1.CreateChildRolloutJobRun,
     json_name: "createChildRolloutJobRun",
@@ -1627,6 +1726,38 @@ defmodule Google.Cloud.Deploy.V1.VerifyJobRun do
     deprecated: false
 
   field :failure_message, 5, type: :string, json_name: "failureMessage", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.PredeployJobRun do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :build, 1, type: :string, deprecated: false
+
+  field :failure_cause, 2,
+    type: Google.Cloud.Deploy.V1.PredeployJobRun.FailureCause,
+    json_name: "failureCause",
+    enum: true,
+    deprecated: false
+
+  field :failure_message, 3, type: :string, json_name: "failureMessage", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.PostdeployJobRun do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :build, 1, type: :string, deprecated: false
+
+  field :failure_cause, 2,
+    type: Google.Cloud.Deploy.V1.PostdeployJobRun.FailureCause,
+    json_name: "failureCause",
+    enum: true,
+    deprecated: false
+
+  field :failure_message, 3, type: :string, json_name: "failureMessage", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CreateChildRolloutJobRun do

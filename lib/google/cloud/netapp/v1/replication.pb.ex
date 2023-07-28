@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.Replication.State do
+defmodule Google.Cloud.Netapp.V1.Replication.State do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -11,7 +11,7 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication.State do
   field :ERROR, 6
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Replication.ReplicationRole do
+defmodule Google.Cloud.Netapp.V1.Replication.ReplicationRole do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -21,7 +21,7 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication.ReplicationRole do
   field :DESTINATION, 2
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Replication.ReplicationSchedule do
+defmodule Google.Cloud.Netapp.V1.Replication.ReplicationSchedule do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -32,7 +32,7 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication.ReplicationSchedule do
   field :DAILY, 3
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Replication.MirrorState do
+defmodule Google.Cloud.Netapp.V1.Replication.MirrorState do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -44,7 +44,7 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication.MirrorState do
   field :TRANSFERRING, 4
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.TransferStats do
+defmodule Google.Cloud.Netapp.V1.TransferStats do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -87,7 +87,7 @@ defmodule Google.Cloud.Netapp.V1beta1.TransferStats do
     json_name: "lastTransferError"
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Replication.LabelsEntry do
+defmodule Google.Cloud.Netapp.V1.Replication.LabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -96,33 +96,28 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication.LabelsEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Replication do
+defmodule Google.Cloud.Netapp.V1.Replication do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-
-  field :state, 2,
-    type: Google.Cloud.Netapp.V1beta1.Replication.State,
-    enum: true,
-    deprecated: false
-
+  field :state, 2, type: Google.Cloud.Netapp.V1.Replication.State, enum: true, deprecated: false
   field :state_details, 3, type: :string, json_name: "stateDetails", deprecated: false
 
   field :role, 4,
-    type: Google.Cloud.Netapp.V1beta1.Replication.ReplicationRole,
+    type: Google.Cloud.Netapp.V1.Replication.ReplicationRole,
     enum: true,
     deprecated: false
 
   field :replication_schedule, 5,
-    type: Google.Cloud.Netapp.V1beta1.Replication.ReplicationSchedule,
+    type: Google.Cloud.Netapp.V1.Replication.ReplicationSchedule,
     json_name: "replicationSchedule",
     enum: true,
     deprecated: false
 
   field :mirror_state, 6,
-    type: Google.Cloud.Netapp.V1beta1.Replication.MirrorState,
+    type: Google.Cloud.Netapp.V1.Replication.MirrorState,
     json_name: "mirrorState",
     enum: true,
     deprecated: false
@@ -137,26 +132,26 @@ defmodule Google.Cloud.Netapp.V1beta1.Replication do
   field :destination_volume, 10, type: :string, json_name: "destinationVolume", deprecated: false
 
   field :transfer_stats, 11,
-    type: Google.Cloud.Netapp.V1beta1.TransferStats,
+    type: Google.Cloud.Netapp.V1.TransferStats,
     json_name: "transferStats",
     deprecated: false
 
   field :labels, 12,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.Replication.LabelsEntry,
+    type: Google.Cloud.Netapp.V1.Replication.LabelsEntry,
     map: true
 
   field :description, 13, proto3_optional: true, type: :string
 
   field :destination_volume_parameters, 14,
-    type: Google.Cloud.Netapp.V1beta1.DestinationVolumeParameters,
+    type: Google.Cloud.Netapp.V1.DestinationVolumeParameters,
     json_name: "destinationVolumeParameters",
     deprecated: false
 
   field :source_volume, 15, type: :string, json_name: "sourceVolume", deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListReplicationsRequest do
+defmodule Google.Cloud.Netapp.V1.ListReplicationsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -168,17 +163,17 @@ defmodule Google.Cloud.Netapp.V1beta1.ListReplicationsRequest do
   field :filter, 5, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListReplicationsResponse do
+defmodule Google.Cloud.Netapp.V1.ListReplicationsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :replications, 1, repeated: true, type: Google.Cloud.Netapp.V1beta1.Replication
+  field :replications, 1, repeated: true, type: Google.Cloud.Netapp.V1.Replication
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.GetReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.GetReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -186,7 +181,7 @@ defmodule Google.Cloud.Netapp.V1beta1.GetReplicationRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DestinationVolumeParameters do
+defmodule Google.Cloud.Netapp.V1.DestinationVolumeParameters do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -197,17 +192,17 @@ defmodule Google.Cloud.Netapp.V1beta1.DestinationVolumeParameters do
   field :description, 4, proto3_optional: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.CreateReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.CreateReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :replication, 2, type: Google.Cloud.Netapp.V1beta1.Replication, deprecated: false
+  field :replication, 2, type: Google.Cloud.Netapp.V1.Replication, deprecated: false
   field :replication_id, 3, type: :string, json_name: "replicationId", deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DeleteReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.DeleteReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -215,7 +210,7 @@ defmodule Google.Cloud.Netapp.V1beta1.DeleteReplicationRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.UpdateReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.UpdateReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -225,10 +220,10 @@ defmodule Google.Cloud.Netapp.V1beta1.UpdateReplicationRequest do
     json_name: "updateMask",
     deprecated: false
 
-  field :replication, 2, type: Google.Cloud.Netapp.V1beta1.Replication, deprecated: false
+  field :replication, 2, type: Google.Cloud.Netapp.V1.Replication, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.StopReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.StopReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -237,7 +232,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StopReplicationRequest do
   field :force, 2, type: :bool
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ResumeReplicationRequest do
+defmodule Google.Cloud.Netapp.V1.ResumeReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -245,7 +240,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ResumeReplicationRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ReverseReplicationDirectionRequest do
+defmodule Google.Cloud.Netapp.V1.ReverseReplicationDirectionRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3

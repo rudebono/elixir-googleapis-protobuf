@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory.State do
+defmodule Google.Cloud.Netapp.V1.ActiveDirectory.State do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -12,7 +12,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory.State do
   field :ERROR, 6
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListActiveDirectoriesRequest do
+defmodule Google.Cloud.Netapp.V1.ListActiveDirectoriesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -24,21 +24,21 @@ defmodule Google.Cloud.Netapp.V1beta1.ListActiveDirectoriesRequest do
   field :order_by, 5, type: :string, json_name: "orderBy"
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListActiveDirectoriesResponse do
+defmodule Google.Cloud.Netapp.V1.ListActiveDirectoriesResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :active_directories, 1,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.ActiveDirectory,
+    type: Google.Cloud.Netapp.V1.ActiveDirectory,
     json_name: "activeDirectories"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.GetActiveDirectoryRequest do
+defmodule Google.Cloud.Netapp.V1.GetActiveDirectoryRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -46,7 +46,7 @@ defmodule Google.Cloud.Netapp.V1beta1.GetActiveDirectoryRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.CreateActiveDirectoryRequest do
+defmodule Google.Cloud.Netapp.V1.CreateActiveDirectoryRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -54,14 +54,14 @@ defmodule Google.Cloud.Netapp.V1beta1.CreateActiveDirectoryRequest do
   field :parent, 1, type: :string, deprecated: false
 
   field :active_directory, 2,
-    type: Google.Cloud.Netapp.V1beta1.ActiveDirectory,
+    type: Google.Cloud.Netapp.V1.ActiveDirectory,
     json_name: "activeDirectory",
     deprecated: false
 
   field :active_directory_id, 3, type: :string, json_name: "activeDirectoryId", deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.UpdateActiveDirectoryRequest do
+defmodule Google.Cloud.Netapp.V1.UpdateActiveDirectoryRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -72,12 +72,12 @@ defmodule Google.Cloud.Netapp.V1beta1.UpdateActiveDirectoryRequest do
     deprecated: false
 
   field :active_directory, 2,
-    type: Google.Cloud.Netapp.V1beta1.ActiveDirectory,
+    type: Google.Cloud.Netapp.V1.ActiveDirectory,
     json_name: "activeDirectory",
     deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DeleteActiveDirectoryRequest do
+defmodule Google.Cloud.Netapp.V1.DeleteActiveDirectoryRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -85,7 +85,7 @@ defmodule Google.Cloud.Netapp.V1beta1.DeleteActiveDirectoryRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory.LabelsEntry do
+defmodule Google.Cloud.Netapp.V1.ActiveDirectory.LabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -94,7 +94,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory.LabelsEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory do
+defmodule Google.Cloud.Netapp.V1.ActiveDirectory do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -107,7 +107,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory do
     deprecated: false
 
   field :state, 3,
-    type: Google.Cloud.Netapp.V1beta1.ActiveDirectory.State,
+    type: Google.Cloud.Netapp.V1.ActiveDirectory.State,
     enum: true,
     deprecated: false
 
@@ -130,7 +130,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ActiveDirectory do
 
   field :labels, 20,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.ActiveDirectory.LabelsEntry,
+    type: Google.Cloud.Netapp.V1.ActiveDirectory.LabelsEntry,
     map: true
 
   field :state_details, 21, type: :string, json_name: "stateDetails", deprecated: false
