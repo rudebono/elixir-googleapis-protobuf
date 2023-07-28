@@ -18,6 +18,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
   field :model, 3, type: :string, deprecated: false
   field :model_version_id, 5, type: :string, json_name: "modelVersionId", deprecated: false
   field :model_display_name, 4, type: :string, json_name: "modelDisplayName", deprecated: false
+  field :metadata, 6, type: Google.Protobuf.Value, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
@@ -27,6 +28,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :inputs, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
+  field :parameters, 3, type: Google.Cloud.Aiplatform.V1beta1.Tensor
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :outputs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
+  field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
@@ -67,6 +87,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
       Google.Cloud.Aiplatform.V1beta1.PredictResponse
 
   rpc :RawPredict, Google.Cloud.Aiplatform.V1beta1.RawPredictRequest, Google.Api.HttpBody
+
+  rpc :ServerStreamingPredict,
+      Google.Cloud.Aiplatform.V1beta1.StreamingPredictRequest,
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamingPredictResponse)
 
   rpc :Explain,
       Google.Cloud.Aiplatform.V1beta1.ExplainRequest,

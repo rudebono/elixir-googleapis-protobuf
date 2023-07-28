@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.KmsConfig.State do
+defmodule Google.Cloud.Netapp.V1.KmsConfig.State do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -17,7 +17,7 @@ defmodule Google.Cloud.Netapp.V1beta1.KmsConfig.State do
   field :MIGRATING, 11
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.GetKmsConfigRequest do
+defmodule Google.Cloud.Netapp.V1.GetKmsConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -25,7 +25,7 @@ defmodule Google.Cloud.Netapp.V1beta1.GetKmsConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListKmsConfigsRequest do
+defmodule Google.Cloud.Netapp.V1.ListKmsConfigsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -37,21 +37,21 @@ defmodule Google.Cloud.Netapp.V1beta1.ListKmsConfigsRequest do
   field :filter, 5, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListKmsConfigsResponse do
+defmodule Google.Cloud.Netapp.V1.ListKmsConfigsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_configs, 1,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.KmsConfig,
+    type: Google.Cloud.Netapp.V1.KmsConfig,
     json_name: "kmsConfigs"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.CreateKmsConfigRequest do
+defmodule Google.Cloud.Netapp.V1.CreateKmsConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -60,12 +60,12 @@ defmodule Google.Cloud.Netapp.V1beta1.CreateKmsConfigRequest do
   field :kms_config_id, 2, type: :string, json_name: "kmsConfigId", deprecated: false
 
   field :kms_config, 3,
-    type: Google.Cloud.Netapp.V1beta1.KmsConfig,
+    type: Google.Cloud.Netapp.V1.KmsConfig,
     json_name: "kmsConfig",
     deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.UpdateKmsConfigRequest do
+defmodule Google.Cloud.Netapp.V1.UpdateKmsConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -76,12 +76,12 @@ defmodule Google.Cloud.Netapp.V1beta1.UpdateKmsConfigRequest do
     deprecated: false
 
   field :kms_config, 2,
-    type: Google.Cloud.Netapp.V1beta1.KmsConfig,
+    type: Google.Cloud.Netapp.V1.KmsConfig,
     json_name: "kmsConfig",
     deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DeleteKmsConfigRequest do
+defmodule Google.Cloud.Netapp.V1.DeleteKmsConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -89,7 +89,7 @@ defmodule Google.Cloud.Netapp.V1beta1.DeleteKmsConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.EncryptVolumesRequest do
+defmodule Google.Cloud.Netapp.V1.EncryptVolumesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -97,7 +97,7 @@ defmodule Google.Cloud.Netapp.V1beta1.EncryptVolumesRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.VerifyKmsConfigRequest do
+defmodule Google.Cloud.Netapp.V1.VerifyKmsConfigRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -105,7 +105,7 @@ defmodule Google.Cloud.Netapp.V1beta1.VerifyKmsConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.VerifyKmsConfigResponse do
+defmodule Google.Cloud.Netapp.V1.VerifyKmsConfigResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -115,7 +115,7 @@ defmodule Google.Cloud.Netapp.V1beta1.VerifyKmsConfigResponse do
   field :instructions, 3, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.KmsConfig.LabelsEntry do
+defmodule Google.Cloud.Netapp.V1.KmsConfig.LabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -124,19 +124,14 @@ defmodule Google.Cloud.Netapp.V1beta1.KmsConfig.LabelsEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.KmsConfig do
+defmodule Google.Cloud.Netapp.V1.KmsConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :crypto_key_name, 2, type: :string, json_name: "cryptoKeyName", deprecated: false
-
-  field :state, 3,
-    type: Google.Cloud.Netapp.V1beta1.KmsConfig.State,
-    enum: true,
-    deprecated: false
-
+  field :state, 3, type: Google.Cloud.Netapp.V1.KmsConfig.State, enum: true, deprecated: false
   field :state_details, 4, type: :string, json_name: "stateDetails", deprecated: false
 
   field :create_time, 5,
@@ -145,12 +140,7 @@ defmodule Google.Cloud.Netapp.V1beta1.KmsConfig do
     deprecated: false
 
   field :description, 6, type: :string
-
-  field :labels, 7,
-    repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.KmsConfig.LabelsEntry,
-    map: true
-
+  field :labels, 7, repeated: true, type: Google.Cloud.Netapp.V1.KmsConfig.LabelsEntry, map: true
   field :instructions, 8, type: :string, deprecated: false
   field :service_account, 9, type: :string, json_name: "serviceAccount", deprecated: false
 end

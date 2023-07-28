@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.ServiceLevel do
+defmodule Google.Cloud.Netapp.V1.ServiceLevel do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -9,7 +9,7 @@ defmodule Google.Cloud.Netapp.V1beta1.ServiceLevel do
   field :STANDARD, 3
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.EncryptionType do
+defmodule Google.Cloud.Netapp.V1.EncryptionType do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3

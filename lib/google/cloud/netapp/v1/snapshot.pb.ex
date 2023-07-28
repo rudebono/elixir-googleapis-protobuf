@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.Snapshot.State do
+defmodule Google.Cloud.Netapp.V1.Snapshot.State do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -12,7 +12,7 @@ defmodule Google.Cloud.Netapp.V1beta1.Snapshot.State do
   field :ERROR, 6
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListSnapshotsRequest do
+defmodule Google.Cloud.Netapp.V1.ListSnapshotsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -24,17 +24,17 @@ defmodule Google.Cloud.Netapp.V1beta1.ListSnapshotsRequest do
   field :filter, 5, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListSnapshotsResponse do
+defmodule Google.Cloud.Netapp.V1.ListSnapshotsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :snapshots, 1, repeated: true, type: Google.Cloud.Netapp.V1beta1.Snapshot
+  field :snapshots, 1, repeated: true, type: Google.Cloud.Netapp.V1.Snapshot
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.GetSnapshotRequest do
+defmodule Google.Cloud.Netapp.V1.GetSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -42,17 +42,17 @@ defmodule Google.Cloud.Netapp.V1beta1.GetSnapshotRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.CreateSnapshotRequest do
+defmodule Google.Cloud.Netapp.V1.CreateSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :snapshot, 2, type: Google.Cloud.Netapp.V1beta1.Snapshot, deprecated: false
+  field :snapshot, 2, type: Google.Cloud.Netapp.V1.Snapshot, deprecated: false
   field :snapshot_id, 3, type: :string, json_name: "snapshotId", deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DeleteSnapshotRequest do
+defmodule Google.Cloud.Netapp.V1.DeleteSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -60,7 +60,7 @@ defmodule Google.Cloud.Netapp.V1beta1.DeleteSnapshotRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.UpdateSnapshotRequest do
+defmodule Google.Cloud.Netapp.V1.UpdateSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -70,10 +70,10 @@ defmodule Google.Cloud.Netapp.V1beta1.UpdateSnapshotRequest do
     json_name: "updateMask",
     deprecated: false
 
-  field :snapshot, 2, type: Google.Cloud.Netapp.V1beta1.Snapshot, deprecated: false
+  field :snapshot, 2, type: Google.Cloud.Netapp.V1.Snapshot, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Snapshot.LabelsEntry do
+defmodule Google.Cloud.Netapp.V1.Snapshot.LabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -82,13 +82,13 @@ defmodule Google.Cloud.Netapp.V1beta1.Snapshot.LabelsEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.Snapshot do
+defmodule Google.Cloud.Netapp.V1.Snapshot do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :state, 2, type: Google.Cloud.Netapp.V1beta1.Snapshot.State, enum: true, deprecated: false
+  field :state, 2, type: Google.Cloud.Netapp.V1.Snapshot.State, enum: true, deprecated: false
   field :state_details, 3, type: :string, json_name: "stateDetails", deprecated: false
   field :description, 4, type: :string
   field :used_bytes, 5, type: :double, json_name: "usedBytes", deprecated: false
@@ -98,8 +98,5 @@ defmodule Google.Cloud.Netapp.V1beta1.Snapshot do
     json_name: "createTime",
     deprecated: false
 
-  field :labels, 7,
-    repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.Snapshot.LabelsEntry,
-    map: true
+  field :labels, 7, repeated: true, type: Google.Cloud.Netapp.V1.Snapshot.LabelsEntry, map: true
 end

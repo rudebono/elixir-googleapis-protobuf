@@ -99,7 +99,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.DocumentInfo do
 
   oneof :document_descriptor, 0
 
-  field :id, 1, type: :string, oneof: 0, deprecated: false
+  field :id, 1, type: :string, oneof: 0
   field :name, 2, type: :string, oneof: 0, deprecated: false
   field :quantity, 3, proto3_optional: true, type: :int32
   field :promotion_ids, 4, repeated: true, type: :string, json_name: "promotionIds"

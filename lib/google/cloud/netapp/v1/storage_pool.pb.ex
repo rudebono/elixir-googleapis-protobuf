@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Netapp.V1beta1.StoragePool.State do
+defmodule Google.Cloud.Netapp.V1.StoragePool.State do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -13,7 +13,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool.State do
   field :ERROR, 7
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.GetStoragePoolRequest do
+defmodule Google.Cloud.Netapp.V1.GetStoragePoolRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -21,7 +21,7 @@ defmodule Google.Cloud.Netapp.V1beta1.GetStoragePoolRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListStoragePoolsRequest do
+defmodule Google.Cloud.Netapp.V1.ListStoragePoolsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -33,21 +33,21 @@ defmodule Google.Cloud.Netapp.V1beta1.ListStoragePoolsRequest do
   field :filter, 5, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.ListStoragePoolsResponse do
+defmodule Google.Cloud.Netapp.V1.ListStoragePoolsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :storage_pools, 1,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    type: Google.Cloud.Netapp.V1.StoragePool,
     json_name: "storagePools"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.CreateStoragePoolRequest do
+defmodule Google.Cloud.Netapp.V1.CreateStoragePoolRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -56,12 +56,12 @@ defmodule Google.Cloud.Netapp.V1beta1.CreateStoragePoolRequest do
   field :storage_pool_id, 2, type: :string, json_name: "storagePoolId", deprecated: false
 
   field :storage_pool, 3,
-    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    type: Google.Cloud.Netapp.V1.StoragePool,
     json_name: "storagePool",
     deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.UpdateStoragePoolRequest do
+defmodule Google.Cloud.Netapp.V1.UpdateStoragePoolRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -72,12 +72,12 @@ defmodule Google.Cloud.Netapp.V1beta1.UpdateStoragePoolRequest do
     deprecated: false
 
   field :storage_pool, 2,
-    type: Google.Cloud.Netapp.V1beta1.StoragePool,
+    type: Google.Cloud.Netapp.V1.StoragePool,
     json_name: "storagePool",
     deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.DeleteStoragePoolRequest do
+defmodule Google.Cloud.Netapp.V1.DeleteStoragePoolRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -85,7 +85,7 @@ defmodule Google.Cloud.Netapp.V1beta1.DeleteStoragePoolRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.StoragePool.LabelsEntry do
+defmodule Google.Cloud.Netapp.V1.StoragePool.LabelsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -94,7 +94,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool.LabelsEntry do
   field :value, 2, type: :string
 end
 
-defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
+defmodule Google.Cloud.Netapp.V1.StoragePool do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -102,7 +102,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
   field :name, 1, type: :string, deprecated: false
 
   field :service_level, 2,
-    type: Google.Cloud.Netapp.V1beta1.ServiceLevel,
+    type: Google.Cloud.Netapp.V1.ServiceLevel,
     json_name: "serviceLevel",
     enum: true,
     deprecated: false
@@ -110,12 +110,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
   field :capacity_gib, 3, type: :int64, json_name: "capacityGib", deprecated: false
   field :volume_capacity_gib, 4, type: :int64, json_name: "volumeCapacityGib", deprecated: false
   field :volume_count, 5, type: :int32, json_name: "volumeCount", deprecated: false
-
-  field :state, 6,
-    type: Google.Cloud.Netapp.V1beta1.StoragePool.State,
-    enum: true,
-    deprecated: false
-
+  field :state, 6, type: Google.Cloud.Netapp.V1.StoragePool.State, enum: true, deprecated: false
   field :state_details, 7, type: :string, json_name: "stateDetails", deprecated: false
 
   field :create_time, 8,
@@ -127,7 +122,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
 
   field :labels, 10,
     repeated: true,
-    type: Google.Cloud.Netapp.V1beta1.StoragePool.LabelsEntry,
+    type: Google.Cloud.Netapp.V1.StoragePool.LabelsEntry,
     map: true
 
   field :network, 11, type: :string, deprecated: false
@@ -137,7 +132,7 @@ defmodule Google.Cloud.Netapp.V1beta1.StoragePool do
   field :psa_range, 15, type: :string, json_name: "psaRange"
 
   field :encryption_type, 16,
-    type: Google.Cloud.Netapp.V1beta1.EncryptionType,
+    type: Google.Cloud.Netapp.V1.EncryptionType,
     json_name: "encryptionType",
     enum: true,
     deprecated: false
