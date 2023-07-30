@@ -70,6 +70,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource do
     json_name: "resourceRuntimeSpec",
     deprecated: false
 
+  field :resource_runtime, 14,
+    type: Google.Cloud.Aiplatform.V1beta1.ResourceRuntime,
+    json_name: "resourceRuntime",
+    deprecated: false
+
   field :reserved_ip_ranges, 15,
     repeated: true,
     type: :string,
@@ -135,6 +140,41 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntimeSpec do
   field :service_account_spec, 2,
     type: Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec,
     json_name: "serviceAccountSpec",
+    deprecated: false
+
+  field :ray_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RaySpec,
+    json_name: "raySpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RaySpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime.AccessUrisEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :access_uris, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ResourceRuntime.AccessUrisEntry,
+    json_name: "accessUris",
+    map: true,
     deprecated: false
 end
 
