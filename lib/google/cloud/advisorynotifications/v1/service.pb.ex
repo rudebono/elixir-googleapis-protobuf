@@ -27,6 +27,8 @@ defmodule Google.Cloud.Advisorynotifications.V1.NotificationType do
   field :NOTIFICATION_TYPE_UNSPECIFIED, 0
   field :NOTIFICATION_TYPE_SECURITY_PRIVACY_ADVISORY, 1
   field :NOTIFICATION_TYPE_SENSITIVE_ACTIONS, 2
+  field :NOTIFICATION_TYPE_SECURITY_MSA, 3
+  field :NOTIFICATION_TYPE_THREAT_HORIZONS, 4
 end
 
 defmodule Google.Cloud.Advisorynotifications.V1.Notification do

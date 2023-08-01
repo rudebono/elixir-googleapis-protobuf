@@ -107,6 +107,18 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
     type: Google.Cloud.Bigquery.Datatransfer.V1.UserInfo,
     json_name: "ownerInfo",
     deprecated: false
+
+  field :encryption_configuration, 28,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.EncryptionConfiguration,
+    json_name: "encryptionConfiguration"
+end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.EncryptionConfiguration do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kms_key_name, 1, type: Google.Protobuf.StringValue, json_name: "kmsKeyName"
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do

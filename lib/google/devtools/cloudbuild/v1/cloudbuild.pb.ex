@@ -1174,6 +1174,7 @@ defmodule Google.Devtools.Cloudbuild.V1.UpdateBuildTriggerRequest do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :trigger_id, 2, type: :string, json_name: "triggerId", deprecated: false
   field :trigger, 3, type: Google.Devtools.Cloudbuild.V1.BuildTrigger, deprecated: false
+  field :update_mask, 5, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.BuildOptions.PoolOption do
