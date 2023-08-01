@@ -248,6 +248,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.Accelerator do
   field :type, 1, type: :string
   field :count, 2, type: :int64
   field :install_gpu_drivers, 3, type: :bool, json_name: "installGpuDrivers", deprecated: true
+  field :driver_version, 4, type: :string, json_name: "driverVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy do

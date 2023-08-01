@@ -10,6 +10,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSourceParameter.Type do
   field :BOOLEAN, 4
   field :RECORD, 5
   field :PLUS_PAGE, 6
+  field :LIST, 7
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataSource.AuthorizationType do

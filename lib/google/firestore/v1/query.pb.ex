@@ -163,6 +163,22 @@ defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Count do
   field :up_to, 1, type: Google.Protobuf.Int64Value, json_name: "upTo", deprecated: false
 end
 
+defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Sum do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field, 1, type: Google.Firestore.V1.StructuredQuery.FieldReference
+end
+
+defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Avg do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field, 1, type: Google.Firestore.V1.StructuredQuery.FieldReference
+end
+
 defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation do
   @moduledoc false
 
@@ -174,6 +190,8 @@ defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation do
     type: Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Count,
     oneof: 0
 
+  field :sum, 2, type: Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Sum, oneof: 0
+  field :avg, 3, type: Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Avg, oneof: 0
   field :alias, 7, type: :string, deprecated: false
 end
 
