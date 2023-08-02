@@ -86,6 +86,16 @@ defmodule Google.Devtools.Resultstore.V2.Timing do
   field :duration, 2, type: Google.Protobuf.Duration
 end
 
+defmodule Google.Devtools.Resultstore.V2.Dependency.Id do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_id, 2, type: :string, json_name: "targetId"
+  field :configuration_id, 3, type: :string, json_name: "configurationId"
+  field :action_id, 4, type: :string, json_name: "actionId"
+end
+
 defmodule Google.Devtools.Resultstore.V2.Dependency do
   @moduledoc false
 
@@ -93,8 +103,15 @@ defmodule Google.Devtools.Resultstore.V2.Dependency do
 
   oneof :resource, 0
 
-  field :target, 1, type: :string, oneof: 0
-  field :configured_target, 2, type: :string, json_name: "configuredTarget", oneof: 0
-  field :action, 3, type: :string, oneof: 0
+  field :target, 1, type: :string, oneof: 0, deprecated: false
+
+  field :configured_target, 2,
+    type: :string,
+    json_name: "configuredTarget",
+    oneof: 0,
+    deprecated: false
+
+  field :action, 3, type: :string, oneof: 0, deprecated: false
+  field :id, 5, type: Google.Devtools.Resultstore.V2.Dependency.Id
   field :label, 4, type: :string
 end

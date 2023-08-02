@@ -99,6 +99,22 @@ defmodule Google.Datastore.V1.AggregationQuery.Aggregation.Count do
   field :up_to, 1, type: Google.Protobuf.Int64Value, json_name: "upTo", deprecated: false
 end
 
+defmodule Google.Datastore.V1.AggregationQuery.Aggregation.Sum do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :property, 1, type: Google.Datastore.V1.PropertyReference
+end
+
+defmodule Google.Datastore.V1.AggregationQuery.Aggregation.Avg do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :property, 1, type: Google.Datastore.V1.PropertyReference
+end
+
 defmodule Google.Datastore.V1.AggregationQuery.Aggregation do
   @moduledoc false
 
@@ -107,6 +123,8 @@ defmodule Google.Datastore.V1.AggregationQuery.Aggregation do
   oneof :operator, 0
 
   field :count, 1, type: Google.Datastore.V1.AggregationQuery.Aggregation.Count, oneof: 0
+  field :sum, 2, type: Google.Datastore.V1.AggregationQuery.Aggregation.Sum, oneof: 0
+  field :avg, 3, type: Google.Datastore.V1.AggregationQuery.Aggregation.Avg, oneof: 0
   field :alias, 7, type: :string, deprecated: false
 end
 
