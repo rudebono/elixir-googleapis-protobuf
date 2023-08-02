@@ -41,6 +41,9 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", oneof: 0
   field :offset, 4, type: :int64, oneof: 0
+  field :targets_filter, 6, type: :string, json_name: "targetsFilter"
+  field :configured_targets_filter, 7, type: :string, json_name: "configuredTargetsFilter"
+  field :actions_filter, 8, type: :string, json_name: "actionsFilter"
 end
 
 defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
@@ -49,6 +52,11 @@ defmodule Google.Devtools.Resultstore.V2.ExportInvocationResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :invocation, 1, type: Google.Devtools.Resultstore.V2.Invocation
+
+  field :download_metadata, 8,
+    type: Google.Devtools.Resultstore.V2.DownloadMetadata,
+    json_name: "downloadMetadata"
+
   field :targets, 2, repeated: true, type: Google.Devtools.Resultstore.V2.Target
   field :configurations, 3, repeated: true, type: Google.Devtools.Resultstore.V2.Configuration
 
@@ -325,6 +333,10 @@ defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
     name: "google.devtools.resultstore.v2.ResultStoreDownload",
     protoc_gen_elixir_version: "0.12.0"
 
+  rpc :ExportInvocation,
+      Google.Devtools.Resultstore.V2.ExportInvocationRequest,
+      Google.Devtools.Resultstore.V2.ExportInvocationResponse
+
   rpc :GetInvocation,
       Google.Devtools.Resultstore.V2.GetInvocationRequest,
       Google.Devtools.Resultstore.V2.Invocation
@@ -332,10 +344,6 @@ defmodule Google.Devtools.Resultstore.V2.ResultStoreDownload.Service do
   rpc :SearchInvocations,
       Google.Devtools.Resultstore.V2.SearchInvocationsRequest,
       Google.Devtools.Resultstore.V2.SearchInvocationsResponse
-
-  rpc :ExportInvocation,
-      Google.Devtools.Resultstore.V2.ExportInvocationRequest,
-      Google.Devtools.Resultstore.V2.ExportInvocationResponse
 
   rpc :GetInvocationDownloadMetadata,
       Google.Devtools.Resultstore.V2.GetInvocationDownloadMetadataRequest,

@@ -43,7 +43,8 @@ defmodule Google.Devtools.Resultstore.V2.Target do
 
   field :status_attributes, 3,
     type: Google.Devtools.Resultstore.V2.StatusAttributes,
-    json_name: "statusAttributes"
+    json_name: "statusAttributes",
+    deprecated: true
 
   field :timing, 4, type: Google.Devtools.Resultstore.V2.Timing
 

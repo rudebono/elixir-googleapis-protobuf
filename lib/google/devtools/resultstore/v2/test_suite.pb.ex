@@ -57,6 +57,8 @@ defmodule Google.Devtools.Resultstore.V2.TestCase do
   field :timing, 7, type: Google.Devtools.Resultstore.V2.Timing
   field :properties, 8, repeated: true, type: Google.Devtools.Resultstore.V2.Property
   field :files, 9, repeated: true, type: Google.Devtools.Resultstore.V2.File
+  field :retry_number, 10, type: :int32, json_name: "retryNumber"
+  field :repeat_number, 11, type: :int32, json_name: "repeatNumber"
 end
 
 defmodule Google.Devtools.Resultstore.V2.TestFailure do
