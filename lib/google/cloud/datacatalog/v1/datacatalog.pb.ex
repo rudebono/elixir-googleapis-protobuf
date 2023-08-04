@@ -118,6 +118,7 @@ defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy"
+  field :admin_search, 17, type: :bool, json_name: "adminSearch", deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResponse do
