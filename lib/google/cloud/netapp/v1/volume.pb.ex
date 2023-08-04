@@ -47,6 +47,15 @@ defmodule Google.Cloud.Netapp.V1.SecurityStyle do
   field :UNIX, 2
 end
 
+defmodule Google.Cloud.Netapp.V1.RestrictedAction do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESTRICTED_ACTION_UNSPECIFIED, 0
+  field :DELETE, 1
+end
+
 defmodule Google.Cloud.Netapp.V1.Volume.State do
   @moduledoc false
 
@@ -236,6 +245,13 @@ defmodule Google.Cloud.Netapp.V1.Volume do
     deprecated: false
 
   field :has_replication, 29, type: :bool, json_name: "hasReplication", deprecated: false
+
+  field :restricted_actions, 31,
+    repeated: true,
+    type: Google.Cloud.Netapp.V1.RestrictedAction,
+    json_name: "restrictedActions",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
