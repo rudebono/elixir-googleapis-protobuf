@@ -332,6 +332,26 @@ defmodule Google.Cloud.Translation.V3beta1.TranslateDocumentRequest do
     type: Google.Cloud.Translation.V3beta1.TranslateDocumentRequest.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :customized_attribution, 10,
+    type: :string,
+    json_name: "customizedAttribution",
+    deprecated: false
+
+  field :is_translate_native_pdf_only, 11,
+    type: :bool,
+    json_name: "isTranslateNativePdfOnly",
+    deprecated: false
+
+  field :enable_shadow_removal_native_pdf, 12,
+    type: :bool,
+    json_name: "enableShadowRemovalNativePdf",
+    deprecated: false
+
+  field :enable_rotation_correction, 13,
+    type: :bool,
+    json_name: "enableRotationCorrection",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Translation.V3beta1.DocumentTranslation do
@@ -674,6 +694,21 @@ defmodule Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest do
     type: Google.Cloud.Translation.V3beta1.BatchTranslateDocumentRequest.FormatConversionsEntry,
     json_name: "formatConversions",
     map: true,
+    deprecated: false
+
+  field :customized_attribution, 10,
+    type: :string,
+    json_name: "customizedAttribution",
+    deprecated: false
+
+  field :enable_shadow_removal_native_pdf, 11,
+    type: :bool,
+    json_name: "enableShadowRemovalNativePdf",
+    deprecated: false
+
+  field :enable_rotation_correction, 12,
+    type: :bool,
+    json_name: "enableRotationCorrection",
     deprecated: false
 end
 
