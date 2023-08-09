@@ -8,6 +8,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Lun.State do
   field :UPDATING, 2
   field :READY, 3
   field :DELETING, 4
+  field :COOL_OFF, 5
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Lun.MultiprotocolType do
@@ -54,6 +55,13 @@ defmodule Google.Cloud.Baremetalsolution.V2.Lun do
     enum: true
 
   field :wwid, 9, type: :string
+
+  field :expire_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :instances, 12, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.GetLunRequest do
@@ -82,4 +90,12 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListLunsResponse do
   field :luns, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.EvictLunRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end

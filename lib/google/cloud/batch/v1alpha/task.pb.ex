@@ -98,6 +98,11 @@ defmodule Google.Cloud.Batch.V1alpha.Runnable.Container do
   field :block_external_network, 9, type: :bool, json_name: "blockExternalNetwork"
   field :username, 10, type: :string
   field :password, 11, type: :string
+
+  field :enable_image_streaming, 12,
+    type: :bool,
+    json_name: "enableImageStreaming",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.Runnable.Script do
