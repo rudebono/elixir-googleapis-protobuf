@@ -7,16 +7,10 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance.State do
   field :PROVISIONING, 1
   field :RUNNING, 2
   field :DELETED, 3
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface.InterfaceType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :INTERFACE_TYPE_UNSPECIFIED, 0
-  field :BOND, 1
-  field :NIC, 2
+  field :UPDATING, 4
+  field :STARTING, 5
+  field :STOPPING, 6
+  field :SHUTDOWN, 7
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Instance.LabelsEntry do
@@ -34,7 +28,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :id, 11, type: :string
+  field :id, 11, type: :string, deprecated: false
 
   field :create_time, 2,
     type: Google.Protobuf.Timestamp,
@@ -46,8 +40,13 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance do
     json_name: "updateTime",
     deprecated: false
 
-  field :machine_type, 4, type: :string, json_name: "machineType"
-  field :state, 5, type: Google.Cloud.Baremetalsolution.V2.Instance.State, enum: true
+  field :machine_type, 4, type: :string, json_name: "machineType", deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Baremetalsolution.V2.Instance.State,
+    enum: true,
+    deprecated: false
+
   field :hyperthreading_enabled, 6, type: :bool, json_name: "hyperthreadingEnabled"
 
   field :labels, 7,
@@ -55,12 +54,22 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance do
     type: Google.Cloud.Baremetalsolution.V2.Instance.LabelsEntry,
     map: true
 
-  field :luns, 8, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun
-  field :networks, 9, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Network
+  field :luns, 8, repeated: true, type: Google.Cloud.Baremetalsolution.V2.Lun, deprecated: false
+
+  field :volumes, 16,
+    repeated: true,
+    type: Google.Cloud.Baremetalsolution.V2.Volume,
+    deprecated: false
+
+  field :networks, 9,
+    repeated: true,
+    type: Google.Cloud.Baremetalsolution.V2.Network,
+    deprecated: false
 
   field :interactive_serial_console_enabled, 10,
     type: :bool,
-    json_name: "interactiveSerialConsoleEnabled"
+    json_name: "interactiveSerialConsoleEnabled",
+    deprecated: false
 
   field :os_image, 12, type: :string, json_name: "osImage"
   field :pod, 13, type: :string, deprecated: false
@@ -70,6 +79,15 @@ defmodule Google.Cloud.Baremetalsolution.V2.Instance do
     repeated: true,
     type: Google.Cloud.Baremetalsolution.V2.LogicalInterface,
     json_name: "logicalInterfaces"
+
+  field :login_info, 17, type: :string, json_name: "loginInfo", deprecated: false
+
+  field :workload_profile, 18,
+    type: Google.Cloud.Baremetalsolution.V2.WorkloadProfile,
+    json_name: "workloadProfile",
+    enum: true
+
+  field :firmware_version, 19, type: :string, json_name: "firmwareVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.GetInstanceRequest do
@@ -110,12 +128,27 @@ defmodule Google.Cloud.Baremetalsolution.V2.UpdateInstanceRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Baremetalsolution.V2.RenameInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :new_instance_id, 2, type: :string, json_name: "newInstanceId", deprecated: false
+end
+
 defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.ResetInstanceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.StartInstanceRequest do
@@ -126,12 +159,52 @@ defmodule Google.Cloud.Baremetalsolution.V2.StartInstanceRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Baremetalsolution.V2.StartInstanceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Baremetalsolution.V2.StopInstanceRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.StopInstanceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.EnableInteractiveSerialConsoleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.EnableInteractiveSerialConsoleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.DisableInteractiveSerialConsoleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.DisableInteractiveSerialConsoleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.DetachLunRequest do
@@ -141,48 +214,5 @@ defmodule Google.Cloud.Baremetalsolution.V2.DetachLunRequest do
 
   field :instance, 1, type: :string, deprecated: false
   field :lun, 2, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string
-
-  field :type, 2,
-    type: Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface.InterfaceType,
-    enum: true
-
-  field :required, 3, type: :bool
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-
-  field :applicable_instance_types, 2,
-    repeated: true,
-    type: :string,
-    json_name: "applicableInstanceTypes"
-
-  field :logical_interfaces, 3,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface,
-    json_name: "logicalInterfaces"
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.StartInstanceResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.StopInstanceResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  field :skip_reboot, 3, type: :bool, json_name: "skipReboot"
 end

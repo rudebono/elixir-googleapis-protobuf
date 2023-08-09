@@ -16,6 +16,8 @@ defmodule Google.Cloud.Baremetalsolution.V2.Network.State do
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
   field :PROVISIONED, 2
+  field :DEPROVISIONING, 3
+  field :UPDATING, 4
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.VRF.State do
@@ -62,6 +64,17 @@ defmodule Google.Cloud.Baremetalsolution.V2.Network do
   field :reservations, 13,
     repeated: true,
     type: Google.Cloud.Baremetalsolution.V2.NetworkAddressReservation
+
+  field :pod, 14, type: :string, deprecated: false
+
+  field :mount_points, 15,
+    repeated: true,
+    type: Google.Cloud.Baremetalsolution.V2.NetworkMountPoint,
+    json_name: "mountPoints",
+    deprecated: false
+
+  field :jumbo_frames_enabled, 16, type: :bool, json_name: "jumboFramesEnabled"
+  field :gateway_ip, 17, type: :string, json_name: "gatewayIp", deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkAddressReservation do
@@ -90,6 +103,18 @@ defmodule Google.Cloud.Baremetalsolution.V2.VRF.VlanAttachment do
   field :peer_vlan_id, 1, type: :int64, json_name: "peerVlanId"
   field :peer_ip, 2, type: :string, json_name: "peerIp"
   field :router_ip, 3, type: :string, json_name: "routerIp"
+  field :pairing_key, 4, type: :string, json_name: "pairingKey", deprecated: false
+
+  field :qos_policy, 5,
+    type: Google.Cloud.Baremetalsolution.V2.VRF.QosPolicy,
+    json_name: "qosPolicy"
+
+  field :id, 6, type: :string, deprecated: false
+
+  field :interconnect_attachment, 7,
+    type: :string,
+    json_name: "interconnectAttachment",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.VRF do
@@ -138,7 +163,7 @@ defmodule Google.Cloud.Baremetalsolution.V2.LogicalInterface do
     json_name: "logicalNetworkInterfaces"
 
   field :name, 2, type: :string
-  field :interface_index, 3, type: :int32, json_name: "interfaceIndex"
+  field :interface_index, 3, type: :int32, json_name: "interfaceIndex", deprecated: true
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.GetNetworkRequest do
@@ -202,4 +227,24 @@ defmodule Google.Cloud.Baremetalsolution.V2.ListNetworkUsageResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :networks, 1, repeated: true, type: Google.Cloud.Baremetalsolution.V2.NetworkUsage
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.NetworkMountPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :logical_interface, 2, type: :string, json_name: "logicalInterface"
+  field :default_gateway, 3, type: :bool, json_name: "defaultGateway"
+  field :ip_address, 4, type: :string, json_name: "ipAddress"
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.RenameNetworkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :new_network_id, 2, type: :string, json_name: "newNetworkId", deprecated: false
 end

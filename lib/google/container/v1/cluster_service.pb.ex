@@ -492,6 +492,12 @@ defmodule Google.Container.V1.MonitoringComponentConfig.Component do
   field :APISERVER, 3
   field :SCHEDULER, 4
   field :CONTROLLER_MANAGER, 5
+  field :STORAGE, 7
+  field :HPA, 8
+  field :POD, 9
+  field :DAEMONSET, 10
+  field :DEPLOYMENT, 11
+  field :STATEFULSET, 12
 end
 
 defmodule Google.Container.V1.LinuxNodeConfig.SysctlsEntry do

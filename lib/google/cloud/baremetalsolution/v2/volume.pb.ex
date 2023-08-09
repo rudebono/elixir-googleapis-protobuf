@@ -17,6 +17,8 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.State do
   field :CREATING, 1
   field :READY, 2
   field :DELETING, 3
+  field :UPDATING, 4
+  field :COOL_OFF, 5
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior do
@@ -28,6 +30,26 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotAutoDeleteBehavior do
   field :DISABLED, 1
   field :OLDEST_FIRST, 2
   field :NEWEST_FIRST, 3
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.Volume.Protocol do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROTOCOL_UNSPECIFIED, 0
+  field :FIBRE_CHANNEL, 1
+  field :NFS, 2
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.Volume.WorkloadProfile do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :WORKLOAD_PROFILE_UNSPECIFIED, 0
+  field :GENERIC, 1
+  field :HANA, 2
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.Volume.SnapshotReservationDetail do
@@ -65,8 +87,10 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume do
 
   field :state, 3, type: Google.Cloud.Baremetalsolution.V2.Volume.State, enum: true
   field :requested_size_gib, 4, type: :int64, json_name: "requestedSizeGib"
+  field :originally_requested_size_gib, 16, type: :int64, json_name: "originallyRequestedSizeGib"
   field :current_size_gib, 5, type: :int64, json_name: "currentSizeGib"
   field :emergency_size_gib, 14, type: :int64, json_name: "emergencySizeGib"
+  field :max_size_gib, 17, type: :int64, json_name: "maxSizeGib"
   field :auto_grown_size_gib, 6, type: :int64, json_name: "autoGrownSizeGib"
   field :remaining_space_gib, 7, type: :int64, json_name: "remainingSpaceGib"
 
@@ -86,6 +110,34 @@ defmodule Google.Cloud.Baremetalsolution.V2.Volume do
 
   field :snapshot_enabled, 13, type: :bool, json_name: "snapshotEnabled"
   field :pod, 15, type: :string, deprecated: false
+
+  field :protocol, 18,
+    type: Google.Cloud.Baremetalsolution.V2.Volume.Protocol,
+    enum: true,
+    deprecated: false
+
+  field :boot_volume, 19, type: :bool, json_name: "bootVolume", deprecated: false
+
+  field :performance_tier, 20,
+    type: Google.Cloud.Baremetalsolution.V2.VolumePerformanceTier,
+    json_name: "performanceTier",
+    enum: true,
+    deprecated: false
+
+  field :notes, 21, type: :string, deprecated: false
+
+  field :workload_profile, 22,
+    type: Google.Cloud.Baremetalsolution.V2.Volume.WorkloadProfile,
+    json_name: "workloadProfile",
+    enum: true
+
+  field :expire_time, 24,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :instances, 25, repeated: true, type: :string, deprecated: false
+  field :attached, 26, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeRequest do
@@ -124,6 +176,23 @@ defmodule Google.Cloud.Baremetalsolution.V2.UpdateVolumeRequest do
 
   field :volume, 1, type: Google.Cloud.Baremetalsolution.V2.Volume, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.RenameVolumeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :new_volume_id, 2, type: :string, json_name: "newVolumeId", deprecated: false
+end
+
+defmodule Google.Cloud.Baremetalsolution.V2.EvictVolumeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Baremetalsolution.V2.ResizeVolumeRequest do
