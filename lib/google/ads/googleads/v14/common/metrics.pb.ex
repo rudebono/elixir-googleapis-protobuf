@@ -50,6 +50,11 @@ defmodule Google.Ads.Googleads.V14.Common.Metrics do
     type: :double,
     json_name: "allConversionsValueByConversionDate"
 
+  field :all_new_customer_lifetime_value, 294,
+    proto3_optional: true,
+    type: :double,
+    json_name: "allNewCustomerLifetimeValue"
+
   field :all_conversions, 193, proto3_optional: true, type: :double, json_name: "allConversions"
 
   field :all_conversions_by_conversion_date, 241,
@@ -212,6 +217,11 @@ defmodule Google.Ads.Googleads.V14.Common.Metrics do
   field :conversions_value_by_conversion_date, 242,
     type: :double,
     json_name: "conversionsValueByConversionDate"
+
+  field :new_customer_lifetime_value, 293,
+    proto3_optional: true,
+    type: :double,
+    json_name: "newCustomerLifetimeValue"
 
   field :conversions_value_per_cost, 166,
     proto3_optional: true,
@@ -475,6 +485,11 @@ defmodule Google.Ads.Googleads.V14.Common.Metrics do
     type: :double,
     json_name: "searchTopImpressionShare"
 
+  field :search_volume, 295,
+    proto3_optional: true,
+    type: Google.Ads.Googleads.V14.Common.SearchVolumeRange,
+    json_name: "searchVolume"
+
   field :speed_score, 147, proto3_optional: true, type: :int64, json_name: "speedScore"
 
   field :average_target_cpa_micros, 290,
@@ -629,4 +644,13 @@ defmodule Google.Ads.Googleads.V14.Common.Metrics do
     proto3_optional: true,
     type: :double,
     json_name: "viewThroughConversionsFromLocationAssetWebsite"
+end
+
+defmodule Google.Ads.Googleads.V14.Common.SearchVolumeRange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :min, 1, proto3_optional: true, type: :int64
+  field :max, 2, proto3_optional: true, type: :int64
 end

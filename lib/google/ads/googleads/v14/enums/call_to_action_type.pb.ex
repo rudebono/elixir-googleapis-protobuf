@@ -14,6 +14,14 @@ defmodule Google.Ads.Googleads.V14.Enums.CallToActionTypeEnum.CallToActionType d
   field :DOWNLOAD, 8
   field :BOOK_NOW, 9
   field :SHOP_NOW, 10
+  field :BUY_NOW, 11
+  field :DONATE_NOW, 12
+  field :ORDER_NOW, 13
+  field :PLAY_NOW, 14
+  field :SEE_MORE, 15
+  field :START_NOW, 16
+  field :VISIT_SITE, 17
+  field :WATCH_NOW, 18
 end
 
 defmodule Google.Ads.Googleads.V14.Enums.CallToActionTypeEnum do

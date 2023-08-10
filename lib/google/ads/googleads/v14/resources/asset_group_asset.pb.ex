@@ -16,6 +16,26 @@ defmodule Google.Ads.Googleads.V14.Resources.AssetGroupAsset do
     type: Google.Ads.Googleads.V14.Enums.AssetLinkStatusEnum.AssetLinkStatus,
     enum: true
 
+  field :primary_status, 8,
+    type: Google.Ads.Googleads.V14.Enums.AssetLinkPrimaryStatusEnum.AssetLinkPrimaryStatus,
+    json_name: "primaryStatus",
+    enum: true,
+    deprecated: false
+
+  field :primary_status_reasons, 9,
+    repeated: true,
+    type:
+      Google.Ads.Googleads.V14.Enums.AssetLinkPrimaryStatusReasonEnum.AssetLinkPrimaryStatusReason,
+    json_name: "primaryStatusReasons",
+    enum: true,
+    deprecated: false
+
+  field :primary_status_details, 10,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Common.AssetLinkPrimaryStatusDetails,
+    json_name: "primaryStatusDetails",
+    deprecated: false
+
   field :performance_label, 6,
     type: Google.Ads.Googleads.V14.Enums.AssetPerformanceLabelEnum.AssetPerformanceLabel,
     json_name: "performanceLabel",

@@ -40,6 +40,7 @@ defmodule Google.Ads.Googleads.V14.Errors.AssetErrorEnum.AssetError do
   field :CANNOT_MODIFY_ASSET_SOURCE, 35
   field :CANNOT_MODIFY_AUTOMATICALLY_CREATED_ASSET, 36
   field :LEAD_FORM_LOCATION_ANSWER_TYPE_DISALLOWED, 37
+  field :PAGE_FEED_INVALID_LABEL_TEXT, 38
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.AssetErrorEnum do

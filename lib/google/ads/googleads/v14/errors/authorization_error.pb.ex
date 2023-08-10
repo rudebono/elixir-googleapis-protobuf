@@ -19,6 +19,7 @@ defmodule Google.Ads.Googleads.V14.Errors.AuthorizationErrorEnum.AuthorizationEr
   field :SERVICE_ACCESS_DENIED, 12
   field :ACCESS_DENIED_FOR_ACCOUNT_TYPE, 25
   field :METRIC_ACCESS_DENIED, 26
+  field :CLOUD_PROJECT_NOT_UNDER_ORGANIZATION, 27
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.AuthorizationErrorEnum do

@@ -103,7 +103,12 @@ defmodule Maps.Fleetengine.V1.Vehicle do
   field :last_location, 5, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
   field :maximum_capacity, 6, type: :int32, json_name: "maximumCapacity"
   field :attributes, 8, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
-  field :vehicle_type, 9, type: Maps.Fleetengine.V1.Vehicle.VehicleType, json_name: "vehicleType"
+
+  field :vehicle_type, 9,
+    type: Maps.Fleetengine.V1.Vehicle.VehicleType,
+    json_name: "vehicleType",
+    deprecated: false
+
   field :license_plate, 10, type: Maps.Fleetengine.V1.LicensePlate, json_name: "licensePlate"
   field :route, 12, repeated: true, type: Maps.Fleetengine.V1.TerminalLocation, deprecated: true
   field :current_route_segment, 20, type: :string, json_name: "currentRouteSegment"

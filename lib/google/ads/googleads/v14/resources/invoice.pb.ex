@@ -77,6 +77,24 @@ defmodule Google.Ads.Googleads.V14.Resources.Invoice.AccountSummary do
     json_name: "regulatoryCostsTotalAmountMicros",
     deprecated: false
 
+  field :export_charge_subtotal_amount_micros, 17,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeSubtotalAmountMicros",
+    deprecated: false
+
+  field :export_charge_tax_amount_micros, 18,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeTaxAmountMicros",
+    deprecated: false
+
+  field :export_charge_total_amount_micros, 19,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeTotalAmountMicros",
+    deprecated: false
+
   field :subtotal_amount_micros, 14,
     proto3_optional: true,
     type: :int64,
@@ -306,6 +324,24 @@ defmodule Google.Ads.Googleads.V14.Resources.Invoice do
   field :regulatory_costs_total_amount_micros, 24,
     type: :int64,
     json_name: "regulatoryCostsTotalAmountMicros",
+    deprecated: false
+
+  field :export_charge_subtotal_amount_micros, 40,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeSubtotalAmountMicros",
+    deprecated: false
+
+  field :export_charge_tax_amount_micros, 41,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeTaxAmountMicros",
+    deprecated: false
+
+  field :export_charge_total_amount_micros, 42,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "exportChargeTotalAmountMicros",
     deprecated: false
 
   field :subtotal_amount_micros, 33,

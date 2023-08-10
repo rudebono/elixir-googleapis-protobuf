@@ -37,6 +37,9 @@ defmodule Google.Ads.Googleads.V14.Enums.CampaignPrimaryStatusReasonEnum.Campaig
   field :CAMPAIGN_GROUP_ALL_GROUP_BUDGETS_ENDED, 31
   field :APP_NOT_RELEASED, 32
   field :APP_PARTIALLY_RELEASED, 33
+  field :HAS_ASSET_GROUPS_DISAPPROVED, 34
+  field :HAS_ASSET_GROUPS_LIMITED_BY_POLICY, 35
+  field :MOST_ASSET_GROUPS_UNDER_REVIEW, 36
 end
 
 defmodule Google.Ads.Googleads.V14.Enums.CampaignPrimaryStatusReasonEnum do

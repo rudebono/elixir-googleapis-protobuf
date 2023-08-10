@@ -882,6 +882,12 @@ defmodule Google.Ads.Googleads.V14.Errors.ErrorCode do
     enum: true,
     oneof: 0
 
+  field :search_term_insight_error, 174,
+    type: Google.Ads.Googleads.V14.Errors.SearchTermInsightErrorEnum.SearchTermInsightError,
+    json_name: "searchTermInsightError",
+    enum: true,
+    oneof: 0
+
   field :smart_campaign_error, 147,
     type: Google.Ads.Googleads.V14.Errors.SmartCampaignErrorEnum.SmartCampaignError,
     json_name: "smartCampaignError",

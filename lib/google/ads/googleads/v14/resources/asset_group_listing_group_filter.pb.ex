@@ -26,6 +26,21 @@ defmodule Google.Ads.Googleads.V14.Resources.AssetGroupListingGroupFilter do
     type: :string,
     json_name: "parentListingGroupFilter",
     deprecated: false
+
+  field :path, 8,
+    type: Google.Ads.Googleads.V14.Resources.ListingGroupFilterDimensionPath,
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V14.Resources.ListingGroupFilterDimensionPath do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimensions, 1,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Resources.ListingGroupFilterDimension,
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V14.Resources.ListingGroupFilterDimension.ProductBiddingCategory do

@@ -25,6 +25,9 @@ defmodule Google.Ads.Googleads.V14.Common.Segments do
     json_name: "adNetworkType",
     enum: true
 
+  field :ad_group, 158, proto3_optional: true, type: :string, json_name: "adGroup"
+  field :asset_group, 159, proto3_optional: true, type: :string, json_name: "assetGroup"
+
   field :auction_insight_domain, 145,
     proto3_optional: true,
     type: :string,
@@ -33,6 +36,8 @@ defmodule Google.Ads.Googleads.V14.Common.Segments do
   field :budget_campaign_association_status, 134,
     type: Google.Ads.Googleads.V14.Common.BudgetCampaignAssociationStatus,
     json_name: "budgetCampaignAssociationStatus"
+
+  field :campaign, 157, proto3_optional: true, type: :string
 
   field :click_type, 26,
     type: Google.Ads.Googleads.V14.Enums.ClickTypeEnum.ClickType,
@@ -318,6 +323,13 @@ defmodule Google.Ads.Googleads.V14.Common.Segments do
     json_name: "searchEngineResultsPageType",
     enum: true
 
+  field :search_subcategory, 155,
+    proto3_optional: true,
+    type: :string,
+    json_name: "searchSubcategory"
+
+  field :search_term, 156, proto3_optional: true, type: :string, json_name: "searchTerm"
+
   field :search_term_match_type, 22,
     type: Google.Ads.Googleads.V14.Enums.SearchTermMatchTypeEnum.SearchTermMatchType,
     json_name: "searchTermMatchType",
@@ -365,6 +377,12 @@ defmodule Google.Ads.Googleads.V14.Common.Segments do
     proto3_optional: true,
     type: Google.Ads.Googleads.V14.Common.AssetInteractionTarget,
     json_name: "assetInteractionTarget"
+
+  field :new_versus_returning_customers, 160,
+    type:
+      Google.Ads.Googleads.V14.Enums.ConvertingUserPriorEngagementTypeAndLtvBucketEnum.ConvertingUserPriorEngagementTypeAndLtvBucket,
+    json_name: "newVersusReturningCustomers",
+    enum: true
 end
 
 defmodule Google.Ads.Googleads.V14.Common.Keyword do

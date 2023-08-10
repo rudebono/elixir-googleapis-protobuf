@@ -69,6 +69,16 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.State do
   field :SUSPENDED, 8
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.StateInitiator do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_INITIATOR_UNSPECIFIED, 0
+  field :USER, 1
+  field :SERVICE, 2
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
   @moduledoc false
 
@@ -473,6 +483,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState do
     type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.SuspendedData,
     json_name: "suspendedData",
     oneof: 0
+
+  field :state_initiator, 10,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResourceState.StateInitiator,
+    json_name: "stateInitiator",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ListNodesRequest do

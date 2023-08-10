@@ -214,9 +214,14 @@ defmodule Google.Ads.Googleads.V14.Services.PlannedProduct do
   field :plannable_product_code, 3,
     proto3_optional: true,
     type: :string,
-    json_name: "plannableProductCode"
+    json_name: "plannableProductCode",
+    deprecated: false
 
-  field :budget_micros, 4, proto3_optional: true, type: :int64, json_name: "budgetMicros"
+  field :budget_micros, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "budgetMicros",
+    deprecated: false
 
   field :advanced_product_targeting, 5,
     type: Google.Ads.Googleads.V14.Services.AdvancedProductTargeting,

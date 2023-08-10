@@ -23,6 +23,9 @@ defmodule Google.Ads.Googleads.V14.Errors.AuthenticationErrorEnum.Authentication
   field :USER_ID_INVALID, 22
   field :TWO_STEP_VERIFICATION_NOT_ENROLLED, 23
   field :ADVANCED_PROTECTION_NOT_ENROLLED, 24
+  field :ORGANIZATION_NOT_RECOGNIZED, 26
+  field :ORGANIZATION_NOT_APPROVED, 27
+  field :ORGANIZATION_NOT_ASSOCIATED_WITH_DEVELOPER_TOKEN, 28
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.AuthenticationErrorEnum do

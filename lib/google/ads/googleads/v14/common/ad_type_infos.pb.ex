@@ -556,3 +556,37 @@ defmodule Google.Ads.Googleads.V14.Common.DiscoveryCarouselAdInfo do
     json_name: "carouselCards",
     deprecated: false
 end
+
+defmodule Google.Ads.Googleads.V14.Common.DiscoveryVideoResponsiveAdInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V14.Common.AdTextAsset
+
+  field :long_headlines, 2,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Common.AdTextAsset,
+    json_name: "longHeadlines"
+
+  field :descriptions, 3, repeated: true, type: Google.Ads.Googleads.V14.Common.AdTextAsset
+  field :videos, 4, repeated: true, type: Google.Ads.Googleads.V14.Common.AdVideoAsset
+
+  field :logo_images, 5,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Common.AdImageAsset,
+    json_name: "logoImages"
+
+  field :breadcrumb1, 6, type: :string
+  field :breadcrumb2, 7, type: :string
+
+  field :business_name, 8,
+    type: Google.Ads.Googleads.V14.Common.AdTextAsset,
+    json_name: "businessName",
+    deprecated: false
+
+  field :call_to_actions, 9,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Common.AdCallToActionAsset,
+    json_name: "callToActions"
+end

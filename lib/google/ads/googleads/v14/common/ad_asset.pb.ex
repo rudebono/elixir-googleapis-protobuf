@@ -51,3 +51,11 @@ defmodule Google.Ads.Googleads.V14.Common.AdDiscoveryCarouselCardAsset do
 
   field :asset, 1, proto3_optional: true, type: :string
 end
+
+defmodule Google.Ads.Googleads.V14.Common.AdCallToActionAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :asset, 1, proto3_optional: true, type: :string
+end

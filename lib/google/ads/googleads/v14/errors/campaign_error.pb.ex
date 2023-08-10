@@ -75,6 +75,8 @@ defmodule Google.Ads.Googleads.V14.Errors.CampaignErrorEnum.CampaignError do
   field :NOT_COMPATIBLE_WITH_BIDDING_STRATEGY_TYPE, 80
   field :NOT_COMPATIBLE_WITH_GOOGLE_ATTRIBUTION_CONVERSIONS, 81
   field :CONVERSION_LAG_TOO_HIGH, 82
+  field :NOT_LINKED_ADVERTISING_PARTNER, 83
+  field :INVALID_NUMBER_OF_ADVERTISING_PARTNER_IDS, 84
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.CampaignErrorEnum do
