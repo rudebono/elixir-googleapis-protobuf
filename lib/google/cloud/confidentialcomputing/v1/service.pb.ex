@@ -73,6 +73,12 @@ defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :oidc_claims_token, 2, type: :string, json_name: "oidcClaimsToken", deprecated: false
+
+  field :partial_errors, 3,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialErrors",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do

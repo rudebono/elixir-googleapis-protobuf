@@ -176,6 +176,11 @@ defmodule Google.Ads.Googleads.V14.Resources.Ad do
     json_name: "discoveryCarouselAd",
     oneof: 0
 
+  field :discovery_video_responsive_ad, 60,
+    type: Google.Ads.Googleads.V14.Common.DiscoveryVideoResponsiveAdInfo,
+    json_name: "discoveryVideoResponsiveAd",
+    oneof: 0
+
   field :travel_ad, 54,
     type: Google.Ads.Googleads.V14.Common.TravelAdInfo,
     json_name: "travelAd",

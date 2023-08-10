@@ -112,6 +112,11 @@ defmodule Google.Ads.Googleads.V14.Resources.Customer do
     type: Google.Ads.Googleads.V14.Resources.OfflineConversionClientSummary,
     json_name: "offlineConversionClientSummaries",
     deprecated: false
+
+  field :customer_agreement_setting, 44,
+    type: Google.Ads.Googleads.V14.Resources.CustomerAgreementSetting,
+    json_name: "customerAgreementSetting",
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V14.Resources.CallReportingSetting do
@@ -336,5 +341,16 @@ defmodule Google.Ads.Googleads.V14.Resources.OfflineConversionUploadError do
     json_name: "stringLengthError",
     enum: true,
     oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V14.Resources.CustomerAgreementSetting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :accepted_lead_form_terms, 1,
+    type: :bool,
+    json_name: "acceptedLeadFormTerms",
     deprecated: false
 end

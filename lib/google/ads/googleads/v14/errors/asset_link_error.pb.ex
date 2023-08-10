@@ -26,6 +26,8 @@ defmodule Google.Ads.Googleads.V14.Errors.AssetLinkErrorEnum.AssetLinkError do
   field :CANNOT_LINK_TO_AUTOMATICALLY_CREATED_ASSET, 20
   field :CANNOT_MODIFY_ASSET_LINK_SOURCE, 21
   field :CANNOT_LINK_LOCATION_LEAD_FORM_WITHOUT_LOCATION_ASSET, 22
+  field :CUSTOMER_NOT_VERIFIED, 23
+  field :UNSUPPORTED_CALL_TO_ACTION, 24
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.AssetLinkErrorEnum do

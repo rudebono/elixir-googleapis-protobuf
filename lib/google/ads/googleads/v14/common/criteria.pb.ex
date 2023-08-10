@@ -83,6 +83,18 @@ defmodule Google.Ads.Googleads.V14.Common.ListingGroupInfo do
     proto3_optional: true,
     type: :string,
     json_name: "parentAdGroupCriterion"
+
+  field :path, 5,
+    proto3_optional: true,
+    type: Google.Ads.Googleads.V14.Common.ListingDimensionPath
+end
+
+defmodule Google.Ads.Googleads.V14.Common.ListingDimensionPath do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimensions, 1, repeated: true, type: Google.Ads.Googleads.V14.Common.ListingDimensionInfo
 end
 
 defmodule Google.Ads.Googleads.V14.Common.ListingScopeInfo do

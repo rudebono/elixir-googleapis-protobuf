@@ -46,6 +46,9 @@ defmodule Google.Ads.Googleads.V14.Enums.RecommendationTypeEnum.RecommendationTy
   field :DYNAMIC_IMAGE_EXTENSION_OPT_IN, 43
   field :RAISE_TARGET_CPA, 44
   field :LOWER_TARGET_ROAS, 45
+  field :PERFORMANCE_MAX_OPT_IN, 46
+  field :IMPROVE_PERFORMANCE_MAX_AD_STRENGTH, 47
+  field :MIGRATE_DYNAMIC_SEARCH_ADS_CAMPAIGN_TO_PERFORMANCE_MAX, 48
 end
 
 defmodule Google.Ads.Googleads.V14.Enums.RecommendationTypeEnum do

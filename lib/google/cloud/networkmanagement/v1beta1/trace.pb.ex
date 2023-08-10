@@ -10,6 +10,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :START_FROM_GKE_MASTER, 21
   field :START_FROM_CLOUD_SQL_INSTANCE, 22
   field :START_FROM_CLOUD_FUNCTION, 23
+  field :START_FROM_APP_ENGINE_VERSION, 25
+  field :START_FROM_CLOUD_RUN_REVISION, 26
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -280,6 +282,16 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
     type: Google.Cloud.Networkmanagement.V1beta1.CloudFunctionInfo,
     json_name: "cloudFunction",
     oneof: 0
+
+  field :app_engine_version, 22,
+    type: Google.Cloud.Networkmanagement.V1beta1.AppEngineVersionInfo,
+    json_name: "appEngineVersion",
+    oneof: 0
+
+  field :cloud_run_revision, 23,
+    type: Google.Cloud.Networkmanagement.V1beta1.CloudRunRevisionInfo,
+    json_name: "cloudRunRevision",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
@@ -541,6 +553,28 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.CloudFunctionInfo do
   field :uri, 2, type: :string
   field :location, 3, type: :string
   field :version_id, 4, type: :int64, json_name: "versionId"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.CloudRunRevisionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 4, type: :string
+  field :service_uri, 5, type: :string, json_name: "serviceUri"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.AppEngineVersionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :runtime, 3, type: :string
+  field :environment, 4, type: :string
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcConnectorInfo do

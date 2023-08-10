@@ -14,6 +14,20 @@ defmodule Google.Ads.Googleads.V14.Resources.AssetGroup do
     type: Google.Ads.Googleads.V14.Enums.AssetGroupStatusEnum.AssetGroupStatus,
     enum: true
 
+  field :primary_status, 11,
+    type: Google.Ads.Googleads.V14.Enums.AssetGroupPrimaryStatusEnum.AssetGroupPrimaryStatus,
+    json_name: "primaryStatus",
+    enum: true,
+    deprecated: false
+
+  field :primary_status_reasons, 12,
+    repeated: true,
+    type:
+      Google.Ads.Googleads.V14.Enums.AssetGroupPrimaryStatusReasonEnum.AssetGroupPrimaryStatusReason,
+    json_name: "primaryStatusReasons",
+    enum: true,
+    deprecated: false
+
   field :path1, 7, type: :string
   field :path2, 8, type: :string
 

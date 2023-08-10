@@ -314,4 +314,14 @@ defmodule Google.Ads.Googleads.V14.Resources.AdGroupCriterion do
     type: Google.Ads.Googleads.V14.Common.AudienceInfo,
     oneof: 0,
     deprecated: false
+
+  field :location, 82,
+    type: Google.Ads.Googleads.V14.Common.LocationInfo,
+    oneof: 0,
+    deprecated: false
+
+  field :language, 83,
+    type: Google.Ads.Googleads.V14.Common.LanguageInfo,
+    oneof: 0,
+    deprecated: false
 end

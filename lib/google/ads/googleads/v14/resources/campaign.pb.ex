@@ -94,6 +94,12 @@ defmodule Google.Ads.Googleads.V14.Resources.Campaign.ShoppingSetting do
     type: :bool,
     json_name: "useVehicleInventory",
     deprecated: false
+
+  field :advertising_partner_ids, 11,
+    repeated: true,
+    type: :int64,
+    json_name: "advertisingPartnerIds",
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V14.Resources.Campaign.TrackingSetting do
@@ -244,6 +250,18 @@ defmodule Google.Ads.Googleads.V14.Resources.Campaign.TravelCampaignSettings do
     deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V14.Resources.Campaign.DiscoveryCampaignSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :upgraded_targeting, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "upgradedTargeting",
+    deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V14.Resources.Campaign do
   @moduledoc false
 
@@ -321,6 +339,10 @@ defmodule Google.Ads.Googleads.V14.Resources.Campaign do
   field :travel_campaign_settings, 85,
     type: Google.Ads.Googleads.V14.Resources.Campaign.TravelCampaignSettings,
     json_name: "travelCampaignSettings"
+
+  field :discovery_campaign_settings, 87,
+    type: Google.Ads.Googleads.V14.Resources.Campaign.DiscoveryCampaignSettings,
+    json_name: "discoveryCampaignSettings"
 
   field :real_time_bidding_setting, 39,
     type: Google.Ads.Googleads.V14.Common.RealTimeBiddingSetting,
@@ -507,8 +529,7 @@ defmodule Google.Ads.Googleads.V14.Resources.Campaign do
   field :manual_cpv, 37,
     type: Google.Ads.Googleads.V14.Common.ManualCpv,
     json_name: "manualCpv",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :maximize_conversions, 30,
     type: Google.Ads.Googleads.V14.Common.MaximizeConversions,

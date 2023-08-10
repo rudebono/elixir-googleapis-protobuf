@@ -277,6 +277,10 @@ defmodule Google.Ads.Googleads.V14.Services.GoogleAdsRow do
     type: Google.Ads.Googleads.V14.Resources.CampaignLabel,
     json_name: "campaignLabel"
 
+  field :campaign_search_term_insight, 204,
+    type: Google.Ads.Googleads.V14.Resources.CampaignSearchTermInsight,
+    json_name: "campaignSearchTermInsight"
+
   field :campaign_shared_set, 30,
     type: Google.Ads.Googleads.V14.Resources.CampaignSharedSet,
     json_name: "campaignSharedSet"
@@ -392,6 +396,10 @@ defmodule Google.Ads.Googleads.V14.Services.GoogleAdsRow do
   field :customer_negative_criterion, 88,
     type: Google.Ads.Googleads.V14.Resources.CustomerNegativeCriterion,
     json_name: "customerNegativeCriterion"
+
+  field :customer_search_term_insight, 205,
+    type: Google.Ads.Googleads.V14.Resources.CustomerSearchTermInsight,
+    json_name: "customerSearchTermInsight"
 
   field :customer_user_access, 146,
     type: Google.Ads.Googleads.V14.Resources.CustomerUserAccess,

@@ -9,6 +9,9 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :START_FROM_PRIVATE_NETWORK, 3
   field :START_FROM_GKE_MASTER, 21
   field :START_FROM_CLOUD_SQL_INSTANCE, 22
+  field :START_FROM_CLOUD_FUNCTION, 23
+  field :START_FROM_APP_ENGINE_VERSION, 25
+  field :START_FROM_CLOUD_RUN_REVISION, 26
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -19,6 +22,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :ARRIVE_AT_EXTERNAL_LOAD_BALANCER, 11
   field :ARRIVE_AT_VPN_GATEWAY, 12
   field :ARRIVE_AT_VPN_TUNNEL, 13
+  field :ARRIVE_AT_VPC_CONNECTOR, 24
   field :NAT, 14
   field :PROXY_CONNECTION, 15
   field :DELIVER, 16
@@ -37,6 +41,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   field :HIERARCHICAL_FIREWALL_POLICY_RULE, 1
   field :VPC_FIREWALL_RULE, 2
   field :IMPLIED_VPC_FIREWALL_RULE, 3
+  field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
@@ -193,6 +198,9 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :DROPPED_INSIDE_CLOUD_SQL_SERVICE, 19
   field :GOOGLE_MANAGED_SERVICE_NO_PEERING, 20
   field :CLOUD_SQL_INSTANCE_NO_IP_ADDRESS, 21
+  field :CLOUD_FUNCTION_NOT_ACTIVE, 22
+  field :VPC_CONNECTOR_NOT_SET, 23
+  field :VPC_CONNECTOR_NOT_RUNNING, 24
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.Trace do
@@ -238,6 +246,11 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
     json_name: "vpnTunnel",
     oneof: 0
 
+  field :vpc_connector, 21,
+    type: Google.Cloud.Networkmanagement.V1.VpcConnectorInfo,
+    json_name: "vpcConnector",
+    oneof: 0
+
   field :deliver, 12, type: Google.Cloud.Networkmanagement.V1.DeliverInfo, oneof: 0
   field :forward, 13, type: Google.Cloud.Networkmanagement.V1.ForwardInfo, oneof: 0
   field :abort, 14, type: Google.Cloud.Networkmanagement.V1.AbortInfo, oneof: 0
@@ -258,6 +271,21 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
   field :cloud_sql_instance, 19,
     type: Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo,
     json_name: "cloudSqlInstance",
+    oneof: 0
+
+  field :cloud_function, 20,
+    type: Google.Cloud.Networkmanagement.V1.CloudFunctionInfo,
+    json_name: "cloudFunction",
+    oneof: 0
+
+  field :app_engine_version, 22,
+    type: Google.Cloud.Networkmanagement.V1.AppEngineVersionInfo,
+    json_name: "appEngineVersion",
+    oneof: 0
+
+  field :cloud_run_revision, 23,
+    type: Google.Cloud.Networkmanagement.V1.CloudRunRevisionInfo,
+    json_name: "cloudRunRevision",
     oneof: 0
 end
 
@@ -505,4 +533,47 @@ defmodule Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo do
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :region, 7, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.CloudFunctionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 3, type: :string
+  field :version_id, 4, type: :int64, json_name: "versionId"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.CloudRunRevisionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 4, type: :string
+  field :service_uri, 5, type: :string, json_name: "serviceUri"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.AppEngineVersionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :runtime, 3, type: :string
+  field :environment, 4, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.VpcConnectorInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :location, 3, type: :string
 end

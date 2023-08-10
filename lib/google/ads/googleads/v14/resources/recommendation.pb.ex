@@ -88,12 +88,31 @@ defmodule Google.Ads.Googleads.V14.Resources.Recommendation.CampaignBudgetRecomm
     deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V14.Resources.Recommendation.KeywordRecommendation.SearchTerm do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string, deprecated: false
+
+  field :estimated_weekly_search_count, 2,
+    type: :int64,
+    json_name: "estimatedWeeklySearchCount",
+    deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V14.Resources.Recommendation.KeywordRecommendation do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :keyword, 1, type: Google.Ads.Googleads.V14.Common.KeywordInfo, deprecated: false
+
+  field :search_terms, 4,
+    repeated: true,
+    type: Google.Ads.Googleads.V14.Resources.Recommendation.KeywordRecommendation.SearchTerm,
+    json_name: "searchTerms",
+    deprecated: false
 
   field :recommended_cpc_bid_micros, 3,
     proto3_optional: true,
@@ -592,6 +611,28 @@ defmodule Google.Ads.Googleads.V14.Resources.Recommendation.CampaignBudget do
   field :new_start_date, 3, type: :string, json_name: "newStartDate", deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V14.Resources.Recommendation.PerformanceMaxOptInRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Ads.Googleads.V14.Resources.Recommendation.ImprovePerformanceMaxAdStrengthRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :asset_group, 1, type: :string, json_name: "assetGroup", deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V14.Resources.Recommendation.MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :apply_link, 1, type: :string, json_name: "applyLink", deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V14.Resources.Recommendation do
   @moduledoc false
 
@@ -881,6 +922,26 @@ defmodule Google.Ads.Googleads.V14.Resources.Recommendation do
   field :lower_target_roas_recommendation, 56,
     type: Google.Ads.Googleads.V14.Resources.Recommendation.LowerTargetRoasRecommendation,
     json_name: "lowerTargetRoasRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :performance_max_opt_in_recommendation, 57,
+    type: Google.Ads.Googleads.V14.Resources.Recommendation.PerformanceMaxOptInRecommendation,
+    json_name: "performanceMaxOptInRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :improve_performance_max_ad_strength_recommendation, 58,
+    type:
+      Google.Ads.Googleads.V14.Resources.Recommendation.ImprovePerformanceMaxAdStrengthRecommendation,
+    json_name: "improvePerformanceMaxAdStrengthRecommendation",
+    oneof: 0,
+    deprecated: false
+
+  field :migrate_dynamic_search_ads_campaign_to_performance_max_recommendation, 59,
+    type:
+      Google.Ads.Googleads.V14.Resources.Recommendation.MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation,
+    json_name: "migrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation",
     oneof: 0,
     deprecated: false
 end

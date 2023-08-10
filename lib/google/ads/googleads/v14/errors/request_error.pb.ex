@@ -29,6 +29,7 @@ defmodule Google.Ads.Googleads.V14.Errors.RequestErrorEnum.RequestError do
   field :TOTAL_RESULTS_COUNT_NOT_ORIGINALLY_REQUESTED, 32
   field :RPC_DEADLINE_TOO_SHORT, 33
   field :UNSUPPORTED_VERSION, 38
+  field :CLOUD_PROJECT_NOT_FOUND, 39
 end
 
 defmodule Google.Ads.Googleads.V14.Errors.RequestErrorEnum do

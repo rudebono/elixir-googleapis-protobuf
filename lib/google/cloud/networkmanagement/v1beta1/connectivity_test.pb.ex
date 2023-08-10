@@ -98,6 +98,22 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudFunctionEndpoint 
   field :uri, 1, type: :string
 end
 
+defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.AppEngineVersionEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudRunRevisionEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   @moduledoc false
 
@@ -113,6 +129,14 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   field :cloud_function, 10,
     type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudFunctionEndpoint,
     json_name: "cloudFunction"
+
+  field :app_engine_version, 11,
+    type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.AppEngineVersionEndpoint,
+    json_name: "appEngineVersion"
+
+  field :cloud_run_revision, 12,
+    type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudRunRevisionEndpoint,
+    json_name: "cloudRunRevision"
 
   field :network, 4, type: :string
 
