@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.ResponseType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESPONSE_TYPE_UNSPECIFIED, 0
+  field :ENTRY_PROMPT, 1
+  field :PARAMETER_PROMPT, 2
+  field :HANDLER_PROMPT, 3
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.Text do
   @moduledoc false
 
@@ -144,6 +155,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage do
     type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.TelephonyTransferCall,
     json_name: "telephonyTransferCall",
     oneof: 0
+
+  field :response_type, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.ResponseType,
+    json_name: "responseType",
+    enum: true
 
   field :channel, 19, type: :string
 end

@@ -654,6 +654,22 @@ defmodule Google.Analytics.Admin.V1alpha.CreateConversionEventRequest do
   field :parent, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.UpdateConversionEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_event, 1,
+    type: Google.Analytics.Admin.V1alpha.ConversionEvent,
+    json_name: "conversionEvent",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GetConversionEventRequest do
   @moduledoc false
 
@@ -1919,6 +1935,10 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
 
   rpc :CreateConversionEvent,
       Google.Analytics.Admin.V1alpha.CreateConversionEventRequest,
+      Google.Analytics.Admin.V1alpha.ConversionEvent
+
+  rpc :UpdateConversionEvent,
+      Google.Analytics.Admin.V1alpha.UpdateConversionEventRequest,
       Google.Analytics.Admin.V1alpha.ConversionEvent
 
   rpc :GetConversionEvent,

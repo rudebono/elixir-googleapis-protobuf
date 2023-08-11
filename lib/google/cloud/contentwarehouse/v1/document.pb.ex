@@ -89,6 +89,13 @@ defmodule Google.Cloud.Contentwarehouse.V1.Document do
   field :text_extraction_enabled, 21, type: :bool, json_name: "textExtractionEnabled"
   field :creator, 13, type: :string
   field :updater, 14, type: :string
+
+  field :disposition_time, 22,
+    type: Google.Protobuf.Timestamp,
+    json_name: "dispositionTime",
+    deprecated: false
+
+  field :legal_hold, 23, type: :bool, json_name: "legalHold", deprecated: false
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentReference do
@@ -115,6 +122,9 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentReference do
     type: Google.Protobuf.Timestamp,
     json_name: "deleteTime",
     deprecated: false
+
+  field :document_is_retention_folder, 8, type: :bool, json_name: "documentIsRetentionFolder"
+  field :document_is_legal_hold_folder, 9, type: :bool, json_name: "documentIsLegalHoldFolder"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.Property do

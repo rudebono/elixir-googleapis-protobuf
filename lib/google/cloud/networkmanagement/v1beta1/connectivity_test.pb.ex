@@ -8,6 +8,18 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.NetworkType do
   field :NON_GCP_NETWORK, 2
 end
 
+defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.ForwardingRuleTarget do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FORWARDING_RULE_TARGET_UNSPECIFIED, 0
+  field :INSTANCE, 1
+  field :LOAD_BALANCER, 2
+  field :VPN_GATEWAY, 3
+  field :PSC, 4
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result do
   @moduledoc false
 
@@ -123,6 +135,27 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   field :port, 2, type: :int32
   field :instance, 3, type: :string
   field :forwarding_rule, 13, type: :string, json_name: "forwardingRule"
+
+  field :forwarding_rule_target, 14,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1beta1.Endpoint.ForwardingRuleTarget,
+    json_name: "forwardingRuleTarget",
+    enum: true,
+    deprecated: false
+
+  field :load_balancer_id, 15,
+    proto3_optional: true,
+    type: :string,
+    json_name: "loadBalancerId",
+    deprecated: false
+
+  field :load_balancer_type, 16,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1beta1.LoadBalancerType,
+    json_name: "loadBalancerType",
+    enum: true,
+    deprecated: false
+
   field :gke_master_cluster, 7, type: :string, json_name: "gkeMasterCluster"
   field :cloud_sql_instance, 8, type: :string, json_name: "cloudSqlInstance"
 
