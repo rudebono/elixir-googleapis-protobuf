@@ -77,6 +77,8 @@ defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse do
     repeated: true,
     type: Google.Cloud.Contentwarehouse.V1.HistogramQueryResult,
     json_name: "histogramQueryResults"
+
+  field :question_answer, 7, type: :string, json_name: "questionAnswer"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.FetchAclResponse do

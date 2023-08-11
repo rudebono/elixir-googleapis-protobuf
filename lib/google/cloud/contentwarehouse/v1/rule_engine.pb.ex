@@ -6,6 +6,8 @@ defmodule Google.Cloud.Contentwarehouse.V1.Rule.TriggerType do
   field :UNKNOWN, 0
   field :ON_CREATE, 1
   field :ON_UPDATE, 4
+  field :ON_CREATE_LINK, 7
+  field :ON_DELETE_LINK, 8
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.AccessControlAction.OperationType do

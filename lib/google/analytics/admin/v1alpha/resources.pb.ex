@@ -159,6 +159,16 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
   field :IOS_APP_DATA_STREAM, 3
 end
 
+defmodule Google.Analytics.Admin.V1alpha.ConversionEvent.ConversionCountingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONVERSION_COUNTING_METHOD_UNSPECIFIED, 0
+  field :ONCE_PER_EVENT, 1
+  field :ONCE_PER_SESSION, 2
+end
+
 defmodule Google.Analytics.Admin.V1alpha.CustomDimension.DimensionScope do
   @moduledoc false
 
@@ -826,6 +836,12 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
 
   field :deletable, 4, type: :bool, deprecated: false
   field :custom, 5, type: :bool, deprecated: false
+
+  field :counting_method, 6,
+    type: Google.Analytics.Admin.V1alpha.ConversionEvent.ConversionCountingMethod,
+    json_name: "countingMethod",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
@@ -967,7 +983,7 @@ defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
 
   field :daily_export_enabled, 4, type: :bool, json_name: "dailyExportEnabled"
   field :streaming_export_enabled, 5, type: :bool, json_name: "streamingExportEnabled"
-  field :intraday_export_enabled, 9, type: :bool, json_name: "intradayExportEnabled"
+  field :enterprise_export_enabled, 9, type: :bool, json_name: "enterpriseExportEnabled"
   field :include_advertising_id, 6, type: :bool, json_name: "includeAdvertisingId"
   field :export_streams, 7, repeated: true, type: :string, json_name: "exportStreams"
   field :excluded_events, 8, repeated: true, type: :string, json_name: "excludedEvents"

@@ -6,6 +6,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.TimeFilter.TimeField do
   field :TIME_FIELD_UNSPECIFIED, 0
   field :CREATE_TIME, 1
   field :UPDATE_TIME, 2
+  field :DISPOSITION_TIME, 3
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.FileTypeFilter.FileType do
@@ -49,6 +50,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentQuery do
     json_name: "fileTypeFilter"
 
   field :folder_name_filter, 9, type: :string, json_name: "folderNameFilter"
+  field :document_name_filter, 14, repeated: true, type: :string, json_name: "documentNameFilter"
   field :query_context, 10, repeated: true, type: :string, json_name: "queryContext"
 
   field :document_creator_filter, 11,

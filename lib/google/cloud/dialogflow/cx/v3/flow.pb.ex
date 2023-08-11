@@ -190,6 +190,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.ImportFlowRequest do
     type: Google.Cloud.Dialogflow.Cx.V3.ImportFlowRequest.ImportOption,
     json_name: "importOption",
     enum: true
+
+  field :flow_import_strategy, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3.FlowImportStrategy,
+    json_name: "flowImportStrategy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.FlowImportStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :global_import_strategy, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.ImportStrategy,
+    json_name: "globalImportStrategy",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportFlowResponse do

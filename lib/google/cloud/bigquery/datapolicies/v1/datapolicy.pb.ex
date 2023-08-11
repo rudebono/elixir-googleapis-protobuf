@@ -17,6 +17,10 @@ defmodule Google.Cloud.Bigquery.Datapolicies.V1.DataMaskingPolicy.PredefinedExpr
   field :SHA256, 3
   field :ALWAYS_NULL, 5
   field :DEFAULT_MASKING_VALUE, 7
+  field :LAST_FOUR_CHARACTERS, 9
+  field :FIRST_FOUR_CHARACTERS, 10
+  field :EMAIL_MASK, 12
+  field :DATE_YEAR_MASK, 13
 end
 
 defmodule Google.Cloud.Bigquery.Datapolicies.V1.CreateDataPolicyRequest do

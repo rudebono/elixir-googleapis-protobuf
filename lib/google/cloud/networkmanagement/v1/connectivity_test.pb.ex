@@ -8,6 +8,18 @@ defmodule Google.Cloud.Networkmanagement.V1.Endpoint.NetworkType do
   field :NON_GCP_NETWORK, 2
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.Endpoint.ForwardingRuleTarget do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FORWARDING_RULE_TARGET_UNSPECIFIED, 0
+  field :INSTANCE, 1
+  field :LOAD_BALANCER, 2
+  field :VPN_GATEWAY, 3
+  field :PSC, 4
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.ReachabilityDetails.Result do
   @moduledoc false
 
@@ -18,6 +30,28 @@ defmodule Google.Cloud.Networkmanagement.V1.ReachabilityDetails.Result do
   field :UNREACHABLE, 2
   field :AMBIGUOUS, 4
   field :UNDETERMINED, 5
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails.ProbingResult do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROBING_RESULT_UNSPECIFIED, 0
+  field :REACHABLE, 1
+  field :UNREACHABLE, 2
+  field :REACHABILITY_INCONSISTENT, 3
+  field :UNDETERMINED, 4
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails.ProbingAbortCause do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROBING_ABORT_CAUSE_UNSPECIFIED, 0
+  field :PERMISSION_DENIED, 1
+  field :NO_SOURCE_LOCATION, 2
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ConnectivityTest.LabelsEntry do
@@ -61,6 +95,11 @@ defmodule Google.Cloud.Networkmanagement.V1.ConnectivityTest do
     type: Google.Cloud.Networkmanagement.V1.ReachabilityDetails,
     json_name: "reachabilityDetails",
     deprecated: false
+
+  field :probing_details, 14,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails,
+    json_name: "probingDetails",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.Endpoint.CloudFunctionEndpoint do
@@ -96,6 +135,27 @@ defmodule Google.Cloud.Networkmanagement.V1.Endpoint do
   field :port, 2, type: :int32
   field :instance, 3, type: :string
   field :forwarding_rule, 13, type: :string, json_name: "forwardingRule"
+
+  field :forwarding_rule_target, 14,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.Endpoint.ForwardingRuleTarget,
+    json_name: "forwardingRuleTarget",
+    enum: true,
+    deprecated: false
+
+  field :load_balancer_id, 15,
+    proto3_optional: true,
+    type: :string,
+    json_name: "loadBalancerId",
+    deprecated: false
+
+  field :load_balancer_type, 16,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.LoadBalancerType,
+    json_name: "loadBalancerType",
+    enum: true,
+    deprecated: false
+
   field :gke_master_cluster, 7, type: :string, json_name: "gkeMasterCluster"
   field :cloud_sql_instance, 8, type: :string, json_name: "cloudSqlInstance"
 
@@ -130,4 +190,65 @@ defmodule Google.Cloud.Networkmanagement.V1.ReachabilityDetails do
   field :verify_time, 2, type: Google.Protobuf.Timestamp, json_name: "verifyTime"
   field :error, 3, type: Google.Rpc.Status
   field :traces, 5, repeated: true, type: Google.Cloud.Networkmanagement.V1.Trace
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.LatencyPercentile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :percent, 1, type: :int32
+  field :latency_micros, 2, type: :int64, json_name: "latencyMicros"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.LatencyDistribution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :latency_percentiles, 1,
+    repeated: true,
+    type: Google.Cloud.Networkmanagement.V1.LatencyPercentile,
+    json_name: "latencyPercentiles"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails.EdgeLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :metropolitan_area, 1, type: :string, json_name: "metropolitanArea"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :result, 1,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.ProbingResult,
+    enum: true
+
+  field :verify_time, 2, type: Google.Protobuf.Timestamp, json_name: "verifyTime"
+  field :error, 3, type: Google.Rpc.Status
+
+  field :abort_cause, 4,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.ProbingAbortCause,
+    json_name: "abortCause",
+    enum: true
+
+  field :sent_probe_count, 5, type: :int32, json_name: "sentProbeCount"
+  field :successful_probe_count, 6, type: :int32, json_name: "successfulProbeCount"
+
+  field :endpoint_info, 7,
+    type: Google.Cloud.Networkmanagement.V1.EndpointInfo,
+    json_name: "endpointInfo"
+
+  field :probing_latency, 8,
+    type: Google.Cloud.Networkmanagement.V1.LatencyDistribution,
+    json_name: "probingLatency"
+
+  field :destination_egress_location, 9,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.EdgeLocation,
+    json_name: "destinationEgressLocation"
 end

@@ -1,3 +1,21 @@
+defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LOAD_BALANCER_TYPE_UNSPECIFIED, 0
+  field :HTTPS_ADVANCED_LOAD_BALANCER, 1
+  field :HTTPS_LOAD_BALANCER, 2
+  field :REGIONAL_HTTPS_LOAD_BALANCER, 3
+  field :INTERNAL_HTTPS_LOAD_BALANCER, 4
+  field :SSL_PROXY_LOAD_BALANCER, 5
+  field :TCP_PROXY_LOAD_BALANCER, 6
+  field :INTERNAL_TCP_PROXY_LOAD_BALANCER, 7
+  field :NETWORK_LOAD_BALANCER, 8
+  field :LEGACY_NETWORK_LOAD_BALANCER, 9
+  field :TCP_UDP_INTERNAL_LOAD_BALANCER, 10
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   @moduledoc false
 
@@ -6,6 +24,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :STATE_UNSPECIFIED, 0
   field :START_FROM_INSTANCE, 1
   field :START_FROM_INTERNET, 2
+  field :START_FROM_GOOGLE_SERVICE, 27
   field :START_FROM_PRIVATE_NETWORK, 3
   field :START_FROM_GKE_MASTER, 21
   field :START_FROM_CLOUD_SQL_INSTANCE, 22
@@ -42,6 +61,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType d
   field :VPC_FIREWALL_RULE, 2
   field :IMPLIED_VPC_FIREWALL_RULE, 3
   field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
+  field :NETWORK_FIREWALL_POLICY_RULE, 5
+  field :NETWORK_REGIONAL_FIREWALL_POLICY_RULE, 6
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
@@ -56,6 +77,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
   field :PEERING_SUBNET, 4
   field :PEERING_STATIC, 5
   field :PEERING_DYNAMIC, 6
+  field :POLICY_BASED, 7
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
@@ -75,6 +97,28 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
   field :NEXT_HOP_BLACKHOLE, 9
   field :NEXT_HOP_ILB, 10
   field :NEXT_HOP_ROUTER_APPLIANCE, 11
+  field :NEXT_HOP_NCC_HUB, 12
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteScope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ROUTE_SCOPE_UNSPECIFIED, 0
+  field :NETWORK, 1
+  field :NCC_HUB, 2
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.GoogleServiceInfo.GoogleServiceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :GOOGLE_SERVICE_TYPE_UNSPECIFIED, 0
+  field :IAP, 1
+  field :GFE_PROXY_OR_HEALTH_CHECK_PROBER, 2
+  field :CLOUD_DNS, 3
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerType do
@@ -98,6 +142,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.BackendType do
   field :BACKEND_TYPE_UNSPECIFIED, 0
   field :BACKEND_SERVICE, 1
   field :TARGET_POOL, 2
+  field :TARGET_INSTANCE, 3
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerBackend.HealthCheckFirewallState do
@@ -135,6 +180,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   field :PSC_PUBLISHED_SERVICE, 6
   field :PSC_GOOGLE_API, 7
   field :PSC_VPC_SC, 8
+  field :SERVERLESS_NEG, 9
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
@@ -149,6 +195,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   field :GKE_MASTER, 4
   field :IMPORTED_CUSTOM_ROUTE_NEXT_HOP, 5
   field :CLOUD_SQL_INSTANCE, 6
+  field :ANOTHER_PROJECT, 7
+  field :NCC_HUB, 8
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
@@ -172,6 +220,12 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
   field :UNSUPPORTED, 15
+  field :MISMATCHED_IP_VERSION, 16
+  field :GKE_KONNECTIVITY_PROXY_UNSUPPORTED, 17
+  field :RESOURCE_CONFIG_NOT_FOUND, 18
+  field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT, 19
+  field :SOURCE_PSC_CLOUD_SQL_UNSUPPORTED, 20
+  field :SOURCE_FORWARDING_RULE_UNSUPPORTED, 21
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
@@ -191,21 +245,34 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :NO_EXTERNAL_ADDRESS, 9
   field :UNKNOWN_INTERNAL_ADDRESS, 10
   field :FORWARDING_RULE_MISMATCH, 11
+  field :FORWARDING_RULE_REGION_MISMATCH, 25
   field :FORWARDING_RULE_NO_INSTANCES, 12
   field :FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK, 13
   field :INSTANCE_NOT_RUNNING, 14
+  field :GKE_CLUSTER_NOT_RUNNING, 27
+  field :CLOUD_SQL_INSTANCE_NOT_RUNNING, 28
   field :TRAFFIC_TYPE_BLOCKED, 15
   field :GKE_MASTER_UNAUTHORIZED_ACCESS, 16
   field :CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS, 17
   field :DROPPED_INSIDE_GKE_SERVICE, 18
   field :DROPPED_INSIDE_CLOUD_SQL_SERVICE, 19
   field :GOOGLE_MANAGED_SERVICE_NO_PEERING, 20
+  field :GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT, 38
+  field :GKE_PSC_ENDPOINT_MISSING, 36
   field :CLOUD_SQL_INSTANCE_NO_IP_ADDRESS, 21
+  field :GKE_CONTROL_PLANE_REGION_MISMATCH, 30
+  field :PUBLIC_GKE_CONTROL_PLANE_TO_PRIVATE_DESTINATION, 31
+  field :GKE_CONTROL_PLANE_NO_ROUTE, 32
+  field :CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC, 33
+  field :PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION, 34
+  field :CLOUD_SQL_INSTANCE_NO_ROUTE, 35
   field :CLOUD_FUNCTION_NOT_ACTIVE, 22
   field :VPC_CONNECTOR_NOT_SET, 23
   field :VPC_CONNECTOR_NOT_RUNNING, 24
-  field :FORWARDING_RULE_REGION_MISMATCH, 25
   field :PSC_CONNECTION_NOT_ACCEPTED, 26
+  field :CLOUD_RUN_REVISION_NOT_READY, 29
+  field :DROPPED_INSIDE_PSC_SERVICE_PRODUCER, 37
+  field :LOAD_BALANCER_HAS_NO_PROXY_SUBNET, 39
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.Trace do
@@ -235,6 +302,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
   field :firewall, 6, type: Google.Cloud.Networkmanagement.V1beta1.FirewallInfo, oneof: 0
   field :route, 7, type: Google.Cloud.Networkmanagement.V1beta1.RouteInfo, oneof: 0
   field :endpoint, 8, type: Google.Cloud.Networkmanagement.V1beta1.EndpointInfo, oneof: 0
+
+  field :google_service, 24,
+    type: Google.Cloud.Networkmanagement.V1beta1.GoogleServiceInfo,
+    json_name: "googleService",
+    oneof: 0
 
   field :forwarding_rule, 9,
     type: Google.Cloud.Networkmanagement.V1beta1.ForwardingRuleInfo,
@@ -360,6 +432,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
     json_name: "nextHopType",
     enum: true
 
+  field :route_scope, 14,
+    type: Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteScope,
+    json_name: "routeScope",
+    enum: true
+
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
   field :dest_ip_range, 3, type: :string, json_name: "destIpRange"
@@ -367,6 +444,25 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
   field :network_uri, 5, type: :string, json_name: "networkUri"
   field :priority, 6, type: :int32
   field :instance_tags, 7, repeated: true, type: :string, json_name: "instanceTags"
+  field :src_ip_range, 10, type: :string, json_name: "srcIpRange"
+  field :dest_port_ranges, 11, repeated: true, type: :string, json_name: "destPortRanges"
+  field :src_port_ranges, 12, repeated: true, type: :string, json_name: "srcPortRanges"
+  field :protocols, 13, repeated: true, type: :string
+  field :ncc_hub_uri, 15, proto3_optional: true, type: :string, json_name: "nccHubUri"
+  field :ncc_spoke_uri, 16, proto3_optional: true, type: :string, json_name: "nccSpokeUri"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.GoogleServiceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :source_ip, 1, type: :string, json_name: "sourceIp"
+
+  field :google_service_type, 2,
+    type: Google.Cloud.Networkmanagement.V1beta1.GoogleServiceInfo.GoogleServiceType,
+    json_name: "googleServiceType",
+    enum: true
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardingRuleInfo do
