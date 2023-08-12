@@ -85,6 +85,8 @@ defmodule Google.Cloud.Dialogflow.V2.QueryParameters do
     type: Google.Cloud.Dialogflow.V2.QueryParameters.WebhookHeadersEntry,
     json_name: "webhookHeaders",
     map: true
+
+  field :platform, 18, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2.QueryInput do
