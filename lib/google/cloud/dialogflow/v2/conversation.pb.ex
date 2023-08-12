@@ -161,6 +161,7 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary 
     map: true
 
   field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
+  field :baseline_model_version, 5, type: :string, json_name: "baselineModelVersion"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse do
@@ -222,6 +223,8 @@ defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse.Summary do
     type: Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse.Summary.TextSectionsEntry,
     json_name: "textSections",
     map: true
+
+  field :baseline_model_version, 4, type: :string, json_name: "baselineModelVersion"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse do

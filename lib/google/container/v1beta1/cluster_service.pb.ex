@@ -185,6 +185,8 @@ defmodule Google.Container.V1beta1.BinaryAuthorization.EvaluationMode do
   field :EVALUATION_MODE_UNSPECIFIED, 0
   field :DISABLED, 1
   field :PROJECT_SINGLETON_POLICY_ENFORCE, 2
+  field :POLICY_BINDINGS, 5
+  field :POLICY_BINDINGS_AND_PROJECT_SINGLETON_POLICY_ENFORCE, 6
 end
 
 defmodule Google.Container.V1beta1.ClusterTelemetry.Type do
@@ -1364,6 +1366,14 @@ defmodule Google.Container.V1beta1.IPAllocationPolicy do
     deprecated: false
 end
 
+defmodule Google.Container.V1beta1.BinaryAuthorization.PolicyBinding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, proto3_optional: true, type: :string
+end
+
 defmodule Google.Container.V1beta1.BinaryAuthorization do
   @moduledoc false
 
@@ -1375,6 +1385,12 @@ defmodule Google.Container.V1beta1.BinaryAuthorization do
     type: Google.Container.V1beta1.BinaryAuthorization.EvaluationMode,
     json_name: "evaluationMode",
     enum: true
+
+  field :policy_bindings, 5,
+    repeated: true,
+    type: Google.Container.V1beta1.BinaryAuthorization.PolicyBinding,
+    json_name: "policyBindings",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.PodSecurityPolicyConfig do
