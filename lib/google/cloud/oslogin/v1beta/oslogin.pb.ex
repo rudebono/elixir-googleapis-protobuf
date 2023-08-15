@@ -166,6 +166,23 @@ defmodule Google.Cloud.Oslogin.V1beta.WebAuthn do
   field :rp_id, 1, type: :string, json_name: "rpId"
 end
 
+defmodule Google.Cloud.Oslogin.V1beta.SignSshPublicKeyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ssh_public_key, 1, type: :string, json_name: "sshPublicKey"
+  field :parent, 2, type: :string
+end
+
+defmodule Google.Cloud.Oslogin.V1beta.SignSshPublicKeyResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :signed_ssh_public_key, 1, type: :string, json_name: "signedSshPublicKey"
+end
+
 defmodule Google.Cloud.Oslogin.V1beta.OsLoginService.Service do
   @moduledoc false
 
@@ -200,6 +217,10 @@ defmodule Google.Cloud.Oslogin.V1beta.OsLoginService.Service do
   rpc :UpdateSshPublicKey,
       Google.Cloud.Oslogin.V1beta.UpdateSshPublicKeyRequest,
       Google.Cloud.Oslogin.Common.SshPublicKey
+
+  rpc :SignSshPublicKey,
+      Google.Cloud.Oslogin.V1beta.SignSshPublicKeyRequest,
+      Google.Cloud.Oslogin.V1beta.SignSshPublicKeyResponse
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.OsLoginService.Stub do

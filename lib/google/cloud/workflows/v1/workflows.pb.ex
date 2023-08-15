@@ -5,9 +5,48 @@ defmodule Google.Cloud.Workflows.V1.Workflow.State do
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
+  field :UNAVAILABLE, 2
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflow.CallLogLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CALL_LOG_LEVEL_UNSPECIFIED, 0
+  field :LOG_ALL_CALLS, 1
+  field :LOG_ERRORS_ONLY, 2
+  field :LOG_NONE, 3
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflow.StateError.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :KMS_ERROR, 1
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflow.StateError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :details, 1, type: :string
+  field :type, 2, type: Google.Cloud.Workflows.V1.Workflow.StateError.Type, enum: true
 end
 
 defmodule Google.Cloud.Workflows.V1.Workflow.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflow.UserEnvVarsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -50,6 +89,25 @@ defmodule Google.Cloud.Workflows.V1.Workflow do
 
   field :service_account, 9, type: :string, json_name: "serviceAccount"
   field :source_contents, 10, type: :string, json_name: "sourceContents", oneof: 0
+  field :crypto_key_name, 11, type: :string, json_name: "cryptoKeyName", deprecated: false
+
+  field :state_error, 12,
+    type: Google.Cloud.Workflows.V1.Workflow.StateError,
+    json_name: "stateError",
+    deprecated: false
+
+  field :call_log_level, 13,
+    type: Google.Cloud.Workflows.V1.Workflow.CallLogLevel,
+    json_name: "callLogLevel",
+    enum: true,
+    deprecated: false
+
+  field :user_env_vars, 14,
+    repeated: true,
+    type: Google.Cloud.Workflows.V1.Workflow.UserEnvVarsEntry,
+    json_name: "userEnvVars",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.V1.ListWorkflowsRequest do
@@ -80,6 +138,7 @@ defmodule Google.Cloud.Workflows.V1.GetWorkflowRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.V1.CreateWorkflowRequest do
