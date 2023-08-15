@@ -210,6 +210,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest do
     type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretationsEntry,
     json_name: "missingValueInterpretations",
     map: true
+
+  field :default_missing_value_interpretation, 8,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.MissingValueInterpretation,
+    json_name: "defaultMissingValueInterpretation",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsResponse.AppendResult do
