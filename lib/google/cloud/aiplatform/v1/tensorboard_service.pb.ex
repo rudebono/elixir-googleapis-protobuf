@@ -107,6 +107,22 @@ defmodule Google.Cloud.Aiplatform.V1.ReadTensorboardUsageResponse do
     map: true
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ReadTensorboardSizeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tensorboard, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ReadTensorboardSizeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_size_byte, 1, type: :int64, json_name: "storageSizeByte"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CreateTensorboardExperimentRequest do
   @moduledoc false
 
@@ -562,6 +578,10 @@ defmodule Google.Cloud.Aiplatform.V1.TensorboardService.Service do
   rpc :ReadTensorboardUsage,
       Google.Cloud.Aiplatform.V1.ReadTensorboardUsageRequest,
       Google.Cloud.Aiplatform.V1.ReadTensorboardUsageResponse
+
+  rpc :ReadTensorboardSize,
+      Google.Cloud.Aiplatform.V1.ReadTensorboardSizeRequest,
+      Google.Cloud.Aiplatform.V1.ReadTensorboardSizeResponse
 
   rpc :CreateTensorboardExperiment,
       Google.Cloud.Aiplatform.V1.CreateTensorboardExperimentRequest,

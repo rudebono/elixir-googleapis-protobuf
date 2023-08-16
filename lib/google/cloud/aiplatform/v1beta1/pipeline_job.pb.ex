@@ -152,6 +152,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
     type: Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata,
     json_name: "templateMetadata",
     deprecated: false
+
+  field :schedule_name, 22, type: :string, json_name: "scheduleName", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do

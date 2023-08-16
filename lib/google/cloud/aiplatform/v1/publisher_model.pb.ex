@@ -162,6 +162,11 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
     type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
     json_name: "requestAccess",
     deprecated: false
+
+  field :open_evaluation_pipeline, 11,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
+    json_name: "openEvaluationPipeline",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel do
