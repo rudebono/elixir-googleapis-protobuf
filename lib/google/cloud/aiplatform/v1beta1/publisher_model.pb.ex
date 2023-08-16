@@ -34,6 +34,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.ResourceReference do
   field :resource_name, 2, type: :string, json_name: "resourceName", oneof: 0
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.Parent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
+
+  field :reference, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.ResourceReference,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.Documentation do
   @moduledoc false
 
@@ -162,6 +174,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction do
     type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences,
     json_name: "requestAccess",
     deprecated: false
+
+  field :open_evaluation_pipeline, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences,
+    json_name: "openEvaluationPipeline",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel do
@@ -176,6 +193,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel do
     type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.OpenSourceCategory,
     json_name: "openSourceCategory",
     enum: true,
+    deprecated: false
+
+  field :parent, 14,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.Parent,
     deprecated: false
 
   field :supported_actions, 19,

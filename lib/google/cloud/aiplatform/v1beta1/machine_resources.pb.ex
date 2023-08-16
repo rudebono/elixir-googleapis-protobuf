@@ -78,6 +78,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DiskSpec do
   field :boot_disk_size_gb, 2, type: :int32, json_name: "bootDiskSizeGb"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PersistentDiskSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :disk_type, 1, type: :string, json_name: "diskType"
+  field :disk_size_gb, 2, type: :int64, json_name: "diskSizeGb"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NfsMount do
   @moduledoc false
 

@@ -132,6 +132,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportDataOperationMetadata do
   field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CreateDatasetVersionOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RestoreDatasetVersionOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListDataItemsRequest do
   @moduledoc false
 

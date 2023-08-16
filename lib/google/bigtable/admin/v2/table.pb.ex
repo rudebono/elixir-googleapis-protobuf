@@ -233,11 +233,21 @@ defmodule Google.Bigtable.Admin.V2.Snapshot do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :source_table, 2, type: Google.Bigtable.Admin.V2.Table, json_name: "sourceTable"
-  field :data_size_bytes, 3, type: :int64, json_name: "dataSizeBytes"
-  field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+
+  field :source_table, 2,
+    type: Google.Bigtable.Admin.V2.Table,
+    json_name: "sourceTable",
+    deprecated: false
+
+  field :data_size_bytes, 3, type: :int64, json_name: "dataSizeBytes", deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :delete_time, 5, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
-  field :state, 6, type: Google.Bigtable.Admin.V2.Snapshot.State, enum: true
+  field :state, 6, type: Google.Bigtable.Admin.V2.Snapshot.State, enum: true, deprecated: false
   field :description, 7, type: :string
 end
 
@@ -248,6 +258,7 @@ defmodule Google.Bigtable.Admin.V2.Backup do
 
   field :name, 1, type: :string
   field :source_table, 2, type: :string, json_name: "sourceTable", deprecated: false
+  field :source_backup, 10, type: :string, json_name: "sourceBackup", deprecated: false
 
   field :expire_time, 3,
     type: Google.Protobuf.Timestamp,
@@ -274,4 +285,5 @@ defmodule Google.Bigtable.Admin.V2.BackupInfo do
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :source_table, 4, type: :string, json_name: "sourceTable", deprecated: false
+  field :source_backup, 10, type: :string, json_name: "sourceBackup", deprecated: false
 end

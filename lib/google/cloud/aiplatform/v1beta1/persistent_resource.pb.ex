@@ -123,7 +123,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResourcePool do
     json_name: "diskSpec",
     deprecated: false
 
-  field :idle_replica_count, 5, type: :int64, json_name: "idleReplicaCount", deprecated: true
   field :used_replica_count, 6, type: :int64, json_name: "usedReplicaCount", deprecated: false
 
   field :autoscaling_spec, 7,

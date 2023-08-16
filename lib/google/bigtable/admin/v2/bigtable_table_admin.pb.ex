@@ -368,6 +368,35 @@ defmodule Google.Bigtable.Admin.V2.ListBackupsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Bigtable.Admin.V2.CopyBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
+  field :source_backup, 3, type: :string, json_name: "sourceBackup", deprecated: false
+
+  field :expire_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.CopyBackupMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :source_backup_info, 2,
+    type: Google.Bigtable.Admin.V2.BackupInfo,
+    json_name: "sourceBackupInfo"
+
+  field :progress, 3, type: Google.Bigtable.Admin.V2.OperationProgress
+end
+
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   @moduledoc false
 
@@ -430,6 +459,8 @@ defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
       Google.Bigtable.Admin.V2.ListBackupsResponse
 
   rpc :RestoreTable, Google.Bigtable.Admin.V2.RestoreTableRequest, Google.Longrunning.Operation
+
+  rpc :CopyBackup, Google.Bigtable.Admin.V2.CopyBackupRequest, Google.Longrunning.Operation
 
   rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
 
