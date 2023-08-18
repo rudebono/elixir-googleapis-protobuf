@@ -98,16 +98,6 @@ defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig.ServiceCidr do
   field :HIGH_28, 4
 end
 
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface.InterfaceType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :INTERFACE_TYPE_UNSPECIFIED, 0
-  field :BOND, 1
-  field :NIC, 2
-end
-
 defmodule Google.Cloud.Baremetalsolution.V2.ProvisioningConfig do
   @moduledoc false
 
@@ -416,36 +406,4 @@ defmodule Google.Cloud.Baremetalsolution.V2.UpdateProvisioningConfigRequest do
     deprecated: false
 
   field :email, 3, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string
-
-  field :type, 2,
-    type: Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface.InterfaceType,
-    enum: true
-
-  field :required, 3, type: :bool
-end
-
-defmodule Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-
-  field :applicable_instance_types, 2,
-    repeated: true,
-    type: :string,
-    json_name: "applicableInstanceTypes"
-
-  field :logical_interfaces, 3,
-    repeated: true,
-    type: Google.Cloud.Baremetalsolution.V2.ServerNetworkTemplate.LogicalInterface,
-    json_name: "logicalInterfaces"
 end

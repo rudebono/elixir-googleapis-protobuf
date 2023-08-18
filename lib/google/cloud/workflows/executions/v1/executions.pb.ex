@@ -18,6 +18,8 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.State do
   field :SUCCEEDED, 2
   field :FAILED, 3
   field :CANCELLED, 4
+  field :UNAVAILABLE, 5
+  field :QUEUED, 6
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
@@ -28,6 +30,16 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel do
   field :CALL_LOG_LEVEL_UNSPECIFIED, 0
   field :LOG_ALL_CALLS, 1
   field :LOG_ERRORS_ONLY, 2
+  field :LOG_NONE, 3
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.StateError.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :KMS_ERROR, 1
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.Execution.StackTraceElement.Position do
@@ -75,6 +87,44 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution.Error do
     json_name: "stackTrace"
 end
 
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.Status.Step do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :routine, 1, type: :string
+  field :step, 2, type: :string
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.Status do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :current_steps, 1,
+    repeated: true,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.Status.Step,
+    json_name: "currentSteps"
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.StateError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :details, 1, type: :string
+  field :type, 2, type: Google.Cloud.Workflows.Executions.V1.Execution.StateError.Type, enum: true
+end
+
+defmodule Google.Cloud.Workflows.Executions.V1.Execution.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   @moduledoc false
 
@@ -83,6 +133,7 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
   field :name, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :duration, 12, type: Google.Protobuf.Duration, deprecated: false
 
   field :state, 4,
     type: Google.Cloud.Workflows.Executions.V1.Execution.State,
@@ -102,6 +153,20 @@ defmodule Google.Cloud.Workflows.Executions.V1.Execution do
     type: Google.Cloud.Workflows.Executions.V1.Execution.CallLogLevel,
     json_name: "callLogLevel",
     enum: true
+
+  field :status, 10,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.Status,
+    deprecated: false
+
+  field :labels, 11,
+    repeated: true,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.LabelsEntry,
+    map: true
+
+  field :state_error, 13,
+    type: Google.Cloud.Workflows.Executions.V1.Execution.StateError,
+    json_name: "stateError",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
@@ -117,6 +182,9 @@ defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsRequest do
     type: Google.Cloud.Workflows.Executions.V1.ExecutionView,
     enum: true,
     deprecated: false
+
+  field :filter, 5, type: :string, deprecated: false
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
 end
 
 defmodule Google.Cloud.Workflows.Executions.V1.ListExecutionsResponse do
