@@ -140,17 +140,6 @@ defmodule Google.Protobuf.FeatureSet.RepeatedFieldEncoding do
   field :EXPANDED, 2
 end
 
-defmodule Google.Protobuf.FeatureSet.StringFieldValidation do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
-
-  field :STRING_FIELD_VALIDATION_UNKNOWN, 0
-  field :MANDATORY, 1
-  field :HINT, 2
-  field :NONE, 3
-end
-
 defmodule Google.Protobuf.FeatureSet.MessageEncoding do
   @moduledoc false
 
@@ -584,12 +573,6 @@ defmodule Google.Protobuf.FeatureSet do
     enum: true,
     deprecated: false
 
-  field :string_field_validation, 4,
-    optional: true,
-    type: Google.Protobuf.FeatureSet.StringFieldValidation,
-    enum: true,
-    deprecated: false
-
   field :message_encoding, 5,
     optional: true,
     type: Google.Protobuf.FeatureSet.MessageEncoding,
@@ -601,8 +584,6 @@ defmodule Google.Protobuf.FeatureSet do
     type: Google.Protobuf.FeatureSet.JsonFormat,
     enum: true,
     deprecated: false
-
-  field :raw_features, 999, optional: true, type: Google.Protobuf.FeatureSet, deprecated: false
 
   extensions [{1000, 1001}, {1001, 1002}, {9995, 10000}]
 end

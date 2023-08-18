@@ -2,17 +2,18 @@ defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.12.0"
 
-  extend Google.Protobuf.FieldOptions, :resource_reference, 1055,
-    optional: true,
-    type: Google.Api.ResourceReference,
-    json_name: "resourceReference"
-
-  extend Google.Protobuf.FileOptions, :resource_definition, 1053,
+  extend Google.Protobuf.MethodOptions, :method_signature, 1051,
     repeated: true,
-    type: Google.Api.ResourceDescriptor,
-    json_name: "resourceDefinition"
+    type: :string,
+    json_name: "methodSignature"
 
-  extend Google.Protobuf.MessageOptions, :resource, 1053,
+  extend Google.Protobuf.ServiceOptions, :default_host, 1049,
     optional: true,
-    type: Google.Api.ResourceDescriptor
+    type: :string,
+    json_name: "defaultHost"
+
+  extend Google.Protobuf.ServiceOptions, :oauth_scopes, 1050,
+    optional: true,
+    type: :string,
+    json_name: "oauthScopes"
 end
