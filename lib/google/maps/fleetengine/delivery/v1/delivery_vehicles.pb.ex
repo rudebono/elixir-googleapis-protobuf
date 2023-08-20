@@ -1,3 +1,15 @@
+defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle.DeliveryVehicleType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DELIVERY_VEHICLE_TYPE_UNSPECIFIED, 0
+  field :AUTO, 1
+  field :TWO_WHEELER, 2
+  field :BICYCLE, 3
+  field :PEDESTRIAN, 4
+end
+
 defmodule Maps.Fleetengine.Delivery.V1.VehicleStop.State do
   @moduledoc false
 
@@ -45,6 +57,10 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
   field :attributes, 9,
     repeated: true,
     type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute
+
+  field :type, 10,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicle.DeliveryVehicleType,
+    enum: true
 end
 
 defmodule Maps.Fleetengine.Delivery.V1.LocationInfo do

@@ -37,6 +37,18 @@ defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions.SquashMode do
   field :ROOT_SQUASH, 2
 end
 
+defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions.SecurityFlavor do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SECURITY_FLAVOR_UNSPECIFIED, 0
+  field :AUTH_SYS, 1
+  field :KRB5, 2
+  field :KRB5I, 3
+  field :KRB5P, 4
+end
+
 defmodule Google.Cloud.Filestore.V1beta1.Instance.State do
   @moduledoc false
 
@@ -67,6 +79,7 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.Tier do
   field :BASIC_SSD, 4
   field :HIGH_SCALE_SSD, 6
   field :ENTERPRISE, 7
+  field :ZONAL, 8
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Instance.SuspensionReason do
@@ -76,6 +89,16 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.SuspensionReason do
 
   field :SUSPENSION_REASON_UNSPECIFIED, 0
   field :KMS_KEY_ISSUE, 1
+end
+
+defmodule Google.Cloud.Filestore.V1beta1.Instance.FileProtocol do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FILE_PROTOCOL_UNSPECIFIED, 0
+  field :NFS_V3, 1
+  field :NFS_V4_1, 2
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Snapshot.State do
@@ -99,6 +122,7 @@ defmodule Google.Cloud.Filestore.V1beta1.Backup.State do
   field :FINALIZING, 2
   field :READY, 3
   field :DELETING, 4
+  field :INVALID, 5
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Share.State do
@@ -174,6 +198,34 @@ defmodule Google.Cloud.Filestore.V1beta1.NfsExportOptions do
 
   field :anon_uid, 4, type: :int64, json_name: "anonUid"
   field :anon_gid, 5, type: :int64, json_name: "anonGid"
+
+  field :security_flavors, 6,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1beta1.NfsExportOptions.SecurityFlavor,
+    json_name: "securityFlavors",
+    enum: true
+end
+
+defmodule Google.Cloud.Filestore.V1beta1.ManagedActiveDirectoryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :domain, 1, type: :string
+  field :computer, 2, type: :string
+end
+
+defmodule Google.Cloud.Filestore.V1beta1.DirectoryServicesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :config, 0
+
+  field :managed_active_directory, 1,
+    type: Google.Cloud.Filestore.V1beta1.ManagedActiveDirectoryConfig,
+    json_name: "managedActiveDirectory",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Instance.LabelsEntry do
@@ -241,9 +293,18 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance do
     json_name: "capacityStepSizeGb",
     deprecated: false
 
-  field :max_share_count, 18, type: :int64, json_name: "maxShareCount", deprecated: false
+  field :max_share_count, 18, type: :int64, json_name: "maxShareCount"
   field :capacity_gb, 19, type: :int64, json_name: "capacityGb"
   field :multi_share_enabled, 20, type: :bool, json_name: "multiShareEnabled"
+
+  field :protocol, 21,
+    type: Google.Cloud.Filestore.V1beta1.Instance.FileProtocol,
+    enum: true,
+    deprecated: false
+
+  field :directory_services, 24,
+    type: Google.Cloud.Filestore.V1beta1.DirectoryServicesConfig,
+    json_name: "directoryServices"
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.CreateInstanceRequest do
@@ -291,7 +352,7 @@ defmodule Google.Cloud.Filestore.V1beta1.RestoreInstanceRequest do
     type: :string,
     json_name: "sourceSnapshot",
     oneof: 0,
-    deprecated: false
+    deprecated: true
 
   field :source_backup, 4, type: :string, json_name: "sourceBackup", oneof: 0, deprecated: false
 end
@@ -562,6 +623,8 @@ defmodule Google.Cloud.Filestore.V1beta1.Share do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :source, 0
+
   field :name, 1, type: :string, deprecated: false
   field :mount_name, 2, type: :string, json_name: "mountName"
   field :description, 3, type: :string
@@ -583,6 +646,8 @@ defmodule Google.Cloud.Filestore.V1beta1.Share do
     repeated: true,
     type: Google.Cloud.Filestore.V1beta1.Share.LabelsEntry,
     map: true
+
+  field :backup, 9, type: :string, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.CreateShareRequest do

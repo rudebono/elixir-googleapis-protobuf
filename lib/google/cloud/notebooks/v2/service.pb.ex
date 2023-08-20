@@ -21,6 +21,8 @@ defmodule Google.Cloud.Notebooks.V2.ListInstancesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Notebooks.V2.ListInstancesResponse do
