@@ -56,6 +56,8 @@ defmodule Maps.Fleetengine.V1.Vehicle.VehicleType.Category do
   field :TAXI, 2
   field :TRUCK, 3
   field :TWO_WHEELER, 4
+  field :BICYCLE, 5
+  field :PEDESTRIAN, 6
 end
 
 defmodule Maps.Fleetengine.V1.VisualTrafficReportPolylineRendering.RoadStretch.Style do
