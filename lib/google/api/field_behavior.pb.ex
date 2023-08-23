@@ -11,4 +11,5 @@ defmodule Google.Api.FieldBehavior do
   field :IMMUTABLE, 5
   field :UNORDERED_LIST, 6
   field :NON_EMPTY_DEFAULT, 7
+  field :IDENTIFIER, 8
 end

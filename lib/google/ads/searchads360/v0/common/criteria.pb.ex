@@ -40,6 +40,30 @@ defmodule Google.Ads.Searchads360.V0.Common.ListingGroupInfo do
     enum: true
 end
 
+defmodule Google.Ads.Searchads360.V0.Common.AdScheduleInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_minute, 1,
+    type: Google.Ads.Searchads360.V0.Enums.MinuteOfHourEnum.MinuteOfHour,
+    json_name: "startMinute",
+    enum: true
+
+  field :end_minute, 2,
+    type: Google.Ads.Searchads360.V0.Enums.MinuteOfHourEnum.MinuteOfHour,
+    json_name: "endMinute",
+    enum: true
+
+  field :start_hour, 6, proto3_optional: true, type: :int32, json_name: "startHour"
+  field :end_hour, 7, proto3_optional: true, type: :int32, json_name: "endHour"
+
+  field :day_of_week, 5,
+    type: Google.Ads.Searchads360.V0.Enums.DayOfWeekEnum.DayOfWeek,
+    json_name: "dayOfWeek",
+    enum: true
+end
+
 defmodule Google.Ads.Searchads360.V0.Common.AgeRangeInfo do
   @moduledoc false
 

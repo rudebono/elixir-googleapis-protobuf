@@ -40,6 +40,8 @@ defmodule Google.Ads.Searchads360.V0.Enums.CriterionTypeEnum.CriterionType do
   field :KEYWORD_THEME, 34
   field :AUDIENCE, 35
   field :LOCAL_SERVICE_ID, 37
+  field :BRAND, 39
+  field :BRAND_LIST, 40
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.CriterionTypeEnum do

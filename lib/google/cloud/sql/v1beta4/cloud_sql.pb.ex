@@ -537,6 +537,24 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigRequest do
   field :project, 2, type: :string
 end
 
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+  field :latest_recovery_time, 2, type: Google.Protobuf.Timestamp, json_name: "latestRecoveryTime"
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service do
   @moduledoc false
 
@@ -741,6 +759,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
   rpc :ResetReplicaSize,
       Google.Cloud.Sql.V1beta4.SqlInstancesResetReplicaSizeRequest,
       Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :GetLatestRecoveryTime,
+      Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeRequest,
+      Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeResponse
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Stub do

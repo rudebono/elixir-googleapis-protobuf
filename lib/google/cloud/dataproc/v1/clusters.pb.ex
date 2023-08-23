@@ -44,6 +44,7 @@ defmodule Google.Cloud.Dataproc.V1.ClusterStatus.State do
   field :STOPPING, 6
   field :STOPPED, 7
   field :STARTING, 8
+  field :REPAIRING, 10
 end
 
 defmodule Google.Cloud.Dataproc.V1.ClusterStatus.Substate do
@@ -327,7 +328,8 @@ defmodule Google.Cloud.Dataproc.V1.GceClusterConfig do
   field :metadata, 5,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :reservation_affinity, 11,
     type: Google.Cloud.Dataproc.V1.ReservationAffinity,
@@ -406,6 +408,12 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
     json_name: "instanceNames",
     deprecated: false
 
+  field :instance_references, 11,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.InstanceReference,
+    json_name: "instanceReferences",
+    deprecated: false
+
   field :image_uri, 3, type: :string, json_name: "imageUri", deprecated: false
   field :machine_type_uri, 4, type: :string, json_name: "machineTypeUri", deprecated: false
 
@@ -432,6 +440,23 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
     deprecated: false
 
   field :min_cpu_platform, 9, type: :string, json_name: "minCpuPlatform", deprecated: false
+  field :min_num_instances, 12, type: :int32, json_name: "minNumInstances", deprecated: false
+
+  field :instance_flexibility_policy, 13,
+    type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy,
+    json_name: "instanceFlexibilityPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.InstanceReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_name, 1, type: :string, json_name: "instanceName"
+  field :instance_id, 2, type: :string, json_name: "instanceId"
+  field :public_key, 3, type: :string, json_name: "publicKey"
+  field :public_ecies_key, 4, type: :string, json_name: "publicEciesKey"
 end
 
 defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
@@ -447,6 +472,57 @@ defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
   field :instance_group_manager_name, 2,
     type: :string,
     json_name: "instanceGroupManagerName",
+    deprecated: false
+
+  field :instance_group_manager_uri, 3,
+    type: :string,
+    json_name: "instanceGroupManagerUri",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :machine_types, 1,
+    repeated: true,
+    type: :string,
+    json_name: "machineTypes",
+    deprecated: false
+
+  field :rank, 2, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelectionResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :machine_type, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "machineType",
+    deprecated: false
+
+  field :vm_count, 2, proto3_optional: true, type: :int32, json_name: "vmCount", deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_selection_list, 2,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelection,
+    json_name: "instanceSelectionList",
+    deprecated: false
+
+  field :instance_selection_results, 3,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelectionResult,
+    json_name: "instanceSelectionResults",
     deprecated: false
 end
 

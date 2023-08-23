@@ -17,6 +17,7 @@ defmodule Google.Cloud.Sql.V1.BakType do
   field :BAK_TYPE_UNSPECIFIED, 0
   field :FULL, 1
   field :DIFF, 2
+  field :TLOG, 3
 end
 
 defmodule Google.Cloud.Sql.V1.SqlBackendType do
@@ -534,6 +535,8 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions do
   field :no_recovery, 4, type: Google.Protobuf.BoolValue, json_name: "noRecovery"
   field :recovery_only, 5, type: Google.Protobuf.BoolValue, json_name: "recoveryOnly"
   field :bak_type, 6, type: Google.Cloud.Sql.V1.BakType, json_name: "bakType", enum: true
+  field :stop_at, 7, type: Google.Protobuf.Timestamp, json_name: "stopAt", deprecated: false
+  field :stop_at_mark, 8, type: :string, json_name: "stopAtMark", deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.ImportContext do
@@ -576,6 +579,24 @@ defmodule Google.Cloud.Sql.V1.IpConfiguration do
   field :enable_private_path_for_google_cloud_services, 7,
     type: Google.Protobuf.BoolValue,
     json_name: "enablePrivatePathForGoogleCloudServices"
+
+  field :psc_config, 9,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.PscConfig,
+    json_name: "pscConfig"
+end
+
+defmodule Google.Cloud.Sql.V1.PscConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :psc_enabled, 1, proto3_optional: true, type: :bool, json_name: "pscEnabled"
+
+  field :allowed_consumer_projects, 2,
+    repeated: true,
+    type: :string,
+    json_name: "allowedConsumerProjects"
 end
 
 defmodule Google.Cloud.Sql.V1.LocationPreference do

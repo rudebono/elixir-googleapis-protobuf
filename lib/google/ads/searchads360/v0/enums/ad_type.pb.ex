@@ -36,6 +36,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdTypeEnum.AdType do
   field :DISCOVERY_MULTI_ASSET_AD, 35
   field :DISCOVERY_CAROUSEL_AD, 36
   field :TRAVEL_AD, 37
+  field :DISCOVERY_VIDEO_RESPONSIVE_AD, 38
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdTypeEnum do
