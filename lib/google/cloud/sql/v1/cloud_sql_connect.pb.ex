@@ -33,6 +33,7 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
     json_name: "backendType",
     enum: true
 
+  field :psc_enabled, 33, type: :bool, json_name: "pscEnabled"
   field :dns_name, 34, type: :string, json_name: "dnsName"
 end
 

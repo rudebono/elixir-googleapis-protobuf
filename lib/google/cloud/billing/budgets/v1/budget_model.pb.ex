@@ -112,6 +112,11 @@ defmodule Google.Cloud.Billing.Budgets.V1.NotificationsRule do
     type: :bool,
     json_name: "disableDefaultIamRecipients",
     deprecated: false
+
+  field :enable_project_level_recipients, 5,
+    type: :bool,
+    json_name: "enableProjectLevelRecipients",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1.Filter.LabelsEntry do

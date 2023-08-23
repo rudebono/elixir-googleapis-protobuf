@@ -127,6 +127,7 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :INSUFFICIENT_GCS_PERMISSIONS, 31
   field :INVALID_FILE_INFO, 32
   field :UNSUPPORTED_DATABASE_SETTINGS, 33
+  field :MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 34
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
@@ -594,6 +595,24 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesGetDiskShrinkConfigResponse do
   field :message, 3, type: :string
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+  field :latest_recovery_time, 2, type: Google.Protobuf.Timestamp, json_name: "latestRecoveryTime"
+end
+
 defmodule Google.Cloud.Sql.V1.CloneContext do
   @moduledoc false
 
@@ -610,6 +629,12 @@ defmodule Google.Cloud.Sql.V1.CloneContext do
   field :point_in_time, 5, type: Google.Protobuf.Timestamp, json_name: "pointInTime"
   field :allocated_ip_range, 6, type: :string, json_name: "allocatedIpRange"
   field :database_names, 9, repeated: true, type: :string, json_name: "databaseNames"
+
+  field :preferred_zone, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "preferredZone",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.BinLogCoordinates do
@@ -777,6 +802,18 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     deprecated: false
 
   field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
+
+  field :psc_service_attachment_link, 48,
+    proto3_optional: true,
+    type: :string,
+    json_name: "pscServiceAttachmentLink",
+    deprecated: false
+
+  field :dns_name, 49,
+    proto3_optional: true,
+    type: :string,
+    json_name: "dnsName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesRescheduleMaintenanceRequestBody.Reschedule do
@@ -1009,6 +1046,10 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
   rpc :ResetReplicaSize,
       Google.Cloud.Sql.V1.SqlInstancesResetReplicaSizeRequest,
       Google.Cloud.Sql.V1.Operation
+
+  rpc :GetLatestRecoveryTime,
+      Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeRequest,
+      Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeResponse
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesService.Stub do

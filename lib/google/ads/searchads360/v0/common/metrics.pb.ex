@@ -76,8 +76,8 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     json_name: "allConversionsFromStoreWebsite"
 
   field :average_cost, 203, proto3_optional: true, type: :double, json_name: "averageCost"
-  field :average_cpc, 204, proto3_optional: true, type: :double, json_name: "averageCpc"
-  field :average_cpm, 206, proto3_optional: true, type: :double, json_name: "averageCpm"
+  field :average_cpc, 317, proto3_optional: true, type: :double, json_name: "averageCpc"
+  field :average_cpm, 318, proto3_optional: true, type: :double, json_name: "averageCpm"
   field :clicks, 131, proto3_optional: true, type: :int64
 
   field :content_budget_lost_impression_share, 159,
@@ -128,7 +128,7 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     type: :double,
     json_name: "conversionsByConversionDate"
 
-  field :cost_micros, 169, proto3_optional: true, type: :int64, json_name: "costMicros"
+  field :cost_micros, 316, proto3_optional: true, type: :int64, json_name: "costMicros"
 
   field :cost_per_all_conversions, 170,
     proto3_optional: true,

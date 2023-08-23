@@ -281,6 +281,15 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
   field :multislice_node, 47, type: :bool, json_name: "multisliceNode", deprecated: false
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_count, 1, type: :int32, json_name: "nodeCount", deprecated: false
+  field :node_id_prefix, 2, type: :string, json_name: "nodeIdPrefix"
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec do
   @moduledoc false
 
@@ -288,6 +297,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec do
 
   field :parent, 1, type: :string, deprecated: false
   field :node_id, 2, type: :string, json_name: "nodeId"
+
+  field :multi_node_params, 6,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams,
+    json_name: "multiNodeParams",
+    deprecated: false
+
   field :node, 3, type: Google.Cloud.Tpu.V2alpha1.Node, deprecated: false
 end
 
@@ -626,6 +641,14 @@ defmodule Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest do
   field :force, 3, type: :bool
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.ResetQueuedResourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceIdentity do
   @moduledoc false
 
@@ -857,6 +880,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
 
   rpc :DeleteQueuedResource,
       Google.Cloud.Tpu.V2alpha1.DeleteQueuedResourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ResetQueuedResource,
+      Google.Cloud.Tpu.V2alpha1.ResetQueuedResourceRequest,
       Google.Longrunning.Operation
 
   rpc :GenerateServiceIdentity,

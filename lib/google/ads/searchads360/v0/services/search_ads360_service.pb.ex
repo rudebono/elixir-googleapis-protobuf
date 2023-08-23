@@ -86,6 +86,14 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.AdGroupAdLabel,
     json_name: "adGroupAdLabel"
 
+  field :ad_group_asset, 154,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAsset,
+    json_name: "adGroupAsset"
+
+  field :ad_group_asset_set, 196,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAssetSet,
+    json_name: "adGroupAssetSet"
+
   field :ad_group_audience_view, 57,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupAudienceView,
     json_name: "adGroupAudienceView"
@@ -110,6 +118,16 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.AgeRangeView,
     json_name: "ageRangeView"
 
+  field :asset, 105, type: Google.Ads.Searchads360.V0.Resources.Asset
+
+  field :asset_set_asset, 180,
+    type: Google.Ads.Searchads360.V0.Resources.AssetSetAsset,
+    json_name: "assetSetAsset"
+
+  field :asset_set, 179,
+    type: Google.Ads.Searchads360.V0.Resources.AssetSet,
+    json_name: "assetSet"
+
   field :bidding_strategy, 18,
     type: Google.Ads.Searchads360.V0.Resources.BiddingStrategy,
     json_name: "biddingStrategy"
@@ -119,6 +137,14 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     json_name: "campaignBudget"
 
   field :campaign, 2, type: Google.Ads.Searchads360.V0.Resources.Campaign
+
+  field :campaign_asset, 142,
+    type: Google.Ads.Searchads360.V0.Resources.CampaignAsset,
+    json_name: "campaignAsset"
+
+  field :campaign_asset_set, 181,
+    type: Google.Ads.Searchads360.V0.Resources.CampaignAssetSet,
+    json_name: "campaignAssetSet"
 
   field :campaign_audience_view, 69,
     type: Google.Ads.Searchads360.V0.Resources.CampaignAudienceView,
@@ -138,6 +164,14 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
 
   field :customer, 1, type: Google.Ads.Searchads360.V0.Resources.Customer
 
+  field :customer_asset, 155,
+    type: Google.Ads.Searchads360.V0.Resources.CustomerAsset,
+    json_name: "customerAsset"
+
+  field :customer_asset_set, 195,
+    type: Google.Ads.Searchads360.V0.Resources.CustomerAssetSet,
+    json_name: "customerAssetSet"
+
   field :customer_manager_link, 61,
     type: Google.Ads.Searchads360.V0.Resources.CustomerManagerLink,
     json_name: "customerManagerLink"
@@ -153,6 +187,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   field :gender_view, 40,
     type: Google.Ads.Searchads360.V0.Resources.GenderView,
     json_name: "genderView"
+
+  field :geo_target_constant, 23,
+    type: Google.Ads.Searchads360.V0.Resources.GeoTargetConstant,
+    json_name: "geoTargetConstant"
 
   field :keyword_view, 21,
     type: Google.Ads.Searchads360.V0.Resources.KeywordView,

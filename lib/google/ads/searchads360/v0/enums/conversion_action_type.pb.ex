@@ -41,6 +41,10 @@ defmodule Google.Ads.Searchads360.V0.Enums.ConversionActionTypeEnum.ConversionAc
   field :SMART_CAMPAIGN_TRACKED_CALLS, 35
   field :STORE_VISITS, 36
   field :WEBPAGE_CODELESS, 37
+  field :UNIVERSAL_ANALYTICS_GOAL, 38
+  field :UNIVERSAL_ANALYTICS_TRANSACTION, 39
+  field :GOOGLE_ANALYTICS_4_CUSTOM, 40
+  field :GOOGLE_ANALYTICS_4_PURCHASE, 41
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.ConversionActionTypeEnum do

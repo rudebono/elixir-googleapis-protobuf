@@ -10,6 +10,18 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion.QualityInfo do
     deprecated: false
 end
 
+defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion.PositionEstimates do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :top_of_page_cpc_micros, 8,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "topOfPageCpcMicros",
+    deprecated: false
+end
+
 defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
   @moduledoc false
 
@@ -56,6 +68,11 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     proto3_optional: true,
     type: :int64,
     json_name: "effectiveCpcBidMicros",
+    deprecated: false
+
+  field :position_estimates, 10,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterion.PositionEstimates,
+    json_name: "positionEstimates",
     deprecated: false
 
   field :final_urls, 70, repeated: true, type: :string, json_name: "finalUrls"

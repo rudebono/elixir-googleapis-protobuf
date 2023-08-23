@@ -58,6 +58,7 @@ defmodule Google.Cloud.Batch.V1alpha.TaskExecution do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :exit_code, 1, type: :int32, json_name: "exitCode"
+  field :stderr_snippet, 2, type: :string, json_name: "stderrSnippet", deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.TaskStatus do
@@ -143,6 +144,7 @@ defmodule Google.Cloud.Batch.V1alpha.Runnable do
   field :container, 1, type: Google.Cloud.Batch.V1alpha.Runnable.Container, oneof: 0
   field :script, 2, type: Google.Cloud.Batch.V1alpha.Runnable.Script, oneof: 0
   field :barrier, 6, type: Google.Cloud.Batch.V1alpha.Runnable.Barrier, oneof: 0
+  field :display_name, 10, type: :string, json_name: "displayName", deprecated: false
   field :ignore_exit_status, 3, type: :bool, json_name: "ignoreExitStatus"
   field :background, 4, type: :bool
   field :always_run, 5, type: :bool, json_name: "alwaysRun"
