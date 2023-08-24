@@ -1,3 +1,15 @@
+defmodule Google.Shopping.Type.Destination do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DESTINATION_UNSPECIFIED, 0
+  field :SHOPPING_ADS, 1
+  field :LOCAL_INVENTORY_ADS, 2
+  field :FREE_LISTINGS, 3
+  field :FREE_LOCAL_LISTINGS, 4
+end
+
 defmodule Google.Shopping.Type.Price do
   @moduledoc false
 
