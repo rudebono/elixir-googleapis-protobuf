@@ -588,6 +588,28 @@ defmodule Google.Protobuf.FeatureSet do
   extensions [{1000, 1001}, {1001, 1002}, {9995, 10000}]
 end
 
+defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :edition, 1, optional: true, type: :string
+  field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
+end
+
+defmodule Google.Protobuf.FeatureSetDefaults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :defaults, 1,
+    repeated: true,
+    type: Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault
+
+  field :minimum_edition, 2, optional: true, type: :string
+  field :maximum_edition, 3, optional: true, type: :string
+end
+
 defmodule Google.Protobuf.SourceCodeInfo.Location do
   @moduledoc false
 
