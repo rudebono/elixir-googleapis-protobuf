@@ -411,7 +411,10 @@ defmodule Google.Analytics.Admin.V1beta.UpdateMeasurementProtocolSecretRequest d
     json_name: "measurementProtocolSecret",
     deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1beta.ListMeasurementProtocolSecretsRequest do
@@ -448,6 +451,22 @@ defmodule Google.Analytics.Admin.V1beta.CreateConversionEventRequest do
     deprecated: false
 
   field :parent, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.UpdateConversionEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_event, 1,
+    type: Google.Analytics.Admin.V1beta.ConversionEvent,
+    json_name: "conversionEvent",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1beta.GetConversionEventRequest do
@@ -823,6 +842,10 @@ defmodule Google.Analytics.Admin.V1beta.AnalyticsAdminService.Service do
 
   rpc :CreateConversionEvent,
       Google.Analytics.Admin.V1beta.CreateConversionEventRequest,
+      Google.Analytics.Admin.V1beta.ConversionEvent
+
+  rpc :UpdateConversionEvent,
+      Google.Analytics.Admin.V1beta.UpdateConversionEventRequest,
       Google.Analytics.Admin.V1beta.ConversionEvent
 
   rpc :GetConversionEvent,

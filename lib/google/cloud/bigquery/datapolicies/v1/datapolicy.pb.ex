@@ -136,6 +136,8 @@ defmodule Google.Cloud.Bigquery.Datapolicies.V1.DataMaskingPolicy do
     json_name: "predefinedExpression",
     enum: true,
     oneof: 0
+
+  field :routine, 3, type: :string, oneof: 0
 end
 
 defmodule Google.Cloud.Bigquery.Datapolicies.V1.DataPolicyService.Service do

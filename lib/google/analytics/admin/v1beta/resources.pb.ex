@@ -106,6 +106,16 @@ defmodule Google.Analytics.Admin.V1beta.DataStream.DataStreamType do
   field :IOS_APP_DATA_STREAM, 3
 end
 
+defmodule Google.Analytics.Admin.V1beta.ConversionEvent.ConversionCountingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONVERSION_COUNTING_METHOD_UNSPECIFIED, 0
+  field :ONCE_PER_EVENT, 1
+  field :ONCE_PER_SESSION, 2
+end
+
 defmodule Google.Analytics.Admin.V1beta.CustomDimension.DimensionScope do
   @moduledoc false
 
@@ -114,6 +124,7 @@ defmodule Google.Analytics.Admin.V1beta.CustomDimension.DimensionScope do
   field :DIMENSION_SCOPE_UNSPECIFIED, 0
   field :EVENT, 1
   field :USER, 2
+  field :ITEM, 3
 end
 
 defmodule Google.Analytics.Admin.V1beta.CustomMetric.MeasurementUnit do
@@ -248,7 +259,7 @@ defmodule Google.Analytics.Admin.V1beta.DataStream.WebStreamData do
 
   field :measurement_id, 1, type: :string, json_name: "measurementId", deprecated: false
   field :firebase_app_id, 2, type: :string, json_name: "firebaseAppId", deprecated: false
-  field :default_uri, 3, type: :string, json_name: "defaultUri", deprecated: false
+  field :default_uri, 3, type: :string, json_name: "defaultUri"
 end
 
 defmodule Google.Analytics.Admin.V1beta.DataStream.AndroidAppStreamData do
@@ -512,6 +523,12 @@ defmodule Google.Analytics.Admin.V1beta.ConversionEvent do
 
   field :deletable, 4, type: :bool, deprecated: false
   field :custom, 5, type: :bool, deprecated: false
+
+  field :counting_method, 6,
+    type: Google.Analytics.Admin.V1beta.ConversionEvent.ConversionCountingMethod,
+    json_name: "countingMethod",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1beta.CustomDimension do
