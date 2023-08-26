@@ -2126,6 +2126,10 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
   field :windows_node_config, 34,
     type: Google.Container.V1beta1.WindowsNodeConfig,
     json_name: "windowsNodeConfig"
+
+  field :machine_type, 36, type: :string, json_name: "machineType", deprecated: false
+  field :disk_type, 37, type: :string, json_name: "diskType", deprecated: false
+  field :disk_size_gb, 38, type: :int64, json_name: "diskSizeGb", deprecated: false
 end
 
 defmodule Google.Container.V1beta1.SetNodePoolAutoscalingRequest do

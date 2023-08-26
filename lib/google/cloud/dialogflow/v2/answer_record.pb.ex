@@ -133,6 +133,15 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.SummarizationFeedbac
   field :summary_text, 3, type: :string, json_name: "summaryText"
 end
 
+defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.KnowledgeSearchFeedback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answer_copied, 1, type: :bool, json_name: "answerCopied"
+  field :clicked_uris, 2, repeated: true, type: :string, json_name: "clickedUris"
+end
+
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback do
   @moduledoc false
 
@@ -160,6 +169,11 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback do
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.SummarizationFeedback,
     json_name: "summarizationFeedback",
     deprecated: false
+
+  field :knowledge_search_feedback, 5,
+    type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.KnowledgeSearchFeedback,
+    json_name: "knowledgeSearchFeedback",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
@@ -178,6 +192,12 @@ defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
   field :faq_answer, 6,
     type: Google.Cloud.Dialogflow.V2.FaqAnswer,
     json_name: "faqAnswer",
+    oneof: 0,
+    deprecated: false
+
+  field :dialogflow_assist_answer, 7,
+    type: Google.Cloud.Dialogflow.V2.DialogflowAssistAnswer,
+    json_name: "dialogflowAssistAnswer",
     oneof: 0,
     deprecated: false
 end
