@@ -156,6 +156,11 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
     json_name: "eventInput",
     oneof: 0
 
+  field :suggestion_input, 12,
+    type: Google.Cloud.Dialogflow.V2.SuggestionInput,
+    json_name: "suggestionInput",
+    oneof: 0
+
   field :reply_audio_config, 5,
     type: Google.Cloud.Dialogflow.V2.OutputAudioConfig,
     json_name: "replyAudioConfig"
@@ -473,6 +478,38 @@ defmodule Google.Cloud.Dialogflow.V2.SmartReplyAnswer do
   field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2.IntentSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :intent, 0
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :intent_v2, 2, type: :string, json_name: "intentV2", oneof: 0
+  field :description, 5, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2.DialogflowAssistAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :result, 0
+
+  field :query_result, 1,
+    type: Google.Cloud.Dialogflow.V2.QueryResult,
+    json_name: "queryResult",
+    oneof: 0
+
+  field :intent_suggestion, 5,
+    type: Google.Cloud.Dialogflow.V2.IntentSuggestion,
+    json_name: "intentSuggestion",
+    oneof: 0
+
+  field :answer_record, 2, type: :string, json_name: "answerRecord"
+end
+
 defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
   @moduledoc false
 
@@ -523,6 +560,14 @@ defmodule Google.Cloud.Dialogflow.V2.MessageAnnotation do
 
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2.AnnotatedMessagePart
   field :contain_entities, 2, type: :bool, json_name: "containEntities"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SuggestionInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answer_record, 1, type: :string, json_name: "answerRecord", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.AssistQueryParameters.DocumentsMetadataFiltersEntry do
