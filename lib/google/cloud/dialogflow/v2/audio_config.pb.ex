@@ -207,4 +207,5 @@ defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
     enum: true
 
   field :model, 2, type: :string
+  field :use_timeout_based_endpointing, 11, type: :bool, json_name: "useTimeoutBasedEndpointing"
 end

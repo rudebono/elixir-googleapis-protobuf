@@ -17,6 +17,7 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature.Type do
   field :ARTICLE_SUGGESTION, 1
   field :FAQ, 2
   field :SMART_REPLY, 3
+  field :KNOWLEDGE_SEARCH, 14
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ConversationProfile do
@@ -175,6 +176,11 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionFeature
 
   field :enable_event_based_suggestion, 3, type: :bool, json_name: "enableEventBasedSuggestion"
 
+  field :disable_agent_query_logging, 14,
+    type: :bool,
+    json_name: "disableAgentQueryLogging",
+    deprecated: false
+
   field :suggestion_trigger_settings, 10,
     type: Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionTriggerSettings,
     json_name: "suggestionTriggerSettings"
@@ -225,12 +231,26 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryCo
   field :documents, 1, repeated: true, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource.HumanAgentSideConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :agent, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :agent, 1, type: :string, deprecated: false
+
+  field :human_agent_side_config, 3,
+    type:
+      Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.DialogflowQuerySource.HumanAgentSideConfig,
+    json_name: "humanAgentSideConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings do

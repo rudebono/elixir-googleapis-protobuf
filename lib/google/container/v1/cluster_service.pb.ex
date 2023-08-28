@@ -1799,6 +1799,10 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :windows_node_config, 34,
     type: Google.Container.V1.WindowsNodeConfig,
     json_name: "windowsNodeConfig"
+
+  field :machine_type, 36, type: :string, json_name: "machineType", deprecated: false
+  field :disk_type, 37, type: :string, json_name: "diskType", deprecated: false
+  field :disk_size_gb, 38, type: :int64, json_name: "diskSizeGb", deprecated: false
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
@@ -2143,6 +2147,7 @@ defmodule Google.Container.V1.NodePool.PlacementPolicy do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1, type: Google.Container.V1.NodePool.PlacementPolicy.Type, enum: true
+  field :tpu_topology, 2, type: :string, json_name: "tpuTopology", deprecated: false
   field :policy_name, 3, type: :string, json_name: "policyName"
 end
 

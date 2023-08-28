@@ -18,6 +18,16 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation.ConversationStage do
   field :HUMAN_ASSIST_STAGE, 2
 end
 
+defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ANSWER_TYPE_UNSPECIFIED, 0
+  field :FAQ, 1
+  field :GENERATIVE, 2
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Conversation do
   @moduledoc false
 
@@ -237,6 +247,62 @@ defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 6, type: :string
+  field :query, 1, type: Google.Cloud.Dialogflow.V2.TextInput, deprecated: false
+
+  field :conversation_profile, 2,
+    type: :string,
+    json_name: "conversationProfile",
+    deprecated: false
+
+  field :session_id, 3, type: :string, json_name: "sessionId"
+  field :conversation, 4, type: :string, deprecated: false
+  field :latest_message, 5, type: :string, json_name: "latestMessage", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answers, 2, repeated: true, type: Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :title, 1, type: :string
+  field :uri, 2, type: :string
+  field :snippet, 3, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answer, 1, type: :string
+
+  field :answer_type, 2,
+    type: Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerType,
+    json_name: "answerType",
+    enum: true
+
+  field :answer_sources, 3,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerSource,
+    json_name: "answerSources"
+
+  field :answer_record, 5, type: :string, json_name: "answerRecord"
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   @moduledoc false
 
@@ -271,6 +337,10 @@ defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   rpc :GenerateStatelessSummary,
       Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryRequest,
       Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse
+
+  rpc :SearchKnowledge,
+      Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest,
+      Google.Cloud.Dialogflow.V2.SearchKnowledgeResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Stub do
