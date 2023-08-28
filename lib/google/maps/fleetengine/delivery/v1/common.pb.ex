@@ -31,8 +31,13 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :delivery_vehicle_attribute_value, 0
+
   field :key, 1, type: :string
   field :value, 2, type: :string
+  field :string_value, 3, type: :string, json_name: "stringValue", oneof: 0
+  field :bool_value, 4, type: :bool, json_name: "boolValue", oneof: 0
+  field :number_value, 5, type: :double, json_name: "numberValue", oneof: 0
 end
 
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation do
