@@ -96,6 +96,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
 
   field :enable_event_based_suggestion, 3, type: :bool, json_name: "enableEventBasedSuggestion"
 
+  field :disable_agent_query_logging, 14,
+    type: :bool,
+    json_name: "disableAgentQueryLogging",
+    deprecated: false
+
   field :suggestion_trigger_settings, 10,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings,
     json_name: "suggestionTriggerSettings"

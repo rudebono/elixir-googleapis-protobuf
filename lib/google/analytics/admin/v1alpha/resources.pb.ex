@@ -88,6 +88,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :EXPANDED_DATA_SET, 21
   field :CHANNEL_GROUP, 22
   field :ENHANCED_MEASUREMENT_SETTINGS, 24
+  field :SKADNETWORK_CONVERSION_VALUE_SCHEMA, 26
   field :ADSENSE_LINK, 27
   field :AUDIENCE, 28
   field :EVENT_CREATE_RULE, 29
@@ -146,6 +147,17 @@ defmodule Google.Analytics.Admin.V1alpha.PropertyType do
   field :PROPERTY_TYPE_ORDINARY, 1
   field :PROPERTY_TYPE_SUBPROPERTY, 2
   field :PROPERTY_TYPE_ROLLUP, 3
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CoarseValue do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COARSE_VALUE_UNSPECIFIED, 0
+  field :COARSE_VALUE_LOW, 1
+  field :COARSE_VALUE_MEDIUM, 2
+  field :COARSE_VALUE_HIGH, 3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.DataStream.DataStreamType do
@@ -562,6 +574,78 @@ defmodule Google.Analytics.Admin.V1alpha.MeasurementProtocolSecret do
   field :secret_value, 3, type: :string, json_name: "secretValue", deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :postback_window_one, 2,
+    type: Google.Analytics.Admin.V1alpha.PostbackWindow,
+    json_name: "postbackWindowOne",
+    deprecated: false
+
+  field :postback_window_two, 3,
+    type: Google.Analytics.Admin.V1alpha.PostbackWindow,
+    json_name: "postbackWindowTwo"
+
+  field :postback_window_three, 4,
+    type: Google.Analytics.Admin.V1alpha.PostbackWindow,
+    json_name: "postbackWindowThree"
+
+  field :apply_conversion_values, 5, type: :bool, json_name: "applyConversionValues"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.PostbackWindow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :conversion_values, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ConversionValues,
+    json_name: "conversionValues"
+
+  field :postback_window_settings_enabled, 2,
+    type: :bool,
+    json_name: "postbackWindowSettingsEnabled"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ConversionValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :fine_value, 2, proto3_optional: true, type: :int32, json_name: "fineValue"
+
+  field :coarse_value, 3,
+    type: Google.Analytics.Admin.V1alpha.CoarseValue,
+    json_name: "coarseValue",
+    enum: true,
+    deprecated: false
+
+  field :event_mappings, 4,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.EventMapping,
+    json_name: "eventMappings"
+
+  field :lock_enabled, 5, type: :bool, json_name: "lockEnabled"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.EventMapping do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_name, 1, type: :string, json_name: "eventName", deprecated: false
+  field :min_event_count, 2, proto3_optional: true, type: :int64, json_name: "minEventCount"
+  field :max_event_count, 3, proto3_optional: true, type: :int64, json_name: "maxEventCount"
+  field :min_event_value, 4, proto3_optional: true, type: :double, json_name: "minEventValue"
+  field :max_event_value, 5, proto3_optional: true, type: :double, json_name: "maxEventValue"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryEvent do
   @moduledoc false
 
@@ -673,6 +757,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :enhanced_measurement_settings, 24,
     type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
     json_name: "enhancedMeasurementSettings",
+    oneof: 0
+
+  field :skadnetwork_conversion_value_schema, 26,
+    type: Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema,
+    json_name: "skadnetworkConversionValueSchema",
     oneof: 0
 
   field :adsense_link, 27,
@@ -983,7 +1072,7 @@ defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
 
   field :daily_export_enabled, 4, type: :bool, json_name: "dailyExportEnabled"
   field :streaming_export_enabled, 5, type: :bool, json_name: "streamingExportEnabled"
-  field :enterprise_export_enabled, 9, type: :bool, json_name: "enterpriseExportEnabled"
+  field :fresh_daily_export_enabled, 9, type: :bool, json_name: "freshDailyExportEnabled"
   field :include_advertising_id, 6, type: :bool, json_name: "includeAdvertisingId"
   field :export_streams, 7, repeated: true, type: :string, json_name: "exportStreams"
   field :excluded_events, 8, repeated: true, type: :string, json_name: "excludedEvents"

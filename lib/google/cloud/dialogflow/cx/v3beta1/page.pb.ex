@@ -27,6 +27,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
     json_name: "eventHandlers"
+
+  field :knowledge_connector_settings, 18,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.KnowledgeConnectorSettings,
+    json_name: "knowledgeConnectorSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
@@ -98,6 +103,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   oneof :target, 0
 
   field :name, 6, type: :string, deprecated: false
+  field :description, 8, type: :string, deprecated: false
   field :intent, 1, type: :string, deprecated: false
   field :condition, 2, type: :string
 
@@ -165,6 +171,29 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePageRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.KnowledgeConnectorSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :target, 0
+
+  field :enabled, 1, type: :bool
+
+  field :trigger_fulfillment, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
+    json_name: "triggerFulfillment"
+
+  field :target_page, 4, type: :string, json_name: "targetPage", oneof: 0, deprecated: false
+  field :target_flow, 5, type: :string, json_name: "targetFlow", oneof: 0, deprecated: false
+
+  field :data_store_connections, 6,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnection,
+    json_name: "dataStoreConnections",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Pages.Service do

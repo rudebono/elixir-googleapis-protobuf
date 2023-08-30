@@ -17,6 +17,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.ResourceType do
   field :PAGE, 6
   field :PAGES, 13
   field :TRANSITION_ROUTE_GROUP, 7
+  field :AGENT_TRANSITION_ROUTE_GROUP, 14
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ValidationMessage.Severity do

@@ -30,3 +30,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.UserInfo do
   field :user_id, 1, type: :string, json_name: "userId"
   field :user_agent, 2, type: :string, json_name: "userAgent"
 end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.DoubleList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :double
+end
