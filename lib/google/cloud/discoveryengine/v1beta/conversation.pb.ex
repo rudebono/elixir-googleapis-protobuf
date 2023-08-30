@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Reply.Reference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :anchor_text, 2, type: :string, json_name: "anchorText"
@@ -41,8 +41,14 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Reply do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :reply, 1, type: :string
-  field :references, 2, repeated: true, type: Google.Cloud.Discoveryengine.V1beta.Reply.Reference
+  field :reply, 1, type: :string, deprecated: true
+
+  field :references, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.Reply.Reference,
+    deprecated: true
+
+  field :summary, 3, type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ConversationContext do

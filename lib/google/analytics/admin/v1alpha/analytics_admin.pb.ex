@@ -617,6 +617,74 @@ defmodule Google.Analytics.Admin.V1alpha.ListMeasurementProtocolSecretsResponse 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetSKAdNetworkConversionValueSchemaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateSKAdNetworkConversionValueSchemaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :skadnetwork_conversion_value_schema, 2,
+    type: Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema,
+    json_name: "skadnetworkConversionValueSchema",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteSKAdNetworkConversionValueSchemaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateSKAdNetworkConversionValueSchemaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :skadnetwork_conversion_value_schema, 1,
+    type: Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema,
+    json_name: "skadnetworkConversionValueSchema",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSKAdNetworkConversionValueSchemasRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSKAdNetworkConversionValueSchemasResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :skadnetwork_conversion_value_schemas, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema,
+    json_name: "skadnetworkConversionValueSchemas"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GetGoogleSignalsSettingsRequest do
   @moduledoc false
 
@@ -1920,6 +1988,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :AcknowledgeUserDataCollection,
       Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionRequest,
       Google.Analytics.Admin.V1alpha.AcknowledgeUserDataCollectionResponse
+
+  rpc :GetSKAdNetworkConversionValueSchema,
+      Google.Analytics.Admin.V1alpha.GetSKAdNetworkConversionValueSchemaRequest,
+      Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema
+
+  rpc :CreateSKAdNetworkConversionValueSchema,
+      Google.Analytics.Admin.V1alpha.CreateSKAdNetworkConversionValueSchemaRequest,
+      Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema
+
+  rpc :DeleteSKAdNetworkConversionValueSchema,
+      Google.Analytics.Admin.V1alpha.DeleteSKAdNetworkConversionValueSchemaRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateSKAdNetworkConversionValueSchema,
+      Google.Analytics.Admin.V1alpha.UpdateSKAdNetworkConversionValueSchemaRequest,
+      Google.Analytics.Admin.V1alpha.SKAdNetworkConversionValueSchema
+
+  rpc :ListSKAdNetworkConversionValueSchemas,
+      Google.Analytics.Admin.V1alpha.ListSKAdNetworkConversionValueSchemasRequest,
+      Google.Analytics.Admin.V1alpha.ListSKAdNetworkConversionValueSchemasResponse
 
   rpc :SearchChangeHistoryEvents,
       Google.Analytics.Admin.V1alpha.SearchChangeHistoryEventsRequest,

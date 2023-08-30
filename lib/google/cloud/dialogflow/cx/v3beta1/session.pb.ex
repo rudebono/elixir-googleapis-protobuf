@@ -150,6 +150,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CloudConversationDebuggingInfo do
     json_name: "singleUtteranceEndTimeOffset"
 
   field :no_speech_timeout, 15, type: Google.Protobuf.Duration, json_name: "noSpeechTimeout"
+  field :endpointing_timeout, 19, type: Google.Protobuf.Duration, json_name: "endpointingTimeout"
   field :is_input_text, 16, type: :bool, json_name: "isInputText"
 
   field :client_half_close_time_offset, 17,

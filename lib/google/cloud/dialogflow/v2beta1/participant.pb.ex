@@ -30,6 +30,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   field :SMART_REPLY, 3
   field :DIALOGFLOW_ASSIST, 4
   field :CONVERSATION_SUMMARIZATION, 8
+  field :KNOWLEDGE_SEARCH, 14
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEntry do

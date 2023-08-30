@@ -64,20 +64,17 @@ defmodule Google.Cloud.Discoveryengine.V1.ImportUserEventsRequest do
   field :inline_source, 2,
     type: Google.Cloud.Discoveryengine.V1.ImportUserEventsRequest.InlineSource,
     json_name: "inlineSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :gcs_source, 3,
     type: Google.Cloud.Discoveryengine.V1.GcsSource,
     json_name: "gcsSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :bigquery_source, 4,
     type: Google.Cloud.Discoveryengine.V1.BigQuerySource,
     json_name: "bigquerySource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
 

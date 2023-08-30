@@ -98,6 +98,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCa
   field :phone_number, 1, type: :string, json_name: "phoneNumber", oneof: 0
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.KnowledgeInfoCard do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   @moduledoc false
 
@@ -143,6 +149,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
   field :telephony_transfer_call, 18,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.TelephonyTransferCall,
     json_name: "telephonyTransferCall",
+    oneof: 0
+
+  field :knowledge_info_card, 20,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage.KnowledgeInfoCard,
+    json_name: "knowledgeInfoCard",
     oneof: 0
 
   field :channel, 19, type: :string

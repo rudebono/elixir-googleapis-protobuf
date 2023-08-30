@@ -26,6 +26,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreatePersistentResourceOperationMetad
     json_name: "genericMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPersistentResourceRequest do
   @moduledoc false
 
@@ -65,6 +75,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeletePersistentResourceRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :persistent_resource, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.PersistentResource,
+    json_name: "persistentResource",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResourceService.Service do
   @moduledoc false
 
@@ -86,6 +112,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResourceService.Service do
 
   rpc :DeletePersistentResource,
       Google.Cloud.Aiplatform.V1beta1.DeletePersistentResourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdatePersistentResource,
+      Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceRequest,
       Google.Longrunning.Operation
 end
 

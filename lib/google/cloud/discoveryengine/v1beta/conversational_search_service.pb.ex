@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest do
   @moduledoc false
 
@@ -8,6 +17,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest do
   field :serving_config, 3, type: :string, json_name: "servingConfig", deprecated: false
   field :conversation, 5, type: Google.Cloud.Discoveryengine.V1beta.Conversation
   field :safe_search, 6, type: :bool, json_name: "safeSearch"
+
+  field :user_labels, 7,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
+
+  field :summary_spec, 8,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec,
+    json_name: "summarySpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationResponse do
@@ -17,6 +36,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationResponse do
 
   field :reply, 1, type: Google.Cloud.Discoveryengine.V1beta.Reply
   field :conversation, 2, type: Google.Cloud.Discoveryengine.V1beta.Conversation
+  field :related_questions, 6, repeated: true, type: :string, json_name: "relatedQuestions"
 
   field :search_results, 3,
     repeated: true,

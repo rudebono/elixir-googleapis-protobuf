@@ -27,6 +27,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkip
   field :ADVERSARIAL_QUERY_IGNORED, 1
   field :NON_SUMMARY_SEEKING_QUERY_IGNORED, 2
   field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
+  field :POTENTIAL_POLICY_VIOLATION, 4
+  field :LLM_ADDON_NOT_ENABLED, 5
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery do
@@ -96,6 +98,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec d
   field :condition, 1,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec.Condition,
     enum: true
+
+  field :pin_unexpanded_results, 2, type: :bool, json_name: "pinUnexpandedResults"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec do
@@ -130,6 +134,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
   field :ignore_non_summary_seeking_query, 4,
     type: :bool,
     json_name: "ignoreNonSummarySeekingQuery"
+
+  field :language_code, 6, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
@@ -139,6 +145,13 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Ex
 
   field :max_extractive_answer_count, 1, type: :int32, json_name: "maxExtractiveAnswerCount"
   field :max_extractive_segment_count, 2, type: :int32, json_name: "maxExtractiveSegmentCount"
+
+  field :return_extractive_segment_score, 3,
+    type: :bool,
+    json_name: "returnExtractiveSegmentScore"
+
+  field :num_previous_segments, 4, type: :int32, json_name: "numPreviousSegments"
+  field :num_next_segments, 5, type: :int32, json_name: "numNextSegments"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
@@ -158,6 +171,26 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
     type:
       Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
     json_name: "extractiveContentSpec"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.EmbeddingSpec.EmbeddingVector do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_path, 1, type: :string, json_name: "fieldPath"
+  field :vector, 2, repeated: true, type: :float
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.EmbeddingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :embedding_vectors, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.EmbeddingSpec.EmbeddingVector,
+    json_name: "embeddingVectors"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
@@ -226,6 +259,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec,
     json_name: "contentSearchSpec"
 
+  field :embedding_spec, 23,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.EmbeddingSpec,
+    json_name: "embeddingSpec"
+
+  field :ranking_expression, 26, type: :string, json_name: "rankingExpression"
   field :safe_search, 20, type: :bool, json_name: "safeSearch"
 
   field :user_labels, 22,
@@ -235,6 +273,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
     map: true
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelScoresEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Discoveryengine.V1beta.DoubleList
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
   @moduledoc false
 
@@ -242,6 +289,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
 
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1beta.Document
+
+  field :model_scores, 4,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelScoresEntry,
+    json_name: "modelScores",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Facet.FacetValue do
@@ -293,6 +346,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.GuidedSearchResult 
   field :follow_up_questions, 2, repeated: true, type: :string, json_name: "followUpQuestions"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SafetyAttributes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :categories, 1, repeated: true, type: :string
+  field :scores, 2, repeated: true, type: :float
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
   @moduledoc false
 
@@ -305,6 +367,19 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
     type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkippedReason,
     json_name: "summarySkippedReasons",
     enum: true
+
+  field :safety_attributes, 3,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SafetyAttributes,
+    json_name: "safetyAttributes"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.QueryExpansionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :expanded_query, 1, type: :bool, json_name: "expandedQuery"
+  field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
@@ -329,6 +404,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
   field :corrected_query, 7, type: :string, json_name: "correctedQuery"
   field :summary, 9, type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary
   field :applied_controls, 10, repeated: true, type: :string, json_name: "appliedControls"
+
+  field :query_expansion_info, 14,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.QueryExpansionInfo,
+    json_name: "queryExpansionInfo"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchService.Service do
