@@ -16,6 +16,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RedactionScope do
   field :REDACT_DISK_STORAGE, 2
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RetentionStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RETENTION_STRATEGY_UNSPECIFIED, 0
+  field :REMOVE_AFTER_CONVERSATION, 1
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.PurgeDataType do
   @moduledoc false
 
@@ -155,6 +164,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings do
     deprecated: false
 
   field :retention_window_days, 6, type: :int32, json_name: "retentionWindowDays", oneof: 0
+
+  field :retention_strategy, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.RetentionStrategy,
+    json_name: "retentionStrategy",
+    enum: true,
+    oneof: 0
 
   field :purge_data_types, 8,
     repeated: true,

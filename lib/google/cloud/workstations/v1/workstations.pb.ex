@@ -37,7 +37,11 @@ defmodule Google.Cloud.Workstations.V1.WorkstationCluster.PrivateClusterConfig d
     json_name: "serviceAttachmentUri",
     deprecated: false
 
-  field :allowed_projects, 4, repeated: true, type: :string, json_name: "allowedProjects"
+  field :allowed_projects, 4,
+    repeated: true,
+    type: :string,
+    json_name: "allowedProjects",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationCluster.AnnotationsEntry do
@@ -64,19 +68,21 @@ defmodule Google.Cloud.Workstations.V1.WorkstationCluster do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :uid, 3, type: :string, deprecated: false
   field :reconciling, 4, type: :bool, deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationCluster.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 15,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationCluster.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -93,14 +99,15 @@ defmodule Google.Cloud.Workstations.V1.WorkstationCluster do
     json_name: "deleteTime",
     deprecated: false
 
-  field :etag, 9, type: :string
+  field :etag, 9, type: :string, deprecated: false
   field :network, 10, type: :string, deprecated: false
   field :subnetwork, 11, type: :string, deprecated: false
   field :control_plane_ip, 16, type: :string, json_name: "controlPlaneIp", deprecated: false
 
   field :private_cluster_config, 12,
     type: Google.Cloud.Workstations.V1.WorkstationCluster.PrivateClusterConfig,
-    json_name: "privateClusterConfig"
+    json_name: "privateClusterConfig",
+    deprecated: false
 
   field :degraded, 13, type: :bool, deprecated: false
   field :conditions, 14, repeated: true, type: Google.Rpc.Status, deprecated: false
@@ -111,9 +118,13 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceShi
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
-  field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm"
-  field :enable_integrity_monitoring, 3, type: :bool, json_name: "enableIntegrityMonitoring"
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot", deprecated: false
+  field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm", deprecated: false
+
+  field :enable_integrity_monitoring, 3,
+    type: :bool,
+    json_name: "enableIntegrityMonitoring",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceConfidentialInstanceConfig do
@@ -121,7 +132,10 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceCon
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :enable_confidential_compute, 1, type: :bool, json_name: "enableConfidentialCompute"
+  field :enable_confidential_compute, 1,
+    type: :bool,
+    json_name: "enableConfidentialCompute",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance do
@@ -129,25 +143,42 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :machine_type, 1, type: :string, json_name: "machineType"
-  field :service_account, 2, type: :string, json_name: "serviceAccount"
-  field :tags, 4, repeated: true, type: :string
-  field :pool_size, 5, type: :int32, json_name: "poolSize"
+  field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
+  field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+
+  field :service_account_scopes, 3,
+    repeated: true,
+    type: :string,
+    json_name: "serviceAccountScopes",
+    deprecated: false
+
+  field :tags, 4, repeated: true, type: :string, deprecated: false
+  field :pool_size, 5, type: :int32, json_name: "poolSize", deprecated: false
   field :pooled_instances, 12, type: :int32, json_name: "pooledInstances", deprecated: false
-  field :disable_public_ip_addresses, 6, type: :bool, json_name: "disablePublicIpAddresses"
-  field :enable_nested_virtualization, 7, type: :bool, json_name: "enableNestedVirtualization"
+
+  field :disable_public_ip_addresses, 6,
+    type: :bool,
+    json_name: "disablePublicIpAddresses",
+    deprecated: false
+
+  field :enable_nested_virtualization, 7,
+    type: :bool,
+    json_name: "enableNestedVirtualization",
+    deprecated: false
 
   field :shielded_instance_config, 8,
     type:
       Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceShieldedInstanceConfig,
-    json_name: "shieldedInstanceConfig"
+    json_name: "shieldedInstanceConfig",
+    deprecated: false
 
   field :confidential_instance_config, 10,
     type:
       Google.Cloud.Workstations.V1.WorkstationConfig.Host.GceInstance.GceConfidentialInstanceConfig,
-    json_name: "confidentialInstanceConfig"
+    json_name: "confidentialInstanceConfig",
+    deprecated: false
 
-  field :boot_disk_size_gb, 9, type: :int32, json_name: "bootDiskSizeGb"
+  field :boot_disk_size_gb, 9, type: :int32, json_name: "bootDiskSizeGb", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Host do
@@ -168,16 +199,17 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory.Gce
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :size_gb, 1, type: :int32, json_name: "sizeGb"
-  field :fs_type, 2, type: :string, json_name: "fsType"
-  field :disk_type, 3, type: :string, json_name: "diskType"
-  field :source_snapshot, 5, type: :string, json_name: "sourceSnapshot"
+  field :size_gb, 1, type: :int32, json_name: "sizeGb", deprecated: false
+  field :fs_type, 2, type: :string, json_name: "fsType", deprecated: false
+  field :disk_type, 3, type: :string, json_name: "diskType", deprecated: false
+  field :source_snapshot, 5, type: :string, json_name: "sourceSnapshot", deprecated: false
 
   field :reclaim_policy, 4,
     type:
       Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.ReclaimPolicy,
     json_name: "reclaimPolicy",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory do
@@ -193,7 +225,7 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory do
     json_name: "gcePd",
     oneof: 0
 
-  field :mount_path, 1, type: :string, json_name: "mountPath"
+  field :mount_path, 1, type: :string, json_name: "mountPath", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Container.EnvEntry do
@@ -210,17 +242,18 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.Container do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :image, 1, type: :string
-  field :command, 2, repeated: true, type: :string
-  field :args, 3, repeated: true, type: :string
+  field :image, 1, type: :string, deprecated: false
+  field :command, 2, repeated: true, type: :string, deprecated: false
+  field :args, 3, repeated: true, type: :string, deprecated: false
 
   field :env, 4,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.Container.EnvEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :working_dir, 5, type: :string, json_name: "workingDir"
-  field :run_as_user, 6, type: :int32, json_name: "runAsUser"
+  field :working_dir, 5, type: :string, json_name: "workingDir", deprecated: false
+  field :run_as_user, 6, type: :int32, json_name: "runAsUser", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey do
@@ -234,6 +267,15 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey d
     type: :string,
     json_name: "kmsKeyServiceAccount",
     deprecated: false
+end
+
+defmodule Google.Cloud.Workstations.V1.WorkstationConfig.ReadinessCheck do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.WorkstationConfig.AnnotationsEntry do
@@ -260,19 +302,21 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :uid, 3, type: :string, deprecated: false
   field :reconciling, 4, type: :bool, deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 18,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -289,21 +333,45 @@ defmodule Google.Cloud.Workstations.V1.WorkstationConfig do
     json_name: "deleteTime",
     deprecated: false
 
-  field :etag, 9, type: :string
-  field :idle_timeout, 10, type: Google.Protobuf.Duration, json_name: "idleTimeout"
-  field :running_timeout, 11, type: Google.Protobuf.Duration, json_name: "runningTimeout"
-  field :host, 12, type: Google.Cloud.Workstations.V1.WorkstationConfig.Host
+  field :etag, 9, type: :string, deprecated: false
+
+  field :idle_timeout, 10,
+    type: Google.Protobuf.Duration,
+    json_name: "idleTimeout",
+    deprecated: false
+
+  field :running_timeout, 11,
+    type: Google.Protobuf.Duration,
+    json_name: "runningTimeout",
+    deprecated: false
+
+  field :host, 12, type: Google.Cloud.Workstations.V1.WorkstationConfig.Host, deprecated: false
 
   field :persistent_directories, 13,
     repeated: true,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.PersistentDirectory,
-    json_name: "persistentDirectories"
+    json_name: "persistentDirectories",
+    deprecated: false
 
-  field :container, 14, type: Google.Cloud.Workstations.V1.WorkstationConfig.Container
+  field :container, 14,
+    type: Google.Cloud.Workstations.V1.WorkstationConfig.Container,
+    deprecated: false
 
   field :encryption_key, 17,
     type: Google.Cloud.Workstations.V1.WorkstationConfig.CustomerEncryptionKey,
     json_name: "encryptionKey",
+    deprecated: false
+
+  field :readiness_checks, 19,
+    repeated: true,
+    type: Google.Cloud.Workstations.V1.WorkstationConfig.ReadinessCheck,
+    json_name: "readinessChecks",
+    deprecated: false
+
+  field :replica_zones, 23,
+    repeated: true,
+    type: :string,
+    json_name: "replicaZones",
     deprecated: false
 
   field :degraded, 15, type: :bool, deprecated: false
@@ -334,19 +402,21 @@ defmodule Google.Cloud.Workstations.V1.Workstation do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :uid, 3, type: :string, deprecated: false
   field :reconciling, 4, type: :bool, deprecated: false
 
   field :annotations, 5,
     repeated: true,
     type: Google.Cloud.Workstations.V1.Workstation.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 13,
     repeated: true,
     type: Google.Cloud.Workstations.V1.Workstation.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
@@ -358,12 +428,17 @@ defmodule Google.Cloud.Workstations.V1.Workstation do
     json_name: "updateTime",
     deprecated: false
 
+  field :start_time, 14,
+    type: Google.Protobuf.Timestamp,
+    json_name: "startTime",
+    deprecated: false
+
   field :delete_time, 8,
     type: Google.Protobuf.Timestamp,
     json_name: "deleteTime",
     deprecated: false
 
-  field :etag, 9, type: :string
+  field :etag, 9, type: :string, deprecated: false
 
   field :state, 10,
     type: Google.Cloud.Workstations.V1.Workstation.State,
@@ -387,8 +462,8 @@ defmodule Google.Cloud.Workstations.V1.ListWorkstationClustersRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationClustersResponse do
@@ -422,7 +497,7 @@ defmodule Google.Cloud.Workstations.V1.CreateWorkstationClusterRequest do
     json_name: "workstationCluster",
     deprecated: false
 
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationClusterRequest do
@@ -440,8 +515,8 @@ defmodule Google.Cloud.Workstations.V1.UpdateWorkstationClusterRequest do
     json_name: "updateMask",
     deprecated: false
 
-  field :validate_only, 3, type: :bool, json_name: "validateOnly"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationClusterRequest do
@@ -450,9 +525,9 @@ defmodule Google.Cloud.Workstations.V1.DeleteWorkstationClusterRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
-  field :force, 4, type: :bool
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
+  field :force, 4, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.GetWorkstationConfigRequest do
@@ -469,8 +544,8 @@ defmodule Google.Cloud.Workstations.V1.ListWorkstationConfigsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationConfigsResponse do
@@ -493,8 +568,8 @@ defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationConfigsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationConfigsResponse do
@@ -528,7 +603,7 @@ defmodule Google.Cloud.Workstations.V1.CreateWorkstationConfigRequest do
     json_name: "workstationConfig",
     deprecated: false
 
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationConfigRequest do
@@ -546,8 +621,8 @@ defmodule Google.Cloud.Workstations.V1.UpdateWorkstationConfigRequest do
     json_name: "updateMask",
     deprecated: false
 
-  field :validate_only, 3, type: :bool, json_name: "validateOnly"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationConfigRequest do
@@ -556,9 +631,9 @@ defmodule Google.Cloud.Workstations.V1.DeleteWorkstationConfigRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
-  field :force, 4, type: :bool
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
+  field :force, 4, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.GetWorkstationRequest do
@@ -575,8 +650,8 @@ defmodule Google.Cloud.Workstations.V1.ListWorkstationsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListWorkstationsResponse do
@@ -585,8 +660,8 @@ defmodule Google.Cloud.Workstations.V1.ListWorkstationsResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :workstations, 1, repeated: true, type: Google.Cloud.Workstations.V1.Workstation
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationsRequest do
@@ -595,8 +670,8 @@ defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.ListUsableWorkstationsResponse do
@@ -617,7 +692,7 @@ defmodule Google.Cloud.Workstations.V1.CreateWorkstationRequest do
   field :parent, 1, type: :string, deprecated: false
   field :workstation_id, 2, type: :string, json_name: "workstationId", deprecated: false
   field :workstation, 3, type: Google.Cloud.Workstations.V1.Workstation, deprecated: false
-  field :validate_only, 4, type: :bool, json_name: "validateOnly"
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.UpdateWorkstationRequest do
@@ -632,8 +707,8 @@ defmodule Google.Cloud.Workstations.V1.UpdateWorkstationRequest do
     json_name: "updateMask",
     deprecated: false
 
-  field :validate_only, 3, type: :bool, json_name: "validateOnly"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.DeleteWorkstationRequest do
@@ -642,8 +717,8 @@ defmodule Google.Cloud.Workstations.V1.DeleteWorkstationRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.StartWorkstationRequest do
@@ -652,8 +727,8 @@ defmodule Google.Cloud.Workstations.V1.StartWorkstationRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.StopWorkstationRequest do
@@ -662,8 +737,8 @@ defmodule Google.Cloud.Workstations.V1.StopWorkstationRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :validate_only, 2, type: :bool, json_name: "validateOnly"
-  field :etag, 3, type: :string
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Workstations.V1.GenerateAccessTokenRequest do

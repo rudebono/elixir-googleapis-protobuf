@@ -10,6 +10,17 @@ defmodule Google.Cloud.Recommender.V1.Recommendation.Priority do
   field :P1, 4
 end
 
+defmodule Google.Cloud.Recommender.V1.ReliabilityProjection.RiskType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RISK_TYPE_UNSPECIFIED, 0
+  field :SERVICE_DISRUPTION, 1
+  field :DATA_LOSS, 2
+  field :ACCESS_DENY, 3
+end
+
 defmodule Google.Cloud.Recommender.V1.Impact.Category do
   @moduledoc false
 
@@ -20,6 +31,8 @@ defmodule Google.Cloud.Recommender.V1.Impact.Category do
   field :SECURITY, 2
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
+  field :SUSTAINABILITY, 5
+  field :RELIABILITY, 6
 end
 
 defmodule Google.Cloud.Recommender.V1.RecommendationStateInfo.State do
@@ -175,6 +188,28 @@ defmodule Google.Cloud.Recommender.V1.SecurityProjection do
   field :details, 2, type: Google.Protobuf.Struct
 end
 
+defmodule Google.Cloud.Recommender.V1.SustainabilityProjection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kg_c_o2e, 1, type: :double, json_name: "kgCO2e"
+  field :duration, 2, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Cloud.Recommender.V1.ReliabilityProjection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :risks, 1,
+    repeated: true,
+    type: Google.Cloud.Recommender.V1.ReliabilityProjection.RiskType,
+    enum: true
+
+  field :details, 2, type: Google.Protobuf.Struct
+end
+
 defmodule Google.Cloud.Recommender.V1.Impact do
   @moduledoc false
 
@@ -192,6 +227,16 @@ defmodule Google.Cloud.Recommender.V1.Impact do
   field :security_projection, 101,
     type: Google.Cloud.Recommender.V1.SecurityProjection,
     json_name: "securityProjection",
+    oneof: 0
+
+  field :sustainability_projection, 102,
+    type: Google.Cloud.Recommender.V1.SustainabilityProjection,
+    json_name: "sustainabilityProjection",
+    oneof: 0
+
+  field :reliability_projection, 103,
+    type: Google.Cloud.Recommender.V1.ReliabilityProjection,
+    json_name: "reliabilityProjection",
     oneof: 0
 end
 

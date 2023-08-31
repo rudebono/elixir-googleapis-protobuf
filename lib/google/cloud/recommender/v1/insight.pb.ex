@@ -8,6 +8,8 @@ defmodule Google.Cloud.Recommender.V1.Insight.Category do
   field :SECURITY, 2
   field :PERFORMANCE, 3
   field :MANAGEABILITY, 4
+  field :SUSTAINABILITY, 5
+  field :RELIABILITY, 6
 end
 
 defmodule Google.Cloud.Recommender.V1.Insight.Severity do
