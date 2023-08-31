@@ -51,6 +51,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.GitIntegrationSettings do
     oneof: 0
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.GenAppBuilderSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :engine, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   @moduledoc false
 
@@ -99,6 +107,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   field :text_to_speech_settings, 31,
     type: Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings,
     json_name: "textToSpeechSettings"
+
+  field :gen_app_builder_settings, 33,
+    proto3_optional: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.Agent.GenAppBuilderSettings,
+    json_name: "genAppBuilderSettings"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListAgentsRequest do
@@ -263,6 +276,31 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AgentValidationResult do
     json_name: "flowValidationResults"
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.GetGenerativeSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateGenerativeSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generative_settings, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings,
+    json_name: "generativeSettings",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agents.Service do
   @moduledoc false
 
@@ -301,6 +339,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agents.Service do
   rpc :GetAgentValidationResult,
       Google.Cloud.Dialogflow.Cx.V3.GetAgentValidationResultRequest,
       Google.Cloud.Dialogflow.Cx.V3.AgentValidationResult
+
+  rpc :GetGenerativeSettings,
+      Google.Cloud.Dialogflow.Cx.V3.GetGenerativeSettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings
+
+  rpc :UpdateGenerativeSettings,
+      Google.Cloud.Dialogflow.Cx.V3.UpdateGenerativeSettingsRequest,
+      Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agents.Stub do

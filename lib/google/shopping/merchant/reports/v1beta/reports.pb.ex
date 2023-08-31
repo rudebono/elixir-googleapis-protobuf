@@ -159,13 +159,25 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination, enum: true
-  field :date, 2, proto3_optional: true, type: Google.Type.Date
-  field :week, 3, proto3_optional: true, type: Google.Type.Date
+  field :date, 2, type: Google.Type.Date
+  field :week, 3, type: Google.Type.Date
 
   field :customer_country_code, 4,
     proto3_optional: true,
     type: :string,
     json_name: "customerCountryCode"
+
+  field :account_id, 29, proto3_optional: true, type: :int64, json_name: "accountId"
+
+  field :account_display_name, 30,
+    proto3_optional: true,
+    type: :string,
+    json_name: "accountDisplayName"
+
+  field :external_account_id, 31,
+    proto3_optional: true,
+    type: :string,
+    json_name: "externalAccountId"
 
   field :offer_id, 5, proto3_optional: true, type: :string, json_name: "offerId"
   field :title, 6, proto3_optional: true, type: :string
@@ -194,12 +206,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
     json_name: "clickThroughRate"
 
   field :conversions, 26, proto3_optional: true, type: :double
-
-  field :conversion_value, 27,
-    proto3_optional: true,
-    type: Google.Shopping.Type.Price,
-    json_name: "conversionValue"
-
+  field :conversion_value, 27, type: Google.Shopping.Type.Price, json_name: "conversionValue"
   field :conversion_rate, 28, proto3_optional: true, type: :double, json_name: "conversionRate"
 end
 
@@ -256,11 +263,9 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :type, 1,
-    proto3_optional: true,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueType
 
   field :severity, 2,
-    proto3_optional: true,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueSeverity
 
   field :resolution, 3,
@@ -290,23 +295,15 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView do
   field :product_type_l3, 14, proto3_optional: true, type: :string, json_name: "productTypeL3"
   field :product_type_l4, 15, proto3_optional: true, type: :string, json_name: "productTypeL4"
   field :product_type_l5, 16, proto3_optional: true, type: :string, json_name: "productTypeL5"
-  field :price, 17, proto3_optional: true, type: Google.Shopping.Type.Price
+  field :price, 17, type: Google.Shopping.Type.Price
   field :condition, 18, proto3_optional: true, type: :string
   field :availability, 19, proto3_optional: true, type: :string
   field :shipping_label, 20, proto3_optional: true, type: :string, json_name: "shippingLabel"
   field :gtin, 21, repeated: true, type: :string
   field :item_group_id, 22, proto3_optional: true, type: :string, json_name: "itemGroupId"
   field :thumbnail_link, 23, proto3_optional: true, type: :string, json_name: "thumbnailLink"
-
-  field :creation_time, 24,
-    proto3_optional: true,
-    type: Google.Protobuf.Timestamp,
-    json_name: "creationTime"
-
-  field :expiration_date, 25,
-    proto3_optional: true,
-    type: Google.Type.Date,
-    json_name: "expirationDate"
+  field :creation_time, 24, type: Google.Protobuf.Timestamp, json_name: "creationTime"
+  field :expiration_date, 25, type: Google.Type.Date, json_name: "expirationDate"
 
   field :aggregated_destination_status, 26,
     proto3_optional: true,
@@ -344,12 +341,8 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.PriceCompetitivenessProductVie
   field :product_type_l3, 13, proto3_optional: true, type: :string, json_name: "productTypeL3"
   field :product_type_l4, 14, proto3_optional: true, type: :string, json_name: "productTypeL4"
   field :product_type_l5, 15, proto3_optional: true, type: :string, json_name: "productTypeL5"
-  field :price, 16, proto3_optional: true, type: Google.Shopping.Type.Price
-
-  field :benchmark_price, 17,
-    proto3_optional: true,
-    type: Google.Shopping.Type.Price,
-    json_name: "benchmarkPrice"
+  field :price, 16, type: Google.Shopping.Type.Price
+  field :benchmark_price, 17, type: Google.Shopping.Type.Price, json_name: "benchmarkPrice"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView do
@@ -371,12 +364,8 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView do
   field :product_type_l3, 12, proto3_optional: true, type: :string, json_name: "productTypeL3"
   field :product_type_l4, 13, proto3_optional: true, type: :string, json_name: "productTypeL4"
   field :product_type_l5, 14, proto3_optional: true, type: :string, json_name: "productTypeL5"
-  field :price, 15, proto3_optional: true, type: Google.Shopping.Type.Price
-
-  field :suggested_price, 16,
-    proto3_optional: true,
-    type: Google.Shopping.Type.Price,
-    json_name: "suggestedPrice"
+  field :price, 15, type: Google.Shopping.Type.Price
+  field :suggested_price, 16, type: Google.Shopping.Type.Price, json_name: "suggestedPrice"
 
   field :predicted_impressions_change_fraction, 17,
     proto3_optional: true,
@@ -399,7 +388,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView do
     json_name: "predictedGrossProfitChangeFraction"
 
   field :predicted_monthly_gross_profit_change, 21,
-    proto3_optional: true,
     type: Google.Shopping.Type.Price,
     json_name: "predictedMonthlyGrossProfitChange"
 end
@@ -409,7 +397,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView 
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :report_date, 1, proto3_optional: true, type: Google.Type.Date, json_name: "reportDate"
+  field :report_date, 1, type: Google.Type.Date, json_name: "reportDate"
 
   field :report_granularity, 2,
     proto3_optional: true,
@@ -472,7 +460,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :report_date, 1, proto3_optional: true, type: Google.Type.Date, json_name: "reportDate"
+  field :report_date, 1, type: Google.Type.Date, json_name: "reportDate"
 
   field :report_granularity, 2,
     proto3_optional: true,
@@ -515,8 +503,8 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.NonProductPerformanceView do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :date, 1, proto3_optional: true, type: Google.Type.Date
-  field :week, 2, proto3_optional: true, type: Google.Type.Date
+  field :date, 1, type: Google.Type.Date
+  field :week, 2, type: Google.Type.Date
   field :clicks, 3, proto3_optional: true, type: :int64
   field :impressions, 4, proto3_optional: true, type: :int64
 
@@ -531,7 +519,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityCompetito
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :date, 1, proto3_optional: true, type: Google.Type.Date
+  field :date, 1, type: Google.Type.Date
   field :domain, 2, proto3_optional: true, type: :string
   field :is_your_domain, 3, proto3_optional: true, type: :bool, json_name: "isYourDomain"
 
@@ -568,7 +556,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityTopMercha
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :date, 1, proto3_optional: true, type: Google.Type.Date
+  field :date, 1, type: Google.Type.Date
   field :domain, 2, proto3_optional: true, type: :string
   field :is_your_domain, 3, proto3_optional: true, type: :bool, json_name: "isYourDomain"
 
@@ -600,7 +588,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityBenchmark
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :date, 1, proto3_optional: true, type: Google.Type.Date
+  field :date, 1, type: Google.Type.Date
 
   field :report_country_code, 2,
     proto3_optional: true,

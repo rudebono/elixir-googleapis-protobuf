@@ -80,6 +80,15 @@ defmodule Google.Cloud.Recommender.V1.GetRecommendationRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Recommender.V1.MarkRecommendationDismissedRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string
+end
+
 defmodule Google.Cloud.Recommender.V1.MarkRecommendationClaimedRequest.StateMetadataEntry do
   @moduledoc false
 
@@ -224,6 +233,10 @@ defmodule Google.Cloud.Recommender.V1.Recommender.Service do
 
   rpc :GetRecommendation,
       Google.Cloud.Recommender.V1.GetRecommendationRequest,
+      Google.Cloud.Recommender.V1.Recommendation
+
+  rpc :MarkRecommendationDismissed,
+      Google.Cloud.Recommender.V1.MarkRecommendationDismissedRequest,
       Google.Cloud.Recommender.V1.Recommendation
 
   rpc :MarkRecommendationClaimed,

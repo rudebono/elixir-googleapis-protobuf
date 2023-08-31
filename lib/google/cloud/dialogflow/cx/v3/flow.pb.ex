@@ -74,6 +74,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Flow do
   field :nlu_settings, 11,
     type: Google.Cloud.Dialogflow.Cx.V3.NluSettings,
     json_name: "nluSettings"
+
+  field :knowledge_connector_settings, 18,
+    type: Google.Cloud.Dialogflow.Cx.V3.KnowledgeConnectorSettings,
+    json_name: "knowledgeConnectorSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateFlowRequest do
