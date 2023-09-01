@@ -279,6 +279,11 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
     json_name: "shieldedInstanceConfig"
 
   field :multislice_node, 47, type: :bool, json_name: "multisliceNode", deprecated: false
+
+  field :boot_disk_config, 49,
+    type: Google.Cloud.Tpu.V2alpha1.BootDiskConfig,
+    json_name: "bootDiskConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams do
@@ -843,6 +848,32 @@ defmodule Google.Cloud.Tpu.V2alpha1.ShieldedInstanceConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.BootDiskConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :customer_encryption_key, 1,
+    type: Google.Cloud.Tpu.V2alpha1.CustomerEncryptionKey,
+    json_name: "customerEncryptionKey",
+    deprecated: false
+
+  field :enable_confidential_compute, 2,
+    type: :bool,
+    json_name: "enableConfidentialCompute",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.CustomerEncryptionKey do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :key, 0
+
+  field :kms_key_name, 7, type: :string, json_name: "kmsKeyName", oneof: 0
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
