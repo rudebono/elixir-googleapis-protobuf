@@ -28,6 +28,22 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.PackagesSummaryResponse do
     json_name: "licensesSummary"
 end
 
+defmodule Google.Devtools.Containeranalysis.V1beta1.ExportSBOMRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Devtools.Containeranalysis.V1beta1.ExportSBOMResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :discovery_occurrence_id, 1, type: :string, json_name: "discoveryOccurrenceId"
+end
+
 defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Service do
   @moduledoc false
 
@@ -46,6 +62,10 @@ defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Ser
   rpc :GeneratePackagesSummary,
       Google.Devtools.Containeranalysis.V1beta1.GeneratePackagesSummaryRequest,
       Google.Devtools.Containeranalysis.V1beta1.PackagesSummaryResponse
+
+  rpc :ExportSBOM,
+      Google.Devtools.Containeranalysis.V1beta1.ExportSBOMRequest,
+      Google.Devtools.Containeranalysis.V1beta1.ExportSBOMResponse
 end
 
 defmodule Google.Devtools.Containeranalysis.V1beta1.ContainerAnalysisV1Beta1.Stub do

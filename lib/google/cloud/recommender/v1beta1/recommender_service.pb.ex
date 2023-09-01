@@ -199,6 +199,46 @@ defmodule Google.Cloud.Recommender.V1beta1.UpdateInsightTypeConfigRequest do
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
 end
 
+defmodule Google.Cloud.Recommender.V1beta1.ListRecommendersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Recommender.V1beta1.ListRecommendersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :recommenders, 1, repeated: true, type: Google.Cloud.Recommender.V1beta1.RecommenderType
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Recommender.V1beta1.ListInsightTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Recommender.V1beta1.ListInsightTypesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :insight_types, 1,
+    repeated: true,
+    type: Google.Cloud.Recommender.V1beta1.InsightType,
+    json_name: "insightTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
   @moduledoc false
 
@@ -253,6 +293,14 @@ defmodule Google.Cloud.Recommender.V1beta1.Recommender.Service do
   rpc :UpdateInsightTypeConfig,
       Google.Cloud.Recommender.V1beta1.UpdateInsightTypeConfigRequest,
       Google.Cloud.Recommender.V1beta1.InsightTypeConfig
+
+  rpc :ListRecommenders,
+      Google.Cloud.Recommender.V1beta1.ListRecommendersRequest,
+      Google.Cloud.Recommender.V1beta1.ListRecommendersResponse
+
+  rpc :ListInsightTypes,
+      Google.Cloud.Recommender.V1beta1.ListInsightTypesRequest,
+      Google.Cloud.Recommender.V1beta1.ListInsightTypesResponse
 end
 
 defmodule Google.Cloud.Recommender.V1beta1.Recommender.Stub do

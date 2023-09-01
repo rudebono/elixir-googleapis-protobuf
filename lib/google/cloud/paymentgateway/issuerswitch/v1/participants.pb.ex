@@ -8,6 +8,8 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipant.State do
   field :ACTIVE, 2
   field :MPIN_LOCKED, 3
   field :MOBILE_NUMBER_CHANGED, 4
+  field :NEW_REGISTRATION_INITIATED, 5
+  field :RE_REGISTRATION_INITIATED, 6
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FetchParticipantRequest do

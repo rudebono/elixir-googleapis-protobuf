@@ -310,6 +310,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction do
 
   field :approval_reference, 14, type: :string, json_name: "approvalReference", deprecated: false
   field :block_funds, 15, type: :bool, json_name: "blockFunds", deprecated: false
+  field :mandate_name, 16, type: :string, json_name: "mandateName", deprecated: false
 end
 
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ComplaintTransaction do

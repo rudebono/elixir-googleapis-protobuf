@@ -90,3 +90,11 @@ defmodule Google.Cloud.Recommender.V1beta1.InsightStateInfo do
     json_name: "stateMetadata",
     map: true
 end
+
+defmodule Google.Cloud.Recommender.V1beta1.InsightType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+end
