@@ -233,6 +233,11 @@ defmodule Google.Devtools.Testing.V1.TestSpecification do
     json_name: "iosTestLoop",
     oneof: 1
 
+  field :ios_robo_test, 17,
+    type: Google.Devtools.Testing.V1.IosRoboTest,
+    json_name: "iosRoboTest",
+    oneof: 1
+
   field :disable_video_recording, 10, type: :bool, json_name: "disableVideoRecording"
   field :disable_performance_metrics, 11, type: :bool, json_name: "disablePerformanceMetrics"
 end
@@ -429,6 +434,20 @@ defmodule Google.Devtools.Testing.V1.IosTestLoop do
   field :app_ipa, 1, type: Google.Devtools.Testing.V1.FileReference, json_name: "appIpa"
   field :scenarios, 2, repeated: true, type: :int32
   field :app_bundle_id, 3, type: :string, json_name: "appBundleId"
+end
+
+defmodule Google.Devtools.Testing.V1.IosRoboTest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :app_ipa, 1,
+    type: Google.Devtools.Testing.V1.FileReference,
+    json_name: "appIpa",
+    deprecated: false
+
+  field :app_bundle_id, 4, type: :string, json_name: "appBundleId"
+  field :robo_script, 5, type: Google.Devtools.Testing.V1.FileReference, json_name: "roboScript"
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidInstrumentationTest do
