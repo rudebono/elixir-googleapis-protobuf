@@ -1,3 +1,17 @@
+defmodule Google.Protobuf.Edition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :EDITION_UNKNOWN, 0
+  field :EDITION_2023, 1000
+  field :EDITION_1_TEST_ONLY, 1
+  field :EDITION_2_TEST_ONLY, 2
+  field :EDITION_99997_TEST_ONLY, 99997
+  field :EDITION_99998_TEST_ONLY, 99998
+  field :EDITION_99999_TEST_ONLY, 99999
+end
+
 defmodule Google.Protobuf.ExtensionRangeOptions.VerificationState do
   @moduledoc false
 
@@ -413,6 +427,7 @@ defmodule Google.Protobuf.FieldOptions.EditionDefault do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :edition, 1, optional: true, type: :string
+  field :edition_enum, 3, optional: true, type: Google.Protobuf.Edition, enum: true
   field :value, 2, optional: true, type: :string
 end
 
@@ -594,6 +609,7 @@ defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :edition, 1, optional: true, type: :string
+  field :edition_enum, 3, optional: true, type: Google.Protobuf.Edition, enum: true
   field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
 end
 
@@ -608,6 +624,8 @@ defmodule Google.Protobuf.FeatureSetDefaults do
 
   field :minimum_edition, 2, optional: true, type: :string
   field :maximum_edition, 3, optional: true, type: :string
+  field :minimum_edition_enum, 4, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :maximum_edition_enum, 5, optional: true, type: Google.Protobuf.Edition, enum: true
 end
 
 defmodule Google.Protobuf.SourceCodeInfo.Location do

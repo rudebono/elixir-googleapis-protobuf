@@ -112,7 +112,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.SearchTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.SearchTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Maps.Fleetengine.Delivery.V1.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
