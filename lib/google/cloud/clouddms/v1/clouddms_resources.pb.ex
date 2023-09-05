@@ -76,6 +76,7 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion do
   field :POSTGRES_12, 7
   field :POSTGRES_13, 8
   field :POSTGRES_14, 17
+  field :POSTGRES_15, 18
 end
 
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlAvailabilityType do
@@ -86,6 +87,16 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlAvailabilityType do
   field :SQL_AVAILABILITY_TYPE_UNSPECIFIED, 0
   field :ZONAL, 1
   field :REGIONAL, 2
+end
+
+defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.Edition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EDITION_UNSPECIFIED, 0
+  field :ENTERPRISE, 2
+  field :ENTERPRISE_PLUS, 3
 end
 
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.State do
@@ -134,6 +145,17 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob.Type do
   field :CONTINUOUS, 2
 end
 
+defmodule Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig.DumpParallelLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DUMP_PARALLEL_LEVEL_UNSPECIFIED, 0
+  field :MIN, 1
+  field :OPTIMAL, 2
+  field :MAX, 3
+end
+
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.State do
   @moduledoc false
 
@@ -174,11 +196,14 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode do
   field :UNSUPPORTED_TABLE_DEFINITION, 18
   field :UNSUPPORTED_DEFINER, 19
   field :CANT_RESTART_RUNNING_MIGRATION, 21
+  field :SOURCE_ALREADY_SETUP, 23
   field :TABLES_WITH_LIMITED_SUPPORT, 24
   field :UNSUPPORTED_DATABASE_LOCALE, 25
   field :UNSUPPORTED_DATABASE_FDW_CONFIG, 26
   field :ERROR_RDBMS, 27
   field :SOURCE_SIZE_EXCEEDS_THRESHOLD, 28
+  field :EXISTING_CONFLICTING_DATABASES, 29
+  field :PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 30
 end
 
 defmodule Google.Cloud.Clouddms.V1.PrivateConnection.State do
@@ -265,6 +290,7 @@ defmodule Google.Cloud.Clouddms.V1.OracleConnectionProfile do
   field :password, 4, type: :string, deprecated: false
   field :password_set, 5, type: :bool, json_name: "passwordSet", deprecated: false
   field :database_service, 6, type: :string, json_name: "databaseService", deprecated: false
+  field :ssl, 7, type: Google.Cloud.Clouddms.V1.SslConfig
 
   field :static_service_ip_connectivity, 100,
     type: Google.Cloud.Clouddms.V1.StaticServiceIpConnectivity,
@@ -410,6 +436,11 @@ defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
   field :availability_type, 17,
     type: Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlAvailabilityType,
     json_name: "availabilityType",
+    enum: true,
+    deprecated: false
+
+  field :edition, 19,
+    type: Google.Cloud.Clouddms.V1.CloudSqlSettings.Edition,
     enum: true,
     deprecated: false
 end
@@ -609,6 +640,17 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob.DumpFlags do
     json_name: "dumpFlags"
 end
 
+defmodule Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dump_parallel_level, 1,
+    type: Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig.DumpParallelLevel,
+    json_name: "dumpParallelLevel",
+    enum: true
+end
+
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.LabelsEntry do
   @moduledoc false
 
@@ -694,6 +736,11 @@ defmodule Google.Cloud.Clouddms.V1.MigrationJob do
 
   field :filter, 20, type: :string
   field :cmek_key_name, 21, type: :string, json_name: "cmekKeyName"
+
+  field :performance_config, 22,
+    type: Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig,
+    json_name: "performanceConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Clouddms.V1.ConversionWorkspaceInfo do
