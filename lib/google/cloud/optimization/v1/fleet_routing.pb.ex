@@ -46,6 +46,7 @@ defmodule Google.Cloud.Optimization.V1.Vehicle.TravelMode do
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
   field :DRIVING, 1
+  field :WALKING, 2
 end
 
 defmodule Google.Cloud.Optimization.V1.Vehicle.UnloadingPolicy do
@@ -98,11 +99,6 @@ defmodule Google.Cloud.Optimization.V1.OptimizeToursRequest do
     json_name: "solvingMode",
     enum: true
 
-  field :max_validation_errors, 5,
-    proto3_optional: true,
-    type: :int32,
-    json_name: "maxValidationErrors"
-
   field :search_mode, 6,
     type: Google.Cloud.Optimization.V1.OptimizeToursRequest.SearchMode,
     json_name: "searchMode",
@@ -140,6 +136,11 @@ defmodule Google.Cloud.Optimization.V1.OptimizeToursRequest do
     proto3_optional: true,
     type: :double,
     json_name: "geodesicMetersPerSecond"
+
+  field :max_validation_errors, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxValidationErrors"
 
   field :label, 17, type: :string
 
@@ -763,6 +764,11 @@ defmodule Google.Cloud.Optimization.V1.DistanceLimit do
 
   field :max_meters, 1, proto3_optional: true, type: :int64, json_name: "maxMeters"
   field :soft_max_meters, 2, proto3_optional: true, type: :int64, json_name: "softMaxMeters"
+
+  field :cost_per_kilometer_below_soft_max, 4,
+    proto3_optional: true,
+    type: :double,
+    json_name: "costPerKilometerBelowSoftMax"
 
   field :cost_per_kilometer_above_soft_max, 3,
     proto3_optional: true,

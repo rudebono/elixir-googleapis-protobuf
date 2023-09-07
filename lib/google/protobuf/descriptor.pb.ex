@@ -210,6 +210,7 @@ defmodule Google.Protobuf.FileDescriptorProto do
   field :source_code_info, 9, optional: true, type: Google.Protobuf.SourceCodeInfo
   field :syntax, 12, optional: true, type: :string
   field :edition, 13, optional: true, type: :string
+  field :edition_enum, 14, optional: true, type: Google.Protobuf.Edition, enum: true
 end
 
 defmodule Google.Protobuf.DescriptorProto.ExtensionRange do

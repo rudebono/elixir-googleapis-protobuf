@@ -159,6 +159,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Trial do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.TrialContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :description, 1, type: :string
+  field :parameters, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Trial.Parameter
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec.SafetyMetricConfig do
   @moduledoc false
 
