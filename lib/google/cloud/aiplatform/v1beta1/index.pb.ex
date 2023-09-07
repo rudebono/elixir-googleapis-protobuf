@@ -61,6 +61,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Index do
     json_name: "indexUpdateMethod",
     enum: true,
     deprecated: false
+
+  field :encryption_spec, 17,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.Restriction do

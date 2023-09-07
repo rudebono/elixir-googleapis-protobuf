@@ -59,6 +59,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SuggestTrialsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :suggestion_count, 2, type: :int32, json_name: "suggestionCount", deprecated: false
   field :client_id, 3, type: :string, json_name: "clientId", deprecated: false
+
+  field :contexts, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrialContext,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SuggestTrialsResponse do

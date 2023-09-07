@@ -60,6 +60,11 @@ defmodule Google.Cloud.Aiplatform.V1.IndexEndpoint do
     type: :string,
     json_name: "publicEndpointDomainName",
     deprecated: false
+
+  field :encryption_spec, 15,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
