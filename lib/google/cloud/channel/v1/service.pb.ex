@@ -192,6 +192,7 @@ defmodule Google.Cloud.Channel.V1.ListTransferableOffersRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :sku, 6, type: :string, deprecated: false
   field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
+  field :billing_account, 8, type: :string, json_name: "billingAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ListTransferableOffersResponse do
@@ -574,6 +575,7 @@ defmodule Google.Cloud.Channel.V1.ChangeOfferRequest do
   field :parameters, 3, repeated: true, type: Google.Cloud.Channel.V1.Parameter, deprecated: false
   field :purchase_order_id, 5, type: :string, json_name: "purchaseOrderId", deprecated: false
   field :request_id, 6, type: :string, json_name: "requestId", deprecated: false
+  field :billing_account, 7, type: :string, json_name: "billingAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.StartPaidServiceRequest do
@@ -755,6 +757,7 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.CreateEntitlement
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sku, 1, type: :string, deprecated: false
+  field :billing_account, 2, type: :string, json_name: "billingAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurchase do
@@ -764,6 +767,7 @@ defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest.ChangeOfferPurcha
 
   field :entitlement, 1, type: :string, deprecated: false
   field :new_sku, 2, type: :string, json_name: "newSku", deprecated: false
+  field :billing_account, 3, type: :string, json_name: "billingAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ListPurchasableOffersRequest do
@@ -808,6 +812,49 @@ defmodule Google.Cloud.Channel.V1.PurchasableOffer do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :offer, 1, type: Google.Cloud.Channel.V1.Offer
+end
+
+defmodule Google.Cloud.Channel.V1.QueryEligibleBillingAccountsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :customer, 1, type: :string, deprecated: false
+  field :skus, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Channel.V1.QueryEligibleBillingAccountsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sku_purchase_groups, 1,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.SkuPurchaseGroup,
+    json_name: "skuPurchaseGroups"
+end
+
+defmodule Google.Cloud.Channel.V1.SkuPurchaseGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :skus, 1, repeated: true, type: :string
+
+  field :billing_account_purchase_infos, 2,
+    repeated: true,
+    type: Google.Cloud.Channel.V1.BillingAccountPurchaseInfo,
+    json_name: "billingAccountPurchaseInfos"
+end
+
+defmodule Google.Cloud.Channel.V1.BillingAccountPurchaseInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :billing_account, 1,
+    type: Google.Cloud.Channel.V1.BillingAccount,
+    json_name: "billingAccount"
 end
 
 defmodule Google.Cloud.Channel.V1.RegisterSubscriberRequest do
@@ -1060,6 +1107,10 @@ defmodule Google.Cloud.Channel.V1.CloudChannelService.Service do
   rpc :ListPurchasableOffers,
       Google.Cloud.Channel.V1.ListPurchasableOffersRequest,
       Google.Cloud.Channel.V1.ListPurchasableOffersResponse
+
+  rpc :QueryEligibleBillingAccounts,
+      Google.Cloud.Channel.V1.QueryEligibleBillingAccountsRequest,
+      Google.Cloud.Channel.V1.QueryEligibleBillingAccountsResponse
 
   rpc :RegisterSubscriber,
       Google.Cloud.Channel.V1.RegisterSubscriberRequest,

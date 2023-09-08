@@ -67,6 +67,7 @@ defmodule Google.Cloud.Channel.V1.ParameterDefinition.ParameterType do
   field :INT64, 1
   field :STRING, 2
   field :DOUBLE, 3
+  field :BOOLEAN, 4
 end
 
 defmodule Google.Cloud.Channel.V1.Offer do

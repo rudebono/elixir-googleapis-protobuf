@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Channel.V1.RepricingConfig do
@@ -73,7 +73,8 @@ defmodule Google.Cloud.Channel.V1.RepricingConfig do
   field :channel_partner_granularity, 5,
     type: Google.Cloud.Channel.V1.RepricingConfig.ChannelPartnerGranularity,
     json_name: "channelPartnerGranularity",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :effective_invoice_month, 1,
     type: Google.Type.Date,

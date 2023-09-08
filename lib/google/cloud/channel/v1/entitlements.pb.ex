@@ -30,6 +30,7 @@ defmodule Google.Cloud.Channel.V1.TransferEligibility.Reason do
   field :PENDING_TOS_ACCEPTANCE, 1
   field :SKU_NOT_ELIGIBLE, 2
   field :SKU_SUSPENDED, 3
+  field :CHANNEL_PARTNER_NOT_AUTHORIZED_FOR_SKU, 4
 end
 
 defmodule Google.Cloud.Channel.V1.Entitlement do
