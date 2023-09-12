@@ -27,6 +27,7 @@ defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
+  field :subject, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
@@ -38,6 +39,17 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do
 
   field :count, 1, type: :int32, oneof: 0
   field :percent, 2, type: :double, oneof: 0
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold.ForecastOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :forecast_horizon, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "forecastHorizon",
+    deprecated: false
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
@@ -53,6 +65,10 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold do
     repeated: true,
     type: Google.Monitoring.V3.Aggregation,
     json_name: "denominatorAggregations"
+
+  field :forecast_options, 12,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.MetricThreshold.ForecastOptions,
+    json_name: "forecastOptions"
 
   field :comparison, 4, type: Google.Monitoring.V3.ComparisonType, enum: true
   field :threshold_value, 5, type: :double, json_name: "thresholdValue"
@@ -114,6 +130,38 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCond
     enum: true
 end
 
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCondition.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCondition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :query, 1, type: :string, deprecated: false
+  field :duration, 2, type: Google.Protobuf.Duration, deprecated: false
+
+  field :evaluation_interval, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "evaluationInterval",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCondition.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :rule_group, 5, type: :string, json_name: "ruleGroup", deprecated: false
+  field :alert_rule, 6, type: :string, json_name: "alertRule", deprecated: false
+end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   @moduledoc false
 
@@ -143,6 +191,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
     type: Google.Monitoring.V3.AlertPolicy.Condition.MonitoringQueryLanguageCondition,
     json_name: "conditionMonitoringQueryLanguage",
     oneof: 0
+
+  field :condition_prometheus_query_language, 21,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCondition,
+    json_name: "conditionPrometheusQueryLanguage",
+    oneof: 0
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit do
@@ -151,6 +204,19 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit d
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :period, 1, type: Google.Protobuf.Duration
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationChannelStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :notification_channel_names, 1,
+    repeated: true,
+    type: :string,
+    json_name: "notificationChannelNames"
+
+  field :renotify_interval, 2, type: Google.Protobuf.Duration, json_name: "renotifyInterval"
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
@@ -163,6 +229,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
     json_name: "notificationRateLimit"
 
   field :auto_close, 3, type: Google.Protobuf.Duration, json_name: "autoClose"
+
+  field :notification_channel_strategy, 4,
+    repeated: true,
+    type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationChannelStrategy,
+    json_name: "notificationChannelStrategy"
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.UserLabelsEntry do
