@@ -93,6 +93,19 @@ defmodule Google.Cloud.Documentai.V1beta3.OcrConfig.Hints do
   field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.OcrConfig.PremiumFeatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_selection_mark_detection, 3,
+    type: :bool,
+    json_name: "enableSelectionMarkDetection"
+
+  field :compute_style_info, 4, type: :bool, json_name: "computeStyleInfo"
+  field :enable_math_ocr, 5, type: :bool, json_name: "enableMathOcr"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.OcrConfig do
   @moduledoc false
 
@@ -103,5 +116,13 @@ defmodule Google.Cloud.Documentai.V1beta3.OcrConfig do
   field :enable_image_quality_scores, 4, type: :bool, json_name: "enableImageQualityScores"
   field :advanced_ocr_options, 5, repeated: true, type: :string, json_name: "advancedOcrOptions"
   field :enable_symbol, 6, type: :bool, json_name: "enableSymbol"
-  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo"
+  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo", deprecated: true
+
+  field :disable_character_boxes_detection, 10,
+    type: :bool,
+    json_name: "disableCharacterBoxesDetection"
+
+  field :premium_features, 11,
+    type: Google.Cloud.Documentai.V1beta3.OcrConfig.PremiumFeatures,
+    json_name: "premiumFeatures"
 end
