@@ -573,6 +573,8 @@ defmodule Google.Cloud.Bigquery.Logging.V1.JobStatistics do
     json_name: "reservationUsage",
     deprecated: true
 
+  field :reservation, 16, type: :string
+
   field :referenced_tables, 9,
     repeated: true,
     type: Google.Cloud.Bigquery.Logging.V1.TableName,

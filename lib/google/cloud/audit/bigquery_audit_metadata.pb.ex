@@ -873,6 +873,7 @@ defmodule Google.Cloud.Audit.BigQueryAuditMetadata.JobStats do
     json_name: "reservationUsage",
     deprecated: true
 
+  field :reservation, 14, type: :string
   field :parent_job_name, 12, type: :string, json_name: "parentJobName"
 end
 

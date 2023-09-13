@@ -66,11 +66,28 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State 
   field :CANCELLED, 5
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.IndividualPageSelector do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pages, 1, repeated: true, type: :int32, deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :page_range, 0
+
+  field :individual_page_selector, 5,
+    type: Google.Cloud.Documentai.V1beta3.ProcessOptions.IndividualPageSelector,
+    json_name: "individualPageSelector",
+    oneof: 0
+
+  field :from_start, 6, type: :int32, json_name: "fromStart", oneof: 0
+  field :from_end, 7, type: :int32, json_name: "fromEnd", oneof: 0
   field :ocr_config, 1, type: Google.Cloud.Documentai.V1beta3.OcrConfig, json_name: "ocrConfig"
 end
 
