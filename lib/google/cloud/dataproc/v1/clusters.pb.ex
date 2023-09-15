@@ -971,6 +971,20 @@ defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
   field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
+  field :tarball_gcs_dir, 4, type: :string, json_name: "tarballGcsDir", deprecated: false
+
+  field :diagnosis_interval, 6,
+    type: Google.Type.Interval,
+    json_name: "diagnosisInterval",
+    deprecated: false
+
+  field :jobs, 10, repeated: true, type: :string, deprecated: false
+
+  field :yarn_application_ids, 11,
+    repeated: true,
+    type: :string,
+    json_name: "yarnApplicationIds",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterResults do
