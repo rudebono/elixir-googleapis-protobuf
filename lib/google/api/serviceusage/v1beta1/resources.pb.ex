@@ -106,6 +106,8 @@ defmodule Google.Api.Serviceusage.V1beta1.ConsumerQuotaLimit do
     repeated: true,
     type: Google.Api.Serviceusage.V1beta1.QuotaBucket,
     json_name: "quotaBuckets"
+
+  field :supported_locations, 11, repeated: true, type: :string, json_name: "supportedLocations"
 end
 
 defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket.DimensionsEntry do
@@ -136,6 +138,10 @@ defmodule Google.Api.Serviceusage.V1beta1.QuotaBucket do
   field :admin_override, 5,
     type: Google.Api.Serviceusage.V1beta1.QuotaOverride,
     json_name: "adminOverride"
+
+  field :producer_quota_policy, 7,
+    type: Google.Api.Serviceusage.V1beta1.ProducerQuotaPolicy,
+    json_name: "producerQuotaPolicy"
 
   field :dimensions, 6,
     repeated: true,
@@ -176,6 +182,33 @@ defmodule Google.Api.Serviceusage.V1beta1.OverrideInlineSource do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :overrides, 1, repeated: true, type: Google.Api.Serviceusage.V1beta1.QuotaOverride
+end
+
+defmodule Google.Api.Serviceusage.V1beta1.ProducerQuotaPolicy.DimensionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Api.Serviceusage.V1beta1.ProducerQuotaPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :policy_value, 2, type: :int64, json_name: "policyValue"
+
+  field :dimensions, 3,
+    repeated: true,
+    type: Google.Api.Serviceusage.V1beta1.ProducerQuotaPolicy.DimensionsEntry,
+    map: true
+
+  field :metric, 4, type: :string
+  field :unit, 5, type: :string
+  field :container, 6, type: :string
 end
 
 defmodule Google.Api.Serviceusage.V1beta1.AdminQuotaPolicy.DimensionsEntry do
