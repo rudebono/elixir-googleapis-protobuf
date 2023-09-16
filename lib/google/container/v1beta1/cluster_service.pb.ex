@@ -254,6 +254,7 @@ defmodule Google.Container.V1beta1.SecurityPostureConfig.VulnerabilityMode do
   field :VULNERABILITY_MODE_UNSPECIFIED, 0
   field :VULNERABILITY_DISABLED, 1
   field :VULNERABILITY_BASIC, 2
+  field :VULNERABILITY_ENTERPRISE, 3
 end
 
 defmodule Google.Container.V1beta1.Operation.Status do
@@ -775,6 +776,11 @@ defmodule Google.Container.V1beta1.NodeConfig do
   field :host_maintenance_policy, 44,
     type: Google.Container.V1beta1.HostMaintenancePolicy,
     json_name: "hostMaintenancePolicy"
+
+  field :enable_confidential_storage, 46,
+    type: :bool,
+    json_name: "enableConfidentialStorage",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -1631,7 +1637,8 @@ defmodule Google.Container.V1beta1.Cluster do
   field :protect_config, 137,
     proto3_optional: true,
     type: Google.Container.V1beta1.ProtectConfig,
-    json_name: "protectConfig"
+    json_name: "protectConfig",
+    deprecated: true
 
   field :etag, 139, type: :string
   field :fleet, 140, type: Google.Container.V1beta1.Fleet
@@ -1890,7 +1897,8 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_protect_config, 112,
     proto3_optional: true,
     type: Google.Container.V1beta1.ProtectConfig,
-    json_name: "desiredProtectConfig"
+    json_name: "desiredProtectConfig",
+    deprecated: true
 
   field :desired_gateway_api_config, 114,
     type: Google.Container.V1beta1.GatewayAPIConfig,

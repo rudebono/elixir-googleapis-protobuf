@@ -180,6 +180,7 @@ defmodule Google.Cloud.Iap.V1.OAuthSettings do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :login_hint, 2, type: Google.Protobuf.StringValue, json_name: "loginHint"
+  field :programmatic_clients, 5, repeated: true, type: :string, json_name: "programmaticClients"
 end
 
 defmodule Google.Cloud.Iap.V1.ReauthSettings do
