@@ -383,6 +383,15 @@ defmodule Google.Cloud.Alloydb.V1.ContinuousBackupSource do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.Cluster.NetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :network, 1, type: :string, deprecated: false
+  field :allocated_ip_range, 2, type: :string, json_name: "allocatedIpRange", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.Cluster.SecondaryConfig do
   @moduledoc false
 
@@ -474,7 +483,12 @@ defmodule Google.Cloud.Alloydb.V1.Cluster do
     enum: true,
     deprecated: false
 
-  field :network, 10, type: :string, deprecated: false
+  field :network_config, 29,
+    type: Google.Cloud.Alloydb.V1.Cluster.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
+
+  field :network, 10, type: :string, deprecated: true
   field :etag, 11, type: :string
 
   field :annotations, 12,
@@ -578,6 +592,19 @@ defmodule Google.Cloud.Alloydb.V1.Instance.ReadPoolConfig do
   field :node_count, 1, type: :int32, json_name: "nodeCount"
 end
 
+defmodule Google.Cloud.Alloydb.V1.Instance.ClientConnectionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :require_connectors, 1, type: :bool, json_name: "requireConnectors", deprecated: false
+
+  field :ssl_config, 2,
+    type: Google.Cloud.Alloydb.V1.SslConfig,
+    json_name: "sslConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.Instance.LabelsEntry do
   @moduledoc false
 
@@ -678,6 +705,24 @@ defmodule Google.Cloud.Alloydb.V1.Instance do
     repeated: true,
     type: Google.Cloud.Alloydb.V1.Instance.AnnotationsEntry,
     map: true
+
+  field :client_connection_config, 23,
+    type: Google.Cloud.Alloydb.V1.Instance.ClientConnectionConfig,
+    json_name: "clientConnectionConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.Backup.QuantityBasedExpiry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_count, 1, type: :int32, json_name: "retentionCount", deprecated: false
+
+  field :total_retention_count, 2,
+    type: :int32,
+    json_name: "totalRetentionCount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.Backup.LabelsEntry do
@@ -752,6 +797,17 @@ defmodule Google.Cloud.Alloydb.V1.Backup do
   field :expiry_time, 19,
     type: Google.Protobuf.Timestamp,
     json_name: "expiryTime",
+    deprecated: false
+
+  field :expiry_quantity, 20,
+    type: Google.Cloud.Alloydb.V1.Backup.QuantityBasedExpiry,
+    json_name: "expiryQuantity",
+    deprecated: false
+
+  field :database_version, 22,
+    type: Google.Cloud.Alloydb.V1.DatabaseVersion,
+    json_name: "databaseVersion",
+    enum: true,
     deprecated: false
 end
 
