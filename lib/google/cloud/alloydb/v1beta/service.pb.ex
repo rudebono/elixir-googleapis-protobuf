@@ -428,6 +428,11 @@ defmodule Google.Cloud.Alloydb.V1beta.GenerateClientCertificateRequest do
     deprecated: false
 
   field :public_key, 5, type: :string, json_name: "publicKey", deprecated: false
+
+  field :use_metadata_exchange, 6,
+    type: :bool,
+    json_name: "useMetadataExchange",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.GenerateClientCertificateResponse do

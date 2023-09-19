@@ -97,6 +97,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.IngestPipelineConfig do
     json_name: "enableDocumentTextExtraction"
 
   field :folder, 3, type: :string, deprecated: false
+  field :cloud_function, 4, type: :string, json_name: "cloudFunction", deprecated: false
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.GcsIngestPipeline do

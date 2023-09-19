@@ -95,6 +95,17 @@ defmodule Google.Cloud.Migrationcenter.V1.CommitmentPlan do
   field :COMMITMENT_PLAN_THREE_YEARS, 3
 end
 
+defmodule Google.Cloud.Migrationcenter.V1.ComputeMigrationTargetProduct do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED, 0
+  field :COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE, 1
+  field :COMPUTE_MIGRATION_TARGET_PRODUCT_VMWARE_ENGINE, 2
+  field :COMPUTE_MIGRATION_TARGET_PRODUCT_SOLE_TENANCY, 3
+end
+
 defmodule Google.Cloud.Migrationcenter.V1.ReportView do
   @moduledoc false
 
@@ -338,6 +349,41 @@ defmodule Google.Cloud.Migrationcenter.V1.ImportError.Severity do
   field :ERROR, 1
   field :WARNING, 2
   field :INFO, 3
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences.CommitmentPlan do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMMITMENT_PLAN_UNSPECIFIED, 0
+  field :ON_DEMAND, 1
+  field :COMMITMENT_1_YEAR_MONTHLY_PAYMENTS, 2
+  field :COMMITMENT_3_YEAR_MONTHLY_PAYMENTS, 3
+  field :COMMITMENT_1_YEAR_UPFRONT_PAYMENT, 4
+  field :COMMITMENT_3_YEAR_UPFRONT_PAYMENT, 5
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.HostMaintenancePolicy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HOST_MAINTENANCE_POLICY_UNSPECIFIED, 0
+  field :HOST_MAINTENANCE_POLICY_DEFAULT, 1
+  field :HOST_MAINTENANCE_POLICY_RESTART_IN_PLACE, 2
+  field :HOST_MAINTENANCE_POLICY_MIGRATE_WITHIN_NODE_GROUP, 3
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.CommitmentPlan do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMMITMENT_PLAN_UNSPECIFIED, 0
+  field :ON_DEMAND, 1
+  field :COMMITMENT_1_YEAR, 2
+  field :COMMITMENT_3_YEAR, 3
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.Asset.LabelsEntry do
@@ -1497,7 +1543,7 @@ defmodule Google.Cloud.Migrationcenter.V1.BiosDetails do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :bios_name, 1, type: :string, json_name: "biosName"
+  field :bios_name, 1, type: :string, json_name: "biosName", deprecated: true
   field :id, 2, type: :string
   field :manufacturer, 3, type: :string
   field :version, 4, type: :string
@@ -2114,6 +2160,27 @@ defmodule Google.Cloud.Migrationcenter.V1.Insight do
     json_name: "migrationInsight",
     oneof: 0,
     deprecated: false
+
+  field :generic_insight, 2,
+    type: Google.Cloud.Migrationcenter.V1.GenericInsight,
+    json_name: "genericInsight",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.GenericInsight do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :message_id, 1, type: :int64, json_name: "messageId", deprecated: false
+  field :default_message, 2, type: :string, json_name: "defaultMessage", deprecated: false
+
+  field :additional_information, 3,
+    repeated: true,
+    type: :string,
+    json_name: "additionalInformation",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.MigrationInsight do
@@ -2140,17 +2207,6 @@ defmodule Google.Cloud.Migrationcenter.V1.ComputeEngineMigrationTarget do
   field :shape, 1, type: Google.Cloud.Migrationcenter.V1.ComputeEngineShapeDescriptor
 end
 
-defmodule Google.Cloud.Migrationcenter.V1.FitDescriptor do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :fit_level, 1,
-    type: Google.Cloud.Migrationcenter.V1.FitDescriptor.FitLevel,
-    json_name: "fitLevel",
-    enum: true
-end
-
 defmodule Google.Cloud.Migrationcenter.V1.ComputeEngineShapeDescriptor do
   @moduledoc false
 
@@ -2161,6 +2217,30 @@ defmodule Google.Cloud.Migrationcenter.V1.ComputeEngineShapeDescriptor do
   field :logical_core_count, 3, type: :int32, json_name: "logicalCoreCount"
   field :series, 4, type: :string
   field :machine_type, 5, type: :string, json_name: "machineType"
+
+  field :storage, 6,
+    repeated: true,
+    type: Google.Cloud.Migrationcenter.V1.ComputeStorageDescriptor
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.ComputeStorageDescriptor do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1, type: Google.Cloud.Migrationcenter.V1.PersistentDiskType, enum: true
+  field :size_gb, 2, type: :int32, json_name: "sizeGb"
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.FitDescriptor do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :fit_level, 1,
+    type: Google.Cloud.Migrationcenter.V1.FitDescriptor.FitLevel,
+    json_name: "fitLevel",
+    enum: true
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation.Count do
@@ -2320,7 +2400,7 @@ defmodule Google.Cloud.Migrationcenter.V1.ExecutionReport do
     type: Google.Cloud.Migrationcenter.V1.ValidationReport,
     json_name: "executionErrors"
 
-  field :total_rows_count, 3, type: :int32, json_name: "totalRowsCount"
+  field :total_rows_count, 3, type: :int32, json_name: "totalRowsCount", deprecated: false
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.ImportError do
@@ -2393,6 +2473,11 @@ defmodule Google.Cloud.Migrationcenter.V1.VirtualMachinePreferences do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :target_product, 2,
+    type: Google.Cloud.Migrationcenter.V1.ComputeMigrationTargetProduct,
+    json_name: "targetProduct",
+    enum: true
+
   field :region_preferences, 3,
     type: Google.Cloud.Migrationcenter.V1.RegionPreferences,
     json_name: "regionPreferences"
@@ -2410,6 +2495,14 @@ defmodule Google.Cloud.Migrationcenter.V1.VirtualMachinePreferences do
   field :compute_engine_preferences, 6,
     type: Google.Cloud.Migrationcenter.V1.ComputeEnginePreferences,
     json_name: "computeEnginePreferences"
+
+  field :vmware_engine_preferences, 7,
+    type: Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences,
+    json_name: "vmwareEnginePreferences"
+
+  field :sole_tenancy_preferences, 8,
+    type: Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences,
+    json_name: "soleTenancyPreferences"
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.ComputeEnginePreferences do
@@ -2444,6 +2537,55 @@ defmodule Google.Cloud.Migrationcenter.V1.MachineSeries do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :code, 1, type: :string
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cpu_overcommit_ratio, 1, type: :double, json_name: "cpuOvercommitRatio"
+  field :memory_overcommit_ratio, 2, type: :double, json_name: "memoryOvercommitRatio"
+
+  field :storage_deduplication_compression_ratio, 3,
+    type: :double,
+    json_name: "storageDeduplicationCompressionRatio"
+
+  field :commitment_plan, 4,
+    type: Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences.CommitmentPlan,
+    json_name: "commitmentPlan",
+    enum: true
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cpu_overcommit_ratio, 1, type: :double, json_name: "cpuOvercommitRatio"
+
+  field :host_maintenance_policy, 2,
+    type: Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.HostMaintenancePolicy,
+    json_name: "hostMaintenancePolicy",
+    enum: true
+
+  field :commitment_plan, 3,
+    type: Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.CommitmentPlan,
+    json_name: "commitmentPlan",
+    enum: true
+
+  field :node_types, 4,
+    repeated: true,
+    type: Google.Cloud.Migrationcenter.V1.SoleTenantNodeType,
+    json_name: "nodeTypes"
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.SoleTenantNodeType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_name, 1, type: :string, json_name: "nodeName"
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.RegionPreferences do
@@ -2579,6 +2721,65 @@ defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.ComputeEngineFinding do
     enum: true
 end
 
+defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareEngineFinding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :allocated_regions, 1, repeated: true, type: :string, json_name: "allocatedRegions"
+  field :allocated_asset_count, 2, type: :int64, json_name: "allocatedAssetCount"
+
+  field :node_allocations, 3,
+    repeated: true,
+    type: Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNodeAllocation,
+    json_name: "nodeAllocations"
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNodeAllocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :vmware_node, 1,
+    type: Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNode,
+    json_name: "vmwareNode"
+
+  field :node_count, 2, type: :int64, json_name: "nodeCount"
+  field :allocated_asset_count, 3, type: :int64, json_name: "allocatedAssetCount"
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :code, 1, type: :string
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantFinding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :allocated_regions, 1, repeated: true, type: :string, json_name: "allocatedRegions"
+  field :allocated_asset_count, 2, type: :int64, json_name: "allocatedAssetCount"
+
+  field :node_allocations, 3,
+    repeated: true,
+    type: Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantNodeAllocation,
+    json_name: "nodeAllocations"
+end
+
+defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantNodeAllocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node, 1, type: Google.Cloud.Migrationcenter.V1.SoleTenantNodeType
+  field :node_count, 2, type: :int64, json_name: "nodeCount"
+  field :allocated_asset_count, 3, type: :int64, json_name: "allocatedAssetCount"
+end
+
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupPreferenceSetFinding do
   @moduledoc false
 
@@ -2605,6 +2806,14 @@ defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupPreferenceSetFindin
   field :compute_engine_finding, 10,
     type: Google.Cloud.Migrationcenter.V1.ReportSummary.ComputeEngineFinding,
     json_name: "computeEngineFinding"
+
+  field :vmware_engine_finding, 11,
+    type: Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareEngineFinding,
+    json_name: "vmwareEngineFinding"
+
+  field :sole_tenant_finding, 12,
+    type: Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantFinding,
+    json_name: "soleTenantFinding"
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupFinding do
@@ -2619,7 +2828,10 @@ defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupFinding do
     type: Google.Cloud.Migrationcenter.V1.ReportSummary.AssetAggregateStats,
     json_name: "assetAggregateStats"
 
-  field :overlapping_asset_count, 4, type: :int64, json_name: "overlappingAssetCount"
+  field :overlapping_asset_count, 4,
+    type: :int64,
+    json_name: "overlappingAssetCount",
+    deprecated: true
 
   field :preference_set_findings, 5,
     repeated: true,

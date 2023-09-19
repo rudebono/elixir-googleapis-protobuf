@@ -18,6 +18,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.FileTypeFilter.FileType do
   field :ALL, 1
   field :FOLDER, 2
   field :DOCUMENT, 3
+  field :ROOT_FOLDER, 4
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentQuery do
