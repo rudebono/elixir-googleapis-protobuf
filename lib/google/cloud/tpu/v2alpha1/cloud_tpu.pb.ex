@@ -67,6 +67,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.State do
   field :ACTIVE, 6
   field :SUSPENDING, 7
   field :SUSPENDED, 8
+  field :WAITING_FOR_RESOURCES, 9
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.StateInitiator do
