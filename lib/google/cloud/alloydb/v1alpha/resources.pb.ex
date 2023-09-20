@@ -26,6 +26,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.DatabaseVersion do
   field :DATABASE_VERSION_UNSPECIFIED, 0
   field :POSTGRES_13, 1
   field :POSTGRES_14, 2
+  field :POSTGRES_15, 3
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.MigrationSource.MigrationSourceType do
@@ -502,7 +503,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.Cluster do
     json_name: "networkConfig",
     deprecated: false
 
-  field :network, 10, type: :string, deprecated: false
+  field :network, 10, type: :string, deprecated: true
   field :etag, 11, type: :string
 
   field :annotations, 12,
@@ -614,6 +615,19 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :mode, 1, type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode, enum: true
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.Instance.ClientConnectionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :require_connectors, 1, type: :bool, json_name: "requireConnectors", deprecated: false
+
+  field :ssl_config, 2,
+    type: Google.Cloud.Alloydb.V1alpha.SslConfig,
+    json_name: "sslConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.LabelsEntry do
@@ -730,6 +744,11 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance do
   field :update_policy, 22,
     type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy,
     json_name: "updatePolicy"
+
+  field :client_connection_config, 23,
+    type: Google.Cloud.Alloydb.V1alpha.Instance.ClientConnectionConfig,
+    json_name: "clientConnectionConfig",
+    deprecated: false
 
   field :satisfies_pzs, 24, type: :bool, json_name: "satisfiesPzs"
 end
@@ -848,6 +867,12 @@ defmodule Google.Cloud.Alloydb.V1alpha.Backup do
     deprecated: false
 
   field :satisfies_pzs, 21, type: :bool, json_name: "satisfiesPzs"
+
+  field :database_version, 22,
+    type: Google.Cloud.Alloydb.V1alpha.DatabaseVersion,
+    json_name: "databaseVersion",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.StringRestrictions do
