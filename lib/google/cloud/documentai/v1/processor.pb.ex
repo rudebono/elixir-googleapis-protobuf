@@ -70,6 +70,15 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
     json_name: "deprecationInfo"
 end
 
+defmodule Google.Cloud.Documentai.V1.ProcessorVersionAlias do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :alias, 1, type: :string
+  field :processor_version, 2, type: :string, json_name: "processorVersion", deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1.Processor do
   @moduledoc false
 
@@ -83,6 +92,12 @@ defmodule Google.Cloud.Documentai.V1.Processor do
   field :default_processor_version, 9,
     type: :string,
     json_name: "defaultProcessorVersion",
+    deprecated: false
+
+  field :processor_version_aliases, 10,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.ProcessorVersionAlias,
+    json_name: "processorVersionAliases",
     deprecated: false
 
   field :process_endpoint, 6, type: :string, json_name: "processEndpoint", deprecated: false

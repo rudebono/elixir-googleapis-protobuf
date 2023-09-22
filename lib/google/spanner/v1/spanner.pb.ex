@@ -358,6 +358,39 @@ defmodule Google.Spanner.V1.RollbackRequest do
   field :transaction_id, 2, type: :bytes, json_name: "transactionId", deprecated: false
 end
 
+defmodule Google.Spanner.V1.BatchWriteRequest.MutationGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mutations, 1, repeated: true, type: Google.Spanner.V1.Mutation, deprecated: false
+end
+
+defmodule Google.Spanner.V1.BatchWriteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :session, 1, type: :string, deprecated: false
+  field :request_options, 3, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  field :mutation_groups, 4,
+    repeated: true,
+    type: Google.Spanner.V1.BatchWriteRequest.MutationGroup,
+    json_name: "mutationGroups",
+    deprecated: false
+end
+
+defmodule Google.Spanner.V1.BatchWriteResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :indexes, 1, repeated: true, type: :int32
+  field :status, 2, type: Google.Rpc.Status
+  field :commit_timestamp, 3, type: Google.Protobuf.Timestamp, json_name: "commitTimestamp"
+end
+
 defmodule Google.Spanner.V1.Spanner.Service do
   @moduledoc false
 
@@ -400,6 +433,10 @@ defmodule Google.Spanner.V1.Spanner.Service do
       Google.Spanner.V1.PartitionResponse
 
   rpc :PartitionRead, Google.Spanner.V1.PartitionReadRequest, Google.Spanner.V1.PartitionResponse
+
+  rpc :BatchWrite,
+      Google.Spanner.V1.BatchWriteRequest,
+      stream(Google.Spanner.V1.BatchWriteResponse)
 end
 
 defmodule Google.Spanner.V1.Spanner.Stub do

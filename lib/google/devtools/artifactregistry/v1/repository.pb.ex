@@ -103,8 +103,8 @@ defmodule Google.Devtools.Artifactregistry.V1.CreateRepositoryRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :repository_id, 2, type: :string, json_name: "repositoryId"
-  field :repository, 3, type: Google.Devtools.Artifactregistry.V1.Repository
+  field :repository_id, 2, type: :string, json_name: "repositoryId", deprecated: false
+  field :repository, 3, type: Google.Devtools.Artifactregistry.V1.Repository, deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.UpdateRepositoryRequest do
