@@ -191,6 +191,23 @@ defmodule Google.Devtools.Testing.V1.PerAndroidVersionInfo do
     type: Google.Devtools.Testing.V1.DeviceCapacity,
     json_name: "deviceCapacity",
     enum: true
+
+  field :direct_access_version_info, 4,
+    type: Google.Devtools.Testing.V1.DirectAccessVersionInfo,
+    json_name: "directAccessVersionInfo",
+    deprecated: false
+end
+
+defmodule Google.Devtools.Testing.V1.DirectAccessVersionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :direct_access_supported, 1, type: :bool, json_name: "directAccessSupported"
+
+  field :minimum_android_studio_version, 2,
+    type: :string,
+    json_name: "minimumAndroidStudioVersion"
 end
 
 defmodule Google.Devtools.Testing.V1.Distribution do

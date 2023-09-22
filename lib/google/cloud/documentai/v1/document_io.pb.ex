@@ -5,6 +5,7 @@ defmodule Google.Cloud.Documentai.V1.RawDocument do
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
+  field :display_name, 3, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Documentai.V1.GcsDocument do
@@ -103,5 +104,5 @@ defmodule Google.Cloud.Documentai.V1.OcrConfig do
   field :enable_image_quality_scores, 4, type: :bool, json_name: "enableImageQualityScores"
   field :advanced_ocr_options, 5, repeated: true, type: :string, json_name: "advancedOcrOptions"
   field :enable_symbol, 6, type: :bool, json_name: "enableSymbol"
-  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo"
+  field :compute_style_info, 8, type: :bool, json_name: "computeStyleInfo", deprecated: true
 end
