@@ -36,6 +36,16 @@ defmodule Google.Cloud.Run.V2.DeleteExecutionRequest do
   field :etag, 3, type: :string
 end
 
+defmodule Google.Cloud.Run.V2.CancelExecutionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :validate_only, 2, type: :bool, json_name: "validateOnly"
+  field :etag, 3, type: :string
+end
+
 defmodule Google.Cloud.Run.V2.Execution.LabelsEntry do
   @moduledoc false
 
@@ -135,6 +145,8 @@ defmodule Google.Cloud.Run.V2.Executions.Service do
       Google.Cloud.Run.V2.ListExecutionsResponse
 
   rpc :DeleteExecution, Google.Cloud.Run.V2.DeleteExecutionRequest, Google.Longrunning.Operation
+
+  rpc :CancelExecution, Google.Cloud.Run.V2.CancelExecutionRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Run.V2.Executions.Stub do

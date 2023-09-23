@@ -89,6 +89,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions do
   field :from_start, 6, type: :int32, json_name: "fromStart", oneof: 0
   field :from_end, 7, type: :int32, json_name: "fromEnd", oneof: 0
   field :ocr_config, 1, type: Google.Cloud.Documentai.V1beta3.OcrConfig, json_name: "ocrConfig"
+
+  field :schema_override, 8,
+    type: Google.Cloud.Documentai.V1beta3.DocumentSchema,
+    json_name: "schemaOverride",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do

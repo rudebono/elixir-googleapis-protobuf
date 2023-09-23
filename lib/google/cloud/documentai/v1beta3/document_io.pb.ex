@@ -5,6 +5,7 @@ defmodule Google.Cloud.Documentai.V1beta3.RawDocument do
 
   field :content, 1, type: :bytes
   field :mime_type, 2, type: :string, json_name: "mimeType"
+  field :display_name, 3, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.GcsDocument do

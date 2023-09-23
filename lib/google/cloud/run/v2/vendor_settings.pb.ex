@@ -39,6 +39,16 @@ defmodule Google.Cloud.Run.V2.VpcAccess.VpcEgress do
   field :PRIVATE_RANGES_ONLY, 2
 end
 
+defmodule Google.Cloud.Run.V2.VpcAccess.NetworkInterface do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :network, 1, type: :string
+  field :subnetwork, 2, type: :string
+  field :tags, 3, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Run.V2.VpcAccess do
   @moduledoc false
 
@@ -46,6 +56,11 @@ defmodule Google.Cloud.Run.V2.VpcAccess do
 
   field :connector, 1, type: :string, deprecated: false
   field :egress, 2, type: Google.Cloud.Run.V2.VpcAccess.VpcEgress, enum: true
+
+  field :network_interfaces, 3,
+    repeated: true,
+    type: Google.Cloud.Run.V2.VpcAccess.NetworkInterface,
+    json_name: "networkInterfaces"
 end
 
 defmodule Google.Cloud.Run.V2.BinaryAuthorization do

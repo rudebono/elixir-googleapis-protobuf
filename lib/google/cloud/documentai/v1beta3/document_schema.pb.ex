@@ -1,3 +1,24 @@
+defmodule Google.Cloud.Documentai.V1beta3.SummaryOptions.Length do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LENGTH_UNSPECIFIED, 0
+  field :BRIEF, 1
+  field :MODERATE, 2
+  field :COMPREHENSIVE, 3
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.SummaryOptions.Format do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FORMAT_UNSPECIFIED, 0
+  field :PARAGRAPH, 1
+  field :BULLETS, 2
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.OccurrenceType do
   @moduledoc false
 
@@ -10,12 +31,35 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.Occ
   field :REQUIRED_MULTIPLE, 4
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.SummaryOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :length, 1, type: Google.Cloud.Documentai.V1beta3.SummaryOptions.Length, enum: true
+  field :format, 2, type: Google.Cloud.Documentai.V1beta3.SummaryOptions.Format, enum: true
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.FieldExtractionMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :summary_options, 2,
+    type: Google.Cloud.Documentai.V1beta3.SummaryOptions,
+    json_name: "summaryOptions"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.PropertyMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :inactive, 3, type: :bool
+
+  field :field_extraction_metadata, 9,
+    type: Google.Cloud.Documentai.V1beta3.FieldExtractionMetadata,
+    json_name: "fieldExtractionMetadata"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.EntityTypeMetadata do

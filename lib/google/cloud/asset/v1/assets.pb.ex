@@ -139,6 +139,29 @@ defmodule Google.Cloud.Asset.V1.RelatedAsset do
   field :relationship_type, 4, type: :string, json_name: "relationshipType"
 end
 
+defmodule Google.Cloud.Asset.V1.Tag do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tag_key, 1, proto3_optional: true, type: :string, json_name: "tagKey"
+  field :tag_value, 3, proto3_optional: true, type: :string, json_name: "tagValue"
+  field :tag_value_id, 4, proto3_optional: true, type: :string, json_name: "tagValueId"
+end
+
+defmodule Google.Cloud.Asset.V1.EffectiveTagDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attached_resource, 1, proto3_optional: true, type: :string, json_name: "attachedResource"
+
+  field :effective_tags, 2,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.Tag,
+    json_name: "effectiveTags"
+end
+
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   @moduledoc false
 
@@ -155,6 +178,15 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.RelatedResources
+end
+
+defmodule Google.Cloud.Asset.V1.ResourceSearchResult.SccSecurityMarksEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
@@ -200,10 +232,29 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     type: Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry,
     map: true
 
-  field :tag_keys, 23, repeated: true, type: :string, json_name: "tagKeys"
-  field :tag_values, 25, repeated: true, type: :string, json_name: "tagValues"
-  field :tag_value_ids, 26, repeated: true, type: :string, json_name: "tagValueIds"
+  field :tag_keys, 23, repeated: true, type: :string, json_name: "tagKeys", deprecated: true
+  field :tag_values, 25, repeated: true, type: :string, json_name: "tagValues", deprecated: true
+
+  field :tag_value_ids, 26,
+    repeated: true,
+    type: :string,
+    json_name: "tagValueIds",
+    deprecated: true
+
+  field :tags, 29, repeated: true, type: Google.Cloud.Asset.V1.Tag
+
+  field :effective_tags, 30,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.EffectiveTagDetails,
+    json_name: "effectiveTags"
+
   field :parent_asset_type, 103, type: :string, json_name: "parentAssetType"
+
+  field :scc_security_marks, 32,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.ResourceSearchResult.SccSecurityMarksEntry,
+    json_name: "sccSecurityMarks",
+    map: true
 end
 
 defmodule Google.Cloud.Asset.V1.VersionedResource do

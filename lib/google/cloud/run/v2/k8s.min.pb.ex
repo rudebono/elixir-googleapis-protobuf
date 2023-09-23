@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Run.V2.EmptyDirVolumeSource.Medium do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MEDIUM_UNSPECIFIED, 0
+  field :MEMORY, 1
+end
+
 defmodule Google.Cloud.Run.V2.Container do
   @moduledoc false
 
@@ -19,6 +28,7 @@ defmodule Google.Cloud.Run.V2.Container do
   field :working_dir, 9, type: :string, json_name: "workingDir"
   field :liveness_probe, 10, type: Google.Cloud.Run.V2.Probe, json_name: "livenessProbe"
   field :startup_probe, 11, type: Google.Cloud.Run.V2.Probe, json_name: "startupProbe"
+  field :depends_on, 12, repeated: true, type: :string, json_name: "dependsOn"
 end
 
 defmodule Google.Cloud.Run.V2.ResourceRequirements.LimitsEntry do
@@ -109,6 +119,11 @@ defmodule Google.Cloud.Run.V2.Volume do
     type: Google.Cloud.Run.V2.CloudSqlInstance,
     json_name: "cloudSqlInstance",
     oneof: 0
+
+  field :empty_dir, 4,
+    type: Google.Cloud.Run.V2.EmptyDirVolumeSource,
+    json_name: "emptyDir",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Run.V2.SecretVolumeSource do
@@ -137,6 +152,15 @@ defmodule Google.Cloud.Run.V2.CloudSqlInstance do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Run.V2.EmptyDirVolumeSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :medium, 1, type: Google.Cloud.Run.V2.EmptyDirVolumeSource.Medium, enum: true
+  field :size_limit, 2, type: :string, json_name: "sizeLimit"
 end
 
 defmodule Google.Cloud.Run.V2.Probe do

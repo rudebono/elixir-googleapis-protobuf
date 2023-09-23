@@ -9,6 +9,17 @@ defmodule Google.Cloud.Documentai.V1beta3.DatasetSplitType do
   field :DATASET_SPLIT_UNASSIGNED, 3
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.DocumentLabelingState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DOCUMENT_LABELING_STATE_UNSPECIFIED, 0
+  field :DOCUMENT_LABELED, 1
+  field :DOCUMENT_UNLABELED, 2
+  field :DOCUMENT_AUTO_LABELED, 3
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.UpdateDatasetRequest do
   @moduledoc false
 
@@ -151,6 +162,33 @@ defmodule Google.Cloud.Documentai.V1beta3.GetDocumentResponse do
   field :document, 1, type: Google.Cloud.Documentai.V1beta3.Document
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ListDocumentsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string, deprecated: false
+  field :return_total_size, 6, type: :bool, json_name: "returnTotalSize", deprecated: false
+  field :skip, 8, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ListDocumentsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document_metadata, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.DocumentMetadata,
+    json_name: "documentMetadata"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsRequest do
   @moduledoc false
 
@@ -229,6 +267,27 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentPageRange do
   field :end, 2, type: :int32
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.DocumentMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document_id, 1, type: Google.Cloud.Documentai.V1beta3.DocumentId, json_name: "documentId"
+  field :page_count, 2, type: :int32, json_name: "pageCount"
+
+  field :dataset_type, 3,
+    type: Google.Cloud.Documentai.V1beta3.DatasetSplitType,
+    json_name: "datasetType",
+    enum: true
+
+  field :labeling_state, 5,
+    type: Google.Cloud.Documentai.V1beta3.DocumentLabelingState,
+    json_name: "labelingState",
+    enum: true
+
+  field :display_name, 6, type: :string, json_name: "displayName"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.DocumentService.Service do
   @moduledoc false
 
@@ -247,6 +306,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentService.Service do
   rpc :GetDocument,
       Google.Cloud.Documentai.V1beta3.GetDocumentRequest,
       Google.Cloud.Documentai.V1beta3.GetDocumentResponse
+
+  rpc :ListDocuments,
+      Google.Cloud.Documentai.V1beta3.ListDocumentsRequest,
+      Google.Cloud.Documentai.V1beta3.ListDocumentsResponse
 
   rpc :BatchDeleteDocuments,
       Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsRequest,
