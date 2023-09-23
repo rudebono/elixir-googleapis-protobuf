@@ -175,6 +175,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationRequest do
     type: Google.Cloud.Contactcenterinsights.V1.RedactionConfig,
     json_name: "redactionConfig",
     deprecated: false
+
+  field :speech_config, 11,
+    type: Google.Cloud.Contactcenterinsights.V1.SpeechConfig,
+    json_name: "speechConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.UploadConversationMetadata do

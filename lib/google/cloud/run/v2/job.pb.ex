@@ -57,6 +57,31 @@ defmodule Google.Cloud.Run.V2.DeleteJobRequest do
   field :etag, 4, type: :string
 end
 
+defmodule Google.Cloud.Run.V2.RunJobRequest.Overrides.ContainerOverride do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :args, 2, repeated: true, type: :string, deprecated: false
+  field :env, 3, repeated: true, type: Google.Cloud.Run.V2.EnvVar
+  field :clear_args, 4, type: :bool, json_name: "clearArgs", deprecated: false
+end
+
+defmodule Google.Cloud.Run.V2.RunJobRequest.Overrides do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :container_overrides, 1,
+    repeated: true,
+    type: Google.Cloud.Run.V2.RunJobRequest.Overrides.ContainerOverride,
+    json_name: "containerOverrides"
+
+  field :task_count, 2, type: :int32, json_name: "taskCount", deprecated: false
+  field :timeout, 4, type: Google.Protobuf.Duration
+end
+
 defmodule Google.Cloud.Run.V2.RunJobRequest do
   @moduledoc false
 
@@ -65,6 +90,7 @@ defmodule Google.Cloud.Run.V2.RunJobRequest do
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
   field :etag, 3, type: :string
+  field :overrides, 4, type: Google.Cloud.Run.V2.RunJobRequest.Overrides
 end
 
 defmodule Google.Cloud.Run.V2.Job.LabelsEntry do

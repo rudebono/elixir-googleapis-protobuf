@@ -905,6 +905,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
   field :redaction_config, 10,
     type: Google.Cloud.Contactcenterinsights.V1.RedactionConfig,
     json_name: "redactionConfig"
+
+  field :speech_config, 11,
+    type: Google.Cloud.Contactcenterinsights.V1.SpeechConfig,
+    json_name: "speechConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.RedactionConfig do
@@ -914,6 +919,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.RedactionConfig do
 
   field :deidentify_template, 1, type: :string, json_name: "deidentifyTemplate"
   field :inspect_template, 2, type: :string, json_name: "inspectTemplate"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.SpeechConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :speech_recognizer, 1, type: :string, json_name: "speechRecognizer", deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do

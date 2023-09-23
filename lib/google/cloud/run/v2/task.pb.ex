@@ -70,6 +70,11 @@ defmodule Google.Cloud.Run.V2.Task do
     json_name: "createTime",
     deprecated: false
 
+  field :scheduled_time, 34,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduledTime",
+    deprecated: false
+
   field :start_time, 27,
     type: Google.Protobuf.Timestamp,
     json_name: "startTime",
