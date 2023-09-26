@@ -34,6 +34,17 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.Category do
   field :CATEGORY_TRAVEL_AND_TOURISM, 19
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :STATE_ACTIVE, 1
+  field :STATE_STALE, 2
+  field :STATE_INACTIVE, 3
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
   @moduledoc false
 
@@ -46,6 +57,41 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
   field :documentation, 5, type: :string, deprecated: false
   field :listing_count, 6, type: :int32, json_name: "listingCount", deprecated: false
   field :icon, 7, type: :bytes, deprecated: false
+
+  field :sharing_environment_config, 8,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig,
+    json_name: "sharingEnvironmentConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DefaultExchangeConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DcrExchangeConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :environment, 0
+
+  field :default_exchange_config, 1,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DefaultExchangeConfig,
+    json_name: "defaultExchangeConfig",
+    oneof: 0
+
+  field :dcr_exchange_config, 2,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DcrExchangeConfig,
+    json_name: "dcrExchangeConfig",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataProvider do
@@ -118,6 +164,24 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
   field :dataset, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 3, type: :bool, deprecated: false
+
+  field :restrict_direct_table_access, 1,
+    type: :bool,
+    json_name: "restrictDirectTableAccess",
+    deprecated: false
+
+  field :restrict_query_result, 2,
+    type: :bool,
+    json_name: "restrictQueryResult",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
   @moduledoc false
 
@@ -157,6 +221,73 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
 
   field :publisher, 11, type: Google.Cloud.Bigquery.Analyticshub.V1.Publisher, deprecated: false
   field :request_access, 12, type: :string, json_name: "requestAccess", deprecated: false
+
+  field :restricted_export_config, 13,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig,
+    json_name: "restrictedExportConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :reference, 0
+
+  field :linked_dataset, 1, type: :string, json_name: "linkedDataset", oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedDatasetMapEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource_name, 0
+
+  field :listing, 5, type: :string, oneof: 0, deprecated: false
+  field :data_exchange, 6, type: :string, json_name: "dataExchange", oneof: 0, deprecated: false
+  field :name, 1, type: :string, deprecated: false
+
+  field :creation_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "creationTime",
+    deprecated: false
+
+  field :last_modify_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastModifyTime",
+    deprecated: false
+
+  field :organization_id, 4, type: :string, json_name: "organizationId", deprecated: false
+
+  field :organization_display_name, 10,
+    type: :string,
+    json_name: "organizationDisplayName",
+    deprecated: false
+
+  field :state, 7,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.State,
+    enum: true,
+    deprecated: false
+
+  field :linked_dataset_map, 8,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedDatasetMapEntry,
+    json_name: "linkedDatasetMap",
+    map: true,
+    deprecated: false
+
+  field :subscriber_contact, 9, type: :string, json_name: "subscriberContact", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListDataExchangesRequest do
@@ -328,6 +459,143 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :destination, 2, type: :string, deprecated: false
+  field :subscription, 4, type: :string, deprecated: false
+  field :subscriber_contact, 3, type: :string, json_name: "subscriberContact"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.RefreshSubscriptionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.RefreshSubscriptionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.GetSubscriptionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subscriptions, 1,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource, 1, type: :string, deprecated: false
+  field :include_deleted_subscriptions, 2, type: :bool, json_name: "includeDeletedSubscriptions"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :page_token, 4, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :shared_resource_subscriptions, 1,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription,
+    json_name: "sharedResourceSubscriptions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteSubscriptionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.OperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 3, type: :string, deprecated: false
+  field :verb, 4, type: :string, deprecated: false
+  field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 6,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.AnalyticsHubService.Service do
@@ -384,6 +652,34 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.AnalyticsHubService.Service do
   rpc :SubscribeListing,
       Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingRequest,
       Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingResponse
+
+  rpc :SubscribeDataExchange,
+      Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeRequest,
+      Google.Longrunning.Operation
+
+  rpc :RefreshSubscription,
+      Google.Cloud.Bigquery.Analyticshub.V1.RefreshSubscriptionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetSubscription,
+      Google.Cloud.Bigquery.Analyticshub.V1.GetSubscriptionRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.Subscription
+
+  rpc :ListSubscriptions,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsResponse
+
+  rpc :ListSharedResourceSubscriptions,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsResponse
+
+  rpc :RevokeSubscription,
+      Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionResponse
+
+  rpc :DeleteSubscription,
+      Google.Cloud.Bigquery.Analyticshub.V1.DeleteSubscriptionRequest,
+      Google.Longrunning.Operation
 
   rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
 
