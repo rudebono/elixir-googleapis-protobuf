@@ -158,6 +158,56 @@ defmodule Google.Cloud.Advisorynotifications.V1.GetNotificationRequest do
   field :language_code, 5, type: :string, json_name: "languageCode"
 end
 
+defmodule Google.Cloud.Advisorynotifications.V1.Settings.NotificationSettingsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Advisorynotifications.V1.NotificationSettings
+end
+
+defmodule Google.Cloud.Advisorynotifications.V1.Settings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :notification_settings, 2,
+    repeated: true,
+    type: Google.Cloud.Advisorynotifications.V1.Settings.NotificationSettingsEntry,
+    json_name: "notificationSettings",
+    map: true,
+    deprecated: false
+
+  field :etag, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Advisorynotifications.V1.NotificationSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Cloud.Advisorynotifications.V1.GetSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Advisorynotifications.V1.UpdateSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :settings, 1, type: Google.Cloud.Advisorynotifications.V1.Settings, deprecated: false
+end
+
 defmodule Google.Cloud.Advisorynotifications.V1.AdvisoryNotificationsService.Service do
   @moduledoc false
 
@@ -172,6 +222,14 @@ defmodule Google.Cloud.Advisorynotifications.V1.AdvisoryNotificationsService.Ser
   rpc :GetNotification,
       Google.Cloud.Advisorynotifications.V1.GetNotificationRequest,
       Google.Cloud.Advisorynotifications.V1.Notification
+
+  rpc :GetSettings,
+      Google.Cloud.Advisorynotifications.V1.GetSettingsRequest,
+      Google.Cloud.Advisorynotifications.V1.Settings
+
+  rpc :UpdateSettings,
+      Google.Cloud.Advisorynotifications.V1.UpdateSettingsRequest,
+      Google.Cloud.Advisorynotifications.V1.Settings
 end
 
 defmodule Google.Cloud.Advisorynotifications.V1.AdvisoryNotificationsService.Stub do
