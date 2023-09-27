@@ -12,6 +12,7 @@ defmodule Google.Cloud.Datacatalog.V1.IntegratedSystem do
   field :CLOUD_BIGTABLE, 7
   field :CLOUD_SQL, 8
   field :LOOKER, 9
+  field :VERTEX_AI, 10
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ManagingSystem do

@@ -1,0 +1,171 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.DistanceMeasureType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DISTANCE_MEASURE_TYPE_UNSPECIFIED, 0
+  field :SQUARED_L2_DISTANCE, 1
+  field :COSINE_DISTANCE, 2
+  field :DOT_PRODUCT_DISTANCE, 3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.BigQuerySource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+
+  field :entity_id_columns, 2,
+    repeated: true,
+    type: :string,
+    json_name: "entityIdColumns",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.SyncConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cron, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.BruteForceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.TreeAHConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :leaf_node_embedding_count, 1,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "leafNodeEmbeddingCount",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :algorithm_config, 0
+
+  field :tree_ah_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.TreeAHConfig,
+    json_name: "treeAhConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :brute_force_config, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.BruteForceConfig,
+    json_name: "bruteForceConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :embedding_column, 3, type: :string, json_name: "embeddingColumn", deprecated: false
+
+  field :filter_columns, 4,
+    repeated: true,
+    type: :string,
+    json_name: "filterColumns",
+    deprecated: false
+
+  field :crowding_column, 5, type: :string, json_name: "crowdingColumn", deprecated: false
+
+  field :embedding_dimension, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "embeddingDimension",
+    deprecated: false
+
+  field :distance_measure_type, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.DistanceMeasureType,
+    json_name: "distanceMeasureType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource.FeatureGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :feature_group_id, 1, type: :string, json_name: "featureGroupId", deprecated: false
+  field :feature_ids, 2, repeated: true, type: :string, json_name: "featureIds", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :feature_groups, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource.FeatureGroup,
+    json_name: "featureGroups",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :big_query_source, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.BigQuerySource,
+    json_name: "bigQuerySource",
+    oneof: 0,
+    deprecated: false
+
+  field :feature_registry_source, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource,
+    json_name: "featureRegistrySource",
+    oneof: 0,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 4, type: :string, deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :sync_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.SyncConfig,
+    json_name: "syncConfig"
+
+  field :vector_search_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig,
+    json_name: "vectorSearchConfig",
+    deprecated: false
+end

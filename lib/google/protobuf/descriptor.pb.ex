@@ -154,6 +154,16 @@ defmodule Google.Protobuf.FeatureSet.RepeatedFieldEncoding do
   field :EXPANDED, 2
 end
 
+defmodule Google.Protobuf.FeatureSet.Utf8Validation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :UTF8_VALIDATION_UNKNOWN, 0
+  field :NONE, 1
+  field :VERIFY, 2
+end
+
 defmodule Google.Protobuf.FeatureSet.MessageEncoding do
   @moduledoc false
 
@@ -209,8 +219,7 @@ defmodule Google.Protobuf.FileDescriptorProto do
   field :options, 8, optional: true, type: Google.Protobuf.FileOptions
   field :source_code_info, 9, optional: true, type: Google.Protobuf.SourceCodeInfo
   field :syntax, 12, optional: true, type: :string
-  field :edition, 13, optional: true, type: :string
-  field :edition_enum, 14, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :edition, 14, optional: true, type: Google.Protobuf.Edition, enum: true
 end
 
 defmodule Google.Protobuf.DescriptorProto.ExtensionRange do
@@ -427,8 +436,7 @@ defmodule Google.Protobuf.FieldOptions.EditionDefault do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
-  field :edition, 1, optional: true, type: :string
-  field :edition_enum, 3, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :edition, 3, optional: true, type: Google.Protobuf.Edition, enum: true
   field :value, 2, optional: true, type: :string
 end
 
@@ -589,6 +597,12 @@ defmodule Google.Protobuf.FeatureSet do
     enum: true,
     deprecated: false
 
+  field :utf8_validation, 4,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.Utf8Validation,
+    enum: true,
+    deprecated: false
+
   field :message_encoding, 5,
     optional: true,
     type: Google.Protobuf.FeatureSet.MessageEncoding,
@@ -609,8 +623,7 @@ defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
-  field :edition, 1, optional: true, type: :string
-  field :edition_enum, 3, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :edition, 3, optional: true, type: Google.Protobuf.Edition, enum: true
   field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
 end
 
@@ -623,10 +636,8 @@ defmodule Google.Protobuf.FeatureSetDefaults do
     repeated: true,
     type: Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault
 
-  field :minimum_edition, 2, optional: true, type: :string
-  field :maximum_edition, 3, optional: true, type: :string
-  field :minimum_edition_enum, 4, optional: true, type: Google.Protobuf.Edition, enum: true
-  field :maximum_edition_enum, 5, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :minimum_edition, 4, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :maximum_edition, 5, optional: true, type: Google.Protobuf.Edition, enum: true
 end
 
 defmodule Google.Protobuf.SourceCodeInfo.Location do

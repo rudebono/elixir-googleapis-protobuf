@@ -62,6 +62,38 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
   field :INOUT, 3
 end
 
+defmodule Google.Cloud.Datacatalog.V1.VertexModelSourceInfo.ModelSourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODEL_SOURCE_TYPE_UNSPECIFIED, 0
+  field :AUTOML, 1
+  field :CUSTOM, 2
+  field :BQML, 3
+  field :MODEL_GARDEN, 4
+end
+
+defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec.DataType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATA_TYPE_UNSPECIFIED, 0
+  field :TABLE, 1
+  field :IMAGE, 2
+  field :TEXT, 3
+  field :VIDEO, 4
+  field :CONVERSATION, 5
+  field :TIME_SERIES, 6
+  field :DOCUMENT, 7
+  field :TEXT_TO_SPEECH, 8
+  field :TRANSLATION, 9
+  field :STORE_VISION, 10
+  field :ENTERPRISE_KNOWLEDGE_GRAPH, 11
+  field :TEXT_PROMPT, 12
+end
+
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState do
   @moduledoc false
 
@@ -331,6 +363,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     json_name: "routineSpec",
     oneof: 4
 
+  field :dataset_spec, 32,
+    type: Google.Cloud.Datacatalog.V1.DatasetSpec,
+    json_name: "datasetSpec",
+    oneof: 4
+
   field :fileset_spec, 33,
     type: Google.Cloud.Datacatalog.V1.FilesetSpec,
     json_name: "filesetSpec",
@@ -339,6 +376,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
   field :service_spec, 42,
     type: Google.Cloud.Datacatalog.V1.ServiceSpec,
     json_name: "serviceSpec",
+    oneof: 4
+
+  field :model_spec, 43,
+    type: Google.Cloud.Datacatalog.V1.ModelSpec,
+    json_name: "modelSpec",
     oneof: 4
 
   field :display_name, 3, type: :string, json_name: "displayName"
@@ -463,6 +505,19 @@ defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
     oneof: 0
 end
 
+defmodule Google.Cloud.Datacatalog.V1.DatasetSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :system_spec, 0
+
+  field :vertex_dataset_spec, 2,
+    type: Google.Cloud.Datacatalog.V1.VertexDatasetSpec,
+    json_name: "vertexDatasetSpec",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Datacatalog.V1.SqlDatabaseSystemSpec do
   @moduledoc false
 
@@ -526,6 +581,61 @@ defmodule Google.Cloud.Datacatalog.V1.ServiceSpec do
   field :cloud_bigtable_instance_spec, 1,
     type: Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec,
     json_name: "cloudBigtableInstanceSpec",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datacatalog.V1.VertexModelSourceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :source_type, 1,
+    type: Google.Cloud.Datacatalog.V1.VertexModelSourceInfo.ModelSourceType,
+    json_name: "sourceType",
+    enum: true
+
+  field :copy, 2, type: :bool
+end
+
+defmodule Google.Cloud.Datacatalog.V1.VertexModelSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :version_id, 1, type: :string, json_name: "versionId"
+  field :version_aliases, 2, repeated: true, type: :string, json_name: "versionAliases"
+  field :version_description, 3, type: :string, json_name: "versionDescription"
+
+  field :vertex_model_source_info, 4,
+    type: Google.Cloud.Datacatalog.V1.VertexModelSourceInfo,
+    json_name: "vertexModelSourceInfo"
+
+  field :container_image_uri, 5, type: :string, json_name: "containerImageUri"
+end
+
+defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_item_count, 1, type: :int64, json_name: "dataItemCount"
+
+  field :data_type, 2,
+    type: Google.Cloud.Datacatalog.V1.VertexDatasetSpec.DataType,
+    json_name: "dataType",
+    enum: true
+end
+
+defmodule Google.Cloud.Datacatalog.V1.ModelSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :system_spec, 0
+
+  field :vertex_model_spec, 1,
+    type: Google.Cloud.Datacatalog.V1.VertexModelSpec,
+    json_name: "vertexModelSpec",
     oneof: 0
 end
 

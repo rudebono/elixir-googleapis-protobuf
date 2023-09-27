@@ -358,6 +358,7 @@ defmodule Google.Cloud.Metastore.V1.NetworkConfig.Consumer do
 
   field :subnetwork, 1, type: :string, oneof: 0, deprecated: false
   field :endpoint_uri, 3, type: :string, json_name: "endpointUri", deprecated: false
+  field :endpoint_location, 4, type: :string, json_name: "endpointLocation", deprecated: false
 end
 
 defmodule Google.Cloud.Metastore.V1.NetworkConfig do
