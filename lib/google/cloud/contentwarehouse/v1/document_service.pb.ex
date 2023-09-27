@@ -57,6 +57,11 @@ defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse.MatchingDocum
   field :document, 1, type: Google.Cloud.Contentwarehouse.V1.Document
   field :search_text_snippet, 2, type: :string, json_name: "searchTextSnippet"
   field :qa_result, 3, type: Google.Cloud.Contentwarehouse.V1.QAResult, json_name: "qaResult"
+
+  field :matched_token_page_indices, 4,
+    repeated: true,
+    type: :int64,
+    json_name: "matchedTokenPageIndices"
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse do
