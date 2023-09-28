@@ -75,6 +75,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Flow do
     type: Google.Cloud.Dialogflow.Cx.V3.NluSettings,
     json_name: "nluSettings"
 
+  field :advanced_settings, 14,
+    type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings,
+    json_name: "advancedSettings"
+
   field :knowledge_connector_settings, 18,
     type: Google.Cloud.Dialogflow.Cx.V3.KnowledgeConnectorSettings,
     json_name: "knowledgeConnectorSettings",
