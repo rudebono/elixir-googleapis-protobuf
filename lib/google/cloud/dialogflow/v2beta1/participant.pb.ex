@@ -401,6 +401,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
   field :cx_parameters, 13, type: Google.Protobuf.Struct, json_name: "cxParameters"
   field :cx_current_page, 15, type: :string, json_name: "cxCurrentPage"
 
+  field :enable_extended_streaming, 11,
+    type: :bool,
+    json_name: "enableExtendedStreaming",
+    deprecated: false
+
   field :enable_partial_automated_agent_reply, 12,
     type: :bool,
     json_name: "enablePartialAutomatedAgentReply"

@@ -160,7 +160,7 @@ defmodule Google.Protobuf.FeatureSet.Utf8Validation do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :UTF8_VALIDATION_UNKNOWN, 0
-  field :NONE, 1
+  field :UNVERIFIED, 1
   field :VERIFY, 2
 end
 

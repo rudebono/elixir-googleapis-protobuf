@@ -496,6 +496,7 @@ defmodule Google.Storage.V2.ListObjectsRequest do
     deprecated: false
 
   field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd", deprecated: false
+  field :match_glob, 14, type: :string, json_name: "matchGlob", deprecated: false
 end
 
 defmodule Google.Storage.V2.QueryWriteStatusRequest do
@@ -935,6 +936,17 @@ defmodule Google.Storage.V2.Bucket.Autoclass do
   field :toggle_time, 2,
     type: Google.Protobuf.Timestamp,
     json_name: "toggleTime",
+    deprecated: false
+
+  field :terminal_storage_class, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "terminalStorageClass"
+
+  field :terminal_storage_class_update_time, 4,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "terminalStorageClassUpdateTime",
     deprecated: false
 end
 

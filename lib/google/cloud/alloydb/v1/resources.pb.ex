@@ -712,6 +712,16 @@ defmodule Google.Cloud.Alloydb.V1.Instance do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.ConnectionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :ip_address, 2, type: :string, json_name: "ipAddress", deprecated: false
+  field :instance_uid, 4, type: :string, json_name: "instanceUid", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.Backup.QuantityBasedExpiry do
   @moduledoc false
 
