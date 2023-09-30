@@ -152,12 +152,6 @@ defmodule Google.Cloud.Run.V2.Service do
   field :uri, 36, type: :string, deprecated: false
   field :custom_audiences, 37, repeated: true, type: :string, json_name: "customAudiences"
   field :satisfies_pzs, 38, type: :bool, json_name: "satisfiesPzs", deprecated: false
-
-  field :traffic_tags_cleanup_threshold, 39,
-    type: :int64,
-    json_name: "trafficTagsCleanupThreshold",
-    deprecated: false
-
   field :reconciling, 98, type: :bool, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end

@@ -413,6 +413,45 @@ defmodule Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Alloydb.V1.GenerateClientCertificateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :cert_duration, 4,
+    type: Google.Protobuf.Duration,
+    json_name: "certDuration",
+    deprecated: false
+
+  field :public_key, 5, type: :string, json_name: "publicKey", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.GenerateClientCertificateResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pem_certificate_chain, 2,
+    repeated: true,
+    type: :string,
+    json_name: "pemCertificateChain",
+    deprecated: false
+
+  field :ca_cert, 3, type: :string, json_name: "caCert", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.GetConnectionInfoRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.OperationMetadata do
   @moduledoc false
 
@@ -584,6 +623,14 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :ListSupportedDatabaseFlags,
       Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsRequest,
       Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsResponse
+
+  rpc :GenerateClientCertificate,
+      Google.Cloud.Alloydb.V1.GenerateClientCertificateRequest,
+      Google.Cloud.Alloydb.V1.GenerateClientCertificateResponse
+
+  rpc :GetConnectionInfo,
+      Google.Cloud.Alloydb.V1.GetConnectionInfoRequest,
+      Google.Cloud.Alloydb.V1.ConnectionInfo
 
   rpc :ListUsers,
       Google.Cloud.Alloydb.V1.ListUsersRequest,

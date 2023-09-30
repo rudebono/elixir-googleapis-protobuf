@@ -496,6 +496,7 @@ defmodule Google.Storage.V2.ListObjectsRequest do
     deprecated: false
 
   field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd", deprecated: false
+  field :match_glob, 14, type: :string, json_name: "matchGlob", deprecated: false
 end
 
 defmodule Google.Storage.V2.QueryWriteStatusRequest do
