@@ -64,4 +64,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Fulfillment do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3.Fulfillment.ConditionalCases,
     json_name: "conditionalCases"
+
+  field :advanced_settings, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings,
+    json_name: "advancedSettings"
+
+  field :enable_generative_fallback, 12, type: :bool, json_name: "enableGenerativeFallback"
 end

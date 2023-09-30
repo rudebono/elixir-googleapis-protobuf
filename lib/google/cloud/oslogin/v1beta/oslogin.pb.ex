@@ -148,6 +148,7 @@ defmodule Google.Cloud.Oslogin.V1beta.SecurityKey do
     oneof: 0
 
   field :web_authn, 4, type: Google.Cloud.Oslogin.V1beta.WebAuthn, json_name: "webAuthn", oneof: 0
+  field :device_nickname, 5, proto3_optional: true, type: :string, json_name: "deviceNickname"
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.UniversalTwoFactor do

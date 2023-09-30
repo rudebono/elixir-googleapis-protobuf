@@ -33,6 +33,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.DedicatedServingEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :public_endpoint_domain_name, 2,
+    type: :string,
+    json_name: "publicEndpointDomainName",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.EmbeddingManagement do
   @moduledoc false
 
@@ -81,6 +92,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore do
   field :state, 7,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.State,
     enum: true,
+    deprecated: false
+
+  field :dedicated_serving_endpoint, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.DedicatedServingEndpoint,
+    json_name: "dedicatedServingEndpoint",
     deprecated: false
 
   field :embedding_management, 11,

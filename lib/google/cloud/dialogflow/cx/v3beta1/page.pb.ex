@@ -28,6 +28,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler,
     json_name: "eventHandlers"
 
+  field :advanced_settings, 13,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
+    json_name: "advancedSettings"
+
   field :knowledge_connector_settings, 18,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.KnowledgeConnectorSettings,
     json_name: "knowledgeConnectorSettings",
@@ -67,6 +71,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
 
   field :default_value, 9, type: Google.Protobuf.Value, json_name: "defaultValue"
   field :redact, 11, type: :bool
+
+  field :advanced_settings, 12,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
+    json_name: "advancedSettings"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form do

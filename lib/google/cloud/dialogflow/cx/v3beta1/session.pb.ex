@@ -321,6 +321,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
   field :sentiment_analysis_result, 17,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SentimentAnalysisResult,
     json_name: "sentimentAnalysisResult"
+
+  field :advanced_settings, 21,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings,
+    json_name: "advancedSettings"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TextInput do
