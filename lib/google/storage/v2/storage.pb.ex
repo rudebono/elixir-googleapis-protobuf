@@ -937,6 +937,17 @@ defmodule Google.Storage.V2.Bucket.Autoclass do
     type: Google.Protobuf.Timestamp,
     json_name: "toggleTime",
     deprecated: false
+
+  field :terminal_storage_class, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "terminalStorageClass"
+
+  field :terminal_storage_class_update_time, 4,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "terminalStorageClassUpdateTime",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.Bucket.LabelsEntry do
