@@ -267,6 +267,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy do
   field :accelerators, 5, repeated: true, type: Google.Cloud.Batch.V1.AllocationPolicy.Accelerator
   field :boot_disk, 8, type: Google.Cloud.Batch.V1.AllocationPolicy.Disk, json_name: "bootDisk"
   field :disks, 6, repeated: true, type: Google.Cloud.Batch.V1.AllocationPolicy.AttachedDisk
+  field :reservation, 7, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicyOrTemplate do
