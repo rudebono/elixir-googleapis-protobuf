@@ -132,6 +132,19 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
   field :gcs_output_directory, 2, type: :string, json_name: "gcsOutputDirectory"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CreateDatasetVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :dataset_version, 2,
+    type: Google.Cloud.Aiplatform.V1.DatasetVersion,
+    json_name: "datasetVersion",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CreateDatasetVersionOperationMetadata do
   @moduledoc false
 
@@ -140,6 +153,57 @@ defmodule Google.Cloud.Aiplatform.V1.CreateDatasetVersionOperationMetadata do
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DeleteDatasetVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GetDatasetVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListDatasetVersionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ListDatasetVersionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset_versions, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.DatasetVersion,
+    json_name: "datasetVersions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RestoreDatasetVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RestoreDatasetVersionOperationMetadata do
@@ -332,6 +396,26 @@ defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   rpc :ImportData, Google.Cloud.Aiplatform.V1.ImportDataRequest, Google.Longrunning.Operation
 
   rpc :ExportData, Google.Cloud.Aiplatform.V1.ExportDataRequest, Google.Longrunning.Operation
+
+  rpc :CreateDatasetVersion,
+      Google.Cloud.Aiplatform.V1.CreateDatasetVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDatasetVersion,
+      Google.Cloud.Aiplatform.V1.DeleteDatasetVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDatasetVersion,
+      Google.Cloud.Aiplatform.V1.GetDatasetVersionRequest,
+      Google.Cloud.Aiplatform.V1.DatasetVersion
+
+  rpc :ListDatasetVersions,
+      Google.Cloud.Aiplatform.V1.ListDatasetVersionsRequest,
+      Google.Cloud.Aiplatform.V1.ListDatasetVersionsResponse
+
+  rpc :RestoreDatasetVersion,
+      Google.Cloud.Aiplatform.V1.RestoreDatasetVersionRequest,
+      Google.Longrunning.Operation
 
   rpc :ListDataItems,
       Google.Cloud.Aiplatform.V1.ListDataItemsRequest,

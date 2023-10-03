@@ -343,7 +343,7 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.InstancePolicy do
     json_name: "bootDisk"
 
   field :disks, 6, repeated: true, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.AttachedDisk
-  field :reservation, 7, type: :string
+  field :reservation, 7, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.InstancePolicyOrTemplate do

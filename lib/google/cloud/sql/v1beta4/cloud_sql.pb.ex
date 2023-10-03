@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Sql.V1beta4.ExternalSyncParallelLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED, 0
+  field :MIN, 1
+  field :OPTIMAL, 2
+  field :MAX, 3
+end
+
 defmodule Google.Cloud.Sql.V1beta4.BackupReencryptionConfig.BackupType do
   @moduledoc false
 
@@ -16,17 +27,6 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
   field :ONLINE, 1
   field :OFFLINE, 2
-end
-
-defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED, 0
-  field :MIN, 1
-  field :OPTIMAL, 2
-  field :MAX, 3
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
@@ -435,7 +435,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
     oneof: 0
 
   field :sync_parallel_level, 7,
-    type: Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest.ExternalSyncParallelLevel,
+    type: Google.Cloud.Sql.V1beta4.ExternalSyncParallelLevel,
     json_name: "syncParallelLevel",
     enum: true,
     deprecated: false
