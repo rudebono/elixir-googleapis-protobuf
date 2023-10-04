@@ -23,6 +23,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+
+  field :view, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModelView,
+    enum: true,
+    deprecated: false
+
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
+  field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :publisher_models, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel,
+    json_name: "publisherModels"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
   @moduledoc false
 
@@ -33,6 +65,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
   rpc :GetPublisherModel,
       Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest,
       Google.Cloud.Aiplatform.V1beta1.PublisherModel
+
+  rpc :ListPublisherModels,
+      Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Stub do
