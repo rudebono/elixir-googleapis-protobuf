@@ -104,6 +104,17 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
   field :BROWSER_ERROR, 6
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals.CardLabel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CARD_LABEL_UNSPECIFIED, 0
+  field :PREPAID, 1
+  field :VIRTUAL, 2
+  field :UNEXPECTED_LOCATION, 3
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel do
   @moduledoc false
 
@@ -157,6 +168,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature do
   field :CHALLENGE_PAGE, 1
   field :SESSION_TOKEN, 2
   field :ACTION_TOKEN, 3
+  field :EXPRESS, 5
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
@@ -166,6 +178,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
 
   field :WAF_SERVICE_UNSPECIFIED, 0
   field :CA, 1
+  field :FASTLY, 3
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do
@@ -316,9 +329,18 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
     type: Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification,
     json_name: "privatePasswordLeakVerification"
 
+  field :firewall_policy_assessment, 10,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicyAssessment,
+    json_name: "firewallPolicyAssessment"
+
   field :fraud_prevention_assessment, 11,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment,
     json_name: "fraudPreventionAssessment"
+
+  field :fraud_signals, 13,
+    type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals,
+    json_name: "fraudSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
@@ -332,6 +354,16 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   field :user_ip_address, 4, type: :string, json_name: "userIpAddress", deprecated: false
   field :expected_action, 5, type: :string, json_name: "expectedAction", deprecated: false
   field :hashed_account_id, 6, type: :bytes, json_name: "hashedAccountId", deprecated: false
+  field :express, 14, type: :bool, deprecated: false
+  field :requested_uri, 8, type: :string, json_name: "requestedUri", deprecated: false
+  field :waf_token_assessment, 9, type: :bool, json_name: "wafTokenAssessment", deprecated: false
+  field :ja3, 10, type: :string, deprecated: false
+  field :headers, 11, repeated: true, type: :string, deprecated: false
+
+  field :firewall_policy_evaluation, 12,
+    type: :bool,
+    json_name: "firewallPolicyEvaluation",
+    deprecated: false
 
   field :transaction_data, 13,
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData,
@@ -432,6 +464,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason,
     enum: true
+
+  field :extended_verdict_reasons, 3,
+    repeated: true,
+    type: :string,
+    json_name: "extendedVerdictReasons"
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
@@ -469,6 +506,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.CardTest
   field :risk, 1, type: :float
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.BehavioralTrustVerdict do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :trust, 1, type: :float
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment do
   @moduledoc false
 
@@ -483,6 +528,52 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment do
   field :card_testing_verdict, 3,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.CardTestingVerdict,
     json_name: "cardTestingVerdict"
+
+  field :behavioral_trust_verdict, 4,
+    type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.BehavioralTrustVerdict,
+    json_name: "behavioralTrustVerdict"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals.UserSignals do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :active_days_lower_bound, 1,
+    type: :int32,
+    json_name: "activeDaysLowerBound",
+    deprecated: false
+
+  field :synthetic_risk, 2, type: :float, json_name: "syntheticRisk", deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :card_labels, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals.CardLabel,
+    json_name: "cardLabels",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_signals, 1,
+    type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals.UserSignals,
+    json_name: "userSignals",
+    deprecated: false
+
+  field :card_signals, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals,
+    json_name: "cardSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
@@ -554,6 +645,74 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateKeyRequest do
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteKeyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.CreateFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :firewall_policy, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy,
+    json_name: "firewallPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListFirewallPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListFirewallPoliciesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :firewall_policies, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy,
+    json_name: "firewallPolicies"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.GetFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.UpdateFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :firewall_policy, 1,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy,
+    json_name: "firewallPolicy",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteFirewallPolicyRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -699,6 +858,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
 
   field :allow_all_package_names, 2, type: :bool, json_name: "allowAllPackageNames"
   field :allowed_package_names, 1, repeated: true, type: :string, json_name: "allowedPackageNames"
+
+  field :support_non_google_app_store_distribution, 3,
+    type: :bool,
+    json_name: "supportNonGoogleAppStoreDistribution"
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
@@ -708,6 +871,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
 
   field :allow_all_bundle_ids, 2, type: :bool, json_name: "allowAllBundleIds"
   field :allowed_bundle_ids, 1, repeated: true, type: :string, json_name: "allowedBundleIds"
+
+  field :apple_developer_id, 3,
+    type: Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId,
+    json_name: "appleDeveloperId"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_key, 1, type: :string, json_name: "privateKey", deprecated: false
+  field :key_id, 2, type: :string, json_name: "keyId", deprecated: false
+  field :team_id, 3, type: :string, json_name: "teamId", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ScoreDistribution.ScoreBucketsEntry do
@@ -765,6 +942,90 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.ChallengeMetrics do
   field :nocaptcha_count, 2, type: :int64, json_name: "nocaptchaCount"
   field :failed_count, 3, type: :int64, json_name: "failedCount"
   field :passed_count, 4, type: :int64, json_name: "passedCount"
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallPolicyAssessment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error, 5, type: Google.Rpc.Status
+
+  field :firewall_policy, 8,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy,
+    json_name: "firewallPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.AllowAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.BlockAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.RedirectAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SubstituteAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SetHeaderAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :firewall_action_oneof, 0
+
+  field :allow, 1, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.AllowAction, oneof: 0
+  field :block, 2, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.BlockAction, oneof: 0
+
+  field :redirect, 5,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.RedirectAction,
+    oneof: 0
+
+  field :substitute, 3,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SubstituteAction,
+    oneof: 0
+
+  field :set_header, 4,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SetHeaderAction,
+    json_name: "setHeader",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :description, 2, type: :string
+  field :path, 4, type: :string
+  field :condition, 5, type: :string
+  field :actions, 6, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest do
@@ -916,6 +1177,26 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :GetMetrics,
       Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest,
       Google.Cloud.Recaptchaenterprise.V1.Metrics
+
+  rpc :CreateFirewallPolicy,
+      Google.Cloud.Recaptchaenterprise.V1.CreateFirewallPolicyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy
+
+  rpc :ListFirewallPolicies,
+      Google.Cloud.Recaptchaenterprise.V1.ListFirewallPoliciesRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ListFirewallPoliciesResponse
+
+  rpc :GetFirewallPolicy,
+      Google.Cloud.Recaptchaenterprise.V1.GetFirewallPolicyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy
+
+  rpc :UpdateFirewallPolicy,
+      Google.Cloud.Recaptchaenterprise.V1.UpdateFirewallPolicyRequest,
+      Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy
+
+  rpc :DeleteFirewallPolicy,
+      Google.Cloud.Recaptchaenterprise.V1.DeleteFirewallPolicyRequest,
+      Google.Protobuf.Empty
 
   rpc :ListRelatedAccountGroups,
       Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest,

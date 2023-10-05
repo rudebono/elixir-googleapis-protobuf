@@ -346,6 +346,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.Car
   field :risk, 1, type: :float
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.BehavioralTrustVerdict do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :trust, 1, type: :float
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment do
   @moduledoc false
 
@@ -361,6 +369,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment do
   field :card_testing_verdict, 3,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.CardTestingVerdict,
     json_name: "cardTestingVerdict"
+
+  field :behavioral_trust_verdict, 4,
+    type:
+      Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.BehavioralTrustVerdict,
+    json_name: "behavioralTrustVerdict"
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment do
