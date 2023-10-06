@@ -30,6 +30,17 @@ defmodule Google.Bigtable.Admin.V2.Cluster.State do
   field :DISABLED, 4
 end
 
+defmodule Google.Bigtable.Admin.V2.AppProfile.Priority do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PRIORITY_UNSPECIFIED, 0
+  field :PRIORITY_LOW, 1
+  field :PRIORITY_MEDIUM, 2
+  field :PRIORITY_HIGH, 3
+end
+
 defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   @moduledoc false
 
@@ -163,12 +174,22 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
   field :allow_transactional_writes, 2, type: :bool, json_name: "allowTransactionalWrites"
 end
 
+defmodule Google.Bigtable.Admin.V2.AppProfile.StandardIsolation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :priority, 1, type: Google.Bigtable.Admin.V2.AppProfile.Priority, enum: true
+end
+
 defmodule Google.Bigtable.Admin.V2.AppProfile do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :routing_policy, 0
+
+  oneof :isolation, 1
 
   field :name, 1, type: :string
   field :etag, 2, type: :string
@@ -183,6 +204,17 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
     type: Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting,
     json_name: "singleClusterRouting",
     oneof: 0
+
+  field :priority, 7,
+    type: Google.Bigtable.Admin.V2.AppProfile.Priority,
+    enum: true,
+    oneof: 1,
+    deprecated: true
+
+  field :standard_isolation, 11,
+    type: Google.Bigtable.Admin.V2.AppProfile.StandardIsolation,
+    json_name: "standardIsolation",
+    oneof: 1
 end
 
 defmodule Google.Bigtable.Admin.V2.HotTablet do
