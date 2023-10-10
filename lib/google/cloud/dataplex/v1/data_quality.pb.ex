@@ -119,7 +119,16 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityDimensionResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :dimension, 1, type: Google.Cloud.Dataplex.V1.DataQualityDimension, deprecated: false
   field :passed, 3, type: :bool
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityDimension do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RangeExpectation do
