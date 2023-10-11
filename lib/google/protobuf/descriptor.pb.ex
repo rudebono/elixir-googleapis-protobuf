@@ -54,8 +54,8 @@ defmodule Google.Protobuf.FieldDescriptorProto.Label do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :LABEL_OPTIONAL, 1
-  field :LABEL_REQUIRED, 2
   field :LABEL_REPEATED, 3
+  field :LABEL_REQUIRED, 2
 end
 
 defmodule Google.Protobuf.FileOptions.OptimizeMode do
