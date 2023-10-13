@@ -1,13 +1,45 @@
-defmodule Google.Shopping.Type.Destination do
+defmodule Google.Shopping.Type.Destination.DestinationEnum do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :DESTINATION_UNSPECIFIED, 0
+  field :DESTINATION_ENUM_UNSPECIFIED, 0
   field :SHOPPING_ADS, 1
-  field :LOCAL_INVENTORY_ADS, 2
-  field :FREE_LISTINGS, 3
-  field :FREE_LOCAL_LISTINGS, 4
+  field :DISPLAY_ADS, 2
+  field :LOCAL_INVENTORY_ADS, 3
+  field :FREE_LISTINGS, 4
+  field :FREE_LOCAL_LISTINGS, 5
+  field :YOUTUBE_SHOPPING, 6
+end
+
+defmodule Google.Shopping.Type.ReportingContext.ReportingContextEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REPORTING_CONTEXT_ENUM_UNSPECIFIED, 0
+  field :SHOPPING_ADS, 1
+  field :DISCOVERY_ADS, 2
+  field :VIDEO_ADS, 3
+  field :DISPLAY_ADS, 4
+  field :LOCAL_INVENTORY_ADS, 5
+  field :VEHICLE_INVENTORY_ADS, 6
+  field :FREE_LISTINGS, 7
+  field :FREE_LOCAL_LISTINGS, 8
+  field :FREE_LOCAL_VEHICLE_LISTINGS, 9
+  field :YOUTUBE_SHOPPING, 10
+  field :CLOUD_RETAIL, 11
+  field :LOCAL_CLOUD_RETAIL, 12
+end
+
+defmodule Google.Shopping.Type.Channel.ChannelEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CHANNEL_ENUM_UNSPECIFIED, 0
+  field :ONLINE, 1
+  field :LOCAL, 2
 end
 
 defmodule Google.Shopping.Type.Price do
@@ -31,4 +63,22 @@ defmodule Google.Shopping.Type.CustomAttribute do
     repeated: true,
     type: Google.Shopping.Type.CustomAttribute,
     json_name: "groupValues"
+end
+
+defmodule Google.Shopping.Type.Destination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Type.ReportingContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Type.Channel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
