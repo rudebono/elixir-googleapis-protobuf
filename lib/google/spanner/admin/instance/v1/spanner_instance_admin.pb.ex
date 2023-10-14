@@ -97,6 +97,53 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
     deprecated: false
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingLimits do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :min_limit, 0
+
+  oneof :max_limit, 1
+
+  field :min_nodes, 1, type: :int32, json_name: "minNodes", oneof: 0
+  field :min_processing_units, 2, type: :int32, json_name: "minProcessingUnits", oneof: 0
+  field :max_nodes, 3, type: :int32, json_name: "maxNodes", oneof: 1
+  field :max_processing_units, 4, type: :int32, json_name: "maxProcessingUnits", oneof: 1
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingTargets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :high_priority_cpu_utilization_percent, 1,
+    type: :int32,
+    json_name: "highPriorityCpuUtilizationPercent",
+    deprecated: false
+
+  field :storage_utilization_percent, 2,
+    type: :int32,
+    json_name: "storageUtilizationPercent",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :autoscaling_limits, 1,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingLimits,
+    json_name: "autoscalingLimits",
+    deprecated: false
+
+  field :autoscaling_targets, 2,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingTargets,
+    json_name: "autoscalingTargets",
+    deprecated: false
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry do
   @moduledoc false
 
@@ -116,6 +163,11 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
   field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
   field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :processing_units, 9, type: :int32, json_name: "processingUnits"
+
+  field :autoscaling_config, 17,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig,
+    json_name: "autoscalingConfig",
+    deprecated: false
 
   field :state, 6,
     type: Google.Spanner.Admin.Instance.V1.Instance.State,
