@@ -173,7 +173,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
     type: Google.Shopping.Merchant.Reports.V1beta.MarketingMethod.MarketingMethodEnum,
     json_name: "marketingMethod",
     enum: true
-
+  
   field :date, 2, type: Google.Type.Date
   field :week, 3, type: Google.Type.Date
 
