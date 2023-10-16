@@ -1,54 +1,9 @@
-defmodule Google.Shopping.Merchant.Reports.V1beta.ReportGranularity do
+defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.AggregatedReportingContextStatus do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :REPORT_GRANULARITY_UNSPECIFIED, 0
-  field :WEEKLY, 1
-  field :MONTHLY, 2
-end
-
-defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemand do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :RELATIVE_DEMAND_UNSPECIFIED, 0
-  field :VERY_LOW, 10
-  field :LOW, 20
-  field :MEDIUM, 30
-  field :HIGH, 40
-  field :VERY_HIGH, 50
-end
-
-defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :RELATIVE_DEMAND_CHANGE_TYPE_UNSPECIFIED, 0
-  field :SINKER, 1
-  field :FLAT, 2
-  field :RISER, 3
-end
-
-defmodule Google.Shopping.Merchant.Reports.V1beta.TrafficSource do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :TRAFFIC_SOURCE_UNSPECIFIED, 0
-  field :ORGANIC, 1
-  field :ADS, 2
-  field :ALL, 3
-end
-
-defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.AggregatedDestinationStatus do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :AGGREGATED_DESTINATION_STATUS_UNSPECIFIED, 0
+  field :AGGREGATED_REPORTING_CONTEXT_STATUS_UNSPECIFIED, 0
   field :NOT_ELIGIBLE_OR_DISAPPROVED, 1
   field :PENDING, 2
   field :ELIGIBLE_LIMITED, 3
@@ -87,6 +42,61 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView.
   field :NOT_IN_INVENTORY, 3
 end
 
+defmodule Google.Shopping.Merchant.Reports.V1beta.MarketingMethod.MarketingMethodEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MARKETING_METHOD_ENUM_UNSPECIFIED, 0
+  field :ORGANIC, 1
+  field :ADS, 2
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.ReportGranularity.ReportGranularityEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REPORT_GRANULARITY_ENUM_UNSPECIFIED, 0
+  field :WEEKLY, 1
+  field :MONTHLY, 2
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemand.RelativeDemandEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELATIVE_DEMAND_ENUM_UNSPECIFIED, 0
+  field :VERY_LOW, 10
+  field :LOW, 20
+  field :MEDIUM, 30
+  field :HIGH, 40
+  field :VERY_HIGH, 50
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType.RelativeDemandChangeTypeEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELATIVE_DEMAND_CHANGE_TYPE_ENUM_UNSPECIFIED, 0
+  field :SINKER, 1
+  field :FLAT, 2
+  field :RISER, 3
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.TrafficSource.TrafficSourceEnum do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRAFFIC_SOURCE_ENUM_UNSPECIFIED, 0
+  field :ORGANIC, 1
+  field :ADS, 2
+  field :ALL, 3
+end
+
 defmodule Google.Shopping.Merchant.Reports.V1beta.SearchRequest do
   @moduledoc false
 
@@ -94,8 +104,8 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.SearchRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.SearchResponse do
@@ -158,7 +168,12 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination
+  field :marketing_method, 1,
+    proto3_optional: true,
+    type: Google.Shopping.Merchant.Reports.V1beta.MarketingMethod.MarketingMethodEnum,
+    json_name: "marketingMethod",
+    enum: true
+  
   field :date, 2, type: Google.Type.Date
   field :week, 3, type: Google.Type.Date
 
@@ -223,12 +238,16 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssu
     json_name: "canonicalAttribute"
 end
 
-defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueSeverity.IssueSeverityPerDestination do
+defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueSeverity.IssueSeverityPerReportingContext do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination
+  field :reporting_context, 1,
+    proto3_optional: true,
+    type: Google.Shopping.Type.ReportingContext.ReportingContextEnum,
+    json_name: "reportingContext",
+    enum: true
 
   field :disapproved_countries, 2,
     repeated: true,
@@ -243,11 +262,11 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssu
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :severity_per_destination, 1,
+  field :severity_per_reporting_context, 1,
     repeated: true,
     type:
-      Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueSeverity.IssueSeverityPerDestination,
-    json_name: "severityPerDestination"
+      Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueSeverity.IssueSeverityPerReportingContext,
+    json_name: "severityPerReportingContext"
 
   field :aggregated_severity, 2,
     proto3_optional: true,
@@ -280,6 +299,12 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, proto3_optional: true, type: :string
+
+  field :channel, 28,
+    proto3_optional: true,
+    type: Google.Shopping.Type.Channel.ChannelEnum,
+    enum: true
+
   field :language_code, 2, proto3_optional: true, type: :string, json_name: "languageCode"
   field :feed_label, 3, proto3_optional: true, type: :string, json_name: "feedLabel"
   field :offer_id, 4, proto3_optional: true, type: :string, json_name: "offerId"
@@ -305,10 +330,10 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView do
   field :creation_time, 24, type: Google.Protobuf.Timestamp, json_name: "creationTime"
   field :expiration_date, 25, type: Google.Type.Date, json_name: "expirationDate"
 
-  field :aggregated_destination_status, 26,
+  field :aggregated_reporting_context_status, 26,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.ProductView.AggregatedDestinationStatus,
-    json_name: "aggregatedDestinationStatus",
+    type: Google.Shopping.Merchant.Reports.V1beta.ProductView.AggregatedReportingContextStatus,
+    json_name: "aggregatedReportingContextStatus",
     enum: true
 
   field :item_issues, 27,
@@ -381,15 +406,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView do
     proto3_optional: true,
     type: :double,
     json_name: "predictedConversionsChangeFraction"
-
-  field :predicted_gross_profit_change_fraction, 20,
-    proto3_optional: true,
-    type: :double,
-    json_name: "predictedGrossProfitChangeFraction"
-
-  field :predicted_monthly_gross_profit_change, 21,
-    type: Google.Shopping.Type.Price,
-    json_name: "predictedMonthlyGrossProfitChange"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView do
@@ -401,7 +417,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView 
 
   field :report_granularity, 2,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.ReportGranularity,
+    type: Google.Shopping.Merchant.Reports.V1beta.ReportGranularity.ReportGranularityEnum,
     json_name: "reportGranularity",
     enum: true
 
@@ -438,19 +454,20 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView 
 
   field :relative_demand, 18,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand,
+    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand.RelativeDemandEnum,
     json_name: "relativeDemand",
     enum: true
 
   field :previous_relative_demand, 19,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand,
+    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand.RelativeDemandEnum,
     json_name: "previousRelativeDemand",
     enum: true
 
   field :relative_demand_change, 20,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType,
+    type:
+      Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType.RelativeDemandChangeTypeEnum,
     json_name: "relativeDemandChange",
     enum: true
 end
@@ -464,7 +481,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
 
   field :report_granularity, 2,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.ReportGranularity,
+    type: Google.Shopping.Merchant.Reports.V1beta.ReportGranularity.ReportGranularityEnum,
     json_name: "reportGranularity",
     enum: true
 
@@ -481,19 +498,20 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
 
   field :relative_demand, 9,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand,
+    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand.RelativeDemandEnum,
     json_name: "relativeDemand",
     enum: true
 
   field :previous_relative_demand, 10,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand,
+    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemand.RelativeDemandEnum,
     json_name: "previousRelativeDemand",
     enum: true
 
   field :relative_demand_change, 11,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType,
+    type:
+      Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType.RelativeDemandChangeTypeEnum,
     json_name: "relativeDemandChange",
     enum: true
 end
@@ -532,7 +550,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityCompetito
 
   field :traffic_source, 6,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource,
+    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource.TrafficSourceEnum,
     json_name: "trafficSource",
     enum: true
 
@@ -569,7 +587,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityTopMercha
 
   field :traffic_source, 6,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource,
+    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource.TrafficSourceEnum,
     json_name: "trafficSource",
     enum: true
 
@@ -599,7 +617,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityBenchmark
 
   field :traffic_source, 4,
     proto3_optional: true,
-    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource,
+    type: Google.Shopping.Merchant.Reports.V1beta.TrafficSource.TrafficSourceEnum,
     json_name: "trafficSource",
     enum: true
 
@@ -612,6 +630,36 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityBenchmark
     proto3_optional: true,
     type: :double,
     json_name: "categoryBenchmarkVisibilityTrend"
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.MarketingMethod do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.ReportGranularity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemand do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.TrafficSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.ReportService.Service do
