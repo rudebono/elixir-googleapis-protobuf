@@ -285,6 +285,42 @@ defmodule Google.Storage.V2.DeleteObjectRequest do
     json_name: "commonObjectRequestParams"
 end
 
+defmodule Google.Storage.V2.RestoreObjectRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
+  field :generation, 3, type: :int64, deprecated: false
+
+  field :if_generation_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationMatch"
+
+  field :if_generation_not_match, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationNotMatch"
+
+  field :if_metageneration_match, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_not_match, 7,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch"
+
+  field :copy_source_acl, 9, proto3_optional: true, type: :bool, json_name: "copySourceAcl"
+
+  field :common_object_request_params, 8,
+    type: Google.Storage.V2.CommonObjectRequestParams,
+    json_name: "commonObjectRequestParams"
+end
+
 defmodule Google.Storage.V2.CancelResumableWriteRequest do
   @moduledoc false
 
@@ -348,6 +384,7 @@ defmodule Google.Storage.V2.GetObjectRequest do
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64
+  field :soft_deleted, 11, proto3_optional: true, type: :bool, json_name: "softDeleted"
 
   field :if_generation_match, 4,
     proto3_optional: true,
@@ -472,6 +509,53 @@ defmodule Google.Storage.V2.WriteObjectResponse do
   field :resource, 2, type: Google.Storage.V2.Object, oneof: 0
 end
 
+defmodule Google.Storage.V2.BidiWriteObjectRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :first_message, 0
+
+  oneof :data, 1
+
+  field :upload_id, 1, type: :string, json_name: "uploadId", oneof: 0
+
+  field :write_object_spec, 2,
+    type: Google.Storage.V2.WriteObjectSpec,
+    json_name: "writeObjectSpec",
+    oneof: 0
+
+  field :write_offset, 3, type: :int64, json_name: "writeOffset", deprecated: false
+
+  field :checksummed_data, 4,
+    type: Google.Storage.V2.ChecksummedData,
+    json_name: "checksummedData",
+    oneof: 1
+
+  field :object_checksums, 6,
+    type: Google.Storage.V2.ObjectChecksums,
+    json_name: "objectChecksums"
+
+  field :state_lookup, 7, type: :bool, json_name: "stateLookup"
+  field :flush, 8, type: :bool
+  field :finish_write, 9, type: :bool, json_name: "finishWrite"
+
+  field :common_object_request_params, 10,
+    type: Google.Storage.V2.CommonObjectRequestParams,
+    json_name: "commonObjectRequestParams"
+end
+
+defmodule Google.Storage.V2.BidiWriteObjectResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :write_status, 0
+
+  field :persisted_size, 1, type: :int64, json_name: "persistedSize", oneof: 0
+  field :resource, 2, type: Google.Storage.V2.Object, oneof: 0
+end
+
 defmodule Google.Storage.V2.ListObjectsRequest do
   @moduledoc false
 
@@ -496,6 +580,7 @@ defmodule Google.Storage.V2.ListObjectsRequest do
     deprecated: false
 
   field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd", deprecated: false
+  field :soft_deleted, 12, type: :bool, json_name: "softDeleted", deprecated: false
   field :match_glob, 14, type: :string, json_name: "matchGlob", deprecated: false
 end
 
@@ -901,6 +986,22 @@ defmodule Google.Storage.V2.Bucket.RetentionPolicy do
   field :retention_duration, 4, type: Google.Protobuf.Duration, json_name: "retentionDuration"
 end
 
+defmodule Google.Storage.V2.Bucket.SoftDeletePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_duration, 1,
+    proto3_optional: true,
+    type: Google.Protobuf.Duration,
+    json_name: "retentionDuration"
+
+  field :effective_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "effectiveTime"
+end
+
 defmodule Google.Storage.V2.Bucket.Versioning do
   @moduledoc false
 
@@ -1015,6 +1116,11 @@ defmodule Google.Storage.V2.Bucket do
     json_name: "customPlacementConfig"
 
   field :autoclass, 28, type: Google.Storage.V2.Bucket.Autoclass
+
+  field :soft_delete_policy, 31,
+    type: Google.Storage.V2.Bucket.SoftDeletePolicy,
+    json_name: "softDeletePolicy",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.BucketAccessControl do
@@ -1298,6 +1404,8 @@ defmodule Google.Storage.V2.Storage.Service do
 
   rpc :DeleteObject, Google.Storage.V2.DeleteObjectRequest, Google.Protobuf.Empty
 
+  rpc :RestoreObject, Google.Storage.V2.RestoreObjectRequest, Google.Storage.V2.Object
+
   rpc :CancelResumableWrite,
       Google.Storage.V2.CancelResumableWriteRequest,
       Google.Storage.V2.CancelResumableWriteResponse
@@ -1313,6 +1421,10 @@ defmodule Google.Storage.V2.Storage.Service do
   rpc :WriteObject,
       stream(Google.Storage.V2.WriteObjectRequest),
       Google.Storage.V2.WriteObjectResponse
+
+  rpc :BidiWriteObject,
+      stream(Google.Storage.V2.BidiWriteObjectRequest),
+      stream(Google.Storage.V2.BidiWriteObjectResponse)
 
   rpc :ListObjects, Google.Storage.V2.ListObjectsRequest, Google.Storage.V2.ListObjectsResponse
 

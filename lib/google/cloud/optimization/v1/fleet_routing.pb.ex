@@ -550,6 +550,17 @@ defmodule Google.Cloud.Optimization.V1.ShipmentTypeRequirement do
     enum: true
 end
 
+defmodule Google.Cloud.Optimization.V1.RouteModifiers do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :avoid_tolls, 2, type: :bool, json_name: "avoidTolls"
+  field :avoid_highways, 3, type: :bool, json_name: "avoidHighways"
+  field :avoid_ferries, 4, type: :bool, json_name: "avoidFerries"
+  field :avoid_indoor, 5, type: :bool, json_name: "avoidIndoor", deprecated: false
+end
+
 defmodule Google.Cloud.Optimization.V1.Vehicle.LoadLimit.Interval do
   @moduledoc false
 
@@ -627,6 +638,11 @@ defmodule Google.Cloud.Optimization.V1.Vehicle do
     type: Google.Cloud.Optimization.V1.Vehicle.TravelMode,
     json_name: "travelMode",
     enum: true
+
+  field :route_modifiers, 2,
+    type: Google.Cloud.Optimization.V1.RouteModifiers,
+    json_name: "routeModifiers",
+    deprecated: false
 
   field :start_location, 3, type: Google.Type.LatLng, json_name: "startLocation"
 

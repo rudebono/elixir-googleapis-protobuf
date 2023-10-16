@@ -158,7 +158,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination, enum: true
+  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination
   field :date, 2, type: Google.Type.Date
   field :week, 3, type: Google.Type.Date
 
@@ -228,7 +228,7 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssu
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination, enum: true
+  field :destination, 1, proto3_optional: true, type: Google.Shopping.Type.Destination
 
   field :disapproved_countries, 2,
     repeated: true,
