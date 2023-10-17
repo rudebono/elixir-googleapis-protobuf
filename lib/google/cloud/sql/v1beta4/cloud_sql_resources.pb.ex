@@ -784,6 +784,12 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
     type: :string,
     json_name: "dnsName",
     deprecated: false
+
+  field :primary_dns_name, 51,
+    proto3_optional: true,
+    type: :string,
+    json_name: "primaryDnsName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabasesListResponse do

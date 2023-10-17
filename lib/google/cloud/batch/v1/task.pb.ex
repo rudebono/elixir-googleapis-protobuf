@@ -122,6 +122,7 @@ defmodule Google.Cloud.Batch.V1.Runnable do
   field :container, 1, type: Google.Cloud.Batch.V1.Runnable.Container, oneof: 0
   field :script, 2, type: Google.Cloud.Batch.V1.Runnable.Script, oneof: 0
   field :barrier, 6, type: Google.Cloud.Batch.V1.Runnable.Barrier, oneof: 0
+  field :display_name, 10, type: :string, json_name: "displayName", deprecated: false
   field :ignore_exit_status, 3, type: :bool, json_name: "ignoreExitStatus"
   field :background, 4, type: :bool
   field :always_run, 5, type: :bool, json_name: "alwaysRun"
