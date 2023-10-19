@@ -529,6 +529,64 @@ defmodule Google.Cloud.Securitycenter.V1.RunAssetDiscoveryRequest do
   field :parent, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest.SimulatedResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_type, 1, type: :string, json_name: "resourceType", deprecated: false
+
+  field :resource_data, 2,
+    type: Google.Protobuf.Struct,
+    json_name: "resourceData",
+    deprecated: false
+
+  field :iam_policy_data, 3,
+    type: Google.Iam.V1.Policy,
+    json_name: "iamPolicyData",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :custom_config, 2,
+    type: Google.Cloud.Securitycenter.V1.CustomConfig,
+    json_name: "customConfig",
+    deprecated: false
+
+  field :resource, 3,
+    type:
+      Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest.SimulatedResource,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse.SimulatedResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :result, 0
+
+  field :finding, 1, type: Google.Cloud.Securitycenter.V1.Finding, oneof: 0
+  field :no_violation, 2, type: Google.Protobuf.Empty, json_name: "noViolation", oneof: 0
+  field :error, 3, type: Google.Rpc.Status, oneof: 0
+end
+
+defmodule Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :result, 1,
+    type:
+      Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse.SimulatedResult
+end
+
 defmodule Google.Cloud.Securitycenter.V1.UpdateExternalSystemRequest do
   @moduledoc false
 
@@ -815,6 +873,10 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :SimulateSecurityHealthAnalyticsCustomModule,
+      Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse
 
   rpc :UpdateExternalSystem,
       Google.Cloud.Securitycenter.V1.UpdateExternalSystemRequest,

@@ -9,5 +9,6 @@ defmodule Google.Cloud.Deploy.V1.Type do
   field :TYPE_PROCESS_ABORTED, 4
   field :TYPE_RESTRICTION_VIOLATED, 5
   field :TYPE_RESOURCE_DELETED, 6
+  field :TYPE_ROLLOUT_UPDATE, 7
   field :TYPE_RENDER_STATUES_CHANGE, 2
 end

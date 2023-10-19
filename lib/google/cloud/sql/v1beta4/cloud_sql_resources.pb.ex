@@ -297,6 +297,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :INVALID_FILE_INFO, 32
   field :UNSUPPORTED_DATABASE_SETTINGS, 33
   field :MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 34
+  field :LOCAL_INFILE_OFF, 35
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
