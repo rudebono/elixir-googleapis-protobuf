@@ -126,10 +126,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ReportRow do
     type: Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView,
     json_name: "productPerformanceView"
 
-  field :non_product_performance_view, 7,
-    type: Google.Shopping.Merchant.Reports.V1beta.NonProductPerformanceView,
-    json_name: "nonProductPerformanceView"
-
   field :product_view, 2,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductView,
     json_name: "productView"
@@ -181,18 +177,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView do
     proto3_optional: true,
     type: :string,
     json_name: "customerCountryCode"
-
-  field :account_id, 29, proto3_optional: true, type: :int64, json_name: "accountId"
-
-  field :account_display_name, 30,
-    proto3_optional: true,
-    type: :string,
-    json_name: "accountDisplayName"
-
-  field :external_account_id, 31,
-    proto3_optional: true,
-    type: :string,
-    json_name: "externalAccountId"
 
   field :offer_id, 5, proto3_optional: true, type: :string, json_name: "offerId"
   field :title, 6, proto3_optional: true, type: :string
@@ -427,7 +411,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView 
     json_name: "reportCountryCode"
 
   field :report_category_id, 4, proto3_optional: true, type: :int64, json_name: "reportCategoryId"
-  field :id, 5, proto3_optional: true, type: :string
   field :title, 6, proto3_optional: true, type: :string
   field :brand, 7, proto3_optional: true, type: :string
   field :category_l1, 8, proto3_optional: true, type: :string, json_name: "categoryL1"
@@ -491,7 +474,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
     json_name: "reportCountryCode"
 
   field :report_category_id, 4, proto3_optional: true, type: :int64, json_name: "reportCategoryId"
-  field :id, 5, proto3_optional: true, type: :string
   field :brand, 6, proto3_optional: true, type: :string
   field :rank, 7, proto3_optional: true, type: :int64
   field :previous_rank, 8, proto3_optional: true, type: :int64, json_name: "previousRank"
@@ -514,22 +496,6 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
       Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType.RelativeDemandChangeTypeEnum,
     json_name: "relativeDemandChange",
     enum: true
-end
-
-defmodule Google.Shopping.Merchant.Reports.V1beta.NonProductPerformanceView do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :date, 1, type: Google.Type.Date
-  field :week, 2, type: Google.Type.Date
-  field :clicks, 3, proto3_optional: true, type: :int64
-  field :impressions, 4, proto3_optional: true, type: :int64
-
-  field :click_through_rate, 5,
-    proto3_optional: true,
-    type: :double,
-    json_name: "clickThroughRate"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityCompetitorView do

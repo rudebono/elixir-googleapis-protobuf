@@ -88,6 +88,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :EXPANDED_DATA_SET, 21
   field :CHANNEL_GROUP, 22
   field :ENHANCED_MEASUREMENT_SETTINGS, 24
+  field :DATA_REDACTION_SETTINGS, 25
   field :SKADNETWORK_CONVERSION_VALUE_SCHEMA, 26
   field :ADSENSE_LINK, 27
   field :AUDIENCE, 28
@@ -434,27 +435,6 @@ defmodule Google.Analytics.Admin.V1alpha.DataStream do
     deprecated: false
 end
 
-defmodule Google.Analytics.Admin.V1alpha.UserLink do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :email_address, 2, type: :string, json_name: "emailAddress", deprecated: false
-  field :direct_roles, 3, repeated: true, type: :string, json_name: "directRoles"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.AuditUserLink do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string
-  field :email_address, 2, type: :string, json_name: "emailAddress"
-  field :direct_roles, 3, repeated: true, type: :string, json_name: "directRoles"
-  field :effective_roles, 4, repeated: true, type: :string, json_name: "effectiveRoles"
-end
-
 defmodule Google.Analytics.Admin.V1alpha.FirebaseLink do
   @moduledoc false
 
@@ -757,6 +737,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :enhanced_measurement_settings, 24,
     type: Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings,
     json_name: "enhancedMeasurementSettings",
+    oneof: 0
+
+  field :data_redaction_settings, 25,
+    type: Google.Analytics.Admin.V1alpha.DataRedactionSettings,
+    json_name: "dataRedactionSettings",
     oneof: 0
 
   field :skadnetwork_conversion_value_schema, 26,
@@ -1110,6 +1095,21 @@ defmodule Google.Analytics.Admin.V1alpha.ConnectedSiteTag do
   field :tag_id, 2, type: :string, json_name: "tagId", deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.DataRedactionSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :email_redaction_enabled, 2, type: :bool, json_name: "emailRedactionEnabled"
+
+  field :query_parameter_redaction_enabled, 3,
+    type: :bool,
+    json_name: "queryParameterRedactionEnabled"
+
+  field :query_parameter_keys, 4, repeated: true, type: :string, json_name: "queryParameterKeys"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AdSenseLink do
   @moduledoc false
 
@@ -1117,4 +1117,13 @@ defmodule Google.Analytics.Admin.V1alpha.AdSenseLink do
 
   field :name, 1, type: :string, deprecated: false
   field :ad_client_code, 2, type: :string, json_name: "adClientCode", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.RollupPropertySourceLink do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :source_property, 2, type: :string, json_name: "sourceProperty", deprecated: false
 end

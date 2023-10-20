@@ -30,6 +30,8 @@ defmodule Google.Analytics.Admin.V1alpha.RunAccessReportRequest do
     json_name: "orderBys"
 
   field :return_entity_quota, 11, type: :bool, json_name: "returnEntityQuota"
+  field :include_all_users, 12, type: :bool, json_name: "includeAllUsers", deprecated: false
+  field :expand_groups, 13, type: :bool, json_name: "expandGroups", deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.RunAccessReportResponse do
@@ -172,175 +174,6 @@ defmodule Google.Analytics.Admin.V1alpha.DeletePropertyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.GetUserLinkRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :names, 2, repeated: true, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_links, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLinks"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.ListUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.ListUserLinksResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_links, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLinks"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.AuditUserLinksResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_links, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.AuditUserLink,
-    json_name: "userLinks"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.CreateUserLinkRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :notify_new_user, 2, type: :bool, json_name: "notifyNewUser", deprecated: false
-
-  field :user_link, 3,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLink",
-    deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :notify_new_users, 2, type: :bool, json_name: "notifyNewUsers", deprecated: false
-
-  field :requests, 3,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.CreateUserLinkRequest,
-    deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_links, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLinks"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_link, 1,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLink",
-    deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-
-  field :requests, 2,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest,
-    deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :user_links, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.UserLink,
-    json_name: "userLinks"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-
-  field :requests, 2,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest,
-    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest do
@@ -1659,6 +1492,30 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsReques
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetDataRedactionSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateDataRedactionSettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_redaction_settings, 1,
+    type: Google.Analytics.Admin.V1alpha.DataRedactionSettings,
+    json_name: "dataRedactionSettings",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest do
   @moduledoc false
 
@@ -1842,6 +1699,184 @@ defmodule Google.Analytics.Admin.V1alpha.ListEventCreateRulesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateRollupPropertyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rollup_property, 1,
+    type: Google.Analytics.Admin.V1alpha.Property,
+    json_name: "rollupProperty",
+    deprecated: false
+
+  field :source_properties, 2,
+    repeated: true,
+    type: :string,
+    json_name: "sourceProperties",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateRollupPropertyResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rollup_property, 1,
+    type: Google.Analytics.Admin.V1alpha.Property,
+    json_name: "rollupProperty"
+
+  field :rollup_property_source_links, 2,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.RollupPropertySourceLink,
+    json_name: "rollupPropertySourceLinks"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetRollupPropertySourceLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListRollupPropertySourceLinksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListRollupPropertySourceLinksResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rollup_property_source_links, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.RollupPropertySourceLink,
+    json_name: "rollupPropertySourceLinks"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateRollupPropertySourceLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :rollup_property_source_link, 2,
+    type: Google.Analytics.Admin.V1alpha.RollupPropertySourceLink,
+    json_name: "rollupPropertySourceLink",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteRollupPropertySourceLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :subproperty, 2, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
+
+  field :subproperty_event_filter, 3,
+    type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
+    json_name: "subpropertyEventFilter",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subproperty, 1, type: Google.Analytics.Admin.V1alpha.Property
+
+  field :subproperty_event_filter, 2,
+    type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
+    json_name: "subpropertyEventFilter"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyEventFilterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :subproperty_event_filter, 2,
+    type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
+    json_name: "subpropertyEventFilter",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetSubpropertyEventFilterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSubpropertyEventFiltersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSubpropertyEventFiltersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subproperty_event_filters, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
+    json_name: "subpropertyEventFilters"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateSubpropertyEventFilterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subproperty_event_filter, 1,
+    type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
+    json_name: "subpropertyEventFilter",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
 
@@ -1890,44 +1925,6 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :UpdateProperty,
       Google.Analytics.Admin.V1alpha.UpdatePropertyRequest,
       Google.Analytics.Admin.V1alpha.Property
-
-  rpc :GetUserLink,
-      Google.Analytics.Admin.V1alpha.GetUserLinkRequest,
-      Google.Analytics.Admin.V1alpha.UserLink
-
-  rpc :BatchGetUserLinks,
-      Google.Analytics.Admin.V1alpha.BatchGetUserLinksRequest,
-      Google.Analytics.Admin.V1alpha.BatchGetUserLinksResponse
-
-  rpc :ListUserLinks,
-      Google.Analytics.Admin.V1alpha.ListUserLinksRequest,
-      Google.Analytics.Admin.V1alpha.ListUserLinksResponse
-
-  rpc :AuditUserLinks,
-      Google.Analytics.Admin.V1alpha.AuditUserLinksRequest,
-      Google.Analytics.Admin.V1alpha.AuditUserLinksResponse
-
-  rpc :CreateUserLink,
-      Google.Analytics.Admin.V1alpha.CreateUserLinkRequest,
-      Google.Analytics.Admin.V1alpha.UserLink
-
-  rpc :BatchCreateUserLinks,
-      Google.Analytics.Admin.V1alpha.BatchCreateUserLinksRequest,
-      Google.Analytics.Admin.V1alpha.BatchCreateUserLinksResponse
-
-  rpc :UpdateUserLink,
-      Google.Analytics.Admin.V1alpha.UpdateUserLinkRequest,
-      Google.Analytics.Admin.V1alpha.UserLink
-
-  rpc :BatchUpdateUserLinks,
-      Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksRequest,
-      Google.Analytics.Admin.V1alpha.BatchUpdateUserLinksResponse
-
-  rpc :DeleteUserLink, Google.Analytics.Admin.V1alpha.DeleteUserLinkRequest, Google.Protobuf.Empty
-
-  rpc :BatchDeleteUserLinks,
-      Google.Analytics.Admin.V1alpha.BatchDeleteUserLinksRequest,
-      Google.Protobuf.Empty
 
   rpc :CreateFirebaseLink,
       Google.Analytics.Admin.V1alpha.CreateFirebaseLinkRequest,
@@ -2356,6 +2353,46 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :DeleteEventCreateRule,
       Google.Analytics.Admin.V1alpha.DeleteEventCreateRuleRequest,
       Google.Protobuf.Empty
+
+  rpc :UpdateDataRedactionSettings,
+      Google.Analytics.Admin.V1alpha.UpdateDataRedactionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.DataRedactionSettings
+
+  rpc :GetDataRedactionSettings,
+      Google.Analytics.Admin.V1alpha.GetDataRedactionSettingsRequest,
+      Google.Analytics.Admin.V1alpha.DataRedactionSettings
+
+  rpc :CreateRollupProperty,
+      Google.Analytics.Admin.V1alpha.CreateRollupPropertyRequest,
+      Google.Analytics.Admin.V1alpha.CreateRollupPropertyResponse
+
+  rpc :GetRollupPropertySourceLink,
+      Google.Analytics.Admin.V1alpha.GetRollupPropertySourceLinkRequest,
+      Google.Analytics.Admin.V1alpha.RollupPropertySourceLink
+
+  rpc :ListRollupPropertySourceLinks,
+      Google.Analytics.Admin.V1alpha.ListRollupPropertySourceLinksRequest,
+      Google.Analytics.Admin.V1alpha.ListRollupPropertySourceLinksResponse
+
+  rpc :CreateRollupPropertySourceLink,
+      Google.Analytics.Admin.V1alpha.CreateRollupPropertySourceLinkRequest,
+      Google.Analytics.Admin.V1alpha.RollupPropertySourceLink
+
+  rpc :DeleteRollupPropertySourceLink,
+      Google.Analytics.Admin.V1alpha.DeleteRollupPropertySourceLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateSubproperty,
+      Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest,
+      Google.Analytics.Admin.V1alpha.CreateSubpropertyResponse
+
+  rpc :DeleteSubpropertyEventFilter,
+      Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateSubpropertyEventFilter,
+      Google.Analytics.Admin.V1alpha.CreateSubpropertyEventFilterRequest,
+      Google.Analytics.Admin.V1alpha.SubpropertyEventFilter
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
