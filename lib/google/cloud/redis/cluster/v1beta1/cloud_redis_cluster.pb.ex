@@ -92,14 +92,6 @@ defmodule Google.Cloud.Redis.Cluster.V1beta1.DeleteClusterRequest do
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 
-defmodule Google.Cloud.Redis.Cluster.V1beta1.GetClusterCertificateAuthorityRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Redis.Cluster.V1beta1.Cluster.StateInfo.UpdateInfo do
   @moduledoc false
 
@@ -252,41 +244,6 @@ defmodule Google.Cloud.Redis.Cluster.V1beta1.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
-defmodule Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority.ManagedCertificateAuthority.CertChain do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :certificates, 1, repeated: true, type: :string
-end
-
-defmodule Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority.ManagedCertificateAuthority do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :ca_certs, 1,
-    repeated: true,
-    type:
-      Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority.ManagedCertificateAuthority.CertChain,
-    json_name: "caCerts"
-end
-
-defmodule Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :server_ca, 0
-
-  field :managed_server_ca, 1,
-    type: Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority.ManagedCertificateAuthority,
-    json_name: "managedServerCa",
-    oneof: 0
-
-  field :name, 2, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Redis.Cluster.V1beta1.CloudRedisCluster.Service do
   @moduledoc false
 
@@ -313,10 +270,6 @@ defmodule Google.Cloud.Redis.Cluster.V1beta1.CloudRedisCluster.Service do
   rpc :CreateCluster,
       Google.Cloud.Redis.Cluster.V1beta1.CreateClusterRequest,
       Google.Longrunning.Operation
-
-  rpc :GetClusterCertificateAuthority,
-      Google.Cloud.Redis.Cluster.V1beta1.GetClusterCertificateAuthorityRequest,
-      Google.Cloud.Redis.Cluster.V1beta1.CertificateAuthority
 end
 
 defmodule Google.Cloud.Redis.Cluster.V1beta1.CloudRedisCluster.Stub do
