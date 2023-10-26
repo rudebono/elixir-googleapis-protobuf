@@ -65,6 +65,16 @@ defmodule Google.Devtools.Artifactregistry.V1.DeleteVersionRequest do
   field :force, 2, type: :bool
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
+  field :validate_only, 3, type: :bool, json_name: "validateOnly"
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsMetadata do
   @moduledoc false
 

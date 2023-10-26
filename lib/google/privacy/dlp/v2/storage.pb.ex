@@ -76,6 +76,10 @@ defmodule Google.Privacy.Dlp.V2.InfoType do
 
   field :name, 1, type: :string
   field :version, 2, type: :string
+
+  field :sensitivity_score, 3,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
 end
 
 defmodule Google.Privacy.Dlp.V2.SensitivityScore do
@@ -218,6 +222,10 @@ defmodule Google.Privacy.Dlp.V2.CustomInfoType do
     type: Google.Privacy.Dlp.V2.CustomInfoType.ExclusionType,
     json_name: "exclusionType",
     enum: true
+
+  field :sensitivity_score, 9,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
 end
 
 defmodule Google.Privacy.Dlp.V2.FieldId do

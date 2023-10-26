@@ -95,6 +95,10 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
       Google.Devtools.Artifactregistry.V1.DeleteVersionRequest,
       Google.Longrunning.Operation
 
+  rpc :BatchDeleteVersions,
+      Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsRequest,
+      Google.Longrunning.Operation
+
   rpc :ListFiles,
       Google.Devtools.Artifactregistry.V1.ListFilesRequest,
       Google.Devtools.Artifactregistry.V1.ListFilesResponse
