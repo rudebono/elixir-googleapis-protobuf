@@ -43,6 +43,56 @@ defmodule Google.Privacy.Dlp.V2.TransformationType do
   field :REDACT_IMAGE, 14
 end
 
+defmodule Google.Privacy.Dlp.V2.BigQueryTableTypeCollection do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BIG_QUERY_COLLECTION_UNSPECIFIED, 0
+  field :BIG_QUERY_COLLECTION_ALL_TYPES, 1
+  field :BIG_QUERY_COLLECTION_ONLY_SUPPORTED_TYPES, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryTableType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BIG_QUERY_TABLE_TYPE_UNSPECIFIED, 0
+  field :BIG_QUERY_TABLE_TYPE_TABLE, 1
+  field :BIG_QUERY_TABLE_TYPE_EXTERNAL_BIG_LAKE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileUpdateFrequency do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UPDATE_FREQUENCY_UNSPECIFIED, 0
+  field :UPDATE_FREQUENCY_NEVER, 1
+  field :UPDATE_FREQUENCY_DAILY, 2
+  field :UPDATE_FREQUENCY_MONTHLY, 4
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryTableModification do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TABLE_MODIFICATION_UNSPECIFIED, 0
+  field :TABLE_MODIFIED_TIMESTAMP, 1
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQuerySchemaModification do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SCHEMA_MODIFICATION_UNSPECIFIED, 0
+  field :SCHEMA_NEW_COLUMNS, 1
+  field :SCHEMA_REMOVED_COLUMNS, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.RelationalOperator do
   @moduledoc false
 
@@ -140,6 +190,29 @@ defmodule Google.Privacy.Dlp.V2.EncryptionStatus do
   field :ENCRYPTION_CUSTOMER_MANAGED, 2
 end
 
+defmodule Google.Privacy.Dlp.V2.NullPercentageLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :NULL_PERCENTAGE_LEVEL_UNSPECIFIED, 0
+  field :NULL_PERCENTAGE_VERY_LOW, 1
+  field :NULL_PERCENTAGE_LOW, 2
+  field :NULL_PERCENTAGE_MEDIUM, 3
+  field :NULL_PERCENTAGE_HIGH, 4
+end
+
+defmodule Google.Privacy.Dlp.V2.UniquenessScoreLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNIQUENESS_SCORE_LEVEL_UNSPECIFIED, 0
+  field :UNIQUENESS_SCORE_LOW, 1
+  field :UNIQUENESS_SCORE_MEDIUM, 2
+  field :UNIQUENESS_SCORE_HIGH, 3
+end
+
 defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   @moduledoc false
 
@@ -189,6 +262,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :CHILE, 7
   field :CHINA, 8
   field :COLOMBIA, 9
+  field :CROATIA, 42
   field :DENMARK, 10
   field :FRANCE, 11
   field :FINLAND, 12
@@ -203,6 +277,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :KOREA, 21
   field :MEXICO, 22
   field :THE_NETHERLANDS, 23
+  field :NEW_ZEALAND, 41
   field :NORWAY, 24
   field :PARAGUAY, 25
   field :PERU, 26
@@ -212,6 +287,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :SOUTH_AFRICA, 30
   field :SPAIN, 31
   field :SWEDEN, 32
+  field :SWITZERLAND, 43
   field :TAIWAN, 33
   field :THAILAND, 34
   field :TURKEY, 35
@@ -220,7 +296,6 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :URUGUAY, 38
   field :VENEZUELA, 39
   field :INTERNAL, 40
-  field :NEW_ZEALAND, 41
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.IndustryCategory do
@@ -340,6 +415,16 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel
   field :RESOURCE_NAME, 2
 end
 
+defmodule Google.Privacy.Dlp.V2.DiscoveryConfig.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATUS_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :PAUSED, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
 
@@ -373,6 +458,47 @@ defmodule Google.Privacy.Dlp.V2.TableDataProfile.State do
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
   field :DONE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :DONE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnDataType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COLUMN_DATA_TYPE_UNSPECIFIED, 0
+  field :TYPE_INT64, 1
+  field :TYPE_BOOL, 2
+  field :TYPE_FLOAT64, 3
+  field :TYPE_STRING, 4
+  field :TYPE_BYTES, 5
+  field :TYPE_TIMESTAMP, 6
+  field :TYPE_DATE, 7
+  field :TYPE_TIME, 8
+  field :TYPE_DATETIME, 9
+  field :TYPE_GEOGRAPHY, 10
+  field :TYPE_NUMERIC, 11
+  field :TYPE_RECORD, 12
+  field :TYPE_BIGNUMERIC, 13
+  field :TYPE_JSON, 14
+end
+
+defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnPolicyState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COLUMN_POLICY_STATE_UNSPECIFIED, 0
+  field :COLUMN_POLICY_TAGGED, 1
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket do
@@ -475,6 +601,19 @@ defmodule Google.Privacy.Dlp.V2.InspectionRuleSet do
   field :rules, 2, repeated: true, type: Google.Privacy.Dlp.V2.InspectionRule
 end
 
+defmodule Google.Privacy.Dlp.V2.InspectConfig.InfoTypeLikelihood do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+
+  field :min_likelihood, 2,
+    type: Google.Privacy.Dlp.V2.Likelihood,
+    json_name: "minLikelihood",
+    enum: true
+end
+
 defmodule Google.Privacy.Dlp.V2.InspectConfig.FindingLimits.InfoTypeLimit do
   @moduledoc false
 
@@ -512,6 +651,11 @@ defmodule Google.Privacy.Dlp.V2.InspectConfig do
     type: Google.Privacy.Dlp.V2.Likelihood,
     json_name: "minLikelihood",
     enum: true
+
+  field :min_likelihood_per_info_type, 11,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.InspectConfig.InfoTypeLikelihood,
+    json_name: "minLikelihoodPerInfoType"
 
   field :limits, 3, type: Google.Privacy.Dlp.V2.InspectConfig.FindingLimits
   field :include_quote, 4, type: :bool, json_name: "includeQuote"
@@ -947,6 +1091,24 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails do
   field :result, 3, type: Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result
 end
 
+defmodule Google.Privacy.Dlp.V2.DataProfileBigQueryRowSchema do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :data_profile, 0
+
+  field :table_profile, 1,
+    type: Google.Privacy.Dlp.V2.TableDataProfile,
+    json_name: "tableProfile",
+    oneof: 0
+
+  field :column_profile, 2,
+    type: Google.Privacy.Dlp.V2.ColumnDataProfile,
+    json_name: "columnProfile",
+    oneof: 0
+end
+
 defmodule Google.Privacy.Dlp.V2.HybridInspectStatistics do
   @moduledoc false
 
@@ -955,6 +1117,61 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectStatistics do
   field :processed_count, 1, type: :int64, json_name: "processedCount"
   field :aborted_count, 2, type: :int64, json_name: "abortedCount"
   field :pending_count, 3, type: :int64, json_name: "pendingCount"
+end
+
+defmodule Google.Privacy.Dlp.V2.ActionDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :details, 0
+
+  field :deidentify_details, 1,
+    type: Google.Privacy.Dlp.V2.DeidentifyDataSourceDetails,
+    json_name: "deidentifyDetails",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DeidentifyDataSourceStats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :transformed_bytes, 1, type: :int64, json_name: "transformedBytes"
+  field :transformation_count, 2, type: :int64, json_name: "transformationCount"
+  field :transformation_error_count, 3, type: :int64, json_name: "transformationErrorCount"
+end
+
+defmodule Google.Privacy.Dlp.V2.DeidentifyDataSourceDetails.RequestedDeidentifyOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :snapshot_deidentify_template, 1,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "snapshotDeidentifyTemplate"
+
+  field :snapshot_structured_deidentify_template, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "snapshotStructuredDeidentifyTemplate"
+
+  field :snapshot_image_redact_template, 3,
+    type: Google.Privacy.Dlp.V2.DeidentifyTemplate,
+    json_name: "snapshotImageRedactTemplate"
+end
+
+defmodule Google.Privacy.Dlp.V2.DeidentifyDataSourceDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :requested_options, 1,
+    type: Google.Privacy.Dlp.V2.DeidentifyDataSourceDetails.RequestedDeidentifyOptions,
+    json_name: "requestedOptions"
+
+  field :deidentify_stats, 2,
+    type: Google.Privacy.Dlp.V2.DeidentifyDataSourceStats,
+    json_name: "deidentifyStats"
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
@@ -974,6 +1191,10 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   field :description, 4, type: :string
   field :versions, 9, repeated: true, type: Google.Privacy.Dlp.V2.VersionDescription
   field :categories, 10, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeCategory
+
+  field :sensitivity_score, 11,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
@@ -2610,6 +2831,76 @@ defmodule Google.Privacy.Dlp.V2.GetJobTriggerRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Privacy.Dlp.V2.CreateDiscoveryConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :discovery_config, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig,
+    json_name: "discoveryConfig",
+    deprecated: false
+
+  field :config_id, 3, type: :string, json_name: "configId"
+end
+
+defmodule Google.Privacy.Dlp.V2.UpdateDiscoveryConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :discovery_config, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig,
+    json_name: "discoveryConfig",
+    deprecated: false
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Privacy.Dlp.V2.GetDiscoveryConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ListDiscoveryConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Privacy.Dlp.V2.ListDiscoveryConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :discovery_configs, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig,
+    json_name: "discoveryConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.DeleteDiscoveryConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Privacy.Dlp.V2.CreateDlpJobRequest do
   @moduledoc false
 
@@ -2738,7 +3029,227 @@ defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
     json_name: "dataProfileActions"
 end
 
+defmodule Google.Privacy.Dlp.V2.BigQueryRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id_regex, 1, type: :string, json_name: "projectIdRegex"
+  field :dataset_id_regex, 2, type: :string, json_name: "datasetIdRegex"
+  field :table_id_regex, 3, type: :string, json_name: "tableIdRegex"
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryRegexes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :patterns, 1, repeated: true, type: Google.Privacy.Dlp.V2.BigQueryRegex
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryTableTypes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :types, 1, repeated: true, type: Google.Privacy.Dlp.V2.BigQueryTableType, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.Disabled do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :location, 0
+
+  field :organization_id, 1, type: :int64, json_name: "organizationId", oneof: 0
+  field :folder_id, 2, type: :int64, json_name: "folderId", oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryConfig.OrgConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :location, 1, type: Google.Privacy.Dlp.V2.DiscoveryStartingLocation
+  field :project_id, 2, type: :string, json_name: "projectId"
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :display_name, 11, type: :string, json_name: "displayName"
+
+  field :org_config, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig.OrgConfig,
+    json_name: "orgConfig"
+
+  field :inspect_templates, 3, repeated: true, type: :string, json_name: "inspectTemplates"
+  field :actions, 4, repeated: true, type: Google.Privacy.Dlp.V2.DataProfileAction
+  field :targets, 5, repeated: true, type: Google.Privacy.Dlp.V2.DiscoveryTarget
+  field :errors, 6, repeated: true, type: Google.Privacy.Dlp.V2.Error, deprecated: false
+
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :last_run_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastRunTime",
+    deprecated: false
+
+  field :status, 10,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig.Status,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :target, 0
+
+  field :big_query_target, 1,
+    type: Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget,
+    json_name: "bigQueryTarget",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :frequency, 0
+
+  field :filter, 1, type: Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter, deprecated: false
+  field :conditions, 2, type: Google.Privacy.Dlp.V2.DiscoveryBigQueryConditions
+  field :cadence, 3, type: Google.Privacy.Dlp.V2.DiscoveryGenerationCadence, oneof: 0
+  field :disabled, 4, type: Google.Privacy.Dlp.V2.Disabled, oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter.AllOtherBigQueryTables do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :filter, 0
+
+  field :tables, 1, type: Google.Privacy.Dlp.V2.BigQueryTableCollection, oneof: 0
+
+  field :other_tables, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter.AllOtherBigQueryTables,
+    json_name: "otherTables",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.BigQueryTableCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :pattern, 0
+
+  field :include_regexes, 1,
+    type: Google.Privacy.Dlp.V2.BigQueryRegexes,
+    json_name: "includeRegexes",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryBigQueryConditions.OrConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :min_row_count, 1, type: :int32, json_name: "minRowCount"
+  field :min_age, 2, type: Google.Protobuf.Duration, json_name: "minAge"
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryBigQueryConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :included_types, 0
+
+  field :created_after, 1, type: Google.Protobuf.Timestamp, json_name: "createdAfter"
+  field :types, 2, type: Google.Privacy.Dlp.V2.BigQueryTableTypes, oneof: 0
+
+  field :type_collection, 3,
+    type: Google.Privacy.Dlp.V2.BigQueryTableTypeCollection,
+    json_name: "typeCollection",
+    enum: true,
+    oneof: 0
+
+  field :or_conditions, 4,
+    type: Google.Privacy.Dlp.V2.DiscoveryBigQueryConditions.OrConditions,
+    json_name: "orConditions"
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryGenerationCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :schema_modified_cadence, 1,
+    type: Google.Privacy.Dlp.V2.DiscoverySchemaModifiedCadence,
+    json_name: "schemaModifiedCadence"
+
+  field :table_modified_cadence, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryTableModifiedCadence,
+    json_name: "tableModifiedCadence"
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryTableModifiedCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.BigQueryTableModification,
+    enum: true
+
+  field :frequency, 2, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoverySchemaModifiedCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.BigQuerySchemaModification,
+    enum: true
+
+  field :frequency, 2, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -2773,8 +3284,14 @@ defmodule Google.Privacy.Dlp.V2.DlpJob do
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 8, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :last_modified, 15, type: Google.Protobuf.Timestamp, json_name: "lastModified"
   field :job_trigger_name, 10, type: :string, json_name: "jobTriggerName"
   field :errors, 11, repeated: true, type: Google.Privacy.Dlp.V2.Error
+
+  field :action_details, 12,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ActionDetails,
+    json_name: "actionDetails"
 end
 
 defmodule Google.Privacy.Dlp.V2.GetDlpJobRequest do
@@ -3237,6 +3754,66 @@ defmodule Google.Privacy.Dlp.V2.OtherInfoTypeSummary do
 
   field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
   field :estimated_prevalence, 2, type: :int32, json_name: "estimatedPrevalence"
+  field :excluded_from_analysis, 3, type: :bool, json_name: "excludedFromAnalysis"
+end
+
+defmodule Google.Privacy.Dlp.V2.ColumnDataProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :profile_status, 17, type: Google.Privacy.Dlp.V2.ProfileStatus, json_name: "profileStatus"
+  field :state, 18, type: Google.Privacy.Dlp.V2.ColumnDataProfile.State, enum: true
+
+  field :profile_last_generated, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "profileLastGenerated"
+
+  field :table_data_profile, 4, type: :string, json_name: "tableDataProfile"
+  field :table_full_resource, 5, type: :string, json_name: "tableFullResource"
+  field :dataset_project_id, 19, type: :string, json_name: "datasetProjectId"
+  field :dataset_location, 20, type: :string, json_name: "datasetLocation"
+  field :dataset_id, 21, type: :string, json_name: "datasetId"
+  field :table_id, 22, type: :string, json_name: "tableId"
+  field :column, 6, type: :string
+
+  field :sensitivity_score, 7,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
+
+  field :data_risk_level, 8, type: Google.Privacy.Dlp.V2.DataRiskLevel, json_name: "dataRiskLevel"
+
+  field :column_info_type, 9,
+    type: Google.Privacy.Dlp.V2.InfoTypeSummary,
+    json_name: "columnInfoType"
+
+  field :other_matches, 10,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.OtherInfoTypeSummary,
+    json_name: "otherMatches"
+
+  field :estimated_null_percentage, 23,
+    type: Google.Privacy.Dlp.V2.NullPercentageLevel,
+    json_name: "estimatedNullPercentage",
+    enum: true
+
+  field :estimated_uniqueness_score, 24,
+    type: Google.Privacy.Dlp.V2.UniquenessScoreLevel,
+    json_name: "estimatedUniquenessScore",
+    enum: true
+
+  field :free_text_score, 13, type: :double, json_name: "freeTextScore"
+
+  field :column_type, 14,
+    type: Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnDataType,
+    json_name: "columnType",
+    enum: true
+
+  field :policy_state, 15,
+    type: Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnPolicyState,
+    json_name: "policyState",
+    enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
@@ -3380,6 +3957,26 @@ defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   rpc :ActivateJobTrigger,
       Google.Privacy.Dlp.V2.ActivateJobTriggerRequest,
       Google.Privacy.Dlp.V2.DlpJob
+
+  rpc :CreateDiscoveryConfig,
+      Google.Privacy.Dlp.V2.CreateDiscoveryConfigRequest,
+      Google.Privacy.Dlp.V2.DiscoveryConfig
+
+  rpc :UpdateDiscoveryConfig,
+      Google.Privacy.Dlp.V2.UpdateDiscoveryConfigRequest,
+      Google.Privacy.Dlp.V2.DiscoveryConfig
+
+  rpc :GetDiscoveryConfig,
+      Google.Privacy.Dlp.V2.GetDiscoveryConfigRequest,
+      Google.Privacy.Dlp.V2.DiscoveryConfig
+
+  rpc :ListDiscoveryConfigs,
+      Google.Privacy.Dlp.V2.ListDiscoveryConfigsRequest,
+      Google.Privacy.Dlp.V2.ListDiscoveryConfigsResponse
+
+  rpc :DeleteDiscoveryConfig,
+      Google.Privacy.Dlp.V2.DeleteDiscoveryConfigRequest,
+      Google.Protobuf.Empty
 
   rpc :CreateDlpJob, Google.Privacy.Dlp.V2.CreateDlpJobRequest, Google.Privacy.Dlp.V2.DlpJob
 
