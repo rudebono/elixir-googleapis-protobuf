@@ -25,6 +25,7 @@ defmodule Google.Spanner.V1.TypeAnnotationCode do
   field :TYPE_ANNOTATION_CODE_UNSPECIFIED, 0
   field :PG_NUMERIC, 2
   field :PG_JSONB, 3
+  field :PG_OID, 4
 end
 
 defmodule Google.Spanner.V1.Type do
