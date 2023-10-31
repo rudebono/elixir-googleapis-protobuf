@@ -352,6 +352,24 @@ defmodule Google.Cloud.Speech.V2.RecognitionFeatures do
   field :max_alternatives, 16, type: :int32, json_name: "maxAlternatives"
 end
 
+defmodule Google.Cloud.Speech.V2.TranscriptNormalization.Entry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :search, 1, type: :string
+  field :replace, 2, type: :string
+  field :case_sensitive, 3, type: :bool, json_name: "caseSensitive"
+end
+
+defmodule Google.Cloud.Speech.V2.TranscriptNormalization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entries, 1, repeated: true, type: Google.Cloud.Speech.V2.TranscriptNormalization.Entry
+end
+
 defmodule Google.Cloud.Speech.V2.SpeechAdaptation.AdaptationPhraseSet do
   @moduledoc false
 
@@ -410,6 +428,11 @@ defmodule Google.Cloud.Speech.V2.RecognitionConfig do
 
   field :features, 2, type: Google.Cloud.Speech.V2.RecognitionFeatures
   field :adaptation, 6, type: Google.Cloud.Speech.V2.SpeechAdaptation
+
+  field :transcript_normalization, 11,
+    type: Google.Cloud.Speech.V2.TranscriptNormalization,
+    json_name: "transcriptNormalization",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V2.RecognizeRequest do
@@ -618,15 +641,44 @@ defmodule Google.Cloud.Speech.V2.BatchRecognizeResults do
   field :metadata, 2, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
 end
 
-defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
+defmodule Google.Cloud.Speech.V2.CloudStorageResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
+end
+
+defmodule Google.Cloud.Speech.V2.InlineResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :transcript, 1, type: Google.Cloud.Speech.V2.BatchRecognizeResults
+end
+
+defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :result, 0
+
   field :error, 2, type: Google.Rpc.Status
   field :metadata, 3, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
-  field :transcript, 4, type: Google.Cloud.Speech.V2.BatchRecognizeResults
+
+  field :cloud_storage_result, 5,
+    type: Google.Cloud.Speech.V2.CloudStorageResult,
+    json_name: "cloudStorageResult",
+    oneof: 0
+
+  field :inline_result, 6,
+    type: Google.Cloud.Speech.V2.InlineResult,
+    json_name: "inlineResult",
+    oneof: 0
+
+  field :uri, 1, type: :string, deprecated: true
+  field :transcript, 4, type: Google.Cloud.Speech.V2.BatchRecognizeResults, deprecated: true
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeTranscriptionMetadata do

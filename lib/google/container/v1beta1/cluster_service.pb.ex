@@ -49,6 +49,16 @@ defmodule Google.Container.V1beta1.StackType do
   field :IPV4_IPV6, 2
 end
 
+defmodule Google.Container.V1beta1.InTransitEncryptionConfig do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED, 0
+  field :IN_TRANSIT_ENCRYPTION_DISABLED, 1
+  field :IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT, 2
+end
+
 defmodule Google.Container.V1beta1.LinuxNodeConfig.CgroupMode do
   @moduledoc false
 
@@ -292,6 +302,7 @@ defmodule Google.Container.V1beta1.Operation.Type do
   field :SET_NETWORK_POLICY, 15
   field :SET_MAINTENANCE_POLICY, 16
   field :RESIZE_CLUSTER, 18
+  field :FLEET_FEATURE_UPGRADE, 19
 end
 
 defmodule Google.Container.V1beta1.SetMasterAuthRequest.Action do
@@ -328,6 +339,7 @@ defmodule Google.Container.V1beta1.NodePool.UpdateInfo.BlueGreenInfo.Phase do
   field :UPDATE_STARTED, 1
   field :CREATING_GREEN_POOL, 2
   field :CORDONING_BLUE_POOL, 3
+  field :WAITING_TO_DRAIN_BLUE_POOL, 8
   field :DRAINING_BLUE_POOL, 4
   field :NODE_POOL_SOAKING, 5
   field :DELETING_BLUE_POOL, 6
@@ -777,6 +789,10 @@ defmodule Google.Container.V1beta1.NodeConfig do
     type: Google.Container.V1beta1.HostMaintenancePolicy,
     json_name: "hostMaintenancePolicy"
 
+  field :resource_manager_tags, 45,
+    type: Google.Container.V1beta1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
+
   field :enable_confidential_storage, 46,
     type: :bool,
     json_name: "enableConfidentialStorage",
@@ -960,16 +976,41 @@ defmodule Google.Container.V1beta1.SoleTenantConfig do
     json_name: "nodeAffinities"
 end
 
+defmodule Google.Container.V1beta1.HostMaintenancePolicy.OpportunisticMaintenanceStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_idle_time_window, 1,
+    proto3_optional: true,
+    type: Google.Protobuf.Duration,
+    json_name: "nodeIdleTimeWindow"
+
+  field :maintenance_availability_window, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Duration,
+    json_name: "maintenanceAvailabilityWindow"
+
+  field :min_nodes_per_pool, 3, proto3_optional: true, type: :int64, json_name: "minNodesPerPool"
+end
+
 defmodule Google.Container.V1beta1.HostMaintenancePolicy do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :maintenance_strategy, 0
 
   field :maintenance_interval, 1,
     proto3_optional: true,
     type: Google.Container.V1beta1.HostMaintenancePolicy.MaintenanceInterval,
     json_name: "maintenanceInterval",
     enum: true
+
+  field :opportunistic_maintenance_strategy, 2,
+    type: Google.Container.V1beta1.HostMaintenancePolicy.OpportunisticMaintenanceStrategy,
+    json_name: "opportunisticMaintenanceStrategy",
+    oneof: 0
 end
 
 defmodule Google.Container.V1beta1.NodeTaint do
@@ -1734,6 +1775,10 @@ defmodule Google.Container.V1beta1.NodePoolAutoConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network_tags, 1, type: Google.Container.V1beta1.NetworkTags, json_name: "networkTags"
+
+  field :resource_manager_tags, 2,
+    type: Google.Container.V1beta1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
 end
 
 defmodule Google.Container.V1beta1.ClusterUpdate do
@@ -1953,6 +1998,16 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_host_maintenance_policy, 132,
     type: Google.Container.V1beta1.HostMaintenancePolicy,
     json_name: "desiredHostMaintenancePolicy"
+
+  field :desired_node_pool_auto_config_resource_manager_tags, 136,
+    type: Google.Container.V1beta1.ResourceManagerTags,
+    json_name: "desiredNodePoolAutoConfigResourceManagerTags"
+
+  field :desired_in_transit_encryption_config, 137,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.InTransitEncryptionConfig,
+    json_name: "desiredInTransitEncryptionConfig",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
@@ -2138,6 +2193,10 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
   field :machine_type, 36, type: :string, json_name: "machineType", deprecated: false
   field :disk_type, 37, type: :string, json_name: "diskType", deprecated: false
   field :disk_size_gb, 38, type: :int64, json_name: "diskSizeGb", deprecated: false
+
+  field :resource_manager_tags, 39,
+    type: Google.Container.V1beta1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
 end
 
 defmodule Google.Container.V1beta1.SetNodePoolAutoscalingRequest do
@@ -3120,6 +3179,12 @@ defmodule Google.Container.V1beta1.NetworkConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "enableFqdnNetworkPolicy"
+
+  field :in_transit_encryption_config, 20,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.InTransitEncryptionConfig,
+    json_name: "inTransitEncryptionConfig",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.GatewayAPIConfig do
@@ -3698,6 +3763,26 @@ defmodule Google.Container.V1beta1.Fleet do
   field :project, 1, type: :string
   field :membership, 2, type: :string
   field :pre_registered, 3, type: :bool, json_name: "preRegistered"
+end
+
+defmodule Google.Container.V1beta1.ResourceManagerTags.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Container.V1beta1.ResourceManagerTags do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tags, 1,
+    repeated: true,
+    type: Google.Container.V1beta1.ResourceManagerTags.TagsEntry,
+    map: true
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do

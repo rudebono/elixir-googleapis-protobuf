@@ -86,6 +86,36 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
   field :BIGQUERY, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.EventType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EVENT_TYPE_UNSPECIFIED, 0
+  field :RESOURCE_IAM_POLICY_UPDATE, 1
+  field :BIGQUERY_TABLE_CREATE, 2
+  field :BIGQUERY_TABLE_UPDATE, 3
+  field :BIGQUERY_TABLE_DELETE, 4
+  field :BIGQUERY_CONNECTION_CREATE, 5
+  field :BIGQUERY_CONNECTION_UPDATE, 6
+  field :BIGQUERY_CONNECTION_DELETE, 7
+  field :BIGQUERY_TAXONOMY_CREATE, 10
+  field :BIGQUERY_POLICY_TAG_CREATE, 11
+  field :BIGQUERY_POLICY_TAG_DELETE, 12
+  field :BIGQUERY_POLICY_TAG_SET_IAM_POLICY, 13
+  field :ACCESS_POLICY_UPDATE, 14
+end
+
+defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity.EntityType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENTITY_TYPE_UNSPECIFIED, 0
+  field :TABLE, 1
+  field :FILESET, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.ScanType do
   @moduledoc false
 
@@ -296,6 +326,34 @@ defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   field :event_succeeded, 6, type: :bool, json_name: "eventSucceeded"
   field :fast_startup_enabled, 7, type: :bool, json_name: "fastStartupEnabled"
   field :unassigned_duration, 8, type: Google.Protobuf.Duration, json_name: "unassignedDuration"
+end
+
+defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity, 1, type: :string, deprecated: false
+
+  field :entity_type, 2,
+    type: Google.Cloud.Dataplex.V1.GovernanceEvent.Entity.EntityType,
+    json_name: "entityType",
+    enum: true
+end
+
+defmodule Google.Cloud.Dataplex.V1.GovernanceEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :message, 1, type: :string
+
+  field :event_type, 2,
+    type: Google.Cloud.Dataplex.V1.GovernanceEvent.EventType,
+    json_name: "eventType",
+    enum: true
+
+  field :entity, 3, proto3_optional: true, type: Google.Cloud.Dataplex.V1.GovernanceEvent.Entity
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileResult do

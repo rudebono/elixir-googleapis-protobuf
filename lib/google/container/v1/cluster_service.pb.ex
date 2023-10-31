@@ -227,6 +227,7 @@ defmodule Google.Container.V1.Operation.Type do
   field :SET_NETWORK_POLICY, 15
   field :SET_MAINTENANCE_POLICY, 16
   field :RESIZE_CLUSTER, 18
+  field :FLEET_FEATURE_UPGRADE, 19
 end
 
 defmodule Google.Container.V1.SetMasterAuthRequest.Action do
@@ -671,6 +672,10 @@ defmodule Google.Container.V1.NodeConfig do
   field :sole_tenant_config, 42,
     type: Google.Container.V1.SoleTenantConfig,
     json_name: "soleTenantConfig"
+
+  field :resource_manager_tags, 45,
+    type: Google.Container.V1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
 end
 
 defmodule Google.Container.V1.AdvancedMachineFeatures do
@@ -1410,6 +1415,10 @@ defmodule Google.Container.V1.NodePoolAutoConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :network_tags, 1, type: Google.Container.V1.NetworkTags, json_name: "networkTags"
+
+  field :resource_manager_tags, 2,
+    type: Google.Container.V1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
 end
 
 defmodule Google.Container.V1.NodePoolDefaults do
@@ -1619,6 +1628,10 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_k8s_beta_apis, 131,
     type: Google.Container.V1.K8sBetaAPIConfig,
     json_name: "desiredK8sBetaApis"
+
+  field :desired_node_pool_auto_config_resource_manager_tags, 136,
+    type: Google.Container.V1.ResourceManagerTags,
+    json_name: "desiredNodePoolAutoConfigResourceManagerTags"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -1803,6 +1816,10 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :machine_type, 36, type: :string, json_name: "machineType", deprecated: false
   field :disk_type, 37, type: :string, json_name: "diskType", deprecated: false
   field :disk_size_gb, 38, type: :int64, json_name: "diskSizeGb", deprecated: false
+
+  field :resource_manager_tags, 39,
+    type: Google.Container.V1.ResourceManagerTags,
+    json_name: "resourceManagerTags"
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
@@ -3233,6 +3250,26 @@ defmodule Google.Container.V1.EphemeralStorageLocalSsdConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :local_ssd_count, 1, type: :int32, json_name: "localSsdCount"
+end
+
+defmodule Google.Container.V1.ResourceManagerTags.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Container.V1.ResourceManagerTags do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tags, 1,
+    repeated: true,
+    type: Google.Container.V1.ResourceManagerTags.TagsEntry,
+    map: true
 end
 
 defmodule Google.Container.V1.ClusterManager.Service do
