@@ -49,6 +49,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictResponse do
   field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest.ConcurrentExplanationSpecOverrideEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
   @moduledoc false
 
@@ -62,7 +71,31 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
     type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride,
     json_name: "explanationSpecOverride"
 
+  field :concurrent_explanation_spec_override, 6,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ExplainRequest.ConcurrentExplanationSpecOverrideEntry,
+    json_name: "concurrentExplanationSpecOverride",
+    map: true,
+    deprecated: false
+
   field :deployed_model_id, 3, type: :string, json_name: "deployedModelId"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanation
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
@@ -71,6 +104,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
+
+  field :concurrent_explanations, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanationsEntry,
+    json_name: "concurrentExplanations",
+    map: true
+
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
   field :predictions, 3, repeated: true, type: Google.Protobuf.Value
 end
