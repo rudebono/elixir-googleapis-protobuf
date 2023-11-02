@@ -9,6 +9,16 @@ defmodule Google.Spanner.V1.RequestOptions.Priority do
   field :PRIORITY_HIGH, 3
 end
 
+defmodule Google.Spanner.V1.DirectedReadOptions.ReplicaSelection.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :READ_WRITE, 1
+  field :READ_ONLY, 2
+end
+
 defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryMode do
   @moduledoc false
 
@@ -122,6 +132,57 @@ defmodule Google.Spanner.V1.RequestOptions do
   field :transaction_tag, 3, type: :string, json_name: "transactionTag"
 end
 
+defmodule Google.Spanner.V1.DirectedReadOptions.ReplicaSelection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :location, 1, type: :string
+  field :type, 2, type: Google.Spanner.V1.DirectedReadOptions.ReplicaSelection.Type, enum: true
+end
+
+defmodule Google.Spanner.V1.DirectedReadOptions.IncludeReplicas do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :replica_selections, 1,
+    repeated: true,
+    type: Google.Spanner.V1.DirectedReadOptions.ReplicaSelection,
+    json_name: "replicaSelections"
+
+  field :auto_failover_disabled, 2, type: :bool, json_name: "autoFailoverDisabled"
+end
+
+defmodule Google.Spanner.V1.DirectedReadOptions.ExcludeReplicas do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :replica_selections, 1,
+    repeated: true,
+    type: Google.Spanner.V1.DirectedReadOptions.ReplicaSelection,
+    json_name: "replicaSelections"
+end
+
+defmodule Google.Spanner.V1.DirectedReadOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :replicas, 0
+
+  field :include_replicas, 1,
+    type: Google.Spanner.V1.DirectedReadOptions.IncludeReplicas,
+    json_name: "includeReplicas",
+    oneof: 0
+
+  field :exclude_replicas, 2,
+    type: Google.Spanner.V1.DirectedReadOptions.ExcludeReplicas,
+    json_name: "excludeReplicas",
+    oneof: 0
+end
+
 defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryOptions do
   @moduledoc false
 
@@ -171,6 +232,11 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest do
     json_name: "queryOptions"
 
   field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  field :directed_read_options, 15,
+    type: Google.Spanner.V1.DirectedReadOptions,
+    json_name: "directedReadOptions"
+
   field :data_boost_enabled, 16, type: :bool, json_name: "dataBoostEnabled"
 end
 
@@ -316,6 +382,11 @@ defmodule Google.Spanner.V1.ReadRequest do
   field :resume_token, 9, type: :bytes, json_name: "resumeToken"
   field :partition_token, 10, type: :bytes, json_name: "partitionToken"
   field :request_options, 11, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  field :directed_read_options, 14,
+    type: Google.Spanner.V1.DirectedReadOptions,
+    json_name: "directedReadOptions"
+
   field :data_boost_enabled, 15, type: :bool, json_name: "dataBoostEnabled"
 end
 
