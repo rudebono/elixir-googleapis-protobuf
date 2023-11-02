@@ -11,6 +11,7 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig.AudioEncoding do
   field :AMR_WB, 5
   field :OGG_OPUS, 6
   field :SPEEX_WITH_HEADER_BYTE, 7
+  field :MP3, 8
   field :WEBM_OPUS, 9
 end
 
@@ -172,6 +173,11 @@ defmodule Google.Cloud.Speech.V1.RecognitionConfig do
   field :max_alternatives, 4, type: :int32, json_name: "maxAlternatives"
   field :profanity_filter, 5, type: :bool, json_name: "profanityFilter"
   field :adaptation, 20, type: Google.Cloud.Speech.V1.SpeechAdaptation
+
+  field :transcript_normalization, 24,
+    type: Google.Cloud.Speech.V1.TranscriptNormalization,
+    json_name: "transcriptNormalization",
+    deprecated: false
 
   field :speech_contexts, 6,
     repeated: true,
@@ -381,7 +387,8 @@ defmodule Google.Cloud.Speech.V1.WordInfo do
   field :end_time, 2, type: Google.Protobuf.Duration, json_name: "endTime"
   field :word, 3, type: :string
   field :confidence, 4, type: :float
-  field :speaker_tag, 5, type: :int32, json_name: "speakerTag", deprecated: false
+  field :speaker_tag, 5, type: :int32, json_name: "speakerTag", deprecated: true
+  field :speaker_label, 6, type: :string, json_name: "speakerLabel", deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V1.SpeechAdaptationInfo do

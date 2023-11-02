@@ -1,3 +1,13 @@
+defmodule Google.Devtools.Cloudbuild.V1.StorageSource.SourceFetcher do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SOURCE_FETCHER_UNSPECIFIED, 0
+  field :GSUTIL, 1
+  field :GCS_FETCHER, 2
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Build.Status do
   @moduledoc false
 
@@ -243,6 +253,12 @@ defmodule Google.Devtools.Cloudbuild.V1.StorageSource do
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
+
+  field :source_fetcher, 5,
+    type: Google.Devtools.Cloudbuild.V1.StorageSource.SourceFetcher,
+    json_name: "sourceFetcher",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.GitSource do

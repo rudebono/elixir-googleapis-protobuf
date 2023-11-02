@@ -68,3 +68,21 @@ defmodule Google.Cloud.Speech.V1.SpeechAdaptation do
     type: Google.Cloud.Speech.V1.SpeechAdaptation.ABNFGrammar,
     json_name: "abnfGrammar"
 end
+
+defmodule Google.Cloud.Speech.V1.TranscriptNormalization.Entry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :search, 1, type: :string
+  field :replace, 2, type: :string
+  field :case_sensitive, 3, type: :bool, json_name: "caseSensitive"
+end
+
+defmodule Google.Cloud.Speech.V1.TranscriptNormalization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entries, 1, repeated: true, type: Google.Cloud.Speech.V1.TranscriptNormalization.Entry
+end

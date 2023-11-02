@@ -599,6 +599,16 @@ defmodule Google.Container.V1beta1.MonitoringComponentConfig.Component do
   field :STATEFULSET, 12
 end
 
+defmodule Google.Container.V1beta1.EnterpriseConfig.ClusterTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLUSTER_TIER_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :ENTERPRISE, 2
+end
+
 defmodule Google.Container.V1beta1.LinuxNodeConfig.SysctlsEntry do
   @moduledoc false
 
@@ -1687,6 +1697,10 @@ defmodule Google.Container.V1beta1.Cluster do
   field :security_posture_config, 145,
     type: Google.Container.V1beta1.SecurityPostureConfig,
     json_name: "securityPostureConfig"
+
+  field :enterprise_config, 149,
+    type: Google.Container.V1beta1.EnterpriseConfig,
+    json_name: "enterpriseConfig"
 end
 
 defmodule Google.Container.V1beta1.K8sBetaAPIConfig do
@@ -3783,6 +3797,18 @@ defmodule Google.Container.V1beta1.ResourceManagerTags do
     repeated: true,
     type: Google.Container.V1beta1.ResourceManagerTags.TagsEntry,
     map: true
+end
+
+defmodule Google.Container.V1beta1.EnterpriseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cluster_tier, 1,
+    type: Google.Container.V1beta1.EnterpriseConfig.ClusterTier,
+    json_name: "clusterTier",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do
