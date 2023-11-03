@@ -446,6 +446,23 @@ defmodule Google.Cloud.Dataproc.V1.InstanceGroupConfig do
     type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy,
     json_name: "instanceFlexibilityPolicy",
     deprecated: false
+
+  field :startup_config, 14,
+    type: Google.Cloud.Dataproc.V1.StartupConfig,
+    json_name: "startupConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.StartupConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :required_registration_fraction, 1,
+    proto3_optional: true,
+    type: :double,
+    json_name: "requiredRegistrationFraction",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.InstanceReference do
