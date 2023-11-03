@@ -32,8 +32,7 @@ defmodule Google.Cloud.Deploy.V1.RolloutUpdateEvent do
   field :rollout_update_type, 5,
     type: Google.Cloud.Deploy.V1.RolloutUpdateEvent.RolloutUpdateType,
     json_name: "rolloutUpdateType",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :message, 6, type: :string
   field :type, 7, type: Google.Cloud.Deploy.V1.Type, enum: true

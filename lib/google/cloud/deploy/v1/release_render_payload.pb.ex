@@ -5,4 +5,9 @@ defmodule Google.Cloud.Deploy.V1.ReleaseRenderEvent do
 
   field :message, 1, type: :string
   field :release, 2, type: :string
+
+  field :release_render_state, 3,
+    type: Google.Cloud.Deploy.V1.Release.RenderState,
+    json_name: "releaseRenderState",
+    enum: true
 end
