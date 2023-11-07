@@ -29,6 +29,7 @@ defmodule Google.Cloud.Datacatalog.Lineage.V1.OperationMetadata.Type do
 
   field :TYPE_UNSPECIFIED, 0
   field :DELETE, 1
+  field :CREATE, 2
 end
 
 defmodule Google.Cloud.Datacatalog.Lineage.V1.Origin.SourceType do
@@ -42,6 +43,7 @@ defmodule Google.Cloud.Datacatalog.Lineage.V1.Origin.SourceType do
   field :DATA_FUSION, 3
   field :COMPOSER, 4
   field :LOOKER_STUDIO, 5
+  field :DATAPROC, 6
 end
 
 defmodule Google.Cloud.Datacatalog.Lineage.V1.Process.AttributesEntry do
@@ -165,6 +167,36 @@ defmodule Google.Cloud.Datacatalog.Lineage.V1.OperationMetadata do
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
 
+defmodule Google.Cloud.Datacatalog.Lineage.V1.ProcessOpenLineageRunEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :open_lineage, 2,
+    type: Google.Protobuf.Struct,
+    json_name: "openLineage",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Datacatalog.Lineage.V1.ProcessOpenLineageRunEventResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :process, 1, type: :string, deprecated: false
+  field :run, 2, type: :string, deprecated: false
+
+  field :lineage_events, 3,
+    repeated: true,
+    type: :string,
+    json_name: "lineageEvents",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Datacatalog.Lineage.V1.CreateProcessRequest do
   @moduledoc false
 
@@ -238,6 +270,7 @@ defmodule Google.Cloud.Datacatalog.Lineage.V1.UpdateRunRequest do
 
   field :run, 1, type: Google.Cloud.Datacatalog.Lineage.V1.Run, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing"
 end
 
 defmodule Google.Cloud.Datacatalog.Lineage.V1.GetRunRequest do
@@ -437,6 +470,10 @@ defmodule Google.Cloud.Datacatalog.Lineage.V1.Lineage.Service do
   use GRPC.Service,
     name: "google.cloud.datacatalog.lineage.v1.Lineage",
     protoc_gen_elixir_version: "0.12.0"
+
+  rpc :ProcessOpenLineageRunEvent,
+      Google.Cloud.Datacatalog.Lineage.V1.ProcessOpenLineageRunEventRequest,
+      Google.Cloud.Datacatalog.Lineage.V1.ProcessOpenLineageRunEventResponse
 
   rpc :CreateProcess,
       Google.Cloud.Datacatalog.Lineage.V1.CreateProcessRequest,
