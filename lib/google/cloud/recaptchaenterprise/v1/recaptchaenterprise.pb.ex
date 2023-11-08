@@ -262,9 +262,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo do
 
   field :endpoints, 1,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.EndpointVerificationInfo
+    type: Google.Cloud.Recaptchaenterprise.V1.EndpointVerificationInfo,
+    deprecated: false
 
-  field :language_code, 3, type: :string, json_name: "languageCode"
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
 
   field :latest_verification_result, 7,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo.Result,
@@ -305,7 +306,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1.Event
+  field :event, 2, type: Google.Cloud.Recaptchaenterprise.V1.Event, deprecated: false
 
   field :risk_analysis, 3,
     type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis,
@@ -319,23 +320,28 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
 
   field :account_verification, 5,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo,
-    json_name: "accountVerification"
+    json_name: "accountVerification",
+    deprecated: false
 
   field :account_defender_assessment, 6,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment,
-    json_name: "accountDefenderAssessment"
+    json_name: "accountDefenderAssessment",
+    deprecated: false
 
   field :private_password_leak_verification, 8,
     type: Google.Cloud.Recaptchaenterprise.V1.PrivatePasswordLeakVerification,
-    json_name: "privatePasswordLeakVerification"
+    json_name: "privatePasswordLeakVerification",
+    deprecated: false
 
   field :firewall_policy_assessment, 10,
     type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicyAssessment,
-    json_name: "firewallPolicyAssessment"
+    json_name: "firewallPolicyAssessment",
+    deprecated: false
 
   field :fraud_prevention_assessment, 11,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment,
-    json_name: "fraudPreventionAssessment"
+    json_name: "fraudPreventionAssessment",
+    deprecated: false
 
   field :fraud_signals, 13,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals,
@@ -376,12 +382,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.Address do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :recipient, 1, type: :string
-  field :address, 2, repeated: true, type: :string
-  field :locality, 3, type: :string
-  field :administrative_area, 4, type: :string, json_name: "administrativeArea"
-  field :region_code, 5, type: :string, json_name: "regionCode"
-  field :postal_code, 6, type: :string, json_name: "postalCode"
+  field :recipient, 1, type: :string, deprecated: false
+  field :address, 2, repeated: true, type: :string, deprecated: false
+  field :locality, 3, type: :string, deprecated: false
+  field :administrative_area, 4, type: :string, json_name: "administrativeArea", deprecated: false
+  field :region_code, 5, type: :string, json_name: "regionCode", deprecated: false
+  field :postal_code, 6, type: :string, json_name: "postalCode", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.User do
@@ -389,12 +395,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.User do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :account_id, 6, type: :string, json_name: "accountId"
-  field :creation_ms, 1, type: :int64, json_name: "creationMs"
-  field :email, 2, type: :string
-  field :email_verified, 3, type: :bool, json_name: "emailVerified"
-  field :phone_number, 4, type: :string, json_name: "phoneNumber"
-  field :phone_verified, 5, type: :bool, json_name: "phoneVerified"
+  field :account_id, 6, type: :string, json_name: "accountId", deprecated: false
+  field :creation_ms, 1, type: :int64, json_name: "creationMs", deprecated: false
+  field :email, 2, type: :string, deprecated: false
+  field :email_verified, 3, type: :bool, json_name: "emailVerified", deprecated: false
+  field :phone_number, 4, type: :string, json_name: "phoneNumber", deprecated: false
+  field :phone_verified, 5, type: :bool, json_name: "phoneVerified", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.Item do
@@ -402,10 +408,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.Item do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :value, 2, type: :double
-  field :quantity, 3, type: :int64
-  field :merchant_account_id, 4, type: :string, json_name: "merchantAccountId"
+  field :name, 1, type: :string, deprecated: false
+  field :value, 2, type: :double, deprecated: false
+  field :quantity, 3, type: :int64, deprecated: false
+  field :merchant_account_id, 4, type: :string, json_name: "merchantAccountId", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.GatewayInfo do
@@ -413,10 +419,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData.GatewayInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :gateway_response_code, 2, type: :string, json_name: "gatewayResponseCode"
-  field :avs_response_code, 3, type: :string, json_name: "avsResponseCode"
-  field :cvv_response_code, 4, type: :string, json_name: "cvvResponseCode"
+  field :name, 1, type: :string, deprecated: false
+
+  field :gateway_response_code, 2,
+    type: :string,
+    json_name: "gatewayResponseCode",
+    deprecated: false
+
+  field :avs_response_code, 3, type: :string, json_name: "avsResponseCode", deprecated: false
+  field :cvv_response_code, 4, type: :string, json_name: "cvvResponseCode", deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData do
@@ -425,32 +436,41 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transaction_id, 11, proto3_optional: true, type: :string, json_name: "transactionId"
-  field :payment_method, 1, type: :string, json_name: "paymentMethod"
-  field :card_bin, 2, type: :string, json_name: "cardBin"
-  field :card_last_four, 3, type: :string, json_name: "cardLastFour"
-  field :currency_code, 4, type: :string, json_name: "currencyCode"
-  field :value, 5, type: :double
-  field :shipping_value, 12, type: :double, json_name: "shippingValue"
+  field :payment_method, 1, type: :string, json_name: "paymentMethod", deprecated: false
+  field :card_bin, 2, type: :string, json_name: "cardBin", deprecated: false
+  field :card_last_four, 3, type: :string, json_name: "cardLastFour", deprecated: false
+  field :currency_code, 4, type: :string, json_name: "currencyCode", deprecated: false
+  field :value, 5, type: :double, deprecated: false
+  field :shipping_value, 12, type: :double, json_name: "shippingValue", deprecated: false
 
   field :shipping_address, 6,
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.Address,
-    json_name: "shippingAddress"
+    json_name: "shippingAddress",
+    deprecated: false
 
   field :billing_address, 7,
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.Address,
-    json_name: "billingAddress"
+    json_name: "billingAddress",
+    deprecated: false
 
-  field :user, 8, type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.User
+  field :user, 8,
+    type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.User,
+    deprecated: false
 
   field :merchants, 13,
     repeated: true,
-    type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.User
+    type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.User,
+    deprecated: false
 
-  field :items, 14, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.Item
+  field :items, 14,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.Item,
+    deprecated: false
 
   field :gateway_info, 10,
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.GatewayInfo,
-    json_name: "gatewayInfo"
+    json_name: "gatewayInfo",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
@@ -458,17 +478,19 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :score, 1, type: :float
+  field :score, 1, type: :float, deprecated: false
 
   field :reasons, 2,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :extended_verdict_reasons, 3,
     repeated: true,
     type: :string,
-    json_name: "extendedVerdictReasons"
+    json_name: "extendedVerdictReasons",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
@@ -476,18 +498,28 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :valid, 1, type: :bool
+  field :valid, 1, type: :bool, deprecated: false
 
   field :invalid_reason, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason,
     json_name: "invalidReason",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :hostname, 4, type: :string
-  field :android_package_name, 8, type: :string, json_name: "androidPackageName"
-  field :ios_bundle_id, 9, type: :string, json_name: "iosBundleId"
-  field :action, 5, type: :string
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :hostname, 4, type: :string, deprecated: false
+
+  field :android_package_name, 8,
+    type: :string,
+    json_name: "androidPackageName",
+    deprecated: false
+
+  field :ios_bundle_id, 9, type: :string, json_name: "iosBundleId", deprecated: false
+  field :action, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.StolenInstrumentVerdict do
@@ -495,7 +527,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.StolenIn
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :risk, 1, type: :float
+  field :risk, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.CardTestingVerdict do
@@ -503,7 +535,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.CardTest
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :risk, 1, type: :float
+  field :risk, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.BehavioralTrustVerdict do
@@ -511,7 +543,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.Behavior
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :trust, 1, type: :float
+  field :trust, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment do
@@ -519,19 +551,22 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :transaction_risk, 1, type: :float, json_name: "transactionRisk"
+  field :transaction_risk, 1, type: :float, json_name: "transactionRisk", deprecated: false
 
   field :stolen_instrument_verdict, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.StolenInstrumentVerdict,
-    json_name: "stolenInstrumentVerdict"
+    json_name: "stolenInstrumentVerdict",
+    deprecated: false
 
   field :card_testing_verdict, 3,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.CardTestingVerdict,
-    json_name: "cardTestingVerdict"
+    json_name: "cardTestingVerdict",
+    deprecated: false
 
   field :behavioral_trust_verdict, 4,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudPreventionAssessment.BehavioralTrustVerdict,
-    json_name: "behavioralTrustVerdict"
+    json_name: "behavioralTrustVerdict",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals.UserSignals do
@@ -584,7 +619,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment do
   field :labels, 1,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel,
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateKeyRequest do
@@ -781,7 +817,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   oneof :platform_settings, 0
 
   field :name, 1, type: :string
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
   field :web_settings, 3,
     type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings,
@@ -801,7 +837,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 7,
     type: Google.Protobuf.Timestamp,
@@ -810,11 +847,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
 
   field :testing_options, 9,
     type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions,
-    json_name: "testingOptions"
+    json_name: "testingOptions",
+    deprecated: false
 
   field :waf_settings, 10,
     type: Google.Cloud.Recaptchaenterprise.V1.WafSettings,
-    json_name: "wafSettings"
+    json_name: "wafSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
@@ -822,12 +861,13 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TestingOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :testing_score, 1, type: :float, json_name: "testingScore"
+  field :testing_score, 1, type: :float, json_name: "testingScore", deprecated: false
 
   field :testing_challenge, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.TestingOptions.TestingChallenge,
     json_name: "testingChallenge",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
@@ -835,9 +875,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :allow_all_domains, 3, type: :bool, json_name: "allowAllDomains"
-  field :allowed_domains, 1, repeated: true, type: :string, json_name: "allowedDomains"
-  field :allow_amp_traffic, 2, type: :bool, json_name: "allowAmpTraffic"
+  field :allow_all_domains, 3, type: :bool, json_name: "allowAllDomains", deprecated: false
+
+  field :allowed_domains, 1,
+    repeated: true,
+    type: :string,
+    json_name: "allowedDomains",
+    deprecated: false
+
+  field :allow_amp_traffic, 2, type: :bool, json_name: "allowAmpTraffic", deprecated: false
 
   field :integration_type, 4,
     type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.IntegrationType,
@@ -848,7 +894,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WebKeySettings do
   field :challenge_security_preference, 5,
     type: Google.Cloud.Recaptchaenterprise.V1.WebKeySettings.ChallengeSecurityPreference,
     json_name: "challengeSecurityPreference",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
@@ -856,12 +903,21 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AndroidKeySettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :allow_all_package_names, 2, type: :bool, json_name: "allowAllPackageNames"
-  field :allowed_package_names, 1, repeated: true, type: :string, json_name: "allowedPackageNames"
+  field :allow_all_package_names, 2,
+    type: :bool,
+    json_name: "allowAllPackageNames",
+    deprecated: false
+
+  field :allowed_package_names, 1,
+    repeated: true,
+    type: :string,
+    json_name: "allowedPackageNames",
+    deprecated: false
 
   field :support_non_google_app_store_distribution, 3,
     type: :bool,
-    json_name: "supportNonGoogleAppStoreDistribution"
+    json_name: "supportNonGoogleAppStoreDistribution",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
@@ -869,12 +925,18 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :allow_all_bundle_ids, 2, type: :bool, json_name: "allowAllBundleIds"
-  field :allowed_bundle_ids, 1, repeated: true, type: :string, json_name: "allowedBundleIds"
+  field :allow_all_bundle_ids, 2, type: :bool, json_name: "allowAllBundleIds", deprecated: false
+
+  field :allowed_bundle_ids, 1,
+    repeated: true,
+    type: :string,
+    json_name: "allowedBundleIds",
+    deprecated: false
 
   field :apple_developer_id, 3,
     type: Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId,
-    json_name: "appleDeveloperId"
+    json_name: "appleDeveloperId",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId do
@@ -949,7 +1011,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallPolicyAssessment do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :error, 5, type: Google.Rpc.Status
+  field :error, 5, type: Google.Rpc.Status, deprecated: false
 
   field :firewall_policy, 8,
     type: Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy,
@@ -980,7 +1042,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SubstituteAction do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :path, 1, type: :string
+  field :path, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SetHeaderAction do
@@ -988,8 +1050,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.SetHeaderAction do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :key, 1, type: :string
-  field :value, 2, type: :string
+  field :key, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction do
@@ -1022,10 +1084,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :description, 2, type: :string
-  field :path, 4, type: :string
-  field :condition, 5, type: :string
-  field :actions, 6, repeated: true, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction
+  field :description, 2, type: :string, deprecated: false
+  field :path, 4, type: :string, deprecated: false
+  field :condition, 5, type: :string, deprecated: false
+
+  field :actions, 6,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupMembershipsRequest do
