@@ -33,8 +33,8 @@ defmodule Google.Analytics.Data.V1alpha.ListAudienceListsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.ListAudienceListsResponse do
@@ -92,6 +92,23 @@ defmodule Google.Analytics.Data.V1alpha.AudienceList do
     type: Google.Protobuf.Timestamp,
     json_name: "beginCreatingTime",
     deprecated: false
+
+  field :creation_quota_tokens_charged, 7,
+    type: :int32,
+    json_name: "creationQuotaTokensCharged",
+    deprecated: false
+
+  field :row_count, 8,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "rowCount",
+    deprecated: false
+
+  field :error_message, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "errorMessage",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.AudienceListMetadata do
@@ -105,9 +122,9 @@ defmodule Google.Analytics.Data.V1alpha.QueryAudienceListRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :offset, 2, type: :int64
-  field :limit, 3, type: :int64
+  field :name, 1, type: :string, deprecated: false
+  field :offset, 2, type: :int64, deprecated: false
+  field :limit, 3, type: :int64, deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.QueryAudienceListResponse do
@@ -128,6 +145,31 @@ defmodule Google.Analytics.Data.V1alpha.QueryAudienceListResponse do
   field :row_count, 3, proto3_optional: true, type: :int32, json_name: "rowCount"
 end
 
+defmodule Google.Analytics.Data.V1alpha.SheetExportAudienceListRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :offset, 2, type: :int64, deprecated: false
+  field :limit, 3, type: :int64, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.SheetExportAudienceListResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :spreadsheet_uri, 1, proto3_optional: true, type: :string, json_name: "spreadsheetUri"
+  field :spreadsheet_id, 2, proto3_optional: true, type: :string, json_name: "spreadsheetId"
+  field :row_count, 3, proto3_optional: true, type: :int32, json_name: "rowCount"
+
+  field :audience_list, 4,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.AudienceList,
+    json_name: "audienceList"
+end
+
 defmodule Google.Analytics.Data.V1alpha.AudienceRow do
   @moduledoc false
 
@@ -144,7 +186,7 @@ defmodule Google.Analytics.Data.V1alpha.AudienceDimension do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :dimension_name, 1, type: :string, json_name: "dimensionName"
+  field :dimension_name, 1, type: :string, json_name: "dimensionName", deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.AudienceDimensionValue do
@@ -162,36 +204,48 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :property, 1, type: :string
+  field :property, 1, type: :string, deprecated: false
 
   field :date_ranges, 2,
     repeated: true,
     type: Google.Analytics.Data.V1alpha.DateRange,
-    json_name: "dateRanges"
+    json_name: "dateRanges",
+    deprecated: false
 
-  field :funnel, 3, type: Google.Analytics.Data.V1alpha.Funnel
+  field :funnel, 3, type: Google.Analytics.Data.V1alpha.Funnel, deprecated: false
 
   field :funnel_breakdown, 4,
     type: Google.Analytics.Data.V1alpha.FunnelBreakdown,
-    json_name: "funnelBreakdown"
+    json_name: "funnelBreakdown",
+    deprecated: false
 
   field :funnel_next_action, 5,
     type: Google.Analytics.Data.V1alpha.FunnelNextAction,
-    json_name: "funnelNextAction"
+    json_name: "funnelNextAction",
+    deprecated: false
 
   field :funnel_visualization_type, 6,
     type: Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizationType,
     json_name: "funnelVisualizationType",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :segments, 7, repeated: true, type: Google.Analytics.Data.V1alpha.Segment
-  field :limit, 9, type: :int64
+  field :segments, 7,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.Segment,
+    deprecated: false
+
+  field :limit, 9, type: :int64, deprecated: false
 
   field :dimension_filter, 10,
     type: Google.Analytics.Data.V1alpha.FilterExpression,
-    json_name: "dimensionFilter"
+    json_name: "dimensionFilter",
+    deprecated: false
 
-  field :return_property_quota, 12, type: :bool, json_name: "returnPropertyQuota"
+  field :return_property_quota, 12,
+    type: :bool,
+    json_name: "returnPropertyQuota",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
@@ -232,6 +286,10 @@ defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   rpc :QueryAudienceList,
       Google.Analytics.Data.V1alpha.QueryAudienceListRequest,
       Google.Analytics.Data.V1alpha.QueryAudienceListResponse
+
+  rpc :SheetExportAudienceList,
+      Google.Analytics.Data.V1alpha.SheetExportAudienceListRequest,
+      Google.Analytics.Data.V1alpha.SheetExportAudienceListResponse
 
   rpc :GetAudienceList,
       Google.Analytics.Data.V1alpha.GetAudienceListRequest,
