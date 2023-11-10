@@ -141,11 +141,6 @@ defmodule Google.Devtools.Testing.V1.DeviceSession do
     json_name: "activeStartTime",
     deprecated: false
 
-  field :android_device_list, 12,
-    type: Google.Devtools.Testing.V1.AndroidDeviceList,
-    json_name: "androidDeviceList",
-    deprecated: true
-
   field :android_device, 15,
     type: Google.Devtools.Testing.V1.AndroidDevice,
     json_name: "androidDevice",

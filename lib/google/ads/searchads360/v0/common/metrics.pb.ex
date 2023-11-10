@@ -289,4 +289,81 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     proto3_optional: true,
     type: :int64,
     json_name: "clientAccountViewThroughConversions"
+
+  field :client_account_cross_sell_cost_of_goods_sold_micros, 321,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountCrossSellCostOfGoodsSoldMicros"
+
+  field :cross_sell_cost_of_goods_sold_micros, 327,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "crossSellCostOfGoodsSoldMicros"
+
+  field :client_account_cross_sell_gross_profit_micros, 322,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountCrossSellGrossProfitMicros"
+
+  field :cross_sell_gross_profit_micros, 328,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "crossSellGrossProfitMicros"
+
+  field :client_account_cross_sell_revenue_micros, 323,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountCrossSellRevenueMicros"
+
+  field :cross_sell_revenue_micros, 329,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "crossSellRevenueMicros"
+
+  field :client_account_cross_sell_units_sold, 307,
+    proto3_optional: true,
+    type: :double,
+    json_name: "clientAccountCrossSellUnitsSold"
+
+  field :cross_sell_units_sold, 330,
+    proto3_optional: true,
+    type: :double,
+    json_name: "crossSellUnitsSold"
+
+  field :client_account_lead_cost_of_goods_sold_micros, 324,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountLeadCostOfGoodsSoldMicros"
+
+  field :lead_cost_of_goods_sold_micros, 332,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "leadCostOfGoodsSoldMicros"
+
+  field :client_account_lead_gross_profit_micros, 325,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountLeadGrossProfitMicros"
+
+  field :lead_gross_profit_micros, 333,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "leadGrossProfitMicros"
+
+  field :client_account_lead_revenue_micros, 326,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clientAccountLeadRevenueMicros"
+
+  field :lead_revenue_micros, 334,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "leadRevenueMicros"
+
+  field :client_account_lead_units_sold, 311,
+    proto3_optional: true,
+    type: :double,
+    json_name: "clientAccountLeadUnitsSold"
+
+  field :lead_units_sold, 335, proto3_optional: true, type: :double, json_name: "leadUnitsSold"
 end

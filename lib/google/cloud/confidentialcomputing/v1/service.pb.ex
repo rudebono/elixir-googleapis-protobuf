@@ -9,6 +9,15 @@ defmodule Google.Cloud.Confidentialcomputing.V1.SigningAlgorithm do
   field :ECDSA_P256_SHA256, 3
 end
 
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TOKEN_TYPE_UNSPECIFIED, 0
+  field :TOKEN_TYPE_OIDC, 1
+end
+
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
   @moduledoc false
 
@@ -99,6 +108,12 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
 
   field :audience, 1, type: :string, deprecated: false
   field :nonce, 2, repeated: true, type: :string, deprecated: false
+
+  field :token_type, 3,
+    type: Google.Cloud.Confidentialcomputing.V1.TokenType,
+    json_name: "tokenType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote.PcrValuesEntry do
