@@ -7,6 +7,7 @@ defmodule Google.Ads.Searchads360.V0.Resources.Asset do
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 11, proto3_optional: true, type: :int64, deprecated: false
+  field :name, 12, proto3_optional: true, type: :string
 
   field :type, 4,
     type: Google.Ads.Searchads360.V0.Enums.AssetTypeEnum.AssetType,
@@ -35,6 +36,24 @@ defmodule Google.Ads.Searchads360.V0.Resources.Asset do
     enum: true,
     deprecated: false
 
+  field :youtube_video_asset, 5,
+    type: Google.Ads.Searchads360.V0.Common.YoutubeVideoAsset,
+    json_name: "youtubeVideoAsset",
+    oneof: 0,
+    deprecated: false
+
+  field :image_asset, 7,
+    type: Google.Ads.Searchads360.V0.Common.ImageAsset,
+    json_name: "imageAsset",
+    oneof: 0,
+    deprecated: false
+
+  field :text_asset, 8,
+    type: Google.Ads.Searchads360.V0.Common.TextAsset,
+    json_name: "textAsset",
+    oneof: 0,
+    deprecated: false
+
   field :callout_asset, 48,
     type: Google.Ads.Searchads360.V0.Common.UnifiedCalloutAsset,
     json_name: "calloutAsset",
@@ -61,6 +80,12 @@ defmodule Google.Ads.Searchads360.V0.Resources.Asset do
   field :call_asset, 47,
     type: Google.Ads.Searchads360.V0.Common.UnifiedCallAsset,
     json_name: "callAsset",
+    oneof: 0,
+    deprecated: false
+
+  field :call_to_action_asset, 29,
+    type: Google.Ads.Searchads360.V0.Common.CallToActionAsset,
+    json_name: "callToActionAsset",
     oneof: 0,
     deprecated: false
 

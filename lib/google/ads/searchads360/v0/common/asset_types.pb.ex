@@ -1,3 +1,47 @@
+defmodule Google.Ads.Searchads360.V0.Common.YoutubeVideoAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :youtube_video_id, 2, proto3_optional: true, type: :string, json_name: "youtubeVideoId"
+  field :youtube_video_title, 3, type: :string, json_name: "youtubeVideoTitle"
+end
+
+defmodule Google.Ads.Searchads360.V0.Common.ImageAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :file_size, 6, proto3_optional: true, type: :int64, json_name: "fileSize"
+
+  field :mime_type, 3,
+    type: Google.Ads.Searchads360.V0.Enums.MimeTypeEnum.MimeType,
+    json_name: "mimeType",
+    enum: true
+
+  field :full_size, 4,
+    type: Google.Ads.Searchads360.V0.Common.ImageDimension,
+    json_name: "fullSize"
+end
+
+defmodule Google.Ads.Searchads360.V0.Common.ImageDimension do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :height_pixels, 4, proto3_optional: true, type: :int64, json_name: "heightPixels"
+  field :width_pixels, 5, proto3_optional: true, type: :int64, json_name: "widthPixels"
+  field :url, 6, proto3_optional: true, type: :string
+end
+
+defmodule Google.Ads.Searchads360.V0.Common.TextAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 2, proto3_optional: true, type: :string
+end
+
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedCalloutAsset do
   @moduledoc false
 
@@ -89,6 +133,17 @@ defmodule Google.Ads.Searchads360.V0.Common.UnifiedCallAsset do
   field :use_searcher_time_zone, 9, type: :bool, json_name: "useSearcherTimeZone"
   field :start_date, 10, type: :string, json_name: "startDate"
   field :end_date, 11, type: :string, json_name: "endDate"
+end
+
+defmodule Google.Ads.Searchads360.V0.Common.CallToActionAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :call_to_action, 1,
+    type: Google.Ads.Searchads360.V0.Enums.CallToActionTypeEnum.CallToActionType,
+    json_name: "callToAction",
+    enum: true
 end
 
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedLocationAsset do

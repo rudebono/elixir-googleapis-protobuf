@@ -120,6 +120,26 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
 
   field :asset, 105, type: Google.Ads.Searchads360.V0.Resources.Asset
 
+  field :asset_group_asset, 173,
+    type: Google.Ads.Searchads360.V0.Resources.AssetGroupAsset,
+    json_name: "assetGroupAsset"
+
+  field :asset_group_signal, 191,
+    type: Google.Ads.Searchads360.V0.Resources.AssetGroupSignal,
+    json_name: "assetGroupSignal"
+
+  field :asset_group_listing_group_filter, 182,
+    type: Google.Ads.Searchads360.V0.Resources.AssetGroupListingGroupFilter,
+    json_name: "assetGroupListingGroupFilter"
+
+  field :asset_group_top_combination_view, 199,
+    type: Google.Ads.Searchads360.V0.Resources.AssetGroupTopCombinationView,
+    json_name: "assetGroupTopCombinationView"
+
+  field :asset_group, 172,
+    type: Google.Ads.Searchads360.V0.Resources.AssetGroup,
+    json_name: "assetGroup"
+
   field :asset_set_asset, 180,
     type: Google.Ads.Searchads360.V0.Resources.AssetSetAsset,
     json_name: "assetSetAsset"
@@ -157,6 +177,12 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   field :campaign_label, 108,
     type: Google.Ads.Searchads360.V0.Resources.CampaignLabel,
     json_name: "campaignLabel"
+
+  field :cart_data_sales_view, 221,
+    type: Google.Ads.Searchads360.V0.Resources.CartDataSalesView,
+    json_name: "cartDataSalesView"
+
+  field :audience, 190, type: Google.Ads.Searchads360.V0.Resources.Audience
 
   field :conversion_action, 103,
     type: Google.Ads.Searchads360.V0.Resources.ConversionAction,
@@ -198,13 +224,25 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
 
   field :label, 52, type: Google.Ads.Searchads360.V0.Resources.Label
 
+  field :language_constant, 55,
+    type: Google.Ads.Searchads360.V0.Resources.LanguageConstant,
+    json_name: "languageConstant"
+
   field :location_view, 123,
     type: Google.Ads.Searchads360.V0.Resources.LocationView,
     json_name: "locationView"
 
+  field :product_bidding_category_constant, 109,
+    type: Google.Ads.Searchads360.V0.Resources.ProductBiddingCategoryConstant,
+    json_name: "productBiddingCategoryConstant"
+
   field :product_group_view, 54,
     type: Google.Ads.Searchads360.V0.Resources.ProductGroupView,
     json_name: "productGroupView"
+
+  field :shopping_performance_view, 117,
+    type: Google.Ads.Searchads360.V0.Resources.ShoppingPerformanceView,
+    json_name: "shoppingPerformanceView"
 
   field :user_list, 38, type: Google.Ads.Searchads360.V0.Resources.UserList, json_name: "userList"
 
@@ -212,6 +250,8 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.WebpageView,
     json_name: "webpageView"
 
+  field :visit, 203, type: Google.Ads.Searchads360.V0.Resources.Visit
+  field :conversion, 206, type: Google.Ads.Searchads360.V0.Resources.Conversion
   field :metrics, 4, type: Google.Ads.Searchads360.V0.Common.Metrics
   field :segments, 102, type: Google.Ads.Searchads360.V0.Common.Segments
 

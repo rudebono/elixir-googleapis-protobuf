@@ -141,3 +141,11 @@ defmodule Google.Ads.Searchads360.V0.Common.LocationGroupInfo do
 
   field :feed_item_sets, 8, repeated: true, type: :string, json_name: "feedItemSets"
 end
+
+defmodule Google.Ads.Searchads360.V0.Common.AudienceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audience, 1, type: :string
+end
