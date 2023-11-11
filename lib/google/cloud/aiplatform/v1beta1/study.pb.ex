@@ -168,6 +168,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TrialContext do
   field :parameters, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Trial.Parameter
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StudyTimeConstraint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :constraint, 0
+
+  field :max_duration, 1, type: Google.Protobuf.Duration, json_name: "maxDuration", oneof: 0
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.MetricSpec.SafetyMetricConfig do
   @moduledoc false
 
@@ -391,6 +402,33 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.TransferLearningConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec.StudyStoppingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :should_stop_asap, 1, type: Google.Protobuf.BoolValue, json_name: "shouldStopAsap"
+
+  field :minimum_runtime_constraint, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.StudyTimeConstraint,
+    json_name: "minimumRuntimeConstraint"
+
+  field :maximum_runtime_constraint, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.StudyTimeConstraint,
+    json_name: "maximumRuntimeConstraint"
+
+  field :min_num_trials, 4, type: Google.Protobuf.Int32Value, json_name: "minNumTrials"
+  field :max_num_trials, 5, type: Google.Protobuf.Int32Value, json_name: "maxNumTrials"
+
+  field :max_num_trials_no_progress, 6,
+    type: Google.Protobuf.Int32Value,
+    json_name: "maxNumTrialsNoProgress"
+
+  field :max_duration_no_progress, 7,
+    type: Google.Protobuf.Duration,
+    json_name: "maxDurationNoProgress"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec do
   @moduledoc false
 
@@ -444,6 +482,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StudySpec do
   field :transfer_learning_config, 10,
     type: Google.Cloud.Aiplatform.V1beta1.StudySpec.TransferLearningConfig,
     json_name: "transferLearningConfig"
+
+  field :study_stopping_config, 11,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.StudySpec.StudyStoppingConfig,
+    json_name: "studyStoppingConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Measurement.Metric do

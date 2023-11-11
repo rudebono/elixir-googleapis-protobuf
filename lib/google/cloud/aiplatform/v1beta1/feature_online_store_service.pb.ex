@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED, 0
+  field :KEY_VALUE, 1
+  field :PROTO_STRUCT, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format do
   @moduledoc false
 
@@ -8,6 +18,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format do
   field :PROTO_STRUCT, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :key_oneof, 0
+
+  field :key, 1, type: :string, oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest do
   @moduledoc false
 
@@ -15,12 +35,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest do
 
   oneof :entity_id, 0
 
-  field :id, 3, type: :string, oneof: 0
+  field :id, 3, type: :string, oneof: 0, deprecated: true
   field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
+
+  field :data_key, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKey",
+    deprecated: false
+
+  field :data_format, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataFormat,
+    json_name: "dataFormat",
+    enum: true,
+    deprecated: false
 
   field :format, 5,
     type: Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format,
-    enum: true
+    enum: true,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse.FeatureNameValuePairList.FeatureNameValuePair do

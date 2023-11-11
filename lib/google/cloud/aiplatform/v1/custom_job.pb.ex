@@ -88,6 +88,10 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
     json_name: "baseOutputDirectory"
 
+  field :protected_artifact_location_id, 19,
+    type: :string,
+    json_name: "protectedArtifactLocationId"
+
   field :tensorboard, 7, type: :string, deprecated: false
   field :enable_web_access, 10, type: :bool, json_name: "enableWebAccess", deprecated: false
 

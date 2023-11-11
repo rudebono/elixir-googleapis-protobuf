@@ -117,6 +117,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeletePipelineJobRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchDeletePipelineJobsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchDeletePipelineJobsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pipeline_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineJob,
+    json_name: "pipelineJobs"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest do
   @moduledoc false
 
@@ -166,6 +186,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Service do
 
   rpc :DeletePipelineJob,
       Google.Cloud.Aiplatform.V1beta1.DeletePipelineJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchDeletePipelineJobs,
+      Google.Cloud.Aiplatform.V1beta1.BatchDeletePipelineJobsRequest,
       Google.Longrunning.Operation
 
   rpc :CancelPipelineJob,

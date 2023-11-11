@@ -75,6 +75,24 @@ defmodule Google.Cloud.Aiplatform.V1.ExplainResponse do
   field :predictions, 3, repeated: true, type: Google.Protobuf.Value
 end
 
+defmodule Google.Cloud.Aiplatform.V1.CountTokensRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CountTokensResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :total_tokens, 1, type: :int32, json_name: "totalTokens"
+  field :total_billable_characters, 2, type: :int32, json_name: "totalBillableCharacters"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PredictionService.Service do
   @moduledoc false
 
