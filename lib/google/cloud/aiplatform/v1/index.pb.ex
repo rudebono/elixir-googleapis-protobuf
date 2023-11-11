@@ -8,6 +8,19 @@ defmodule Google.Cloud.Aiplatform.V1.Index.IndexUpdateMethod do
   field :STREAM_UPDATE, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction.Operator do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OPERATOR_UNSPECIFIED, 0
+  field :LESS, 1
+  field :LESS_EQUAL, 2
+  field :EQUAL, 3
+  field :GREATER_EQUAL, 4
+  field :GREATER, 5
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Index.LabelsEntry do
   @moduledoc false
 
@@ -74,6 +87,23 @@ defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.Restriction do
   field :deny_list, 3, repeated: true, type: :string, json_name: "denyList"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :Value, 0
+
+  field :value_int, 2, type: :int64, json_name: "valueInt", oneof: 0
+  field :value_float, 3, type: :float, json_name: "valueFloat", oneof: 0
+  field :value_double, 4, type: :double, json_name: "valueDouble", oneof: 0
+  field :namespace, 1, type: :string
+
+  field :op, 5,
+    type: Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction.Operator,
+    enum: true
+end
+
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.CrowdingTag do
   @moduledoc false
 
@@ -98,6 +128,12 @@ defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint do
   field :restricts, 4,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.IndexDatapoint.Restriction,
+    deprecated: false
+
+  field :numeric_restricts, 6,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction,
+    json_name: "numericRestricts",
     deprecated: false
 
   field :crowding_tag, 5,

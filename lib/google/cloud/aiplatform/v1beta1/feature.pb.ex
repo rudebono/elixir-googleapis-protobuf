@@ -100,4 +100,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
     type: Google.Cloud.Aiplatform.V1beta1.Feature.MonitoringStatsAnomaly,
     json_name: "monitoringStatsAnomalies",
     deprecated: false
+
+  field :version_column_name, 106, type: :string, json_name: "versionColumnName"
 end
