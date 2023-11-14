@@ -126,6 +126,17 @@ defmodule Google.Cloud.Batch.V1alpha.Job do
   field :notifications, 14, repeated: true, type: Google.Cloud.Batch.V1alpha.JobNotification
 end
 
+defmodule Google.Cloud.Batch.V1alpha.LogsPolicy.CloudLoggingOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_generic_task_monitored_resource, 1,
+    type: :bool,
+    json_name: "useGenericTaskMonitoredResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Batch.V1alpha.LogsPolicy do
   @moduledoc false
 
@@ -133,6 +144,11 @@ defmodule Google.Cloud.Batch.V1alpha.LogsPolicy do
 
   field :destination, 1, type: Google.Cloud.Batch.V1alpha.LogsPolicy.Destination, enum: true
   field :logs_path, 2, type: :string, json_name: "logsPath"
+
+  field :cloud_logging_option, 3,
+    type: Google.Cloud.Batch.V1alpha.LogsPolicy.CloudLoggingOption,
+    json_name: "cloudLoggingOption",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.JobDependency.ItemsEntry do

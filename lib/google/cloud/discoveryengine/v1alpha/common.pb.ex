@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Discoveryengine.V1alpha.IndustryVertical do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :INDUSTRY_VERTICAL_UNSPECIFIED, 0
+  field :GENERIC, 1
+  field :MEDIA, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SolutionType do
   @moduledoc false
 
@@ -7,6 +17,25 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SolutionType do
   field :SOLUTION_TYPE_RECOMMENDATION, 1
   field :SOLUTION_TYPE_SEARCH, 2
   field :SOLUTION_TYPE_CHAT, 3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_TIER_UNSPECIFIED, 0
+  field :SEARCH_TIER_STANDARD, 1
+  field :SEARCH_TIER_ENTERPRISE, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchAddOn do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_ADD_ON_UNSPECIFIED, 0
+  field :SEARCH_ADD_ON_LLM, 1
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Interval do
