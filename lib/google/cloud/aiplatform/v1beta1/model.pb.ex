@@ -210,6 +210,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec do
   field :ports, 5, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Port, deprecated: false
   field :predict_route, 6, type: :string, json_name: "predictRoute", deprecated: false
   field :health_route, 7, type: :string, json_name: "healthRoute", deprecated: false
+
+  field :deployment_timeout, 10,
+    type: Google.Protobuf.Duration,
+    json_name: "deploymentTimeout",
+    deprecated: false
+
+  field :shared_memory_size_mb, 11,
+    type: :int64,
+    json_name: "sharedMemorySizeMb",
+    deprecated: false
+
+  field :startup_probe, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe,
+    json_name: "startupProbe",
+    deprecated: false
+
+  field :health_probe, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe,
+    json_name: "healthProbe",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Port do
@@ -231,4 +251,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelSourceInfo do
     enum: true
 
   field :copy, 2, type: :bool
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe.ExecAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :command, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :probe_type, 0
+
+  field :exec, 1, type: Google.Cloud.Aiplatform.V1beta1.Probe.ExecAction, oneof: 0
+  field :period_seconds, 2, type: :int32, json_name: "periodSeconds"
+  field :timeout_seconds, 3, type: :int32, json_name: "timeoutSeconds"
 end
