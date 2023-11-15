@@ -80,6 +80,7 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance.Tier do
   field :HIGH_SCALE_SSD, 6
   field :ENTERPRISE, 7
   field :ZONAL, 8
+  field :REGIONAL, 9
 end
 
 defmodule Google.Cloud.Filestore.V1beta1.Instance.SuspensionReason do
@@ -277,6 +278,7 @@ defmodule Google.Cloud.Filestore.V1beta1.Instance do
     json_name: "satisfiesPzs",
     deprecated: false
 
+  field :satisfies_pzi, 26, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :kms_key_name, 14, type: :string, json_name: "kmsKeyName"
 
   field :suspension_reasons, 15,
@@ -545,6 +547,7 @@ defmodule Google.Cloud.Filestore.V1beta1.Backup do
     json_name: "satisfiesPzs",
     deprecated: false
 
+  field :satisfies_pzi, 14, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :kms_key_name, 13, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 

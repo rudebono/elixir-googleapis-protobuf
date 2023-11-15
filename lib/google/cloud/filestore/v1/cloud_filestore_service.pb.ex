@@ -52,6 +52,7 @@ defmodule Google.Cloud.Filestore.V1.Instance.State do
   field :SUSPENDED, 8
   field :SUSPENDING, 9
   field :RESUMING, 10
+  field :REVERTING, 12
 end
 
 defmodule Google.Cloud.Filestore.V1.Instance.Tier do
@@ -66,6 +67,8 @@ defmodule Google.Cloud.Filestore.V1.Instance.Tier do
   field :BASIC_SSD, 4
   field :HIGH_SCALE_SSD, 5
   field :ENTERPRISE, 6
+  field :ZONAL, 7
+  field :REGIONAL, 8
 end
 
 defmodule Google.Cloud.Filestore.V1.Instance.SuspensionReason do
@@ -98,6 +101,7 @@ defmodule Google.Cloud.Filestore.V1.Backup.State do
   field :FINALIZING, 2
   field :READY, 3
   field :DELETING, 4
+  field :INVALID, 5
 end
 
 defmodule Google.Cloud.Filestore.V1.NetworkConfig do
@@ -208,6 +212,7 @@ defmodule Google.Cloud.Filestore.V1.Instance do
     json_name: "satisfiesPzs",
     deprecated: false
 
+  field :satisfies_pzi, 18, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :kms_key_name, 14, type: :string, json_name: "kmsKeyName"
 
   field :suspension_reasons, 15,
@@ -255,6 +260,15 @@ defmodule Google.Cloud.Filestore.V1.RestoreInstanceRequest do
   field :name, 1, type: :string, deprecated: false
   field :file_share, 2, type: :string, json_name: "fileShare", deprecated: false
   field :source_backup, 3, type: :string, json_name: "sourceBackup", oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Filestore.V1.RevertInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :target_snapshot_id, 2, type: :string, json_name: "targetSnapshotId", deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.DeleteInstanceRequest do
@@ -424,6 +438,7 @@ defmodule Google.Cloud.Filestore.V1.Backup do
     json_name: "satisfiesPzs",
     deprecated: false
 
+  field :satisfies_pzi, 14, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :kms_key, 13, type: :string, json_name: "kmsKey", deprecated: false
 end
 
@@ -513,6 +528,10 @@ defmodule Google.Cloud.Filestore.V1.CloudFilestoreManager.Service do
 
   rpc :RestoreInstance,
       Google.Cloud.Filestore.V1.RestoreInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :RevertInstance,
+      Google.Cloud.Filestore.V1.RevertInstanceRequest,
       Google.Longrunning.Operation
 
   rpc :DeleteInstance,
