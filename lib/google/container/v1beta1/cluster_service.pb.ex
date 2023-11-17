@@ -535,6 +535,15 @@ defmodule Google.Container.V1beta1.ReleaseChannel.Channel do
   field :STABLE, 3
 end
 
+defmodule Google.Container.V1beta1.AutopilotConversionStatus.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :DONE, 5
+end
+
 defmodule Google.Container.V1beta1.NotificationConfig.EventType do
   @moduledoc false
 
@@ -2625,6 +2634,14 @@ defmodule Google.Container.V1beta1.NodePool.PlacementPolicy do
   field :policy_name, 3, type: :string, json_name: "policyName"
 end
 
+defmodule Google.Container.V1beta1.NodePool.QueuedProvisioning do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
 defmodule Google.Container.V1beta1.NodePool do
   @moduledoc false
 
@@ -2668,6 +2685,10 @@ defmodule Google.Container.V1beta1.NodePool do
     deprecated: false
 
   field :etag, 110, type: :string
+
+  field :queued_provisioning, 112,
+    type: Google.Container.V1beta1.NodePool.QueuedProvisioning,
+    json_name: "queuedProvisioning"
 
   field :best_effort_provisioning, 113,
     type: Google.Container.V1beta1.BestEffortProvisioning,
@@ -3558,6 +3579,17 @@ defmodule Google.Container.V1beta1.Master do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Container.V1beta1.AutopilotConversionStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 2,
+    type: Google.Container.V1beta1.AutopilotConversionStatus.State,
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Container.V1beta1.Autopilot do
   @moduledoc false
 
@@ -3568,6 +3600,10 @@ defmodule Google.Container.V1beta1.Autopilot do
   field :workload_policy_config, 2,
     type: Google.Container.V1beta1.WorkloadPolicyConfig,
     json_name: "workloadPolicyConfig"
+
+  field :conversion_status, 3,
+    type: Google.Container.V1beta1.AutopilotConversionStatus,
+    json_name: "conversionStatus"
 end
 
 defmodule Google.Container.V1beta1.WorkloadPolicyConfig do

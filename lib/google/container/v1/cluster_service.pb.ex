@@ -2182,6 +2182,14 @@ defmodule Google.Container.V1.NodePool.PlacementPolicy do
   field :policy_name, 3, type: :string, json_name: "policyName"
 end
 
+defmodule Google.Container.V1.NodePool.QueuedProvisioning do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
 defmodule Google.Container.V1.NodePool do
   @moduledoc false
 
@@ -2225,6 +2233,10 @@ defmodule Google.Container.V1.NodePool do
     deprecated: false
 
   field :etag, 110, type: :string
+
+  field :queued_provisioning, 112,
+    type: Google.Container.V1.NodePool.QueuedProvisioning,
+    json_name: "queuedProvisioning"
 
   field :best_effort_provisioning, 113,
     type: Google.Container.V1.BestEffortProvisioning,

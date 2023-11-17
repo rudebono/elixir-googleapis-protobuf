@@ -116,6 +116,7 @@ defmodule Google.Devtools.Testing.V1.InvalidRequestDetail.Reason do
   field :RESOURCE_NOT_FOUND, 3
   field :UNSUPPORTED, 4
   field :NOT_IMPLEMENTED, 5
+  field :RESULT_STORAGE_PERMISSION_DENIED, 6
 end
 
 defmodule Google.Devtools.Testing.V1.TestMatrix do
@@ -261,6 +262,12 @@ defmodule Google.Devtools.Testing.V1.TestSetup do
     json_name: "filesToPush"
 
   field :directories_to_pull, 2, repeated: true, type: :string, json_name: "directoriesToPull"
+
+  field :initial_setup_apks, 29,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.Apk,
+    json_name: "initialSetupApks",
+    deprecated: false
 
   field :additional_apks, 3,
     repeated: true,
