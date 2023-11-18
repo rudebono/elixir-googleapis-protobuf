@@ -104,6 +104,9 @@ defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.EventType do
   field :BIGQUERY_POLICY_TAG_DELETE, 12
   field :BIGQUERY_POLICY_TAG_SET_IAM_POLICY, 13
   field :ACCESS_POLICY_UPDATE, 14
+  field :GOVERNANCE_RULE_MATCHED_RESOURCES, 15
+  field :GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS, 16
+  field :GOVERNANCE_RULE_ERRORS, 17
 end
 
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity.EntityType do
@@ -373,6 +376,24 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionPass
   field :value, 2, type: :bool
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionScoreEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :float
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.ColumnScoreEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :float
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult do
   @moduledoc false
 
@@ -385,6 +406,20 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult do
     repeated: true,
     type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionPassedEntry,
     json_name: "dimensionPassed",
+    map: true
+
+  field :score, 4, type: :float
+
+  field :dimension_score, 5,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionScoreEntry,
+    json_name: "dimensionScore",
+    map: true
+
+  field :column_score, 6,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.ColumnScoreEntry,
+    json_name: "columnScore",
     map: true
 end
 
