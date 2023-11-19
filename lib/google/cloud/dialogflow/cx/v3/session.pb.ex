@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback.Rating do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RATING_UNSPECIFIED, 0
+  field :THUMBS_UP, 1
+  field :THUMBS_DOWN, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.DetectIntentResponse.ResponseType do
   @moduledoc false
 
@@ -30,6 +40,57 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Match.MatchType do
   field :NO_MATCH, 4
   field :NO_INPUT, 5
   field :EVENT, 6
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback.RatingReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reason_labels, 3,
+    repeated: true,
+    type: :string,
+    json_name: "reasonLabels",
+    deprecated: false
+
+  field :feedback, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rating, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback.Rating,
+    enum: true,
+    deprecated: false
+
+  field :rating_reason, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback.RatingReason,
+    json_name: "ratingReason",
+    deprecated: false
+
+  field :custom_rating, 3, type: :string, json_name: "customRating", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.SubmitAnswerFeedbackRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :session, 1, type: :string, deprecated: false
+  field :response_id, 2, type: :string, json_name: "responseId", deprecated: false
+
+  field :answer_feedback, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback,
+    json_name: "answerFeedback",
+    deprecated: false
+
+  field :update_mask, 4,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.DetectIntentRequest do
@@ -254,6 +315,73 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryParameters do
     type: Google.Protobuf.Duration,
     json_name: "sessionTtl",
     deprecated: false
+
+  field :end_user_metadata, 18,
+    type: Google.Protobuf.Struct,
+    json_name: "endUserMetadata",
+    deprecated: false
+
+  field :search_config, 20,
+    type: Google.Cloud.Dialogflow.Cx.V3.SearchConfig,
+    json_name: "searchConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.SearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :boost_specs, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.BoostSpecs,
+    json_name: "boostSpecs",
+    deprecated: false
+
+  field :filter_specs, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.FilterSpecs,
+    json_name: "filterSpecs",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :condition, 1, type: :string, deprecated: false
+  field :boost, 2, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :condition_boost_specs, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec,
+    json_name: "conditionBoostSpecs",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpecs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
+  field :spec, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.BoostSpec, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.FilterSpecs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
+  field :filter, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.QueryInput do
@@ -325,6 +453,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryResult do
   field :advanced_settings, 21,
     type: Google.Cloud.Dialogflow.Cx.V3.AdvancedSettings,
     json_name: "advancedSettings"
+
+  field :allow_answer_feedback, 32, type: :bool, json_name: "allowAnswerFeedback"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.TextInput do
@@ -486,6 +616,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Sessions.Service do
   rpc :FulfillIntent,
       Google.Cloud.Dialogflow.Cx.V3.FulfillIntentRequest,
       Google.Cloud.Dialogflow.Cx.V3.FulfillIntentResponse
+
+  rpc :SubmitAnswerFeedback,
+      Google.Cloud.Dialogflow.Cx.V3.SubmitAnswerFeedbackRequest,
+      Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Sessions.Stub do
