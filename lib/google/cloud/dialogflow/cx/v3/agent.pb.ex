@@ -59,6 +59,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.GenAppBuilderSettings do
   field :engine, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.AnswerFeedbackSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_answer_feedback, 1,
+    type: :bool,
+    json_name: "enableAnswerFeedback",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   @moduledoc false
 
@@ -112,6 +123,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
     proto3_optional: true,
     type: Google.Cloud.Dialogflow.Cx.V3.Agent.GenAppBuilderSettings,
     json_name: "genAppBuilderSettings"
+
+  field :answer_feedback_settings, 38,
+    type: Google.Cloud.Dialogflow.Cx.V3.Agent.AnswerFeedbackSettings,
+    json_name: "answerFeedbackSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListAgentsRequest do

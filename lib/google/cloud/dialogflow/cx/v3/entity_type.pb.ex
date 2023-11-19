@@ -142,10 +142,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Service do
     name: "google.cloud.dialogflow.cx.v3.EntityTypes",
     protoc_gen_elixir_version: "0.12.0"
 
-  rpc :ListEntityTypes,
-      Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest,
-      Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse
-
   rpc :GetEntityType,
       Google.Cloud.Dialogflow.Cx.V3.GetEntityTypeRequest,
       Google.Cloud.Dialogflow.Cx.V3.EntityType
@@ -161,6 +157,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Service do
   rpc :DeleteEntityType,
       Google.Cloud.Dialogflow.Cx.V3.DeleteEntityTypeRequest,
       Google.Protobuf.Empty
+
+  rpc :ListEntityTypes,
+      Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest,
+      Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Stub do
