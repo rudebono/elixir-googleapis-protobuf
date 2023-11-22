@@ -298,6 +298,18 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :UNSUPPORTED_DATABASE_SETTINGS, 33
   field :MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 34
   field :LOCAL_INFILE_OFF, 35
+  field :TURN_ON_PITR_AFTER_PROMOTE, 36
+end
+
+defmodule Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SSL_MODE_UNSPECIFIED, 0
+  field :ALLOW_UNENCRYPTED_AND_ENCRYPTED, 1
+  field :ENCRYPTED_ONLY, 2
+  field :TRUSTED_CLIENT_CERTIFICATE_REQUIRED, 3
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
@@ -790,6 +802,12 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
     proto3_optional: true,
     type: :string,
     json_name: "primaryDnsName",
+    deprecated: true
+
+  field :write_endpoint, 52,
+    proto3_optional: true,
+    type: :string,
+    json_name: "writeEndpoint",
     deprecated: false
 end
 
@@ -1199,6 +1217,11 @@ defmodule Google.Cloud.Sql.V1beta4.IpConfiguration do
     type: Google.Protobuf.BoolValue,
     json_name: "enablePrivatePathForGoogleCloudServices"
 
+  field :ssl_mode, 8,
+    type: Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode,
+    json_name: "sslMode",
+    enum: true
+
   field :psc_config, 9,
     proto3_optional: true,
     type: Google.Cloud.Sql.V1beta4.PscConfig,
@@ -1215,7 +1238,8 @@ defmodule Google.Cloud.Sql.V1beta4.PscConfig do
   field :allowed_consumer_projects, 2,
     repeated: true,
     type: :string,
-    json_name: "allowedConsumerProjects"
+    json_name: "allowedConsumerProjects",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpMapping do
@@ -1454,6 +1478,11 @@ defmodule Google.Cloud.Sql.V1beta4.ReplicaConfiguration do
     json_name: "mysqlReplicaConfiguration"
 
   field :failover_target, 3, type: Google.Protobuf.BoolValue, json_name: "failoverTarget"
+
+  field :cascadable_replica, 5,
+    type: Google.Protobuf.BoolValue,
+    json_name: "cascadableReplica",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.RestoreBackupContext do

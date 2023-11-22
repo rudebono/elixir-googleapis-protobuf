@@ -98,6 +98,12 @@ defmodule Google.Cloud.Batch.V1.Job do
   field :notifications, 14, repeated: true, type: Google.Cloud.Batch.V1.JobNotification
 end
 
+defmodule Google.Cloud.Batch.V1.LogsPolicy.CloudLoggingOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Batch.V1.LogsPolicy do
   @moduledoc false
 
@@ -105,6 +111,11 @@ defmodule Google.Cloud.Batch.V1.LogsPolicy do
 
   field :destination, 1, type: Google.Cloud.Batch.V1.LogsPolicy.Destination, enum: true
   field :logs_path, 2, type: :string, json_name: "logsPath"
+
+  field :cloud_logging_option, 3,
+    type: Google.Cloud.Batch.V1.LogsPolicy.CloudLoggingOption,
+    json_name: "cloudLoggingOption",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.JobStatus.InstanceStatus do

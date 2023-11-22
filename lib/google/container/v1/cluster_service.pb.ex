@@ -190,6 +190,7 @@ defmodule Google.Container.V1.SecurityPostureConfig.VulnerabilityMode do
   field :VULNERABILITY_MODE_UNSPECIFIED, 0
   field :VULNERABILITY_DISABLED, 1
   field :VULNERABILITY_BASIC, 2
+  field :VULNERABILITY_ENTERPRISE, 3
 end
 
 defmodule Google.Container.V1.Operation.Status do
@@ -3212,6 +3213,8 @@ defmodule Google.Container.V1.AdvancedDatapathObservabilityConfig do
     type: Google.Container.V1.AdvancedDatapathObservabilityConfig.RelayMode,
     json_name: "relayMode",
     enum: true
+
+  field :enable_relay, 3, proto3_optional: true, type: :bool, json_name: "enableRelay"
 end
 
 defmodule Google.Container.V1.NodePoolLoggingConfig do
