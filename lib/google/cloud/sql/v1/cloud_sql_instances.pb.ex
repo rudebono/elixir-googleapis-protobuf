@@ -129,6 +129,7 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :UNSUPPORTED_DATABASE_SETTINGS, 33
   field :MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 34
   field :LOCAL_INFILE_OFF, 35
+  field :TURN_ON_PITR_AFTER_PROMOTE, 36
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
@@ -254,6 +255,17 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesPromoteReplicaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+  field :failover, 3, type: :bool
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesSwitchoverRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :db_timeout, 3, type: Google.Protobuf.Duration, json_name: "dbTimeout", deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesResetSslConfigRequest do
@@ -820,6 +832,12 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     proto3_optional: true,
     type: :string,
     json_name: "primaryDnsName",
+    deprecated: true
+
+  field :write_endpoint, 52,
+    proto3_optional: true,
+    type: :string,
+    json_name: "writeEndpoint",
     deprecated: false
 end
 
@@ -951,6 +969,11 @@ defmodule Google.Cloud.Sql.V1.ReplicaConfiguration do
     json_name: "mysqlReplicaConfiguration"
 
   field :failover_target, 3, type: Google.Protobuf.BoolValue, json_name: "failoverTarget"
+
+  field :cascadable_replica, 5,
+    type: Google.Protobuf.BoolValue,
+    json_name: "cascadableReplica",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
@@ -996,6 +1019,10 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
 
   rpc :PromoteReplica,
       Google.Cloud.Sql.V1.SqlInstancesPromoteReplicaRequest,
+      Google.Cloud.Sql.V1.Operation
+
+  rpc :Switchover,
+      Google.Cloud.Sql.V1.SqlInstancesSwitchoverRequest,
       Google.Cloud.Sql.V1.Operation
 
   rpc :ResetSslConfig,

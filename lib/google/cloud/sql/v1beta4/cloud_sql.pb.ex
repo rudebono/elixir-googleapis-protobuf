@@ -251,6 +251,17 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
+  field :failover, 3, type: :bool
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesSwitchoverRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string
+  field :project, 2, type: :string
+  field :db_timeout, 3, type: Google.Protobuf.Duration, json_name: "dbTimeout", deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
@@ -698,6 +709,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
 
   rpc :PromoteReplica,
       Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest,
+      Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :Switchover,
+      Google.Cloud.Sql.V1beta4.SqlInstancesSwitchoverRequest,
       Google.Cloud.Sql.V1beta4.Operation
 
   rpc :ResetSslConfig,

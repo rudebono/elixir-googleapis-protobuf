@@ -224,6 +224,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AnnotateAssessmentRequest do
     enum: true,
     deprecated: false
 
+  field :account_id, 7, type: :string, json_name: "accountId", deprecated: false
   field :hashed_account_id, 4, type: :bytes, json_name: "hashedAccountId", deprecated: false
 
   field :transaction_event, 5,
@@ -359,7 +360,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   field :user_agent, 3, type: :string, json_name: "userAgent", deprecated: false
   field :user_ip_address, 4, type: :string, json_name: "userIpAddress", deprecated: false
   field :expected_action, 5, type: :string, json_name: "expectedAction", deprecated: false
-  field :hashed_account_id, 6, type: :bytes, json_name: "hashedAccountId", deprecated: false
+  field :hashed_account_id, 6, type: :bytes, json_name: "hashedAccountId", deprecated: true
   field :express, 14, type: :bool, deprecated: false
   field :requested_uri, 8, type: :string, json_name: "requestedUri", deprecated: false
   field :waf_token_assessment, 9, type: :bool, json_name: "wafTokenAssessment", deprecated: false
@@ -374,6 +375,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   field :transaction_data, 13,
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData,
     json_name: "transactionData",
+    deprecated: false
+
+  field :user_info, 15,
+    type: Google.Cloud.Recaptchaenterprise.V1.UserInfo,
+    json_name: "userInfo",
     deprecated: false
 end
 
@@ -471,6 +477,37 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.TransactionData do
     type: Google.Cloud.Recaptchaenterprise.V1.TransactionData.GatewayInfo,
     json_name: "gatewayInfo",
     deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.UserInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_account_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createAccountTime",
+    deprecated: false
+
+  field :account_id, 2, type: :string, json_name: "accountId", deprecated: false
+
+  field :user_ids, 3,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.UserId,
+    json_name: "userIds",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.UserId do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :id_oneof, 0
+
+  field :email, 1, type: :string, oneof: 0, deprecated: false
+  field :phone_number, 2, type: :string, json_name: "phoneNumber", oneof: 0, deprecated: false
+  field :username, 3, type: :string, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do

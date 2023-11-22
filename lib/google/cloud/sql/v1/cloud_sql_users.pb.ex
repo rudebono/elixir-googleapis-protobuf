@@ -6,6 +6,9 @@ defmodule Google.Cloud.Sql.V1.User.SqlUserType do
   field :BUILT_IN, 0
   field :CLOUD_IAM_USER, 1
   field :CLOUD_IAM_SERVICE_ACCOUNT, 2
+  field :CLOUD_IAM_GROUP, 3
+  field :CLOUD_IAM_GROUP_USER, 4
+  field :CLOUD_IAM_GROUP_SERVICE_ACCOUNT, 5
 end
 
 defmodule Google.Cloud.Sql.V1.User.DualPasswordType do
