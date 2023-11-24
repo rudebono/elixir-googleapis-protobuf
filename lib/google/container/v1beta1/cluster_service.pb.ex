@@ -3773,6 +3773,8 @@ defmodule Google.Container.V1beta1.AdvancedDatapathObservabilityConfig do
     type: Google.Container.V1beta1.AdvancedDatapathObservabilityConfig.RelayMode,
     json_name: "relayMode",
     enum: true
+
+  field :enable_relay, 3, proto3_optional: true, type: :bool, json_name: "enableRelay"
 end
 
 defmodule Google.Container.V1beta1.NodePoolLoggingConfig do
