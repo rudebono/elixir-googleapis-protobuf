@@ -7,6 +7,17 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
   field :VIOLATES_POLICY, 1
 end
 
+defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.ContainerType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONTAINER_TYPE_UNSPECIFIED, 0
+  field :CONTAINER, 1
+  field :INIT_CONTAINER, 2
+  field :EPHEMERAL_CONTAINER, 3
+end
+
 defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.AuditResult do
   @moduledoc false
 
@@ -72,6 +83,13 @@ defmodule Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.Con
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :image, 1, type: :string
+  field :container_name, 5, type: :string, json_name: "containerName"
+
+  field :container_type, 6,
+    type:
+      Google.Cloud.Binaryauthorization.V1beta1.ContinuousValidationEvent.ContinuousValidationPodEvent.ImageDetails.ContainerType,
+    json_name: "containerType",
+    enum: true
 
   field :result, 2,
     type:
