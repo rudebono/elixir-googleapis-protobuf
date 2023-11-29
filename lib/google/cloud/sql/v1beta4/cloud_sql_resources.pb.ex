@@ -865,6 +865,19 @@ defmodule Google.Cloud.Sql.V1beta4.DemoteMasterMySqlReplicaConfiguration do
   field :ca_certificate, 6, type: :string, json_name: "caCertificate"
 end
 
+defmodule Google.Cloud.Sql.V1beta4.DemoteContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+
+  field :source_representative_instance_name, 2,
+    type: :string,
+    json_name: "sourceRepresentativeInstanceName",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlCsvExportOptions do
   @moduledoc false
 
@@ -1061,6 +1074,17 @@ defmodule Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest do
   field :demote_master_context, 1,
     type: Google.Cloud.Sql.V1beta4.DemoteMasterContext,
     json_name: "demoteMasterContext"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.InstancesDemoteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :demote_context, 1,
+    type: Google.Cloud.Sql.V1beta4.DemoteContext,
+    json_name: "demoteContext",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesExportRequest do
