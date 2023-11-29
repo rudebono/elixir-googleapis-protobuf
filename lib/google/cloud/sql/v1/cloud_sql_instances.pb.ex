@@ -170,6 +170,16 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesDemoteMasterRequest do
   field :body, 100, type: Google.Cloud.Sql.V1.InstancesDemoteMasterRequest
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesDemoteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+  field :body, 100, type: Google.Cloud.Sql.V1.InstancesDemoteRequest, deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1.SqlInstancesExportRequest do
   @moduledoc false
 
@@ -500,6 +510,17 @@ defmodule Google.Cloud.Sql.V1.InstancesDemoteMasterRequest do
   field :demote_master_context, 1,
     type: Google.Cloud.Sql.V1.DemoteMasterContext,
     json_name: "demoteMasterContext"
+end
+
+defmodule Google.Cloud.Sql.V1.InstancesDemoteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :demote_context, 1,
+    type: Google.Cloud.Sql.V1.DemoteContext,
+    json_name: "demoteContext",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.InstancesExportRequest do
@@ -886,6 +907,19 @@ defmodule Google.Cloud.Sql.V1.DemoteMasterContext do
   field :skip_replication_setup, 5, type: :bool, json_name: "skipReplicationSetup"
 end
 
+defmodule Google.Cloud.Sql.V1.DemoteContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kind, 1, type: :string
+
+  field :source_representative_instance_name, 2,
+    type: :string,
+    json_name: "sourceRepresentativeInstanceName",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1.FailoverContext do
   @moduledoc false
 
@@ -994,6 +1028,8 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
   rpc :DemoteMaster,
       Google.Cloud.Sql.V1.SqlInstancesDemoteMasterRequest,
       Google.Cloud.Sql.V1.Operation
+
+  rpc :Demote, Google.Cloud.Sql.V1.SqlInstancesDemoteRequest, Google.Cloud.Sql.V1.Operation
 
   rpc :Export, Google.Cloud.Sql.V1.SqlInstancesExportRequest, Google.Cloud.Sql.V1.Operation
 

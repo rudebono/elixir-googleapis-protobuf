@@ -166,6 +166,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
   field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesDemoteMasterRequest
 end
 
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+  field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesDemoteRequest
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
   @moduledoc false
 
@@ -669,6 +679,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
 
   rpc :DemoteMaster,
       Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest,
+      Google.Cloud.Sql.V1beta4.Operation
+
+  rpc :Demote,
+      Google.Cloud.Sql.V1beta4.SqlInstancesDemoteRequest,
       Google.Cloud.Sql.V1beta4.Operation
 
   rpc :Export,
