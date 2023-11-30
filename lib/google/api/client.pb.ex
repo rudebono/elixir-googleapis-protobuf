@@ -224,4 +224,5 @@ defmodule Google.Api.MethodSettings do
 
   field :selector, 1, type: :string
   field :long_running, 2, type: Google.Api.MethodSettings.LongRunning, json_name: "longRunning"
+  field :auto_populated_fields, 3, repeated: true, type: :string, json_name: "autoPopulatedFields"
 end

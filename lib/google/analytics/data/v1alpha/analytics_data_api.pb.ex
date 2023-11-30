@@ -19,6 +19,81 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizati
   field :TRENDED_FUNNEL, 2
 end
 
+defmodule Google.Analytics.Data.V1alpha.CreateRecurringAudienceListRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :recurring_audience_list, 2,
+    type: Google.Analytics.Data.V1alpha.RecurringAudienceList,
+    json_name: "recurringAudienceList",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.RecurringAudienceList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :audience, 2, type: :string, deprecated: false
+
+  field :audience_display_name, 3,
+    type: :string,
+    json_name: "audienceDisplayName",
+    deprecated: false
+
+  field :dimensions, 4,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.AudienceDimension,
+    deprecated: false
+
+  field :active_days_remaining, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "activeDaysRemaining",
+    deprecated: false
+
+  field :audience_lists, 6,
+    repeated: true,
+    type: :string,
+    json_name: "audienceLists",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.GetRecurringAudienceListRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ListRecurringAudienceListsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :recurring_audience_lists, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.RecurringAudienceList,
+    json_name: "recurringAudienceLists"
+
+  field :next_page_token, 2, proto3_optional: true, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Data.V1alpha.GetAudienceListRequest do
   @moduledoc false
 
@@ -108,6 +183,18 @@ defmodule Google.Analytics.Data.V1alpha.AudienceList do
     proto3_optional: true,
     type: :string,
     json_name: "errorMessage",
+    deprecated: false
+
+  field :percentage_completed, 11,
+    proto3_optional: true,
+    type: :double,
+    json_name: "percentageCompleted",
+    deprecated: false
+
+  field :recurring_audience_list, 12,
+    proto3_optional: true,
+    type: :string,
+    json_name: "recurringAudienceList",
     deprecated: false
 end
 
@@ -298,6 +385,18 @@ defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   rpc :ListAudienceLists,
       Google.Analytics.Data.V1alpha.ListAudienceListsRequest,
       Google.Analytics.Data.V1alpha.ListAudienceListsResponse
+
+  rpc :CreateRecurringAudienceList,
+      Google.Analytics.Data.V1alpha.CreateRecurringAudienceListRequest,
+      Google.Analytics.Data.V1alpha.RecurringAudienceList
+
+  rpc :GetRecurringAudienceList,
+      Google.Analytics.Data.V1alpha.GetRecurringAudienceListRequest,
+      Google.Analytics.Data.V1alpha.RecurringAudienceList
+
+  rpc :ListRecurringAudienceLists,
+      Google.Analytics.Data.V1alpha.ListRecurringAudienceListsRequest,
+      Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse
 end
 
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Stub do
