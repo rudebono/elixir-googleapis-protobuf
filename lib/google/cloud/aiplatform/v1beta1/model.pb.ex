@@ -211,6 +211,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec do
   field :predict_route, 6, type: :string, json_name: "predictRoute", deprecated: false
   field :health_route, 7, type: :string, json_name: "healthRoute", deprecated: false
 
+  field :grpc_ports, 9,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Port,
+    json_name: "grpcPorts",
+    deprecated: false
+
   field :deployment_timeout, 10,
     type: Google.Protobuf.Duration,
     json_name: "deploymentTimeout",
