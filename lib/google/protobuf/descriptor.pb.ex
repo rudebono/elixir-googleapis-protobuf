@@ -12,6 +12,7 @@ defmodule Google.Protobuf.Edition do
   field :EDITION_99997_TEST_ONLY, 99997
   field :EDITION_99998_TEST_ONLY, 99998
   field :EDITION_99999_TEST_ONLY, 99999
+  field :EDITION_MAX, 2_147_483_647
 end
 
 defmodule Google.Protobuf.ExtensionRangeOptions.VerificationState do
@@ -162,8 +163,8 @@ defmodule Google.Protobuf.FeatureSet.Utf8Validation do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :UTF8_VALIDATION_UNKNOWN, 0
-  field :NONE, 1
   field :VERIFY, 2
+  field :NONE, 3
 end
 
 defmodule Google.Protobuf.FeatureSet.MessageEncoding do
@@ -290,7 +291,8 @@ defmodule Google.Protobuf.ExtensionRangeOptions do
     optional: true,
     type: Google.Protobuf.ExtensionRangeOptions.VerificationState,
     default: :UNVERIFIED,
-    enum: true
+    enum: true,
+    deprecated: false
 
   extensions [{1000, Protobuf.Extension.max()}]
 end
