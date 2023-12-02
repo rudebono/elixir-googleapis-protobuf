@@ -89,7 +89,14 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :passed, 5, type: :bool
+  field :score, 9, proto3_optional: true, type: :float, deprecated: false
   field :dimensions, 2, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityDimensionResult
+
+  field :columns, 10,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataQualityColumnResult,
+    deprecated: false
+
   field :rules, 3, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRuleResult
   field :row_count, 4, type: :int64, json_name: "rowCount"
   field :scanned_data, 7, type: Google.Cloud.Dataplex.V1.ScannedData, json_name: "scannedData"
@@ -121,6 +128,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityDimensionResult do
 
   field :dimension, 1, type: Google.Cloud.Dataplex.V1.DataQualityDimension, deprecated: false
   field :passed, 3, type: :bool
+  field :score, 4, proto3_optional: true, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityDimension do
@@ -255,4 +263,13 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   field :threshold, 503, type: :double, deprecated: false
   field :name, 504, type: :string, deprecated: false
   field :description, 505, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualityColumnResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :column, 1, type: :string, deprecated: false
+  field :score, 2, proto3_optional: true, type: :float, deprecated: false
 end

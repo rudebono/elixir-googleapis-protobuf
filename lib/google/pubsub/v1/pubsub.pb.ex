@@ -377,10 +377,11 @@ defmodule Google.Pubsub.V1.BigQueryConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table, 1, type: :string
-  field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema"
+  field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
   field :write_metadata, 3, type: :bool, json_name: "writeMetadata"
   field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields"
   field :state, 5, type: Google.Pubsub.V1.BigQueryConfig.State, enum: true, deprecated: false
+  field :use_table_schema, 6, type: :bool, json_name: "useTableSchema", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig.TextConfig do
