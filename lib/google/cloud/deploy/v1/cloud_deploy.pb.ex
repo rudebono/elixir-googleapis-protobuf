@@ -79,6 +79,8 @@ defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
   field :CLOUD_BUILD_REQUEST_FAILED, 3
   field :VERIFICATION_CONFIG_NOT_FOUND, 4
   field :CUSTOM_ACTION_NOT_FOUND, 5
+  field :DEPLOYMENT_STRATEGY_NOT_SUPPORTED, 6
+  field :RENDER_FEATURE_NOT_SUPPORTED, 7
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
@@ -124,6 +126,7 @@ defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
   field :RELEASE_ABANDONED, 5
   field :VERIFICATION_CONFIG_NOT_FOUND, 6
   field :CLOUD_BUILD_REQUEST_FAILED, 7
+  field :OPERATION_FEATURE_NOT_SUPPORTED, 8
 end
 
 defmodule Google.Cloud.Deploy.V1.Phase.State do
@@ -180,6 +183,7 @@ defmodule Google.Cloud.Deploy.V1.DeployJobRun.FailureCause do
   field :DEADLINE_EXCEEDED, 3
   field :MISSING_RESOURCES_FOR_CANARY, 4
   field :CLOUD_BUILD_REQUEST_FAILED, 5
+  field :DEPLOY_FEATURE_NOT_SUPPORTED, 6
 end
 
 defmodule Google.Cloud.Deploy.V1.VerifyJobRun.FailureCause do
@@ -501,6 +505,24 @@ defmodule Google.Cloud.Deploy.V1.CloudRunConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :automatic_traffic_control, 1, type: :bool, json_name: "automaticTrafficControl"
+
+  field :canary_revision_tags, 2,
+    repeated: true,
+    type: :string,
+    json_name: "canaryRevisionTags",
+    deprecated: false
+
+  field :prior_revision_tags, 3,
+    repeated: true,
+    type: :string,
+    json_name: "priorRevisionTags",
+    deprecated: false
+
+  field :stable_revision_tags, 4,
+    repeated: true,
+    type: :string,
+    json_name: "stableRevisionTags",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RuntimeConfig do
@@ -775,6 +797,12 @@ defmodule Google.Cloud.Deploy.V1.Target do
     oneof: 0,
     deprecated: false
 
+  field :custom_target, 21,
+    type: Google.Cloud.Deploy.V1.CustomTarget,
+    json_name: "customTarget",
+    oneof: 0,
+    deprecated: false
+
   field :etag, 12, type: :string, deprecated: false
 
   field :execution_configs, 16,
@@ -877,6 +905,14 @@ defmodule Google.Cloud.Deploy.V1.MultiTarget do
   field :target_ids, 1, repeated: true, type: :string, json_name: "targetIds", deprecated: false
 end
 
+defmodule Google.Cloud.Deploy.V1.CustomTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :custom_target_type, 1, type: :string, json_name: "customTargetType", deprecated: false
+end
+
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   @moduledoc false
 
@@ -936,6 +972,208 @@ defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
 end
 
 defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomTargetType.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomTargetType.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomTargetType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :definition, 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :custom_target_type_id, 2,
+    type: :string,
+    json_name: "customTargetTypeId",
+    deprecated: false
+
+  field :uid, 3, type: :string, deprecated: false
+  field :description, 4, type: :string, deprecated: false
+
+  field :annotations, 5,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.CustomTargetType.AnnotationsEntry,
+    map: true,
+    deprecated: false
+
+  field :labels, 6,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.CustomTargetType.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 9, type: :string, deprecated: false
+
+  field :custom_actions, 10,
+    type: Google.Cloud.Deploy.V1.CustomTargetSkaffoldActions,
+    json_name: "customActions",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomTargetSkaffoldActions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :render_action, 1, type: :string, json_name: "renderAction", deprecated: false
+  field :deploy_action, 2, type: :string, json_name: "deployAction", deprecated: false
+
+  field :include_skaffold_modules, 3,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.SkaffoldModules,
+    json_name: "includeSkaffoldModules",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGitSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :repo, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+  field :ref, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :source, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.SkaffoldModules do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :configs, 1, repeated: true, type: :string, deprecated: false
+  field :git, 2, type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGitSource, oneof: 0
+
+  field :google_cloud_storage, 3,
+    type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource,
+    json_name: "googleCloudStorage",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Deploy.V1.ListCustomTargetTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.ListCustomTargetTypesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :custom_target_types, 1,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.CustomTargetType,
+    json_name: "customTargetTypes"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.GetCustomTargetTypeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CreateCustomTargetTypeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :custom_target_type_id, 2,
+    type: :string,
+    json_name: "customTargetTypeId",
+    deprecated: false
+
+  field :custom_target_type, 3,
+    type: Google.Cloud.Deploy.V1.CustomTargetType,
+    json_name: "customTargetType",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.UpdateCustomTargetTypeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :custom_target_type, 2,
+    type: Google.Cloud.Deploy.V1.CustomTargetType,
+    json_name: "customTargetType",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.DeleteCustomTargetTypeRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1132,6 +1370,12 @@ defmodule Google.Cloud.Deploy.V1.Release do
     json_name: "targetSnapshots",
     deprecated: false
 
+  field :custom_target_type_snapshots, 27,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.CustomTargetType,
+    json_name: "customTargetTypeSnapshots",
+    deprecated: false
+
   field :render_state, 13,
     type: Google.Cloud.Deploy.V1.Release.RenderState,
     json_name: "renderState",
@@ -1252,6 +1496,8 @@ defmodule Google.Cloud.Deploy.V1.RenderMetadata do
     type: Google.Cloud.Deploy.V1.CloudRunRenderMetadata,
     json_name: "cloudRun",
     deprecated: false
+
+  field :custom, 2, type: Google.Cloud.Deploy.V1.CustomMetadata, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
@@ -1397,6 +1643,7 @@ defmodule Google.Cloud.Deploy.V1.Metadata do
     deprecated: false
 
   field :automation, 2, type: Google.Cloud.Deploy.V1.AutomationRolloutMetadata, deprecated: false
+  field :custom, 3, type: Google.Cloud.Deploy.V1.CustomMetadata, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.DeployJobRunMetadata do
@@ -1408,6 +1655,13 @@ defmodule Google.Cloud.Deploy.V1.DeployJobRunMetadata do
     type: Google.Cloud.Deploy.V1.CloudRunMetadata,
     json_name: "cloudRun",
     deprecated: false
+
+  field :custom_target, 2,
+    type: Google.Cloud.Deploy.V1.CustomTargetDeployMetadata,
+    json_name: "customTarget",
+    deprecated: false
+
+  field :custom, 3, type: Google.Cloud.Deploy.V1.CustomMetadata, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CloudRunMetadata do
@@ -1425,6 +1679,14 @@ defmodule Google.Cloud.Deploy.V1.CloudRunMetadata do
 
   field :revision, 3, type: :string, deprecated: false
   field :job, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomTargetDeployMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :skip_message, 1, type: :string, json_name: "skipMessage", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AutomationRolloutMetadata do
@@ -1447,6 +1709,27 @@ defmodule Google.Cloud.Deploy.V1.AutomationRolloutMetadata do
     repeated: true,
     type: :string,
     json_name: "repairAutomationRuns",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomMetadata.ValuesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Deploy.V1.CustomMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.CustomMetadata.ValuesEntry,
+    map: true,
     deprecated: false
 end
 
@@ -2502,6 +2785,26 @@ defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
   rpc :UpdateTarget, Google.Cloud.Deploy.V1.UpdateTargetRequest, Google.Longrunning.Operation
 
   rpc :DeleteTarget, Google.Cloud.Deploy.V1.DeleteTargetRequest, Google.Longrunning.Operation
+
+  rpc :ListCustomTargetTypes,
+      Google.Cloud.Deploy.V1.ListCustomTargetTypesRequest,
+      Google.Cloud.Deploy.V1.ListCustomTargetTypesResponse
+
+  rpc :GetCustomTargetType,
+      Google.Cloud.Deploy.V1.GetCustomTargetTypeRequest,
+      Google.Cloud.Deploy.V1.CustomTargetType
+
+  rpc :CreateCustomTargetType,
+      Google.Cloud.Deploy.V1.CreateCustomTargetTypeRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateCustomTargetType,
+      Google.Cloud.Deploy.V1.UpdateCustomTargetTypeRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteCustomTargetType,
+      Google.Cloud.Deploy.V1.DeleteCustomTargetTypeRequest,
+      Google.Longrunning.Operation
 
   rpc :ListReleases,
       Google.Cloud.Deploy.V1.ListReleasesRequest,

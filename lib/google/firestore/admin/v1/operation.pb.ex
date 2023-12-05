@@ -121,6 +121,8 @@ defmodule Google.Firestore.Admin.V1.ExportDocumentsMetadata do
   field :progress_bytes, 5, type: Google.Firestore.Admin.V1.Progress, json_name: "progressBytes"
   field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
   field :output_uri_prefix, 7, type: :string, json_name: "outputUriPrefix"
+  field :namespace_ids, 8, repeated: true, type: :string, json_name: "namespaceIds"
+  field :snapshot_time, 9, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 end
 
 defmodule Google.Firestore.Admin.V1.ImportDocumentsMetadata do
@@ -143,6 +145,7 @@ defmodule Google.Firestore.Admin.V1.ImportDocumentsMetadata do
   field :progress_bytes, 5, type: Google.Firestore.Admin.V1.Progress, json_name: "progressBytes"
   field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
   field :input_uri_prefix, 7, type: :string, json_name: "inputUriPrefix"
+  field :namespace_ids, 8, repeated: true, type: :string, json_name: "namespaceIds"
 end
 
 defmodule Google.Firestore.Admin.V1.ExportDocumentsResponse do
