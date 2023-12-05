@@ -19,6 +19,16 @@ defmodule Google.Firestore.Admin.V1.Database.ConcurrencyMode do
   field :OPTIMISTIC_WITH_ENTITY_GROUPS, 3
 end
 
+defmodule Google.Firestore.Admin.V1.Database.PointInTimeRecoveryEnablement do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED, 0
+  field :POINT_IN_TIME_RECOVERY_ENABLED, 1
+  field :POINT_IN_TIME_RECOVERY_DISABLED, 2
+end
+
 defmodule Google.Firestore.Admin.V1.Database.AppEngineIntegrationMode do
   @moduledoc false
 
@@ -41,6 +51,21 @@ defmodule Google.Firestore.Admin.V1.Database do
   field :concurrency_mode, 15,
     type: Google.Firestore.Admin.V1.Database.ConcurrencyMode,
     json_name: "concurrencyMode",
+    enum: true
+
+  field :version_retention_period, 17,
+    type: Google.Protobuf.Duration,
+    json_name: "versionRetentionPeriod",
+    deprecated: false
+
+  field :earliest_version_time, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "earliestVersionTime",
+    deprecated: false
+
+  field :point_in_time_recovery_enablement, 21,
+    type: Google.Firestore.Admin.V1.Database.PointInTimeRecoveryEnablement,
+    json_name: "pointInTimeRecoveryEnablement",
     enum: true
 
   field :app_engine_integration_mode, 19,

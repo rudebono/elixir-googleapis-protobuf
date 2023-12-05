@@ -143,6 +143,8 @@ defmodule Google.Firestore.Admin.V1.ExportDocumentsRequest do
   field :name, 1, type: :string, deprecated: false
   field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
   field :output_uri_prefix, 3, type: :string, json_name: "outputUriPrefix"
+  field :namespace_ids, 4, repeated: true, type: :string, json_name: "namespaceIds"
+  field :snapshot_time, 5, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 end
 
 defmodule Google.Firestore.Admin.V1.ImportDocumentsRequest do
@@ -153,6 +155,7 @@ defmodule Google.Firestore.Admin.V1.ImportDocumentsRequest do
   field :name, 1, type: :string, deprecated: false
   field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
   field :input_uri_prefix, 3, type: :string, json_name: "inputUriPrefix"
+  field :namespace_ids, 4, repeated: true, type: :string, json_name: "namespaceIds"
 end
 
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
