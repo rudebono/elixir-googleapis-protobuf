@@ -7,6 +7,7 @@ defmodule Google.Cloud.Billing.V1.BillingAccount do
   field :open, 2, type: :bool, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
   field :master_billing_account, 4, type: :string, json_name: "masterBillingAccount"
+  field :parent, 6, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
@@ -36,6 +37,7 @@ defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
   field :filter, 3, type: :string
+  field :parent, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
@@ -60,6 +62,8 @@ defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
     type: Google.Cloud.Billing.V1.BillingAccount,
     json_name: "billingAccount",
     deprecated: false
+
+  field :parent, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
@@ -115,6 +119,15 @@ defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
     json_name: "projectBillingInfo"
 end
 
+defmodule Google.Cloud.Billing.V1.MoveBillingAccountRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :destination_parent, 2, type: :string, json_name: "destinationParent", deprecated: false
+end
+
 defmodule Google.Cloud.Billing.V1.CloudBilling.Service do
   @moduledoc false
 
@@ -157,6 +170,10 @@ defmodule Google.Cloud.Billing.V1.CloudBilling.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :MoveBillingAccount,
+      Google.Cloud.Billing.V1.MoveBillingAccountRequest,
+      Google.Cloud.Billing.V1.BillingAccount
 end
 
 defmodule Google.Cloud.Billing.V1.CloudBilling.Stub do

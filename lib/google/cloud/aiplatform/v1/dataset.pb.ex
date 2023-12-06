@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1.ExportDataConfig.ExportUse do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXPORT_USE_UNSPECIFIED, 0
+  field :CUSTOM_CODE_TRAINING, 6
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Dataset.LabelsEntry do
   @moduledoc false
 
@@ -112,7 +121,19 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataConfig do
     json_name: "fractionSplit",
     oneof: 1
 
+  field :filter_split, 7,
+    type: Google.Cloud.Aiplatform.V1.ExportFilterSplit,
+    json_name: "filterSplit",
+    oneof: 1
+
   field :annotations_filter, 2, type: :string, json_name: "annotationsFilter"
+  field :saved_query_id, 11, type: :string, json_name: "savedQueryId"
+  field :annotation_schema_uri, 12, type: :string, json_name: "annotationSchemaUri"
+
+  field :export_use, 4,
+    type: Google.Cloud.Aiplatform.V1.ExportDataConfig.ExportUse,
+    json_name: "exportUse",
+    enum: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportFractionSplit do
@@ -123,4 +144,14 @@ defmodule Google.Cloud.Aiplatform.V1.ExportFractionSplit do
   field :training_fraction, 1, type: :double, json_name: "trainingFraction"
   field :validation_fraction, 2, type: :double, json_name: "validationFraction"
   field :test_fraction, 3, type: :double, json_name: "testFraction"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ExportFilterSplit do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :training_filter, 1, type: :string, json_name: "trainingFilter", deprecated: false
+  field :validation_filter, 2, type: :string, json_name: "validationFilter", deprecated: false
+  field :test_filter, 3, type: :string, json_name: "testFilter", deprecated: false
 end

@@ -30,6 +30,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType do
   field :BQML, 3
   field :MODEL_GARDEN, 4
   field :GENIE, 5
+  field :CUSTOM_TEXT_EMBEDDING, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
@@ -45,6 +46,19 @@ defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
     json_name: "exportableContents",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Model.DataStats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :training_data_items_count, 1, type: :int64, json_name: "trainingDataItemsCount"
+  field :validation_data_items_count, 2, type: :int64, json_name: "validationDataItemsCount"
+  field :test_data_items_count, 3, type: :int64, json_name: "testDataItemsCount"
+  field :training_annotations_count, 4, type: :int64, json_name: "trainingAnnotationsCount"
+  field :validation_annotations_count, 5, type: :int64, json_name: "validationAnnotationsCount"
+  field :test_annotations_count, 6, type: :int64, json_name: "testAnnotationsCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Model.OriginalModelInfo do
@@ -151,6 +165,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
 
   field :etag, 16, type: :string
   field :labels, 17, repeated: true, type: Google.Cloud.Aiplatform.V1.Model.LabelsEntry, map: true
+  field :data_stats, 21, type: Google.Cloud.Aiplatform.V1.Model.DataStats, json_name: "dataStats"
 
   field :encryption_spec, 24,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,

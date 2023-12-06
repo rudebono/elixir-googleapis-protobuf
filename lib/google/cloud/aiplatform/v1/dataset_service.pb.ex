@@ -118,6 +118,7 @@ defmodule Google.Cloud.Aiplatform.V1.ExportDataResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :exported_files, 1, repeated: true, type: :string, json_name: "exportedFiles"
+  field :data_stats, 2, type: Google.Cloud.Aiplatform.V1.Model.DataStats, json_name: "dataStats"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExportDataOperationMetadata do
