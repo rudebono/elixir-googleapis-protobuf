@@ -136,6 +136,7 @@ defmodule Google.Cloud.Sql.V1.SqlUpdateTrack do
   field :SQL_UPDATE_TRACK_UNSPECIFIED, 0
   field :canary, 1
   field :stable, 2
+  field :week5, 3
 end
 
 defmodule Google.Cloud.Sql.V1.ApiWarning.SqlApiWarningCode do
@@ -146,6 +147,8 @@ defmodule Google.Cloud.Sql.V1.ApiWarning.SqlApiWarningCode do
   field :SQL_API_WARNING_CODE_UNSPECIFIED, 0
   field :REGION_UNREACHABLE, 1
   field :MAX_RESULTS_EXCEEDS_LIMIT, 2
+  field :COMPROMISED_CREDENTIALS, 3
+  field :INTERNAL_STATE_FAILURE, 4
 end
 
 defmodule Google.Cloud.Sql.V1.BackupRetentionSettings.RetentionUnit do
@@ -742,6 +745,7 @@ defmodule Google.Cloud.Sql.V1.Operation do
   field :start_time, 6, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :error, 8, type: Google.Cloud.Sql.V1.OperationErrors
+  field :api_warning, 19, type: Google.Cloud.Sql.V1.ApiWarning, json_name: "apiWarning"
 
   field :operation_type, 9,
     type: Google.Cloud.Sql.V1.Operation.SqlOperationType,
@@ -796,6 +800,10 @@ defmodule Google.Cloud.Sql.V1.PasswordValidationPolicy do
   field :enable_password_policy, 6,
     type: Google.Protobuf.BoolValue,
     json_name: "enablePasswordPolicy"
+
+  field :disallow_compromised_credentials, 7,
+    type: Google.Protobuf.BoolValue,
+    json_name: "disallowCompromisedCredentials"
 end
 
 defmodule Google.Cloud.Sql.V1.DataCacheConfig do
