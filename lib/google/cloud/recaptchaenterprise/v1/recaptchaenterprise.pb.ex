@@ -853,7 +853,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
 
   oneof :platform_settings, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
   field :web_settings, 3,
@@ -1120,7 +1120,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :path, 4, type: :string, deprecated: false
   field :condition, 5, type: :string, deprecated: false
@@ -1183,7 +1183,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
-  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId", deprecated: false
+  field :account_id, 5, type: :string, json_name: "accountId", deprecated: false
+  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId", deprecated: true
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
@@ -1207,7 +1208,8 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId"
+  field :account_id, 4, type: :string, json_name: "accountId"
+  field :hashed_account_id, 2, type: :bytes, json_name: "hashedAccountId", deprecated: true
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroup do

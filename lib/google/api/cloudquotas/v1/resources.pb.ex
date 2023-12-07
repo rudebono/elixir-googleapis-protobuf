@@ -25,7 +25,7 @@ defmodule Google.Api.Cloudquotas.V1.QuotaIncreaseEligibility.IneligibilityReason
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INELIGIBILITY_REASON_UNSPECIFIED, 0
-  field :NO_BILLING_ACCOUNT, 2
+  field :NO_VALID_BILLING_ACCOUNT, 2
   field :OTHER, 3
 end
 
@@ -131,6 +131,7 @@ defmodule Google.Api.Cloudquotas.V1.QuotaPreference do
   field :quota_id, 8, type: :string, json_name: "quotaId", deprecated: false
   field :reconciling, 10, type: :bool, deprecated: false
   field :justification, 11, type: :string
+  field :contact_email, 12, type: :string, json_name: "contactEmail", deprecated: false
 end
 
 defmodule Google.Api.Cloudquotas.V1.QuotaConfig.AnnotationsEntry do
