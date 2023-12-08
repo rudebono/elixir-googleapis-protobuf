@@ -3,7 +3,7 @@ defmodule Google.Maps.Places.V1.AuthorAttribution do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
-  field :uri, 2, type: :string, deprecated: false
-  field :photo_uri, 3, type: :string, json_name: "photoUri", deprecated: false
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :photo_uri, 3, type: :string, json_name: "photoUri"
 end
