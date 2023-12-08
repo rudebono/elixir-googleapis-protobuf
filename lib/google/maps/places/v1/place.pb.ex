@@ -48,10 +48,10 @@ defmodule Google.Maps.Places.V1.Place.AddressComponent do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :long_text, 1, type: :string, json_name: "longText", deprecated: false
-  field :short_text, 2, type: :string, json_name: "shortText", deprecated: false
-  field :types, 3, repeated: true, type: :string, deprecated: false
-  field :language_code, 4, type: :string, json_name: "languageCode", deprecated: false
+  field :long_text, 1, type: :string, json_name: "longText"
+  field :short_text, 2, type: :string, json_name: "shortText"
+  field :types, 3, repeated: true, type: :string
+  field :language_code, 4, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Maps.Places.V1.Place.PlusCode do
@@ -59,8 +59,8 @@ defmodule Google.Maps.Places.V1.Place.PlusCode do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :global_code, 1, type: :string, json_name: "globalCode", deprecated: false
-  field :compound_code, 2, type: :string, json_name: "compoundCode", deprecated: false
+  field :global_code, 1, type: :string, json_name: "globalCode"
+  field :compound_code, 2, type: :string, json_name: "compoundCode"
 end
 
 defmodule Google.Maps.Places.V1.Place.OpeningHours.Period.Point do
@@ -68,11 +68,11 @@ defmodule Google.Maps.Places.V1.Place.OpeningHours.Period.Point do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :day, 1, proto3_optional: true, type: :int32, deprecated: false
-  field :hour, 2, proto3_optional: true, type: :int32, deprecated: false
-  field :minute, 3, proto3_optional: true, type: :int32, deprecated: false
-  field :date, 6, type: Google.Type.Date, deprecated: false
-  field :truncated, 5, type: :bool, deprecated: false
+  field :day, 1, proto3_optional: true, type: :int32
+  field :hour, 2, proto3_optional: true, type: :int32
+  field :minute, 3, proto3_optional: true, type: :int32
+  field :date, 6, type: Google.Type.Date
+  field :truncated, 5, type: :bool
 end
 
 defmodule Google.Maps.Places.V1.Place.OpeningHours.Period do
@@ -80,8 +80,8 @@ defmodule Google.Maps.Places.V1.Place.OpeningHours.Period do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :open, 1, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point, deprecated: false
-  field :close, 2, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point, deprecated: false
+  field :open, 1, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point
+  field :close, 2, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point
 end
 
 defmodule Google.Maps.Places.V1.Place.OpeningHours.SpecialDay do
@@ -89,7 +89,7 @@ defmodule Google.Maps.Places.V1.Place.OpeningHours.SpecialDay do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :date, 1, type: Google.Type.Date, deprecated: false
+  field :date, 1, type: Google.Type.Date
 end
 
 defmodule Google.Maps.Places.V1.Place.OpeningHours do
@@ -97,30 +97,19 @@ defmodule Google.Maps.Places.V1.Place.OpeningHours do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :open_now, 1, proto3_optional: true, type: :bool, json_name: "openNow", deprecated: false
-
-  field :periods, 2,
-    repeated: true,
-    type: Google.Maps.Places.V1.Place.OpeningHours.Period,
-    deprecated: false
-
-  field :weekday_descriptions, 3,
-    repeated: true,
-    type: :string,
-    json_name: "weekdayDescriptions",
-    deprecated: false
+  field :open_now, 1, proto3_optional: true, type: :bool, json_name: "openNow"
+  field :periods, 2, repeated: true, type: Google.Maps.Places.V1.Place.OpeningHours.Period
+  field :weekday_descriptions, 3, repeated: true, type: :string, json_name: "weekdayDescriptions"
 
   field :secondary_hours_type, 4,
     type: Google.Maps.Places.V1.Place.OpeningHours.SecondaryHoursType,
     json_name: "secondaryHoursType",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :special_days, 5,
     repeated: true,
     type: Google.Maps.Places.V1.Place.OpeningHours.SpecialDay,
-    json_name: "specialDays",
-    deprecated: false
+    json_name: "specialDays"
 end
 
 defmodule Google.Maps.Places.V1.Place.Attribution do
@@ -128,8 +117,8 @@ defmodule Google.Maps.Places.V1.Place.Attribution do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :provider, 1, type: :string, deprecated: false
-  field :provider_uri, 2, type: :string, json_name: "providerUri", deprecated: false
+  field :provider, 1, type: :string
+  field :provider_uri, 2, type: :string, json_name: "providerUri"
 end
 
 defmodule Google.Maps.Places.V1.Place.PaymentOptions do
@@ -196,10 +185,25 @@ defmodule Google.Maps.Places.V1.Place.AccessibilityOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :wheelchair_accessible_parking, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "wheelchairAccessibleParking"
+
   field :wheelchair_accessible_entrance, 2,
     proto3_optional: true,
     type: :bool,
     json_name: "wheelchairAccessibleEntrance"
+
+  field :wheelchair_accessible_restroom, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "wheelchairAccessibleRestroom"
+
+  field :wheelchair_accessible_seating, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "wheelchairAccessibleSeating"
 end
 
 defmodule Google.Maps.Places.V1.Place do
@@ -207,257 +211,129 @@ defmodule Google.Maps.Places.V1.Place do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string, deprecated: false
-  field :id, 2, type: :string, deprecated: false
+  field :name, 1, type: :string
+  field :id, 2, type: :string
+  field :display_name, 31, type: Google.Type.LocalizedText, json_name: "displayName"
+  field :types, 5, repeated: true, type: :string
+  field :primary_type, 50, type: :string, json_name: "primaryType"
 
-  field :display_name, 31,
+  field :primary_type_display_name, 32,
     type: Google.Type.LocalizedText,
-    json_name: "displayName",
-    deprecated: false
+    json_name: "primaryTypeDisplayName"
 
-  field :types, 5, repeated: true, type: :string, deprecated: false
-
-  field :national_phone_number, 7,
-    type: :string,
-    json_name: "nationalPhoneNumber",
-    deprecated: false
-
-  field :international_phone_number, 8,
-    type: :string,
-    json_name: "internationalPhoneNumber",
-    deprecated: false
-
-  field :formatted_address, 9, type: :string, json_name: "formattedAddress", deprecated: false
+  field :national_phone_number, 7, type: :string, json_name: "nationalPhoneNumber"
+  field :international_phone_number, 8, type: :string, json_name: "internationalPhoneNumber"
+  field :formatted_address, 9, type: :string, json_name: "formattedAddress"
+  field :short_formatted_address, 51, type: :string, json_name: "shortFormattedAddress"
 
   field :address_components, 10,
     repeated: true,
     type: Google.Maps.Places.V1.Place.AddressComponent,
-    json_name: "addressComponents",
-    deprecated: false
+    json_name: "addressComponents"
 
-  field :plus_code, 11,
-    type: Google.Maps.Places.V1.Place.PlusCode,
-    json_name: "plusCode",
-    deprecated: false
-
-  field :location, 12, type: Google.Type.LatLng, deprecated: false
-  field :viewport, 13, type: Google.Geo.Type.Viewport, deprecated: false
-  field :rating, 14, type: :double, deprecated: false
-  field :google_maps_uri, 15, type: :string, json_name: "googleMapsUri", deprecated: false
-  field :website_uri, 16, type: :string, json_name: "websiteUri", deprecated: false
-  field :reviews, 53, repeated: true, type: Google.Maps.Places.V1.Review, deprecated: false
+  field :plus_code, 11, type: Google.Maps.Places.V1.Place.PlusCode, json_name: "plusCode"
+  field :location, 12, type: Google.Type.LatLng
+  field :viewport, 13, type: Google.Geo.Type.Viewport
+  field :rating, 14, type: :double
+  field :google_maps_uri, 15, type: :string, json_name: "googleMapsUri"
+  field :website_uri, 16, type: :string, json_name: "websiteUri"
+  field :reviews, 53, repeated: true, type: Google.Maps.Places.V1.Review
 
   field :regular_opening_hours, 21,
     type: Google.Maps.Places.V1.Place.OpeningHours,
-    json_name: "regularOpeningHours",
-    deprecated: false
+    json_name: "regularOpeningHours"
 
   field :utc_offset_minutes, 22,
     proto3_optional: true,
     type: :int32,
-    json_name: "utcOffsetMinutes",
-    deprecated: false
+    json_name: "utcOffsetMinutes"
 
-  field :photos, 54, repeated: true, type: Google.Maps.Places.V1.Photo, deprecated: false
-  field :adr_format_address, 24, type: :string, json_name: "adrFormatAddress", deprecated: false
+  field :photos, 54, repeated: true, type: Google.Maps.Places.V1.Photo
+  field :adr_format_address, 24, type: :string, json_name: "adrFormatAddress"
 
   field :business_status, 25,
     type: Google.Maps.Places.V1.Place.BusinessStatus,
     json_name: "businessStatus",
-    enum: true,
-    deprecated: false
+    enum: true
 
   field :price_level, 26,
     type: Google.Maps.Places.V1.PriceLevel,
     json_name: "priceLevel",
-    enum: true,
-    deprecated: false
+    enum: true
 
-  field :attributions, 27,
-    repeated: true,
-    type: Google.Maps.Places.V1.Place.Attribution,
-    deprecated: false
-
-  field :user_rating_count, 28,
-    proto3_optional: true,
-    type: :int32,
-    json_name: "userRatingCount",
-    deprecated: false
-
-  field :icon_mask_base_uri, 29, type: :string, json_name: "iconMaskBaseUri", deprecated: false
-
-  field :icon_background_color, 30,
-    type: :string,
-    json_name: "iconBackgroundColor",
-    deprecated: false
-
-  field :takeout, 33, proto3_optional: true, type: :bool, deprecated: false
-  field :delivery, 34, proto3_optional: true, type: :bool, deprecated: false
-  field :dine_in, 35, proto3_optional: true, type: :bool, json_name: "dineIn", deprecated: false
-
-  field :curbside_pickup, 36,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "curbsidePickup",
-    deprecated: false
-
-  field :reservable, 38, proto3_optional: true, type: :bool, deprecated: false
-
-  field :serves_breakfast, 39,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesBreakfast",
-    deprecated: false
-
-  field :serves_lunch, 40,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesLunch",
-    deprecated: false
-
-  field :serves_dinner, 41,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesDinner",
-    deprecated: false
-
-  field :serves_beer, 42,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesBeer",
-    deprecated: false
-
-  field :serves_wine, 43,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesWine",
-    deprecated: false
-
-  field :serves_brunch, 44,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesBrunch",
-    deprecated: false
+  field :attributions, 27, repeated: true, type: Google.Maps.Places.V1.Place.Attribution
+  field :user_rating_count, 28, proto3_optional: true, type: :int32, json_name: "userRatingCount"
+  field :icon_mask_base_uri, 29, type: :string, json_name: "iconMaskBaseUri"
+  field :icon_background_color, 30, type: :string, json_name: "iconBackgroundColor"
+  field :takeout, 33, proto3_optional: true, type: :bool
+  field :delivery, 34, proto3_optional: true, type: :bool
+  field :dine_in, 35, proto3_optional: true, type: :bool, json_name: "dineIn"
+  field :curbside_pickup, 36, proto3_optional: true, type: :bool, json_name: "curbsidePickup"
+  field :reservable, 38, proto3_optional: true, type: :bool
+  field :serves_breakfast, 39, proto3_optional: true, type: :bool, json_name: "servesBreakfast"
+  field :serves_lunch, 40, proto3_optional: true, type: :bool, json_name: "servesLunch"
+  field :serves_dinner, 41, proto3_optional: true, type: :bool, json_name: "servesDinner"
+  field :serves_beer, 42, proto3_optional: true, type: :bool, json_name: "servesBeer"
+  field :serves_wine, 43, proto3_optional: true, type: :bool, json_name: "servesWine"
+  field :serves_brunch, 44, proto3_optional: true, type: :bool, json_name: "servesBrunch"
 
   field :serves_vegetarian_food, 45,
     proto3_optional: true,
     type: :bool,
-    json_name: "servesVegetarianFood",
-    deprecated: false
+    json_name: "servesVegetarianFood"
 
   field :current_opening_hours, 46,
     type: Google.Maps.Places.V1.Place.OpeningHours,
-    json_name: "currentOpeningHours",
-    deprecated: false
+    json_name: "currentOpeningHours"
 
   field :current_secondary_opening_hours, 47,
     repeated: true,
     type: Google.Maps.Places.V1.Place.OpeningHours,
-    json_name: "currentSecondaryOpeningHours",
-    deprecated: false
+    json_name: "currentSecondaryOpeningHours"
 
   field :regular_secondary_opening_hours, 49,
     repeated: true,
     type: Google.Maps.Places.V1.Place.OpeningHours,
-    json_name: "regularSecondaryOpeningHours",
-    deprecated: false
+    json_name: "regularSecondaryOpeningHours"
 
-  field :editorial_summary, 52,
-    type: Google.Type.LocalizedText,
-    json_name: "editorialSummary",
-    deprecated: false
-
-  field :outdoor_seating, 55,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "outdoorSeating",
-    deprecated: false
-
-  field :live_music, 56,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "liveMusic",
-    deprecated: false
-
-  field :menu_for_children, 57,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "menuForChildren",
-    deprecated: false
-
-  field :serves_cocktails, 58,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesCocktails",
-    deprecated: false
-
-  field :serves_dessert, 59,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesDessert",
-    deprecated: false
-
-  field :serves_coffee, 60,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "servesCoffee",
-    deprecated: false
-
-  field :good_for_children, 62,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "goodForChildren",
-    deprecated: false
-
-  field :allows_dogs, 63,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "allowsDogs",
-    deprecated: false
-
-  field :restroom, 64, proto3_optional: true, type: :bool, deprecated: false
-
-  field :good_for_groups, 65,
-    proto3_optional: true,
-    type: :bool,
-    json_name: "goodForGroups",
-    deprecated: false
+  field :editorial_summary, 52, type: Google.Type.LocalizedText, json_name: "editorialSummary"
+  field :outdoor_seating, 55, proto3_optional: true, type: :bool, json_name: "outdoorSeating"
+  field :live_music, 56, proto3_optional: true, type: :bool, json_name: "liveMusic"
+  field :menu_for_children, 57, proto3_optional: true, type: :bool, json_name: "menuForChildren"
+  field :serves_cocktails, 58, proto3_optional: true, type: :bool, json_name: "servesCocktails"
+  field :serves_dessert, 59, proto3_optional: true, type: :bool, json_name: "servesDessert"
+  field :serves_coffee, 60, proto3_optional: true, type: :bool, json_name: "servesCoffee"
+  field :good_for_children, 62, proto3_optional: true, type: :bool, json_name: "goodForChildren"
+  field :allows_dogs, 63, proto3_optional: true, type: :bool, json_name: "allowsDogs"
+  field :restroom, 64, proto3_optional: true, type: :bool
+  field :good_for_groups, 65, proto3_optional: true, type: :bool, json_name: "goodForGroups"
 
   field :good_for_watching_sports, 66,
     proto3_optional: true,
     type: :bool,
-    json_name: "goodForWatchingSports",
-    deprecated: false
+    json_name: "goodForWatchingSports"
 
   field :payment_options, 67,
     type: Google.Maps.Places.V1.Place.PaymentOptions,
-    json_name: "paymentOptions",
-    deprecated: false
+    json_name: "paymentOptions"
 
   field :parking_options, 70,
     type: Google.Maps.Places.V1.Place.ParkingOptions,
-    json_name: "parkingOptions",
-    deprecated: false
+    json_name: "parkingOptions"
 
   field :sub_destinations, 71,
     repeated: true,
     type: Google.Maps.Places.V1.Place.SubDestination,
-    json_name: "subDestinations",
-    deprecated: false
+    json_name: "subDestinations"
 
   field :accessibility_options, 72,
     proto3_optional: true,
     type: Google.Maps.Places.V1.Place.AccessibilityOptions,
-    json_name: "accessibilityOptions",
-    deprecated: false
+    json_name: "accessibilityOptions"
 
-  field :fuel_options, 78,
-    type: Google.Maps.Places.V1.FuelOptions,
-    json_name: "fuelOptions",
-    deprecated: false
+  field :fuel_options, 78, type: Google.Maps.Places.V1.FuelOptions, json_name: "fuelOptions"
 
   field :ev_charge_options, 79,
     type: Google.Maps.Places.V1.EVChargeOptions,
-    json_name: "evChargeOptions",
-    deprecated: false
+    json_name: "evChargeOptions"
 end
