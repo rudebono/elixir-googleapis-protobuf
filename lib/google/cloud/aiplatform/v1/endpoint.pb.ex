@@ -92,6 +92,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
     json_name: "automaticResources",
     oneof: 0
 
+  field :shared_resources, 17,
+    type: :string,
+    json_name: "sharedResources",
+    oneof: 0,
+    deprecated: false
+
   field :id, 1, type: :string, deprecated: false
   field :model, 2, type: :string, deprecated: false
   field :model_version_id, 18, type: :string, json_name: "modelVersionId", deprecated: false
