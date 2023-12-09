@@ -2,18 +2,13 @@ defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.12.0"
 
-  extend Google.Protobuf.MethodOptions, :method_signature, 1051,
-    repeated: true,
-    type: :string,
-    json_name: "methodSignature"
-
-  extend Google.Protobuf.ServiceOptions, :default_host, 1049,
+  extend Google.Protobuf.FieldOptions, :field_policy, 158_361_448,
     optional: true,
-    type: :string,
-    json_name: "defaultHost"
+    type: Google.Api.FieldPolicy,
+    json_name: "fieldPolicy"
 
-  extend Google.Protobuf.ServiceOptions, :oauth_scopes, 1050,
+  extend Google.Protobuf.MethodOptions, :method_policy, 161_893_301,
     optional: true,
-    type: :string,
-    json_name: "oauthScopes"
+    type: Google.Api.MethodPolicy,
+    json_name: "methodPolicy"
 end

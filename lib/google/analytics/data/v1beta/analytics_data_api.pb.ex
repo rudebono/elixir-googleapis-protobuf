@@ -1,3 +1,14 @@
+defmodule Google.Analytics.Data.V1beta.AudienceExport.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :FAILED, 3
+end
+
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
   @moduledoc false
 
@@ -293,6 +304,167 @@ defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   field :kind, 9, type: :string
 end
 
+defmodule Google.Analytics.Data.V1beta.GetAudienceExportRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.ListAudienceExportsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.ListAudienceExportsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audience_exports, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.AudienceExport,
+    json_name: "audienceExports"
+
+  field :next_page_token, 2, proto3_optional: true, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Data.V1beta.CreateAudienceExportRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :audience_export, 2,
+    type: Google.Analytics.Data.V1beta.AudienceExport,
+    json_name: "audienceExport",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.AudienceExport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :audience, 2, type: :string, deprecated: false
+
+  field :audience_display_name, 3,
+    type: :string,
+    json_name: "audienceDisplayName",
+    deprecated: false
+
+  field :dimensions, 4,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.AudienceDimension,
+    deprecated: false
+
+  field :state, 5,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1beta.AudienceExport.State,
+    enum: true,
+    deprecated: false
+
+  field :begin_creating_time, 6,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "beginCreatingTime",
+    deprecated: false
+
+  field :creation_quota_tokens_charged, 7,
+    type: :int32,
+    json_name: "creationQuotaTokensCharged",
+    deprecated: false
+
+  field :row_count, 8,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "rowCount",
+    deprecated: false
+
+  field :error_message, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "errorMessage",
+    deprecated: false
+
+  field :percentage_completed, 10,
+    proto3_optional: true,
+    type: :double,
+    json_name: "percentageCompleted",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.AudienceExportMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Analytics.Data.V1beta.QueryAudienceExportRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :offset, 2, type: :int64, deprecated: false
+  field :limit, 3, type: :int64, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.QueryAudienceExportResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audience_export, 1,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1beta.AudienceExport,
+    json_name: "audienceExport"
+
+  field :audience_rows, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.AudienceRow,
+    json_name: "audienceRows"
+
+  field :row_count, 3, proto3_optional: true, type: :int32, json_name: "rowCount"
+end
+
+defmodule Google.Analytics.Data.V1beta.AudienceRow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimension_values, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.AudienceDimensionValue,
+    json_name: "dimensionValues"
+end
+
+defmodule Google.Analytics.Data.V1beta.AudienceDimension do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimension_name, 1, type: :string, json_name: "dimensionName", deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1beta.AudienceDimensionValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :one_value, 0
+
+  field :value, 1, type: :string, oneof: 0
+end
+
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   @moduledoc false
 
@@ -327,6 +499,22 @@ defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
   rpc :CheckCompatibility,
       Google.Analytics.Data.V1beta.CheckCompatibilityRequest,
       Google.Analytics.Data.V1beta.CheckCompatibilityResponse
+
+  rpc :CreateAudienceExport,
+      Google.Analytics.Data.V1beta.CreateAudienceExportRequest,
+      Google.Longrunning.Operation
+
+  rpc :QueryAudienceExport,
+      Google.Analytics.Data.V1beta.QueryAudienceExportRequest,
+      Google.Analytics.Data.V1beta.QueryAudienceExportResponse
+
+  rpc :GetAudienceExport,
+      Google.Analytics.Data.V1beta.GetAudienceExportRequest,
+      Google.Analytics.Data.V1beta.AudienceExport
+
+  rpc :ListAudienceExports,
+      Google.Analytics.Data.V1beta.ListAudienceExportsRequest,
+      Google.Analytics.Data.V1beta.ListAudienceExportsResponse
 end
 
 defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Stub do

@@ -602,6 +602,11 @@ defmodule Google.Spanner.Executor.V1.CreateCloudInstanceAction do
   field :node_count, 4, proto3_optional: true, type: :int32, json_name: "nodeCount"
   field :processing_units, 6, proto3_optional: true, type: :int32, json_name: "processingUnits"
 
+  field :autoscaling_config, 7,
+    proto3_optional: true,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig,
+    json_name: "autoscalingConfig"
+
   field :labels, 5,
     repeated: true,
     type: Google.Spanner.Executor.V1.CreateCloudInstanceAction.LabelsEntry,
@@ -627,6 +632,11 @@ defmodule Google.Spanner.Executor.V1.UpdateCloudInstanceAction do
   field :display_name, 3, proto3_optional: true, type: :string, json_name: "displayName"
   field :node_count, 4, proto3_optional: true, type: :int32, json_name: "nodeCount"
   field :processing_units, 5, proto3_optional: true, type: :int32, json_name: "processingUnits"
+
+  field :autoscaling_config, 7,
+    proto3_optional: true,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig,
+    json_name: "autoscalingConfig"
 
   field :labels, 6,
     repeated: true,

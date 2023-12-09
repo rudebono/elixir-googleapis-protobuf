@@ -465,6 +465,20 @@ defmodule Google.Analytics.Data.V1beta.ResponseMetaData do
     proto3_optional: true,
     type: :bool,
     json_name: "subjectToThresholding"
+
+  field :sampling_metadatas, 9,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.SamplingMetadata,
+    json_name: "samplingMetadatas"
+end
+
+defmodule Google.Analytics.Data.V1beta.SamplingMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :samples_read_count, 1, type: :int64, json_name: "samplesReadCount"
+  field :sampling_space_size, 2, type: :int64, json_name: "samplingSpaceSize"
 end
 
 defmodule Google.Analytics.Data.V1beta.DimensionHeader do
@@ -590,8 +604,8 @@ defmodule Google.Analytics.Data.V1beta.QuotaStatus do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :consumed, 1, type: :int32
-  field :remaining, 2, type: :int32
+  field :consumed, 1, proto3_optional: true, type: :int32
+  field :remaining, 2, proto3_optional: true, type: :int32
 end
 
 defmodule Google.Analytics.Data.V1beta.DimensionMetadata do

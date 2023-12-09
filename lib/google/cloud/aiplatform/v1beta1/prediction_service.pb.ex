@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback.BlockedReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BLOCKED_REASON_UNSPECIFIED, 0
+  field :SAFETY, 1
+  field :OTHER, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   @moduledoc false
 
@@ -176,7 +186,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
+  field :model, 3, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
+
+  field :contents, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
@@ -186,6 +202,85 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
   field :total_billable_characters, 2, type: :int32, json_name: "totalBillableCharacters"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :model, 5, type: :string, deprecated: false
+
+  field :contents, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
+
+  field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
+
+  field :safety_settings, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SafetySetting,
+    json_name: "safetySettings",
+    deprecated: false
+
+  field :generation_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig,
+    json_name: "generationConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :block_reason, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback.BlockedReason,
+    json_name: "blockReason",
+    enum: true,
+    deprecated: false
+
+  field :safety_ratings, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SafetyRating,
+    json_name: "safetyRatings",
+    deprecated: false
+
+  field :block_reason_message, 3,
+    type: :string,
+    json_name: "blockReasonMessage",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.UsageMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
+  field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
+  field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :candidates, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Candidate,
+    deprecated: false
+
+  field :prompt_feedback, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback,
+    json_name: "promptFeedback",
+    deprecated: false
+
+  field :usage_metadata, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.UsageMetadata,
+    json_name: "usageMetadata"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
@@ -228,6 +323,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :CountTokens,
       Google.Cloud.Aiplatform.V1beta1.CountTokensRequest,
       Google.Cloud.Aiplatform.V1beta1.CountTokensResponse
+
+  rpc :StreamGenerateContent,
+      Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest,
+      stream(Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse)
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do

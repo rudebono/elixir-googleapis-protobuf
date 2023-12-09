@@ -23,6 +23,16 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.LaunchStage do
   field :GA, 4
 end
 
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.VersionState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :VERSION_STATE_UNSPECIFIED, 0
+  field :VERSION_STATE_STABLE, 1
+  field :VERSION_STATE_UNSTABLE, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.ResourceReference do
   @moduledoc false
 
@@ -32,6 +42,8 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.ResourceReference do
 
   field :uri, 1, type: :string, oneof: 0
   field :resource_name, 2, type: :string, json_name: "resourceName", oneof: 0
+  field :use_case, 3, type: :string, json_name: "useCase", oneof: 0
+  field :description, 4, type: :string, oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.Documentation do
@@ -112,6 +124,7 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy do
 
   field :artifact_uri, 4, type: :string, json_name: "artifactUri", deprecated: false
   field :title, 8, type: :string, deprecated: false
+  field :public_artifact_uri, 9, type: :string, json_name: "publicArtifactUri", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
@@ -193,6 +206,12 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel do
   field :launch_stage, 29,
     type: Google.Cloud.Aiplatform.V1.PublisherModel.LaunchStage,
     json_name: "launchStage",
+    enum: true,
+    deprecated: false
+
+  field :version_state, 37,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.VersionState,
+    json_name: "versionState",
     enum: true,
     deprecated: false
 
