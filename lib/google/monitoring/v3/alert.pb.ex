@@ -9,6 +9,17 @@ defmodule Google.Monitoring.V3.AlertPolicy.ConditionCombinerType do
   field :AND_WITH_MATCHING_RESOURCE, 3
 end
 
+defmodule Google.Monitoring.V3.AlertPolicy.Severity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEVERITY_UNSPECIFIED, 0
+  field :CRITICAL, 1
+  field :ERROR, 2
+  field :WARNING, 3
+end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData do
   @moduledoc false
 
@@ -281,4 +292,9 @@ defmodule Google.Monitoring.V3.AlertPolicy do
   field :alert_strategy, 21,
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy,
     json_name: "alertStrategy"
+
+  field :severity, 22,
+    type: Google.Monitoring.V3.AlertPolicy.Severity,
+    enum: true,
+    deprecated: false
 end
