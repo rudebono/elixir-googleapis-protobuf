@@ -8,6 +8,26 @@ defmodule Google.Cloud.Asset.V1p2beta1.ContentType do
   field :IAM_POLICY, 2
 end
 
+defmodule Google.Cloud.Asset.V1p2beta1.ExportAssetsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
+
+  field :output_config, 2,
+    type: Google.Cloud.Asset.V1p2beta1.OutputConfig,
+    json_name: "outputConfig"
+end
+
+defmodule Google.Cloud.Asset.V1p2beta1.BatchGetAssetsHistoryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :assets, 1, repeated: true, type: Google.Cloud.Asset.V1p2beta1.TemporalAsset
+end
+
 defmodule Google.Cloud.Asset.V1p2beta1.CreateFeedRequest do
   @moduledoc false
 
