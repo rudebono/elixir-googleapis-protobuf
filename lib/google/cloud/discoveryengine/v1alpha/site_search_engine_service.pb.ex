@@ -8,6 +8,184 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.RecrawlUrisResponse.FailureInfo.F
   field :MOBILE, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetSiteSearchEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.CreateTargetSiteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :target_site, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.TargetSite,
+    json_name: "targetSite",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.CreateTargetSiteMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchCreateTargetSitesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.CreateTargetSiteRequest,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetTargetSiteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateTargetSiteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_site, 1,
+    type: Google.Cloud.Discoveryengine.V1alpha.TargetSite,
+    json_name: "targetSite",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateTargetSiteMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteTargetSiteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteTargetSiteMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ListTargetSitesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ListTargetSitesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_sites, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.TargetSite,
+    json_name: "targetSites"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchCreateTargetSiteMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchCreateTargetSitesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_sites, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.TargetSite,
+    json_name: "targetSites"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.EnableAdvancedSiteSearchRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.EnableAdvancedSiteSearchResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.EnableAdvancedSiteSearchMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.DisableAdvancedSiteSearchRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.DisableAdvancedSiteSearchResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.DisableAdvancedSiteSearchMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.RecrawlUrisRequest do
   @moduledoc false
 
@@ -71,6 +249,53 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.RecrawlUrisMetadata do
   field :quota_exceeded_count, 7, type: :int32, json_name: "quotaExceededCount"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchVerifyTargetSitesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchVerifyTargetSitesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchVerifyTargetSitesMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_sites, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.TargetSite,
+    json_name: "targetSites"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Service do
   @moduledoc false
 
@@ -78,9 +303,53 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Service d
     name: "google.cloud.discoveryengine.v1alpha.SiteSearchEngineService",
     protoc_gen_elixir_version: "0.12.0"
 
+  rpc :GetSiteSearchEngine,
+      Google.Cloud.Discoveryengine.V1alpha.GetSiteSearchEngineRequest,
+      Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngine
+
+  rpc :CreateTargetSite,
+      Google.Cloud.Discoveryengine.V1alpha.CreateTargetSiteRequest,
+      Google.Longrunning.Operation
+
+  rpc :BatchCreateTargetSites,
+      Google.Cloud.Discoveryengine.V1alpha.BatchCreateTargetSitesRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetTargetSite,
+      Google.Cloud.Discoveryengine.V1alpha.GetTargetSiteRequest,
+      Google.Cloud.Discoveryengine.V1alpha.TargetSite
+
+  rpc :UpdateTargetSite,
+      Google.Cloud.Discoveryengine.V1alpha.UpdateTargetSiteRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteTargetSite,
+      Google.Cloud.Discoveryengine.V1alpha.DeleteTargetSiteRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTargetSites,
+      Google.Cloud.Discoveryengine.V1alpha.ListTargetSitesRequest,
+      Google.Cloud.Discoveryengine.V1alpha.ListTargetSitesResponse
+
+  rpc :EnableAdvancedSiteSearch,
+      Google.Cloud.Discoveryengine.V1alpha.EnableAdvancedSiteSearchRequest,
+      Google.Longrunning.Operation
+
+  rpc :DisableAdvancedSiteSearch,
+      Google.Cloud.Discoveryengine.V1alpha.DisableAdvancedSiteSearchRequest,
+      Google.Longrunning.Operation
+
   rpc :RecrawlUris,
       Google.Cloud.Discoveryengine.V1alpha.RecrawlUrisRequest,
       Google.Longrunning.Operation
+
+  rpc :BatchVerifyTargetSites,
+      Google.Cloud.Discoveryengine.V1alpha.BatchVerifyTargetSitesRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchDomainVerificationStatus,
+      Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusRequest,
+      Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusResponse
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Stub do

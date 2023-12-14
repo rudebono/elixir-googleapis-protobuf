@@ -101,6 +101,26 @@ defmodule Google.Devtools.Cloudprofiler.V2.Deployment do
     map: true
 end
 
+defmodule Google.Devtools.Cloudprofiler.V2.ListProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Devtools.Cloudprofiler.V2.ListProfilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :profiles, 1, repeated: true, type: Google.Devtools.Cloudprofiler.V2.Profile
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :skipped_profiles, 3, type: :int32, json_name: "skippedProfiles"
+end
+
 defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Service do
   @moduledoc false
 
@@ -125,4 +145,22 @@ defmodule Google.Devtools.Cloudprofiler.V2.ProfilerService.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Devtools.Cloudprofiler.V2.ProfilerService.Service
+end
+
+defmodule Google.Devtools.Cloudprofiler.V2.ExportService.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.devtools.cloudprofiler.v2.ExportService",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :ListProfiles,
+      Google.Devtools.Cloudprofiler.V2.ListProfilesRequest,
+      Google.Devtools.Cloudprofiler.V2.ListProfilesResponse
+end
+
+defmodule Google.Devtools.Cloudprofiler.V2.ExportService.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Devtools.Cloudprofiler.V2.ExportService.Service
 end

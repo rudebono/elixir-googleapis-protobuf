@@ -67,6 +67,16 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance.SqlInstanceState do
   field :ONLINE_MAINTENANCE, 7
 end
 
+defmodule Google.Cloud.Sql.V1.DatabaseInstance.SqlNetworkArchitecture do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SQL_NETWORK_ARCHITECTURE_UNSPECIFIED, 0
+  field :NEW_NETWORK_ARCHITECTURE, 1
+  field :OLD_NETWORK_ARCHITECTURE, 2
+end
+
 defmodule Google.Cloud.Sql.V1.DatabaseInstance.SqlOutOfDiskReport.SqlOutOfDiskState do
   @moduledoc false
 
@@ -836,6 +846,12 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     deprecated: false
 
   field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
+
+  field :sql_network_architecture, 47,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.DatabaseInstance.SqlNetworkArchitecture,
+    json_name: "sqlNetworkArchitecture",
+    enum: true
 
   field :psc_service_attachment_link, 48,
     proto3_optional: true,
