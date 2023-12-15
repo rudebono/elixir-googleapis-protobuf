@@ -178,6 +178,7 @@ defmodule Google.Cloud.Recommender.V1.CostProjection do
 
   field :cost, 1, type: Google.Type.Money
   field :duration, 2, type: Google.Protobuf.Duration
+  field :cost_in_local_currency, 3, type: Google.Type.Money, json_name: "costInLocalCurrency"
 end
 
 defmodule Google.Cloud.Recommender.V1.SecurityProjection do

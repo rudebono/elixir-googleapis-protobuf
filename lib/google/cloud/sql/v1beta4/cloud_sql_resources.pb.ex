@@ -196,6 +196,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlUpdateTrack do
   field :SQL_UPDATE_TRACK_UNSPECIFIED, 0
   field :canary, 1
   field :stable, 2
+  field :week5, 3
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagType do
@@ -221,6 +222,8 @@ defmodule Google.Cloud.Sql.V1beta4.ApiWarning.SqlApiWarningCode do
   field :SQL_API_WARNING_CODE_UNSPECIFIED, 0
   field :REGION_UNREACHABLE, 1
   field :MAX_RESULTS_EXCEEDS_LIMIT, 2
+  field :COMPROMISED_CREDENTIALS, 3
+  field :INTERNAL_STATE_FAILURE, 4
 end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRetentionSettings.RetentionUnit do
@@ -245,6 +248,16 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlInstanceState do
   field :MAINTENANCE, 5
   field :FAILED, 6
   field :ONLINE_MAINTENANCE, 7
+end
+
+defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlNetworkArchitecture do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SQL_NETWORK_ARCHITECTURE_UNSPECIFIED, 0
+  field :NEW_NETWORK_ARCHITECTURE, 1
+  field :OLD_NETWORK_ARCHITECTURE, 2
 end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlOutOfDiskReport.SqlOutOfDiskState do
@@ -785,6 +798,12 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
     deprecated: false
 
   field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
+
+  field :sql_network_architecture, 47,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlNetworkArchitecture,
+    json_name: "sqlNetworkArchitecture",
+    enum: true
 
   field :psc_service_attachment_link, 48,
     proto3_optional: true,
@@ -1411,6 +1430,7 @@ defmodule Google.Cloud.Sql.V1beta4.Operation do
   field :start_time, 6, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :error, 8, type: Google.Cloud.Sql.V1beta4.OperationErrors
+  field :api_warning, 19, type: Google.Cloud.Sql.V1beta4.ApiWarning, json_name: "apiWarning"
 
   field :operation_type, 9,
     type: Google.Cloud.Sql.V1beta4.Operation.SqlOperationType,
@@ -1478,6 +1498,10 @@ defmodule Google.Cloud.Sql.V1beta4.PasswordValidationPolicy do
   field :enable_password_policy, 6,
     type: Google.Protobuf.BoolValue,
     json_name: "enablePasswordPolicy"
+
+  field :disallow_compromised_credentials, 7,
+    type: Google.Protobuf.BoolValue,
+    json_name: "disallowCompromisedCredentials"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationsListResponse do

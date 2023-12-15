@@ -122,6 +122,22 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.S
   field :return_snippet, 3, type: :bool, json_name: "returnSnippet"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec.ModelPromptSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :preamble, 1, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec.ModelSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :version, 1, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec do
   @moduledoc false
 
@@ -135,7 +151,17 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.S
     type: :bool,
     json_name: "ignoreNonSummarySeekingQuery"
 
+  field :model_prompt_spec, 5,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec.ModelPromptSpec,
+    json_name: "modelPromptSpec"
+
   field :language_code, 6, type: :string, json_name: "languageCode"
+
+  field :model_spec, 7,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec.ModelSpec,
+    json_name: "modelSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
@@ -228,6 +254,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest do
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
   field :filter, 7, type: :string
+  field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"
   field :user_info, 21, type: Google.Cloud.Discoveryengine.V1alpha.UserInfo, json_name: "userInfo"
 
@@ -355,6 +382,63 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SafetyAttr
   field :scores, 2, repeated: true, type: :float
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.CitationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :citations, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.Citation
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.Citation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_index, 1, type: :int64, json_name: "startIndex"
+  field :end_index, 2, type: :int64, json_name: "endIndex"
+
+  field :sources, 3,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.CitationSource
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.CitationSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reference_index, 4, type: :int64, json_name: "referenceIndex"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.Reference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :title, 1, type: :string
+  field :document, 2, type: :string, deprecated: false
+  field :uri, 3, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummaryWithMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :summary, 1, type: :string
+
+  field :citation_metadata, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.CitationMetadata,
+    json_name: "citationMetadata"
+
+  field :references, 3,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.Reference
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary do
   @moduledoc false
 
@@ -371,6 +455,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary do
   field :safety_attributes, 3,
     type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SafetyAttributes,
     json_name: "safetyAttributes"
+
+  field :summary_with_metadata, 4,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummaryWithMetadata,
+    json_name: "summaryWithMetadata"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.GeoSearchDebugInfo do

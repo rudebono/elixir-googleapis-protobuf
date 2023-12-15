@@ -272,10 +272,6 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.ReportingAttributio
   field :REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED, 0
   field :PAID_AND_ORGANIC_CHANNELS_DATA_DRIVEN, 1
   field :PAID_AND_ORGANIC_CHANNELS_LAST_CLICK, 2
-  field :PAID_AND_ORGANIC_CHANNELS_FIRST_CLICK, 3
-  field :PAID_AND_ORGANIC_CHANNELS_LINEAR, 4
-  field :PAID_AND_ORGANIC_CHANNELS_POSITION_BASED, 5
-  field :PAID_AND_ORGANIC_CHANNELS_TIME_DECAY, 6
   field :GOOGLE_PAID_CHANNELS_LAST_CLICK, 7
 end
 
@@ -895,6 +891,15 @@ defmodule Google.Analytics.Admin.V1alpha.LinkProposalStatusDetails do
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.ConversionEvent.DefaultConversionValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :double
+  field :currency_code, 2, proto3_optional: true, type: :string, json_name: "currencyCode"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
   @moduledoc false
 
@@ -915,6 +920,12 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
     type: Google.Analytics.Admin.V1alpha.ConversionEvent.ConversionCountingMethod,
     json_name: "countingMethod",
     enum: true,
+    deprecated: false
+
+  field :default_conversion_value, 7,
+    proto3_optional: true,
+    type: Google.Analytics.Admin.V1alpha.ConversionEvent.DefaultConversionValue,
+    json_name: "defaultConversionValue",
     deprecated: false
 end
 

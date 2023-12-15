@@ -6,6 +6,7 @@ defmodule Google.Apps.Drive.Labels.V2.Label.LabelType do
   field :LABEL_TYPE_UNSPECIFIED, 0
   field :SHARED, 1
   field :ADMIN, 2
+  field :GOOGLE_APP, 3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.Label.AppliedLabelPolicy.CopyMode do
@@ -117,6 +118,7 @@ defmodule Google.Apps.Drive.Labels.V2.Label do
     json_name: "disableTime",
     deprecated: false
 
+  field :customer, 13, type: :string, deprecated: false
   field :properties, 14, type: Google.Apps.Drive.Labels.V2.Label.Properties, deprecated: false
   field :lifecycle, 15, type: Google.Apps.Drive.Labels.V2.Lifecycle, deprecated: false
 

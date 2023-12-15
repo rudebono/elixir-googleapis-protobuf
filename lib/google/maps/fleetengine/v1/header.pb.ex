@@ -41,4 +41,5 @@ defmodule Maps.Fleetengine.V1.RequestHeader do
   field :platform, 9, type: Maps.Fleetengine.V1.RequestHeader.Platform, enum: true
   field :manufacturer, 10, type: :string
   field :android_api_level, 11, type: :int32, json_name: "androidApiLevel"
+  field :trace_id, 12, type: :string, json_name: "traceId"
 end

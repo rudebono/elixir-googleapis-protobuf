@@ -1,3 +1,17 @@
+defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.Sections.SectionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SECTION_TYPE_UNSPECIFIED, 0
+  field :SITUATION, 1
+  field :ACTION, 2
+  field :RESOLUTION, 3
+  field :REASON_FOR_CANCELLATION, 4
+  field :CUSTOMER_SATISFACTION, 5
+  field :ENTITIES, 6
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.NotificationConfig.MessageFormat do
   @moduledoc false
 
@@ -101,6 +115,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
     json_name: "disableAgentQueryLogging",
     deprecated: false
 
+  field :enable_conversation_augmented_query, 16,
+    type: :bool,
+    json_name: "enableConversationAugmentedQuery",
+    deprecated: false
+
   field :suggestion_trigger_settings, 10,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings,
     json_name: "suggestionTriggerSettings"
@@ -182,6 +201,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
   field :drop_ivr_messages, 3, type: :bool, json_name: "dropIvrMessages"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.Sections do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :section_types, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.Sections.SectionType,
+    json_name: "sectionTypes",
+    enum: true
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig do
   @moduledoc false
 
@@ -214,6 +246,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQu
     type:
       Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.ContextFilterSettings,
     json_name: "contextFilterSettings"
+
+  field :sections, 8,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.Sections,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.ConversationModelConfig do
