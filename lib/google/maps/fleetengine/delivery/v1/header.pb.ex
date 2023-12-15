@@ -45,4 +45,5 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader do
 
   field :manufacturer, 10, type: :string
   field :android_api_level, 11, type: :int32, json_name: "androidApiLevel"
+  field :trace_id, 12, type: :string, json_name: "traceId"
 end
