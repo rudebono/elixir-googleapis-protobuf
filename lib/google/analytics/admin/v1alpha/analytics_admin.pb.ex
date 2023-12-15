@@ -2386,13 +2386,25 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest,
       Google.Analytics.Admin.V1alpha.CreateSubpropertyResponse
 
-  rpc :DeleteSubpropertyEventFilter,
-      Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest,
-      Google.Protobuf.Empty
-
   rpc :CreateSubpropertyEventFilter,
       Google.Analytics.Admin.V1alpha.CreateSubpropertyEventFilterRequest,
       Google.Analytics.Admin.V1alpha.SubpropertyEventFilter
+
+  rpc :GetSubpropertyEventFilter,
+      Google.Analytics.Admin.V1alpha.GetSubpropertyEventFilterRequest,
+      Google.Analytics.Admin.V1alpha.SubpropertyEventFilter
+
+  rpc :ListSubpropertyEventFilters,
+      Google.Analytics.Admin.V1alpha.ListSubpropertyEventFiltersRequest,
+      Google.Analytics.Admin.V1alpha.ListSubpropertyEventFiltersResponse
+
+  rpc :UpdateSubpropertyEventFilter,
+      Google.Analytics.Admin.V1alpha.UpdateSubpropertyEventFilterRequest,
+      Google.Analytics.Admin.V1alpha.SubpropertyEventFilter
+
+  rpc :DeleteSubpropertyEventFilter,
+      Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do

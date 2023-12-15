@@ -822,6 +822,46 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
   rpc :DeleteGlossary,
       Google.Cloud.Translation.V3.DeleteGlossaryRequest,
       Google.Longrunning.Operation
+
+  rpc :CreateAdaptiveMtDataset,
+      Google.Cloud.Translation.V3.CreateAdaptiveMtDatasetRequest,
+      Google.Cloud.Translation.V3.AdaptiveMtDataset
+
+  rpc :DeleteAdaptiveMtDataset,
+      Google.Cloud.Translation.V3.DeleteAdaptiveMtDatasetRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetAdaptiveMtDataset,
+      Google.Cloud.Translation.V3.GetAdaptiveMtDatasetRequest,
+      Google.Cloud.Translation.V3.AdaptiveMtDataset
+
+  rpc :ListAdaptiveMtDatasets,
+      Google.Cloud.Translation.V3.ListAdaptiveMtDatasetsRequest,
+      Google.Cloud.Translation.V3.ListAdaptiveMtDatasetsResponse
+
+  rpc :AdaptiveMtTranslate,
+      Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest,
+      Google.Cloud.Translation.V3.AdaptiveMtTranslateResponse
+
+  rpc :GetAdaptiveMtFile,
+      Google.Cloud.Translation.V3.GetAdaptiveMtFileRequest,
+      Google.Cloud.Translation.V3.AdaptiveMtFile
+
+  rpc :DeleteAdaptiveMtFile,
+      Google.Cloud.Translation.V3.DeleteAdaptiveMtFileRequest,
+      Google.Protobuf.Empty
+
+  rpc :ImportAdaptiveMtFile,
+      Google.Cloud.Translation.V3.ImportAdaptiveMtFileRequest,
+      Google.Cloud.Translation.V3.ImportAdaptiveMtFileResponse
+
+  rpc :ListAdaptiveMtFiles,
+      Google.Cloud.Translation.V3.ListAdaptiveMtFilesRequest,
+      Google.Cloud.Translation.V3.ListAdaptiveMtFilesResponse
+
+  rpc :ListAdaptiveMtSentences,
+      Google.Cloud.Translation.V3.ListAdaptiveMtSentencesRequest,
+      Google.Cloud.Translation.V3.ListAdaptiveMtSentencesResponse
 end
 
 defmodule Google.Cloud.Translation.V3.TranslationService.Stub do

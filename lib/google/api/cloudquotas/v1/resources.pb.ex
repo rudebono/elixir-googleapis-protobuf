@@ -4,8 +4,8 @@ defmodule Google.Api.Cloudquotas.V1.QuotaSafetyCheck do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :QUOTA_SAFETY_CHECK_UNSPECIFIED, 0
-  field :LIMIT_DECREASE_BELOW_USAGE, 1
-  field :LIMIT_DECREASE_PERCENTAGE_TOO_HIGH, 2
+  field :QUOTA_DECREASE_BELOW_USAGE, 1
+  field :QUOTA_DECREASE_PERCENTAGE_TOO_HIGH, 2
 end
 
 defmodule Google.Api.Cloudquotas.V1.QuotaInfo.ContainerType do
@@ -25,8 +25,8 @@ defmodule Google.Api.Cloudquotas.V1.QuotaIncreaseEligibility.IneligibilityReason
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :INELIGIBILITY_REASON_UNSPECIFIED, 0
-  field :NO_VALID_BILLING_ACCOUNT, 2
-  field :OTHER, 3
+  field :NO_VALID_BILLING_ACCOUNT, 1
+  field :OTHER, 2
 end
 
 defmodule Google.Api.Cloudquotas.V1.QuotaConfig.Origin do

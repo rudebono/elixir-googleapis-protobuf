@@ -23,6 +23,7 @@ defmodule Google.Apps.Drive.Labels.V2beta.GetUserCapabilitiesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :customer, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Apps.Drive.Labels.V2beta.CreateLabelRequest do
@@ -497,6 +498,7 @@ defmodule Google.Apps.Drive.Labels.V2beta.ListLabelsRequest do
     oneof: 0
 
   field :published_only, 1, type: :bool, json_name: "publishedOnly"
+  field :customer, 2, type: :string, deprecated: false
   field :language_code, 5, type: :string, json_name: "languageCode"
   field :page_size, 6, type: :int32, json_name: "pageSize"
   field :page_token, 7, type: :string, json_name: "pageToken"

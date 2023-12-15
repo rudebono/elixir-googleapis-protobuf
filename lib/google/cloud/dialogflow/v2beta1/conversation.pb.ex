@@ -26,6 +26,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer.AnswerType do
   field :ANSWER_TYPE_UNSPECIFIED, 0
   field :FAQ, 1
   field :GENERATIVE, 2
+  field :INTENT, 3
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation do
@@ -311,6 +312,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :answers, 2, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer
+  field :rewritten_query, 3, type: :string, json_name: "rewrittenQuery"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer.AnswerSource do

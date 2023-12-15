@@ -189,6 +189,8 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
     repeated: true,
     type: Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification,
     deprecated: false
+
+  field :ignore_warnings, 3, type: :bool, json_name: "ignoreWarnings", deprecated: false
 end
 
 defmodule Google.Bigtable.Admin.V2.GenerateConsistencyTokenRequest do
