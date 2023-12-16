@@ -132,6 +132,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsCluster do
     type: Google.Cloud.Gkemulticloud.V1.MonitoringConfig,
     json_name: "monitoringConfig",
     deprecated: false
+
+  field :binary_authorization, 22,
+    type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization,
+    json_name: "binaryAuthorization",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsControlPlane.TagsEntry do
@@ -230,6 +235,12 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsAuthorization do
     type: Google.Cloud.Gkemulticloud.V1.AwsClusterUser,
     json_name: "adminUsers",
     deprecated: false
+
+  field :admin_groups, 2,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AwsClusterGroup,
+    json_name: "adminGroups",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterUser do
@@ -238,6 +249,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterUser do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsDatabaseEncryption do
@@ -262,6 +281,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsVolumeTemplate do
     deprecated: false
 
   field :iops, 3, type: :int32, deprecated: false
+  field :throughput, 5, type: :int32, deprecated: false
   field :kms_key_arn, 4, type: :string, json_name: "kmsKeyArn", deprecated: false
 end
 
@@ -282,6 +302,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterNetworking do
     repeated: true,
     type: :string,
     json_name: "serviceAddressCidrBlocks",
+    deprecated: false
+
+  field :per_node_pool_sg_rules_disabled, 5,
+    type: :bool,
+    json_name: "perNodePoolSgRulesDisabled",
     deprecated: false
 end
 
@@ -344,6 +369,41 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
     repeated: true,
     type: Google.Cloud.Gkemulticloud.V1.AwsNodePoolError,
     deprecated: false
+
+  field :management, 30, type: Google.Cloud.Gkemulticloud.V1.AwsNodeManagement, deprecated: false
+
+  field :update_settings, 32,
+    type: Google.Cloud.Gkemulticloud.V1.UpdateSettings,
+    json_name: "updateSettings",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.UpdateSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :surge_settings, 1,
+    type: Google.Cloud.Gkemulticloud.V1.SurgeSettings,
+    json_name: "surgeSettings",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.SurgeSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :max_surge, 1, type: :int32, json_name: "maxSurge", deprecated: false
+  field :max_unavailable, 2, type: :int32, json_name: "maxUnavailable", deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeManagement do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :auto_repair, 1, type: :bool, json_name: "autoRepair", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig.LabelsEntry do
@@ -430,6 +490,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodeConfig do
     type: Google.Cloud.Gkemulticloud.V1.AwsAutoscalingGroupMetricsCollection,
     json_name: "autoscalingMetricsCollection",
     deprecated: false
+
+  field :spot_config, 16,
+    type: Google.Cloud.Gkemulticloud.V1.SpotConfig,
+    json_name: "spotConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling do
@@ -439,6 +504,41 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePoolAutoscaling do
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsOpenIdConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :issuer, 1, type: :string
+  field :jwks_uri, 2, type: :string, json_name: "jwksUri"
+
+  field :response_types_supported, 3,
+    repeated: true,
+    type: :string,
+    json_name: "responseTypesSupported"
+
+  field :subject_types_supported, 4,
+    repeated: true,
+    type: :string,
+    json_name: "subjectTypesSupported"
+
+  field :id_token_signing_alg_values_supported, 5,
+    repeated: true,
+    type: :string,
+    json_name: "idTokenSigningAlgValuesSupported"
+
+  field :claims_supported, 6, repeated: true, type: :string, json_name: "claimsSupported"
+  field :grant_types, 7, repeated: true, type: :string, json_name: "grantTypes"
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AwsJsonWebKeys do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :keys, 1, repeated: true, type: Google.Cloud.Gkemulticloud.V1.Jwk
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsServerConfig do
@@ -462,6 +562,15 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsK8sVersionInfo do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
+  field :enabled, 3, type: :bool, deprecated: false
+  field :end_of_life, 4, type: :bool, json_name: "endOfLife", deprecated: false
+
+  field :end_of_life_date, 5,
+    type: Google.Type.Date,
+    json_name: "endOfLifeDate",
+    deprecated: false
+
+  field :release_date, 6, type: Google.Type.Date, json_name: "releaseDate", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsSshConfig do
@@ -507,6 +616,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsAutoscalingGroupMetricsCollection do
 
   field :granularity, 1, type: :string, deprecated: false
   field :metrics, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.SpotConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_types, 1,
+    repeated: true,
+    type: :string,
+    json_name: "instanceTypes",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AwsClusterError do

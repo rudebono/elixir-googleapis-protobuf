@@ -19,6 +19,32 @@ defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig.Component do
   field :WORKLOADS, 2
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EVALUATION_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :PROJECT_SINGLETON_POLICY_ENFORCE, 2
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.Jwk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kty, 1, type: :string
+  field :alg, 2, type: :string
+  field :use, 3, type: :string
+  field :kid, 4, type: :string
+  field :n, 5, type: :string
+  field :e, 6, type: :string
+  field :x, 7, type: :string
+  field :y, 8, type: :string
+  field :crv, 9, type: :string
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.WorkloadIdentityConfig do
   @moduledoc false
 
@@ -120,4 +146,15 @@ defmodule Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :evaluation_mode, 1,
+    type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode,
+    json_name: "evaluationMode",
+    enum: true
 end

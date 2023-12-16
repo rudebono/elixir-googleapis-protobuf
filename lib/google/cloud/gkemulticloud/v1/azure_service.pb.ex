@@ -150,6 +150,22 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureNodePoolRequest do
   field :etag, 4, type: :string
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.GetAzureOpenIdConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :azure_cluster, 1, type: :string, json_name: "azureCluster", deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.GetAzureJsonWebKeysRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :azure_cluster, 1, type: :string, json_name: "azureCluster", deprecated: false
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureServerConfigRequest do
   @moduledoc false
 
@@ -236,6 +252,38 @@ defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenResponse do
     deprecated: false
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureClusterAgentTokenRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :azure_cluster, 1, type: :string, json_name: "azureCluster", deprecated: false
+  field :subject_token, 2, type: :string, json_name: "subjectToken", deprecated: false
+  field :subject_token_type, 3, type: :string, json_name: "subjectTokenType", deprecated: false
+  field :version, 4, type: :string, deprecated: false
+  field :node_pool_id, 5, type: :string, json_name: "nodePoolId", deprecated: false
+  field :grant_type, 6, type: :string, json_name: "grantType", deprecated: false
+  field :audience, 7, type: :string, deprecated: false
+  field :scope, 8, type: :string, deprecated: false
+
+  field :requested_token_type, 9,
+    type: :string,
+    json_name: "requestedTokenType",
+    deprecated: false
+
+  field :options, 10, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.GenerateAzureClusterAgentTokenResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :access_token, 1, type: :string, json_name: "accessToken"
+  field :expires_in, 2, type: :int32, json_name: "expiresIn"
+  field :token_type, 3, type: :string, json_name: "tokenType"
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AzureClusters.Service do
   @moduledoc false
 
@@ -279,6 +327,10 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClusters.Service do
       Google.Cloud.Gkemulticloud.V1.DeleteAzureClusterRequest,
       Google.Longrunning.Operation
 
+  rpc :GenerateAzureClusterAgentToken,
+      Google.Cloud.Gkemulticloud.V1.GenerateAzureClusterAgentTokenRequest,
+      Google.Cloud.Gkemulticloud.V1.GenerateAzureClusterAgentTokenResponse
+
   rpc :GenerateAzureAccessToken,
       Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenRequest,
       Google.Cloud.Gkemulticloud.V1.GenerateAzureAccessTokenResponse
@@ -302,6 +354,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClusters.Service do
   rpc :DeleteAzureNodePool,
       Google.Cloud.Gkemulticloud.V1.DeleteAzureNodePoolRequest,
       Google.Longrunning.Operation
+
+  rpc :GetAzureOpenIdConfig,
+      Google.Cloud.Gkemulticloud.V1.GetAzureOpenIdConfigRequest,
+      Google.Cloud.Gkemulticloud.V1.AzureOpenIdConfig
+
+  rpc :GetAzureJsonWebKeys,
+      Google.Cloud.Gkemulticloud.V1.GetAzureJsonWebKeysRequest,
+      Google.Cloud.Gkemulticloud.V1.AzureJsonWebKeys
 
   rpc :GetAzureServerConfig,
       Google.Cloud.Gkemulticloud.V1.GetAzureServerConfigRequest,

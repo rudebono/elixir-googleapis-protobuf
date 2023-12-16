@@ -107,6 +107,7 @@ defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.EventType do
   field :GOVERNANCE_RULE_MATCHED_RESOURCES, 15
   field :GOVERNANCE_RULE_SEARCH_LIMIT_EXCEEDS, 16
   field :GOVERNANCE_RULE_ERRORS, 17
+  field :GOVERNANCE_RULE_PROCESSING, 18
 end
 
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity.EntityType do

@@ -178,6 +178,8 @@ defmodule Google.Apps.Meet.V2beta.Recording do
 
   field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Apps.Meet.V2beta.Recording.State, enum: true, deprecated: false
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
 
 defmodule Google.Apps.Meet.V2beta.DriveDestination do
@@ -204,6 +206,8 @@ defmodule Google.Apps.Meet.V2beta.Transcript do
 
   field :name, 1, type: :string, deprecated: false
   field :state, 3, type: Google.Apps.Meet.V2beta.Transcript.State, enum: true, deprecated: false
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 5, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
 
 defmodule Google.Apps.Meet.V2beta.DocsDestination do
