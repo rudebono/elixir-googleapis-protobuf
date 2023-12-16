@@ -8,6 +8,27 @@ defmodule Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault do
   field :DENY, 2
 end
 
+defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint.MethodType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :METHOD_TYPE_UNSPECIFIED, 0
+  field :CREATE, 1
+  field :UPDATE, 2
+  field :DELETE, 3
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint.ActionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ACTION_TYPE_UNSPECIFIED, 0
+  field :ALLOW, 1
+  field :DENY, 2
+end
+
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ListConstraint do
   @moduledoc false
 
@@ -48,4 +69,41 @@ defmodule Google.Cloud.Orgpolicy.V2.Constraint do
     type: Google.Cloud.Orgpolicy.V2.Constraint.BooleanConstraint,
     json_name: "booleanConstraint",
     oneof: 0
+
+  field :supports_dry_run, 7, type: :bool, json_name: "supportsDryRun"
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :resource_types, 2,
+    repeated: true,
+    type: :string,
+    json_name: "resourceTypes",
+    deprecated: false
+
+  field :method_types, 3,
+    repeated: true,
+    type: Google.Cloud.Orgpolicy.V2.CustomConstraint.MethodType,
+    json_name: "methodTypes",
+    enum: true
+
+  field :condition, 4, type: :string
+
+  field :action_type, 5,
+    type: Google.Cloud.Orgpolicy.V2.CustomConstraint.ActionType,
+    json_name: "actionType",
+    enum: true
+
+  field :display_name, 6, type: :string, json_name: "displayName"
+  field :description, 7, type: :string
+
+  field :update_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end

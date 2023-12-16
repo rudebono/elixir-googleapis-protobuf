@@ -7,6 +7,7 @@ defmodule Google.Cloud.Orgpolicy.V2.Policy do
   field :spec, 2, type: Google.Cloud.Orgpolicy.V2.PolicySpec
   field :alternate, 3, type: Google.Cloud.Orgpolicy.V2.AlternatePolicySpec, deprecated: true
   field :dry_run_spec, 4, type: Google.Cloud.Orgpolicy.V2.PolicySpec, json_name: "dryRunSpec"
+  field :etag, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.AlternatePolicySpec do
@@ -136,6 +137,70 @@ defmodule Google.Cloud.Orgpolicy.V2.DeletePolicyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.CreateCustomConstraintRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :custom_constraint, 2,
+    type: Google.Cloud.Orgpolicy.V2.CustomConstraint,
+    json_name: "customConstraint",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.GetCustomConstraintRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.ListCustomConstraintsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.ListCustomConstraintsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :custom_constraints, 1,
+    repeated: true,
+    type: Google.Cloud.Orgpolicy.V2.CustomConstraint,
+    json_name: "customConstraints"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.UpdateCustomConstraintRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :custom_constraint, 1,
+    type: Google.Cloud.Orgpolicy.V2.CustomConstraint,
+    json_name: "customConstraint",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orgpolicy.V2.DeleteCustomConstraintRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Service do
@@ -168,6 +233,26 @@ defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Service do
       Google.Cloud.Orgpolicy.V2.Policy
 
   rpc :DeletePolicy, Google.Cloud.Orgpolicy.V2.DeletePolicyRequest, Google.Protobuf.Empty
+
+  rpc :CreateCustomConstraint,
+      Google.Cloud.Orgpolicy.V2.CreateCustomConstraintRequest,
+      Google.Cloud.Orgpolicy.V2.CustomConstraint
+
+  rpc :UpdateCustomConstraint,
+      Google.Cloud.Orgpolicy.V2.UpdateCustomConstraintRequest,
+      Google.Cloud.Orgpolicy.V2.CustomConstraint
+
+  rpc :GetCustomConstraint,
+      Google.Cloud.Orgpolicy.V2.GetCustomConstraintRequest,
+      Google.Cloud.Orgpolicy.V2.CustomConstraint
+
+  rpc :ListCustomConstraints,
+      Google.Cloud.Orgpolicy.V2.ListCustomConstraintsRequest,
+      Google.Cloud.Orgpolicy.V2.ListCustomConstraintsResponse
+
+  rpc :DeleteCustomConstraint,
+      Google.Cloud.Orgpolicy.V2.DeleteCustomConstraintRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.OrgPolicy.Stub do

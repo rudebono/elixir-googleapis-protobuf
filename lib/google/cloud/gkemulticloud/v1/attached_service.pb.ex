@@ -6,6 +6,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestRe
   field :parent, 1, type: :string, deprecated: false
   field :attached_cluster_id, 2, type: :string, json_name: "attachedClusterId", deprecated: false
   field :platform_version, 3, type: :string, json_name: "platformVersion", deprecated: false
+
+  field :proxy_config, 4,
+    type: Google.Cloud.Gkemulticloud.V1.AttachedProxyConfig,
+    json_name: "proxyConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestResponse do
@@ -42,6 +47,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.ImportAttachedClusterRequest do
   field :fleet_membership, 3, type: :string, json_name: "fleetMembership", deprecated: false
   field :platform_version, 4, type: :string, json_name: "platformVersion", deprecated: false
   field :distribution, 5, type: :string, deprecated: false
+
+  field :proxy_config, 6,
+    type: Google.Cloud.Gkemulticloud.V1.AttachedProxyConfig,
+    json_name: "proxyConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.UpdateAttachedClusterRequest do
@@ -113,6 +123,37 @@ defmodule Google.Cloud.Gkemulticloud.V1.GetAttachedServerConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterAgentTokenRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attached_cluster, 1, type: :string, json_name: "attachedCluster", deprecated: false
+  field :subject_token, 2, type: :string, json_name: "subjectToken", deprecated: false
+  field :subject_token_type, 3, type: :string, json_name: "subjectTokenType", deprecated: false
+  field :version, 4, type: :string, deprecated: false
+  field :grant_type, 6, type: :string, json_name: "grantType", deprecated: false
+  field :audience, 7, type: :string, deprecated: false
+  field :scope, 8, type: :string, deprecated: false
+
+  field :requested_token_type, 9,
+    type: :string,
+    json_name: "requestedTokenType",
+    deprecated: false
+
+  field :options, 10, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterAgentTokenResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :access_token, 1, type: :string, json_name: "accessToken"
+  field :expires_in, 2, type: :int32, json_name: "expiresIn"
+  field :token_type, 3, type: :string, json_name: "tokenType"
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusters.Service do
   @moduledoc false
 
@@ -151,6 +192,10 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusters.Service do
   rpc :GenerateAttachedClusterInstallManifest,
       Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestRequest,
       Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterInstallManifestResponse
+
+  rpc :GenerateAttachedClusterAgentToken,
+      Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterAgentTokenRequest,
+      Google.Cloud.Gkemulticloud.V1.GenerateAttachedClusterAgentTokenResponse
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusters.Stub do

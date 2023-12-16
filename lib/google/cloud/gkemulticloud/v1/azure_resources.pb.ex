@@ -308,6 +308,12 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureAuthorization do
     type: Google.Cloud.Gkemulticloud.V1.AzureClusterUser,
     json_name: "adminUsers",
     deprecated: false
+
+  field :admin_groups, 2,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AzureClusterGroup,
+    json_name: "adminGroups",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureServicesAuthentication do
@@ -325,6 +331,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterUser do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureClusterGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool.AnnotationsEntry do
@@ -390,6 +404,18 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePool do
     repeated: true,
     type: Google.Cloud.Gkemulticloud.V1.AzureNodePoolError,
     deprecated: false
+
+  field :management, 30,
+    type: Google.Cloud.Gkemulticloud.V1.AzureNodeManagement,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeManagement do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :auto_repair, 1, type: :bool, json_name: "autoRepair", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureNodeConfig.TagsEntry do
@@ -466,6 +492,41 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureNodePoolAutoscaling do
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.AzureOpenIdConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :issuer, 1, type: :string
+  field :jwks_uri, 2, type: :string, json_name: "jwksUri"
+
+  field :response_types_supported, 3,
+    repeated: true,
+    type: :string,
+    json_name: "responseTypesSupported"
+
+  field :subject_types_supported, 4,
+    repeated: true,
+    type: :string,
+    json_name: "subjectTypesSupported"
+
+  field :id_token_signing_alg_values_supported, 5,
+    repeated: true,
+    type: :string,
+    json_name: "idTokenSigningAlgValuesSupported"
+
+  field :claims_supported, 6, repeated: true, type: :string, json_name: "claimsSupported"
+  field :grant_types, 7, repeated: true, type: :string, json_name: "grantTypes"
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AzureJsonWebKeys do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :keys, 1, repeated: true, type: Google.Cloud.Gkemulticloud.V1.Jwk
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.AzureServerConfig do
   @moduledoc false
 
@@ -490,6 +551,15 @@ defmodule Google.Cloud.Gkemulticloud.V1.AzureK8sVersionInfo do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :version, 1, type: :string
+  field :enabled, 3, type: :bool, deprecated: false
+  field :end_of_life, 4, type: :bool, json_name: "endOfLife", deprecated: false
+
+  field :end_of_life_date, 5,
+    type: Google.Type.Date,
+    json_name: "endOfLifeDate",
+    deprecated: false
+
+  field :release_date, 6, type: Google.Type.Date, json_name: "releaseDate", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AzureSshConfig do

@@ -89,6 +89,16 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster do
     type: Google.Cloud.Gkemulticloud.V1.MonitoringConfig,
     json_name: "monitoringConfig",
     deprecated: false
+
+  field :proxy_config, 24,
+    type: Google.Cloud.Gkemulticloud.V1.AttachedProxyConfig,
+    json_name: "proxyConfig",
+    deprecated: false
+
+  field :binary_authorization, 25,
+    type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization,
+    json_name: "binaryAuthorization",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClustersAuthorization do
@@ -101,6 +111,12 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedClustersAuthorization do
     type: Google.Cloud.Gkemulticloud.V1.AttachedClusterUser,
     json_name: "adminUsers",
     deprecated: false
+
+  field :admin_groups, 2,
+    repeated: true,
+    type: Google.Cloud.Gkemulticloud.V1.AttachedClusterGroup,
+    json_name: "adminGroups",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterUser do
@@ -109,6 +125,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterUser do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterGroup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedOidcConfig do
@@ -147,4 +171,23 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterError do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :message, 1, type: :string
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.AttachedProxyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kubernetes_secret, 1,
+    type: Google.Cloud.Gkemulticloud.V1.KubernetesSecret,
+    json_name: "kubernetesSecret"
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.KubernetesSecret do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :namespace, 2, type: :string
 end
