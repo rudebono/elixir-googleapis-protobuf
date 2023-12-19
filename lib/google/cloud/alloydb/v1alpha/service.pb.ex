@@ -440,7 +440,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.GenerateClientCertificateResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :pem_certificate, 1, type: :string, json_name: "pemCertificate", deprecated: false
+  field :pem_certificate, 1, type: :string, json_name: "pemCertificate", deprecated: true
 
   field :pem_certificate_chain, 2,
     repeated: true,
@@ -557,6 +557,26 @@ defmodule Google.Cloud.Alloydb.V1alpha.DeleteUserRequest do
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ListDatabasesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ListDatabasesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :databases, 1, repeated: true, type: Google.Cloud.Alloydb.V1alpha.Database
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Service do
@@ -683,6 +703,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Service do
       Google.Cloud.Alloydb.V1alpha.User
 
   rpc :DeleteUser, Google.Cloud.Alloydb.V1alpha.DeleteUserRequest, Google.Protobuf.Empty
+
+  rpc :ListDatabases,
+      Google.Cloud.Alloydb.V1alpha.ListDatabasesRequest,
+      Google.Cloud.Alloydb.V1alpha.ListDatabasesResponse
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Stub do

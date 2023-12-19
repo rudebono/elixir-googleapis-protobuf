@@ -28,6 +28,7 @@ defmodule Google.Firestore.Admin.V1.ListDatabasesResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :databases, 1, repeated: true, type: Google.Firestore.Admin.V1.Database
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Firestore.Admin.V1.GetDatabaseRequest do
@@ -48,6 +49,21 @@ defmodule Google.Firestore.Admin.V1.UpdateDatabaseRequest do
 end
 
 defmodule Google.Firestore.Admin.V1.UpdateDatabaseMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Firestore.Admin.V1.DeleteDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 3, type: :string
+end
+
+defmodule Google.Firestore.Admin.V1.DeleteDatabaseMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -205,6 +221,10 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
 
   rpc :UpdateDatabase,
       Google.Firestore.Admin.V1.UpdateDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDatabase,
+      Google.Firestore.Admin.V1.DeleteDatabaseRequest,
       Google.Longrunning.Operation
 end
 
