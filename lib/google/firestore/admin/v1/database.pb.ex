@@ -39,12 +39,34 @@ defmodule Google.Firestore.Admin.V1.Database.AppEngineIntegrationMode do
   field :DISABLED, 2
 end
 
+defmodule Google.Firestore.Admin.V1.Database.DeleteProtectionState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DELETE_PROTECTION_STATE_UNSPECIFIED, 0
+  field :DELETE_PROTECTION_DISABLED, 1
+  field :DELETE_PROTECTION_ENABLED, 2
+end
+
 defmodule Google.Firestore.Admin.V1.Database do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
+  field :uid, 3, type: :string, deprecated: false
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
   field :location_id, 9, type: :string, json_name: "locationId"
   field :type, 10, type: Google.Firestore.Admin.V1.Database.DatabaseType, enum: true
 
@@ -74,5 +96,11 @@ defmodule Google.Firestore.Admin.V1.Database do
     enum: true
 
   field :key_prefix, 20, type: :string, json_name: "keyPrefix", deprecated: false
+
+  field :delete_protection_state, 22,
+    type: Google.Firestore.Admin.V1.Database.DeleteProtectionState,
+    json_name: "deleteProtectionState",
+    enum: true
+
   field :etag, 99, type: :string
 end

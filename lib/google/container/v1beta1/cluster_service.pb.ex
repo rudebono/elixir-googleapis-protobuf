@@ -2554,6 +2554,12 @@ defmodule Google.Container.V1beta1.BlueGreenSettings.StandardRolloutPolicy do
     json_name: "batchSoakDuration"
 end
 
+defmodule Google.Container.V1beta1.BlueGreenSettings.AutoscaledRolloutPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Container.V1beta1.BlueGreenSettings do
   @moduledoc false
 
@@ -2564,6 +2570,11 @@ defmodule Google.Container.V1beta1.BlueGreenSettings do
   field :standard_rollout_policy, 1,
     type: Google.Container.V1beta1.BlueGreenSettings.StandardRolloutPolicy,
     json_name: "standardRolloutPolicy",
+    oneof: 0
+
+  field :autoscaled_rollout_policy, 3,
+    type: Google.Container.V1beta1.BlueGreenSettings.AutoscaledRolloutPolicy,
+    json_name: "autoscaledRolloutPolicy",
     oneof: 0
 
   field :node_pool_soak_duration, 2,
