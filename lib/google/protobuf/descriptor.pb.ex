@@ -403,7 +403,6 @@ defmodule Google.Protobuf.FileOptions do
   field :cc_generic_services, 16, optional: true, type: :bool, default: false
   field :java_generic_services, 17, optional: true, type: :bool, default: false
   field :py_generic_services, 18, optional: true, type: :bool, default: false
-  field :php_generic_services, 42, optional: true, type: :bool, default: false
   field :deprecated, 23, optional: true, type: :bool, default: false
   field :cc_enable_arenas, 31, optional: true, type: :bool, default: true
   field :objc_class_prefix, 36, optional: true, type: :string
