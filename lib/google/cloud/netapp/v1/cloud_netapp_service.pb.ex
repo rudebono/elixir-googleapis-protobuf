@@ -147,6 +147,58 @@ defmodule Google.Cloud.Netapp.V1.NetApp.Service do
   rpc :ReverseReplicationDirection,
       Google.Cloud.Netapp.V1.ReverseReplicationDirectionRequest,
       Google.Longrunning.Operation
+
+  rpc :CreateBackupVault,
+      Google.Cloud.Netapp.V1.CreateBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetBackupVault,
+      Google.Cloud.Netapp.V1.GetBackupVaultRequest,
+      Google.Cloud.Netapp.V1.BackupVault
+
+  rpc :ListBackupVaults,
+      Google.Cloud.Netapp.V1.ListBackupVaultsRequest,
+      Google.Cloud.Netapp.V1.ListBackupVaultsResponse
+
+  rpc :UpdateBackupVault,
+      Google.Cloud.Netapp.V1.UpdateBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteBackupVault,
+      Google.Cloud.Netapp.V1.DeleteBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateBackup, Google.Cloud.Netapp.V1.CreateBackupRequest, Google.Longrunning.Operation
+
+  rpc :GetBackup, Google.Cloud.Netapp.V1.GetBackupRequest, Google.Cloud.Netapp.V1.Backup
+
+  rpc :ListBackups,
+      Google.Cloud.Netapp.V1.ListBackupsRequest,
+      Google.Cloud.Netapp.V1.ListBackupsResponse
+
+  rpc :DeleteBackup, Google.Cloud.Netapp.V1.DeleteBackupRequest, Google.Longrunning.Operation
+
+  rpc :UpdateBackup, Google.Cloud.Netapp.V1.UpdateBackupRequest, Google.Longrunning.Operation
+
+  rpc :CreateBackupPolicy,
+      Google.Cloud.Netapp.V1.CreateBackupPolicyRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetBackupPolicy,
+      Google.Cloud.Netapp.V1.GetBackupPolicyRequest,
+      Google.Cloud.Netapp.V1.BackupPolicy
+
+  rpc :ListBackupPolicies,
+      Google.Cloud.Netapp.V1.ListBackupPoliciesRequest,
+      Google.Cloud.Netapp.V1.ListBackupPoliciesResponse
+
+  rpc :UpdateBackupPolicy,
+      Google.Cloud.Netapp.V1.UpdateBackupPolicyRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteBackupPolicy,
+      Google.Cloud.Netapp.V1.DeleteBackupPolicyRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Netapp.V1.NetApp.Stub do
