@@ -246,6 +246,11 @@ defmodule Google.Cloud.Netapp.V1.Volume do
 
   field :has_replication, 29, type: :bool, json_name: "hasReplication", deprecated: false
 
+  field :backup_config, 30,
+    proto3_optional: true,
+    type: Google.Cloud.Netapp.V1.BackupConfig,
+    json_name: "backupConfig"
+
   field :restricted_actions, 31,
     repeated: true,
     type: Google.Cloud.Netapp.V1.RestrictedAction,
@@ -401,4 +406,25 @@ defmodule Google.Cloud.Netapp.V1.RestoreParameters do
   oneof :source, 0
 
   field :source_snapshot, 1, type: :string, json_name: "sourceSnapshot", oneof: 0
+  field :source_backup, 2, type: :string, json_name: "sourceBackup", oneof: 0
+end
+
+defmodule Google.Cloud.Netapp.V1.BackupConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_policies, 1,
+    repeated: true,
+    type: :string,
+    json_name: "backupPolicies",
+    deprecated: false
+
+  field :backup_vault, 2, type: :string, json_name: "backupVault", deprecated: false
+
+  field :scheduled_backup_enabled, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "scheduledBackupEnabled",
+    deprecated: false
 end
