@@ -20,7 +20,7 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BackupRecoveryJobReportLog do
   field :hostname, 15, type: :string
   field :appliance_name, 16, type: :string, json_name: "applianceName"
   field :backup_rule_policy_name, 17, type: :string, json_name: "backupRulePolicyName"
-  field :backup_template, 18, type: :string, json_name: "backupTemplate"
+  field :backup_plan_policy_template, 18, type: :string, json_name: "backupPlanPolicyTemplate"
   field :backup_type, 19, type: :string, json_name: "backupType"
   field :recovery_point, 20, type: :string, json_name: "recoveryPoint"
   field :backup_consistency, 21, type: :string, json_name: "backupConsistency"
@@ -37,7 +37,7 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BackupRecoveryJobReportLog do
   field :pre_compress_in_gib, 28, type: :double, json_name: "preCompressInGib"
   field :compression_ratio, 29, type: :double, json_name: "compressionRatio"
   field :data_change_rate, 30, type: :double, json_name: "dataChangeRate"
-  field :resource_volume_size_in_gib, 31, type: :double, json_name: "resourceVolumeSizeInGib"
+  field :snapshot_disk_size_in_gib, 31, type: :double, json_name: "snapshotDiskSizeInGib"
   field :data_written_in_gib, 32, type: :double, json_name: "dataWrittenInGib"
   field :data_sent_in_gib, 33, type: :double, json_name: "dataSentInGib"
   field :job_id, 34, type: :string, json_name: "jobId"
