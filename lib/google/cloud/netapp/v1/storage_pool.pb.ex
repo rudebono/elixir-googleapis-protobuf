@@ -141,5 +141,5 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
     proto3_optional: true,
     type: :bool,
     json_name: "globalAccessAllowed",
-    deprecated: false
+    deprecated: true
 end
