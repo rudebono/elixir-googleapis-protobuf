@@ -312,6 +312,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE, 34
   field :LOCAL_INFILE_OFF, 35
   field :TURN_ON_PITR_AFTER_PROMOTE, 36
+  field :INCOMPATIBLE_DATABASE_MINOR_VERSION, 37
+  field :SOURCE_MAX_SUBSCRIPTIONS, 38
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode do
