@@ -27,7 +27,12 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeLongAudioMetadata do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
-  field :last_update_time, 2, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
+
+  field :last_update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastUpdateTime",
+    deprecated: true
+
   field :progress_percentage, 3, type: :double, json_name: "progressPercentage"
 end
 

@@ -141,7 +141,7 @@ defmodule Google.Cloud.Texttospeech.V1.CustomVoiceParams do
     type: Google.Cloud.Texttospeech.V1.CustomVoiceParams.ReportedUsage,
     json_name: "reportedUsage",
     enum: true,
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
