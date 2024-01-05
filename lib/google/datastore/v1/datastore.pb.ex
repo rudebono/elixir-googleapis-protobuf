@@ -54,6 +54,7 @@ defmodule Google.Datastore.V1.RunQueryRequest do
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
   field :query, 3, type: Google.Datastore.V1.Query, oneof: 0
   field :gql_query, 7, type: Google.Datastore.V1.GqlQuery, json_name: "gqlQuery", oneof: 0
+  field :mode, 11, type: Google.Datastore.V1.QueryMode, enum: true, deprecated: false
 end
 
 defmodule Google.Datastore.V1.RunQueryResponse do
@@ -64,6 +65,7 @@ defmodule Google.Datastore.V1.RunQueryResponse do
   field :batch, 1, type: Google.Datastore.V1.QueryResultBatch
   field :query, 2, type: Google.Datastore.V1.Query
   field :transaction, 5, type: :bytes
+  field :stats, 6, type: Google.Datastore.V1.ResultSetStats
 end
 
 defmodule Google.Datastore.V1.RunAggregationQueryRequest do
@@ -84,6 +86,7 @@ defmodule Google.Datastore.V1.RunAggregationQueryRequest do
     oneof: 0
 
   field :gql_query, 7, type: Google.Datastore.V1.GqlQuery, json_name: "gqlQuery", oneof: 0
+  field :mode, 10, type: Google.Datastore.V1.QueryMode, enum: true, deprecated: false
 end
 
 defmodule Google.Datastore.V1.RunAggregationQueryResponse do
@@ -94,6 +97,7 @@ defmodule Google.Datastore.V1.RunAggregationQueryResponse do
   field :batch, 1, type: Google.Datastore.V1.AggregationResultBatch
   field :query, 2, type: Google.Datastore.V1.AggregationQuery
   field :transaction, 5, type: :bytes
+  field :stats, 6, type: Google.Datastore.V1.ResultSetStats
 end
 
 defmodule Google.Datastore.V1.BeginTransactionRequest do
