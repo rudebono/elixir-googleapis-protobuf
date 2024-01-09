@@ -24,16 +24,16 @@ defmodule Google.Cloud.Deploy.V1.RolloutUpdateEvent do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :message, 6, type: :string
   field :pipeline_uid, 1, type: :string, json_name: "pipelineUid"
   field :release_uid, 2, type: :string, json_name: "releaseUid"
+  field :release, 8, type: :string
   field :rollout, 3, type: :string
   field :target_id, 4, type: :string, json_name: "targetId"
+  field :type, 7, type: Google.Cloud.Deploy.V1.Type, enum: true
 
   field :rollout_update_type, 5,
     type: Google.Cloud.Deploy.V1.RolloutUpdateEvent.RolloutUpdateType,
     json_name: "rolloutUpdateType",
     enum: true
-
-  field :message, 6, type: :string
-  field :type, 7, type: Google.Cloud.Deploy.V1.Type, enum: true
 end

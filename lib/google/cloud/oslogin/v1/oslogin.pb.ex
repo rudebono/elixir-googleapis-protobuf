@@ -86,6 +86,7 @@ defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyRequest do
     deprecated: false
 
   field :project_id, 3, type: :string, json_name: "projectId"
+  field :regions, 5, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Oslogin.V1.ImportSshPublicKeyResponse do

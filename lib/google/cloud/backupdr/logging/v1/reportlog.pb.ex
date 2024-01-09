@@ -49,7 +49,7 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BackupRecoveryJobReportLog do
   field :target_appliance_id, 40, type: :string, json_name: "targetApplianceId"
 end
 
-defmodule Google.Cloud.Backupdr.Logging.V1.UnprotectedResource do
+defmodule Google.Cloud.Backupdr.Logging.V1.UnprotectedResourceReportLog do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -58,7 +58,7 @@ defmodule Google.Cloud.Backupdr.Logging.V1.UnprotectedResource do
   field :resource_name, 2, type: :string, json_name: "resourceName"
   field :resource_type, 3, type: :string, json_name: "resourceType"
   field :instance_name, 4, type: :string, json_name: "instanceName"
-  field :discovered_on, 5, type: Google.Protobuf.Timestamp, json_name: "discoveredOn"
+  field :discovered_on, 5, type: :string, json_name: "discoveredOn"
   field :discovered_by, 6, type: :string, json_name: "discoveredBy"
   field :appliance_id, 7, type: :string, json_name: "applianceId"
   field :resource_id, 8, type: :string, json_name: "resourceId"
