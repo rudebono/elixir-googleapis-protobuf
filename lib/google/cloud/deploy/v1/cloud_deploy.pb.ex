@@ -465,6 +465,11 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
     type: Google.Protobuf.Duration,
     json_name: "routeUpdateWaitTime",
     deprecated: false
+
+  field :stable_cutback_duration, 5,
+    type: Google.Protobuf.Duration,
+    json_name: "stableCutbackDuration",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
