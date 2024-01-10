@@ -126,6 +126,12 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadRowsResponse do
     json_name: "arrowSchema",
     oneof: 1,
     deprecated: false
+
+  field :uncompressed_byte_size, 9,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "uncompressedByteSize",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.SplitReadStreamRequest do

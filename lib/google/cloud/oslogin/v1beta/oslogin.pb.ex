@@ -103,6 +103,7 @@ defmodule Google.Cloud.Oslogin.V1beta.ImportSshPublicKeyRequest do
 
   field :project_id, 3, type: :string, json_name: "projectId"
   field :view, 4, type: Google.Cloud.Oslogin.V1beta.LoginProfileView, enum: true
+  field :regions, 5, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Oslogin.V1beta.ImportSshPublicKeyResponse do

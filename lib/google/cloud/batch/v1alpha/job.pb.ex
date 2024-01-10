@@ -457,6 +457,7 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy do
 
   field :network, 7, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.NetworkPolicy
   field :placement, 10, type: Google.Cloud.Batch.V1alpha.AllocationPolicy.PlacementPolicy
+  field :tags, 11, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.TaskGroup.LabelsEntry do
@@ -505,7 +506,8 @@ defmodule Google.Cloud.Batch.V1alpha.TaskGroup do
   field :task_count_per_node, 10, type: :int64, json_name: "taskCountPerNode"
   field :require_hosts_file, 11, type: :bool, json_name: "requireHostsFile"
   field :permissive_ssh, 12, type: :bool, json_name: "permissiveSsh"
-  field :enable_oslogin, 13, type: :bool, json_name: "enableOslogin", deprecated: false
+  field :enable_oslogin, 13, type: :bool, json_name: "enableOslogin", deprecated: true
+  field :run_as_non_root, 14, type: :bool, json_name: "runAsNonRoot", deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.ServiceAccount do
