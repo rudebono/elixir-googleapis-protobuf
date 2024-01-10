@@ -18,6 +18,15 @@ defmodule Google.Cloud.Bigquery.Storage.V1.WriteStreamView do
   field :FULL, 2
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions.ResponseCompressionCodec do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESPONSE_COMPRESSION_CODEC_UNSPECIFIED, 0
+  field :RESPONSE_COMPRESSION_CODEC_LZ4, 2
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.WriteStream.Type do
   @moduledoc false
 
@@ -72,6 +81,13 @@ defmodule Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions do
     proto3_optional: true,
     type: :double,
     json_name: "samplePercentage",
+    deprecated: false
+
+  field :response_compression_codec, 6,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.Storage.V1.ReadSession.TableReadOptions.ResponseCompressionCodec,
+    json_name: "responseCompressionCodec",
+    enum: true,
     deprecated: false
 end
 
