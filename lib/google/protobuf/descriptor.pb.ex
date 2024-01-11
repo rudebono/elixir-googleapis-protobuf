@@ -7,6 +7,7 @@ defmodule Google.Protobuf.Edition do
   field :EDITION_PROTO2, 998
   field :EDITION_PROTO3, 999
   field :EDITION_2023, 1000
+  field :EDITION_2024, 1001
   field :EDITION_1_TEST_ONLY, 1
   field :EDITION_2_TEST_ONLY, 2
   field :EDITION_99997_TEST_ONLY, 99997
