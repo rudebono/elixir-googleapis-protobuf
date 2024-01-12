@@ -107,6 +107,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
 
   field :experiment, 17, type: :string, deprecated: false
   field :experiment_run, 18, type: :string, json_name: "experimentRun", deprecated: false
+  field :models, 20, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.WorkerPoolSpec do
@@ -179,4 +180,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling do
   field :timeout, 1, type: Google.Protobuf.Duration
   field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"
   field :disable_retries, 5, type: :bool, json_name: "disableRetries", deprecated: false
+
+  field :max_wait_duration, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "maxWaitDuration",
+    deprecated: false
 end
