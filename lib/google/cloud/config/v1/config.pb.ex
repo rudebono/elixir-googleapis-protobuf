@@ -127,6 +127,62 @@ defmodule Google.Cloud.Config.V1.Resource.State do
   field :FAILED, 4
 end
 
+defmodule Google.Cloud.Config.V1.Preview.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :SUCCEEDED, 2
+  field :APPLYING, 3
+  field :STALE, 4
+  field :DELETING, 5
+  field :FAILED, 6
+  field :DELETED, 7
+end
+
+defmodule Google.Cloud.Config.V1.Preview.PreviewMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PREVIEW_MODE_UNSPECIFIED, 0
+  field :DEFAULT, 1
+  field :DELETE, 2
+end
+
+defmodule Google.Cloud.Config.V1.Preview.ErrorCode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ERROR_CODE_UNSPECIFIED, 0
+  field :CLOUD_BUILD_PERMISSION_DENIED, 1
+  field :BUCKET_CREATION_PERMISSION_DENIED, 2
+  field :BUCKET_CREATION_FAILED, 3
+  field :DEPLOYMENT_LOCK_ACQUIRE_FAILED, 4
+  field :PREVIEW_BUILD_API_FAILED, 5
+  field :PREVIEW_BUILD_RUN_FAILED, 6
+end
+
+defmodule Google.Cloud.Config.V1.PreviewOperationMetadata.PreviewStep do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PREVIEW_STEP_UNSPECIFIED, 0
+  field :PREPARING_STORAGE_BUCKET, 1
+  field :DOWNLOADING_BLUEPRINT, 2
+  field :RUNNING_TF_INIT, 3
+  field :RUNNING_TF_PLAN, 4
+  field :FETCHING_DEPLOYMENT, 5
+  field :LOCKING_DEPLOYMENT, 6
+  field :UNLOCKING_DEPLOYMENT, 7
+  field :SUCCEEDED, 8
+  field :FAILED, 9
+end
+
 defmodule Google.Cloud.Config.V1.Deployment.LabelsEntry do
   @moduledoc false
 
@@ -399,6 +455,12 @@ defmodule Google.Cloud.Config.V1.OperationMetadata do
   field :deployment_metadata, 8,
     type: Google.Cloud.Config.V1.DeploymentOperationMetadata,
     json_name: "deploymentMetadata",
+    oneof: 0,
+    deprecated: false
+
+  field :preview_metadata, 9,
+    type: Google.Cloud.Config.V1.PreviewOperationMetadata,
+    json_name: "previewMetadata",
     oneof: 0,
     deprecated: false
 
@@ -678,6 +740,187 @@ defmodule Google.Cloud.Config.V1.LockInfo do
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
 end
 
+defmodule Google.Cloud.Config.V1.Preview.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Config.V1.Preview do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :blueprint, 0
+
+  field :terraform_blueprint, 6,
+    type: Google.Cloud.Config.V1.TerraformBlueprint,
+    json_name: "terraformBlueprint",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :labels, 3,
+    repeated: true,
+    type: Google.Cloud.Config.V1.Preview.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :state, 4, type: Google.Cloud.Config.V1.Preview.State, enum: true, deprecated: false
+  field :deployment, 5, type: :string, deprecated: false
+
+  field :preview_mode, 15,
+    type: Google.Cloud.Config.V1.Preview.PreviewMode,
+    json_name: "previewMode",
+    enum: true,
+    deprecated: false
+
+  field :service_account, 7, type: :string, json_name: "serviceAccount", deprecated: false
+
+  field :artifacts_gcs_bucket, 8,
+    proto3_optional: true,
+    type: :string,
+    json_name: "artifactsGcsBucket",
+    deprecated: false
+
+  field :worker_pool, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "workerPool",
+    deprecated: false
+
+  field :error_code, 10,
+    type: Google.Cloud.Config.V1.Preview.ErrorCode,
+    json_name: "errorCode",
+    enum: true,
+    deprecated: false
+
+  field :error_status, 11, type: Google.Rpc.Status, json_name: "errorStatus", deprecated: false
+  field :build, 12, type: :string, deprecated: false
+
+  field :tf_errors, 13,
+    repeated: true,
+    type: Google.Cloud.Config.V1.TerraformError,
+    json_name: "tfErrors",
+    deprecated: false
+
+  field :error_logs, 14, type: :string, json_name: "errorLogs", deprecated: false
+
+  field :preview_artifacts, 16,
+    type: Google.Cloud.Config.V1.PreviewArtifacts,
+    json_name: "previewArtifacts",
+    deprecated: false
+
+  field :logs, 17, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.PreviewOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :step, 1, type: Google.Cloud.Config.V1.PreviewOperationMetadata.PreviewStep, enum: true
+
+  field :preview_artifacts, 2,
+    type: Google.Cloud.Config.V1.PreviewArtifacts,
+    json_name: "previewArtifacts"
+
+  field :logs, 3, type: :string, deprecated: false
+  field :build, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.PreviewArtifacts do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :content, 1, type: :string, deprecated: false
+  field :artifacts, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.CreatePreviewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :preview_id, 2, type: :string, json_name: "previewId", deprecated: false
+  field :preview, 3, type: Google.Cloud.Config.V1.Preview, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.GetPreviewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListPreviewsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListPreviewsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :previews, 1, repeated: true, type: Google.Cloud.Config.V1.Preview
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Config.V1.DeletePreviewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ExportPreviewResultRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ExportPreviewResultResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :result, 1, type: Google.Cloud.Config.V1.PreviewResult, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.PreviewResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :binary_signed_uri, 1, type: :string, json_name: "binarySignedUri", deprecated: false
+  field :json_signed_uri, 2, type: :string, json_name: "jsonSignedUri", deprecated: false
+end
+
 defmodule Google.Cloud.Config.V1.Config.Service do
   @moduledoc false
 
@@ -738,6 +981,20 @@ defmodule Google.Cloud.Config.V1.Config.Service do
   rpc :ExportLockInfo,
       Google.Cloud.Config.V1.ExportLockInfoRequest,
       Google.Cloud.Config.V1.LockInfo
+
+  rpc :CreatePreview, Google.Cloud.Config.V1.CreatePreviewRequest, Google.Longrunning.Operation
+
+  rpc :GetPreview, Google.Cloud.Config.V1.GetPreviewRequest, Google.Cloud.Config.V1.Preview
+
+  rpc :ListPreviews,
+      Google.Cloud.Config.V1.ListPreviewsRequest,
+      Google.Cloud.Config.V1.ListPreviewsResponse
+
+  rpc :DeletePreview, Google.Cloud.Config.V1.DeletePreviewRequest, Google.Longrunning.Operation
+
+  rpc :ExportPreviewResult,
+      Google.Cloud.Config.V1.ExportPreviewResultRequest,
+      Google.Cloud.Config.V1.ExportPreviewResultResponse
 end
 
 defmodule Google.Cloud.Config.V1.Config.Stub do
