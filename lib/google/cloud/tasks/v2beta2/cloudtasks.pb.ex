@@ -243,24 +243,6 @@ defmodule Google.Cloud.Tasks.V2beta2.RunTaskRequest do
     enum: true
 end
 
-defmodule Google.Cloud.Tasks.V2beta2.BufferTaskRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :queue, 1, type: :string, deprecated: false
-  field :task_id, 2, type: :string, json_name: "taskId", deprecated: false
-  field :body, 3, type: Google.Api.HttpBody, deprecated: false
-end
-
-defmodule Google.Cloud.Tasks.V2beta2.BufferTaskResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :task, 1, type: Google.Cloud.Tasks.V2beta2.Task
-end
-
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
   @moduledoc false
 
@@ -323,10 +305,6 @@ defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Service do
   rpc :CancelLease, Google.Cloud.Tasks.V2beta2.CancelLeaseRequest, Google.Cloud.Tasks.V2beta2.Task
 
   rpc :RunTask, Google.Cloud.Tasks.V2beta2.RunTaskRequest, Google.Cloud.Tasks.V2beta2.Task
-
-  rpc :BufferTask,
-      Google.Cloud.Tasks.V2beta2.BufferTaskRequest,
-      Google.Cloud.Tasks.V2beta2.BufferTaskResponse
 end
 
 defmodule Google.Cloud.Tasks.V2beta2.CloudTasks.Stub do
