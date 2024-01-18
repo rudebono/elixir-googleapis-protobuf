@@ -15,6 +15,8 @@ defmodule Google.Spanner.V1.TypeCode do
   field :STRUCT, 9
   field :NUMERIC, 10
   field :JSON, 11
+  field :PROTO, 13
+  field :ENUM, 14
 end
 
 defmodule Google.Spanner.V1.TypeAnnotationCode do
@@ -41,6 +43,8 @@ defmodule Google.Spanner.V1.Type do
     type: Google.Spanner.V1.TypeAnnotationCode,
     json_name: "typeAnnotation",
     enum: true
+
+  field :proto_type_fqn, 5, type: :string, json_name: "protoTypeFqn"
 end
 
 defmodule Google.Spanner.V1.StructType.Field do

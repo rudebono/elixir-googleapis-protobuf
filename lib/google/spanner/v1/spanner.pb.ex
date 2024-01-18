@@ -417,6 +417,12 @@ defmodule Google.Spanner.V1.CommitRequest do
 
   field :mutations, 4, repeated: true, type: Google.Spanner.V1.Mutation
   field :return_commit_stats, 5, type: :bool, json_name: "returnCommitStats"
+
+  field :max_commit_delay, 8,
+    type: Google.Protobuf.Duration,
+    json_name: "maxCommitDelay",
+    deprecated: false
+
   field :request_options, 6, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
 end
 
