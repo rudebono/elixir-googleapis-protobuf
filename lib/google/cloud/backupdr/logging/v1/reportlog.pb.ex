@@ -64,3 +64,44 @@ defmodule Google.Cloud.Backupdr.Logging.V1.UnprotectedResourceReportLog do
   field :resource_id, 8, type: :string, json_name: "resourceId"
   field :host_id, 9, type: :string, json_name: "hostId"
 end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.DailyScheduleComplianceReportLog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_type, 2, type: :string, json_name: "resourceType"
+  field :backup_rule_policy_name, 3, type: :string, json_name: "backupRulePolicyName"
+  field :backup_plan_policy_template, 4, type: :string, json_name: "backupPlanPolicyTemplate"
+  field :host_name, 5, type: :string, json_name: "hostName"
+  field :appliance_name, 6, type: :string, json_name: "applianceName"
+  field :date, 7, type: :string
+  field :backup_window_start_time, 8, type: :string, json_name: "backupWindowStartTime"
+  field :job_type, 9, type: :string, json_name: "jobType"
+  field :status, 10, type: :string
+  field :comment, 11, type: :string
+  field :resource_id, 12, type: :string, json_name: "resourceId"
+  field :host_id, 13, type: :string, json_name: "hostId"
+
+  field :backup_plan_policy_template_id, 14,
+    type: :string,
+    json_name: "backupPlanPolicyTemplateId"
+
+  field :backup_rule_policy_id, 15, type: :string, json_name: "backupRulePolicyId"
+  field :appliance_id, 16, type: :string, json_name: "applianceId"
+end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.BackupStorageUtilizationReportLog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :appliance_name, 1, type: :string, json_name: "applianceName"
+  field :storage_type, 2, type: :string, json_name: "storageType"
+  field :pool_name, 3, type: :string, json_name: "poolName"
+  field :total_capacity_in_gib, 4, type: :double, json_name: "totalCapacityInGib"
+  field :used_capacity_in_gib, 5, type: :double, json_name: "usedCapacityInGib"
+  field :utilization_percentage, 6, type: :double, json_name: "utilizationPercentage"
+  field :appliance_id, 7, type: :string, json_name: "applianceId"
+end
