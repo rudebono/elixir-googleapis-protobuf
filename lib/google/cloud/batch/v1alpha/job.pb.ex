@@ -506,7 +506,6 @@ defmodule Google.Cloud.Batch.V1alpha.TaskGroup do
   field :task_count_per_node, 10, type: :int64, json_name: "taskCountPerNode"
   field :require_hosts_file, 11, type: :bool, json_name: "requireHostsFile"
   field :permissive_ssh, 12, type: :bool, json_name: "permissiveSsh"
-  field :enable_oslogin, 13, type: :bool, json_name: "enableOslogin", deprecated: true
   field :run_as_non_root, 14, type: :bool, json_name: "runAsNonRoot", deprecated: false
 end
 
