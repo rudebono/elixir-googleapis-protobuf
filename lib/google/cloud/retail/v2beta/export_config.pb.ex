@@ -1,3 +1,39 @@
+defmodule Google.Cloud.Retail.V2beta.OutputConfig.GcsDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2beta.OutputConfig.BigQueryDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id_prefix, 2, type: :string, json_name: "tableIdPrefix", deprecated: false
+  field :table_type, 3, type: :string, json_name: "tableType", deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2beta.OutputConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Retail.V2beta.OutputConfig.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  field :bigquery_destination, 2,
+    type: Google.Cloud.Retail.V2beta.OutputConfig.BigQueryDestination,
+    json_name: "bigqueryDestination",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
   @moduledoc false
 
@@ -6,6 +42,21 @@ defmodule Google.Cloud.Retail.V2beta.ExportErrorsConfig do
   oneof :destination, 0
 
   field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
+end
+
+defmodule Google.Cloud.Retail.V2beta.ExportAnalyticsMetricsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :catalog, 1, type: :string, deprecated: false
+
+  field :output_config, 2,
+    type: Google.Cloud.Retail.V2beta.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+
+  field :filter, 3, type: :string
 end
 
 defmodule Google.Cloud.Retail.V2beta.ExportMetadata do
@@ -34,6 +85,22 @@ defmodule Google.Cloud.Retail.V2beta.ExportProductsResponse do
 end
 
 defmodule Google.Cloud.Retail.V2beta.ExportUserEventsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :errors_config, 2,
+    type: Google.Cloud.Retail.V2beta.ExportErrorsConfig,
+    json_name: "errorsConfig"
+
+  field :output_result, 3,
+    type: Google.Cloud.Retail.V2beta.OutputResult,
+    json_name: "outputResult"
+end
+
+defmodule Google.Cloud.Retail.V2beta.ExportAnalyticsMetricsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3

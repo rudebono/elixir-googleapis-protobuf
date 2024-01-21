@@ -59,6 +59,16 @@ defmodule Google.Container.V1.IPv6AccessType do
   field :EXTERNAL, 2
 end
 
+defmodule Google.Container.V1.InTransitEncryptionConfig do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :IN_TRANSIT_ENCRYPTION_CONFIG_UNSPECIFIED, 0
+  field :IN_TRANSIT_ENCRYPTION_DISABLED, 1
+  field :IN_TRANSIT_ENCRYPTION_INTER_NODE_TRANSPARENT, 2
+end
+
 defmodule Google.Container.V1.LinuxNodeConfig.CgroupMode do
   @moduledoc false
 
@@ -1647,6 +1657,12 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_node_pool_auto_config_resource_manager_tags, 136,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "desiredNodePoolAutoConfigResourceManagerTags"
+
+  field :desired_in_transit_encryption_config, 137,
+    proto3_optional: true,
+    type: Google.Container.V1.InTransitEncryptionConfig,
+    json_name: "desiredInTransitEncryptionConfig",
+    enum: true
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -2719,6 +2735,12 @@ defmodule Google.Container.V1.NetworkConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "enableFqdnNetworkPolicy"
+
+  field :in_transit_encryption_config, 20,
+    proto3_optional: true,
+    type: Google.Container.V1.InTransitEncryptionConfig,
+    json_name: "inTransitEncryptionConfig",
+    enum: true
 end
 
 defmodule Google.Container.V1.GatewayAPIConfig do
