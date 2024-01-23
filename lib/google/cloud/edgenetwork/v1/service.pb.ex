@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Edgenetwork.V1.DiagnoseNetworkResponse.NetworkStatus.MacsecStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MACSEC_STATUS_UNSPECIFIED, 0
+  field :SECURE, 1
+  field :UNSECURE, 2
+end
+
 defmodule Google.Cloud.Edgenetwork.V1.ListZonesRequest do
   @moduledoc false
 
@@ -339,6 +349,11 @@ defmodule Google.Cloud.Edgenetwork.V1.DiagnoseNetworkResponse.NetworkStatus do
     repeated: true,
     type: Google.Cloud.Edgenetwork.V1.SubnetStatus,
     json_name: "subnetStatus"
+
+  field :macsec_status_internal_links, 2,
+    type: Google.Cloud.Edgenetwork.V1.DiagnoseNetworkResponse.NetworkStatus.MacsecStatus,
+    json_name: "macsecStatusInternalLinks",
+    enum: true
 end
 
 defmodule Google.Cloud.Edgenetwork.V1.DiagnoseNetworkResponse do
