@@ -61,6 +61,26 @@ defmodule Google.Analytics.Data.V1alpha.RecurringAudienceList do
     type: :string,
     json_name: "audienceLists",
     deprecated: false
+
+  field :webhook_notification, 8,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.WebhookNotification,
+    json_name: "webhookNotification",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.WebhookNotification do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, proto3_optional: true, type: :string, deprecated: false
+
+  field :channel_token, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "channelToken",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.GetRecurringAudienceListRequest do
@@ -195,6 +215,12 @@ defmodule Google.Analytics.Data.V1alpha.AudienceList do
     proto3_optional: true,
     type: :string,
     json_name: "recurringAudienceList",
+    deprecated: false
+
+  field :webhook_notification, 13,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.WebhookNotification,
+    json_name: "webhookNotification",
     deprecated: false
 end
 

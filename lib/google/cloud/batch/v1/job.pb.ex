@@ -102,6 +102,11 @@ defmodule Google.Cloud.Batch.V1.LogsPolicy.CloudLoggingOption do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_generic_task_monitored_resource, 1,
+    type: :bool,
+    json_name: "useGenericTaskMonitoredResource",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.LogsPolicy do
@@ -354,6 +359,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy do
 
   field :network, 7, type: Google.Cloud.Batch.V1.AllocationPolicy.NetworkPolicy
   field :placement, 10, type: Google.Cloud.Batch.V1.AllocationPolicy.PlacementPolicy
+  field :tags, 11, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.TaskGroup do
@@ -384,6 +390,7 @@ defmodule Google.Cloud.Batch.V1.TaskGroup do
   field :task_count_per_node, 10, type: :int64, json_name: "taskCountPerNode"
   field :require_hosts_file, 11, type: :bool, json_name: "requireHostsFile"
   field :permissive_ssh, 12, type: :bool, json_name: "permissiveSsh"
+  field :run_as_non_root, 14, type: :bool, json_name: "runAsNonRoot", deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.ServiceAccount do
