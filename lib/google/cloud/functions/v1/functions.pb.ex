@@ -52,6 +52,20 @@ defmodule Google.Cloud.Functions.V1.HttpsTrigger.SecurityLevel do
   field :SECURE_OPTIONAL, 2
 end
 
+defmodule Google.Cloud.Functions.V1.CloudFunction.AutomaticUpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Functions.V1.CloudFunction.OnDeployUpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :runtime_version, 1, type: :string, json_name: "runtimeVersion", deprecated: false
+end
+
 defmodule Google.Cloud.Functions.V1.CloudFunction.LabelsEntry do
   @moduledoc false
 
@@ -87,6 +101,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
   oneof :source_code, 0
 
   oneof :trigger, 1
+
+  oneof :runtime_update_policy, 2
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -144,7 +160,7 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     json_name: "buildEnvironmentVariables",
     map: true
 
-  field :network, 18, type: :string
+  field :network, 18, type: :string, deprecated: true
   field :max_instances, 20, type: :int32, json_name: "maxInstances"
   field :min_instances, 32, type: :int32, json_name: "minInstances"
   field :vpc_connector, 22, type: :string, json_name: "vpcConnector"
@@ -181,6 +197,16 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     type: Google.Cloud.Functions.V1.CloudFunction.DockerRegistry,
     json_name: "dockerRegistry",
     enum: true
+
+  field :automatic_update_policy, 40,
+    type: Google.Cloud.Functions.V1.CloudFunction.AutomaticUpdatePolicy,
+    json_name: "automaticUpdatePolicy",
+    oneof: 2
+
+  field :on_deploy_update_policy, 41,
+    type: Google.Cloud.Functions.V1.CloudFunction.OnDeployUpdatePolicy,
+    json_name: "onDeployUpdatePolicy",
+    oneof: 2
 end
 
 defmodule Google.Cloud.Functions.V1.SourceRepository do
@@ -290,6 +316,7 @@ defmodule Google.Cloud.Functions.V1.GetFunctionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :version_id, 2, type: :int64, json_name: "versionId", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V1.ListFunctionsRequest do

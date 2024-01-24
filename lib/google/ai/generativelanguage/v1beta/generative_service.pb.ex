@@ -45,6 +45,16 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerRequest.AnswerStyle 
   field :VERBOSE, 3
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse.InputFeedback.BlockReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BLOCK_REASON_UNSPECIFIED, 0
+  field :SAFETY, 1
+  field :OTHER, 2
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentRequest do
   @moduledoc false
 
@@ -280,6 +290,24 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerRequest do
   field :temperature, 4, proto3_optional: true, type: :float, deprecated: false
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse.InputFeedback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :block_reason, 1,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse.InputFeedback.BlockReason,
+    json_name: "blockReason",
+    enum: true,
+    deprecated: false
+
+  field :safety_ratings, 2,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1beta.SafetyRating,
+    json_name: "safetyRatings"
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse do
   @moduledoc false
 
@@ -291,6 +319,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse do
     proto3_optional: true,
     type: :float,
     json_name: "answerableProbability",
+    deprecated: false
+
+  field :input_feedback, 3,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1beta.GenerateAnswerResponse.InputFeedback,
+    json_name: "inputFeedback",
     deprecated: false
 end
 

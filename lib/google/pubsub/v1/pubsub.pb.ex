@@ -1,3 +1,26 @@
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :KINESIS_PERMISSION_DENIED, 2
+  field :PUBLISH_PERMISSION_DENIED, 3
+  field :STREAM_NOT_FOUND, 4
+  field :CONSUMER_NOT_FOUND, 5
+end
+
+defmodule Google.Pubsub.V1.Topic.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :INGESTION_RESOURCE_ERROR, 2
+end
+
 defmodule Google.Pubsub.V1.Subscription.State do
   @moduledoc false
 
@@ -53,6 +76,36 @@ defmodule Google.Pubsub.V1.SchemaSettings do
   field :last_revision_id, 4, type: :string, json_name: "lastRevisionId"
 end
 
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis.State,
+    enum: true,
+    deprecated: false
+
+  field :stream_arn, 2, type: :string, json_name: "streamArn", deprecated: false
+  field :consumer_arn, 3, type: :string, json_name: "consumerArn", deprecated: false
+  field :aws_role_arn, 4, type: :string, json_name: "awsRoleArn", deprecated: false
+  field :gcp_service_account, 5, type: :string, json_name: "gcpServiceAccount", deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :aws_kinesis, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis,
+    json_name: "awsKinesis",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   @moduledoc false
 
@@ -81,6 +134,13 @@ defmodule Google.Pubsub.V1.Topic do
   field :message_retention_duration, 8,
     type: Google.Protobuf.Duration,
     json_name: "messageRetentionDuration"
+
+  field :state, 9, type: Google.Pubsub.V1.Topic.State, enum: true, deprecated: false
+
+  field :ingestion_data_source_settings, 10,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings,
+    json_name: "ingestionDataSourceSettings",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
