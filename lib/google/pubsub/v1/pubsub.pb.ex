@@ -41,6 +41,7 @@ defmodule Google.Pubsub.V1.BigQueryConfig.State do
   field :PERMISSION_DENIED, 2
   field :NOT_FOUND, 3
   field :SCHEMA_MISMATCH, 4
+  field :IN_TRANSIT_LOCATION_RESTRICTION, 5
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig.State do
@@ -52,6 +53,7 @@ defmodule Google.Pubsub.V1.CloudStorageConfig.State do
   field :ACTIVE, 1
   field :PERMISSION_DENIED, 2
   field :NOT_FOUND, 3
+  field :IN_TRANSIT_LOCATION_RESTRICTION, 4
 end
 
 defmodule Google.Pubsub.V1.MessageStoragePolicy do
@@ -62,7 +64,10 @@ defmodule Google.Pubsub.V1.MessageStoragePolicy do
   field :allowed_persistence_regions, 1,
     repeated: true,
     type: :string,
-    json_name: "allowedPersistenceRegions"
+    json_name: "allowedPersistenceRegions",
+    deprecated: false
+
+  field :enforce_in_transit, 2, type: :bool, json_name: "enforceInTransit", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.SchemaSettings do
@@ -71,9 +76,9 @@ defmodule Google.Pubsub.V1.SchemaSettings do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :schema, 1, type: :string, deprecated: false
-  field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true
-  field :first_revision_id, 3, type: :string, json_name: "firstRevisionId"
-  field :last_revision_id, 4, type: :string, json_name: "lastRevisionId"
+  field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true, deprecated: false
+  field :first_revision_id, 3, type: :string, json_name: "firstRevisionId", deprecated: false
+  field :last_revision_id, 4, type: :string, json_name: "lastRevisionId", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis do
@@ -121,19 +126,31 @@ defmodule Google.Pubsub.V1.Topic do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :labels, 2, repeated: true, type: Google.Pubsub.V1.Topic.LabelsEntry, map: true
+
+  field :labels, 2,
+    repeated: true,
+    type: Google.Pubsub.V1.Topic.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :message_storage_policy, 3,
     type: Google.Pubsub.V1.MessageStoragePolicy,
-    json_name: "messageStoragePolicy"
+    json_name: "messageStoragePolicy",
+    deprecated: false
 
-  field :kms_key_name, 5, type: :string, json_name: "kmsKeyName"
-  field :schema_settings, 6, type: Google.Pubsub.V1.SchemaSettings, json_name: "schemaSettings"
-  field :satisfies_pzs, 7, type: :bool, json_name: "satisfiesPzs"
+  field :kms_key_name, 5, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :schema_settings, 6,
+    type: Google.Pubsub.V1.SchemaSettings,
+    json_name: "schemaSettings",
+    deprecated: false
+
+  field :satisfies_pzs, 7, type: :bool, json_name: "satisfiesPzs", deprecated: false
 
   field :message_retention_duration, 8,
     type: Google.Protobuf.Duration,
-    json_name: "messageRetentionDuration"
+    json_name: "messageRetentionDuration",
+    deprecated: false
 
   field :state, 9, type: Google.Pubsub.V1.Topic.State, enum: true, deprecated: false
 
@@ -157,16 +174,17 @@ defmodule Google.Pubsub.V1.PubsubMessage do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :data, 1, type: :bytes
+  field :data, 1, type: :bytes, deprecated: false
 
   field :attributes, 2,
     repeated: true,
     type: Google.Pubsub.V1.PubsubMessage.AttributesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :message_id, 3, type: :string, json_name: "messageId"
   field :publish_time, 4, type: Google.Protobuf.Timestamp, json_name: "publishTime"
-  field :ordering_key, 5, type: :string, json_name: "orderingKey"
+  field :ordering_key, 5, type: :string, json_name: "orderingKey", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.GetTopicRequest do
@@ -204,7 +222,7 @@ defmodule Google.Pubsub.V1.PublishResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds"
+  field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicsRequest do
@@ -213,8 +231,8 @@ defmodule Google.Pubsub.V1.ListTopicsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicsResponse do
@@ -222,8 +240,8 @@ defmodule Google.Pubsub.V1.ListTopicsResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :topics, 1, repeated: true, type: Google.Pubsub.V1.Topic
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :topics, 1, repeated: true, type: Google.Pubsub.V1.Topic, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
@@ -232,8 +250,8 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
@@ -242,7 +260,7 @@ defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: :string, deprecated: false
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
@@ -251,8 +269,8 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
@@ -260,8 +278,8 @@ defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :snapshots, 1, repeated: true, type: :string
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :snapshots, 1, repeated: true, type: :string, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.DeleteTopicRequest do
@@ -302,36 +320,68 @@ defmodule Google.Pubsub.V1.Subscription do
 
   field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
-  field :push_config, 4, type: Google.Pubsub.V1.PushConfig, json_name: "pushConfig"
-  field :bigquery_config, 18, type: Google.Pubsub.V1.BigQueryConfig, json_name: "bigqueryConfig"
+
+  field :push_config, 4,
+    type: Google.Pubsub.V1.PushConfig,
+    json_name: "pushConfig",
+    deprecated: false
+
+  field :bigquery_config, 18,
+    type: Google.Pubsub.V1.BigQueryConfig,
+    json_name: "bigqueryConfig",
+    deprecated: false
 
   field :cloud_storage_config, 22,
     type: Google.Pubsub.V1.CloudStorageConfig,
-    json_name: "cloudStorageConfig"
+    json_name: "cloudStorageConfig",
+    deprecated: false
 
-  field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds"
-  field :retain_acked_messages, 7, type: :bool, json_name: "retainAckedMessages"
+  field :ack_deadline_seconds, 5, type: :int32, json_name: "ackDeadlineSeconds", deprecated: false
+
+  field :retain_acked_messages, 7,
+    type: :bool,
+    json_name: "retainAckedMessages",
+    deprecated: false
 
   field :message_retention_duration, 8,
     type: Google.Protobuf.Duration,
-    json_name: "messageRetentionDuration"
+    json_name: "messageRetentionDuration",
+    deprecated: false
 
-  field :labels, 9, repeated: true, type: Google.Pubsub.V1.Subscription.LabelsEntry, map: true
-  field :enable_message_ordering, 10, type: :bool, json_name: "enableMessageOrdering"
+  field :labels, 9,
+    repeated: true,
+    type: Google.Pubsub.V1.Subscription.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :enable_message_ordering, 10,
+    type: :bool,
+    json_name: "enableMessageOrdering",
+    deprecated: false
 
   field :expiration_policy, 11,
     type: Google.Pubsub.V1.ExpirationPolicy,
-    json_name: "expirationPolicy"
+    json_name: "expirationPolicy",
+    deprecated: false
 
-  field :filter, 12, type: :string
+  field :filter, 12, type: :string, deprecated: false
 
   field :dead_letter_policy, 13,
     type: Google.Pubsub.V1.DeadLetterPolicy,
-    json_name: "deadLetterPolicy"
+    json_name: "deadLetterPolicy",
+    deprecated: false
 
-  field :retry_policy, 14, type: Google.Pubsub.V1.RetryPolicy, json_name: "retryPolicy"
-  field :detached, 15, type: :bool
-  field :enable_exactly_once_delivery, 16, type: :bool, json_name: "enableExactlyOnceDelivery"
+  field :retry_policy, 14,
+    type: Google.Pubsub.V1.RetryPolicy,
+    json_name: "retryPolicy",
+    deprecated: false
+
+  field :detached, 15, type: :bool, deprecated: false
+
+  field :enable_exactly_once_delivery, 16,
+    type: :bool,
+    json_name: "enableExactlyOnceDelivery",
+    deprecated: false
 
   field :topic_message_retention_duration, 17,
     type: Google.Protobuf.Duration,
@@ -346,8 +396,15 @@ defmodule Google.Pubsub.V1.RetryPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :minimum_backoff, 1, type: Google.Protobuf.Duration, json_name: "minimumBackoff"
-  field :maximum_backoff, 2, type: Google.Protobuf.Duration, json_name: "maximumBackoff"
+  field :minimum_backoff, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "minimumBackoff",
+    deprecated: false
+
+  field :maximum_backoff, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "maximumBackoff",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.DeadLetterPolicy do
@@ -355,8 +412,12 @@ defmodule Google.Pubsub.V1.DeadLetterPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic"
-  field :max_delivery_attempts, 2, type: :int32, json_name: "maxDeliveryAttempts"
+  field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic", deprecated: false
+
+  field :max_delivery_attempts, 2,
+    type: :int32,
+    json_name: "maxDeliveryAttempts",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ExpirationPolicy do
@@ -364,7 +425,7 @@ defmodule Google.Pubsub.V1.ExpirationPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :ttl, 1, type: Google.Protobuf.Duration
+  field :ttl, 1, type: Google.Protobuf.Duration, deprecated: false
 end
 
 defmodule Google.Pubsub.V1.PushConfig.OidcToken do
@@ -372,8 +433,12 @@ defmodule Google.Pubsub.V1.PushConfig.OidcToken do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
-  field :audience, 2, type: :string
+  field :service_account_email, 1,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
+
+  field :audience, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Pubsub.V1.PushConfig.PubsubWrapper do
@@ -387,7 +452,7 @@ defmodule Google.Pubsub.V1.PushConfig.NoWrapper do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :write_metadata, 1, type: :bool, json_name: "writeMetadata"
+  field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
@@ -408,27 +473,31 @@ defmodule Google.Pubsub.V1.PushConfig do
 
   oneof :wrapper, 1
 
-  field :push_endpoint, 1, type: :string, json_name: "pushEndpoint"
+  field :push_endpoint, 1, type: :string, json_name: "pushEndpoint", deprecated: false
 
   field :attributes, 2,
     repeated: true,
     type: Google.Pubsub.V1.PushConfig.AttributesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :oidc_token, 3,
     type: Google.Pubsub.V1.PushConfig.OidcToken,
     json_name: "oidcToken",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :pubsub_wrapper, 4,
     type: Google.Pubsub.V1.PushConfig.PubsubWrapper,
     json_name: "pubsubWrapper",
-    oneof: 1
+    oneof: 1,
+    deprecated: false
 
   field :no_wrapper, 5,
     type: Google.Pubsub.V1.PushConfig.NoWrapper,
     json_name: "noWrapper",
-    oneof: 1
+    oneof: 1,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.BigQueryConfig do
@@ -436,10 +505,10 @@ defmodule Google.Pubsub.V1.BigQueryConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :table, 1, type: :string
+  field :table, 1, type: :string, deprecated: false
   field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
-  field :write_metadata, 3, type: :bool, json_name: "writeMetadata"
-  field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields"
+  field :write_metadata, 3, type: :bool, json_name: "writeMetadata", deprecated: false
+  field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields", deprecated: false
   field :state, 5, type: Google.Pubsub.V1.BigQueryConfig.State, enum: true, deprecated: false
   field :use_table_schema, 6, type: :bool, json_name: "useTableSchema", deprecated: false
 end
@@ -455,7 +524,7 @@ defmodule Google.Pubsub.V1.CloudStorageConfig.AvroConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :write_metadata, 1, type: :bool, json_name: "writeMetadata"
+  field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig do
@@ -466,21 +535,27 @@ defmodule Google.Pubsub.V1.CloudStorageConfig do
   oneof :output_format, 0
 
   field :bucket, 1, type: :string, deprecated: false
-  field :filename_prefix, 2, type: :string, json_name: "filenamePrefix"
-  field :filename_suffix, 3, type: :string, json_name: "filenameSuffix"
+  field :filename_prefix, 2, type: :string, json_name: "filenamePrefix", deprecated: false
+  field :filename_suffix, 3, type: :string, json_name: "filenameSuffix", deprecated: false
 
   field :text_config, 4,
     type: Google.Pubsub.V1.CloudStorageConfig.TextConfig,
     json_name: "textConfig",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :avro_config, 5,
     type: Google.Pubsub.V1.CloudStorageConfig.AvroConfig,
     json_name: "avroConfig",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :max_duration, 6, type: Google.Protobuf.Duration, json_name: "maxDuration"
-  field :max_bytes, 7, type: :int64, json_name: "maxBytes"
+  field :max_duration, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "maxDuration",
+    deprecated: false
+
+  field :max_bytes, 7, type: :int64, json_name: "maxBytes", deprecated: false
   field :state, 9, type: Google.Pubsub.V1.CloudStorageConfig.State, enum: true, deprecated: false
 end
 
@@ -489,9 +564,9 @@ defmodule Google.Pubsub.V1.ReceivedMessage do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :ack_id, 1, type: :string, json_name: "ackId"
-  field :message, 2, type: Google.Pubsub.V1.PubsubMessage
-  field :delivery_attempt, 3, type: :int32, json_name: "deliveryAttempt"
+  field :ack_id, 1, type: :string, json_name: "ackId", deprecated: false
+  field :message, 2, type: Google.Pubsub.V1.PubsubMessage, deprecated: false
+  field :delivery_attempt, 3, type: :int32, json_name: "deliveryAttempt", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.GetSubscriptionRequest do
@@ -521,8 +596,8 @@ defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
@@ -530,8 +605,8 @@ defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1.Subscription
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1.Subscription, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
@@ -573,7 +648,8 @@ defmodule Google.Pubsub.V1.PullResponse do
   field :received_messages, 1,
     repeated: true,
     type: Google.Pubsub.V1.ReceivedMessage,
-    json_name: "receivedMessages"
+    json_name: "receivedMessages",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
@@ -601,26 +677,36 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
-  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds"
+  field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds", deprecated: false
 
   field :modify_deadline_seconds, 3,
     repeated: true,
     type: :int32,
-    json_name: "modifyDeadlineSeconds"
+    json_name: "modifyDeadlineSeconds",
+    deprecated: false
 
   field :modify_deadline_ack_ids, 4,
     repeated: true,
     type: :string,
-    json_name: "modifyDeadlineAckIds"
+    json_name: "modifyDeadlineAckIds",
+    deprecated: false
 
   field :stream_ack_deadline_seconds, 5,
     type: :int32,
     json_name: "streamAckDeadlineSeconds",
     deprecated: false
 
-  field :client_id, 6, type: :string, json_name: "clientId"
-  field :max_outstanding_messages, 7, type: :int64, json_name: "maxOutstandingMessages"
-  field :max_outstanding_bytes, 8, type: :int64, json_name: "maxOutstandingBytes"
+  field :client_id, 6, type: :string, json_name: "clientId", deprecated: false
+
+  field :max_outstanding_messages, 7,
+    type: :int64,
+    json_name: "maxOutstandingMessages",
+    deprecated: false
+
+  field :max_outstanding_bytes, 8,
+    type: :int64,
+    json_name: "maxOutstandingBytes",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
@@ -628,14 +714,25 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds"
-  field :invalid_ack_ids, 2, repeated: true, type: :string, json_name: "invalidAckIds"
-  field :unordered_ack_ids, 3, repeated: true, type: :string, json_name: "unorderedAckIds"
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
+
+  field :invalid_ack_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "invalidAckIds",
+    deprecated: false
+
+  field :unordered_ack_ids, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unorderedAckIds",
+    deprecated: false
 
   field :temporary_failed_ack_ids, 4,
     repeated: true,
     type: :string,
-    json_name: "temporaryFailedAckIds"
+    json_name: "temporaryFailedAckIds",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation do
@@ -643,13 +740,19 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation d
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds"
-  field :invalid_ack_ids, 2, repeated: true, type: :string, json_name: "invalidAckIds"
+  field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
+
+  field :invalid_ack_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "invalidAckIds",
+    deprecated: false
 
   field :temporary_failed_ack_ids, 3,
     repeated: true,
     type: :string,
-    json_name: "temporaryFailedAckIds"
+    json_name: "temporaryFailedAckIds",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
@@ -657,8 +760,15 @@ defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :exactly_once_delivery_enabled, 1, type: :bool, json_name: "exactlyOnceDeliveryEnabled"
-  field :message_ordering_enabled, 2, type: :bool, json_name: "messageOrderingEnabled"
+  field :exactly_once_delivery_enabled, 1,
+    type: :bool,
+    json_name: "exactlyOnceDeliveryEnabled",
+    deprecated: false
+
+  field :message_ordering_enabled, 2,
+    type: :bool,
+    json_name: "messageOrderingEnabled",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse do
@@ -669,19 +779,23 @@ defmodule Google.Pubsub.V1.StreamingPullResponse do
   field :received_messages, 1,
     repeated: true,
     type: Google.Pubsub.V1.ReceivedMessage,
-    json_name: "receivedMessages"
+    json_name: "receivedMessages",
+    deprecated: false
 
   field :acknowledge_confirmation, 5,
     type: Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation,
-    json_name: "acknowledgeConfirmation"
+    json_name: "acknowledgeConfirmation",
+    deprecated: false
 
   field :modify_ack_deadline_confirmation, 3,
     type: Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation,
-    json_name: "modifyAckDeadlineConfirmation"
+    json_name: "modifyAckDeadlineConfirmation",
+    deprecated: false
 
   field :subscription_properties, 4,
     type: Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties,
-    json_name: "subscriptionProperties"
+    json_name: "subscriptionProperties",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
@@ -704,7 +818,8 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest do
   field :labels, 3,
     repeated: true,
     type: Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
@@ -734,10 +849,19 @@ defmodule Google.Pubsub.V1.Snapshot do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
-  field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
-  field :labels, 4, repeated: true, type: Google.Pubsub.V1.Snapshot.LabelsEntry, map: true
+
+  field :expire_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Pubsub.V1.Snapshot.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.GetSnapshotRequest do
@@ -754,8 +878,8 @@ defmodule Google.Pubsub.V1.ListSnapshotsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ListSnapshotsResponse do
@@ -763,8 +887,8 @@ defmodule Google.Pubsub.V1.ListSnapshotsResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :snapshots, 1, repeated: true, type: Google.Pubsub.V1.Snapshot
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :snapshots, 1, repeated: true, type: Google.Pubsub.V1.Snapshot, deprecated: false
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
@@ -783,7 +907,7 @@ defmodule Google.Pubsub.V1.SeekRequest do
   oneof :target, 0
 
   field :subscription, 1, type: :string, deprecated: false
-  field :time, 2, type: Google.Protobuf.Timestamp, oneof: 0
+  field :time, 2, type: Google.Protobuf.Timestamp, oneof: 0, deprecated: false
   field :snapshot, 3, type: :string, oneof: 0, deprecated: false
 end
 

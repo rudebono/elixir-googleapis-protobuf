@@ -7,6 +7,7 @@ defmodule Google.Spanner.V1.TypeCode do
   field :BOOL, 1
   field :INT64, 2
   field :FLOAT64, 3
+  field :FLOAT32, 15
   field :TIMESTAMP, 4
   field :DATE, 5
   field :STRING, 6
