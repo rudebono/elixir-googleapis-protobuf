@@ -956,6 +956,79 @@ defmodule Google.Analytics.Admin.V1alpha.GetCustomMetricRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateCalculatedMetricRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :calculated_metric_id, 2,
+    type: :string,
+    json_name: "calculatedMetricId",
+    deprecated: false
+
+  field :calculated_metric, 3,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
+    json_name: "calculatedMetric",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateCalculatedMetricRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :calculated_metric, 1,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
+    json_name: "calculatedMetric",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteCalculatedMetricRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCalculatedMetricsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListCalculatedMetricsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :calculated_metrics, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
+    json_name: "calculatedMetrics"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetCalculatedMetricRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GetDataRetentionSettingsRequest do
   @moduledoc false
 
@@ -2361,6 +2434,26 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :GetDataRedactionSettings,
       Google.Analytics.Admin.V1alpha.GetDataRedactionSettingsRequest,
       Google.Analytics.Admin.V1alpha.DataRedactionSettings
+
+  rpc :GetCalculatedMetric,
+      Google.Analytics.Admin.V1alpha.GetCalculatedMetricRequest,
+      Google.Analytics.Admin.V1alpha.CalculatedMetric
+
+  rpc :CreateCalculatedMetric,
+      Google.Analytics.Admin.V1alpha.CreateCalculatedMetricRequest,
+      Google.Analytics.Admin.V1alpha.CalculatedMetric
+
+  rpc :ListCalculatedMetrics,
+      Google.Analytics.Admin.V1alpha.ListCalculatedMetricsRequest,
+      Google.Analytics.Admin.V1alpha.ListCalculatedMetricsResponse
+
+  rpc :UpdateCalculatedMetric,
+      Google.Analytics.Admin.V1alpha.UpdateCalculatedMetricRequest,
+      Google.Analytics.Admin.V1alpha.CalculatedMetric
+
+  rpc :DeleteCalculatedMetric,
+      Google.Analytics.Admin.V1alpha.DeleteCalculatedMetricRequest,
+      Google.Protobuf.Empty
 
   rpc :CreateRollupProperty,
       Google.Analytics.Admin.V1alpha.CreateRollupPropertyRequest,

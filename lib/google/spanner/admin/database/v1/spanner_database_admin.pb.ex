@@ -145,6 +145,8 @@ defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
     json_name: "databaseDialect",
     enum: true,
     deprecated: false
+
+  field :proto_descriptors, 6, type: :bytes, json_name: "protoDescriptors", deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseMetadata do
@@ -194,6 +196,7 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
   field :database, 1, type: :string, deprecated: false
   field :statements, 2, repeated: true, type: :string, deprecated: false
   field :operation_id, 3, type: :string, json_name: "operationId"
+  field :proto_descriptors, 4, type: :bytes, json_name: "protoDescriptors", deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DdlStatementActionInfo do
@@ -246,6 +249,7 @@ defmodule Google.Spanner.Admin.Database.V1.GetDatabaseDdlResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :statements, 1, repeated: true, type: :string
+  field :proto_descriptors, 2, type: :bytes, json_name: "protoDescriptors"
 end
 
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsRequest do

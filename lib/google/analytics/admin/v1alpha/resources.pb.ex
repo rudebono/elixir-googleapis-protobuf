@@ -93,6 +93,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :ADSENSE_LINK, 27
   field :AUDIENCE, 28
   field :EVENT_CREATE_RULE, 29
+  field :CALCULATED_METRIC, 31
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -221,6 +222,34 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric.MetricScope do
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
+  field :COST_DATA, 1
+  field :REVENUE_DATA, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CalculatedMetric.MetricUnit do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :METRIC_UNIT_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :CURRENCY, 2
+  field :FEET, 3
+  field :MILES, 4
+  field :METERS, 5
+  field :KILOMETERS, 6
+  field :MILLISECONDS, 7
+  field :SECONDS, 8
+  field :MINUTES, 9
+  field :HOURS, 10
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CalculatedMetric.RestrictedMetricType do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -756,6 +785,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.EventCreateRule,
     json_name: "eventCreateRule",
     oneof: 0
+
+  field :calculated_metric, 31,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
+    json_name: "calculatedMetric",
+    oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -990,6 +1024,41 @@ defmodule Google.Analytics.Admin.V1alpha.CustomMetric do
     type: Google.Analytics.Admin.V1alpha.CustomMetric.RestrictedMetricType,
     json_name: "restrictedMetricType",
     enum: true,
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.CalculatedMetric do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :description, 2, type: :string, deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+
+  field :calculated_metric_id, 4,
+    type: :string,
+    json_name: "calculatedMetricId",
+    deprecated: false
+
+  field :metric_unit, 5,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric.MetricUnit,
+    json_name: "metricUnit",
+    enum: true,
+    deprecated: false
+
+  field :restricted_metric_type, 6,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.CalculatedMetric.RestrictedMetricType,
+    json_name: "restrictedMetricType",
+    enum: true,
+    deprecated: false
+
+  field :formula, 7, type: :string, deprecated: false
+
+  field :invalid_metric_reference, 9,
+    type: :bool,
+    json_name: "invalidMetricReference",
     deprecated: false
 end
 
