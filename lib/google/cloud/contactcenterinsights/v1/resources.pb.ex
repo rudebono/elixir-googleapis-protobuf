@@ -122,6 +122,32 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
   field :agent_channel, 2, type: :int32, json_name: "agentChannel"
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata.AgentInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :agent_id, 1, type: :string, json_name: "agentId"
+  field :display_name, 2, type: :string, json_name: "displayName"
+  field :team, 3, type: :string
+  field :disposition_code, 4, type: :string, json_name: "dispositionCode"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :customer_satisfaction_rating, 1, type: :int32, json_name: "customerSatisfactionRating"
+  field :wait_duration, 2, type: Google.Protobuf.Duration, json_name: "waitDuration"
+  field :menu_path, 3, type: :string, json_name: "menuPath"
+
+  field :agent_info, 4,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata.AgentInfo,
+    json_name: "agentInfo"
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript.TranscriptSegment.WordInfo do
   @moduledoc false
 
@@ -238,6 +264,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.LabelsEntry,
     map: true
+
+  field :quality_metadata, 24,
+    type: Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata,
+    json_name: "qualityMetadata"
 
   field :transcript, 8,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript,
