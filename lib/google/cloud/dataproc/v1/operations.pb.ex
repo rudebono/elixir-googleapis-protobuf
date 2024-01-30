@@ -7,6 +7,17 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata.BatchOperationType do
   field :BATCH, 1
 end
 
+defmodule Google.Cloud.Dataproc.V1.SessionOperationMetadata.SessionOperationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SESSION_OPERATION_TYPE_UNSPECIFIED, 0
+  field :CREATE, 1
+  field :TERMINATE, 2
+  field :DELETE, 3
+end
+
 defmodule Google.Cloud.Dataproc.V1.ClusterOperationStatus.State do
   @moduledoc false
 
@@ -59,6 +70,40 @@ defmodule Google.Cloud.Dataproc.V1.BatchOperationMetadata do
   field :labels, 8,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.BatchOperationMetadata.LabelsEntry,
+    map: true
+
+  field :warnings, 9, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Dataproc.V1.SessionOperationMetadata.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataproc.V1.SessionOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :session, 1, type: :string
+  field :session_uuid, 2, type: :string, json_name: "sessionUuid"
+  field :create_time, 3, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :done_time, 4, type: Google.Protobuf.Timestamp, json_name: "doneTime"
+
+  field :operation_type, 6,
+    type: Google.Cloud.Dataproc.V1.SessionOperationMetadata.SessionOperationType,
+    json_name: "operationType",
+    enum: true
+
+  field :description, 7, type: :string
+
+  field :labels, 8,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.SessionOperationMetadata.LabelsEntry,
     map: true
 
   field :warnings, 9, repeated: true, type: :string

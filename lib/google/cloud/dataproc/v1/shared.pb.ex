@@ -64,6 +64,11 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
     type: Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry,
     map: true,
     deprecated: false
+
+  field :repository_config, 5,
+    type: Google.Cloud.Dataproc.V1.RepositoryConfig,
+    json_name: "repositoryConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
@@ -100,6 +105,7 @@ defmodule Google.Cloud.Dataproc.V1.ExecutionConfig do
     deprecated: false
 
   field :kms_key, 7, type: :string, json_name: "kmsKey", deprecated: false
+  field :idle_ttl, 8, type: Google.Protobuf.Duration, json_name: "idleTtl", deprecated: false
   field :ttl, 9, type: Google.Protobuf.Duration, deprecated: false
   field :staging_bucket, 10, type: :string, json_name: "stagingBucket", deprecated: false
 end
@@ -174,6 +180,13 @@ defmodule Google.Cloud.Dataproc.V1.UsageMetrics do
     type: :int64,
     json_name: "shuffleStorageGbSeconds",
     deprecated: false
+
+  field :milli_accelerator_seconds, 3,
+    type: :int64,
+    json_name: "milliAcceleratorSeconds",
+    deprecated: false
+
+  field :accelerator_type, 4, type: :string, json_name: "acceleratorType", deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.UsageSnapshot do
@@ -183,6 +196,15 @@ defmodule Google.Cloud.Dataproc.V1.UsageSnapshot do
 
   field :milli_dcu, 1, type: :int64, json_name: "milliDcu", deprecated: false
   field :shuffle_storage_gb, 2, type: :int64, json_name: "shuffleStorageGb", deprecated: false
+  field :milli_dcu_premium, 4, type: :int64, json_name: "milliDcuPremium", deprecated: false
+
+  field :shuffle_storage_gb_premium, 5,
+    type: :int64,
+    json_name: "shuffleStorageGbPremium",
+    deprecated: false
+
+  field :milli_accelerator, 6, type: :int64, json_name: "milliAccelerator", deprecated: false
+  field :accelerator_type, 7, type: :string, json_name: "acceleratorType", deprecated: false
 
   field :snapshot_time, 3,
     type: Google.Protobuf.Timestamp,
@@ -334,4 +356,23 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig do
   field :autoscaling, 4,
     type: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig,
     deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.RepositoryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pypi_repository_config, 1,
+    type: Google.Cloud.Dataproc.V1.PyPiRepositoryConfig,
+    json_name: "pypiRepositoryConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.PyPiRepositoryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pypi_repository, 1, type: :string, json_name: "pypiRepository", deprecated: false
 end
