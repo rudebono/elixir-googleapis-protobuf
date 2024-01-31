@@ -67,15 +67,6 @@ defmodule Google.Apps.Drive.Labels.V2beta.Field.TextOptions do
   field :max_length, 2, type: :int32, json_name: "maxLength", deprecated: false
 end
 
-defmodule Google.Apps.Drive.Labels.V2beta.Field.LongTextOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :min_length, 1, type: :int32, json_name: "minLength", deprecated: false
-  field :max_length, 2, type: :int32, json_name: "maxLength", deprecated: false
-end
-
 defmodule Google.Apps.Drive.Labels.V2beta.Field.IntegerOptions do
   @moduledoc false
 

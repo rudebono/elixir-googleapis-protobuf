@@ -185,11 +185,6 @@ defmodule Google.Apps.Drive.Labels.V2beta.DeltaUpdateLabelRequest.UpdateFieldTyp
     json_name: "textOptions",
     oneof: 0
 
-  field :long_text_options, 4,
-    type: Google.Apps.Drive.Labels.V2beta.Field.LongTextOptions,
-    json_name: "longTextOptions",
-    oneof: 0
-
   field :integer_options, 5,
     type: Google.Apps.Drive.Labels.V2beta.Field.IntegerOptions,
     json_name: "integerOptions",
