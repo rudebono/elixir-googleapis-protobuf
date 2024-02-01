@@ -24,8 +24,8 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.ResourceType do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
-  field :NF_DEPLOY_CUSTOM_RESOURCE, 1
-  field :BLUEPRINT_CUSTOM_RESOURCE, 2
+  field :NF_DEPLOY_RESOURCE, 1
+  field :DEPLOYMENT_RESOURCE, 2
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Status do
@@ -37,7 +37,22 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.Status do
   field :STATUS_IN_PROGRESS, 1
   field :STATUS_ACTIVE, 2
   field :STATUS_FAILED, 3
+  field :STATUS_DELETING, 4
+  field :STATUS_DELETED, 5
   field :STATUS_PEERING, 10
+  field :STATUS_NOT_APPLICABLE, 11
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.DeploymentLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DEPLOYMENT_LEVEL_UNSPECIFIED, 0
+  field :HYDRATION, 1
+  field :SINGLE_DEPLOYMENT, 2
+  field :MULTI_DEPLOYMENT, 3
+  field :WORKLOAD_CLUSTER_DEPLOYMENT, 4
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.OrchestrationCluster.State do
@@ -85,16 +100,6 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.Blueprint.ApprovalState do
   field :APPROVED, 3
 end
 
-defmodule Google.Cloud.Telcoautomation.V1alpha1.PublicBlueprint.DeploymentLevel do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :DEPLOYMENT_LEVEL_UNSPECIFIED, 0
-  field :HYDRATION, 1
-  field :DEPLOYMENT, 2
-end
-
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment.State do
   @moduledoc false
 
@@ -103,6 +108,7 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment.State do
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
   field :APPLIED, 2
+  field :DELETING, 3
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.HydratedDeployment.State do
@@ -263,6 +269,14 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.Blueprint do
     deprecated: false
 
   field :source_provider, 13, type: :string, json_name: "sourceProvider", deprecated: false
+
+  field :deployment_level, 14,
+    type: Google.Cloud.Telcoautomation.V1alpha1.DeploymentLevel,
+    json_name: "deploymentLevel",
+    enum: true,
+    deprecated: false
+
+  field :rollback_support, 15, type: :bool, json_name: "rollbackSupport", deprecated: false
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.PublicBlueprint do
@@ -275,11 +289,12 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.PublicBlueprint do
   field :description, 3, type: :string
 
   field :deployment_level, 4,
-    type: Google.Cloud.Telcoautomation.V1alpha1.PublicBlueprint.DeploymentLevel,
+    type: Google.Cloud.Telcoautomation.V1alpha1.DeploymentLevel,
     json_name: "deploymentLevel",
     enum: true
 
   field :source_provider, 5, type: :string, json_name: "sourceProvider"
+  field :rollback_support, 15, type: :bool, json_name: "rollbackSupport", deprecated: false
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment.LabelsEntry do
@@ -339,6 +354,15 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment do
     deprecated: false
 
   field :source_provider, 12, type: :string, json_name: "sourceProvider", deprecated: false
+  field :workload_cluster, 13, type: :string, json_name: "workloadCluster", deprecated: false
+
+  field :deployment_level, 14,
+    type: Google.Cloud.Telcoautomation.V1alpha1.DeploymentLevel,
+    json_name: "deploymentLevel",
+    enum: true,
+    deprecated: false
+
+  field :rollback_support, 15, type: :bool, json_name: "rollbackSupport", deprecated: false
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.HydratedDeployment do
@@ -527,14 +551,6 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteBlueprintRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteBlueprintRevisionRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintsRequest do
   @moduledoc false
 
@@ -699,23 +715,7 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.GetDeploymentRequest do
     deprecated: false
 end
 
-defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteDeploymentRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Telcoautomation.V1alpha1.RemoveDeploymentRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteDeploymentRevisionRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -819,8 +819,9 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.ComputeDeploymentStatusResponse 
 
   field :name, 1, type: :string
 
-  field :status, 2,
+  field :aggregated_status, 2,
     type: Google.Cloud.Telcoautomation.V1alpha1.Status,
+    json_name: "aggregatedStatus",
     enum: true,
     deprecated: false
 
@@ -1045,6 +1046,78 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.ResourceStatus do
     type: Google.Cloud.Telcoautomation.V1alpha1.Status,
     enum: true,
     deprecated: false
+
+  field :nf_deploy_status, 8,
+    type: Google.Cloud.Telcoautomation.V1alpha1.NFDeployStatus,
+    json_name: "nfDeployStatus",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.NFDeployStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :targeted_nfs, 1, type: :int32, json_name: "targetedNfs", deprecated: false
+  field :ready_nfs, 2, type: :int32, json_name: "readyNfs", deprecated: false
+
+  field :sites, 3,
+    repeated: true,
+    type: Google.Cloud.Telcoautomation.V1alpha1.NFDeploySiteStatus,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.NFDeploySiteStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site, 1, type: :string, deprecated: false
+  field :pending_deletion, 2, type: :bool, json_name: "pendingDeletion", deprecated: false
+
+  field :hydration, 3,
+    type: Google.Cloud.Telcoautomation.V1alpha1.HydrationStatus,
+    deprecated: false
+
+  field :workload, 4,
+    type: Google.Cloud.Telcoautomation.V1alpha1.WorkloadStatus,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.HydrationStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_version, 1,
+    type: Google.Cloud.Telcoautomation.V1alpha1.SiteVersion,
+    json_name: "siteVersion",
+    deprecated: false
+
+  field :status, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.SiteVersion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :nf_vendor, 1, type: :string, json_name: "nfVendor", deprecated: false
+  field :nf_type, 2, type: :string, json_name: "nfType", deprecated: false
+  field :nf_version, 3, type: :string, json_name: "nfVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Telcoautomation.V1alpha1.WorkloadStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_version, 1,
+    type: Google.Cloud.Telcoautomation.V1alpha1.SiteVersion,
+    json_name: "siteVersion",
+    deprecated: false
+
+  field :status, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.TelcoAutomation.Service do
@@ -1102,10 +1175,6 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.TelcoAutomation.Service do
       Google.Cloud.Telcoautomation.V1alpha1.DeleteBlueprintRequest,
       Google.Protobuf.Empty
 
-  rpc :DeleteBlueprintRevision,
-      Google.Cloud.Telcoautomation.V1alpha1.DeleteBlueprintRevisionRequest,
-      Google.Cloud.Telcoautomation.V1alpha1.Blueprint
-
   rpc :ListBlueprints,
       Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintsRequest,
       Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintsResponse
@@ -1158,17 +1227,9 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.TelcoAutomation.Service do
       Google.Cloud.Telcoautomation.V1alpha1.GetDeploymentRequest,
       Google.Cloud.Telcoautomation.V1alpha1.Deployment
 
-  rpc :DeleteDeployment,
-      Google.Cloud.Telcoautomation.V1alpha1.DeleteDeploymentRequest,
-      Google.Protobuf.Empty
-
   rpc :RemoveDeployment,
       Google.Cloud.Telcoautomation.V1alpha1.RemoveDeploymentRequest,
       Google.Protobuf.Empty
-
-  rpc :DeleteDeploymentRevision,
-      Google.Cloud.Telcoautomation.V1alpha1.DeleteDeploymentRevisionRequest,
-      Google.Cloud.Telcoautomation.V1alpha1.Deployment
 
   rpc :ListDeployments,
       Google.Cloud.Telcoautomation.V1alpha1.ListDeploymentsRequest,

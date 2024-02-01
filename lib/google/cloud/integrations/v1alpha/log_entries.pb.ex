@@ -1,19 +1,30 @@
-defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.PostMethod do
+defmodule Google.Cloud.Integrations.V1alpha.ExecutionType do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :POST_METHOD_UNSPECIFIED, 0
-  field :POST, 1
-  field :SCHEDULE, 2
+  field :EXECUTION_TYPE_UNSPECIFIED, 0
+  field :INTEGRATION_VERSION, 1
+  field :TEST_CASE, 2
 end
 
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecutionState do
+defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ExecutionMethod do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :EVENT_EXECUTION_STATE_UNSPECIFIED, 0
+  field :EXECUTION_METHOD_UNSPECIFIED, 0
+  field :POST, 1
+  field :SCHEDULE, 2
+  field :POST_TO_QUEUE, 3
+end
+
+defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails.IntegrationExecutionState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :INTEGRATION_EXECUTION_STATE_UNSPECIFIED, 0
   field :ON_HOLD, 1
   field :IN_PROCESS, 2
   field :SUCCEEDED, 3
@@ -66,9 +77,7 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :event_execution_info_id, 1, type: :string, json_name: "eventExecutionInfoId"
   field :integration, 2, type: :string
-  field :integration_version, 3, type: :string, json_name: "integrationVersion"
   field :project_id, 4, type: :string, json_name: "projectId"
   field :trigger_id, 5, type: :string, json_name: "triggerId"
 
@@ -84,61 +93,95 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
     json_name: "responseParams",
     map: true
 
-  field :post_method, 8,
-    type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.PostMethod,
-    json_name: "postMethod",
-    enum: true
-
-  field :event_execution_details, 9,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails,
-    json_name: "eventExecutionDetails"
-
   field :errors, 10, repeated: true, type: Google.Cloud.Integrations.V1alpha.ErrorDetail
-  field :product, 11, type: Google.Cloud.Integrations.V1alpha.Product, enum: true
-  field :request_id, 12, type: :string, json_name: "requestId"
 
   field :task_configs, 13,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.TaskConfig,
     json_name: "taskConfigs"
+
+  field :integration_version_number, 14, type: :string, json_name: "integrationVersionNumber"
+  field :execution_id, 15, type: :string, json_name: "executionId"
+
+  field :integration_version_state, 16,
+    type: Google.Cloud.Integrations.V1alpha.IntegrationState,
+    json_name: "integrationVersionState",
+    enum: true,
+    deprecated: false
+
+  field :enable_database_persistence, 17, type: :bool, json_name: "enableDatabasePersistence"
+
+  field :cloud_logging_details, 18,
+    type: Google.Cloud.Integrations.V1alpha.CloudLoggingDetails,
+    json_name: "cloudLoggingDetails"
+
+  field :integration_execution_details, 19,
+    type: Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails,
+    json_name: "integrationExecutionDetails"
+
+  field :execution_type, 20,
+    type: Google.Cloud.Integrations.V1alpha.ExecutionType,
+    json_name: "executionType",
+    enum: true
+
+  field :execution_method, 21,
+    type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.ExecutionMethod,
+    json_name: "executionMethod",
+    enum: true
+
+  field :integration_snapshot_number, 22, type: :int64, json_name: "integrationSnapshotNumber"
 end
 
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionDetails do
+defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :event_execution_state, 1,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionDetails.EventExecutionState,
-    json_name: "eventExecutionState",
-    enum: true
+  field :integration_execution_state, 1,
+    type: Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails.IntegrationExecutionState,
+    json_name: "integrationExecutionState",
+    enum: true,
+    deprecated: false
 
-  field :event_execution_snapshot, 2,
+  field :integration_execution_snapshot, 2,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot,
-    json_name: "eventExecutionSnapshot"
+    type: Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot,
+    json_name: "integrationExecutionSnapshot"
 
-  field :event_attempt_stats, 3,
+  field :execution_attempt_stats, 3,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.AttemptStats,
-    json_name: "eventAttemptStats"
+    json_name: "executionAttemptStats"
 
   field :next_execution_time, 4, type: Google.Protobuf.Timestamp, json_name: "nextExecutionTime"
-  field :event_retries_count, 5, type: :int32, json_name: "eventRetriesCount"
+  field :execution_retries_count, 5, type: :int32, json_name: "executionRetriesCount"
 end
 
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata do
+defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot.IntegrationExecutionSnapshotMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :task_number, 1, type: :string, json_name: "taskNumber"
   field :task, 2, type: :string
-  field :event_attempt_num, 3, type: :int32, json_name: "eventAttemptNum"
+
+  field :integration_execution_attempt_num, 3,
+    type: :int32,
+    json_name: "integrationExecutionAttemptNum"
+
   field :task_attempt_num, 4, type: :int32, json_name: "taskAttemptNum"
+  field :task_label, 5, type: :string, json_name: "taskLabel"
+  field :ancestor_task_numbers, 6, repeated: true, type: :string, json_name: "ancestorTaskNumbers"
+
+  field :ancestor_iteration_numbers, 7,
+    repeated: true,
+    type: :string,
+    json_name: "ancestorIterationNumbers"
+
+  field :integration, 8, type: :string
 end
 
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEntry do
+defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot.ExecutionParamsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -147,16 +190,7 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEn
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
 end
 
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: Google.Cloud.Integrations.V1alpha.EventParameter
-end
-
-defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
+defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -164,9 +198,10 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
   field :checkpoint_task_number, 1, type: :string, json_name: "checkpointTaskNumber"
   field :snapshot_time, 2, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 
-  field :event_execution_snapshot_metadata, 3,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventExecutionSnapshotMetadata,
-    json_name: "eventExecutionSnapshotMetadata"
+  field :integration_execution_snapshot_metadata, 3,
+    type:
+      Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot.IntegrationExecutionSnapshotMetadata,
+    json_name: "integrationExecutionSnapshotMetadata"
 
   field :task_execution_details, 4,
     repeated: true,
@@ -178,16 +213,10 @@ defmodule Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot do
     type: Google.Cloud.Integrations.V1alpha.ConditionResult,
     json_name: "conditionResults"
 
-  field :event_params, 6,
+  field :execution_params, 6,
     repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.EventParamsEntry,
-    json_name: "eventParams",
-    map: true
-
-  field :diff_params, 7,
-    repeated: true,
-    type: Google.Cloud.Integrations.V1alpha.EventExecutionSnapshot.DiffParamsEntry,
-    json_name: "diffParams",
+    type: Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot.ExecutionParamsEntry,
+    json_name: "executionParams",
     map: true
 end
 

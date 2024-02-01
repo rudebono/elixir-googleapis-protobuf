@@ -5,4 +5,5 @@ defmodule Google.Cloud.Integrations.V1alpha.EventParameter do
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Integrations.V1alpha.ValueType
+  field :masked, 3, type: :bool
 end

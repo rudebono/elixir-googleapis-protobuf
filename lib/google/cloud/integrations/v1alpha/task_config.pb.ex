@@ -19,6 +19,16 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.TaskExecutionStrategy do
   field :WHEN_ALL_TASKS_AND_CONDITIONS_SUCCEED, 3
 end
 
+defmodule Google.Cloud.Integrations.V1alpha.TaskConfig.ExternalTaskType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EXTERNAL_TASK_TYPE_UNSPECIFIED, 0
+  field :NORMAL_TASK, 1
+  field :ERROR_TASK, 2
+end
+
 defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy.FinalState do
   @moduledoc false
 
@@ -107,6 +117,18 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
     json_name: "jsonValidationOption",
     enum: true,
     deprecated: false
+
+  field :description, 12, type: :string, deprecated: false
+  field :task_template, 13, type: :string, json_name: "taskTemplate", deprecated: false
+  field :error_catcher_id, 17, type: :string, json_name: "errorCatcherId", deprecated: false
+
+  field :external_task_type, 15,
+    type: Google.Cloud.Integrations.V1alpha.TaskConfig.ExternalTaskType,
+    json_name: "externalTaskType",
+    enum: true,
+    deprecated: false
+
+  field :position, 16, type: Google.Cloud.Integrations.V1alpha.Coordinate, deprecated: false
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.SuccessPolicy do
@@ -143,4 +165,5 @@ defmodule Google.Cloud.Integrations.V1alpha.NextTask do
   field :task_id, 2, type: :string, json_name: "taskId"
   field :condition, 3, type: :string
   field :display_name, 4, type: :string, json_name: "displayName"
+  field :description, 5, type: :string
 end

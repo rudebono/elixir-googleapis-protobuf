@@ -40,6 +40,7 @@ defmodule Google.Cloud.Telcoautomation.V1.Status do
   field :STATUS_DELETING, 4
   field :STATUS_DELETED, 5
   field :STATUS_PEERING, 10
+  field :STATUS_NOT_APPLICABLE, 11
 end
 
 defmodule Google.Cloud.Telcoautomation.V1.DeploymentLevel do
@@ -51,6 +52,7 @@ defmodule Google.Cloud.Telcoautomation.V1.DeploymentLevel do
   field :HYDRATION, 1
   field :SINGLE_DEPLOYMENT, 2
   field :MULTI_DEPLOYMENT, 3
+  field :WORKLOAD_CLUSTER_DEPLOYMENT, 4
 end
 
 defmodule Google.Cloud.Telcoautomation.V1.OrchestrationCluster.State do
