@@ -77,6 +77,48 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DirectRawPredictResponse do
   field :output, 1, type: :bytes
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+
+  field :inputs, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Tensor,
+    deprecated: false
+
+  field :parameters, 3, type: Google.Cloud.Aiplatform.V1beta1.Tensor, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :outputs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
+  field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :method_name, 2, type: :string, json_name: "methodName", deprecated: false
+  field :input, 3, type: :bytes, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :output, 1, type: :bytes
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictRequest do
   @moduledoc false
 
@@ -304,6 +346,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
       Google.Cloud.Aiplatform.V1beta1.DirectRawPredictRequest,
       Google.Cloud.Aiplatform.V1beta1.DirectRawPredictResponse
 
+  rpc :StreamDirectPredict,
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictRequest),
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictResponse)
+
+  rpc :StreamDirectRawPredict,
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictRequest),
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictResponse)
+
   rpc :StreamingPredict,
       stream(Google.Cloud.Aiplatform.V1beta1.StreamingPredictRequest),
       stream(Google.Cloud.Aiplatform.V1beta1.StreamingPredictResponse)
@@ -323,6 +373,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :CountTokens,
       Google.Cloud.Aiplatform.V1beta1.CountTokensRequest,
       Google.Cloud.Aiplatform.V1beta1.CountTokensResponse
+
+  rpc :GenerateContent,
+      Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest,
+      Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse
 
   rpc :StreamGenerateContent,
       Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest,
