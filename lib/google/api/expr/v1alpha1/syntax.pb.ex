@@ -1,3 +1,14 @@
+defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension.Component do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPONENT_UNSPECIFIED, 0
+  field :COMPONENT_PARSER, 1
+  field :COMPONENT_TYPE_CHECKER, 2
+  field :COMPONENT_RUNTIME, 3
+end
+
 defmodule Google.Api.Expr.V1alpha1.ParsedExpr do
   @moduledoc false
 
@@ -152,6 +163,31 @@ defmodule Google.Api.Expr.V1alpha1.Constant do
     deprecated: true
 end
 
+defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension.Version do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :major, 1, type: :int64
+  field :minor, 2, type: :int64
+end
+
+defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :string
+
+  field :affected_components, 2,
+    repeated: true,
+    type: Google.Api.Expr.V1alpha1.SourceInfo.Extension.Component,
+    json_name: "affectedComponents",
+    enum: true
+
+  field :version, 3, type: Google.Api.Expr.V1alpha1.SourceInfo.Extension.Version
+end
+
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.PositionsEntry do
   @moduledoc false
 
@@ -189,6 +225,8 @@ defmodule Google.Api.Expr.V1alpha1.SourceInfo do
     type: Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry,
     json_name: "macroCalls",
     map: true
+
+  field :extensions, 6, repeated: true, type: Google.Api.Expr.V1alpha1.SourceInfo.Extension
 end
 
 defmodule Google.Api.Expr.V1alpha1.SourcePosition do
