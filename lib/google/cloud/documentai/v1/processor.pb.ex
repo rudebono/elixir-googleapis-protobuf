@@ -14,6 +14,16 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion.State do
   field :IMPORTING, 8
 end
 
+defmodule Google.Cloud.Documentai.V1.ProcessorVersion.ModelType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODEL_TYPE_UNSPECIFIED, 0
+  field :MODEL_TYPE_GENERATIVE, 1
+  field :MODEL_TYPE_CUSTOM, 2
+end
+
 defmodule Google.Cloud.Documentai.V1.Processor.State do
   @moduledoc false
 
@@ -68,6 +78,12 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
   field :deprecation_info, 13,
     type: Google.Cloud.Documentai.V1.ProcessorVersion.DeprecationInfo,
     json_name: "deprecationInfo"
+
+  field :model_type, 15,
+    type: Google.Cloud.Documentai.V1.ProcessorVersion.ModelType,
+    json_name: "modelType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.ProcessorVersionAlias do
