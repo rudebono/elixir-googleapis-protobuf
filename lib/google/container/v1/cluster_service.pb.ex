@@ -978,6 +978,11 @@ defmodule Google.Container.V1.AddonsConfig do
   field :gcs_fuse_csi_driver_config, 17,
     type: Google.Container.V1.GcsFuseCsiDriverConfig,
     json_name: "gcsFuseCsiDriverConfig"
+
+  field :stateful_ha_config, 18,
+    type: Google.Container.V1.StatefulHAConfig,
+    json_name: "statefulHaConfig",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.HttpLoadBalancing do
@@ -1102,6 +1107,14 @@ defmodule Google.Container.V1.GcsFuseCsiDriverConfig do
 end
 
 defmodule Google.Container.V1.GkeBackupAgentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1.StatefulHAConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
