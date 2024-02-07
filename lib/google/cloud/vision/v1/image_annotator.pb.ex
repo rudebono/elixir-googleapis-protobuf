@@ -307,7 +307,7 @@ defmodule Google.Cloud.Vision.V1.WebDetectionParams do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :include_geo_results, 2, type: :bool, json_name: "includeGeoResults"
+  field :include_geo_results, 2, type: :bool, json_name: "includeGeoResults", deprecated: true
 end
 
 defmodule Google.Cloud.Vision.V1.TextDetectionParams do
@@ -427,6 +427,15 @@ defmodule Google.Cloud.Vision.V1.AnnotateImageResponse do
   field :context, 21, type: Google.Cloud.Vision.V1.ImageAnnotationContext
 end
 
+defmodule Google.Cloud.Vision.V1.BatchAnnotateImagesRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Vision.V1.BatchAnnotateImagesRequest do
   @moduledoc false
 
@@ -438,6 +447,12 @@ defmodule Google.Cloud.Vision.V1.BatchAnnotateImagesRequest do
     deprecated: false
 
   field :parent, 4, type: :string
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1.BatchAnnotateImagesRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vision.V1.BatchAnnotateImagesResponse do
@@ -470,6 +485,15 @@ defmodule Google.Cloud.Vision.V1.AnnotateFileResponse do
   field :error, 4, type: Google.Rpc.Status
 end
 
+defmodule Google.Cloud.Vision.V1.BatchAnnotateFilesRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Vision.V1.BatchAnnotateFilesRequest do
   @moduledoc false
 
@@ -481,6 +505,12 @@ defmodule Google.Cloud.Vision.V1.BatchAnnotateFilesRequest do
     deprecated: false
 
   field :parent, 3, type: :string
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1.BatchAnnotateFilesRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vision.V1.BatchAnnotateFilesResponse do
@@ -510,6 +540,15 @@ defmodule Google.Cloud.Vision.V1.AsyncAnnotateFileResponse do
   field :output_config, 1, type: Google.Cloud.Vision.V1.OutputConfig, json_name: "outputConfig"
 end
 
+defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesRequest do
   @moduledoc false
 
@@ -526,6 +565,12 @@ defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesRequest do
     deprecated: false
 
   field :parent, 4, type: :string
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesResponse do
@@ -534,6 +579,15 @@ defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateImagesResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :output_config, 1, type: Google.Cloud.Vision.V1.OutputConfig, json_name: "outputConfig"
+end
+
+defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateFilesRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateFilesRequest do
@@ -547,6 +601,12 @@ defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateFilesRequest do
     deprecated: false
 
   field :parent, 4, type: :string
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Vision.V1.AsyncBatchAnnotateFilesRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vision.V1.AsyncBatchAnnotateFilesResponse do
