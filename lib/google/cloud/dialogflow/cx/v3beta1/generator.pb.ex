@@ -24,6 +24,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Generator do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Generator.Placeholder,
     deprecated: false
+
+  field :llm_model_settings, 9,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings,
+    json_name: "llmModelSettings"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Phrase do

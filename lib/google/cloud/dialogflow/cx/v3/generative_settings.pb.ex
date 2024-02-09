@@ -31,6 +31,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings.KnowledgeConnectorSet
   field :agent_identity, 3, type: :string, json_name: "agentIdentity"
   field :business_description, 4, type: :string, json_name: "businessDescription"
   field :agent_scope, 5, type: :string, json_name: "agentScope"
+  field :disable_data_store_fallback, 8, type: :bool, json_name: "disableDataStoreFallback"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings do

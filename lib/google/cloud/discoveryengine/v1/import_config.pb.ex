@@ -179,3 +179,53 @@ defmodule Google.Cloud.Discoveryengine.V1.ImportDocumentsResponse do
     type: Google.Cloud.Discoveryengine.V1.ImportErrorConfig,
     json_name: "errorConfig"
 end
+
+defmodule Google.Cloud.Discoveryengine.V1.ImportSuggestionDenyListEntriesRequest.InlineSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entries, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SuggestionDenyListEntry,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.ImportSuggestionDenyListEntriesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :inline_source, 2,
+    type: Google.Cloud.Discoveryengine.V1.ImportSuggestionDenyListEntriesRequest.InlineSource,
+    json_name: "inlineSource",
+    oneof: 0
+
+  field :gcs_source, 3,
+    type: Google.Cloud.Discoveryengine.V1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.ImportSuggestionDenyListEntriesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+  field :imported_entries_count, 2, type: :int64, json_name: "importedEntriesCount"
+  field :failed_entries_count, 3, type: :int64, json_name: "failedEntriesCount"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.ImportSuggestionDenyListEntriesMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end

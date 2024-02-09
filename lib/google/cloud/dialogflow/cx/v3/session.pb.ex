@@ -425,6 +425,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryResult do
     type: Google.Cloud.Dialogflow.Cx.V3.ResponseMessage,
     json_name: "responseMessages"
 
+  field :webhook_ids, 25, repeated: true, type: :string, json_name: "webhookIds"
+
+  field :webhook_display_names, 26,
+    repeated: true,
+    type: :string,
+    json_name: "webhookDisplayNames"
+
+  field :webhook_latencies, 27,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "webhookLatencies"
+
+  field :webhook_tags, 29, repeated: true, type: :string, json_name: "webhookTags"
+
   field :webhook_statuses, 13,
     repeated: true,
     type: Google.Rpc.Status,
@@ -436,6 +450,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryResult do
     json_name: "webhookPayloads"
 
   field :current_page, 7, type: Google.Cloud.Dialogflow.Cx.V3.Page, json_name: "currentPage"
+  field :current_flow, 31, type: Google.Cloud.Dialogflow.Cx.V3.Flow, json_name: "currentFlow"
   field :intent, 8, type: Google.Cloud.Dialogflow.Cx.V3.Intent, deprecated: true
 
   field :intent_detection_confidence, 9,
@@ -604,6 +619,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Sessions.Service do
   rpc :DetectIntent,
       Google.Cloud.Dialogflow.Cx.V3.DetectIntentRequest,
       Google.Cloud.Dialogflow.Cx.V3.DetectIntentResponse
+
+  rpc :ServerStreamingDetectIntent,
+      Google.Cloud.Dialogflow.Cx.V3.DetectIntentRequest,
+      stream(Google.Cloud.Dialogflow.Cx.V3.DetectIntentResponse)
 
   rpc :StreamingDetectIntent,
       stream(Google.Cloud.Dialogflow.Cx.V3.StreamingDetectIntentRequest),

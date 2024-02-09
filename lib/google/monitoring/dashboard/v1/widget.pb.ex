@@ -30,4 +30,31 @@ defmodule Google.Monitoring.Dashboard.V1.Widget do
     type: Google.Monitoring.Dashboard.V1.LogsPanel,
     json_name: "logsPanel",
     oneof: 0
+
+  field :incident_list, 12,
+    type: Google.Monitoring.Dashboard.V1.IncidentList,
+    json_name: "incidentList",
+    oneof: 0
+
+  field :pie_chart, 14,
+    type: Google.Monitoring.Dashboard.V1.PieChart,
+    json_name: "pieChart",
+    oneof: 0
+
+  field :error_reporting_panel, 19,
+    type: Google.Monitoring.Dashboard.V1.ErrorReportingPanel,
+    json_name: "errorReportingPanel",
+    oneof: 0
+
+  field :section_header, 21,
+    type: Google.Monitoring.Dashboard.V1.SectionHeader,
+    json_name: "sectionHeader",
+    oneof: 0
+
+  field :single_view_group, 22,
+    type: Google.Monitoring.Dashboard.V1.SingleViewGroup,
+    json_name: "singleViewGroup",
+    oneof: 0
+
+  field :id, 17, type: :string, deprecated: false
 end

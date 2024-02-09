@@ -97,6 +97,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     json_name: "speechToTextSettings"
 
   field :start_flow, 16, type: :string, json_name: "startFlow", deprecated: false
+  field :start_playbook, 39, type: :string, json_name: "startPlaybook", deprecated: false
   field :security_settings, 17, type: :string, json_name: "securitySettings", deprecated: false
 
   field :enable_stackdriver_logging, 18,

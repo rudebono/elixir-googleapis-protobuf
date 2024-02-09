@@ -38,6 +38,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Changelog do
   field :type, 8, type: :string
   field :resource, 3, type: :string
   field :create_time, 4, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :language_code, 14, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Changelogs.Service do

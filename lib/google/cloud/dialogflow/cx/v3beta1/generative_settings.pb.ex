@@ -31,6 +31,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeSettings.KnowledgeConnect
   field :agent_identity, 3, type: :string, json_name: "agentIdentity"
   field :business_description, 4, type: :string, json_name: "businessDescription"
   field :agent_scope, 5, type: :string, json_name: "agentScope"
+  field :disable_data_store_fallback, 8, type: :bool, json_name: "disableDataStoreFallback"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeSettings do
@@ -53,4 +54,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeSettings do
     json_name: "knowledgeConnectorSettings"
 
   field :language_code, 4, type: :string, json_name: "languageCode"
+
+  field :llm_model_settings, 8,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings,
+    json_name: "llmModelSettings"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :model, 1, type: :string
+  field :prompt_text, 2, type: :string, json_name: "promptText"
 end

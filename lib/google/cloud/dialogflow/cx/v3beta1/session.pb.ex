@@ -309,6 +309,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
     json_name: "flowVersions",
     deprecated: false
 
+  field :current_playbook, 19, type: :string, json_name: "currentPlaybook", deprecated: false
+
+  field :llm_model_settings, 21,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings,
+    json_name: "llmModelSettings",
+    deprecated: false
+
   field :channel, 15, type: :string
 
   field :session_ttl, 16,
@@ -400,7 +407,25 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput do
   field :audio, 5, type: Google.Cloud.Dialogflow.Cx.V3beta1.AudioInput, oneof: 0
   field :event, 6, type: Google.Cloud.Dialogflow.Cx.V3beta1.EventInput, oneof: 0
   field :dtmf, 7, type: Google.Cloud.Dialogflow.Cx.V3beta1.DtmfInput, oneof: 0
+
+  field :tool_call_result, 11,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ToolCallResult,
+    json_name: "toolCallResult",
+    oneof: 0
+
   field :language_code, 4, type: :string, json_name: "languageCode", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :current_playbooks, 1, repeated: true, type: :string, json_name: "currentPlaybooks"
+
+  field :action_tracing_info, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Example,
+    json_name: "actionTracingInfo"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
@@ -429,6 +454,20 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage,
     json_name: "responseMessages"
 
+  field :webhook_ids, 25, repeated: true, type: :string, json_name: "webhookIds"
+
+  field :webhook_display_names, 26,
+    repeated: true,
+    type: :string,
+    json_name: "webhookDisplayNames"
+
+  field :webhook_latencies, 27,
+    repeated: true,
+    type: Google.Protobuf.Duration,
+    json_name: "webhookLatencies"
+
+  field :webhook_tags, 29, repeated: true, type: :string, json_name: "webhookTags"
+
   field :webhook_statuses, 13,
     repeated: true,
     type: Google.Rpc.Status,
@@ -440,6 +479,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
     json_name: "webhookPayloads"
 
   field :current_page, 7, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, json_name: "currentPage"
+  field :current_flow, 31, type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow, json_name: "currentFlow"
   field :intent, 8, type: Google.Cloud.Dialogflow.Cx.V3beta1.Intent, deprecated: true
 
   field :intent_detection_confidence, 9,
@@ -449,6 +489,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
 
   field :match, 15, type: Google.Cloud.Dialogflow.Cx.V3beta1.Match
   field :diagnostic_info, 10, type: Google.Protobuf.Struct, json_name: "diagnosticInfo"
+
+  field :generative_info, 33,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeInfo,
+    json_name: "generativeInfo"
 
   field :sentiment_analysis_result, 17,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SentimentAnalysisResult,
@@ -608,6 +652,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Sessions.Service do
   rpc :DetectIntent,
       Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest,
       Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse
+
+  rpc :ServerStreamingDetectIntent,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest,
+      stream(Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse)
 
   rpc :StreamingDetectIntent,
       stream(Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest),

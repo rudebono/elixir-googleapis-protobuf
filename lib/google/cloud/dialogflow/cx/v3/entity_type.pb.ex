@@ -18,6 +18,29 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.AutoExpansionMode do
   field :AUTO_EXPANSION_MODE_DEFAULT, 1
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesRequest.DataFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :BLOB, 1
+  field :JSON_PACKAGE, 5
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesRequest.MergeOption do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MERGE_OPTION_UNSPECIFIED, 0
+  field :REPLACE, 1
+  field :MERGE, 2
+  field :RENAME, 3
+  field :REPORT_CONFLICT, 4
+  field :KEEP, 5
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType.Entity do
   @moduledoc false
 
@@ -62,6 +85,122 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityType do
 
   field :enable_fuzzy_extraction, 7, type: :bool, json_name: "enableFuzzyExtraction"
   field :redact, 9, type: :bool
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :entity_types, 2,
+    repeated: true,
+    type: :string,
+    json_name: "entityTypes",
+    deprecated: false
+
+  field :entity_types_uri, 3,
+    type: :string,
+    json_name: "entityTypesUri",
+    oneof: 0,
+    deprecated: false
+
+  field :entity_types_content_inline, 4,
+    type: :bool,
+    json_name: "entityTypesContentInline",
+    oneof: 0,
+    deprecated: false
+
+  field :data_format, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesRequest.DataFormat,
+    json_name: "dataFormat",
+    enum: true,
+    deprecated: false
+
+  field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :exported_entity_types, 0
+
+  field :entity_types_uri, 1, type: :string, json_name: "entityTypesUri", oneof: 0
+
+  field :entity_types_content, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.InlineDestination,
+    json_name: "entityTypesContent",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :entity_types, 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :entity_types_uri, 2, type: :string, json_name: "entityTypesUri", oneof: 0
+
+  field :entity_types_content, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3.InlineSource,
+    json_name: "entityTypesContent",
+    oneof: 0
+
+  field :merge_option, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesRequest.MergeOption,
+    json_name: "mergeOption",
+    enum: true,
+    deprecated: false
+
+  field :target_entity_type, 5, type: :string, json_name: "targetEntityType", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesResponse.ConflictingResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity_type_display_names, 1,
+    repeated: true,
+    type: :string,
+    json_name: "entityTypeDisplayNames"
+
+  field :entity_display_names, 2, repeated: true, type: :string, json_name: "entityDisplayNames"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entity_types, 1,
+    repeated: true,
+    type: :string,
+    json_name: "entityTypes",
+    deprecated: false
+
+  field :conflicting_resources, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesResponse.ConflictingResources,
+    json_name: "conflictingResources"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest do
@@ -161,6 +300,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Service do
   rpc :ListEntityTypes,
       Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesRequest,
       Google.Cloud.Dialogflow.Cx.V3.ListEntityTypesResponse
+
+  rpc :ExportEntityTypes,
+      Google.Cloud.Dialogflow.Cx.V3.ExportEntityTypesRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportEntityTypes,
+      Google.Cloud.Dialogflow.Cx.V3.ImportEntityTypesRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.EntityTypes.Stub do

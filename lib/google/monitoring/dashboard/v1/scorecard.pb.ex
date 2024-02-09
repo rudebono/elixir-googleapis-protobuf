@@ -43,5 +43,6 @@ defmodule Google.Monitoring.Dashboard.V1.Scorecard do
     json_name: "sparkChartView",
     oneof: 0
 
+  field :blank_view, 7, type: Google.Protobuf.Empty, json_name: "blankView", oneof: 0
   field :thresholds, 6, repeated: true, type: Google.Monitoring.Dashboard.V1.Threshold
 end

@@ -15,7 +15,7 @@ defmodule Google.Monitoring.Dashboard.V1.ListDashboardsRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsResponse do

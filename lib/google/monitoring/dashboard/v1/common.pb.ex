@@ -112,6 +112,8 @@ defmodule Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter do
   field :direction, 3,
     type: Google.Monitoring.Dashboard.V1.PickTimeSeriesFilter.Direction,
     enum: true
+
+  field :interval, 4, type: Google.Type.Interval
 end
 
 defmodule Google.Monitoring.Dashboard.V1.StatisticalTimeSeriesFilter do
