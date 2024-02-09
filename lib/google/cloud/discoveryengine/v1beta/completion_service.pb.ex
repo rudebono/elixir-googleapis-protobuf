@@ -16,6 +16,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse.QuerySuggest
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
+
+  field :completable_field_paths, 2,
+    repeated: true,
+    type: :string,
+    json_name: "completableFieldPaths"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse do
@@ -41,6 +46,14 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Service do
   rpc :CompleteQuery,
       Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest,
       Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse
+
+  rpc :ImportSuggestionDenyListEntries,
+      Google.Cloud.Discoveryengine.V1beta.ImportSuggestionDenyListEntriesRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeSuggestionDenyListEntries,
+      Google.Cloud.Discoveryengine.V1beta.PurgeSuggestionDenyListEntriesRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Stub do

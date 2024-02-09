@@ -5,6 +5,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :description, 19, type: :string
 
   field :entry_fulfillment, 7,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,

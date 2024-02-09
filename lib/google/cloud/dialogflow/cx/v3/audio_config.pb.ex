@@ -94,6 +94,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.InputAudioConfig do
   field :barge_in_config, 15,
     type: Google.Cloud.Dialogflow.Cx.V3.BargeInConfig,
     json_name: "bargeInConfig"
+
+  field :opt_out_conformer_model_migration, 26,
+    type: :bool,
+    json_name: "optOutConformerModelMigration"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams do

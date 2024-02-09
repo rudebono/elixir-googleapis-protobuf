@@ -27,6 +27,8 @@ defmodule Google.Cloud.Discoveryengine.V1.ConverseConversationRequest do
   field :summary_spec, 8,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SummarySpec,
     json_name: "summarySpec"
+
+  field :filter, 9, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.ConverseConversationResponse do

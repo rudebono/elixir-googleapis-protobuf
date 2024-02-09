@@ -62,6 +62,7 @@ defmodule Google.Monitoring.Dashboard.V1.TimeSeriesQuery do
 
   field :prometheus_query, 6, type: :string, json_name: "prometheusQuery", oneof: 0
   field :unit_override, 5, type: :string, json_name: "unitOverride"
+  field :output_full_duration, 7, type: :bool, json_name: "outputFullDuration", deprecated: false
 end
 
 defmodule Google.Monitoring.Dashboard.V1.TimeSeriesFilter do
