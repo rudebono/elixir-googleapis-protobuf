@@ -168,6 +168,11 @@ defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringBigQueryTable do
     enum: true
 
   field :bigquery_table_path, 3, type: :string, json_name: "bigqueryTablePath"
+
+  field :request_response_logging_schema_version, 4,
+    type: :string,
+    json_name: "requestResponseLoggingSchemaVersion",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelDeploymentMonitoringObjectiveConfig do

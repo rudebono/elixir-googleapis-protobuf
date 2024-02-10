@@ -34,10 +34,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.LlmUtilityService.Service do
     name: "google.cloud.aiplatform.v1beta1.LlmUtilityService",
     protoc_gen_elixir_version: "0.12.0"
 
-  rpc :CountTokens,
-      Google.Cloud.Aiplatform.V1beta1.CountTokensRequest,
-      Google.Cloud.Aiplatform.V1beta1.CountTokensResponse
-
   rpc :ComputeTokens,
       Google.Cloud.Aiplatform.V1beta1.ComputeTokensRequest,
       Google.Cloud.Aiplatform.V1beta1.ComputeTokensResponse

@@ -249,4 +249,67 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Candidate do
     type: Google.Cloud.Aiplatform.V1beta1.CitationMetadata,
     json_name: "citationMetadata",
     deprecated: false
+
+  field :grounding_metadata, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.GroundingMetadata,
+    json_name: "groundingMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Segment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
+  field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
+  field :end_index, 3, type: :int32, json_name: "endIndex", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.Web do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :reference, 0
+
+  field :web, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.Web,
+    oneof: 0,
+    deprecated: false
+
+  field :segment, 1, type: Google.Cloud.Aiplatform.V1beta1.Segment, deprecated: false
+
+  field :confidence_score, 2,
+    proto3_optional: true,
+    type: :float,
+    json_name: "confidenceScore",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GroundingMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :web_search_queries, 1,
+    repeated: true,
+    type: :string,
+    json_name: "webSearchQueries",
+    deprecated: false
+
+  field :grounding_attributions, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GroundingAttribution,
+    json_name: "groundingAttributions",
+    deprecated: false
 end

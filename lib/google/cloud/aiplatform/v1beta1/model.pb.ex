@@ -31,6 +31,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelSourceInfo.ModelSourceType do
   field :MODEL_GARDEN, 4
   field :GENIE, 5
   field :CUSTOM_TEXT_EMBEDDING, 6
+  field :MARKETPLACE, 7
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Model.ExportFormat do

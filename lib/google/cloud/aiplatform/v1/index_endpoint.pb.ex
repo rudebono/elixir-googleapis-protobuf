@@ -146,4 +146,10 @@ defmodule Google.Cloud.Aiplatform.V1.IndexPrivateEndpoints do
 
   field :match_grpc_address, 1, type: :string, json_name: "matchGrpcAddress", deprecated: false
   field :service_attachment, 2, type: :string, json_name: "serviceAttachment", deprecated: false
+
+  field :psc_automated_endpoints, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PscAutomatedEndpoints,
+    json_name: "pscAutomatedEndpoints",
+    deprecated: false
 end
