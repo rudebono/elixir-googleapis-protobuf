@@ -42,8 +42,8 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.ResourceReference do
 
   field :uri, 1, type: :string, oneof: 0
   field :resource_name, 2, type: :string, json_name: "resourceName", oneof: 0
-  field :use_case, 3, type: :string, json_name: "useCase", oneof: 0
-  field :description, 4, type: :string, oneof: 0
+  field :use_case, 3, type: :string, json_name: "useCase", oneof: 0, deprecated: true
+  field :description, 4, type: :string, oneof: 0, deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.Documentation do
@@ -77,6 +77,24 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourc
     deprecated: false
 
   field :title, 2, type: :string, deprecated: false
+
+  field :resource_title, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "resourceTitle",
+    deprecated: false
+
+  field :resource_use_case, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "resourceUseCase",
+    deprecated: false
+
+  field :resource_description, 5,
+    proto3_optional: true,
+    type: :string,
+    json_name: "resourceDescription",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.ViewRestApi do
@@ -90,6 +108,29 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.ViewRestApi do
     deprecated: false
 
   field :title, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.OpenNotebooks do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :notebooks, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.OpenFineTuningPipelines do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :fine_tuning_pipelines, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
+    json_name: "fineTuningPipelines",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy do
@@ -127,6 +168,18 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy do
   field :public_artifact_uri, 9, type: :string, json_name: "publicArtifactUri", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.DeployGke do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :gke_yaml_configs, 1,
+    repeated: true,
+    type: :string,
+    json_name: "gkeYamlConfigs",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
   @moduledoc false
 
@@ -142,6 +195,12 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
     json_name: "openNotebook",
     deprecated: false
 
+  field :open_notebooks, 12,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.OpenNotebooks,
+    json_name: "openNotebooks",
+    deprecated: false
+
   field :create_application, 3,
     type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
     json_name: "createApplication",
@@ -150,6 +209,12 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
   field :open_fine_tuning_pipeline, 4,
     type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.RegionalResourceReferences,
     json_name: "openFineTuningPipeline",
+    deprecated: false
+
+  field :open_fine_tuning_pipelines, 13,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.OpenFineTuningPipelines,
+    json_name: "openFineTuningPipelines",
     deprecated: false
 
   field :open_prompt_tuning_pipeline, 5,
@@ -164,6 +229,11 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction do
 
   field :deploy, 7,
     type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy,
+    deprecated: false
+
+  field :deploy_gke, 14,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.DeployGke,
+    json_name: "deployGke",
     deprecated: false
 
   field :open_generation_ai_studio, 8,

@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCancelPipelineJobsOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateTrainingPipelineRequest do
   @moduledoc false
 
@@ -73,6 +83,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreatePipelineJobRequest do
     deprecated: false
 
   field :pipeline_job_id, 3, type: :string, json_name: "pipelineJobId"
+
+  field :preflight_validations, 4,
+    type: :bool,
+    json_name: "preflightValidations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPipelineJobRequest do
@@ -145,6 +160,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCancelPipelineJobsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.BatchCancelPipelineJobsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :pipeline_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineJob,
+    json_name: "pipelineJobs"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Service do
   @moduledoc false
 
@@ -195,6 +230,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Service do
   rpc :CancelPipelineJob,
       Google.Cloud.Aiplatform.V1beta1.CancelPipelineJobRequest,
       Google.Protobuf.Empty
+
+  rpc :BatchCancelPipelineJobs,
+      Google.Cloud.Aiplatform.V1beta1.BatchCancelPipelineJobsRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineService.Stub do

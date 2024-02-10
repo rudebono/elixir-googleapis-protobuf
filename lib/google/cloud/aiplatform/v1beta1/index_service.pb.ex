@@ -11,6 +11,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata
   field :INVALID_EMBEDDING_ID, 5
   field :EMBEDDING_SIZE_MISMATCH, 6
   field :NAMESPACE_MISSING, 7
+  field :PARSING_ERROR, 8
+  field :DUPLICATE_NAMESPACE, 9
+  field :OP_IN_DATAPOINT, 10
+  field :MULTIPLE_VALUES, 11
+  field :INVALID_NUMERIC_VALUE, 12
+  field :INVALID_ENCODING, 13
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexRequest do
@@ -103,6 +109,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsRequest do
 
   field :index, 1, type: :string, deprecated: false
   field :datapoints, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpsertDatapointsResponse do

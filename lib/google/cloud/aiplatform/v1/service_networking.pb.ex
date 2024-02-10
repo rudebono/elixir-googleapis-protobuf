@@ -10,3 +10,13 @@ defmodule Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig do
 
   field :project_allowlist, 2, repeated: true, type: :string, json_name: "projectAllowlist"
 end
+
+defmodule Google.Cloud.Aiplatform.V1.PscAutomatedEndpoints do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :network, 2, type: :string
+  field :match_address, 3, type: :string, json_name: "matchAddress"
+end

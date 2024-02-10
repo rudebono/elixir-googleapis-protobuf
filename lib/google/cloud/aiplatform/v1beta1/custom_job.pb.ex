@@ -180,9 +180,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling do
   field :timeout, 1, type: Google.Protobuf.Duration
   field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"
   field :disable_retries, 5, type: :bool, json_name: "disableRetries", deprecated: false
-
-  field :max_wait_duration, 6,
-    type: Google.Protobuf.Duration,
-    json_name: "maxWaitDuration",
-    deprecated: false
 end
