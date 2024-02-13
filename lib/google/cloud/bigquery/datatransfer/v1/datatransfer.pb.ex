@@ -395,6 +395,15 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest do
   field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
 end
 
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.UnenrollDataSourcesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :data_source_ids, 2, repeated: true, type: :string, json_name: "dataSourceIds"
+end
+
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
   @moduledoc false
 
@@ -460,6 +469,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.DataTransferService.Service do
 
   rpc :EnrollDataSources,
       Google.Cloud.Bigquery.Datatransfer.V1.EnrollDataSourcesRequest,
+      Google.Protobuf.Empty
+
+  rpc :UnenrollDataSources,
+      Google.Cloud.Bigquery.Datatransfer.V1.UnenrollDataSourcesRequest,
       Google.Protobuf.Empty
 end
 
