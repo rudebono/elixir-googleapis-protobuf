@@ -24,6 +24,11 @@ defmodule Google.Ads.Searchads360.V0.Common.Segments do
     type: :string,
     json_name: "conversionActionName"
 
+  field :conversion_custom_dimensions, 188,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.Value,
+    json_name: "conversionCustomDimensions"
+
   field :date, 79, proto3_optional: true, type: :string
 
   field :day_of_week, 5,
@@ -211,6 +216,12 @@ defmodule Google.Ads.Searchads360.V0.Common.Segments do
   field :product_type_l4, 111, proto3_optional: true, type: :string, json_name: "productTypeL4"
   field :product_type_l5, 112, proto3_optional: true, type: :string, json_name: "productTypeL5"
   field :quarter, 128, proto3_optional: true, type: :string
+
+  field :raw_event_conversion_dimensions, 189,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.Value,
+    json_name: "rawEventConversionDimensions"
+
   field :week, 130, proto3_optional: true, type: :string
   field :year, 131, proto3_optional: true, type: :int32
 

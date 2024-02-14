@@ -90,6 +90,11 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     type: :double,
     json_name: "contentImpressionShare"
 
+  field :conversion_custom_metrics, 336,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.Value,
+    json_name: "conversionCustomMetrics"
+
   field :content_rank_lost_impression_share, 163,
     proto3_optional: true,
     type: :double,
@@ -204,6 +209,11 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     proto3_optional: true,
     type: :double,
     json_name: "mobileFriendlyClicksPercentage"
+
+  field :raw_event_conversion_metrics, 337,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.Value,
+    json_name: "rawEventConversionMetrics"
 
   field :search_absolute_top_impression_share, 136,
     proto3_optional: true,

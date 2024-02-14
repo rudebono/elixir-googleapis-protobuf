@@ -315,6 +315,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :INCOMPATIBLE_DATABASE_MINOR_VERSION, 37
   field :SOURCE_MAX_SUBSCRIPTIONS, 38
   field :UNABLE_TO_VERIFY_DEFINERS, 39
+  field :SUBSCRIPTION_CALCULATION_STATUS, 40
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode do
@@ -931,6 +932,9 @@ defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlExportOptions do
   field :mysql_export_options, 3,
     type: Google.Cloud.Sql.V1beta4.ExportContext.SqlExportOptions.MysqlExportOptions,
     json_name: "mysqlExportOptions"
+
+  field :threads, 4, type: Google.Protobuf.Int32Value, deprecated: false
+  field :parallel, 5, type: Google.Protobuf.BoolValue, deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.ExportContext.SqlBakExportOptions do

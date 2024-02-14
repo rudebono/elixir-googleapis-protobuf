@@ -1,3 +1,33 @@
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPOSER_WORKLOAD_TYPE_UNSPECIFIED, 0
+  field :CELERY_WORKER, 1
+  field :KUBERNETES_WORKER, 2
+  field :KUBERNETES_OPERATOR_POD, 3
+  field :SCHEDULER, 4
+  field :DAG_PROCESSOR, 5
+  field :TRIGGERER, 6
+  field :WEB_SERVER, 7
+  field :REDIS, 8
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPOSER_WORKLOAD_STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :OK, 2
+  field :WARNING, 3
+  field :ERROR, 4
+  field :SUCCEEDED, 5
+  field :FAILED, 6
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.EnvironmentSize do
   @moduledoc false
 
@@ -18,6 +48,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.R
   field :HIGH_RESILIENCE, 1
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.WebServerPluginsMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :WEB_SERVER_PLUGINS_MODE_UNSPECIFIED, 0
+  field :PLUGINS_DISABLED, 1
+  field :PLUGINS_ENABLED, 2
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.NetworkingConfig.ConnectionType do
   @moduledoc false
 
@@ -26,6 +66,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.NetworkingConfig.Co
   field :CONNECTION_TYPE_UNSPECIFIED, 0
   field :VPC_PEERING, 1
   field :PRIVATE_SERVICE_CONNECT, 2
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionConfig.TaskLogsStorageMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TASK_LOGS_STORAGE_MODE_UNSPECIFIED, 0
+  field :CLOUD_LOGGING_AND_CLOUD_STORAGE, 1
+  field :CLOUD_LOGGING_ONLY, 2
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.State do
@@ -209,6 +259,239 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PollAirflowCommandR
     json_name: "exitInfo"
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateUserWorkloadsSecretRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :user_workloads_secret, 2,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret,
+    json_name: "userWorkloadsSecret",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.GetUserWorkloadsSecretRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsSecretsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateUserWorkloadsSecretRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_workloads_secret, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret,
+    json_name: "userWorkloadsSecret",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DeleteUserWorkloadsSecretRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateUserWorkloadsConfigMapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :user_workloads_config_map, 2,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap,
+    json_name: "userWorkloadsConfigMap",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.GetUserWorkloadsConfigMapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsConfigMapsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateUserWorkloadsConfigMapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_workloads_config_map, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap,
+    json_name: "userWorkloadsConfigMap",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DeleteUserWorkloadsConfigMapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret.DataEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :data, 2,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret.DataEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsSecretsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_workloads_secrets, 1,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret,
+    json_name: "userWorkloadsSecrets"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap.DataEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :data, 2,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap.DataEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsConfigMapsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :user_workloads_config_maps, 1,
+    repeated: true,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap,
+    json_name: "userWorkloadsConfigMaps"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkload do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :type, 2,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadType,
+    enum: true
+
+  field :status, 3,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadStatus,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkloadState,
+    enum: true,
+    deprecated: false
+
+  field :status_message, 2, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :detailed_status_message, 3,
+    type: :string,
+    json_name: "detailedStatusMessage",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :workloads, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse.ComposerWorkload
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SaveSnapshotRequest do
   @moduledoc false
 
@@ -354,6 +637,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig d
     json_name: "recoveryConfig",
     deprecated: false
 
+  field :data_retention_config, 19,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.DataRetentionConfig,
+    json_name: "dataRetentionConfig",
+    deprecated: false
+
   field :resilience_mode, 20,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig.ResilienceMode,
     json_name: "resilienceMode",
@@ -445,6 +733,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig do
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.CloudDataLineageIntegration,
     json_name: "cloudDataLineageIntegration",
     deprecated: false
+
+  field :web_server_plugins_mode, 10,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig.WebServerPluginsMode,
+    json_name: "webServerPluginsMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.IPAllocationPolicy do
@@ -502,6 +796,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.NodeConfig do
 
   field :max_pods_per_node, 10, type: :int32, json_name: "maxPodsPerNode", deprecated: false
   field :enable_ip_masq_agent, 11, type: :bool, json_name: "enableIpMasqAgent", deprecated: false
+
+  field :composer_network_attachment, 12,
+    type: :string,
+    json_name: "composerNetworkAttachment",
+    deprecated: false
+
+  field :composer_internal_ipv4_cidr_block, 13,
+    type: :string,
+    json_name: "composerInternalIpv4CidrBlock",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateClusterConfig do
@@ -545,6 +849,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateEnvironmentC
   field :enable_private_environment, 1,
     type: :bool,
     json_name: "enablePrivateEnvironment",
+    deprecated: false
+
+  field :enable_private_builds_only, 11,
+    type: :bool,
+    json_name: "enablePrivateBuildsOnly",
     deprecated: false
 
   field :private_cluster_config, 2,
@@ -599,6 +908,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DatabaseConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
+  field :zone, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerConfig do
@@ -670,6 +980,17 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.Tri
   field :memory_gb, 3, type: :float, json_name: "memoryGb", deprecated: false
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.DagProcessorResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cpu, 1, type: :float, deprecated: false
+  field :memory_gb, 2, type: :float, json_name: "memoryGb", deprecated: false
+  field :storage_gb, 3, type: :float, json_name: "storageGb", deprecated: false
+  field :count, 4, type: :int32, deprecated: false
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig do
   @moduledoc false
 
@@ -691,6 +1012,43 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig do
   field :triggerer, 4,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.TriggererResource,
     deprecated: false
+
+  field :dag_processor, 5,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.WorkloadsConfig.DagProcessorResource,
+    json_name: "dagProcessor",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DataRetentionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :task_logs_retention_config, 4,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionConfig,
+    json_name: "taskLogsRetentionConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_mode, 2,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionConfig.TaskLogsStorageMode,
+    json_name: "storageMode",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.StorageConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.RecoveryConfig do
@@ -788,6 +1146,13 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment do
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :satisfies_pzs, 8, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :storage_config, 9,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.StorageConfig,
+    json_name: "storageConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.CheckUpgradeRequest do
@@ -882,6 +1247,50 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environments.Servic
   rpc :PollAirflowCommand,
       Google.Cloud.Orchestration.Airflow.Service.V1beta1.PollAirflowCommandRequest,
       Google.Cloud.Orchestration.Airflow.Service.V1beta1.PollAirflowCommandResponse
+
+  rpc :ListWorkloads,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListWorkloadsResponse
+
+  rpc :CreateUserWorkloadsSecret,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateUserWorkloadsSecretRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret
+
+  rpc :GetUserWorkloadsSecret,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.GetUserWorkloadsSecretRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret
+
+  rpc :ListUserWorkloadsSecrets,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsSecretsRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsSecretsResponse
+
+  rpc :UpdateUserWorkloadsSecret,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateUserWorkloadsSecretRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsSecret
+
+  rpc :DeleteUserWorkloadsSecret,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.DeleteUserWorkloadsSecretRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateUserWorkloadsConfigMap,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.CreateUserWorkloadsConfigMapRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap
+
+  rpc :GetUserWorkloadsConfigMap,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.GetUserWorkloadsConfigMapRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap
+
+  rpc :ListUserWorkloadsConfigMaps,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsConfigMapsRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.ListUserWorkloadsConfigMapsResponse
+
+  rpc :UpdateUserWorkloadsConfigMap,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UpdateUserWorkloadsConfigMapRequest,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.UserWorkloadsConfigMap
+
+  rpc :DeleteUserWorkloadsConfigMap,
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.DeleteUserWorkloadsConfigMapRequest,
+      Google.Protobuf.Empty
 
   rpc :SaveSnapshot,
       Google.Cloud.Orchestration.Airflow.Service.V1beta1.SaveSnapshotRequest,

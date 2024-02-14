@@ -34,6 +34,26 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360Response do
     repeated: true,
     type: Google.Ads.Searchads360.V0.Services.CustomColumnHeader,
     json_name: "customColumnHeaders"
+
+  field :conversion_custom_metric_headers, 9,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.ConversionCustomMetricHeader,
+    json_name: "conversionCustomMetricHeaders"
+
+  field :conversion_custom_dimension_headers, 10,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.ConversionCustomDimensionHeader,
+    json_name: "conversionCustomDimensionHeaders"
+
+  field :raw_event_conversion_metric_headers, 11,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.RawEventConversionMetricHeader,
+    json_name: "rawEventConversionMetricHeaders"
+
+  field :raw_event_conversion_dimension_headers, 12,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.RawEventConversionDimensionHeader,
+    json_name: "rawEventConversionDimensionHeaders"
 end
 
 defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360StreamRequest do
@@ -67,6 +87,26 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360StreamResponse d
     repeated: true,
     type: Google.Ads.Searchads360.V0.Services.CustomColumnHeader,
     json_name: "customColumnHeaders"
+
+  field :conversion_custom_metric_headers, 7,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.ConversionCustomMetricHeader,
+    json_name: "conversionCustomMetricHeaders"
+
+  field :conversion_custom_dimension_headers, 8,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.ConversionCustomDimensionHeader,
+    json_name: "conversionCustomDimensionHeaders"
+
+  field :raw_event_conversion_metric_headers, 9,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.RawEventConversionMetricHeader,
+    json_name: "rawEventConversionMetricHeaders"
+
+  field :raw_event_conversion_dimension_headers, 10,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Services.RawEventConversionDimensionHeader,
+    json_name: "rawEventConversionDimensionHeaders"
 
   field :request_id, 4, type: :string, json_name: "requestId"
 end
@@ -188,6 +228,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.ConversionAction,
     json_name: "conversionAction"
 
+  field :conversion_custom_variable, 153,
+    type: Google.Ads.Searchads360.V0.Resources.ConversionCustomVariable,
+    json_name: "conversionCustomVariable"
+
   field :customer, 1, type: Google.Ads.Searchads360.V0.Resources.Customer
 
   field :customer_asset, 155,
@@ -269,6 +313,42 @@ defmodule Google.Ads.Searchads360.V0.Services.CustomColumnHeader do
   field :id, 1, type: :int64
   field :name, 2, type: :string
   field :references_metrics, 3, type: :bool, json_name: "referencesMetrics"
+end
+
+defmodule Google.Ads.Searchads360.V0.Services.ConversionCustomMetricHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :int64
+  field :name, 2, type: :string
+end
+
+defmodule Google.Ads.Searchads360.V0.Services.ConversionCustomDimensionHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :int64
+  field :name, 2, type: :string
+end
+
+defmodule Google.Ads.Searchads360.V0.Services.RawEventConversionMetricHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :int64
+  field :name, 2, type: :string
+end
+
+defmodule Google.Ads.Searchads360.V0.Services.RawEventConversionDimensionHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :int64
+  field :name, 2, type: :string
 end
 
 defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Service.Service do

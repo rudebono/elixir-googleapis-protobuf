@@ -143,6 +143,7 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :INCOMPATIBLE_DATABASE_MINOR_VERSION, 37
   field :SOURCE_MAX_SUBSCRIPTIONS, 38
   field :UNABLE_TO_VERIFY_DEFINERS, 39
+  field :SUBSCRIPTION_CALCULATION_STATUS, 40
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
