@@ -474,6 +474,9 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
   field :mysql_export_options, 3,
     type: Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions,
     json_name: "mysqlExportOptions"
+
+  field :threads, 4, type: Google.Protobuf.Int32Value, deprecated: false
+  field :parallel, 5, type: Google.Protobuf.BoolValue, deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlBakExportOptions do

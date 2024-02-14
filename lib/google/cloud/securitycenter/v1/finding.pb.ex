@@ -163,4 +163,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :kernel_rootkit, 50,
     type: Google.Cloud.Securitycenter.V1.KernelRootkit,
     json_name: "kernelRootkit"
+
+  field :application, 53, type: Google.Cloud.Securitycenter.V1.Application
 end
