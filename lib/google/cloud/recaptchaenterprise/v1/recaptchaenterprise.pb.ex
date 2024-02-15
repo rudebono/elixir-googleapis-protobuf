@@ -793,6 +793,21 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.DeleteFirewallPolicyRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.ReorderFirewallPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ReorderFirewallPoliciesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest do
   @moduledoc false
 
@@ -1302,6 +1317,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :DeleteFirewallPolicy,
       Google.Cloud.Recaptchaenterprise.V1.DeleteFirewallPolicyRequest,
       Google.Protobuf.Empty
+
+  rpc :ReorderFirewallPolicies,
+      Google.Cloud.Recaptchaenterprise.V1.ReorderFirewallPoliciesRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ReorderFirewallPoliciesResponse
 
   rpc :ListRelatedAccountGroups,
       Google.Cloud.Recaptchaenterprise.V1.ListRelatedAccountGroupsRequest,

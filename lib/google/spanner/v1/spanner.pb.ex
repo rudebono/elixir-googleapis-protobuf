@@ -84,6 +84,7 @@ defmodule Google.Spanner.V1.Session do
     deprecated: false
 
   field :creator_role, 5, type: :string, json_name: "creatorRole"
+  field :multiplexed, 6, type: :bool, deprecated: false
 end
 
 defmodule Google.Spanner.V1.GetSessionRequest do
@@ -455,6 +456,11 @@ defmodule Google.Spanner.V1.BatchWriteRequest do
     repeated: true,
     type: Google.Spanner.V1.BatchWriteRequest.MutationGroup,
     json_name: "mutationGroups",
+    deprecated: false
+
+  field :exclude_txn_from_change_streams, 5,
+    type: :bool,
+    json_name: "excludeTxnFromChangeStreams",
     deprecated: false
 end
 
