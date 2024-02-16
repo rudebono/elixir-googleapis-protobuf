@@ -60,7 +60,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Dataset do
     type: Google.Cloud.Documentai.V1beta3.Dataset.DocumentWarehouseConfig,
     json_name: "documentWarehouseConfig",
     oneof: 0,
-    deprecated: false
+    deprecated: true
 
   field :unmanaged_dataset_config, 6,
     type: Google.Cloud.Documentai.V1beta3.Dataset.UnmanagedDatasetConfig,

@@ -96,6 +96,15 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions do
     deprecated: false
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   @moduledoc false
 
@@ -126,6 +135,12 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
   field :process_options, 7,
     type: Google.Cloud.Documentai.V1beta3.ProcessOptions,
     json_name: "processOptions"
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.ProcessRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
@@ -172,6 +187,15 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.BatchOutputConfig 
   field :gcs_destination, 1, type: :string, json_name: "gcsDestination"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest do
   @moduledoc false
 
@@ -203,6 +227,12 @@ defmodule Google.Cloud.Documentai.V1beta3.BatchProcessRequest do
   field :process_options, 7,
     type: Google.Cloud.Documentai.V1beta3.ProcessOptions,
     json_name: "processOptions"
+
+  field :labels, 9,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.BatchProcessRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchProcessResponse do
@@ -550,6 +580,19 @@ defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDoc
     enum: true
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.FoundationModelTuningOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :train_steps, 2, type: :int32, json_name: "trainSteps", deprecated: false
+
+  field :learning_rate_multiplier, 3,
+    type: :float,
+    json_name: "learningRateMultiplier",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest do
   @moduledoc false
 
@@ -561,6 +604,12 @@ defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest do
     type:
       Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions,
     json_name: "customDocumentExtractionOptions",
+    oneof: 0
+
+  field :foundation_model_tuning_options, 12,
+    type:
+      Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.FoundationModelTuningOptions,
+    json_name: "foundationModelTuningOptions",
     oneof: 0
 
   field :parent, 1, type: :string, deprecated: false
