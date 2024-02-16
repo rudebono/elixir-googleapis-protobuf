@@ -76,6 +76,20 @@ defmodule Google.Cloud.Documentai.V1.ProcessOptions do
   field :from_start, 6, type: :int32, json_name: "fromStart", oneof: 0
   field :from_end, 7, type: :int32, json_name: "fromEnd", oneof: 0
   field :ocr_config, 1, type: Google.Cloud.Documentai.V1.OcrConfig, json_name: "ocrConfig"
+
+  field :schema_override, 8,
+    type: Google.Cloud.Documentai.V1.DocumentSchema,
+    json_name: "schemaOverride",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1.ProcessRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Documentai.V1.ProcessRequest do
@@ -107,6 +121,12 @@ defmodule Google.Cloud.Documentai.V1.ProcessRequest do
   field :process_options, 7,
     type: Google.Cloud.Documentai.V1.ProcessOptions,
     json_name: "processOptions"
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.ProcessRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.HumanReviewStatus do
@@ -131,6 +151,15 @@ defmodule Google.Cloud.Documentai.V1.ProcessResponse do
     json_name: "humanReviewStatus"
 end
 
+defmodule Google.Cloud.Documentai.V1.BatchProcessRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
   @moduledoc false
 
@@ -151,6 +180,12 @@ defmodule Google.Cloud.Documentai.V1.BatchProcessRequest do
   field :process_options, 7,
     type: Google.Cloud.Documentai.V1.ProcessOptions,
     json_name: "processOptions"
+
+  field :labels, 9,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.BatchProcessRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.BatchProcessResponse do
