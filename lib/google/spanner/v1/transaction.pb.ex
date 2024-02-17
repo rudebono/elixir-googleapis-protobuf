@@ -66,6 +66,8 @@ defmodule Google.Spanner.V1.TransactionOptions do
     type: Google.Spanner.V1.TransactionOptions.ReadOnly,
     json_name: "readOnly",
     oneof: 0
+
+  field :exclude_txn_from_change_streams, 5, type: :bool, json_name: "excludeTxnFromChangeStreams"
 end
 
 defmodule Google.Spanner.V1.Transaction do
