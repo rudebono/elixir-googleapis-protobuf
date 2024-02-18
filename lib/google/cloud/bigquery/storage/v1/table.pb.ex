@@ -19,6 +19,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Type do
   field :BIGNUMERIC, 13
   field :INTERVAL, 14
   field :JSON, 15
+  field :RANGE, 16
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Mode do
@@ -38,6 +39,17 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableSchema do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema
+end
+
+defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.FieldElementType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1,
+    type: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.Type,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema do
@@ -70,5 +82,10 @@ defmodule Google.Cloud.Bigquery.Storage.V1.TableFieldSchema do
   field :default_value_expression, 10,
     type: :string,
     json_name: "defaultValueExpression",
+    deprecated: false
+
+  field :range_element_type, 11,
+    type: Google.Cloud.Bigquery.Storage.V1.TableFieldSchema.FieldElementType,
+    json_name: "rangeElementType",
     deprecated: false
 end
