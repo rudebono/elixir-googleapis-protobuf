@@ -32,6 +32,7 @@ defmodule Google.Maps.Addressvalidation.V1.ValidateAddressRequest do
   field :address, 1, type: Google.Type.PostalAddress, deprecated: false
   field :previous_response_id, 2, type: :string, json_name: "previousResponseId"
   field :enable_usps_cass, 3, type: :bool, json_name: "enableUspsCass"
+  field :session_token, 5, type: :string, json_name: "sessionToken", deprecated: false
 end
 
 defmodule Google.Maps.Addressvalidation.V1.ValidateAddressResponse do

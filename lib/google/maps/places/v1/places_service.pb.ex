@@ -90,6 +90,24 @@ defmodule Google.Maps.Places.V1.SearchTextRequest.LocationRestriction do
   field :rectangle, 1, type: Google.Geo.Type.Viewport, oneof: 0
 end
 
+defmodule Google.Maps.Places.V1.SearchTextRequest.EVOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :minimum_charging_rate_kw, 1,
+    type: :double,
+    json_name: "minimumChargingRateKw",
+    deprecated: false
+
+  field :connector_types, 2,
+    repeated: true,
+    type: Google.Maps.Places.V1.EVConnectorType,
+    json_name: "connectorTypes",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Maps.Places.V1.SearchTextRequest do
   @moduledoc false
 
@@ -124,6 +142,11 @@ defmodule Google.Maps.Places.V1.SearchTextRequest do
   field :location_restriction, 14,
     type: Google.Maps.Places.V1.SearchTextRequest.LocationRestriction,
     json_name: "locationRestriction"
+
+  field :ev_options, 15,
+    type: Google.Maps.Places.V1.SearchTextRequest.EVOptions,
+    json_name: "evOptions",
+    deprecated: false
 end
 
 defmodule Google.Maps.Places.V1.SearchTextResponse do
@@ -162,6 +185,166 @@ defmodule Google.Maps.Places.V1.GetPlaceRequest do
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
   field :region_code, 3, type: :string, json_name: "regionCode", deprecated: false
+  field :session_token, 4, type: :string, json_name: "sessionToken", deprecated: false
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesRequest.LocationBias do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :rectangle, 1, type: Google.Geo.Type.Viewport, oneof: 0
+  field :circle, 2, type: Google.Maps.Places.V1.Circle, oneof: 0
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesRequest.LocationRestriction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :rectangle, 1, type: Google.Geo.Type.Viewport, oneof: 0
+  field :circle, 2, type: Google.Maps.Places.V1.Circle, oneof: 0
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :input, 1, type: :string, deprecated: false
+
+  field :location_bias, 2,
+    type: Google.Maps.Places.V1.AutocompletePlacesRequest.LocationBias,
+    json_name: "locationBias",
+    deprecated: false
+
+  field :location_restriction, 3,
+    type: Google.Maps.Places.V1.AutocompletePlacesRequest.LocationRestriction,
+    json_name: "locationRestriction",
+    deprecated: false
+
+  field :included_primary_types, 4,
+    repeated: true,
+    type: :string,
+    json_name: "includedPrimaryTypes",
+    deprecated: false
+
+  field :included_region_codes, 5,
+    repeated: true,
+    type: :string,
+    json_name: "includedRegionCodes",
+    deprecated: false
+
+  field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
+  field :region_code, 7, type: :string, json_name: "regionCode", deprecated: false
+  field :origin, 8, type: Google.Type.LatLng, deprecated: false
+  field :input_offset, 9, type: :int32, json_name: "inputOffset", deprecated: false
+
+  field :include_query_predictions, 10,
+    type: :bool,
+    json_name: "includeQueryPredictions",
+    deprecated: false
+
+  field :session_token, 11, type: :string, json_name: "sessionToken", deprecated: false
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StringRange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_offset, 1, type: :int32, json_name: "startOffset"
+  field :end_offset, 2, type: :int32, json_name: "endOffset"
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :matches, 2,
+    repeated: true,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StringRange
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StructuredFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :main_text, 1,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText,
+    json_name: "mainText"
+
+  field :secondary_text, 2,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText,
+    json_name: "secondaryText"
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.PlacePrediction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :place, 1, type: :string, deprecated: false
+  field :place_id, 2, type: :string, json_name: "placeId"
+
+  field :text, 3,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText
+
+  field :structured_format, 4,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StructuredFormat,
+    json_name: "structuredFormat"
+
+  field :types, 5, repeated: true, type: :string
+  field :distance_meters, 6, type: :int32, json_name: "distanceMeters"
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.QueryPrediction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText
+
+  field :structured_format, 2,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StructuredFormat,
+    json_name: "structuredFormat"
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :place_prediction, 1,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.PlacePrediction,
+    json_name: "placePrediction",
+    oneof: 0
+
+  field :query_prediction, 2,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.QueryPrediction,
+    json_name: "queryPrediction",
+    oneof: 0
+end
+
+defmodule Google.Maps.Places.V1.AutocompletePlacesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :suggestions, 1,
+    repeated: true,
+    type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion
 end
 
 defmodule Google.Maps.Places.V1.Places.Service do
@@ -180,6 +363,10 @@ defmodule Google.Maps.Places.V1.Places.Service do
   rpc :GetPhotoMedia, Google.Maps.Places.V1.GetPhotoMediaRequest, Google.Maps.Places.V1.PhotoMedia
 
   rpc :GetPlace, Google.Maps.Places.V1.GetPlaceRequest, Google.Maps.Places.V1.Place
+
+  rpc :AutocompletePlaces,
+      Google.Maps.Places.V1.AutocompletePlacesRequest,
+      Google.Maps.Places.V1.AutocompletePlacesResponse
 end
 
 defmodule Google.Maps.Places.V1.Places.Stub do
