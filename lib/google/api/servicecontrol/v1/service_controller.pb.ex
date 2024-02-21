@@ -30,6 +30,8 @@ defmodule Google.Api.Servicecontrol.V1.CheckResponse.CheckInfo do
   field :consumer_info, 2,
     type: Google.Api.Servicecontrol.V1.CheckResponse.ConsumerInfo,
     json_name: "consumerInfo"
+
+  field :api_key_uid, 5, type: :string, json_name: "apiKeyUid"
 end
 
 defmodule Google.Api.Servicecontrol.V1.CheckResponse.ConsumerInfo do
