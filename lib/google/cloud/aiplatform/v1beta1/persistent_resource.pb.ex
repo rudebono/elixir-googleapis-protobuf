@@ -174,6 +174,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RaySpec do
     type: :string,
     json_name: "headNodeResourcePoolId",
     deprecated: false
+
+  field :ray_metric_spec, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.RayMetricSpec,
+    json_name: "rayMetricSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime.AccessUrisEntry do
@@ -209,4 +214,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec do
     deprecated: false
 
   field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RayMetricSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :disabled, 1, type: :bool, deprecated: false
 end

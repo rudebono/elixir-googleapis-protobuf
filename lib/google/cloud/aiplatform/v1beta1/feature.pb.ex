@@ -102,4 +102,5 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
     deprecated: false
 
   field :version_column_name, 106, type: :string, json_name: "versionColumnName"
+  field :point_of_contact, 107, type: :string, json_name: "pointOfContact"
 end
