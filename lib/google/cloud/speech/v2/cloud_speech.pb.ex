@@ -590,6 +590,34 @@ defmodule Google.Cloud.Speech.V2.InlineOutputConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Speech.V2.NativeOutputFileFormatConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Speech.V2.VttOutputFileFormatConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Speech.V2.SrtOutputFileFormatConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Speech.V2.OutputFormatConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :native, 1, type: Google.Cloud.Speech.V2.NativeOutputFileFormatConfig
+  field :vtt, 2, type: Google.Cloud.Speech.V2.VttOutputFileFormatConfig
+  field :srt, 3, type: Google.Cloud.Speech.V2.SrtOutputFileFormatConfig
+end
+
 defmodule Google.Cloud.Speech.V2.RecognitionOutputConfig do
   @moduledoc false
 
@@ -606,6 +634,11 @@ defmodule Google.Cloud.Speech.V2.RecognitionOutputConfig do
     type: Google.Cloud.Speech.V2.InlineOutputConfig,
     json_name: "inlineResponseConfig",
     oneof: 0
+
+  field :output_format_config, 3,
+    type: Google.Cloud.Speech.V2.OutputFormatConfig,
+    json_name: "outputFormatConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeResponse.ResultsEntry do
@@ -647,6 +680,8 @@ defmodule Google.Cloud.Speech.V2.CloudStorageResult do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :uri, 1, type: :string
+  field :vtt_format_uri, 2, type: :string, json_name: "vttFormatUri"
+  field :srt_format_uri, 3, type: :string, json_name: "srtFormatUri"
 end
 
 defmodule Google.Cloud.Speech.V2.InlineResult do
@@ -655,6 +690,8 @@ defmodule Google.Cloud.Speech.V2.InlineResult do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :transcript, 1, type: Google.Cloud.Speech.V2.BatchRecognizeResults
+  field :vtt_captions, 2, type: :string, json_name: "vttCaptions"
+  field :srt_captions, 3, type: :string, json_name: "srtCaptions"
 end
 
 defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
@@ -811,7 +848,7 @@ defmodule Google.Cloud.Speech.V2.CustomClass do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
-  field :display_name, 4, type: :string, json_name: "displayName"
+  field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
   field :items, 5, repeated: true, type: Google.Cloud.Speech.V2.CustomClass.ClassItem
   field :state, 15, type: Google.Cloud.Speech.V2.CustomClass.State, enum: true, deprecated: false
 
@@ -838,7 +875,8 @@ defmodule Google.Cloud.Speech.V2.CustomClass do
   field :annotations, 10,
     repeated: true,
     type: Google.Cloud.Speech.V2.CustomClass.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :etag, 11, type: :string, deprecated: false
   field :reconciling, 12, type: :bool, deprecated: false

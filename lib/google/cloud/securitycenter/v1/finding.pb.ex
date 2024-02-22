@@ -165,4 +165,8 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     json_name: "kernelRootkit"
 
   field :application, 53, type: Google.Cloud.Securitycenter.V1.Application
+
+  field :backup_disaster_recovery, 55,
+    type: Google.Cloud.Securitycenter.V1.BackupDisasterRecovery,
+    json_name: "backupDisasterRecovery"
 end

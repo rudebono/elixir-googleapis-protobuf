@@ -697,6 +697,11 @@ defmodule Google.Container.V1.NodeConfig do
   field :resource_manager_tags, 45,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "resourceManagerTags"
+
+  field :enable_confidential_storage, 46,
+    type: :bool,
+    json_name: "enableConfidentialStorage",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.AdvancedMachineFeatures do
@@ -1864,6 +1869,10 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :resource_manager_tags, 39,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "resourceManagerTags"
+
+  field :queued_provisioning, 42,
+    type: Google.Container.V1.NodePool.QueuedProvisioning,
+    json_name: "queuedProvisioning"
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
