@@ -153,6 +153,12 @@ defmodule Google.Devtools.Testing.V1.TestMatrix do
     json_name: "invalidMatrixDetails",
     enum: true
 
+  field :extended_invalid_matrix_details, 22,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.MatrixErrorDetail,
+    json_name: "extendedInvalidMatrixDetails",
+    deprecated: false
+
   field :flaky_test_attempts, 13, type: :int32, json_name: "flakyTestAttempts"
 
   field :outcome_summary, 14,
@@ -161,6 +167,15 @@ defmodule Google.Devtools.Testing.V1.TestMatrix do
     enum: true
 
   field :fail_fast, 17, type: :bool, json_name: "failFast"
+end
+
+defmodule Google.Devtools.Testing.V1.MatrixErrorDetail do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reason, 1, type: :string, deprecated: false
+  field :message, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Testing.V1.TestExecution do

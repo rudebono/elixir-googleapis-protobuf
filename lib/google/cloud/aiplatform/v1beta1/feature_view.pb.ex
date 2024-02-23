@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.ServiceAgentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SERVICE_AGENT_TYPE_UNSPECIFIED, 0
+  field :SERVICE_AGENT_TYPE_PROJECT, 1
+  field :SERVICE_AGENT_TYPE_FEATURE_VIEW, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.DistanceMeasureType do
   @moduledoc false
 
@@ -167,5 +177,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
   field :vector_search_config, 8,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig,
     json_name: "vectorSearchConfig",
+    deprecated: false
+
+  field :service_agent_type, 14,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.ServiceAgentType,
+    json_name: "serviceAgentType",
+    enum: true,
+    deprecated: false
+
+  field :service_account_email, 13,
+    type: :string,
+    json_name: "serviceAccountEmail",
     deprecated: false
 end
