@@ -18,6 +18,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format do
   field :PROTO_STRUCT, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey.CompositeKey do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parts, 1, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey do
   @moduledoc false
 
@@ -26,6 +34,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey do
   oneof :key_oneof, 0
 
   field :key, 1, type: :string, oneof: 0
+
+  field :composite_key, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey.CompositeKey,
+    json_name: "compositeKey",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest do

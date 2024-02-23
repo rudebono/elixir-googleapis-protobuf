@@ -81,7 +81,12 @@ defmodule Google.Devtools.Testing.V1.GetApkDetailsRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :location, 1, type: Google.Devtools.Testing.V1.FileReference
+  field :location, 1, type: Google.Devtools.Testing.V1.FileReference, deprecated: false
+
+  field :bundle_location, 2,
+    type: Google.Devtools.Testing.V1.FileReference,
+    json_name: "bundleLocation",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Testing.V1.GetApkDetailsResponse do
