@@ -1508,7 +1508,8 @@ defmodule Google.Cloud.Sql.V1beta4.PasswordValidationPolicy do
 
   field :disallow_compromised_credentials, 7,
     type: Google.Protobuf.BoolValue,
-    json_name: "disallowCompromisedCredentials"
+    json_name: "disallowCompromisedCredentials",
+    deprecated: true
 end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationsListResponse do

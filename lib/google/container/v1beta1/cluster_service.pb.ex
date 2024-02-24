@@ -2233,6 +2233,10 @@ defmodule Google.Container.V1beta1.UpdateNodePoolRequest do
   field :resource_manager_tags, 39,
     type: Google.Container.V1beta1.ResourceManagerTags,
     json_name: "resourceManagerTags"
+
+  field :queued_provisioning, 42,
+    type: Google.Container.V1beta1.NodePool.QueuedProvisioning,
+    json_name: "queuedProvisioning"
 end
 
 defmodule Google.Container.V1beta1.SetNodePoolAutoscalingRequest do

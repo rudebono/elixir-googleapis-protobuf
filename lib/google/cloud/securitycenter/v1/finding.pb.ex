@@ -164,9 +164,24 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     type: Google.Cloud.Securitycenter.V1.KernelRootkit,
     json_name: "kernelRootkit"
 
+  field :org_policies, 51,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.OrgPolicy,
+    json_name: "orgPolicies"
+
   field :application, 53, type: Google.Cloud.Securitycenter.V1.Application
 
   field :backup_disaster_recovery, 55,
     type: Google.Cloud.Securitycenter.V1.BackupDisasterRecovery,
     json_name: "backupDisasterRecovery"
+
+  field :log_entries, 57,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.LogEntry,
+    json_name: "logEntries"
+
+  field :load_balancers, 58,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.LoadBalancer,
+    json_name: "loadBalancers"
 end

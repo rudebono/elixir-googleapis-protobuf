@@ -105,3 +105,31 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BackupStorageUtilizationReportLog do
   field :utilization_percentage, 6, type: :double, json_name: "utilizationPercentage"
   field :appliance_id, 7, type: :string, json_name: "applianceId"
 end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.ProtectedResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_name, 1, type: :string, json_name: "resourceName"
+  field :resource_type, 2, type: :string, json_name: "resourceType"
+  field :resource_id, 3, type: :string, json_name: "resourceId"
+  field :backup_inclusion_or_exclusion, 4, type: :string, json_name: "backupInclusionOrExclusion"
+  field :host_id, 5, type: :string, json_name: "hostId"
+  field :host_name, 6, type: :string, json_name: "hostName"
+  field :backup_plan_policy_template_id, 7, type: :string, json_name: "backupPlanPolicyTemplateId"
+  field :backup_plan_policy_template, 8, type: :string, json_name: "backupPlanPolicyTemplate"
+  field :sla_id, 9, type: :string, json_name: "slaId"
+  field :backup_plan_restrictions, 10, type: :string, json_name: "backupPlanRestrictions"
+  field :protected_on, 11, type: :string, json_name: "protectedOn"
+  field :policy_overrides, 12, type: :string, json_name: "policyOverrides"
+  field :source_appliance, 13, type: :string, json_name: "sourceAppliance"
+  field :source_appliance_id, 14, type: :string, json_name: "sourceApplianceId"
+  field :protected_data_in_gib, 15, type: :double, json_name: "protectedDataInGib"
+  field :onvault_in_gib, 16, type: :double, json_name: "onvaultInGib"
+  field :appliance_name, 17, type: :string, json_name: "applianceName"
+  field :appliance_id, 18, type: :string, json_name: "applianceId"
+  field :remote_appliance, 19, type: :string, json_name: "remoteAppliance"
+  field :remote_appliance_id, 20, type: :string, json_name: "remoteApplianceId"
+  field :recovery_point, 21, type: :string, json_name: "recoveryPoint"
+end

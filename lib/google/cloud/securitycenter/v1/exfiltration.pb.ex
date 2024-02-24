@@ -5,6 +5,7 @@ defmodule Google.Cloud.Securitycenter.V1.Exfiltration do
 
   field :sources, 1, repeated: true, type: Google.Cloud.Securitycenter.V1.ExfilResource
   field :targets, 2, repeated: true, type: Google.Cloud.Securitycenter.V1.ExfilResource
+  field :total_exfiltrated_bytes, 3, type: :int64, json_name: "totalExfiltratedBytes"
 end
 
 defmodule Google.Cloud.Securitycenter.V1.ExfilResource do

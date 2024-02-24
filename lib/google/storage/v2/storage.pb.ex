@@ -1293,6 +1293,18 @@ defmodule Google.Storage.V2.Object do
     json_name: "customerEncryption"
 
   field :custom_time, 26, type: Google.Protobuf.Timestamp, json_name: "customTime"
+
+  field :soft_delete_time, 28,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "softDeleteTime",
+    deprecated: false
+
+  field :hard_delete_time, 29,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "hardDeleteTime",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.ObjectAccessControl do

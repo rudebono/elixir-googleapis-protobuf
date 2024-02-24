@@ -92,6 +92,18 @@ defmodule Google.Cloud.Securitycenter.V1.Kubernetes.AccessReview do
   field :version, 7, type: :string
 end
 
+defmodule Google.Cloud.Securitycenter.V1.Kubernetes.Object do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group, 1, type: :string
+  field :kind, 2, type: :string
+  field :ns, 3, type: :string
+  field :name, 4, type: :string
+  field :containers, 5, repeated: true, type: Google.Cloud.Securitycenter.V1.Container
+end
+
 defmodule Google.Cloud.Securitycenter.V1.Kubernetes do
   @moduledoc false
 
@@ -112,4 +124,6 @@ defmodule Google.Cloud.Securitycenter.V1.Kubernetes do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.Kubernetes.AccessReview,
     json_name: "accessReviews"
+
+  field :objects, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Kubernetes.Object
 end
