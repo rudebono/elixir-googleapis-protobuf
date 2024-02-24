@@ -76,6 +76,8 @@ defmodule Google.Devtools.Cloudprofiler.V2.Profile do
     type: Google.Devtools.Cloudprofiler.V2.Profile.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :start_time, 7, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
 end
 
 defmodule Google.Devtools.Cloudprofiler.V2.Deployment.LabelsEntry do

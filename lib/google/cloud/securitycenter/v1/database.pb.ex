@@ -8,4 +8,5 @@ defmodule Google.Cloud.Securitycenter.V1.Database do
   field :user_name, 3, type: :string, json_name: "userName"
   field :query, 4, type: :string
   field :grantees, 5, repeated: true, type: :string
+  field :version, 6, type: :string
 end

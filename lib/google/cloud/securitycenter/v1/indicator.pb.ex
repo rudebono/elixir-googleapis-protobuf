@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Securitycenter.V1.Indicator.ProcessSignature.SignatureType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SIGNATURE_TYPE_UNSPECIFIED, 0
+  field :SIGNATURE_TYPE_PROCESS, 1
+  field :SIGNATURE_TYPE_FILE, 2
+end
+
 defmodule Google.Cloud.Securitycenter.V1.Indicator.ProcessSignature.MemoryHashSignature.Detection do
   @moduledoc false
 
@@ -43,6 +53,11 @@ defmodule Google.Cloud.Securitycenter.V1.Indicator.ProcessSignature do
     type: Google.Cloud.Securitycenter.V1.Indicator.ProcessSignature.YaraRuleSignature,
     json_name: "yaraRuleSignature",
     oneof: 0
+
+  field :signature_type, 8,
+    type: Google.Cloud.Securitycenter.V1.Indicator.ProcessSignature.SignatureType,
+    json_name: "signatureType",
+    enum: true
 end
 
 defmodule Google.Cloud.Securitycenter.V1.Indicator do
