@@ -555,6 +555,8 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster do
     type: Google.Cloud.Alloydb.V1beta.Cluster.PrimaryConfig,
     json_name: "primaryConfig",
     deprecated: false
+
+  field :satisfies_pzs, 30, type: :bool, json_name: "satisfiesPzs", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.MachineConfig do
@@ -626,6 +628,74 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.ClientConnectionConfig do
     type: Google.Cloud.Alloydb.V1beta.SslConfig,
     json_name: "sslConfig",
     deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :consumer_endpoint_ips, 1, repeated: true, type: :string, json_name: "consumerEndpointIps"
+  field :network_attachment, 2, type: :string, json_name: "networkAttachment"
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service_attachment_link, 1,
+    type: :string,
+    json_name: "serviceAttachmentLink",
+    deprecated: false
+
+  field :allowed_consumer_projects, 2,
+    repeated: true,
+    type: :string,
+    json_name: "allowedConsumerProjects",
+    deprecated: false
+
+  field :allowed_consumer_networks, 3,
+    repeated: true,
+    type: :string,
+    json_name: "allowedConsumerNetworks",
+    deprecated: false
+
+  field :psc_interface_configs, 4,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig,
+    json_name: "pscInterfaceConfigs",
+    deprecated: false
+
+  field :outgoing_service_attachment_links, 5,
+    repeated: true,
+    type: :string,
+    json_name: "outgoingServiceAttachmentLinks",
+    deprecated: false
+
+  field :psc_enabled, 6, type: :bool, json_name: "pscEnabled", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig.AuthorizedNetwork do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cidr_range, 1, type: :string, json_name: "cidrRange", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :authorized_external_networks, 1,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig.AuthorizedNetwork,
+    json_name: "authorizedExternalNetworks",
+    deprecated: false
+
+  field :enable_public_ip, 2, type: :bool, json_name: "enablePublicIp", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.LabelsEntry do
@@ -728,6 +798,7 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
     json_name: "readPoolConfig"
 
   field :ip_address, 15, type: :string, json_name: "ipAddress", deprecated: false
+  field :public_ip_address, 27, type: :string, json_name: "publicIpAddress", deprecated: false
   field :reconciling, 16, type: :bool, deprecated: false
   field :etag, 17, type: :string
 
@@ -744,6 +815,18 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
     type: Google.Cloud.Alloydb.V1beta.Instance.ClientConnectionConfig,
     json_name: "clientConnectionConfig",
     deprecated: false
+
+  field :satisfies_pzs, 24, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :psc_instance_config, 28,
+    type: Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig,
+    json_name: "pscInstanceConfig",
+    deprecated: false
+
+  field :network_config, 29,
+    type: Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.ConnectionInfo do
@@ -753,6 +836,7 @@ defmodule Google.Cloud.Alloydb.V1beta.ConnectionInfo do
 
   field :name, 1, type: :string
   field :ip_address, 2, type: :string, json_name: "ipAddress", deprecated: false
+  field :public_ip_address, 5, type: :string, json_name: "publicIpAddress", deprecated: false
 
   field :pem_certificate_chain, 3,
     repeated: true,
@@ -761,6 +845,7 @@ defmodule Google.Cloud.Alloydb.V1beta.ConnectionInfo do
     deprecated: true
 
   field :instance_uid, 4, type: :string, json_name: "instanceUid", deprecated: false
+  field :psc_dns_name, 6, type: :string, json_name: "pscDnsName", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Backup.QuantityBasedExpiry do
@@ -859,6 +944,8 @@ defmodule Google.Cloud.Alloydb.V1beta.Backup do
     json_name: "expiryQuantity",
     deprecated: false
 
+  field :satisfies_pzs, 21, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
   field :database_version, 22,
     type: Google.Cloud.Alloydb.V1beta.DatabaseVersion,
     json_name: "databaseVersion",
@@ -938,4 +1025,14 @@ defmodule Google.Cloud.Alloydb.V1beta.User do
     json_name: "userType",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Database do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :charset, 2, type: :string, deprecated: false
+  field :collation, 3, type: :string, deprecated: false
 end

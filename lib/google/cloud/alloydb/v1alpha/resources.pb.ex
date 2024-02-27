@@ -815,6 +815,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance do
     json_name: "readPoolConfig"
 
   field :ip_address, 15, type: :string, json_name: "ipAddress", deprecated: false
+  field :public_ip_address, 27, type: :string, json_name: "publicIpAddress", deprecated: false
   field :reconciling, 16, type: :bool, deprecated: false
   field :etag, 17, type: :string
 
@@ -862,6 +863,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
     deprecated: true
 
   field :instance_uid, 4, type: :string, json_name: "instanceUid", deprecated: false
+  field :psc_dns_name, 6, type: :string, json_name: "pscDnsName", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.QuantityBasedExpiry do
