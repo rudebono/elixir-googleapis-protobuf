@@ -618,6 +618,15 @@ defmodule Google.Container.V1beta1.EnterpriseConfig.ClusterTier do
   field :ENTERPRISE, 2
 end
 
+defmodule Google.Container.V1beta1.SecondaryBootDisk.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :CONTAINER_IMAGE_CACHE, 1
+end
+
 defmodule Google.Container.V1beta1.LinuxNodeConfig.SysctlsEntry do
   @moduledoc false
 
@@ -816,6 +825,11 @@ defmodule Google.Container.V1beta1.NodeConfig do
     type: :bool,
     json_name: "enableConfidentialStorage",
     deprecated: false
+
+  field :secondary_boot_disks, 48,
+    repeated: true,
+    type: Google.Container.V1beta1.SecondaryBootDisk,
+    json_name: "secondaryBootDisks"
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -3876,6 +3890,15 @@ defmodule Google.Container.V1beta1.EnterpriseConfig do
     json_name: "clusterTier",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Container.V1beta1.SecondaryBootDisk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1, type: Google.Container.V1beta1.SecondaryBootDisk.Mode, enum: true
+  field :disk_image, 2, type: :string, json_name: "diskImage"
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do
