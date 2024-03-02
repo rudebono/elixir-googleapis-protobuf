@@ -39,6 +39,16 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   field :READY, 2
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.InstancePartition.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :READY, 2
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.ReplicaInfo do
   @moduledoc false
 
@@ -315,6 +325,7 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstancesRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+  field :instance_deadline, 5, type: Google.Protobuf.Timestamp, json_name: "instanceDeadline"
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
@@ -324,6 +335,7 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstancesResponse do
 
   field :instances, 1, repeated: true, type: Google.Spanner.Admin.Instance.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceRequest do
@@ -391,6 +403,184 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceConfigMetadata do
   field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.InstancePartition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :compute_capacity, 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :config, 2, type: :string, deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+  field :node_count, 5, type: :int32, json_name: "nodeCount", oneof: 0
+  field :processing_units, 6, type: :int32, json_name: "processingUnits", oneof: 0
+
+  field :state, 7,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition.State,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :referencing_databases, 10,
+    repeated: true,
+    type: :string,
+    json_name: "referencingDatabases",
+    deprecated: false
+
+  field :referencing_backups, 11,
+    repeated: true,
+    type: :string,
+    json_name: "referencingBackups",
+    deprecated: false
+
+  field :etag, 12, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstancePartitionMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_partition, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition,
+    json_name: "instancePartition"
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.CreateInstancePartitionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :instance_partition_id, 2,
+    type: :string,
+    json_name: "instancePartitionId",
+    deprecated: false
+
+  field :instance_partition, 3,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition,
+    json_name: "instancePartition",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.DeleteInstancePartitionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.GetInstancePartitionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstancePartitionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_partition, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition,
+    json_name: "instancePartition",
+    deprecated: false
+
+  field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask", deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.UpdateInstancePartitionMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_partition, 1,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition,
+    json_name: "instancePartition"
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancePartitionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :instance_partition_deadline, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "instancePartitionDeadline",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancePartitionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_partitions, 1,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.InstancePartition,
+    json_name: "instancePartitions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+
+  field :instance_partition_deadline, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "instancePartitionDeadline",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operations, 1, repeated: true, type: Google.Longrunning.Operation
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :unreachable_instance_partitions, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unreachableInstancePartitions"
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   @moduledoc false
 
@@ -426,6 +616,10 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
       Google.Spanner.Admin.Instance.V1.ListInstancesRequest,
       Google.Spanner.Admin.Instance.V1.ListInstancesResponse
 
+  rpc :ListInstancePartitions,
+      Google.Spanner.Admin.Instance.V1.ListInstancePartitionsRequest,
+      Google.Spanner.Admin.Instance.V1.ListInstancePartitionsResponse
+
   rpc :GetInstance,
       Google.Spanner.Admin.Instance.V1.GetInstanceRequest,
       Google.Spanner.Admin.Instance.V1.Instance
@@ -449,6 +643,26 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :GetInstancePartition,
+      Google.Spanner.Admin.Instance.V1.GetInstancePartitionRequest,
+      Google.Spanner.Admin.Instance.V1.InstancePartition
+
+  rpc :CreateInstancePartition,
+      Google.Spanner.Admin.Instance.V1.CreateInstancePartitionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteInstancePartition,
+      Google.Spanner.Admin.Instance.V1.DeleteInstancePartitionRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateInstancePartition,
+      Google.Spanner.Admin.Instance.V1.UpdateInstancePartitionRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListInstancePartitionOperations,
+      Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsRequest,
+      Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsResponse
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Stub do
