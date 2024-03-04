@@ -305,6 +305,17 @@ defmodule Google.Cloud.Compute.V1.Backend.BalancingMode do
   field :UTILIZATION, 157_008_386
 end
 
+defmodule Google.Cloud.Compute.V1.Backend.Preference do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_PREFERENCE, 0
+  field :DEFAULT, 115_302_945
+  field :PREFERENCE_UNSPECIFIED, 496_219_571
+  field :PREFERRED, 418_847_841
+end
+
 defmodule Google.Cloud.Compute.V1.BackendBucket.CompressionMode do
   @moduledoc false
 
@@ -1110,6 +1121,16 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager.ListManagedInstancesResul
   field :PAGINATED, 40_190_637
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy.DefaultActionOnFailure do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_DEFAULT_ACTION_ON_FAILURE, 0
+  field :DO_NOTHING, 451_307_513
+  field :REPAIR, 266_277_773
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy.ForceUpdateOnRepair do
   @moduledoc false
 
@@ -1260,6 +1281,29 @@ defmodule Google.Cloud.Compute.V1.InstancesGetEffectiveFirewallsResponseEffectiv
   field :NETWORK, 413_984_270
   field :NETWORK_REGIONAL, 190_804_272
   field :UNSPECIFIED, 526_786_327
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshot.Architecture do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_ARCHITECTURE, 0
+  field :ARCHITECTURE_UNSPECIFIED, 394_750_507
+  field :ARM64, 62_547_450
+  field :X86_64, 425_300_551
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshot.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_STATUS, 0
+  field :CREATING, 455_564_985
+  field :DELETING, 528_602_024
+  field :FAILED, 455_706_685
+  field :READY, 77_848_963
 end
 
 defmodule Google.Cloud.Compute.V1.Interconnect.AvailableFeatures do
@@ -2118,6 +2162,17 @@ defmodule Google.Cloud.Compute.V1.PreservedStatePreservedNetworkIp.AutoDelete do
   field :ON_PERMANENT_INSTANCE_DELETION, 95_727_719
 end
 
+defmodule Google.Cloud.Compute.V1.Project.CloudArmorTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_CLOUD_ARMOR_TIER, 0
+  field :CA_ENTERPRISE_ANNUAL, 219_921_116
+  field :CA_ENTERPRISE_PAYGO, 453_530_323
+  field :CA_STANDARD, 13_156_734
+end
+
 defmodule Google.Cloud.Compute.V1.Project.DefaultNetworkTier do
   @moduledoc false
 
@@ -2150,6 +2205,17 @@ defmodule Google.Cloud.Compute.V1.Project.XpnProjectStatus do
   field :UNDEFINED_XPN_PROJECT_STATUS, 0
   field :HOST, 2_223_528
   field :UNSPECIFIED_XPN_PROJECT_STATUS, 340_393_257
+end
+
+defmodule Google.Cloud.Compute.V1.ProjectsSetCloudArmorTierRequest.CloudArmorTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_CLOUD_ARMOR_TIER, 0
+  field :CA_ENTERPRISE_ANNUAL, 219_921_116
+  field :CA_ENTERPRISE_PAYGO, 453_530_323
+  field :CA_STANDARD, 13_156_734
 end
 
 defmodule Google.Cloud.Compute.V1.ProjectsSetDefaultNetworkTierRequest.NetworkTier do
@@ -3565,6 +3631,16 @@ defmodule Google.Cloud.Compute.V1.UsableSubnetwork.StackType do
   field :IPV4_ONLY, 22_373_798
 end
 
+defmodule Google.Cloud.Compute.V1.VpnGateway.GatewayIpVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_GATEWAY_IP_VERSION, 0
+  field :IPV4, 2_254_341
+  field :IPV6, 2_254_343
+end
+
 defmodule Google.Cloud.Compute.V1.VpnGateway.StackType do
   @moduledoc false
 
@@ -4781,6 +4857,34 @@ defmodule Google.Cloud.Compute.V1.AggregatedListInstanceTemplatesRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.AggregatedListInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :service_project_number, 316_757_497,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "serviceProjectNumber"
+end
+
+defmodule Google.Cloud.Compute.V1.AggregatedListInstantSnapshotsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -6388,6 +6492,8 @@ defmodule Google.Cloud.Compute.V1.Backend do
     proto3_optional: true,
     type: :float,
     json_name: "maxUtilization"
+
+  field :preference, 150_781_147, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.BackendBucket do
@@ -6678,6 +6784,11 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     repeated: true,
     type: :string,
     json_name: "serviceBindings"
+
+  field :service_lb_policy, 94_848_785,
+    proto3_optional: true,
+    type: :string,
+    json_name: "serviceLbPolicy"
 
   field :session_affinity, 463_888_561,
     proto3_optional: true,
@@ -8074,6 +8185,21 @@ defmodule Google.Cloud.Compute.V1.DeleteInstancesRegionInstanceGroupManagerReque
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.DeleteInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot, 391_638_626,
+    type: :string,
+    json_name: "instantSnapshot",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.DeleteInterconnectAttachmentRequest do
   @moduledoc false
 
@@ -8397,6 +8523,21 @@ defmodule Google.Cloud.Compute.V1.DeleteRegionInstanceTemplateRequest do
   field :instance_template, 309_248_228,
     type: :string,
     json_name: "instanceTemplate",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteRegionInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot, 391_638_626,
+    type: :string,
+    json_name: "instantSnapshot",
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
@@ -9156,6 +9297,16 @@ defmodule Google.Cloud.Compute.V1.Disk do
     type: :string,
     json_name: "sourceImageId"
 
+  field :source_instant_snapshot, 219_202_054,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstantSnapshot"
+
+  field :source_instant_snapshot_id, 287_582_708,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstantSnapshotId"
+
   field :source_snapshot, 126_061_928,
     proto3_optional: true,
     type: :string,
@@ -9757,6 +9908,7 @@ defmodule Google.Cloud.Compute.V1.ExternalVpnGatewayInterface do
 
   field :id, 3355, proto3_optional: true, type: :uint32
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+  field :ipv6_address, 341_563_804, proto3_optional: true, type: :string, json_name: "ipv6Address"
 end
 
 defmodule Google.Cloud.Compute.V1.ExternalVpnGatewayList do
@@ -10762,6 +10914,21 @@ defmodule Google.Cloud.Compute.V1.GetIamPolicyInstanceTemplateRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetIamPolicyInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetIamPolicyLicenseRequest do
   @moduledoc false
 
@@ -10865,6 +11032,21 @@ defmodule Google.Cloud.Compute.V1.GetIamPolicyRegionBackendServiceRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.GetIamPolicyRegionDiskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetIamPolicyRegionInstantSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -11032,6 +11214,20 @@ defmodule Google.Cloud.Compute.V1.GetInstanceTemplateRequest do
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot, 391_638_626,
+    type: :string,
+    json_name: "instantSnapshot",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetInterconnectAttachmentRequest do
@@ -11415,6 +11611,20 @@ defmodule Google.Cloud.Compute.V1.GetRegionInstanceTemplateRequest do
   field :instance_template, 309_248_228,
     type: :string,
     json_name: "instanceTemplate",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetRegionInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot, 391_638_626,
+    type: :string,
+    json_name: "instantSnapshot",
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
@@ -13200,6 +13410,21 @@ defmodule Google.Cloud.Compute.V1.InsertInstanceTemplateRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.InsertInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot_resource, 383_915_339,
+    type: Google.Cloud.Compute.V1.InstantSnapshot,
+    json_name: "instantSnapshotResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.InsertInterconnectAttachmentRequest do
   @moduledoc false
 
@@ -13532,6 +13757,21 @@ defmodule Google.Cloud.Compute.V1.InsertRegionInstanceTemplateRequest do
   field :instance_template_resource, 10_679_561,
     type: Google.Cloud.Compute.V1.InstanceTemplate,
     json_name: "instanceTemplateResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.InsertRegionInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshot_resource, 383_915_339,
+    type: Google.Cloud.Compute.V1.InstantSnapshot,
+    json_name: "instantSnapshotResource",
     deprecated: false
 
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14502,6 +14742,11 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :default_action_on_failure, 61_383_253,
+    proto3_optional: true,
+    type: :string,
+    json_name: "defaultActionOnFailure"
+
   field :force_update_on_repair, 356_302_027,
     proto3_optional: true,
     type: :string,
@@ -15435,6 +15680,145 @@ defmodule Google.Cloud.Compute.V1.InstancesStartWithEncryptionKeyRequest do
   field :disks, 95_594_102,
     repeated: true,
     type: Google.Cloud.Compute.V1.CustomerEncryptionKeyProtectedDisk
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshot.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshot do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :architecture, 302_803_283, proto3_optional: true, type: :string
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :disk_size_gb, 316_263_735, proto3_optional: true, type: :int64, json_name: "diskSizeGb"
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :label_fingerprint, 178_124_825,
+    proto3_optional: true,
+    type: :string,
+    json_name: "labelFingerprint"
+
+  field :labels, 500_195_327,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstantSnapshot.LabelsEntry,
+    map: true
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :region, 138_946_292, proto3_optional: true, type: :string
+
+  field :resource_status, 249_429_315,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstantSnapshotResourceStatus,
+    json_name: "resourceStatus"
+
+  field :satisfies_pzi, 480_964_257, proto3_optional: true, type: :bool, json_name: "satisfiesPzi"
+  field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :source_disk, 451_753_793, proto3_optional: true, type: :string, json_name: "sourceDisk"
+
+  field :source_disk_id, 454_190_809,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceDiskId"
+
+  field :status, 181_260_274, proto3_optional: true, type: :string
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshotAggregatedList.ItemsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.InstantSnapshotsScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshotAggregatedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstantSnapshotAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshotList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.InstantSnapshot
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshotResourceStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_size_bytes, 387_548_913,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "storageSizeBytes"
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshotsScopedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instant_snapshots, 329_637_457,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstantSnapshot,
+    json_name: "instantSnapshots"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.Int64RangeMatch do
@@ -16985,6 +17369,25 @@ defmodule Google.Cloud.Compute.V1.ListInstancesRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ListInstantSnapshotsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.ListInterconnectAttachmentsRequest do
   @moduledoc false
 
@@ -17703,6 +18106,24 @@ defmodule Google.Cloud.Compute.V1.ListRegionInstanceGroupsRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.ListRegionInstanceTemplatesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListRegionInstantSnapshotsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -21826,6 +22247,11 @@ defmodule Google.Cloud.Compute.V1.Project do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :cloud_armor_tier, 4_427_052,
+    proto3_optional: true,
+    type: :string,
+    json_name: "cloudArmorTier"
+
   field :common_instance_metadata, 185_794_117,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.Metadata,
@@ -21918,6 +22344,17 @@ defmodule Google.Cloud.Compute.V1.ProjectsListXpnHostsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :organization, 105_180_467, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.ProjectsSetCloudArmorTierRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cloud_armor_tier, 4_427_052,
+    proto3_optional: true,
+    type: :string,
+    json_name: "cloudArmorTier"
 end
 
 defmodule Google.Cloud.Compute.V1.ProjectsSetDefaultNetworkTierRequest do
@@ -25386,6 +25823,21 @@ defmodule Google.Cloud.Compute.V1.SetCertificateMapTargetSslProxyRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetCloudArmorTierProjectRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :projects_set_cloud_armor_tier_request_resource, 77_053_391,
+    type: Google.Cloud.Compute.V1.ProjectsSetCloudArmorTierRequest,
+    json_name: "projectsSetCloudArmorTierRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.SetCommonInstanceMetadataOperationMetadata.PerLocationOperationsEntry do
   @moduledoc false
 
@@ -25616,6 +26068,21 @@ defmodule Google.Cloud.Compute.V1.SetIamPolicyInstanceTemplateRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetIamPolicyInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+
+  field :zone_set_policy_request_resource, 382_082_107,
+    type: Google.Cloud.Compute.V1.ZoneSetPolicyRequest,
+    json_name: "zoneSetPolicyRequestResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetIamPolicyLicenseRequest do
   @moduledoc false
 
@@ -25722,6 +26189,22 @@ defmodule Google.Cloud.Compute.V1.SetIamPolicyRegionBackendServiceRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.SetIamPolicyRegionDiskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_policy_request_resource, 276_489_091,
+    type: Google.Cloud.Compute.V1.RegionSetPolicyRequest,
+    json_name: "regionSetPolicyRequestResource",
+    deprecated: false
+
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetIamPolicyRegionInstantSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -25994,6 +26477,22 @@ defmodule Google.Cloud.Compute.V1.SetLabelsInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+
+  field :zone_set_labels_request_resource, 364_950_798,
+    type: Google.Cloud.Compute.V1.ZoneSetLabelsRequest,
+    json_name: "zoneSetLabelsRequestResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsInterconnectAttachmentRequest do
   @moduledoc false
 
@@ -26026,6 +26525,23 @@ defmodule Google.Cloud.Compute.V1.SetLabelsInterconnectRequest do
 end
 
 defmodule Google.Cloud.Compute.V1.SetLabelsRegionDiskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SetLabelsRegionInstantSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -26989,6 +27505,21 @@ defmodule Google.Cloud.Compute.V1.Snapshot do
     proto3_optional: true,
     type: :string,
     json_name: "sourceDiskId"
+
+  field :source_instant_snapshot, 219_202_054,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstantSnapshot"
+
+  field :source_instant_snapshot_encryption_key, 436_536_060,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CustomerEncryptionKey,
+    json_name: "sourceInstantSnapshotEncryptionKey"
+
+  field :source_instant_snapshot_id, 287_582_708,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceInstantSnapshotId"
 
   field :source_snapshot_schedule_policy, 235_756_291,
     proto3_optional: true,
@@ -28897,6 +29428,22 @@ defmodule Google.Cloud.Compute.V1.TestIamPermissionsInstanceTemplateRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.TestIamPermissionsInstantSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+
+  field :test_permissions_request_resource, 439_214_758,
+    type: Google.Cloud.Compute.V1.TestPermissionsRequest,
+    json_name: "testPermissionsRequestResource",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.TestIamPermissionsLicenseCodeRequest do
   @moduledoc false
 
@@ -29046,6 +29593,21 @@ defmodule Google.Cloud.Compute.V1.TestIamPermissionsRegionBackendServiceRequest 
 end
 
 defmodule Google.Cloud.Compute.V1.TestIamPermissionsRegionDiskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+
+  field :test_permissions_request_resource, 439_214_758,
+    type: Google.Cloud.Compute.V1.TestPermissionsRequest,
+    json_name: "testPermissionsRequestResource",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.TestIamPermissionsRegionInstantSnapshotRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -30090,6 +30652,12 @@ defmodule Google.Cloud.Compute.V1.VpnGateway do
     json_name: "creationTimestamp"
 
   field :description, 422_937_596, proto3_optional: true, type: :string
+
+  field :gateway_ip_version, 65_074_843,
+    proto3_optional: true,
+    type: :string,
+    json_name: "gatewayIpVersion"
+
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
@@ -30245,6 +30813,7 @@ defmodule Google.Cloud.Compute.V1.VpnGatewayVpnGatewayInterface do
     json_name: "interconnectAttachment"
 
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+  field :ipv6_address, 341_563_804, proto3_optional: true, type: :string, json_name: "ipv6Address"
 end
 
 defmodule Google.Cloud.Compute.V1.VpnGatewaysGetStatusResponse do
@@ -31836,6 +32405,56 @@ defmodule Google.Cloud.Compute.V1.Instances.Stub do
   use GRPC.Stub, service: Google.Cloud.Compute.V1.Instances.Service
 end
 
+defmodule Google.Cloud.Compute.V1.InstantSnapshots.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.InstantSnapshots",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListInstantSnapshotsRequest,
+      Google.Cloud.Compute.V1.InstantSnapshotAggregatedList
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.InstantSnapshot
+
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListInstantSnapshotsRequest,
+      Google.Cloud.Compute.V1.InstantSnapshotList
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :TestIamPermissions,
+      Google.Cloud.Compute.V1.TestIamPermissionsInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.TestPermissionsResponse
+end
+
+defmodule Google.Cloud.Compute.V1.InstantSnapshots.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.InstantSnapshots.Service
+end
+
 defmodule Google.Cloud.Compute.V1.InterconnectAttachments.Service do
   @moduledoc false
 
@@ -32547,6 +33166,10 @@ defmodule Google.Cloud.Compute.V1.Projects.Service do
       Google.Cloud.Compute.V1.MoveInstanceProjectRequest,
       Google.Cloud.Compute.V1.Operation
 
+  rpc :SetCloudArmorTier,
+      Google.Cloud.Compute.V1.SetCloudArmorTierProjectRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :SetCommonInstanceMetadata,
       Google.Cloud.Compute.V1.SetCommonInstanceMetadataProjectRequest,
       Google.Cloud.Compute.V1.Operation
@@ -33112,6 +33735,52 @@ defmodule Google.Cloud.Compute.V1.RegionInstances.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionInstances.Service
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstantSnapshots.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.RegionInstantSnapshots",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.InstantSnapshot
+
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListRegionInstantSnapshotsRequest,
+      Google.Cloud.Compute.V1.InstantSnapshotList
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :TestIamPermissions,
+      Google.Cloud.Compute.V1.TestIamPermissionsRegionInstantSnapshotRequest,
+      Google.Cloud.Compute.V1.TestPermissionsResponse
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstantSnapshots.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.RegionInstantSnapshots.Service
 end
 
 defmodule Google.Cloud.Compute.V1.RegionNetworkEndpointGroups.Service do
