@@ -192,6 +192,11 @@ defmodule Google.Devtools.Testing.V1.PerAndroidVersionInfo do
     json_name: "deviceCapacity",
     enum: true
 
+  field :interactive_device_availability_estimate, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "interactiveDeviceAvailabilityEstimate",
+    deprecated: false
+
   field :direct_access_version_info, 4,
     type: Google.Devtools.Testing.V1.DirectAccessVersionInfo,
     json_name: "directAccessVersionInfo",
