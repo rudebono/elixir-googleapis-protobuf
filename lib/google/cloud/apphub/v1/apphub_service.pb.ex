@@ -168,6 +168,25 @@ defmodule Google.Cloud.Apphub.V1.GetDiscoveredServiceRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Apphub.V1.LookupDiscoveredServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :uri, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apphub.V1.LookupDiscoveredServiceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :discovered_service, 1,
+    type: Google.Cloud.Apphub.V1.DiscoveredService,
+    json_name: "discoveredService"
+end
+
 defmodule Google.Cloud.Apphub.V1.UpdateServiceRequest do
   @moduledoc false
 
@@ -330,6 +349,25 @@ defmodule Google.Cloud.Apphub.V1.GetDiscoveredWorkloadRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :uri, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :discovered_workload, 1,
+    type: Google.Cloud.Apphub.V1.DiscoveredWorkload,
+    json_name: "discoveredWorkload"
+end
+
 defmodule Google.Cloud.Apphub.V1.UpdateWorkloadRequest do
   @moduledoc false
 
@@ -413,6 +451,10 @@ defmodule Google.Cloud.Apphub.V1.AppHub.Service do
       Google.Cloud.Apphub.V1.GetDiscoveredServiceRequest,
       Google.Cloud.Apphub.V1.DiscoveredService
 
+  rpc :LookupDiscoveredService,
+      Google.Cloud.Apphub.V1.LookupDiscoveredServiceRequest,
+      Google.Cloud.Apphub.V1.LookupDiscoveredServiceResponse
+
   rpc :ListServices,
       Google.Cloud.Apphub.V1.ListServicesRequest,
       Google.Cloud.Apphub.V1.ListServicesResponse
@@ -432,6 +474,10 @@ defmodule Google.Cloud.Apphub.V1.AppHub.Service do
   rpc :GetDiscoveredWorkload,
       Google.Cloud.Apphub.V1.GetDiscoveredWorkloadRequest,
       Google.Cloud.Apphub.V1.DiscoveredWorkload
+
+  rpc :LookupDiscoveredWorkload,
+      Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadRequest,
+      Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadResponse
 
   rpc :ListWorkloads,
       Google.Cloud.Apphub.V1.ListWorkloadsRequest,
