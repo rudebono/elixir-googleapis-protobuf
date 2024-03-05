@@ -51,5 +51,10 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
     type: :int32,
     json_name: "maxInstanceRequestConcurrency"
 
-  field :session_affinity, 19, type: :bool, json_name: "sessionAffinity"
+  field :session_affinity, 19, type: :bool, json_name: "sessionAffinity", deprecated: false
+
+  field :health_check_disabled, 20,
+    type: :bool,
+    json_name: "healthCheckDisabled",
+    deprecated: false
 end

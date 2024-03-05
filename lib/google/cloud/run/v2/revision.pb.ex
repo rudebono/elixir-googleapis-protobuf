@@ -131,6 +131,12 @@ defmodule Google.Cloud.Run.V2.Revision do
   field :log_uri, 33, type: :string, json_name: "logUri", deprecated: false
   field :satisfies_pzs, 37, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :session_affinity, 38, type: :bool, json_name: "sessionAffinity"
+
+  field :scaling_status, 39,
+    type: Google.Cloud.Run.V2.RevisionScalingStatus,
+    json_name: "scalingStatus",
+    deprecated: false
+
   field :etag, 99, type: :string, deprecated: false
 end
 

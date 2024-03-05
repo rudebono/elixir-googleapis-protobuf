@@ -25,6 +25,12 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 9,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 5, type: :string, json_name: "appProfileId"
   field :rows, 2, type: Google.Bigtable.V2.RowSet
   field :filter, 3, type: Google.Bigtable.V2.RowFilter
@@ -72,6 +78,12 @@ defmodule Google.Bigtable.V2.SampleRowKeysRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 4,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
 end
 
@@ -90,6 +102,12 @@ defmodule Google.Bigtable.V2.MutateRowRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 6,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 4, type: :string, json_name: "appProfileId"
   field :row_key, 2, type: :bytes, json_name: "rowKey", deprecated: false
   field :mutations, 3, repeated: true, type: Google.Bigtable.V2.Mutation, deprecated: false
@@ -116,6 +134,12 @@ defmodule Google.Bigtable.V2.MutateRowsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 5,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 3, type: :string, json_name: "appProfileId"
 
   field :entries, 2,
@@ -161,6 +185,12 @@ defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 9,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 7, type: :string, json_name: "appProfileId"
   field :row_key, 2, type: :bytes, json_name: "rowKey", deprecated: false
   field :predicate_filter, 6, type: Google.Bigtable.V2.RowFilter, json_name: "predicateFilter"
@@ -205,6 +235,12 @@ defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
+
+  field :authorized_view_name, 6,
+    type: :string,
+    json_name: "authorizedViewName",
+    deprecated: false
+
   field :app_profile_id, 4, type: :string, json_name: "appProfileId"
   field :row_key, 2, type: :bytes, json_name: "rowKey", deprecated: false
   field :rules, 3, repeated: true, type: Google.Bigtable.V2.ReadModifyWriteRule, deprecated: false
