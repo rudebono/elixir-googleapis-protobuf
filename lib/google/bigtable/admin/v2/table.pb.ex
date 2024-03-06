@@ -42,6 +42,17 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState.ReplicationState do
   field :READY_OPTIMIZING, 5
 end
 
+defmodule Google.Bigtable.Admin.V2.AuthorizedView.ResponseView do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESPONSE_VIEW_UNSPECIFIED, 0
+  field :NAME_ONLY, 1
+  field :BASIC, 2
+  field :FULL, 3
+end
+
 defmodule Google.Bigtable.Admin.V2.EncryptionInfo.EncryptionType do
   @moduledoc false
 
@@ -169,6 +180,56 @@ defmodule Google.Bigtable.Admin.V2.Table do
     json_name: "changeStreamConfig"
 
   field :deletion_protection, 9, type: :bool, json_name: "deletionProtection"
+end
+
+defmodule Google.Bigtable.Admin.V2.AuthorizedView.FamilySubsets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :qualifiers, 1, repeated: true, type: :bytes
+  field :qualifier_prefixes, 2, repeated: true, type: :bytes, json_name: "qualifierPrefixes"
+end
+
+defmodule Google.Bigtable.Admin.V2.AuthorizedView.SubsetView.FamilySubsetsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Bigtable.Admin.V2.AuthorizedView.FamilySubsets
+end
+
+defmodule Google.Bigtable.Admin.V2.AuthorizedView.SubsetView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :row_prefixes, 1, repeated: true, type: :bytes, json_name: "rowPrefixes"
+
+  field :family_subsets, 2,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.AuthorizedView.SubsetView.FamilySubsetsEntry,
+    json_name: "familySubsets",
+    map: true
+end
+
+defmodule Google.Bigtable.Admin.V2.AuthorizedView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :authorized_view, 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :subset_view, 2,
+    type: Google.Bigtable.Admin.V2.AuthorizedView.SubsetView,
+    json_name: "subsetView",
+    oneof: 0
+
+  field :etag, 3, type: :string
+  field :deletion_protection, 4, type: :bool, json_name: "deletionProtection"
 end
 
 defmodule Google.Bigtable.Admin.V2.ColumnFamily do
