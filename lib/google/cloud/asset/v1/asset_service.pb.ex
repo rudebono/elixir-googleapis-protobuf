@@ -947,6 +947,10 @@ defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicy.Rule do
   field :deny_all, 5, type: :bool, json_name: "denyAll", oneof: 0
   field :enforce, 6, type: :bool, oneof: 0
   field :condition, 7, type: Google.Type.Expr
+
+  field :condition_evaluation, 8,
+    type: Google.Cloud.Asset.V1.ConditionEvaluation,
+    json_name: "conditionEvaluation"
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicy do
@@ -1071,6 +1075,10 @@ defmodule Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse.OrgPolicyResult do
     repeated: true,
     type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
     json_name: "policyBundle"
+
+  field :project, 3, type: :string
+  field :folders, 4, repeated: true, type: :string
+  field :organization, 5, type: :string
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeOrgPoliciesResponse do
@@ -1115,6 +1123,15 @@ defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse.Gover
     repeated: true,
     type: Google.Cloud.Asset.V1.AnalyzerOrgPolicy,
     json_name: "policyBundle"
+
+  field :project, 5, type: :string
+  field :folders, 6, repeated: true, type: :string
+  field :organization, 7, type: :string
+
+  field :effective_tags, 8,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.EffectiveTagDetails,
+    json_name: "effectiveTags"
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedContainersResponse do
@@ -1153,6 +1170,12 @@ defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedR
   field :project, 5, type: :string
   field :folders, 6, repeated: true, type: :string
   field :organization, 7, type: :string
+  field :asset_type, 8, type: :string, json_name: "assetType"
+
+  field :effective_tags, 9,
+    repeated: true,
+    type: Google.Cloud.Asset.V1.EffectiveTagDetails,
+    json_name: "effectiveTags"
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedIamPolicy do
@@ -1165,6 +1188,7 @@ defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedI
   field :project, 5, type: :string
   field :folders, 6, repeated: true, type: :string
   field :organization, 7, type: :string
+  field :asset_type, 8, type: :string, json_name: "assetType"
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzeOrgPolicyGovernedAssetsResponse.GovernedAsset do

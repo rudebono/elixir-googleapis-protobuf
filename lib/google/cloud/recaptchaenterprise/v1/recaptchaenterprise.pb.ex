@@ -1083,6 +1083,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.BlockAction do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.IncludeRecaptchaScriptAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction.RedirectAction do
   @moduledoc false
 
@@ -1115,6 +1121,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FirewallAction do
 
   field :allow, 1, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.AllowAction, oneof: 0
   field :block, 2, type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.BlockAction, oneof: 0
+
+  field :include_recaptcha_script, 6,
+    type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.IncludeRecaptchaScriptAction,
+    json_name: "includeRecaptchaScript",
+    oneof: 0
 
   field :redirect, 5,
     type: Google.Cloud.Recaptchaenterprise.V1.FirewallAction.RedirectAction,

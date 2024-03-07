@@ -124,6 +124,9 @@ defmodule Google.Cloud.Run.V2.Volume do
     type: Google.Cloud.Run.V2.EmptyDirVolumeSource,
     json_name: "emptyDir",
     oneof: 0
+
+  field :nfs, 5, type: Google.Cloud.Run.V2.NFSVolumeSource, oneof: 0
+  field :gcs, 6, type: Google.Cloud.Run.V2.GCSVolumeSource, oneof: 0
 end
 
 defmodule Google.Cloud.Run.V2.SecretVolumeSource do
@@ -161,6 +164,25 @@ defmodule Google.Cloud.Run.V2.EmptyDirVolumeSource do
 
   field :medium, 1, type: Google.Cloud.Run.V2.EmptyDirVolumeSource.Medium, enum: true
   field :size_limit, 2, type: :string, json_name: "sizeLimit"
+end
+
+defmodule Google.Cloud.Run.V2.NFSVolumeSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :server, 1, type: :string
+  field :path, 2, type: :string
+  field :read_only, 3, type: :bool, json_name: "readOnly"
+end
+
+defmodule Google.Cloud.Run.V2.GCSVolumeSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket, 1, type: :string
+  field :read_only, 2, type: :bool, json_name: "readOnly"
 end
 
 defmodule Google.Cloud.Run.V2.Probe do
