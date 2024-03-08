@@ -84,12 +84,18 @@ defmodule Google.Cloud.Run.V2.Service do
   field :description, 2, type: :string
   field :uid, 3, type: :string, deprecated: false
   field :generation, 4, type: :int64, deprecated: false
-  field :labels, 5, repeated: true, type: Google.Cloud.Run.V2.Service.LabelsEntry, map: true
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Run.V2.Service.LabelsEntry,
+    map: true,
+    deprecated: false
 
   field :annotations, 6,
     repeated: true,
     type: Google.Cloud.Run.V2.Service.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :create_time, 7,
     type: Google.Protobuf.Timestamp,
@@ -124,6 +130,8 @@ defmodule Google.Cloud.Run.V2.Service do
 
   field :template, 18, type: Google.Cloud.Run.V2.RevisionTemplate, deprecated: false
   field :traffic, 19, repeated: true, type: Google.Cloud.Run.V2.TrafficTarget
+  field :scaling, 20, type: Google.Cloud.Run.V2.ServiceScaling, deprecated: false
+  field :default_uri_disabled, 22, type: :bool, json_name: "defaultUriDisabled", deprecated: false
   field :observed_generation, 30, type: :int64, json_name: "observedGeneration", deprecated: false
 
   field :terminal_condition, 31,
