@@ -581,6 +581,12 @@ defmodule Google.Storage.V2.ListObjectsRequest do
 
   field :lexicographic_end, 11, type: :string, json_name: "lexicographicEnd", deprecated: false
   field :soft_deleted, 12, type: :bool, json_name: "softDeleted", deprecated: false
+
+  field :include_folders_as_prefixes, 13,
+    type: :bool,
+    json_name: "includeFoldersAsPrefixes",
+    deprecated: false
+
   field :match_glob, 14, type: :string, json_name: "matchGlob", deprecated: false
 end
 
@@ -1051,6 +1057,14 @@ defmodule Google.Storage.V2.Bucket.Autoclass do
     deprecated: false
 end
 
+defmodule Google.Storage.V2.Bucket.HierarchicalNamespace do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool, deprecated: false
+end
+
 defmodule Google.Storage.V2.Bucket.LabelsEntry do
   @moduledoc false
 
@@ -1116,6 +1130,11 @@ defmodule Google.Storage.V2.Bucket do
     json_name: "customPlacementConfig"
 
   field :autoclass, 28, type: Google.Storage.V2.Bucket.Autoclass
+
+  field :hierarchical_namespace, 32,
+    type: Google.Storage.V2.Bucket.HierarchicalNamespace,
+    json_name: "hierarchicalNamespace",
+    deprecated: false
 
   field :soft_delete_policy, 31,
     type: Google.Storage.V2.Bucket.SoftDeletePolicy,

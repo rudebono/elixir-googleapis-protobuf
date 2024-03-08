@@ -1737,6 +1737,10 @@ defmodule Google.Container.V1beta1.Cluster do
   field :enterprise_config, 149,
     type: Google.Container.V1beta1.EnterpriseConfig,
     json_name: "enterpriseConfig"
+
+  field :secret_manager_config, 150,
+    type: Google.Container.V1beta1.SecretManagerConfig,
+    json_name: "secretManagerConfig"
 end
 
 defmodule Google.Container.V1beta1.K8sBetaAPIConfig do
@@ -2058,6 +2062,16 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
     type: Google.Container.V1beta1.InTransitEncryptionConfig,
     json_name: "desiredInTransitEncryptionConfig",
     enum: true
+
+  field :desired_enable_cilium_clusterwide_network_policy, 138,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredEnableCiliumClusterwideNetworkPolicy"
+
+  field :desired_secret_manager_config, 139,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.SecretManagerConfig,
+    json_name: "desiredSecretManagerConfig"
 end
 
 defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
@@ -3262,6 +3276,11 @@ defmodule Google.Container.V1beta1.NetworkConfig do
     type: Google.Container.V1beta1.InTransitEncryptionConfig,
     json_name: "inTransitEncryptionConfig",
     enum: true
+
+  field :enable_cilium_clusterwide_network_policy, 21,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableCiliumClusterwideNetworkPolicy"
 end
 
 defmodule Google.Container.V1beta1.GatewayAPIConfig do
@@ -3890,6 +3909,14 @@ defmodule Google.Container.V1beta1.EnterpriseConfig do
     json_name: "clusterTier",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Container.V1beta1.SecretManagerConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Container.V1beta1.SecondaryBootDisk do

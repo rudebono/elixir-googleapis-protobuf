@@ -119,8 +119,19 @@ defmodule Google.Cloud.Netapp.V1.ActiveDirectory do
   field :aes_encryption, 9, type: :bool, json_name: "aesEncryption"
   field :username, 10, type: :string, deprecated: false
   field :password, 11, type: :string, deprecated: false
-  field :backup_operators, 12, repeated: true, type: :string, json_name: "backupOperators"
-  field :security_operators, 13, repeated: true, type: :string, json_name: "securityOperators"
+
+  field :backup_operators, 12,
+    repeated: true,
+    type: :string,
+    json_name: "backupOperators",
+    deprecated: false
+
+  field :security_operators, 13,
+    repeated: true,
+    type: :string,
+    json_name: "securityOperators",
+    deprecated: false
+
   field :kdc_hostname, 14, type: :string, json_name: "kdcHostname"
   field :kdc_ip, 15, type: :string, json_name: "kdcIp"
   field :nfs_users_with_ldap, 16, type: :bool, json_name: "nfsUsersWithLdap"

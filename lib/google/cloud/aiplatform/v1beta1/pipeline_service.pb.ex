@@ -83,11 +83,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreatePipelineJobRequest do
     deprecated: false
 
   field :pipeline_job_id, 3, type: :string, json_name: "pipelineJobId"
-
-  field :preflight_validations, 4,
-    type: :bool,
-    json_name: "preflightValidations",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPipelineJobRequest do

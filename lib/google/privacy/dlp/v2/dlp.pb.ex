@@ -3635,12 +3635,107 @@ defmodule Google.Privacy.Dlp.V2.HybridInspectResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Privacy.Dlp.V2.ListProjectDataProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.ListProjectDataProfilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_data_profiles, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ProjectDataProfile,
+    json_name: "projectDataProfiles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.ListTableDataProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.ListTableDataProfilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :table_data_profiles, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.TableDataProfile,
+    json_name: "tableDataProfiles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.ListColumnDataProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+  field :order_by, 4, type: :string, json_name: "orderBy"
+  field :filter, 5, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.ListColumnDataProfilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :column_data_profiles, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ColumnDataProfile,
+    json_name: "columnDataProfiles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Privacy.Dlp.V2.DataRiskLevel do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :score, 1, type: Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.ProjectDataProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :project_id, 2, type: :string, json_name: "projectId"
+
+  field :profile_last_generated, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "profileLastGenerated"
+
+  field :sensitivity_score, 4,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
+
+  field :data_risk_level, 5, type: Google.Privacy.Dlp.V2.DataRiskLevel, json_name: "dataRiskLevel"
+  field :profile_status, 7, type: Google.Privacy.Dlp.V2.ProfileStatus, json_name: "profileStatus"
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
@@ -3652,7 +3747,18 @@ defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
 
   field :data_profile_job, 3,
     type: Google.Privacy.Dlp.V2.DataProfileJobConfig,
-    json_name: "dataProfileJob"
+    json_name: "dataProfileJob",
+    deprecated: true
+
+  field :discovery_config, 4,
+    type: Google.Privacy.Dlp.V2.DiscoveryConfig,
+    json_name: "discoveryConfig"
+
+  field :inspect_template_name, 5, type: :string, json_name: "inspectTemplateName"
+
+  field :inspect_template_modified_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "inspectTemplateModifiedTime"
 end
 
 defmodule Google.Privacy.Dlp.V2.TableDataProfile.ResourceLabelsEntry do
@@ -3670,6 +3776,11 @@ defmodule Google.Privacy.Dlp.V2.TableDataProfile do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
+
+  field :data_source_type, 36,
+    type: Google.Privacy.Dlp.V2.DataSourceType,
+    json_name: "dataSourceType"
+
   field :project_data_profile, 2, type: :string, json_name: "projectDataProfile"
   field :dataset_project_id, 24, type: :string, json_name: "datasetProjectId"
   field :dataset_location, 29, type: :string, json_name: "datasetLocation"
@@ -3816,6 +3927,30 @@ defmodule Google.Privacy.Dlp.V2.ColumnDataProfile do
     enum: true
 end
 
+defmodule Google.Privacy.Dlp.V2.GetProjectDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.GetTableDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.GetColumnDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubCondition do
   @moduledoc false
 
@@ -3867,6 +4002,14 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubMessage do
 
   field :profile, 1, type: Google.Privacy.Dlp.V2.TableDataProfile
   field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DataSourceType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_source, 1, type: :string, json_name: "dataSource", deprecated: false
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
@@ -4009,6 +4152,30 @@ defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   rpc :DeleteStoredInfoType,
       Google.Privacy.Dlp.V2.DeleteStoredInfoTypeRequest,
       Google.Protobuf.Empty
+
+  rpc :ListProjectDataProfiles,
+      Google.Privacy.Dlp.V2.ListProjectDataProfilesRequest,
+      Google.Privacy.Dlp.V2.ListProjectDataProfilesResponse
+
+  rpc :ListTableDataProfiles,
+      Google.Privacy.Dlp.V2.ListTableDataProfilesRequest,
+      Google.Privacy.Dlp.V2.ListTableDataProfilesResponse
+
+  rpc :ListColumnDataProfiles,
+      Google.Privacy.Dlp.V2.ListColumnDataProfilesRequest,
+      Google.Privacy.Dlp.V2.ListColumnDataProfilesResponse
+
+  rpc :GetProjectDataProfile,
+      Google.Privacy.Dlp.V2.GetProjectDataProfileRequest,
+      Google.Privacy.Dlp.V2.ProjectDataProfile
+
+  rpc :GetTableDataProfile,
+      Google.Privacy.Dlp.V2.GetTableDataProfileRequest,
+      Google.Privacy.Dlp.V2.TableDataProfile
+
+  rpc :GetColumnDataProfile,
+      Google.Privacy.Dlp.V2.GetColumnDataProfileRequest,
+      Google.Privacy.Dlp.V2.ColumnDataProfile
 
   rpc :HybridInspectDlpJob,
       Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest,

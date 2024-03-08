@@ -176,6 +176,11 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
   field :create, 2, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :update, 3, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :drop, 4, type: :bool, oneof: 0
+
+  field :update_mask, 6,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do
@@ -399,6 +404,114 @@ defmodule Google.Bigtable.Admin.V2.CopyBackupMetadata do
   field :progress, 3, type: Google.Bigtable.Admin.V2.OperationProgress
 end
 
+defmodule Google.Bigtable.Admin.V2.CreateAuthorizedViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :authorized_view_id, 2, type: :string, json_name: "authorizedViewId", deprecated: false
+
+  field :authorized_view, 3,
+    type: Google.Bigtable.Admin.V2.AuthorizedView,
+    json_name: "authorizedView",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.CreateAuthorizedViewMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.CreateAuthorizedViewRequest,
+    json_name: "originalRequest"
+
+  field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
+  field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.ListAuthorizedViewsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+
+  field :view, 4,
+    type: Google.Bigtable.Admin.V2.AuthorizedView.ResponseView,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.ListAuthorizedViewsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :authorized_views, 1,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.AuthorizedView,
+    json_name: "authorizedViews"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Bigtable.Admin.V2.GetAuthorizedViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :view, 2,
+    type: Google.Bigtable.Admin.V2.AuthorizedView.ResponseView,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateAuthorizedViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :authorized_view, 1,
+    type: Google.Bigtable.Admin.V2.AuthorizedView,
+    json_name: "authorizedView",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :ignore_warnings, 3, type: :bool, json_name: "ignoreWarnings", deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateAuthorizedViewMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.UpdateAuthorizedViewRequest,
+    json_name: "originalRequest"
+
+  field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
+  field :finish_time, 3, type: Google.Protobuf.Timestamp, json_name: "finishTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.DeleteAuthorizedViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   @moduledoc false
 
@@ -423,6 +536,26 @@ defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   rpc :DeleteTable, Google.Bigtable.Admin.V2.DeleteTableRequest, Google.Protobuf.Empty
 
   rpc :UndeleteTable, Google.Bigtable.Admin.V2.UndeleteTableRequest, Google.Longrunning.Operation
+
+  rpc :CreateAuthorizedView,
+      Google.Bigtable.Admin.V2.CreateAuthorizedViewRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListAuthorizedViews,
+      Google.Bigtable.Admin.V2.ListAuthorizedViewsRequest,
+      Google.Bigtable.Admin.V2.ListAuthorizedViewsResponse
+
+  rpc :GetAuthorizedView,
+      Google.Bigtable.Admin.V2.GetAuthorizedViewRequest,
+      Google.Bigtable.Admin.V2.AuthorizedView
+
+  rpc :UpdateAuthorizedView,
+      Google.Bigtable.Admin.V2.UpdateAuthorizedViewRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAuthorizedView,
+      Google.Bigtable.Admin.V2.DeleteAuthorizedViewRequest,
+      Google.Protobuf.Empty
 
   rpc :ModifyColumnFamilies,
       Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest,
