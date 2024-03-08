@@ -176,6 +176,11 @@ defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest.Modification do
   field :create, 2, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :update, 3, type: Google.Bigtable.Admin.V2.ColumnFamily, oneof: 0
   field :drop, 4, type: :bool, oneof: 0
+
+  field :update_mask, 6,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Bigtable.Admin.V2.ModifyColumnFamiliesRequest do

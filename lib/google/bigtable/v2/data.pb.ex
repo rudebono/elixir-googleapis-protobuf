@@ -35,6 +35,18 @@ defmodule Google.Bigtable.V2.Cell do
   field :labels, 3, repeated: true, type: :string
 end
 
+defmodule Google.Bigtable.V2.Value do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :raw_value, 8, type: :bytes, json_name: "rawValue", oneof: 0
+  field :raw_timestamp_micros, 9, type: :int64, json_name: "rawTimestampMicros", oneof: 0
+  field :int_value, 6, type: :int64, json_name: "intValue", oneof: 0
+end
+
 defmodule Google.Bigtable.V2.RowRange do
   @moduledoc false
 
@@ -194,6 +206,17 @@ defmodule Google.Bigtable.V2.Mutation.SetCell do
   field :value, 4, type: :bytes
 end
 
+defmodule Google.Bigtable.V2.Mutation.AddToCell do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :family_name, 1, type: :string, json_name: "familyName"
+  field :column_qualifier, 2, type: Google.Bigtable.V2.Value, json_name: "columnQualifier"
+  field :timestamp, 3, type: Google.Bigtable.V2.Value
+  field :input, 4, type: Google.Bigtable.V2.Value
+end
+
 defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
   @moduledoc false
 
@@ -226,6 +249,11 @@ defmodule Google.Bigtable.V2.Mutation do
   oneof :mutation, 0
 
   field :set_cell, 1, type: Google.Bigtable.V2.Mutation.SetCell, json_name: "setCell", oneof: 0
+
+  field :add_to_cell, 5,
+    type: Google.Bigtable.V2.Mutation.AddToCell,
+    json_name: "addToCell",
+    oneof: 0
 
   field :delete_from_column, 2,
     type: Google.Bigtable.V2.Mutation.DeleteFromColumn,

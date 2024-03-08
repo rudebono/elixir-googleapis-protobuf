@@ -238,6 +238,7 @@ defmodule Google.Bigtable.Admin.V2.ColumnFamily do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gc_rule, 1, type: Google.Bigtable.Admin.V2.GcRule, json_name: "gcRule"
+  field :value_type, 3, type: Google.Bigtable.Admin.V2.Type, json_name: "valueType"
 end
 
 defmodule Google.Bigtable.Admin.V2.GcRule.Intersection do

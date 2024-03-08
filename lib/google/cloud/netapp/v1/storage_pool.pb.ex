@@ -27,10 +27,10 @@ defmodule Google.Cloud.Netapp.V1.ListStoragePoolsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :order_by, 4, type: :string, json_name: "orderBy"
-  field :filter, 5, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListStoragePoolsResponse do
@@ -118,18 +118,19 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
     json_name: "createTime",
     deprecated: false
 
-  field :description, 9, type: :string
+  field :description, 9, type: :string, deprecated: false
 
   field :labels, 10,
     repeated: true,
     type: Google.Cloud.Netapp.V1.StoragePool.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :network, 11, type: :string, deprecated: false
   field :active_directory, 12, type: :string, json_name: "activeDirectory", deprecated: false
   field :kms_config, 13, type: :string, json_name: "kmsConfig", deprecated: false
-  field :ldap_enabled, 14, type: :bool, json_name: "ldapEnabled"
-  field :psa_range, 15, type: :string, json_name: "psaRange"
+  field :ldap_enabled, 14, type: :bool, json_name: "ldapEnabled", deprecated: false
+  field :psa_range, 15, type: :string, json_name: "psaRange", deprecated: false
 
   field :encryption_type, 16,
     type: Google.Cloud.Netapp.V1.EncryptionType,
