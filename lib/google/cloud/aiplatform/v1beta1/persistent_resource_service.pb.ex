@@ -24,6 +24,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreatePersistentResourceOperationMetad
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
+
+  field :progress_message, 2, type: :string, json_name: "progressMessage"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceOperationMetadata do
@@ -34,6 +36,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceOperationMetad
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
     json_name: "genericMetadata"
+
+  field :progress_message, 2, type: :string, json_name: "progressMessage"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPersistentResourceRequest do

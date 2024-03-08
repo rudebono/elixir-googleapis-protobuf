@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :algorithm_config, 0
 
@@ -119,6 +119,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.FeatureRegistrySource.FeatureGroup,
     json_name: "featureGroups",
+    deprecated: false
+
+  field :project_number, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "projectNumber",
     deprecated: false
 end
 
@@ -177,7 +183,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
   field :vector_search_config, 8,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig,
     json_name: "vectorSearchConfig",
-    deprecated: false
+    deprecated: true
 
   field :service_agent_type, 14,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.ServiceAgentType,

@@ -522,6 +522,15 @@ defmodule Google.Container.V1.EnterpriseConfig.ClusterTier do
   field :ENTERPRISE, 2
 end
 
+defmodule Google.Container.V1.SecondaryBootDisk.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :CONTAINER_IMAGE_CACHE, 1
+end
+
 defmodule Google.Container.V1.LinuxNodeConfig.SysctlsEntry do
   @moduledoc false
 
@@ -702,6 +711,11 @@ defmodule Google.Container.V1.NodeConfig do
     type: :bool,
     json_name: "enableConfidentialStorage",
     deprecated: false
+
+  field :secondary_boot_disks, 48,
+    repeated: true,
+    type: Google.Container.V1.SecondaryBootDisk,
+    json_name: "secondaryBootDisks"
 end
 
 defmodule Google.Container.V1.AdvancedMachineFeatures do
@@ -1681,6 +1695,11 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.InTransitEncryptionConfig,
     json_name: "desiredInTransitEncryptionConfig",
     enum: true
+
+  field :desired_enable_cilium_clusterwide_network_policy, 138,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredEnableCiliumClusterwideNetworkPolicy"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -2763,6 +2782,11 @@ defmodule Google.Container.V1.NetworkConfig do
     type: Google.Container.V1.InTransitEncryptionConfig,
     json_name: "inTransitEncryptionConfig",
     enum: true
+
+  field :enable_cilium_clusterwide_network_policy, 21,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableCiliumClusterwideNetworkPolicy"
 end
 
 defmodule Google.Container.V1.GatewayAPIConfig do
@@ -3355,6 +3379,15 @@ defmodule Google.Container.V1.EnterpriseConfig do
     json_name: "clusterTier",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Container.V1.SecondaryBootDisk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1, type: Google.Container.V1.SecondaryBootDisk.Mode, enum: true
+  field :disk_image, 2, type: :string, json_name: "diskImage"
 end
 
 defmodule Google.Container.V1.ClusterManager.Service do
