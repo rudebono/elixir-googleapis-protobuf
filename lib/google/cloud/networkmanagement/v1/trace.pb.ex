@@ -35,6 +35,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
   field :APPLY_FORWARDING_RULE, 7
+  field :ANALYZE_LOAD_BALANCER_BACKEND, 28
   field :SPOOFING_APPROVED, 8
   field :ARRIVE_AT_INSTANCE, 9
   field :ARRIVE_AT_INTERNAL_LOAD_BALANCER, 10
@@ -181,6 +182,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   field :PSC_GOOGLE_API, 7
   field :PSC_VPC_SC, 8
   field :SERVERLESS_NEG, 9
+  field :STORAGE_BUCKET, 10
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
@@ -275,6 +277,30 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :LOAD_BALANCER_HAS_NO_PROXY_SUBNET, 39
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :INTERNAL_TO_EXTERNAL, 1
+  field :EXTERNAL_TO_INTERNAL, 2
+  field :CLOUD_NAT, 3
+  field :PRIVATE_SERVICE_CONNECT, 4
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo.HealthCheckFirewallsConfigState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED, 0
+  field :FIREWALLS_CONFIGURED, 1
+  field :FIREWALLS_PARTIALLY_CONFIGURED, 2
+  field :FIREWALLS_NOT_CONFIGURED, 3
+  field :FIREWALLS_UNSUPPORTED, 4
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.Trace do
   @moduledoc false
 
@@ -363,6 +389,23 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
   field :cloud_run_revision, 23,
     type: Google.Cloud.Networkmanagement.V1.CloudRunRevisionInfo,
     json_name: "cloudRunRevision",
+    oneof: 0
+
+  field :nat, 25, type: Google.Cloud.Networkmanagement.V1.NatInfo, oneof: 0
+
+  field :proxy_connection, 26,
+    type: Google.Cloud.Networkmanagement.V1.ProxyConnectionInfo,
+    json_name: "proxyConnection",
+    oneof: 0
+
+  field :load_balancer_backend_info, 27,
+    type: Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo,
+    json_name: "loadBalancerBackendInfo",
+    oneof: 0
+
+  field :storage_bucket, 28,
+    type: Google.Cloud.Networkmanagement.V1.StorageBucketInfo,
+    json_name: "storageBucket",
     oneof: 0
 end
 
@@ -678,4 +721,73 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcConnectorInfo do
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
   field :location, 3, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.NatInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1, type: Google.Cloud.Networkmanagement.V1.NatInfo.Type, enum: true
+  field :protocol, 2, type: :string
+  field :network_uri, 3, type: :string, json_name: "networkUri"
+  field :old_source_ip, 4, type: :string, json_name: "oldSourceIp"
+  field :new_source_ip, 5, type: :string, json_name: "newSourceIp"
+  field :old_destination_ip, 6, type: :string, json_name: "oldDestinationIp"
+  field :new_destination_ip, 7, type: :string, json_name: "newDestinationIp"
+  field :old_source_port, 8, type: :int32, json_name: "oldSourcePort"
+  field :new_source_port, 9, type: :int32, json_name: "newSourcePort"
+  field :old_destination_port, 10, type: :int32, json_name: "oldDestinationPort"
+  field :new_destination_port, 11, type: :int32, json_name: "newDestinationPort"
+  field :router_uri, 12, type: :string, json_name: "routerUri"
+  field :nat_gateway_name, 13, type: :string, json_name: "natGatewayName"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ProxyConnectionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :protocol, 1, type: :string
+  field :old_source_ip, 2, type: :string, json_name: "oldSourceIp"
+  field :new_source_ip, 3, type: :string, json_name: "newSourceIp"
+  field :old_destination_ip, 4, type: :string, json_name: "oldDestinationIp"
+  field :new_destination_ip, 5, type: :string, json_name: "newDestinationIp"
+  field :old_source_port, 6, type: :int32, json_name: "oldSourcePort"
+  field :new_source_port, 7, type: :int32, json_name: "newSourcePort"
+  field :old_destination_port, 8, type: :int32, json_name: "oldDestinationPort"
+  field :new_destination_port, 9, type: :int32, json_name: "newDestinationPort"
+  field :subnet_uri, 10, type: :string, json_name: "subnetUri"
+  field :network_uri, 11, type: :string, json_name: "networkUri"
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :instance_uri, 2, type: :string, json_name: "instanceUri"
+  field :backend_service_uri, 3, type: :string, json_name: "backendServiceUri"
+  field :instance_group_uri, 4, type: :string, json_name: "instanceGroupUri"
+  field :network_endpoint_group_uri, 5, type: :string, json_name: "networkEndpointGroupUri"
+  field :backend_bucket_uri, 8, type: :string, json_name: "backendBucketUri"
+  field :psc_service_attachment_uri, 9, type: :string, json_name: "pscServiceAttachmentUri"
+  field :psc_google_api_target, 10, type: :string, json_name: "pscGoogleApiTarget"
+  field :health_check_uri, 6, type: :string, json_name: "healthCheckUri"
+
+  field :health_check_firewalls_config_state, 7,
+    type:
+      Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo.HealthCheckFirewallsConfigState,
+    json_name: "healthCheckFirewallsConfigState",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.StorageBucketInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket, 1, type: :string
 end

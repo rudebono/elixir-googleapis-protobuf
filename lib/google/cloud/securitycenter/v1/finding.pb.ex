@@ -42,6 +42,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   field :MISCONFIGURATION, 3
   field :OBSERVATION, 4
   field :SCC_ERROR, 5
+  field :POSTURE_VIOLATION, 6
 end
 
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
@@ -174,6 +175,10 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :backup_disaster_recovery, 55,
     type: Google.Cloud.Securitycenter.V1.BackupDisasterRecovery,
     json_name: "backupDisasterRecovery"
+
+  field :security_posture, 56,
+    type: Google.Cloud.Securitycenter.V1.SecurityPosture,
+    json_name: "securityPosture"
 
   field :log_entries, 57,
     repeated: true,
