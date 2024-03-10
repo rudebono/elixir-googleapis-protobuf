@@ -43,6 +43,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.TargetSite.FailureReason.QuotaFai
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :total_required_quota, 1, type: :int64, json_name: "totalRequiredQuota"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.TargetSite.FailureReason do

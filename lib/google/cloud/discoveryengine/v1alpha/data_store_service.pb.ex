@@ -85,6 +85,27 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteDataStoreMetadata do
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetDocumentProcessingConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateDocumentProcessingConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document_processing_config, 1,
+    type: Google.Cloud.Discoveryengine.V1alpha.DocumentProcessingConfig,
+    json_name: "documentProcessingConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.DataStoreService.Service do
   @moduledoc false
 
@@ -111,6 +132,14 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStoreService.Service do
   rpc :UpdateDataStore,
       Google.Cloud.Discoveryengine.V1alpha.UpdateDataStoreRequest,
       Google.Cloud.Discoveryengine.V1alpha.DataStore
+
+  rpc :GetDocumentProcessingConfig,
+      Google.Cloud.Discoveryengine.V1alpha.GetDocumentProcessingConfigRequest,
+      Google.Cloud.Discoveryengine.V1alpha.DocumentProcessingConfig
+
+  rpc :UpdateDocumentProcessingConfig,
+      Google.Cloud.Discoveryengine.V1alpha.UpdateDocumentProcessingConfigRequest,
+      Google.Cloud.Discoveryengine.V1alpha.DocumentProcessingConfig
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.DataStoreService.Stub do

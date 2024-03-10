@@ -10,6 +10,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.FieldType do
   field :INTEGER, 4
   field :BOOLEAN, 5
   field :GEOLOCATION, 6
+  field :DATETIME, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.IndexableOption do
