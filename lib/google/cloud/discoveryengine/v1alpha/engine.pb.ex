@@ -93,6 +93,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineConfig.AgentCrea
   field :business, 1, type: :string
   field :default_language_code, 2, type: :string, json_name: "defaultLanguageCode"
   field :time_zone, 3, type: :string, json_name: "timeZone", deprecated: false
+  field :location, 4, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineConfig do
@@ -112,7 +113,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.CommonConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :company_name, 1, type: :string, json_name: "companyName"
+  field :company_name, 1, type: :string, json_name: "companyName", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.RecommendationMetadata do

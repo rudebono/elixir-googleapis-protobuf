@@ -18,6 +18,16 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SpellCorrectionSpec
   field :AUTO, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SearchResultMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_RESULT_MODE_UNSPECIFIED, 0
+  field :DOCUMENTS, 1
+  field :CHUNKS, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummarySkippedReason do
   @moduledoc false
 
@@ -39,6 +49,14 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ImageQuery do
   oneof :image, 0
 
   field :image_bytes, 1, type: :string, json_name: "imageBytes", oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.DataStoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.FacetSpec.FacetKey do
@@ -197,6 +215,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec d
     type:
       Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
     json_name: "extractiveContentSpec"
+
+  field :search_result_mode, 4,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SearchResultMode,
+    json_name: "searchResultMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.EmbeddingSpec.EmbeddingVector do
@@ -253,6 +276,12 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest do
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
+
+  field :data_store_specs, 32,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.DataStoreSpec,
+    json_name: "dataStoreSpecs"
+
   field :filter, 7, type: :string
   field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"
@@ -298,6 +327,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest do
     type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.UserLabelsEntry,
     json_name: "userLabels",
     map: true
+
+  field :custom_fine_tuning_spec, 34,
+    type: Google.Cloud.Discoveryengine.V1alpha.CustomFineTuningSpec,
+    json_name: "customFineTuningSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SearchResult.ModelScoresEntry do
@@ -316,6 +349,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SearchResult do
 
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1alpha.Document
+  field :chunk, 18, type: Google.Cloud.Discoveryengine.V1alpha.Chunk
 
   field :model_scores, 4,
     repeated: true,

@@ -41,4 +41,19 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :idp_config, 21,
+    type: Google.Cloud.Discoveryengine.V1alpha.IdpConfig,
+    json_name: "idpConfig",
+    deprecated: false
+
+  field :acl_enabled, 24, type: :bool, json_name: "aclEnabled", deprecated: false
+
+  field :document_processing_config, 27,
+    type: Google.Cloud.Discoveryengine.V1alpha.DocumentProcessingConfig,
+    json_name: "documentProcessingConfig"
+
+  field :starting_schema, 28,
+    type: Google.Cloud.Discoveryengine.V1alpha.Schema,
+    json_name: "startingSchema"
 end
