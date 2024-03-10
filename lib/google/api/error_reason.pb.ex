@@ -33,4 +33,5 @@ defmodule Google.Api.ErrorReason do
   field :ORG_RESTRICTION_HEADER_INVALID, 28
   field :SERVICE_NOT_VISIBLE, 29
   field :GCP_SUSPENDED, 30
+  field :LOCATION_POLICY_VIOLATED, 31
 end

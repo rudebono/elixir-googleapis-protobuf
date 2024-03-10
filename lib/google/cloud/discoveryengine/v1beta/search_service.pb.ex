@@ -41,6 +41,14 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery do
   field :image_bytes, 1, type: :string, json_name: "imageBytes", oneof: 0
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.DataStoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
 
@@ -253,6 +261,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
+
+  field :data_store_specs, 32,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.DataStoreSpec,
+    json_name: "dataStoreSpecs"
+
   field :filter, 7, type: :string
   field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"

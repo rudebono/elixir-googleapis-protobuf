@@ -29,6 +29,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest do
     json_name: "summarySpec"
 
   field :filter, 9, type: :string
+
+  field :boost_spec, 10,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec,
+    json_name: "boostSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationResponse do

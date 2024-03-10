@@ -81,6 +81,10 @@ defmodule Google.Api.Publishing do
   field :proto_reference_documentation_uri, 110,
     type: :string,
     json_name: "protoReferenceDocumentationUri"
+
+  field :rest_reference_documentation_uri, 111,
+    type: :string,
+    json_name: "restReferenceDocumentationUri"
 end
 
 defmodule Google.Api.JavaSettings.ServiceClassNamesEntry do
