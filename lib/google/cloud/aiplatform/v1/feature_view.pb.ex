@@ -39,6 +39,12 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource do
     type: Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource.FeatureGroup,
     json_name: "featureGroups",
     deprecated: false
+
+  field :project_number, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "projectNumber",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.LabelsEntry do

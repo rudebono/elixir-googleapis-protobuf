@@ -21,4 +21,7 @@ defmodule Google.Cloud.Aiplatform.V1.DatasetVersion do
     type: :string,
     json_name: "bigQueryDatasetName",
     deprecated: false
+
+  field :display_name, 7, type: :string, json_name: "displayName"
+  field :metadata, 8, type: Google.Protobuf.Value, deprecated: false
 end

@@ -19,6 +19,7 @@ defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction.Operator 
   field :EQUAL, 3
   field :GREATER_EQUAL, 4
   field :GREATER, 5
+  field :NOT_EQUAL, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Index.LabelsEntry do

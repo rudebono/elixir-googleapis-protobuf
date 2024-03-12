@@ -132,6 +132,10 @@ defmodule Google.Cloud.Dialogflow.V2.InputAudioConfig do
     json_name: "disableNoSpeechRecognizedEvent"
 
   field :enable_automatic_punctuation, 17, type: :bool, json_name: "enableAutomaticPunctuation"
+
+  field :opt_out_conformer_model_migration, 26,
+    type: :bool,
+    json_name: "optOutConformerModelMigration"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.VoiceSelectionParams do

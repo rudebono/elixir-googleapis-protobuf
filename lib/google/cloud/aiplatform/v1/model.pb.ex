@@ -70,6 +70,24 @@ defmodule Google.Cloud.Aiplatform.V1.Model.OriginalModelInfo do
   field :model, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Model.BaseModelSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :model_garden_source, 1,
+    type: Google.Cloud.Aiplatform.V1.ModelGardenSource,
+    json_name: "modelGardenSource",
+    oneof: 0
+
+  field :genie_source, 2,
+    type: Google.Cloud.Aiplatform.V1.GenieSource,
+    json_name: "genieSource",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Model.LabelsEntry do
   @moduledoc false
 
@@ -183,6 +201,11 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
     deprecated: false
 
   field :metadata_artifact, 44, type: :string, json_name: "metadataArtifact", deprecated: false
+
+  field :base_model_source, 50,
+    type: Google.Cloud.Aiplatform.V1.Model.BaseModelSource,
+    json_name: "baseModelSource",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.LargeModelReference do
@@ -191,6 +214,22 @@ defmodule Google.Cloud.Aiplatform.V1.LargeModelReference do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ModelGardenSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :public_model_name, 1, type: :string, json_name: "publicModelName", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenieSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :base_model_uri, 1, type: :string, json_name: "baseModelUri", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do

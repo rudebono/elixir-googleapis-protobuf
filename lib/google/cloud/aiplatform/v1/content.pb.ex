@@ -34,6 +34,18 @@ defmodule Google.Cloud.Aiplatform.V1.SafetyRating.HarmProbability do
   field :HIGH, 4
 end
 
+defmodule Google.Cloud.Aiplatform.V1.SafetyRating.HarmSeverity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HARM_SEVERITY_UNSPECIFIED, 0
+  field :HARM_SEVERITY_NEGLIGIBLE, 1
+  field :HARM_SEVERITY_LOW, 2
+  field :HARM_SEVERITY_MEDIUM, 3
+  field :HARM_SEVERITY_HIGH, 4
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Candidate.FinishReason do
   @moduledoc false
 
@@ -45,6 +57,9 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate.FinishReason do
   field :SAFETY, 3
   field :RECITATION, 4
   field :OTHER, 5
+  field :BLOCKLIST, 6
+  field :PROHIBITED_CONTENT, 7
+  field :SPII, 8
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Content do
@@ -182,6 +197,14 @@ defmodule Google.Cloud.Aiplatform.V1.SafetyRating do
     enum: true,
     deprecated: false
 
+  field :probability_score, 5, type: :float, json_name: "probabilityScore", deprecated: false
+
+  field :severity, 6,
+    type: Google.Cloud.Aiplatform.V1.SafetyRating.HarmSeverity,
+    enum: true,
+    deprecated: false
+
+  field :severity_score, 7, type: :float, json_name: "severityScore", deprecated: false
   field :blocked, 3, type: :bool, deprecated: false
 end
 
@@ -242,5 +265,68 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
   field :citation_metadata, 6,
     type: Google.Cloud.Aiplatform.V1.CitationMetadata,
     json_name: "citationMetadata",
+    deprecated: false
+
+  field :grounding_metadata, 7,
+    type: Google.Cloud.Aiplatform.V1.GroundingMetadata,
+    json_name: "groundingMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Segment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
+  field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
+  field :end_index, 3, type: :int32, json_name: "endIndex", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingAttribution.Web do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingAttribution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :reference, 0
+
+  field :web, 3,
+    type: Google.Cloud.Aiplatform.V1.GroundingAttribution.Web,
+    oneof: 0,
+    deprecated: false
+
+  field :segment, 1, type: Google.Cloud.Aiplatform.V1.Segment, deprecated: false
+
+  field :confidence_score, 2,
+    proto3_optional: true,
+    type: :float,
+    json_name: "confidenceScore",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :web_search_queries, 1,
+    repeated: true,
+    type: :string,
+    json_name: "webSearchQueries",
+    deprecated: false
+
+  field :grounding_attributions, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.GroundingAttribution,
+    json_name: "groundingAttributions",
     deprecated: false
 end
