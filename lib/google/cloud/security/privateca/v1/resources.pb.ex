@@ -540,6 +540,11 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateTemplate do
 
   field :name, 1, type: :string, deprecated: false
 
+  field :maximum_lifetime, 9,
+    type: Google.Protobuf.Duration,
+    json_name: "maximumLifetime",
+    deprecated: false
+
   field :predefined_values, 2,
     type: Google.Cloud.Security.Privateca.V1.X509Parameters,
     json_name: "predefinedValues",
@@ -710,6 +715,14 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig.SubjectConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig.KeyId do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_id, 1, type: :string, json_name: "keyId", deprecated: false
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig do
   @moduledoc false
 
@@ -728,6 +741,11 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateConfig do
   field :public_key, 3,
     type: Google.Cloud.Security.Privateca.V1.PublicKey,
     json_name: "publicKey",
+    deprecated: false
+
+  field :subject_key_id, 4,
+    type: Google.Cloud.Security.Privateca.V1.CertificateConfig.KeyId,
+    json_name: "subjectKeyId",
     deprecated: false
 end
 
