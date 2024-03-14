@@ -15,4 +15,8 @@ defmodule Grafeas.V1.BuildOccurrence do
   field :provenance_bytes, 2, type: :string, json_name: "provenanceBytes"
   field :intoto_provenance, 3, type: Grafeas.V1.InTotoProvenance, json_name: "intotoProvenance"
   field :intoto_statement, 4, type: Grafeas.V1.InTotoStatement, json_name: "intotoStatement"
+
+  field :in_toto_slsa_provenance_v1, 5,
+    type: Grafeas.V1.InTotoSlsaProvenanceV1,
+    json_name: "inTotoSlsaProvenanceV1"
 end

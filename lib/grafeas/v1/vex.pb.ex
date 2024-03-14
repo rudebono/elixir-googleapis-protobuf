@@ -90,7 +90,8 @@ defmodule Grafeas.V1.VulnerabilityAssessmentNote.Assessment do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :cve, 1, type: :string
+  field :cve, 1, type: :string, deprecated: true
+  field :vulnerability_id, 9, type: :string, json_name: "vulnerabilityId"
   field :short_description, 2, type: :string, json_name: "shortDescription"
   field :long_description, 3, type: :string, json_name: "longDescription"
   field :related_uris, 4, repeated: true, type: Grafeas.V1.RelatedUrl, json_name: "relatedUris"

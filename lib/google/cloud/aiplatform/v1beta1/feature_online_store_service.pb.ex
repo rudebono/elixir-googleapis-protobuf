@@ -103,6 +103,42 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse do
     oneof: 0
 
   field :proto_struct, 2, type: Google.Protobuf.Struct, json_name: "protoStruct", oneof: 0
+
+  field :data_key, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKey"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
+
+  field :data_keys, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKeys"
+
+  field :data_format, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataFormat,
+    json_name: "dataFormat",
+    enum: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :status, 1, type: Google.Rpc.Status
+  field :data, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse
+
+  field :data_keys_with_error, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKeysWithError"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.Embedding do
@@ -230,6 +266,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStoreService.Service do
   rpc :FetchFeatureValues,
       Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest,
       Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse
+
+  rpc :StreamingFetchFeatureValues,
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesRequest),
+      stream(Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesResponse)
 
   rpc :SearchNearestEntities,
       Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesRequest,

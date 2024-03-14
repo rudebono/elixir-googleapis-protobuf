@@ -41,6 +41,14 @@ defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.LookerColumnSpec do
     enum: true
 end
 
+defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.FieldElementType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema do
   @moduledoc false
 
@@ -70,6 +78,11 @@ defmodule Google.Cloud.Datacatalog.V1.ColumnSchema do
     type: Google.Cloud.Datacatalog.V1.ColumnSchema.LookerColumnSpec,
     json_name: "lookerColumnSpec",
     oneof: 0
+
+  field :range_element_type, 19,
+    type: Google.Cloud.Datacatalog.V1.ColumnSchema.FieldElementType,
+    json_name: "rangeElementType",
+    deprecated: false
 
   field :gc_rule, 11, type: :string, json_name: "gcRule", deprecated: false
 end

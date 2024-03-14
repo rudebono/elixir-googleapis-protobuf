@@ -291,6 +291,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
     json_name: "suggestionInput",
     oneof: 0
 
+  field :intent_input, 13,
+    type: Google.Cloud.Dialogflow.V2beta1.IntentInput,
+    json_name: "intentInput",
+    oneof: 0
+
   field :reply_audio_config, 5,
     type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig,
     json_name: "replyAudioConfig"
@@ -389,6 +394,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
     type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents,
     json_name: "inputDtmf",
     oneof: 1
+
+  field :input_intent, 17, type: :string, json_name: "inputIntent", oneof: 1
+  field :input_event, 20, type: :string, json_name: "inputEvent", oneof: 1
 
   field :query_params, 7,
     type: Google.Cloud.Dialogflow.V2beta1.QueryParameters,
