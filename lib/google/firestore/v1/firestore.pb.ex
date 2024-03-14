@@ -188,6 +188,11 @@ defmodule Google.Firestore.V1.RunQueryRequest do
     oneof: 1
 
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
+
+  field :explain_options, 10,
+    type: Google.Firestore.V1.ExplainOptions,
+    json_name: "explainOptions",
+    deprecated: false
 end
 
 defmodule Google.Firestore.V1.RunQueryResponse do
@@ -202,6 +207,10 @@ defmodule Google.Firestore.V1.RunQueryResponse do
   field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :skipped_results, 4, type: :int32, json_name: "skippedResults"
   field :done, 6, type: :bool, oneof: 0
+
+  field :explain_metrics, 11,
+    type: Google.Firestore.V1.ExplainMetrics,
+    json_name: "explainMetrics"
 end
 
 defmodule Google.Firestore.V1.RunAggregationQueryRequest do
@@ -228,6 +237,11 @@ defmodule Google.Firestore.V1.RunAggregationQueryRequest do
     oneof: 1
 
   field :read_time, 6, type: Google.Protobuf.Timestamp, json_name: "readTime", oneof: 1
+
+  field :explain_options, 8,
+    type: Google.Firestore.V1.ExplainOptions,
+    json_name: "explainOptions",
+    deprecated: false
 end
 
 defmodule Google.Firestore.V1.RunAggregationQueryResponse do
@@ -238,6 +252,10 @@ defmodule Google.Firestore.V1.RunAggregationQueryResponse do
   field :result, 1, type: Google.Firestore.V1.AggregationResult
   field :transaction, 2, type: :bytes
   field :read_time, 3, type: Google.Protobuf.Timestamp, json_name: "readTime"
+
+  field :explain_metrics, 10,
+    type: Google.Firestore.V1.ExplainMetrics,
+    json_name: "explainMetrics"
 end
 
 defmodule Google.Firestore.V1.PartitionQueryRequest do
