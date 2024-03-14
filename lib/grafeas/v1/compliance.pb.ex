@@ -14,6 +14,8 @@ defmodule Grafeas.V1.ComplianceNote do
 
   oneof :compliance_type, 0
 
+  oneof :potential_impact, 1
+
   field :title, 1, type: :string
   field :description, 2, type: :string
   field :version, 3, repeated: true, type: Grafeas.V1.ComplianceVersion
@@ -26,6 +28,7 @@ defmodule Grafeas.V1.ComplianceNote do
     oneof: 0
 
   field :scan_instructions, 7, type: :bytes, json_name: "scanInstructions"
+  field :impact, 8, type: :string, oneof: 1
 end
 
 defmodule Grafeas.V1.ComplianceVersion do

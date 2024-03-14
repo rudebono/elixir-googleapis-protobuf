@@ -27,6 +27,11 @@ defmodule Grafeas.V1.Occurrence do
     json_name: "dsseAttestation",
     oneof: 0
 
+  field :sbom_reference, 19,
+    type: Grafeas.V1.SBOMReferenceOccurrence,
+    json_name: "sbomReference",
+    oneof: 0
+
   field :envelope, 18, type: Grafeas.V1.Envelope
 end
 
@@ -64,6 +69,11 @@ defmodule Grafeas.V1.Note do
   field :vulnerability_assessment, 20,
     type: Grafeas.V1.VulnerabilityAssessmentNote,
     json_name: "vulnerabilityAssessment",
+    oneof: 0
+
+  field :sbom_reference, 21,
+    type: Grafeas.V1.SBOMReferenceNote,
+    json_name: "sbomReference",
     oneof: 0
 end
 

@@ -15,6 +15,7 @@ defmodule Grafeas.V1.NoteKind do
   field :COMPLIANCE, 9
   field :DSSE_ATTESTATION, 10
   field :VULNERABILITY_ASSESSMENT, 11
+  field :SBOM_REFERENCE, 12
 end
 
 defmodule Grafeas.V1.RelatedUrl do

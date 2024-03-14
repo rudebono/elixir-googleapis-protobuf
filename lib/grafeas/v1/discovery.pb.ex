@@ -22,6 +22,16 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisStatus do
   field :FINISHED_UNSUPPORTED, 5
 end
 
+defmodule Grafeas.V1.DiscoveryOccurrence.SBOMStatus.SBOMState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SBOM_STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :COMPLETE, 2
+end
+
 defmodule Grafeas.V1.DiscoveryNote do
   @moduledoc false
 
@@ -36,6 +46,19 @@ defmodule Grafeas.V1.DiscoveryOccurrence.AnalysisCompleted do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :analysis_type, 1, repeated: true, type: :string, json_name: "analysisType"
+end
+
+defmodule Grafeas.V1.DiscoveryOccurrence.SBOMStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sbom_state, 1,
+    type: Grafeas.V1.DiscoveryOccurrence.SBOMStatus.SBOMState,
+    json_name: "sbomState",
+    enum: true
+
+  field :error, 2, type: :string
 end
 
 defmodule Grafeas.V1.DiscoveryOccurrence do
@@ -66,4 +89,6 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
     type: Google.Protobuf.Timestamp,
     json_name: "archiveTime",
     deprecated: false
+
+  field :sbom_status, 9, type: Grafeas.V1.DiscoveryOccurrence.SBOMStatus, json_name: "sbomStatus"
 end

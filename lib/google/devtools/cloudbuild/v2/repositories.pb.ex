@@ -63,6 +63,16 @@ defmodule Google.Devtools.Cloudbuild.V2.Connection do
     json_name: "gitlabConfig",
     oneof: 0
 
+  field :bitbucket_data_center_config, 8,
+    type: Google.Devtools.Cloudbuild.V2.BitbucketDataCenterConfig,
+    json_name: "bitbucketDataCenterConfig",
+    oneof: 0
+
+  field :bitbucket_cloud_config, 9,
+    type: Google.Devtools.Cloudbuild.V2.BitbucketCloudConfig,
+    json_name: "bitbucketCloudConfig",
+    oneof: 0
+
   field :installation_state, 12,
     type: Google.Devtools.Cloudbuild.V2.InstallationState,
     json_name: "installationState",
@@ -182,6 +192,60 @@ defmodule Google.Devtools.Cloudbuild.V2.GitLabConfig do
 
   field :ssl_ca, 6, type: :string, json_name: "sslCa"
   field :server_version, 7, type: :string, json_name: "serverVersion", deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V2.BitbucketDataCenterConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :host_uri, 1, type: :string, json_name: "hostUri", deprecated: false
+
+  field :webhook_secret_secret_version, 2,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :read_authorizer_credential, 3,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "readAuthorizerCredential",
+    deprecated: false
+
+  field :authorizer_credential, 4,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "authorizerCredential",
+    deprecated: false
+
+  field :service_directory_config, 5,
+    type: Google.Devtools.Cloudbuild.V2.ServiceDirectoryConfig,
+    json_name: "serviceDirectoryConfig",
+    deprecated: false
+
+  field :ssl_ca, 6, type: :string, json_name: "sslCa", deprecated: false
+  field :server_version, 7, type: :string, json_name: "serverVersion", deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V2.BitbucketCloudConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :workspace, 1, type: :string, deprecated: false
+
+  field :webhook_secret_secret_version, 2,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :read_authorizer_credential, 3,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "readAuthorizerCredential",
+    deprecated: false
+
+  field :authorizer_credential, 4,
+    type: Google.Devtools.Cloudbuild.V2.UserCredential,
+    json_name: "authorizerCredential",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V2.ServiceDirectoryConfig do

@@ -107,6 +107,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do
   field :display_time, 6, type: Google.Protobuf.Timestamp, json_name: "displayTime"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback.TextSectionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback do
   @moduledoc false
 
@@ -115,6 +124,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFe
   field :start_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "startTimestamp"
   field :submit_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "submitTimestamp"
   field :summary_text, 3, type: :string, json_name: "summaryText"
+
+  field :text_sections, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.SummarizationFeedback.TextSectionsEntry,
+    json_name: "textSections",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.KnowledgeSearchFeedback do
