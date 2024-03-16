@@ -1,14 +1,4 @@
-defmodule Google.Cloud.Networkservices.V1beta1.LoadBalancingScheme do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :LOAD_BALANCING_SCHEME_UNSPECIFIED, 0
-  field :INTERNAL_MANAGED, 1
-  field :EXTERNAL_MANAGED, 2
-end
-
-defmodule Google.Cloud.Networkservices.V1beta1.ExtensionChain.Extension.EventType do
+defmodule Google.Cloud.Networkservices.V1beta1.EventType do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -18,6 +8,18 @@ defmodule Google.Cloud.Networkservices.V1beta1.ExtensionChain.Extension.EventTyp
   field :REQUEST_BODY, 2
   field :RESPONSE_HEADERS, 3
   field :RESPONSE_BODY, 4
+  field :REQUEST_TRAILERS, 5
+  field :RESPONSE_TRAILERS, 6
+end
+
+defmodule Google.Cloud.Networkservices.V1beta1.LoadBalancingScheme do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LOAD_BALANCING_SCHEME_UNSPECIFIED, 0
+  field :INTERNAL_MANAGED, 1
+  field :EXTERNAL_MANAGED, 2
 end
 
 defmodule Google.Cloud.Networkservices.V1beta1.ExtensionChain.MatchCondition do
@@ -39,7 +41,7 @@ defmodule Google.Cloud.Networkservices.V1beta1.ExtensionChain.Extension do
 
   field :supported_events, 4,
     repeated: true,
-    type: Google.Cloud.Networkservices.V1beta1.ExtensionChain.Extension.EventType,
+    type: Google.Cloud.Networkservices.V1beta1.EventType,
     json_name: "supportedEvents",
     enum: true,
     deprecated: false
