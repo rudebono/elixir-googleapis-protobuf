@@ -156,6 +156,27 @@ defmodule Google.Firestore.Admin.V1.ExportDocumentsResponse do
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix"
 end
 
+defmodule Google.Firestore.Admin.V1.RestoreDatabaseMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :operation_state, 3,
+    type: Google.Firestore.Admin.V1.OperationState,
+    json_name: "operationState",
+    enum: true
+
+  field :database, 4, type: :string, deprecated: false
+  field :backup, 5, type: :string, deprecated: false
+
+  field :progress_percentage, 8,
+    type: Google.Firestore.Admin.V1.Progress,
+    json_name: "progressPercentage"
+end
+
 defmodule Google.Firestore.Admin.V1.Progress do
   @moduledoc false
 

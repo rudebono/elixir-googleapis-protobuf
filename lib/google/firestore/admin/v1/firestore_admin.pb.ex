@@ -69,6 +69,67 @@ defmodule Google.Firestore.Admin.V1.DeleteDatabaseMetadata do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Firestore.Admin.V1.CreateBackupScheduleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :backup_schedule, 2,
+    type: Google.Firestore.Admin.V1.BackupSchedule,
+    json_name: "backupSchedule",
+    deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.GetBackupScheduleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.UpdateBackupScheduleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_schedule, 1,
+    type: Google.Firestore.Admin.V1.BackupSchedule,
+    json_name: "backupSchedule",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Firestore.Admin.V1.ListBackupSchedulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ListBackupSchedulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backup_schedules, 1,
+    repeated: true,
+    type: Google.Firestore.Admin.V1.BackupSchedule,
+    json_name: "backupSchedules"
+end
+
+defmodule Google.Firestore.Admin.V1.DeleteBackupScheduleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Firestore.Admin.V1.CreateIndexRequest do
   @moduledoc false
 
@@ -174,6 +235,49 @@ defmodule Google.Firestore.Admin.V1.ImportDocumentsRequest do
   field :namespace_ids, 4, repeated: true, type: :string, json_name: "namespaceIds"
 end
 
+defmodule Google.Firestore.Admin.V1.GetBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ListBackupsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ListBackupsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :backups, 1, repeated: true, type: Google.Firestore.Admin.V1.Backup
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Firestore.Admin.V1.DeleteBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :database_id, 2, type: :string, json_name: "databaseId", deprecated: false
+  field :backup, 3, type: :string, deprecated: false
+end
+
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
   @moduledoc false
 
@@ -226,6 +330,38 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
   rpc :DeleteDatabase,
       Google.Firestore.Admin.V1.DeleteDatabaseRequest,
       Google.Longrunning.Operation
+
+  rpc :GetBackup, Google.Firestore.Admin.V1.GetBackupRequest, Google.Firestore.Admin.V1.Backup
+
+  rpc :ListBackups,
+      Google.Firestore.Admin.V1.ListBackupsRequest,
+      Google.Firestore.Admin.V1.ListBackupsResponse
+
+  rpc :DeleteBackup, Google.Firestore.Admin.V1.DeleteBackupRequest, Google.Protobuf.Empty
+
+  rpc :RestoreDatabase,
+      Google.Firestore.Admin.V1.RestoreDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateBackupSchedule,
+      Google.Firestore.Admin.V1.CreateBackupScheduleRequest,
+      Google.Firestore.Admin.V1.BackupSchedule
+
+  rpc :GetBackupSchedule,
+      Google.Firestore.Admin.V1.GetBackupScheduleRequest,
+      Google.Firestore.Admin.V1.BackupSchedule
+
+  rpc :ListBackupSchedules,
+      Google.Firestore.Admin.V1.ListBackupSchedulesRequest,
+      Google.Firestore.Admin.V1.ListBackupSchedulesResponse
+
+  rpc :UpdateBackupSchedule,
+      Google.Firestore.Admin.V1.UpdateBackupScheduleRequest,
+      Google.Firestore.Admin.V1.BackupSchedule
+
+  rpc :DeleteBackupSchedule,
+      Google.Firestore.Admin.V1.DeleteBackupScheduleRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Stub do

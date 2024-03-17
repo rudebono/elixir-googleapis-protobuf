@@ -92,6 +92,16 @@ defmodule Google.Ai.Generativelanguage.V1beta.Hyperparameters do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :learning_rate_option, 0
+
+  field :learning_rate, 16, type: :float, json_name: "learningRate", oneof: 0, deprecated: false
+
+  field :learning_rate_multiplier, 17,
+    type: :float,
+    json_name: "learningRateMultiplier",
+    oneof: 0,
+    deprecated: false
+
   field :epoch_count, 14,
     proto3_optional: true,
     type: :int32,
@@ -102,12 +112,6 @@ defmodule Google.Ai.Generativelanguage.V1beta.Hyperparameters do
     proto3_optional: true,
     type: :int32,
     json_name: "batchSize",
-    deprecated: false
-
-  field :learning_rate, 16,
-    proto3_optional: true,
-    type: :float,
-    json_name: "learningRate",
     deprecated: false
 end
 
