@@ -74,6 +74,18 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DcrExch
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :single_selected_resource_sharing_restriction, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "singleSelectedResourceSharingRestriction",
+    deprecated: false
+
+  field :single_linked_dataset_per_cleanroom, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "singleLinkedDatasetPerCleanroom",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig do
@@ -156,12 +168,28 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset do
   field :location, 5, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.SelectedResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource, 0
+
+  field :table, 1, type: :string, oneof: 0, deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
+
+  field :selected_resources, 2,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.SelectedResource,
+    json_name: "selectedResources",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig do

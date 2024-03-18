@@ -6,6 +6,7 @@ defmodule Google.Chat.V1.AnnotationType do
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :USER_MENTION, 1
   field :SLASH_COMMAND, 2
+  field :RICH_LINK, 3
 end
 
 defmodule Google.Chat.V1.UserMentionMetadata.Type do
@@ -28,6 +29,15 @@ defmodule Google.Chat.V1.SlashCommandMetadata.Type do
   field :INVOKE, 2
 end
 
+defmodule Google.Chat.V1.RichLinkMetadata.RichLinkType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RICH_LINK_TYPE_UNSPECIFIED, 0
+  field :DRIVE_FILE, 1
+end
+
 defmodule Google.Chat.V1.Annotation do
   @moduledoc false
 
@@ -47,6 +57,11 @@ defmodule Google.Chat.V1.Annotation do
   field :slash_command, 5,
     type: Google.Chat.V1.SlashCommandMetadata,
     json_name: "slashCommand",
+    oneof: 0
+
+  field :rich_link_metadata, 6,
+    type: Google.Chat.V1.RichLinkMetadata,
+    json_name: "richLinkMetadata",
     oneof: 0
 end
 
@@ -69,4 +84,33 @@ defmodule Google.Chat.V1.SlashCommandMetadata do
   field :command_name, 3, type: :string, json_name: "commandName"
   field :command_id, 4, type: :int64, json_name: "commandId"
   field :triggers_dialog, 5, type: :bool, json_name: "triggersDialog"
+end
+
+defmodule Google.Chat.V1.RichLinkMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :data, 0
+
+  field :uri, 1, type: :string
+
+  field :rich_link_type, 2,
+    type: Google.Chat.V1.RichLinkMetadata.RichLinkType,
+    json_name: "richLinkType",
+    enum: true
+
+  field :drive_link_data, 3,
+    type: Google.Chat.V1.DriveLinkData,
+    json_name: "driveLinkData",
+    oneof: 0
+end
+
+defmodule Google.Chat.V1.DriveLinkData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :drive_data_ref, 1, type: Google.Chat.V1.DriveDataRef, json_name: "driveDataRef"
+  field :mime_type, 2, type: :string, json_name: "mimeType"
 end
