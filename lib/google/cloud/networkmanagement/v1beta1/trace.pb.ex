@@ -183,6 +183,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   field :PSC_VPC_SC, 8
   field :SERVERLESS_NEG, 9
   field :STORAGE_BUCKET, 10
+  field :PRIVATE_NETWORK, 11
+  field :CLOUD_FUNCTION, 12
+  field :APP_ENGINE_VERSION, 13
+  field :CLOUD_RUN_REVISION, 14
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
@@ -199,6 +203,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   field :CLOUD_SQL_INSTANCE, 6
   field :ANOTHER_PROJECT, 7
   field :NCC_HUB, 8
+  field :ROUTER_APPLIANCE, 9
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
@@ -208,26 +213,36 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
 
   field :CAUSE_UNSPECIFIED, 0
   field :UNKNOWN_NETWORK, 1
-  field :UNKNOWN_IP, 2
   field :UNKNOWN_PROJECT, 3
-  field :PERMISSION_DENIED, 4
-  field :NO_SOURCE_LOCATION, 5
-  field :INVALID_ARGUMENT, 6
   field :NO_EXTERNAL_IP, 7
   field :UNINTENDED_DESTINATION, 8
-  field :TRACE_TOO_LONG, 9
-  field :INTERNAL_ERROR, 10
   field :SOURCE_ENDPOINT_NOT_FOUND, 11
   field :MISMATCHED_SOURCE_NETWORK, 12
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
+  field :UNKNOWN_IP, 2
+  field :SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK, 23
+  field :PERMISSION_DENIED, 4
+  field :PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS, 28
+  field :PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS, 29
+  field :NO_SOURCE_LOCATION, 5
+  field :INVALID_ARGUMENT, 6
+  field :TRACE_TOO_LONG, 9
+  field :INTERNAL_ERROR, 10
   field :UNSUPPORTED, 15
   field :MISMATCHED_IP_VERSION, 16
   field :GKE_KONNECTIVITY_PROXY_UNSUPPORTED, 17
   field :RESOURCE_CONFIG_NOT_FOUND, 18
+  field :VM_INSTANCE_CONFIG_NOT_FOUND, 24
+  field :NETWORK_CONFIG_NOT_FOUND, 25
+  field :FIREWALL_CONFIG_NOT_FOUND, 26
+  field :ROUTE_CONFIG_NOT_FOUND, 27
   field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT, 19
   field :SOURCE_PSC_CLOUD_SQL_UNSUPPORTED, 20
   field :SOURCE_FORWARDING_RULE_UNSUPPORTED, 21
+  field :NON_ROUTABLE_IP_ADDRESS, 22
+  field :UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT, 30
+  field :UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG, 31
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
@@ -242,12 +257,22 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :NO_ROUTE, 4
   field :ROUTE_BLACKHOLE, 5
   field :ROUTE_WRONG_NETWORK, 6
+  field :ROUTE_NEXT_HOP_IP_ADDRESS_NOT_RESOLVED, 42
+  field :ROUTE_NEXT_HOP_RESOURCE_NOT_FOUND, 43
+  field :ROUTE_NEXT_HOP_INSTANCE_WRONG_NETWORK, 49
+  field :ROUTE_NEXT_HOP_INSTANCE_NON_PRIMARY_IP, 50
+  field :ROUTE_NEXT_HOP_FORWARDING_RULE_IP_MISMATCH, 51
+  field :ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED, 52
+  field :ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID, 53
+  field :NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS, 44
+  field :VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH, 45
+  field :VPN_TUNNEL_REMOTE_SELECTOR_MISMATCH, 46
   field :PRIVATE_TRAFFIC_TO_INTERNET, 7
   field :PRIVATE_GOOGLE_ACCESS_DISALLOWED, 8
+  field :PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED, 47
   field :NO_EXTERNAL_ADDRESS, 9
   field :UNKNOWN_INTERNAL_ADDRESS, 10
   field :FORWARDING_RULE_MISMATCH, 11
-  field :FORWARDING_RULE_REGION_MISMATCH, 25
   field :FORWARDING_RULE_NO_INSTANCES, 12
   field :FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK, 13
   field :INSTANCE_NOT_RUNNING, 14
@@ -271,10 +296,20 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :CLOUD_FUNCTION_NOT_ACTIVE, 22
   field :VPC_CONNECTOR_NOT_SET, 23
   field :VPC_CONNECTOR_NOT_RUNNING, 24
+  field :FORWARDING_RULE_REGION_MISMATCH, 25
   field :PSC_CONNECTION_NOT_ACCEPTED, 26
+  field :PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK, 41
+  field :PSC_NEG_PRODUCER_ENDPOINT_NO_GLOBAL_ACCESS, 48
+  field :PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS, 54
+  field :CLOUD_SQL_PSC_NEG_UNSUPPORTED, 58
+  field :NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT, 57
+  field :HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED, 55
+  field :HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED, 56
   field :CLOUD_RUN_REVISION_NOT_READY, 29
   field :DROPPED_INSIDE_PSC_SERVICE_PRODUCER, 37
   field :LOAD_BALANCER_HAS_NO_PROXY_SUBNET, 39
+  field :CLOUD_NAT_NO_ADDRESSES, 40
+  field :ROUTING_LOOP, 59
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.NatInfo.Type do
@@ -625,6 +660,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo do
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
+  field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo do
@@ -634,6 +670,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo do
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
+  field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo do
@@ -643,6 +680,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo do
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
+  field :ip_address, 4, type: :string, json_name: "ipAddress", deprecated: false
 
   field :projects_missing_permission, 3,
     repeated: true,
@@ -657,6 +695,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo do
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
+  field :source_ip, 3, type: :string, json_name: "sourceIp"
+  field :destination_ip, 4, type: :string, json_name: "destinationIp"
+  field :region, 5, type: :string
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.GKEMasterInfo do
