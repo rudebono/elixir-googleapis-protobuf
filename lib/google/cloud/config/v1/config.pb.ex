@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Config.V1.QuotaValidation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :QUOTA_VALIDATION_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :ENFORCED, 2
+end
+
 defmodule Google.Cloud.Config.V1.Deployment.State do
   @moduledoc false
 
@@ -82,6 +92,7 @@ defmodule Google.Cloud.Config.V1.Revision.ErrorCode do
   field :CLOUD_BUILD_PERMISSION_DENIED, 1
   field :APPLY_BUILD_API_FAILED, 4
   field :APPLY_BUILD_RUN_FAILED, 5
+  field :QUOTA_VALIDATION_FAILED, 7
 end
 
 defmodule Google.Cloud.Config.V1.DeploymentOperationMetadata.DeploymentStep do
@@ -100,6 +111,8 @@ defmodule Google.Cloud.Config.V1.DeploymentOperationMetadata.DeploymentStep do
   field :UNLOCKING_DEPLOYMENT, 8
   field :SUCCEEDED, 9
   field :FAILED, 10
+  field :VALIDATING_REPOSITORY, 11
+  field :RUNNING_QUOTA_VALIDATION, 12
 end
 
 defmodule Google.Cloud.Config.V1.Resource.Intent do
@@ -181,6 +194,18 @@ defmodule Google.Cloud.Config.V1.PreviewOperationMetadata.PreviewStep do
   field :UNLOCKING_DEPLOYMENT, 7
   field :SUCCEEDED, 8
   field :FAILED, 9
+  field :VALIDATING_REPOSITORY, 10
+end
+
+defmodule Google.Cloud.Config.V1.TerraformVersion.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :DEPRECATED, 2
+  field :OBSOLETE, 3
 end
 
 defmodule Google.Cloud.Config.V1.Deployment.LabelsEntry do
@@ -269,6 +294,20 @@ defmodule Google.Cloud.Config.V1.Deployment do
   field :lock_state, 20,
     type: Google.Cloud.Config.V1.Deployment.LockState,
     json_name: "lockState",
+    enum: true,
+    deprecated: false
+
+  field :tf_version_constraint, 21,
+    proto3_optional: true,
+    type: :string,
+    json_name: "tfVersionConstraint",
+    deprecated: false
+
+  field :tf_version, 22, type: :string, json_name: "tfVersion", deprecated: false
+
+  field :quota_validation, 23,
+    type: Google.Cloud.Config.V1.QuotaValidation,
+    json_name: "quotaValidation",
     enum: true,
     deprecated: false
 end
@@ -541,6 +580,24 @@ defmodule Google.Cloud.Config.V1.Revision do
     deprecated: false
 
   field :worker_pool, 17, type: :string, json_name: "workerPool", deprecated: false
+
+  field :tf_version_constraint, 18,
+    type: :string,
+    json_name: "tfVersionConstraint",
+    deprecated: false
+
+  field :tf_version, 19, type: :string, json_name: "tfVersion", deprecated: false
+
+  field :quota_validation_results, 29,
+    type: :string,
+    json_name: "quotaValidationResults",
+    deprecated: false
+
+  field :quota_validation, 20,
+    type: Google.Cloud.Config.V1.QuotaValidation,
+    json_name: "quotaValidation",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.TerraformError do
@@ -921,6 +978,70 @@ defmodule Google.Cloud.Config.V1.PreviewResult do
   field :json_signed_uri, 2, type: :string, json_name: "jsonSignedUri", deprecated: false
 end
 
+defmodule Google.Cloud.Config.V1.GetTerraformVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListTerraformVersionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListTerraformVersionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :terraform_versions, 1,
+    repeated: true,
+    type: Google.Cloud.Config.V1.TerraformVersion,
+    json_name: "terraformVersions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Config.V1.TerraformVersion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :state, 2,
+    type: Google.Cloud.Config.V1.TerraformVersion.State,
+    enum: true,
+    deprecated: false
+
+  field :support_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "supportTime",
+    deprecated: false
+
+  field :deprecate_time, 4,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deprecateTime",
+    deprecated: false
+
+  field :obsolete_time, 5,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "obsoleteTime",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Config.V1.Config.Service do
   @moduledoc false
 
@@ -995,6 +1116,14 @@ defmodule Google.Cloud.Config.V1.Config.Service do
   rpc :ExportPreviewResult,
       Google.Cloud.Config.V1.ExportPreviewResultRequest,
       Google.Cloud.Config.V1.ExportPreviewResultResponse
+
+  rpc :ListTerraformVersions,
+      Google.Cloud.Config.V1.ListTerraformVersionsRequest,
+      Google.Cloud.Config.V1.ListTerraformVersionsResponse
+
+  rpc :GetTerraformVersion,
+      Google.Cloud.Config.V1.GetTerraformVersionRequest,
+      Google.Cloud.Config.V1.TerraformVersion
 end
 
 defmodule Google.Cloud.Config.V1.Config.Stub do

@@ -15,6 +15,7 @@ defmodule Google.Cloud.Certificatemanager.V1.Certificate.Scope do
 
   field :DEFAULT, 0
   field :EDGE_CACHE, 1
+  field :ALL_REGIONS, 2
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.Certificate.ManagedCertificate.State do
@@ -67,6 +68,16 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateMapEntry.Matcher do
 
   field :MATCHER_UNSPECIFIED, 0
   field :PRIMARY, 1
+end
+
+defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :FIXED_RECORD, 1
+  field :PER_PROJECT_RECORD, 2
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificatesRequest do
@@ -680,6 +691,11 @@ defmodule Google.Cloud.Certificatemanager.V1.DnsAuthorization do
     type: Google.Cloud.Certificatemanager.V1.DnsAuthorization.DnsResourceRecord,
     json_name: "dnsResourceRecord",
     deprecated: false
+
+  field :type, 11,
+    type: Google.Cloud.Certificatemanager.V1.DnsAuthorization.Type,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Certificatemanager.V1.CertificateManager.Service do
@@ -783,6 +799,26 @@ defmodule Google.Cloud.Certificatemanager.V1.CertificateManager.Service do
 
   rpc :DeleteCertificateIssuanceConfig,
       Google.Cloud.Certificatemanager.V1.DeleteCertificateIssuanceConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListTrustConfigs,
+      Google.Cloud.Certificatemanager.V1.ListTrustConfigsRequest,
+      Google.Cloud.Certificatemanager.V1.ListTrustConfigsResponse
+
+  rpc :GetTrustConfig,
+      Google.Cloud.Certificatemanager.V1.GetTrustConfigRequest,
+      Google.Cloud.Certificatemanager.V1.TrustConfig
+
+  rpc :CreateTrustConfig,
+      Google.Cloud.Certificatemanager.V1.CreateTrustConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateTrustConfig,
+      Google.Cloud.Certificatemanager.V1.UpdateTrustConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteTrustConfig,
+      Google.Cloud.Certificatemanager.V1.DeleteTrustConfigRequest,
       Google.Longrunning.Operation
 end
 
