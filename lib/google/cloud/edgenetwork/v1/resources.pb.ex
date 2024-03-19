@@ -66,8 +66,13 @@ defmodule Google.Cloud.Edgenetwork.V1.Zone do
     json_name: "updateTime",
     deprecated: false
 
-  field :labels, 4, repeated: true, type: Google.Cloud.Edgenetwork.V1.Zone.LabelsEntry, map: true
-  field :layout_name, 5, type: :string, json_name: "layoutName"
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Edgenetwork.V1.Zone.LabelsEntry,
+    map: true,
+    deprecated: true
+
+  field :layout_name, 5, type: :string, json_name: "layoutName", deprecated: true
 end
 
 defmodule Google.Cloud.Edgenetwork.V1.Network.LabelsEntry do
