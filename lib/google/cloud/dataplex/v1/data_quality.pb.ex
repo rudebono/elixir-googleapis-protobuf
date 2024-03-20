@@ -28,6 +28,59 @@ defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExpor
   field :results_table, 1, type: :string, json_name: "resultsTable", deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.Recipients do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :emails, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.ScoreThresholdTrigger do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :score_threshold, 2, type: :float, json_name: "scoreThreshold", deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobFailureTrigger do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobEndTrigger do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.NotificationReport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :recipients, 1,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.Recipients,
+    deprecated: false
+
+  field :score_threshold_trigger, 2,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.ScoreThresholdTrigger,
+    json_name: "scoreThresholdTrigger",
+    deprecated: false
+
+  field :job_failure_trigger, 4,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobFailureTrigger,
+    json_name: "jobFailureTrigger",
+    deprecated: false
+
+  field :job_end_trigger, 5,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobEndTrigger,
+    json_name: "jobEndTrigger",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions do
   @moduledoc false
 
@@ -36,6 +89,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions do
   field :bigquery_export, 1,
     type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExport,
     json_name: "bigqueryExport",
+    deprecated: false
+
+  field :notification_report, 2,
+    type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.NotificationReport,
+    json_name: "notificationReport",
     deprecated: false
 end
 
