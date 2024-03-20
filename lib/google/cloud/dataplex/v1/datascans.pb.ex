@@ -176,6 +176,22 @@ defmodule Google.Cloud.Dataplex.V1.ListDataScanJobsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Dataplex.V1.GenerateDataQualityRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.GenerateDataQualityRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rule, 1, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRule
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataScan.ExecutionSpec do
   @moduledoc false
 
@@ -355,6 +371,10 @@ defmodule Google.Cloud.Dataplex.V1.DataScanService.Service do
   rpc :ListDataScanJobs,
       Google.Cloud.Dataplex.V1.ListDataScanJobsRequest,
       Google.Cloud.Dataplex.V1.ListDataScanJobsResponse
+
+  rpc :GenerateDataQualityRules,
+      Google.Cloud.Dataplex.V1.GenerateDataQualityRulesRequest,
+      Google.Cloud.Dataplex.V1.GenerateDataQualityRulesResponse
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataScanService.Stub do
