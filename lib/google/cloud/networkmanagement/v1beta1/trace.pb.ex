@@ -120,6 +120,9 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.GoogleServiceInfo.GoogleService
   field :IAP, 1
   field :GFE_PROXY_OR_HEALTH_CHECK_PROBER, 2
   field :CLOUD_DNS, 3
+  field :GOOGLE_API, 4
+  field :GOOGLE_API_PSC, 5
+  field :GOOGLE_API_VPC_SC, 6
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo.LoadBalancerType do
