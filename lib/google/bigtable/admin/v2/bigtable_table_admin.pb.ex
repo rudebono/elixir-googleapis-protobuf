@@ -219,8 +219,32 @@ defmodule Google.Bigtable.Admin.V2.CheckConsistencyRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :mode, 0
+
   field :name, 1, type: :string, deprecated: false
   field :consistency_token, 2, type: :string, json_name: "consistencyToken", deprecated: false
+
+  field :standard_read_remote_writes, 3,
+    type: Google.Bigtable.Admin.V2.StandardReadRemoteWrites,
+    json_name: "standardReadRemoteWrites",
+    oneof: 0
+
+  field :data_boost_read_local_writes, 4,
+    type: Google.Bigtable.Admin.V2.DataBoostReadLocalWrites,
+    json_name: "dataBoostReadLocalWrites",
+    oneof: 0
+end
+
+defmodule Google.Bigtable.Admin.V2.StandardReadRemoteWrites do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Bigtable.Admin.V2.DataBoostReadLocalWrites do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.Admin.V2.CheckConsistencyResponse do
