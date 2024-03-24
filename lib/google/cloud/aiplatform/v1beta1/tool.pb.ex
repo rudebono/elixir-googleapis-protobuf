@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :AUTO, 1
+  field :ANY, 2
+  field :NONE, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
   @moduledoc false
 
@@ -74,4 +85,32 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disable_attribution, 1, type: :bool, json_name: "disableAttribution", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ToolConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :function_calling_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig,
+    json_name: "functionCallingConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode,
+    enum: true,
+    deprecated: false
+
+  field :allowed_function_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "allowedFunctionNames",
+    deprecated: false
 end
