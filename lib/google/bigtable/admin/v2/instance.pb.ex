@@ -41,6 +41,15 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.Priority do
   field :PRIORITY_HIGH, 3
 end
 
+defmodule Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly.ComputeBillingOwner do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPUTE_BILLING_OWNER_UNSPECIFIED, 0
+  field :HOST_PAYS, 1
+end
+
 defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   @moduledoc false
 
@@ -182,6 +191,18 @@ defmodule Google.Bigtable.Admin.V2.AppProfile.StandardIsolation do
   field :priority, 1, type: Google.Bigtable.Admin.V2.AppProfile.Priority, enum: true
 end
 
+defmodule Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :compute_billing_owner, 1,
+    proto3_optional: true,
+    type: Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly.ComputeBillingOwner,
+    json_name: "computeBillingOwner",
+    enum: true
+end
+
 defmodule Google.Bigtable.Admin.V2.AppProfile do
   @moduledoc false
 
@@ -214,6 +235,11 @@ defmodule Google.Bigtable.Admin.V2.AppProfile do
   field :standard_isolation, 11,
     type: Google.Bigtable.Admin.V2.AppProfile.StandardIsolation,
     json_name: "standardIsolation",
+    oneof: 1
+
+  field :data_boost_isolation_read_only, 10,
+    type: Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly,
+    json_name: "dataBoostIsolationReadOnly",
     oneof: 1
 end
 

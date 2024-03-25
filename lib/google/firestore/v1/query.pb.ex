@@ -48,6 +48,17 @@ defmodule Google.Firestore.V1.StructuredQuery.UnaryFilter.Operator do
   field :IS_NOT_NULL, 5
 end
 
+defmodule Google.Firestore.V1.StructuredQuery.FindNearest.DistanceMeasure do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DISTANCE_MEASURE_UNSPECIFIED, 0
+  field :EUCLIDEAN, 1
+  field :COSINE, 2
+  field :DOT_PRODUCT, 3
+end
+
 defmodule Google.Firestore.V1.StructuredQuery.CollectionSelector do
   @moduledoc false
 
@@ -135,6 +146,30 @@ defmodule Google.Firestore.V1.StructuredQuery.Projection do
   field :fields, 2, repeated: true, type: Google.Firestore.V1.StructuredQuery.FieldReference
 end
 
+defmodule Google.Firestore.V1.StructuredQuery.FindNearest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :vector_field, 1,
+    type: Google.Firestore.V1.StructuredQuery.FieldReference,
+    json_name: "vectorField",
+    deprecated: false
+
+  field :query_vector, 2,
+    type: Google.Firestore.V1.Value,
+    json_name: "queryVector",
+    deprecated: false
+
+  field :distance_measure, 3,
+    type: Google.Firestore.V1.StructuredQuery.FindNearest.DistanceMeasure,
+    json_name: "distanceMeasure",
+    enum: true,
+    deprecated: false
+
+  field :limit, 4, type: Google.Protobuf.Int32Value, deprecated: false
+end
+
 defmodule Google.Firestore.V1.StructuredQuery do
   @moduledoc false
 
@@ -153,6 +188,11 @@ defmodule Google.Firestore.V1.StructuredQuery do
   field :end_at, 8, type: Google.Firestore.V1.Cursor, json_name: "endAt"
   field :offset, 6, type: :int32
   field :limit, 5, type: Google.Protobuf.Int32Value
+
+  field :find_nearest, 9,
+    type: Google.Firestore.V1.StructuredQuery.FindNearest,
+    json_name: "findNearest",
+    deprecated: false
 end
 
 defmodule Google.Firestore.V1.StructuredAggregationQuery.Aggregation.Count do

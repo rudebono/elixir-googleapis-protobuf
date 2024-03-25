@@ -33,6 +33,23 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Optimized do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.DedicatedServingEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :public_endpoint_domain_name, 2,
+    type: :string,
+    json_name: "publicEndpointDomainName",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.LabelsEntry do
   @moduledoc false
 
@@ -50,6 +67,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore do
   oneof :storage_type, 0
 
   field :bigtable, 8, type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable, oneof: 0
+  field :optimized, 12, type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Optimized, oneof: 0
   field :name, 1, type: :string, deprecated: false
 
   field :create_time, 3,
@@ -73,5 +91,10 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore do
   field :state, 7,
     type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.State,
     enum: true,
+    deprecated: false
+
+  field :dedicated_serving_endpoint, 10,
+    type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.DedicatedServingEndpoint,
+    json_name: "dedicatedServingEndpoint",
     deprecated: false
 end

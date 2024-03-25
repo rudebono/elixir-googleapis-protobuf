@@ -830,6 +830,11 @@ defmodule Google.Container.V1beta1.NodeConfig do
     repeated: true,
     type: Google.Container.V1beta1.SecondaryBootDisk,
     json_name: "secondaryBootDisks"
+
+  field :secondary_boot_disk_update_strategy, 50,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.SecondaryBootDiskUpdateStrategy,
+    json_name: "secondaryBootDiskUpdateStrategy"
 end
 
 defmodule Google.Container.V1beta1.AdvancedMachineFeatures do
@@ -2052,6 +2057,11 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_host_maintenance_policy, 132,
     type: Google.Container.V1beta1.HostMaintenancePolicy,
     json_name: "desiredHostMaintenancePolicy"
+
+  field :desired_enable_multi_networking, 135,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredEnableMultiNetworking"
 
   field :desired_node_pool_auto_config_resource_manager_tags, 136,
     type: Google.Container.V1beta1.ResourceManagerTags,
@@ -3926,6 +3936,12 @@ defmodule Google.Container.V1beta1.SecondaryBootDisk do
 
   field :mode, 1, type: Google.Container.V1beta1.SecondaryBootDisk.Mode, enum: true
   field :disk_image, 2, type: :string, json_name: "diskImage"
+end
+
+defmodule Google.Container.V1beta1.SecondaryBootDiskUpdateStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do

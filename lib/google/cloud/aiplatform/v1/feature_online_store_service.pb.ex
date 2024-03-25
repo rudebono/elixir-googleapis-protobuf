@@ -85,6 +85,7 @@ defmodule Google.Cloud.Aiplatform.V1.FetchFeatureValuesResponse do
     oneof: 0
 
   field :proto_struct, 2, type: Google.Protobuf.Struct, json_name: "protoStruct", oneof: 0
+  field :data_key, 4, type: Google.Cloud.Aiplatform.V1.FeatureViewDataKey, json_name: "dataKey"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NearestNeighborQuery.Embedding do
