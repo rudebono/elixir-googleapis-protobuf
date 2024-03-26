@@ -48,6 +48,26 @@ defmodule Google.Firestore.Admin.V1.Index.IndexField.ArrayConfig do
   field :CONTAINS, 1
 end
 
+defmodule Google.Firestore.Admin.V1.Index.IndexField.VectorConfig.FlatIndex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Firestore.Admin.V1.Index.IndexField.VectorConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :dimension, 1, type: :int32, deprecated: false
+
+  field :flat, 2,
+    type: Google.Firestore.Admin.V1.Index.IndexField.VectorConfig.FlatIndex,
+    oneof: 0
+end
+
 defmodule Google.Firestore.Admin.V1.Index.IndexField do
   @moduledoc false
 
@@ -62,6 +82,11 @@ defmodule Google.Firestore.Admin.V1.Index.IndexField do
     type: Google.Firestore.Admin.V1.Index.IndexField.ArrayConfig,
     json_name: "arrayConfig",
     enum: true,
+    oneof: 0
+
+  field :vector_config, 4,
+    type: Google.Firestore.Admin.V1.Index.IndexField.VectorConfig,
+    json_name: "vectorConfig",
     oneof: 0
 end
 

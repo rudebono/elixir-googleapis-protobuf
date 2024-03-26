@@ -31,6 +31,8 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :START_FROM_CLOUD_FUNCTION, 23
   field :START_FROM_APP_ENGINE_VERSION, 25
   field :START_FROM_CLOUD_RUN_REVISION, 26
+  field :START_FROM_STORAGE_BUCKET, 29
+  field :START_FROM_PSC_PUBLISHED_SERVICE, 30
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -64,6 +66,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
   field :NETWORK_FIREWALL_POLICY_RULE, 5
   field :NETWORK_REGIONAL_FIREWALL_POLICY_RULE, 6
+  field :TRACKING_STATE, 101
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
@@ -349,6 +352,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Trace do
     json_name: "endpointInfo"
 
   field :steps, 2, repeated: true, type: Google.Cloud.Networkmanagement.V1.Step
+  field :forward_trace_id, 4, type: :int32, json_name: "forwardTraceId"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.Step do

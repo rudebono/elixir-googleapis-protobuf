@@ -129,8 +129,8 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :resource_group, 1, type: :string, json_name: "resourceGroup"
-  field :resource_kind, 2, type: :string, json_name: "resourceKind"
+  field :resource_group, 1, type: :string, json_name: "resourceGroup", deprecated: false
+  field :resource_kind, 2, type: :string, json_name: "resourceKind", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceRestoreScope do
@@ -141,15 +141,17 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceRestoreScope do
   field :selected_group_kinds, 1,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
-    json_name: "selectedGroupKinds"
+    json_name: "selectedGroupKinds",
+    deprecated: false
 
   field :excluded_group_kinds, 2,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
-    json_name: "excludedGroupKinds"
+    json_name: "excludedGroupKinds",
+    deprecated: false
 
-  field :all_group_kinds, 3, type: :bool, json_name: "allGroupKinds"
-  field :no_group_kinds, 4, type: :bool, json_name: "noGroupKinds"
+  field :all_group_kinds, 3, type: :bool, json_name: "allGroupKinds", deprecated: false
+  field :no_group_kinds, 4, type: :bool, json_name: "noGroupKinds", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.SubstitutionRule do
@@ -157,16 +159,26 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.SubstitutionRule do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :target_namespaces, 1, repeated: true, type: :string, json_name: "targetNamespaces"
+  field :target_namespaces, 1,
+    repeated: true,
+    type: :string,
+    json_name: "targetNamespaces",
+    deprecated: false
 
   field :target_group_kinds, 2,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
-    json_name: "targetGroupKinds"
+    json_name: "targetGroupKinds",
+    deprecated: false
 
   field :target_json_path, 3, type: :string, json_name: "targetJsonPath", deprecated: false
-  field :original_value_pattern, 4, type: :string, json_name: "originalValuePattern"
-  field :new_value, 5, type: :string, json_name: "newValue"
+
+  field :original_value_pattern, 4,
+    type: :string,
+    json_name: "originalValuePattern",
+    deprecated: false
+
+  field :new_value, 5, type: :string, json_name: "newValue", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction do
@@ -179,9 +191,9 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction do
     enum: true,
     deprecated: false
 
-  field :from_path, 2, type: :string, json_name: "fromPath"
-  field :path, 3, type: :string
-  field :value, 4, type: :string
+  field :from_path, 2, type: :string, json_name: "fromPath", deprecated: false
+  field :path, 3, type: :string, deprecated: false
+  field :value, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ResourceFilter do
@@ -189,14 +201,15 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ResourceFilter do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :namespaces, 1, repeated: true, type: :string
+  field :namespaces, 1, repeated: true, type: :string, deprecated: false
 
   field :group_kinds, 2,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
-    json_name: "groupKinds"
+    json_name: "groupKinds",
+    deprecated: false
 
-  field :json_path, 3, type: :string, json_name: "jsonPath"
+  field :json_path, 3, type: :string, json_name: "jsonPath", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule do
@@ -212,9 +225,10 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule do
 
   field :resource_filter, 2,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.ResourceFilter,
-    json_name: "resourceFilter"
+    json_name: "resourceFilter",
+    deprecated: false
 
-  field :description, 3, type: :string
+  field :description, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
@@ -227,21 +241,25 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
   field :volume_data_restore_policy, 1,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicy,
     json_name: "volumeDataRestorePolicy",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :cluster_resource_conflict_policy, 2,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceConflictPolicy,
     json_name: "clusterResourceConflictPolicy",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :namespaced_resource_restore_mode, 3,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.NamespacedResourceRestoreMode,
     json_name: "namespacedResourceRestoreMode",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :cluster_resource_restore_scope, 4,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceRestoreScope,
-    json_name: "clusterResourceRestoreScope"
+    json_name: "clusterResourceRestoreScope",
+    deprecated: false
 
   field :all_namespaces, 5, type: :bool, json_name: "allNamespaces", oneof: 0
 
@@ -265,10 +283,12 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
   field :substitution_rules, 8,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.SubstitutionRule,
-    json_name: "substitutionRules"
+    json_name: "substitutionRules",
+    deprecated: false
 
   field :transformation_rules, 11,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule,
-    json_name: "transformationRules"
+    json_name: "transformationRules",
+    deprecated: false
 end
