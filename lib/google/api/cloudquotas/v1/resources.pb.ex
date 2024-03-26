@@ -108,7 +108,8 @@ defmodule Google.Api.Cloudquotas.V1.QuotaPreference do
   field :dimensions, 2,
     repeated: true,
     type: Google.Api.Cloudquotas.V1.QuotaPreference.DimensionsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :quota_config, 3,
     type: Google.Api.Cloudquotas.V1.QuotaConfig,
@@ -161,7 +162,8 @@ defmodule Google.Api.Cloudquotas.V1.QuotaConfig do
   field :annotations, 5,
     repeated: true,
     type: Google.Api.Cloudquotas.V1.QuotaConfig.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :request_origin, 6,
     type: Google.Api.Cloudquotas.V1.QuotaConfig.Origin,

@@ -318,6 +318,8 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :SUBSCRIPTION_CALCULATION_STATUS, 40
   field :PG_SUBSCRIPTION_COUNT, 41
   field :PG_SYNC_PARALLEL_LEVEL, 42
+  field :INSUFFICIENT_DISK_SIZE, 43
+  field :INSUFFICIENT_MACHINE_TIER, 44
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode do
