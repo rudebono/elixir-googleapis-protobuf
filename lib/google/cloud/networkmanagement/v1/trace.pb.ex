@@ -400,7 +400,8 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
   field :load_balancer, 16,
     type: Google.Cloud.Networkmanagement.V1.LoadBalancerInfo,
     json_name: "loadBalancer",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :network, 17, type: Google.Cloud.Networkmanagement.V1.NetworkInfo, oneof: 0
 
@@ -570,7 +571,7 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo do
     json_name: "loadBalancerType",
     enum: true
 
-  field :health_check_uri, 2, type: :string, json_name: "healthCheckUri"
+  field :health_check_uri, 2, type: :string, json_name: "healthCheckUri", deprecated: true
   field :backends, 3, repeated: true, type: Google.Cloud.Networkmanagement.V1.LoadBalancerBackend
 
   field :backend_type, 4,
