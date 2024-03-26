@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Edgecontainer.V1.UpgradeClusterRequest.Schedule do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SCHEDULE_UNSPECIFIED, 0
+  field :IMMEDIATELY, 1
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.OperationMetadata do
   @moduledoc false
 
@@ -10,6 +19,7 @@ defmodule Google.Cloud.Edgecontainer.V1.OperationMetadata do
   field :status_message, 5, type: :string, json_name: "statusMessage"
   field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
   field :api_version, 7, type: :string, json_name: "apiVersion"
+  field :warnings, 8, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.ListClustersRequest do
@@ -63,6 +73,21 @@ defmodule Google.Cloud.Edgecontainer.V1.UpdateClusterRequest do
   field :request_id, 3, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Edgecontainer.V1.UpgradeClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :target_version, 2, type: :string, json_name: "targetVersion", deprecated: false
+
+  field :schedule, 3,
+    type: Google.Cloud.Edgecontainer.V1.UpgradeClusterRequest.Schedule,
+    enum: true
+
+  field :request_id, 4, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.DeleteClusterRequest do
   @moduledoc false
 
@@ -88,6 +113,29 @@ defmodule Google.Cloud.Edgecontainer.V1.GenerateAccessTokenResponse do
   field :access_token, 1, type: :string, json_name: "accessToken", deprecated: false
 
   field :expire_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Edgecontainer.V1.GenerateOfflineCredentialRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cluster, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Edgecontainer.V1.GenerateOfflineCredentialResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :client_certificate, 1, type: :string, json_name: "clientCertificate", deprecated: false
+  field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
+  field :user_id, 3, type: :string, json_name: "userId", deprecated: false
+
+  field :expire_time, 4,
     type: Google.Protobuf.Timestamp,
     json_name: "expireTime",
     deprecated: false
@@ -251,6 +299,14 @@ defmodule Google.Cloud.Edgecontainer.V1.DeleteVpnConnectionRequest do
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Edgecontainer.V1.GetServerConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.EdgeContainer.Service do
   @moduledoc false
 
@@ -274,6 +330,10 @@ defmodule Google.Cloud.Edgecontainer.V1.EdgeContainer.Service do
       Google.Cloud.Edgecontainer.V1.UpdateClusterRequest,
       Google.Longrunning.Operation
 
+  rpc :UpgradeCluster,
+      Google.Cloud.Edgecontainer.V1.UpgradeClusterRequest,
+      Google.Longrunning.Operation
+
   rpc :DeleteCluster,
       Google.Cloud.Edgecontainer.V1.DeleteClusterRequest,
       Google.Longrunning.Operation
@@ -281,6 +341,10 @@ defmodule Google.Cloud.Edgecontainer.V1.EdgeContainer.Service do
   rpc :GenerateAccessToken,
       Google.Cloud.Edgecontainer.V1.GenerateAccessTokenRequest,
       Google.Cloud.Edgecontainer.V1.GenerateAccessTokenResponse
+
+  rpc :GenerateOfflineCredential,
+      Google.Cloud.Edgecontainer.V1.GenerateOfflineCredentialRequest,
+      Google.Cloud.Edgecontainer.V1.GenerateOfflineCredentialResponse
 
   rpc :ListNodePools,
       Google.Cloud.Edgecontainer.V1.ListNodePoolsRequest,
@@ -325,6 +389,10 @@ defmodule Google.Cloud.Edgecontainer.V1.EdgeContainer.Service do
   rpc :DeleteVpnConnection,
       Google.Cloud.Edgecontainer.V1.DeleteVpnConnectionRequest,
       Google.Longrunning.Operation
+
+  rpc :GetServerConfig,
+      Google.Cloud.Edgecontainer.V1.GetServerConfigRequest,
+      Google.Cloud.Edgecontainer.V1.ServerConfig
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.EdgeContainer.Stub do

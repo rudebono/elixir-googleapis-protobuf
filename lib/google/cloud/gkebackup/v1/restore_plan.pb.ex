@@ -37,7 +37,7 @@ defmodule Google.Cloud.Gkebackup.V1.RestorePlan do
     json_name: "updateTime",
     deprecated: false
 
-  field :description, 5, type: :string
+  field :description, 5, type: :string, deprecated: false
   field :backup_plan, 6, type: :string, json_name: "backupPlan", deprecated: false
   field :cluster, 7, type: :string, deprecated: false
 
@@ -49,7 +49,8 @@ defmodule Google.Cloud.Gkebackup.V1.RestorePlan do
   field :labels, 9,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.RestorePlan.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :etag, 10, type: :string, deprecated: false
 

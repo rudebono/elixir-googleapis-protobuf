@@ -100,6 +100,8 @@ defmodule Google.Cloud.Networkmanagement.V1.ConnectivityTest do
     type: Google.Cloud.Networkmanagement.V1.ProbingDetails,
     json_name: "probingDetails",
     deprecated: false
+
+  field :bypass_firewall_checks, 17, type: :bool, json_name: "bypassFirewallChecks"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.Endpoint.CloudFunctionEndpoint do

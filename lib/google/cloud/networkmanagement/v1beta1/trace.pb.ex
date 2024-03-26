@@ -31,6 +31,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :START_FROM_CLOUD_FUNCTION, 23
   field :START_FROM_APP_ENGINE_VERSION, 25
   field :START_FROM_CLOUD_RUN_REVISION, 26
+  field :START_FROM_STORAGE_BUCKET, 29
+  field :START_FROM_PSC_PUBLISHED_SERVICE, 30
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -64,6 +66,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType d
   field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
   field :NETWORK_FIREWALL_POLICY_RULE, 5
   field :NETWORK_REGIONAL_FIREWALL_POLICY_RULE, 6
+  field :TRACKING_STATE, 101
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteType do
@@ -349,6 +352,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Trace do
     json_name: "endpointInfo"
 
   field :steps, 2, repeated: true, type: Google.Cloud.Networkmanagement.V1beta1.Step
+  field :forward_trace_id, 4, type: :int32, json_name: "forwardTraceId"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
@@ -400,7 +404,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step do
   field :load_balancer, 16,
     type: Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo,
     json_name: "loadBalancer",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :network, 17, type: Google.Cloud.Networkmanagement.V1beta1.NetworkInfo, oneof: 0
 
@@ -570,7 +575,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.LoadBalancerInfo do
     json_name: "loadBalancerType",
     enum: true
 
-  field :health_check_uri, 2, type: :string, json_name: "healthCheckUri"
+  field :health_check_uri, 2, type: :string, json_name: "healthCheckUri", deprecated: true
 
   field :backends, 3,
     repeated: true,

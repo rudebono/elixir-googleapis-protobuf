@@ -179,6 +179,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
   field :WAF_SERVICE_UNSPECIFIED, 0
   field :CA, 1
   field :FASTLY, 3
+  field :CLOUDFLARE, 4
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do

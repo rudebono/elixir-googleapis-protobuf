@@ -27,17 +27,18 @@ defmodule Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata do
 
   oneof :platform_version, 0
 
-  field :cluster, 1, type: :string
-  field :k8s_version, 2, type: :string, json_name: "k8sVersion"
+  field :cluster, 1, type: :string, deprecated: false
+  field :k8s_version, 2, type: :string, json_name: "k8sVersion", deprecated: false
 
   field :backup_crd_versions, 3,
     repeated: true,
     type: Google.Cloud.Gkebackup.V1.Backup.ClusterMetadata.BackupCrdVersionsEntry,
     json_name: "backupCrdVersions",
-    map: true
+    map: true,
+    deprecated: false
 
-  field :gke_version, 4, type: :string, json_name: "gkeVersion", oneof: 0
-  field :anthos_version, 5, type: :string, json_name: "anthosVersion", oneof: 0
+  field :gke_version, 4, type: :string, json_name: "gkeVersion", oneof: 0, deprecated: false
+  field :anthos_version, 5, type: :string, json_name: "anthosVersion", oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.Backup.LabelsEntry do
@@ -70,15 +71,21 @@ defmodule Google.Cloud.Gkebackup.V1.Backup do
     deprecated: false
 
   field :manual, 5, type: :bool, deprecated: false
-  field :labels, 6, repeated: true, type: Google.Cloud.Gkebackup.V1.Backup.LabelsEntry, map: true
-  field :delete_lock_days, 7, type: :int32, json_name: "deleteLockDays"
+
+  field :labels, 6,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.Backup.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :delete_lock_days, 7, type: :int32, json_name: "deleteLockDays", deprecated: false
 
   field :delete_lock_expire_time, 8,
     type: Google.Protobuf.Timestamp,
     json_name: "deleteLockExpireTime",
     deprecated: false
 
-  field :retain_days, 9, type: :int32, json_name: "retainDays"
+  field :retain_days, 9, type: :int32, json_name: "retainDays", deprecated: false
 
   field :retain_expire_time, 10,
     type: Google.Protobuf.Timestamp,
@@ -124,7 +131,7 @@ defmodule Google.Cloud.Gkebackup.V1.Backup do
   field :volume_count, 22, type: :int32, json_name: "volumeCount", deprecated: false
   field :size_bytes, 23, type: :int64, json_name: "sizeBytes", deprecated: false
   field :etag, 24, type: :string, deprecated: false
-  field :description, 25, type: :string
+  field :description, 25, type: :string, deprecated: false
   field :pod_count, 26, type: :int32, json_name: "podCount", deprecated: false
 
   field :config_backup_size_bytes, 27,
