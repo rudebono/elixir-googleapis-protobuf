@@ -28,6 +28,35 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ToolUseExample.ExtensionOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :extension, 1, type: :string, deprecated: false
+  field :operation_id, 2, type: :string, json_name: "operationId", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ToolUseExample do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :Target, 0
+
+  field :extension_operation, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.ToolUseExample.ExtensionOperation,
+    json_name: "extensionOperation",
+    oneof: 0
+
+  field :function_name, 11, type: :string, json_name: "functionName", oneof: 0
+  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
+  field :query, 2, type: :string, deprecated: false
+  field :request_params, 3, type: Google.Protobuf.Struct, json_name: "requestParams"
+  field :response_params, 4, type: Google.Protobuf.Struct, json_name: "responseParams"
+  field :response_summary, 5, type: :string, json_name: "responseSummary"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionDeclaration do
   @moduledoc false
 
@@ -36,6 +65,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FunctionDeclaration do
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :parameters, 3, type: Google.Cloud.Aiplatform.V1beta1.Schema, deprecated: false
+  field :response, 4, type: Google.Cloud.Aiplatform.V1beta1.Schema, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCall do
