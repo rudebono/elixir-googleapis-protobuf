@@ -538,6 +538,11 @@ defmodule Google.Pubsub.V1.CloudStorageConfig do
   field :filename_prefix, 2, type: :string, json_name: "filenamePrefix", deprecated: false
   field :filename_suffix, 3, type: :string, json_name: "filenameSuffix", deprecated: false
 
+  field :filename_datetime_format, 10,
+    type: :string,
+    json_name: "filenameDatetimeFormat",
+    deprecated: false
+
   field :text_config, 4,
     type: Google.Pubsub.V1.CloudStorageConfig.TextConfig,
     json_name: "textConfig",

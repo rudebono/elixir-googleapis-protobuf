@@ -332,6 +332,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SearchConfig,
     json_name: "searchConfig",
     deprecated: false
+
+  field :populate_data_store_connection_signals, 25,
+    type: :bool,
+    json_name: "populateDataStoreConnectionSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SearchConfig do
@@ -503,6 +508,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
     json_name: "advancedSettings"
 
   field :allow_answer_feedback, 32, type: :bool, json_name: "allowAnswerFeedback"
+
+  field :data_store_connection_signals, 35,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals,
+    json_name: "dataStoreConnectionSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TextInput do

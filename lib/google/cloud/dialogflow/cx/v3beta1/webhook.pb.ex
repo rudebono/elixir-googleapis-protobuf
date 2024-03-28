@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.ServiceAgentAuth do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SERVICE_AGENT_AUTH_UNSPECIFIED, 0
+  field :NONE, 1
+  field :ID_TOKEN, 2
+  field :ACCESS_TOKEN, 3
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.WebhookType do
   @moduledoc false
 
@@ -44,6 +55,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo.Par
   field :FILLED, 3
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.OAuthConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
+  field :client_secret, 2, type: :string, json_name: "clientSecret", deprecated: false
+  field :token_endpoint, 3, type: :string, json_name: "tokenEndpoint", deprecated: false
+  field :scopes, 4, repeated: true, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHeadersEntry do
   @moduledoc false
 
@@ -81,6 +103,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
     repeated: true,
     type: :bytes,
     json_name: "allowedCaCerts",
+    deprecated: false
+
+  field :oauth_config, 11,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.OAuthConfig,
+    json_name: "oauthConfig",
+    deprecated: false
+
+  field :service_agent_auth, 12,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.ServiceAgentAuth,
+    json_name: "serviceAgentAuth",
+    enum: true,
     deprecated: false
 
   field :webhook_type, 6,

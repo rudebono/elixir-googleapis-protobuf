@@ -79,6 +79,82 @@ defmodule Google.Cloud.Batch.V1alpha.GetTaskRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Batch.V1alpha.CreateResourceAllowanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :resource_allowance_id, 2, type: :string, json_name: "resourceAllowanceId"
+
+  field :resource_allowance, 3,
+    type: Google.Cloud.Batch.V1alpha.ResourceAllowance,
+    json_name: "resourceAllowance",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Batch.V1alpha.GetResourceAllowanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Batch.V1alpha.DeleteResourceAllowanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :reason, 2, type: :string, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Batch.V1alpha.ListResourceAllowancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Batch.V1alpha.ListResourceAllowancesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_allowances, 1,
+    repeated: true,
+    type: Google.Cloud.Batch.V1alpha.ResourceAllowance,
+    json_name: "resourceAllowances"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Batch.V1alpha.UpdateResourceAllowanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_allowance, 1,
+    type: Google.Cloud.Batch.V1alpha.ResourceAllowance,
+    json_name: "resourceAllowance",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Batch.V1alpha.OperationMetadata do
   @moduledoc false
 
@@ -124,6 +200,26 @@ defmodule Google.Cloud.Batch.V1alpha.BatchService.Service do
   rpc :ListTasks,
       Google.Cloud.Batch.V1alpha.ListTasksRequest,
       Google.Cloud.Batch.V1alpha.ListTasksResponse
+
+  rpc :CreateResourceAllowance,
+      Google.Cloud.Batch.V1alpha.CreateResourceAllowanceRequest,
+      Google.Cloud.Batch.V1alpha.ResourceAllowance
+
+  rpc :GetResourceAllowance,
+      Google.Cloud.Batch.V1alpha.GetResourceAllowanceRequest,
+      Google.Cloud.Batch.V1alpha.ResourceAllowance
+
+  rpc :DeleteResourceAllowance,
+      Google.Cloud.Batch.V1alpha.DeleteResourceAllowanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListResourceAllowances,
+      Google.Cloud.Batch.V1alpha.ListResourceAllowancesRequest,
+      Google.Cloud.Batch.V1alpha.ListResourceAllowancesResponse
+
+  rpc :UpdateResourceAllowance,
+      Google.Cloud.Batch.V1alpha.UpdateResourceAllowanceRequest,
+      Google.Cloud.Batch.V1alpha.ResourceAllowance
 end
 
 defmodule Google.Cloud.Batch.V1alpha.BatchService.Stub do
