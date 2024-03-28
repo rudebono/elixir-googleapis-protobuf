@@ -189,4 +189,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     repeated: true,
     type: Google.Cloud.Securitycenter.V1.LoadBalancer,
     json_name: "loadBalancers"
+
+  field :notebook, 63, type: Google.Cloud.Securitycenter.V1.Notebook
 end

@@ -107,6 +107,11 @@ defmodule Google.Chat.V1.Message do
     type: Google.Chat.V1.AttachedGif,
     json_name: "attachedGifs",
     deprecated: false
+
+  field :accessory_widgets, 44,
+    repeated: true,
+    type: Google.Chat.V1.AccessoryWidget,
+    json_name: "accessoryWidgets"
 end
 
 defmodule Google.Chat.V1.AttachedGif do
@@ -175,6 +180,16 @@ defmodule Google.Chat.V1.ActionResponse do
     type: Google.Chat.V1.ActionResponse.UpdatedWidget,
     json_name: "updatedWidget",
     deprecated: false
+end
+
+defmodule Google.Chat.V1.AccessoryWidget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :action, 0
+
+  field :button_list, 1, type: Google.Apps.Card.V1.ButtonList, json_name: "buttonList", oneof: 0
 end
 
 defmodule Google.Chat.V1.GetMessageRequest do
