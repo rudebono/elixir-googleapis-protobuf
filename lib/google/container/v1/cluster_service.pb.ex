@@ -437,6 +437,20 @@ defmodule Google.Container.V1.DatabaseEncryption.State do
   field :DECRYPTED, 2
 end
 
+defmodule Google.Container.V1.DatabaseEncryption.CurrentState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CURRENT_STATE_UNSPECIFIED, 0
+  field :CURRENT_STATE_ENCRYPTED, 7
+  field :CURRENT_STATE_DECRYPTED, 2
+  field :CURRENT_STATE_ENCRYPTION_PENDING, 3
+  field :CURRENT_STATE_ENCRYPTION_ERROR, 4
+  field :CURRENT_STATE_DECRYPTION_PENDING, 5
+  field :CURRENT_STATE_DECRYPTION_ERROR, 6
+end
+
 defmodule Google.Container.V1.UsableSubnetworkSecondaryRange.Status do
   @moduledoc false
 
@@ -2999,6 +3013,16 @@ defmodule Google.Container.V1.MeshCertificates do
   field :enable_certificates, 1, type: Google.Protobuf.BoolValue, json_name: "enableCertificates"
 end
 
+defmodule Google.Container.V1.DatabaseEncryption.OperationError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_name, 1, type: :string, json_name: "keyName"
+  field :error_message, 2, type: :string, json_name: "errorMessage"
+  field :timestamp, 3, type: Google.Protobuf.Timestamp
+end
+
 defmodule Google.Container.V1.DatabaseEncryption do
   @moduledoc false
 
@@ -3006,6 +3030,25 @@ defmodule Google.Container.V1.DatabaseEncryption do
 
   field :key_name, 1, type: :string, json_name: "keyName"
   field :state, 2, type: Google.Container.V1.DatabaseEncryption.State, enum: true
+
+  field :current_state, 3,
+    proto3_optional: true,
+    type: Google.Container.V1.DatabaseEncryption.CurrentState,
+    json_name: "currentState",
+    enum: true,
+    deprecated: false
+
+  field :decryption_keys, 4,
+    repeated: true,
+    type: :string,
+    json_name: "decryptionKeys",
+    deprecated: false
+
+  field :last_operation_errors, 5,
+    repeated: true,
+    type: Google.Container.V1.DatabaseEncryption.OperationError,
+    json_name: "lastOperationErrors",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.ListUsableSubnetworksRequest do
