@@ -16,6 +16,8 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenType do
 
   field :TOKEN_TYPE_UNSPECIFIED, 0
   field :TOKEN_TYPE_OIDC, 1
+  field :TOKEN_TYPE_PKI, 2
+  field :TOKEN_TYPE_LIMITED_AWS, 3
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do

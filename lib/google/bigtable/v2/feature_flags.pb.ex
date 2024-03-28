@@ -9,4 +9,5 @@ defmodule Google.Bigtable.V2.FeatureFlags do
   field :last_scanned_row_responses, 4, type: :bool, json_name: "lastScannedRowResponses"
   field :routing_cookie, 6, type: :bool, json_name: "routingCookie"
   field :retry_info, 7, type: :bool, json_name: "retryInfo"
+  field :client_side_metrics_enabled, 8, type: :bool, json_name: "clientSideMetricsEnabled"
 end

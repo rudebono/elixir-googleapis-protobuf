@@ -66,6 +66,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType d
   field :SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE, 4
   field :NETWORK_FIREWALL_POLICY_RULE, 5
   field :NETWORK_REGIONAL_FIREWALL_POLICY_RULE, 6
+  field :UNSUPPORTED_FIREWALL_POLICY_RULE, 100
   field :TRACKING_STATE, 101
 end
 

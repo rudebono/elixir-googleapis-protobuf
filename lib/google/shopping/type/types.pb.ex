@@ -20,6 +20,8 @@ defmodule Google.Shopping.Type.ReportingContext.ReportingContextEnum do
   field :REPORTING_CONTEXT_ENUM_UNSPECIFIED, 0
   field :SHOPPING_ADS, 1
   field :DISCOVERY_ADS, 2
+  field :DEMAND_GEN_ADS, 13
+  field :DEMAND_GEN_ADS_DISCOVER_SURFACE, 14
   field :VIDEO_ADS, 3
   field :DISPLAY_ADS, 4
   field :LOCAL_INVENTORY_ADS, 5
