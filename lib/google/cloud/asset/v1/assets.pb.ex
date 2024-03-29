@@ -145,6 +145,7 @@ defmodule Google.Cloud.Asset.V1.Tag do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tag_key, 1, proto3_optional: true, type: :string, json_name: "tagKey"
+  field :tag_key_id, 2, proto3_optional: true, type: :string, json_name: "tagKeyId"
   field :tag_value, 3, proto3_optional: true, type: :string, json_name: "tagValue"
   field :tag_value_id, 4, proto3_optional: true, type: :string, json_name: "tagValueId"
 end
