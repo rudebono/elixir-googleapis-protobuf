@@ -217,6 +217,107 @@ defmodule Google.Storage.Control.V2.GetStorageLayoutRequest do
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Storage.Control.V2.ManagedFolder do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :metageneration, 3, type: :int64, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.GetManagedFolderRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 6, type: :string, deprecated: false
+
+  field :if_metageneration_match, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_not_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch"
+
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.CreateManagedFolderRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :managed_folder, 2,
+    type: Google.Storage.Control.V2.ManagedFolder,
+    json_name: "managedFolder",
+    deprecated: false
+
+  field :managed_folder_id, 3, type: :string, json_name: "managedFolderId", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.DeleteManagedFolderRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 7, type: :string, deprecated: false
+
+  field :if_metageneration_match, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_not_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch"
+
+  field :allow_non_empty, 5, type: :bool, json_name: "allowNonEmpty"
+  field :request_id, 6, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.ListManagedFoldersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :prefix, 4, type: :string, deprecated: false
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.ListManagedFoldersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :managed_folders, 1,
+    repeated: true,
+    type: Google.Storage.Control.V2.ManagedFolder,
+    json_name: "managedFolders"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Storage.Control.V2.StorageControl.Service do
   @moduledoc false
 
@@ -241,6 +342,22 @@ defmodule Google.Storage.Control.V2.StorageControl.Service do
   rpc :GetStorageLayout,
       Google.Storage.Control.V2.GetStorageLayoutRequest,
       Google.Storage.Control.V2.StorageLayout
+
+  rpc :CreateManagedFolder,
+      Google.Storage.Control.V2.CreateManagedFolderRequest,
+      Google.Storage.Control.V2.ManagedFolder
+
+  rpc :DeleteManagedFolder,
+      Google.Storage.Control.V2.DeleteManagedFolderRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetManagedFolder,
+      Google.Storage.Control.V2.GetManagedFolderRequest,
+      Google.Storage.Control.V2.ManagedFolder
+
+  rpc :ListManagedFolders,
+      Google.Storage.Control.V2.ListManagedFoldersRequest,
+      Google.Storage.Control.V2.ListManagedFoldersResponse
 end
 
 defmodule Google.Storage.Control.V2.StorageControl.Stub do

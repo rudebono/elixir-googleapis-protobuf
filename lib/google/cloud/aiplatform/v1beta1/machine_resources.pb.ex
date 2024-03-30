@@ -106,3 +106,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
   field :metric_name, 1, type: :string, json_name: "metricName", deprecated: false
   field :target, 2, type: :int32
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ShieldedVmConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
+end
