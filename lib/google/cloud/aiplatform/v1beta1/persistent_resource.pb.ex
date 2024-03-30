@@ -201,6 +201,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime do
     json_name: "accessUris",
     map: true,
     deprecated: false
+
+  field :notebook_runtime_template, 2,
+    type: :string,
+    json_name: "notebookRuntimeTemplate",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec do

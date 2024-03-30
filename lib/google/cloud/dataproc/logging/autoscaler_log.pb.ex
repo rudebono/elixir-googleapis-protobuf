@@ -22,6 +22,8 @@ defmodule Google.Cloud.Dataproc.Logging.ScalingDecisionType do
   field :SCALE_DOWN, 2
   field :NO_SCALE, 3
   field :MIXED, 4
+  field :CANCEL, 5
+  field :DO_NOT_CANCEL, 6
 end
 
 defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
@@ -33,6 +35,18 @@ defmodule Google.Cloud.Dataproc.Logging.ConstrainingFactor do
   field :SCALING_CAPPED_DUE_TO_LACK_OF_QUOTA, 1
   field :REACHED_MAXIMUM_CLUSTER_SIZE, 2
   field :REACHED_MINIMUM_CLUSTER_SIZE, 3
+  field :SECONDARY_SCALEDOWN_SINGLE_REQUEST_LIMIT_REACHED, 4
+end
+
+defmodule Google.Cloud.Dataproc.Logging.MetricType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :METRIC_TYPE_UNSPECIFIED, 0
+  field :YARN_MEMORY, 1
+  field :YARN_CORES, 2
+  field :SPARK_EXECUTORS, 3
 end
 
 defmodule Google.Cloud.Dataproc.Logging.ClusterSize do
@@ -124,6 +138,11 @@ defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation.Outputs do
     json_name: "additionalRecommendationDetails"
 
   field :recommendation_id, 6, type: :string, json_name: "recommendationId"
+
+  field :decision_metric, 7,
+    type: Google.Cloud.Dataproc.Logging.MetricType,
+    json_name: "decisionMetric",
+    enum: true
 end
 
 defmodule Google.Cloud.Dataproc.Logging.AutoscalerRecommendation do
