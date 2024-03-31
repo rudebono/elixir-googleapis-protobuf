@@ -28,9 +28,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema do
 
   field :type, 1, type: Google.Cloud.Aiplatform.V1beta1.Type, enum: true, deprecated: false
   field :format, 7, type: :string, deprecated: false
+  field :title, 24, type: :string, deprecated: false
   field :description, 8, type: :string, deprecated: false
   field :nullable, 6, type: :bool, deprecated: false
+  field :default, 23, type: Google.Protobuf.Value, deprecated: false
   field :items, 2, type: Google.Cloud.Aiplatform.V1beta1.Schema, deprecated: false
+  field :min_items, 21, type: :int64, json_name: "minItems", deprecated: false
+  field :max_items, 22, type: :int64, json_name: "maxItems", deprecated: false
   field :enum, 9, repeated: true, type: :string, deprecated: false
 
   field :properties, 3,
@@ -40,5 +44,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema do
     deprecated: false
 
   field :required, 5, repeated: true, type: :string, deprecated: false
+  field :min_properties, 14, type: :int64, json_name: "minProperties", deprecated: false
+  field :max_properties, 15, type: :int64, json_name: "maxProperties", deprecated: false
+  field :minimum, 16, type: :double, deprecated: false
+  field :maximum, 17, type: :double, deprecated: false
+  field :min_length, 18, type: :int64, json_name: "minLength", deprecated: false
+  field :max_length, 19, type: :int64, json_name: "maxLength", deprecated: false
+  field :pattern, 20, type: :string, deprecated: false
   field :example, 4, type: Google.Protobuf.Value, deprecated: false
 end

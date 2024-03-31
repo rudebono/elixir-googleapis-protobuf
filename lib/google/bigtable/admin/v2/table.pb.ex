@@ -127,6 +127,19 @@ defmodule Google.Bigtable.Admin.V2.Table.ClusterState do
     deprecated: false
 end
 
+defmodule Google.Bigtable.Admin.V2.Table.AutomatedBackupPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_period, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "retentionPeriod",
+    deprecated: false
+
+  field :frequency, 2, type: Google.Protobuf.Duration, deprecated: false
+end
+
 defmodule Google.Bigtable.Admin.V2.Table.ClusterStatesEntry do
   @moduledoc false
 
@@ -149,6 +162,8 @@ defmodule Google.Bigtable.Admin.V2.Table do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :automated_backup_config, 0
 
   field :name, 1, type: :string
 
@@ -180,6 +195,11 @@ defmodule Google.Bigtable.Admin.V2.Table do
     json_name: "changeStreamConfig"
 
   field :deletion_protection, 9, type: :bool, json_name: "deletionProtection"
+
+  field :automated_backup_policy, 13,
+    type: Google.Bigtable.Admin.V2.Table.AutomatedBackupPolicy,
+    json_name: "automatedBackupPolicy",
+    oneof: 0
 end
 
 defmodule Google.Bigtable.Admin.V2.AuthorizedView.FamilySubsets do

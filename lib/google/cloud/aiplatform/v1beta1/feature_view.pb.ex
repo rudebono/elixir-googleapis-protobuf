@@ -19,6 +19,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.Distanc
   field :DOT_PRODUCT_DISTANCE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.DistanceMeasureType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DISTANCE_MEASURE_TYPE_UNSPECIFIED, 0
+  field :SQUARED_L2_DISTANCE, 1
+  field :COSINE_DISTANCE, 2
+  field :DOT_PRODUCT_DISTANCE, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.BigQuerySource do
   @moduledoc false
 
@@ -96,6 +107,66 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig do
 
   field :distance_measure_type, 7,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig.DistanceMeasureType,
+    json_name: "distanceMeasureType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.BruteForceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.TreeAHConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :leaf_node_embedding_count, 1,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "leafNodeEmbeddingCount",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :algorithm_config, 0
+
+  field :tree_ah_config, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.TreeAHConfig,
+    json_name: "treeAhConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :brute_force_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.BruteForceConfig,
+    json_name: "bruteForceConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :embedding_column, 1, type: :string, json_name: "embeddingColumn", deprecated: false
+
+  field :filter_columns, 2,
+    repeated: true,
+    type: :string,
+    json_name: "filterColumns",
+    deprecated: false
+
+  field :crowding_column, 3, type: :string, json_name: "crowdingColumn", deprecated: false
+
+  field :embedding_dimension, 4,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "embeddingDimension",
+    deprecated: false
+
+  field :distance_measure_type, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig.DistanceMeasureType,
     json_name: "distanceMeasureType",
     enum: true,
     deprecated: false
@@ -184,6 +255,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.VectorSearchConfig,
     json_name: "vectorSearchConfig",
     deprecated: true
+
+  field :index_config, 15,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig,
+    json_name: "indexConfig",
+    deprecated: false
 
   field :service_agent_type, 14,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.ServiceAgentType,

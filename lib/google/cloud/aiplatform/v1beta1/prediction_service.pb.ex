@@ -6,6 +6,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback
   field :BLOCKED_REASON_UNSPECIFIED, 0
   field :SAFETY, 1
   field :OTHER, 2
+  field :BLOCKLIST, 3
+  field :PROHIBITED_CONTENT, 4
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
@@ -258,6 +260,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
     type: Google.Cloud.Aiplatform.V1beta1.Content,
     deprecated: false
 
+  field :system_instruction, 8,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
   field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
 
   field :tool_config, 7,
@@ -330,6 +338,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse do
     json_name: "usageMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   @moduledoc false
 
@@ -386,6 +403,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :StreamGenerateContent,
       Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest,
       stream(Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse)
+
+  rpc :ChatCompletions,
+      Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest,
+      stream(Google.Api.HttpBody)
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do

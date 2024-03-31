@@ -56,11 +56,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
     json_name: "fulfillmentInput",
     oneof: 0
 
-  field :response_recall_input, 13,
-    type: Google.Cloud.Aiplatform.V1beta1.ResponseRecallInput,
-    json_name: "responseRecallInput",
-    oneof: 0
-
   field :summarization_quality_input, 7,
     type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInput,
     json_name: "summarizationQualityInput",
@@ -104,11 +99,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
   field :question_answering_correctness_input, 18,
     type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInput,
     json_name: "questionAnsweringCorrectnessInput",
-    oneof: 0
-
-  field :rag_context_recall_input, 11,
-    type: Google.Cloud.Aiplatform.V1beta1.RagContextRecallInput,
-    json_name: "ragContextRecallInput",
     oneof: 0
 
   field :tool_call_valid_input, 19,
@@ -181,11 +171,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
     json_name: "fulfillmentResult",
     oneof: 0
 
-  field :response_recall_result, 12,
-    type: Google.Cloud.Aiplatform.V1beta1.ResponseRecallResult,
-    json_name: "responseRecallResult",
-    oneof: 0
-
   field :summarization_quality_result, 6,
     type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualityResult,
     json_name: "summarizationQualityResult",
@@ -229,11 +214,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
   field :question_answering_correctness_result, 17,
     type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessResult,
     json_name: "questionAnsweringCorrectnessResult",
-    oneof: 0
-
-  field :rag_context_recall_result, 10,
-    type: Google.Cloud.Aiplatform.V1beta1.RagContextRecallResult,
-    json_name: "ragContextRecallResult",
     oneof: 0
 
   field :tool_call_valid_results, 18,
@@ -604,48 +584,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentSpec do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentResult do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :score, 1, proto3_optional: true, type: :float, deprecated: false
-  field :explanation, 2, type: :string, deprecated: false
-  field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.ResponseRecallInput do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ResponseRecallSpec,
-    json_name: "metricSpec",
-    deprecated: false
-
-  field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.ResponseRecallInstance,
-    deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.ResponseRecallInstance do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
-  field :reference, 2, proto3_optional: true, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.ResponseRecallSpec do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :version, 1, type: :int32, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.ResponseRecallResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1075,48 +1013,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessSpec do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessResult do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :score, 1, proto3_optional: true, type: :float, deprecated: false
-  field :explanation, 2, type: :string, deprecated: false
-  field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.RagContextRecallInput do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.RagContextRecallSpec,
-    json_name: "metricSpec",
-    deprecated: false
-
-  field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.RagContextRecallInstance,
-    deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.RagContextRecallInstance do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :reference, 1, proto3_optional: true, type: :string, deprecated: false
-  field :context, 2, proto3_optional: true, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.RagContextRecallSpec do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :version, 2, type: :int32, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1beta1.RagContextRecallResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3

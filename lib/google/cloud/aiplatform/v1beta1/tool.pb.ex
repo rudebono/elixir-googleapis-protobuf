@@ -98,7 +98,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Retrieval do
     json_name: "vertexAiSearch",
     oneof: 0
 
+  field :vertex_rag_store, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.VertexRagStore,
+    json_name: "vertexRagStore",
+    oneof: 0
+
   field :disable_attribution, 3, type: :bool, json_name: "disableAttribution", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagStore do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rag_corpora, 1, repeated: true, type: :string, json_name: "ragCorpora", deprecated: false
+
+  field :similarity_top_k, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "similarityTopK",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch do

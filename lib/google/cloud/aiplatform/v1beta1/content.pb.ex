@@ -22,6 +22,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockThreshold do
   field :BLOCK_NONE, 4
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HARM_BLOCK_METHOD_UNSPECIFIED, 0
+  field :SEVERITY, 1
+  field :PROBABILITY, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetyRating.HarmProbability do
   @moduledoc false
 
@@ -170,6 +180,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     type: :string,
     json_name: "stopSequences",
     deprecated: false
+
+  field :presence_penalty, 8,
+    proto3_optional: true,
+    type: :float,
+    json_name: "presencePenalty",
+    deprecated: false
+
+  field :frequency_penalty, 9,
+    proto3_optional: true,
+    type: :float,
+    json_name: "frequencyPenalty",
+    deprecated: false
+
+  field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting do
@@ -184,6 +208,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting do
 
   field :threshold, 2,
     type: Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockThreshold,
+    enum: true,
+    deprecated: false
+
+  field :method, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockMethod,
     enum: true,
     deprecated: false
 end
@@ -298,6 +327,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.Web do
   field :title, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.RetrievedContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution do
   @moduledoc false
 
@@ -307,6 +345,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingAttribution do
 
   field :web, 3,
     type: Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.Web,
+    oneof: 0,
+    deprecated: false
+
+  field :retrieved_context, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GroundingAttribution.RetrievedContext,
+    json_name: "retrievedContext",
     oneof: 0,
     deprecated: false
 
@@ -328,6 +372,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingMetadata do
     repeated: true,
     type: :string,
     json_name: "webSearchQueries",
+    deprecated: false
+
+  field :retrieval_queries, 3,
+    repeated: true,
+    type: :string,
+    json_name: "retrievalQueries",
     deprecated: false
 
   field :grounding_attributions, 2,
