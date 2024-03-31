@@ -62,6 +62,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentRequest do
 
   field :model, 1, type: :string, deprecated: false
 
+  field :system_instruction, 8,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1beta.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
   field :contents, 2,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.Content,
@@ -70,6 +76,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentRequest do
   field :tools, 5,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.Tool,
+    deprecated: false
+
+  field :tool_config, 7,
+    type: Google.Ai.Generativelanguage.V1beta.ToolConfig,
+    json_name: "toolConfig",
     deprecated: false
 
   field :safety_settings, 3,

@@ -22,6 +22,16 @@ defmodule Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockThreshold do
   field :BLOCK_NONE, 4
 end
 
+defmodule Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :HARM_BLOCK_METHOD_UNSPECIFIED, 0
+  field :SEVERITY, 1
+  field :PROBABILITY, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1.SafetyRating.HarmProbability do
   @moduledoc false
 
@@ -170,6 +180,20 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
     type: :string,
     json_name: "stopSequences",
     deprecated: false
+
+  field :presence_penalty, 8,
+    proto3_optional: true,
+    type: :float,
+    json_name: "presencePenalty",
+    deprecated: false
+
+  field :frequency_penalty, 9,
+    proto3_optional: true,
+    type: :float,
+    json_name: "frequencyPenalty",
+    deprecated: false
+
+  field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting do
@@ -181,6 +205,11 @@ defmodule Google.Cloud.Aiplatform.V1.SafetySetting do
 
   field :threshold, 2,
     type: Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockThreshold,
+    enum: true,
+    deprecated: false
+
+  field :method, 4,
+    type: Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockMethod,
     enum: true,
     deprecated: false
 end

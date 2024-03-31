@@ -12,6 +12,17 @@ defmodule Google.Ai.Generativelanguage.V1beta.Type do
   field :OBJECT, 6
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :AUTO, 1
+  field :ANY, 2
+  field :NONE, 3
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.Content do
   @moduledoc false
 
@@ -44,6 +55,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.Part do
     type: Google.Ai.Generativelanguage.V1beta.FunctionResponse,
     json_name: "functionResponse",
     oneof: 0
+
+  field :file_data, 6,
+    type: Google.Ai.Generativelanguage.V1beta.FileData,
+    json_name: "fileData",
+    oneof: 0
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Blob do
@@ -55,6 +71,15 @@ defmodule Google.Ai.Generativelanguage.V1beta.Blob do
   field :data, 2, type: :bytes
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.FileData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
+  field :file_uri, 2, type: :string, json_name: "fileUri", deprecated: false
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.Tool do
   @moduledoc false
 
@@ -64,6 +89,34 @@ defmodule Google.Ai.Generativelanguage.V1beta.Tool do
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.FunctionDeclaration,
     json_name: "functionDeclarations",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.ToolConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :function_calling_config, 1,
+    type: Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig,
+    json_name: "functionCallingConfig",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mode, 1,
+    type: Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig.Mode,
+    enum: true,
+    deprecated: false
+
+  field :allowed_function_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "allowedFunctionNames",
     deprecated: false
 end
 

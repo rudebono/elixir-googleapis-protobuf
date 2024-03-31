@@ -113,12 +113,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionOperation do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.NoAuth do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.ApiKeyConfig do
   @moduledoc false
 

@@ -6,6 +6,8 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse.PromptFeedback.Bloc
   field :BLOCKED_REASON_UNSPECIFIED, 0
   field :SAFETY, 1
   field :OTHER, 2
+  field :BLOCKLIST, 3
+  field :PROHIBITED_CONTENT, 4
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictRequest do
@@ -213,6 +215,13 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentRequest do
 
   field :model, 5, type: :string, deprecated: false
   field :contents, 2, repeated: true, type: Google.Cloud.Aiplatform.V1.Content, deprecated: false
+
+  field :system_instruction, 8,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
   field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1.Tool, deprecated: false
 
   field :safety_settings, 3,

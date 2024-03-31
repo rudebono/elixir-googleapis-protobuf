@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.EmbeddingManagement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool, deprecated: false
 end
@@ -120,5 +120,5 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore do
   field :embedding_management, 11,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.EmbeddingManagement,
     json_name: "embeddingManagement",
-    deprecated: false
+    deprecated: true
 end
