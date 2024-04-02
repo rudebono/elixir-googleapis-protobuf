@@ -8,6 +8,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource.State do
   field :RUNNING, 3
   field :STOPPING, 4
   field :ERROR, 5
+  field :REBOOTING, 6
+  field :UPDATING, 7
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource.LabelsEntry do
