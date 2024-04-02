@@ -40,6 +40,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceOperationMetad
   field :progress_message, 2, type: :string, json_name: "progressMessage"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RebootPersistentResourceOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :progress_message, 2, type: :string, json_name: "progressMessage"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPersistentResourceRequest do
   @moduledoc false
 
@@ -95,6 +107,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RebootPersistentResourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResourceService.Service do
   @moduledoc false
 
@@ -120,6 +140,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResourceService.Service do
 
   rpc :UpdatePersistentResource,
       Google.Cloud.Aiplatform.V1beta1.UpdatePersistentResourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :RebootPersistentResource,
+      Google.Cloud.Aiplatform.V1beta1.RebootPersistentResourceRequest,
       Google.Longrunning.Operation
 end
 

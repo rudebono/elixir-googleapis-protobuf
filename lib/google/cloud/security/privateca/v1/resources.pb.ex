@@ -73,6 +73,16 @@ defmodule Google.Cloud.Security.Privateca.V1.CaPool.Tier do
   field :DEVOPS, 2
 end
 
+defmodule Google.Cloud.Security.Privateca.V1.CaPool.PublishingOptions.EncodingFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENCODING_FORMAT_UNSPECIFIED, 0
+  field :PEM, 1
+  field :DER, 2
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType.EcKeyType.EcSignatureAlgorithm do
   @moduledoc false
 
@@ -238,6 +248,12 @@ defmodule Google.Cloud.Security.Privateca.V1.CaPool.PublishingOptions do
 
   field :publish_ca_cert, 1, type: :bool, json_name: "publishCaCert", deprecated: false
   field :publish_crl, 2, type: :bool, json_name: "publishCrl", deprecated: false
+
+  field :encoding_format, 3,
+    type: Google.Cloud.Security.Privateca.V1.CaPool.PublishingOptions.EncodingFormat,
+    json_name: "encodingFormat",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType.RsaKeyType do
