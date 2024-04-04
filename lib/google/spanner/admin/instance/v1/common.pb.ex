@@ -1,3 +1,13 @@
+defmodule Google.Spanner.Admin.Instance.V1.FulfillmentPeriod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FULFILLMENT_PERIOD_UNSPECIFIED, 0
+  field :FULFILLMENT_PERIOD_NORMAL, 1
+  field :FULFILLMENT_PERIOD_EXTENDED, 2
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.OperationProgress do
   @moduledoc false
 

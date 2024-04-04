@@ -2,8 +2,7 @@ defmodule Google.Api.PbExtension do
   @moduledoc false
   use Protobuf, protoc_gen_elixir_version: "0.12.0"
 
-  extend Google.Protobuf.FieldOptions, :field_info, 291_403_980,
+  extend Google.Protobuf.MethodOptions, :routing, 72_295_729,
     optional: true,
-    type: Google.Api.FieldInfo,
-    json_name: "fieldInfo"
+    type: Google.Api.RoutingRule
 end
