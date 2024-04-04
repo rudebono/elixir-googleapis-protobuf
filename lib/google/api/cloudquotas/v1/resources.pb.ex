@@ -201,4 +201,13 @@ defmodule Google.Api.Cloudquotas.V1.QuotaDetails do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :value, 1, type: :int64
+  field :rollout_info, 3, type: Google.Api.Cloudquotas.V1.RolloutInfo, json_name: "rolloutInfo"
+end
+
+defmodule Google.Api.Cloudquotas.V1.RolloutInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ongoing_rollout, 1, type: :bool, json_name: "ongoingRollout"
 end

@@ -364,6 +364,11 @@ defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceMetadata do
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :expected_fulfillment_period, 5,
+    type: Google.Spanner.Admin.Instance.V1.FulfillmentPeriod,
+    json_name: "expectedFulfillmentPeriod",
+    enum: true
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
@@ -375,6 +380,11 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :expected_fulfillment_period, 5,
+    type: Google.Spanner.Admin.Instance.V1.FulfillmentPeriod,
+    json_name: "expectedFulfillmentPeriod",
+    enum: true
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigMetadata do

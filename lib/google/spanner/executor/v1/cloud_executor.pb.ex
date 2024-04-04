@@ -46,6 +46,11 @@ defmodule Google.Spanner.Executor.V1.SpannerAction do
   oneof :action, 0
 
   field :database_path, 1, type: :string, json_name: "databasePath"
+
+  field :spanner_options, 2,
+    type: Google.Spanner.Executor.V1.SpannerOptions,
+    json_name: "spannerOptions"
+
   field :start, 10, type: Google.Spanner.Executor.V1.StartTransactionAction, oneof: 0
   field :finish, 11, type: Google.Spanner.Executor.V1.FinishTransactionAction, oneof: 0
   field :read, 20, type: Google.Spanner.Executor.V1.ReadAction, oneof: 0
@@ -513,9 +518,9 @@ defmodule Google.Spanner.Executor.V1.AdminAction do
     json_name: "cancelOperation",
     oneof: 0
 
-  field :reconfigure_cloud_database, 28,
-    type: Google.Spanner.Executor.V1.ReconfigureCloudDatabaseAction,
-    json_name: "reconfigureCloudDatabase",
+  field :change_quorum_cloud_database, 28,
+    type: Google.Spanner.Executor.V1.ChangeQuorumCloudDatabaseAction,
+    json_name: "changeQuorumCloudDatabase",
     oneof: 0
 end
 
@@ -705,7 +710,7 @@ defmodule Google.Spanner.Executor.V1.DropCloudDatabaseAction do
   field :database_id, 3, type: :string, json_name: "databaseId"
 end
 
-defmodule Google.Spanner.Executor.V1.ReconfigureCloudDatabaseAction do
+defmodule Google.Spanner.Executor.V1.ChangeQuorumCloudDatabaseAction do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -767,6 +772,10 @@ defmodule Google.Spanner.Executor.V1.RestoreCloudDatabaseAction do
   field :backup_id, 3, type: :string, json_name: "backupId"
   field :database_instance_id, 4, type: :string, json_name: "databaseInstanceId"
   field :database_id, 5, type: :string, json_name: "databaseId"
+
+  field :encryption_config, 7,
+    type: Google.Spanner.Admin.Database.V1.EncryptionConfig,
+    json_name: "encryptionConfig"
 end
 
 defmodule Google.Spanner.Executor.V1.GetCloudDatabaseAction do
@@ -798,6 +807,10 @@ defmodule Google.Spanner.Executor.V1.CreateCloudBackupAction do
     proto3_optional: true,
     type: Google.Protobuf.Timestamp,
     json_name: "versionTime"
+
+  field :encryption_config, 7,
+    type: Google.Spanner.Admin.Database.V1.EncryptionConfig,
+    json_name: "encryptionConfig"
 end
 
 defmodule Google.Spanner.Executor.V1.CopyCloudBackupAction do
@@ -1270,6 +1283,24 @@ defmodule Google.Spanner.Executor.V1.HeartbeatRecord do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :heartbeat_time, 1, type: Google.Protobuf.Timestamp, json_name: "heartbeatTime"
+end
+
+defmodule Google.Spanner.Executor.V1.SpannerOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :session_pool_options, 1,
+    type: Google.Spanner.Executor.V1.SessionPoolOptions,
+    json_name: "sessionPoolOptions"
+end
+
+defmodule Google.Spanner.Executor.V1.SessionPoolOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_multiplexed, 1, type: :bool, json_name: "useMultiplexed"
 end
 
 defmodule Google.Spanner.Executor.V1.SpannerExecutorProxy.Service do

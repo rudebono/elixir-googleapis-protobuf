@@ -66,6 +66,40 @@ defmodule Google.Cloud.Documentai.V1beta3.ReviewDocumentOperationMetadata.State 
   field :CANCELLED, 5
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig.ChunkingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :chunk_size, 1, type: :int32, json_name: "chunkSize", deprecated: false
+
+  field :include_ancestor_headings, 2,
+    type: :bool,
+    json_name: "includeAncestorHeadings",
+    deprecated: false
+
+  field :semantic_chunking_group_size, 3,
+    type: :bool,
+    json_name: "semanticChunkingGroupSize",
+    deprecated: false
+
+  field :breakpoint_percentile_threshold, 4,
+    type: :int32,
+    json_name: "breakpointPercentileThreshold",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :chunking_config, 1,
+    type: Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig.ChunkingConfig,
+    json_name: "chunkingConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.IndividualPageSelector do
   @moduledoc false
 
@@ -89,6 +123,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions do
   field :from_start, 6, type: :int32, json_name: "fromStart", oneof: 0
   field :from_end, 7, type: :int32, json_name: "fromEnd", oneof: 0
   field :ocr_config, 1, type: Google.Cloud.Documentai.V1beta3.OcrConfig, json_name: "ocrConfig"
+
+  field :layout_config, 9,
+    type: Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig,
+    json_name: "layoutConfig",
+    deprecated: false
 
   field :schema_override, 8,
     type: Google.Cloud.Documentai.V1beta3.DocumentSchema,

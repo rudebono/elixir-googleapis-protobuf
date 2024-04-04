@@ -444,6 +444,17 @@ defmodule Google.Protobuf.FieldOptions.EditionDefault do
   field :value, 2, optional: true, type: :string
 end
 
+defmodule Google.Protobuf.FieldOptions.FeatureSupport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
+
+  field :edition_introduced, 1, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :edition_deprecated, 2, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :deprecation_warning, 3, optional: true, type: :string
+  field :edition_removed, 4, optional: true, type: Google.Protobuf.Edition, enum: true
+end
+
 defmodule Google.Protobuf.FieldOptions do
   @moduledoc false
 
@@ -481,6 +492,7 @@ defmodule Google.Protobuf.FieldOptions do
 
   field :edition_defaults, 20, repeated: true, type: Google.Protobuf.FieldOptions.EditionDefault
   field :features, 21, optional: true, type: Google.Protobuf.FeatureSet
+  field :feature_support, 22, optional: true, type: Google.Protobuf.FieldOptions.FeatureSupport
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]
@@ -635,6 +647,8 @@ defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :edition, 3, optional: true, type: Google.Protobuf.Edition, enum: true
+  field :overridable_features, 4, optional: true, type: Google.Protobuf.FeatureSet
+  field :fixed_features, 5, optional: true, type: Google.Protobuf.FeatureSet
   field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
 end
 
