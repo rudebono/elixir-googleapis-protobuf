@@ -6,6 +6,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.IndustryVertical do
   field :INDUSTRY_VERTICAL_UNSPECIFIED, 0
   field :GENERIC, 1
   field :MEDIA, 2
+  field :HEALTHCARE_FHIR, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SolutionType do
@@ -17,6 +18,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SolutionType do
   field :SOLUTION_TYPE_RECOMMENDATION, 1
   field :SOLUTION_TYPE_SEARCH, 2
   field :SOLUTION_TYPE_CHAT, 3
+  field :SOLUTION_TYPE_GENERATIVE_CHAT, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTier do

@@ -370,6 +370,14 @@ defmodule Google.Cloud.Speech.V2.TranscriptNormalization do
   field :entries, 1, repeated: true, type: Google.Cloud.Speech.V2.TranscriptNormalization.Entry
 end
 
+defmodule Google.Cloud.Speech.V2.TranslationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_language, 1, type: :string, json_name: "targetLanguage", deprecated: false
+end
+
 defmodule Google.Cloud.Speech.V2.SpeechAdaptation.AdaptationPhraseSet do
   @moduledoc false
 
@@ -432,6 +440,11 @@ defmodule Google.Cloud.Speech.V2.RecognitionConfig do
   field :transcript_normalization, 11,
     type: Google.Cloud.Speech.V2.TranscriptNormalization,
     json_name: "transcriptNormalization",
+    deprecated: false
+
+  field :translation_config, 15,
+    type: Google.Cloud.Speech.V2.TranslationConfig,
+    json_name: "translationConfig",
     deprecated: false
 end
 
