@@ -29,6 +29,15 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest do
     json_name: "errorConfig"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse.MetricsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :double
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse do
   @moduledoc false
 
@@ -41,6 +50,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse do
     json_name: "errorConfig"
 
   field :model_status, 3, type: :string, json_name: "modelStatus"
+
+  field :metrics, 4,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse.MetricsEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelMetadata do

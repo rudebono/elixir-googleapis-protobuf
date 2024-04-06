@@ -57,3 +57,14 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Document do
     json_name: "indexTime",
     deprecated: false
 end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ProcessedDocument do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :processed_data_format, 0
+
+  field :json_data, 2, type: :string, json_name: "jsonData", oneof: 0
+  field :document, 1, type: :string, deprecated: false
+end
