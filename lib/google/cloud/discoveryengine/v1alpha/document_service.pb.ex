@@ -1,3 +1,22 @@
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.ProcessedDocumentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROCESSED_DOCUMENT_TYPE_UNSPECIFIED, 0
+  field :PARSED_DOCUMENT, 1
+  field :CHUNKED_DOCUMENT, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.ProcessedDocumentFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROCESSED_DOCUMENT_FORMAT_UNSPECIFIED, 0
+  field :JSON, 1
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetDocumentRequest do
   @moduledoc false
 
@@ -53,6 +72,26 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteDocumentRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :processed_document_type, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.ProcessedDocumentType,
+    json_name: "processedDocumentType",
+    enum: true,
+    deprecated: false
+
+  field :processed_document_format, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.ProcessedDocumentFormat,
+    json_name: "processedDocumentFormat",
+    enum: true
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Service do
   @moduledoc false
 
@@ -87,6 +126,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Service do
   rpc :PurgeDocuments,
       Google.Cloud.Discoveryengine.V1alpha.PurgeDocumentsRequest,
       Google.Longrunning.Operation
+
+  rpc :GetProcessedDocument,
+      Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest,
+      Google.Cloud.Discoveryengine.V1alpha.ProcessedDocument
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Stub do
