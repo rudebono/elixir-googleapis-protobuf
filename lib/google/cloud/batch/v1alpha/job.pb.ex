@@ -507,6 +507,11 @@ defmodule Google.Cloud.Batch.V1alpha.TaskGroup do
   field :require_hosts_file, 11, type: :bool, json_name: "requireHostsFile"
   field :permissive_ssh, 12, type: :bool, json_name: "permissiveSsh"
   field :run_as_non_root, 14, type: :bool, json_name: "runAsNonRoot", deprecated: false
+
+  field :service_account, 15,
+    type: Google.Cloud.Batch.V1alpha.ServiceAccount,
+    json_name: "serviceAccount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.ServiceAccount do
