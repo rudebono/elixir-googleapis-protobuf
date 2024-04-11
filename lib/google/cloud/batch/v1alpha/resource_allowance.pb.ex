@@ -113,8 +113,8 @@ defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.LimitStatus do
     json_name: "consumptionInterval",
     deprecated: false
 
-  field :limit, 2, type: :double, deprecated: false
-  field :consumed, 3, type: :double, deprecated: false
+  field :limit, 2, proto3_optional: true, type: :double, deprecated: false
+  field :consumed, 3, proto3_optional: true, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.PeriodConsumption do
@@ -127,7 +127,7 @@ defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.PeriodConsumpt
     json_name: "consumptionInterval",
     deprecated: false
 
-  field :consumed, 2, type: :double, deprecated: false
+  field :consumed, 2, proto3_optional: true, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.ConsumptionReport.LatestPeriodConsumptionsEntry do

@@ -12,7 +12,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.DocumentProcessingConfig.ParsingCo
   field :enhanced_document_elements, 1,
     repeated: true,
     type: :string,
-    json_name: "enhancedDocumentElements"
+    json_name: "enhancedDocumentElements",
+    deprecated: true
 
   field :use_native_text, 2, type: :bool, json_name: "useNativeText"
 end

@@ -4,6 +4,7 @@ defmodule Google.Protobuf.Edition do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto2
 
   field :EDITION_UNKNOWN, 0
+  field :EDITION_LEGACY, 900
   field :EDITION_PROTO2, 998
   field :EDITION_PROTO3, 999
   field :EDITION_2023, 1000

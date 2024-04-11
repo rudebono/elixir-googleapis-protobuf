@@ -37,6 +37,9 @@ defmodule Google.Streetview.Publish.V1.ProcessingFailureReason do
   field :UNSUPPORTED_CAMERA, 17
   field :NOT_OUTDOORS, 18
   field :INSUFFICIENT_VIDEO_FRAMES, 19
+  field :INSUFFICIENT_MOVEMENT, 20
+  field :MAST_DOWN, 27
+  field :CAMERA_COVERED, 28
 end
 
 defmodule Google.Streetview.Publish.V1.Photo.TransferStatus do
@@ -320,6 +323,11 @@ defmodule Google.Streetview.Publish.V1.ProcessingFailureDetails do
     type: Google.Streetview.Publish.V1.NotOutdoorsFailureDetails,
     json_name: "notOutdoorsDetails",
     oneof: 0
+
+  field :no_overlap_gps_details, 5,
+    type: Google.Streetview.Publish.V1.NoOverlapGpsFailureDetails,
+    json_name: "noOverlapGpsDetails",
+    oneof: 0
 end
 
 defmodule Google.Streetview.Publish.V1.InsufficientGpsFailureDetails do
@@ -371,4 +379,30 @@ defmodule Google.Streetview.Publish.V1.NotOutdoorsFailureDetails do
     proto3_optional: true,
     type: Google.Protobuf.Duration,
     json_name: "startTime"
+end
+
+defmodule Google.Streetview.Publish.V1.NoOverlapGpsFailureDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :gps_start_time, 1,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "gpsStartTime"
+
+  field :gps_end_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "gpsEndTime"
+
+  field :video_start_time, 3,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "videoStartTime"
+
+  field :video_end_time, 4,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "videoEndTime"
 end

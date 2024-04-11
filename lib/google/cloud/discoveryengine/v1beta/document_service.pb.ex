@@ -42,6 +42,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.UpdateDocumentRequest do
 
   field :document, 1, type: Google.Cloud.Discoveryengine.V1beta.Document, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.DeleteDocumentRequest do
