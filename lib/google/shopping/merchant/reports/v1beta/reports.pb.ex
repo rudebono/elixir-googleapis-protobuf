@@ -10,6 +10,17 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.AggregatedReportin
   field :ELIGIBLE, 4
 end
 
+defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ClickPotential do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLICK_POTENTIAL_UNSPECIFIED, 0
+  field :LOW, 1
+  field :MEDIUM, 2
+  field :HIGH, 3
+end
+
 defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssueResolution do
   @moduledoc false
 
@@ -324,6 +335,16 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView do
     repeated: true,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue,
     json_name: "itemIssues"
+
+  field :click_potential, 29,
+    type: Google.Shopping.Merchant.Reports.V1beta.ProductView.ClickPotential,
+    json_name: "clickPotential",
+    enum: true
+
+  field :click_potential_rank, 30,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "clickPotentialRank"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.PriceCompetitivenessProductView do
