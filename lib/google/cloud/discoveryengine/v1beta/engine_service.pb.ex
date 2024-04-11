@@ -71,6 +71,44 @@ defmodule Google.Cloud.Discoveryengine.V1beta.UpdateEngineRequest do
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.PauseEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.ResumeEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.TuneEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.TuneEngineMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :engine, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.TuneEngineResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.EngineService.Service do
   @moduledoc false
 
@@ -97,6 +135,18 @@ defmodule Google.Cloud.Discoveryengine.V1beta.EngineService.Service do
   rpc :ListEngines,
       Google.Cloud.Discoveryengine.V1beta.ListEnginesRequest,
       Google.Cloud.Discoveryengine.V1beta.ListEnginesResponse
+
+  rpc :PauseEngine,
+      Google.Cloud.Discoveryengine.V1beta.PauseEngineRequest,
+      Google.Cloud.Discoveryengine.V1beta.Engine
+
+  rpc :ResumeEngine,
+      Google.Cloud.Discoveryengine.V1beta.ResumeEngineRequest,
+      Google.Cloud.Discoveryengine.V1beta.Engine
+
+  rpc :TuneEngine,
+      Google.Cloud.Discoveryengine.V1beta.TuneEngineRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.EngineService.Stub do

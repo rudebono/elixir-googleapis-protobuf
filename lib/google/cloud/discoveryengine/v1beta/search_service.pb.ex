@@ -1,3 +1,22 @@
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
+  field :NUMERICAL, 1
+  field :FRESHNESS, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :INTERPOLATION_TYPE_UNSPECIFIED, 0
+  field :LINEAR, 1
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.QueryExpansionSpec.Condition do
   @moduledoc false
 
@@ -78,6 +97,41 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec do
   field :enable_dynamic_position, 4, type: :bool, json_name: "enableDynamicPosition"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attribute_value, 1, type: :string, json_name: "attributeValue"
+  field :boost_amount, 2, type: :float, json_name: "boostAmount"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName"
+
+  field :attribute_type, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType,
+    json_name: "attributeType",
+    enum: true
+
+  field :interpolation_type, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType,
+    json_name: "interpolationType",
+    enum: true
+
+  field :control_points, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint,
+    json_name: "controlPoints"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
@@ -85,6 +139,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionB
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
+
+  field :boost_control_spec, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec,
+    json_name: "boostControlSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec do
@@ -170,6 +229,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
     type:
       Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec.ModelSpec,
     json_name: "modelSpec"
+
+  field :use_semantic_chunks, 8, type: :bool, json_name: "useSemanticChunks"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
@@ -427,6 +488,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.CitationSou
   field :reference_index, 4, type: :int64, json_name: "referenceIndex"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.Reference.ChunkContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :content, 1, type: :string
+  field :page_identifier, 2, type: :string, json_name: "pageIdentifier"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.Reference do
   @moduledoc false
 
@@ -435,6 +505,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.Reference d
   field :title, 1, type: :string
   field :document, 2, type: :string, deprecated: false
   field :uri, 3, type: :string
+
+  field :chunk_contents, 4,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.Reference.ChunkContent,
+    json_name: "chunkContents"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummaryWithMetadata do
@@ -475,6 +550,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary do
     json_name: "summaryWithMetadata"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.GeoSearchDebugInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :original_address_query, 1, type: :string, json_name: "originalAddressQuery"
+  field :error_message, 2, type: :string, json_name: "errorMessage"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.QueryExpansionInfo do
   @moduledoc false
 
@@ -506,6 +590,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
   field :corrected_query, 7, type: :string, json_name: "correctedQuery"
   field :summary, 9, type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary
   field :applied_controls, 10, repeated: true, type: :string, json_name: "appliedControls"
+
+  field :geo_search_debug_info, 16,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.GeoSearchDebugInfo,
+    json_name: "geoSearchDebugInfo"
 
   field :query_expansion_info, 14,
     type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.QueryExpansionInfo,

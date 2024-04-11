@@ -182,6 +182,7 @@ defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest do
 
   field :language_code, 6, type: :string, json_name: "languageCode", deprecated: false
   field :region_code, 9, type: :string, json_name: "regionCode", deprecated: false
+  field :units, 7, type: Google.Maps.Routing.V2.Units, enum: true, deprecated: false
 
   field :extra_computations, 8,
     repeated: true,

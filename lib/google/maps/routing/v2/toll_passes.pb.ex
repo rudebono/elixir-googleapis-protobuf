@@ -23,6 +23,8 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :ID_E_TOLL, 16
   field :IN_FASTAG, 78
   field :IN_LOCAL_HP_PLATE_EXEMPT, 79
+  field :JP_ETC, 98
+  field :JP_ETC2, 99
   field :MX_IAVE, 90
   field :MX_PASE, 91
   field :MX_QUICKPASS, 93
@@ -98,5 +100,6 @@ defmodule Google.Maps.Routing.V2.TollPass do
   field :US_WA_GOOD_TO_GO, 1
   field :US_WV_EZPASSWV, 62
   field :US_WV_MEMORIAL_BRIDGE_TICKETS, 63
+  field :US_WV_MOV_PASS, 100
   field :US_WV_NEWELL_TOLL_BRIDGE_TICKET, 64
 end
