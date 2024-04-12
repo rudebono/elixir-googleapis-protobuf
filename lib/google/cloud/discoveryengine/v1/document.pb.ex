@@ -29,4 +29,9 @@ defmodule Google.Cloud.Discoveryengine.V1.Document do
     type: Google.Protobuf.Struct,
     json_name: "derivedStructData",
     deprecated: false
+
+  field :index_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "indexTime",
+    deprecated: false
 end

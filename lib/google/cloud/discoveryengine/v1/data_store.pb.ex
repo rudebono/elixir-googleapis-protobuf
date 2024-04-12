@@ -41,4 +41,8 @@ defmodule Google.Cloud.Discoveryengine.V1.DataStore do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :starting_schema, 28,
+    type: Google.Cloud.Discoveryengine.V1.Schema,
+    json_name: "startingSchema"
 end

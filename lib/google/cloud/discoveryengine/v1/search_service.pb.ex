@@ -41,6 +41,14 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ImageQuery do
   field :image_bytes, 1, type: :string, json_name: "imageBytes", oneof: 0
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
 
@@ -161,6 +169,24 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.Summar
   field :model_spec, 7,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SummarySpec.ModelSpec,
     json_name: "modelSpec"
+
+  field :use_semantic_chunks, 8, type: :bool, json_name: "useSemanticChunks"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.ExtractiveContentSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :max_extractive_answer_count, 1, type: :int32, json_name: "maxExtractiveAnswerCount"
+  field :max_extractive_segment_count, 2, type: :int32, json_name: "maxExtractiveSegmentCount"
+
+  field :return_extractive_segment_score, 3,
+    type: :bool,
+    json_name: "returnExtractiveSegmentScore"
+
+  field :num_previous_segments, 4, type: :int32, json_name: "numPreviousSegments"
+  field :num_next_segments, 5, type: :int32, json_name: "numNextSegments"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
@@ -175,6 +201,10 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
   field :summary_spec, 2,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SummarySpec,
     json_name: "summarySpec"
+
+  field :extractive_content_spec, 3,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
+    json_name: "extractiveContentSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ParamsEntry do
@@ -211,6 +241,12 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest do
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
+
+  field :data_store_specs, 32,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec,
+    json_name: "dataStoreSpecs"
+
   field :filter, 7, type: :string
   field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"
@@ -328,6 +364,15 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.CitationSource 
   field :reference_index, 4, type: :int64, json_name: "referenceIndex"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.Reference.ChunkContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :content, 1, type: :string
+  field :page_identifier, 2, type: :string, json_name: "pageIdentifier"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.Reference do
   @moduledoc false
 
@@ -336,6 +381,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.Reference do
   field :title, 1, type: :string
   field :document, 2, type: :string, deprecated: false
   field :uri, 3, type: :string
+
+  field :chunk_contents, 4,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.Reference.ChunkContent,
+    json_name: "chunkContents"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummaryWithMetadata do
