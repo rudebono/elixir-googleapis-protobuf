@@ -31,6 +31,7 @@ defmodule Google.Cloud.Discoveryengine.V1.PurgeDocumentsMetadata do
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :success_count, 3, type: :int64, json_name: "successCount"
   field :failure_count, 4, type: :int64, json_name: "failureCount"
+  field :ignored_count, 5, type: :int64, json_name: "ignoredCount"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.PurgeSuggestionDenyListEntriesRequest do
