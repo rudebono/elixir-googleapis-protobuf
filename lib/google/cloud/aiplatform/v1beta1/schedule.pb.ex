@@ -34,6 +34,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schedule do
     json_name: "createPipelineJobRequest",
     oneof: 1
 
+  field :create_model_monitoring_job_request, 15,
+    type: Google.Cloud.Aiplatform.V1beta1.CreateModelMonitoringJobRequest,
+    json_name: "createModelMonitoringJobRequest",
+    oneof: 1
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false

@@ -65,7 +65,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
 
   oneof :destination, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :destination_dataset_id, 2, type: :string, json_name: "destinationDatasetId", oneof: 0
   field :display_name, 3, type: :string, json_name: "displayName"
   field :data_source_id, 5, type: :string, json_name: "dataSourceId"
@@ -128,7 +128,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do
 
   oneof :destination, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :schedule_time, 3, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :run_time, 10, type: Google.Protobuf.Timestamp, json_name: "runTime"
   field :error_status, 21, type: Google.Rpc.Status, json_name: "errorStatus"

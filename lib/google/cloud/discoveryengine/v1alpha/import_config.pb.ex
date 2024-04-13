@@ -397,22 +397,3 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesMe
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
-
-defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
-  field :success_count, 2, type: :int64, json_name: "successCount"
-  field :failure_count, 3, type: :int64, json_name: "failureCount"
-end
-
-defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsMetadata do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
-  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
-end
