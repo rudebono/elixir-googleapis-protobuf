@@ -73,6 +73,16 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.FilterableOption do
   field :FILTERABLE_DISABLED, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDataSource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED, 0
+  field :METATAGS, 1
+  field :PAGEMAP, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.Schema do
   @moduledoc false
 
@@ -135,4 +145,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig do
     enum: true
 
   field :key_property_type, 7, type: :string, json_name: "keyPropertyType", deprecated: false
+
+  field :advanced_site_search_data_sources, 10,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDataSource,
+    json_name: "advancedSiteSearchDataSources",
+    enum: true
 end

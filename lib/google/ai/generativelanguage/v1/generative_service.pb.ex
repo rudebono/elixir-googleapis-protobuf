@@ -9,6 +9,8 @@ defmodule Google.Ai.Generativelanguage.V1.TaskType do
   field :SEMANTIC_SIMILARITY, 3
   field :CLASSIFICATION, 4
   field :CLUSTERING, 5
+  field :QUESTION_ANSWERING, 6
+  field :FACT_VERIFICATION, 7
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback.BlockReason do
@@ -159,6 +161,12 @@ defmodule Google.Ai.Generativelanguage.V1.EmbedContentRequest do
     deprecated: false
 
   field :title, 4, proto3_optional: true, type: :string, deprecated: false
+
+  field :output_dimensionality, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "outputDimensionality",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.ContentEmbedding do
