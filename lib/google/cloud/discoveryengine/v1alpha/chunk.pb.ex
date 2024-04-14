@@ -5,6 +5,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Chunk.DocumentMetadata do
 
   field :uri, 1, type: :string
   field :title, 2, type: :string
+  field :struct_data, 3, type: Google.Protobuf.Struct, json_name: "structData"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Chunk.PageSpan do
