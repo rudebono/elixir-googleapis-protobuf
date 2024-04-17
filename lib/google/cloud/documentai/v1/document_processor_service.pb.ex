@@ -528,6 +528,19 @@ defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocument
     enum: true
 end
 
+defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.FoundationModelTuningOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :train_steps, 2, type: :int32, json_name: "trainSteps", deprecated: false
+
+  field :learning_rate_multiplier, 3,
+    type: :float,
+    json_name: "learningRateMultiplier",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest do
   @moduledoc false
 
@@ -538,6 +551,11 @@ defmodule Google.Cloud.Documentai.V1.TrainProcessorVersionRequest do
   field :custom_document_extraction_options, 5,
     type: Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.CustomDocumentExtractionOptions,
     json_name: "customDocumentExtractionOptions",
+    oneof: 0
+
+  field :foundation_model_tuning_options, 12,
+    type: Google.Cloud.Documentai.V1.TrainProcessorVersionRequest.FoundationModelTuningOptions,
+    json_name: "foundationModelTuningOptions",
     oneof: 0
 
   field :parent, 1, type: :string, deprecated: false

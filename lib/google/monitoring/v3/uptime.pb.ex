@@ -77,6 +77,15 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ResponseStatusCode.St
   field :STATUS_CLASS_ANY, 1000
 end
 
+defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication.ServiceAgentAuthenticationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED, 0
+  field :OIDC_TOKEN, 1
+end
+
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption do
   @moduledoc false
 
@@ -112,6 +121,32 @@ defmodule Google.Monitoring.V3.InternalChecker do
   field :gcp_zone, 4, type: :string, json_name: "gcpZone"
   field :peer_project_id, 6, type: :string, json_name: "peerProjectId"
   field :state, 7, type: Google.Monitoring.V3.InternalChecker.State, enum: true
+end
+
+defmodule Google.Monitoring.V3.SyntheticMonitorTarget.CloudFunctionV2Target do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :cloud_run_revision, 2,
+    type: Google.Api.MonitoredResource,
+    json_name: "cloudRunRevision",
+    deprecated: false
+end
+
+defmodule Google.Monitoring.V3.SyntheticMonitorTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :target, 0
+
+  field :cloud_function_v2, 1,
+    type: Google.Monitoring.V3.SyntheticMonitorTarget.CloudFunctionV2Target,
+    json_name: "cloudFunctionV2",
+    oneof: 0
 end
 
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
@@ -160,6 +195,17 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ResponseStatusCode do
     oneof: 0
 end
 
+defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1,
+    type:
+      Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication.ServiceAgentAuthenticationType,
+    enum: true
+end
+
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.HeadersEntry do
   @moduledoc false
 
@@ -173,6 +219,8 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :auth_method, 0
 
   field :request_method, 8,
     type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod,
@@ -211,6 +259,11 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
   field :ping_config, 12,
     type: Google.Monitoring.V3.UptimeCheckConfig.PingConfig,
     json_name: "pingConfig"
+
+  field :service_agent_authentication, 14,
+    type: Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication,
+    json_name: "serviceAgentAuthentication",
+    oneof: 0
 end
 
 defmodule Google.Monitoring.V3.UptimeCheckConfig.TcpCheck do
@@ -276,7 +329,7 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig do
 
   oneof :check_request_type, 1
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
 
   field :monitored_resource, 3,
@@ -287,6 +340,11 @@ defmodule Google.Monitoring.V3.UptimeCheckConfig do
   field :resource_group, 4,
     type: Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup,
     json_name: "resourceGroup",
+    oneof: 0
+
+  field :synthetic_monitor, 21,
+    type: Google.Monitoring.V3.SyntheticMonitorTarget,
+    json_name: "syntheticMonitor",
     oneof: 0
 
   field :http_check, 5,
