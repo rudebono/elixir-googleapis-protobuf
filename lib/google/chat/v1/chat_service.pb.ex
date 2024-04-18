@@ -45,6 +45,8 @@ defmodule Google.Chat.V1.ChatService.Service do
 
   rpc :CreateMembership, Google.Chat.V1.CreateMembershipRequest, Google.Chat.V1.Membership
 
+  rpc :UpdateMembership, Google.Chat.V1.UpdateMembershipRequest, Google.Chat.V1.Membership
+
   rpc :DeleteMembership, Google.Chat.V1.DeleteMembershipRequest, Google.Chat.V1.Membership
 
   rpc :CreateReaction, Google.Chat.V1.CreateReactionRequest, Google.Chat.V1.Reaction
