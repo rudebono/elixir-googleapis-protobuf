@@ -650,7 +650,6 @@ defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
   field :edition, 3, optional: true, type: Google.Protobuf.Edition, enum: true
   field :overridable_features, 4, optional: true, type: Google.Protobuf.FeatureSet
   field :fixed_features, 5, optional: true, type: Google.Protobuf.FeatureSet
-  field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
 end
 
 defmodule Google.Protobuf.FeatureSetDefaults do

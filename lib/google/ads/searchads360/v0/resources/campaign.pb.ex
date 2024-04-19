@@ -203,6 +203,11 @@ defmodule Google.Ads.Searchads360.V0.Resources.Campaign do
     enum: true,
     deprecated: false
 
+  field :accessible_bidding_strategy, 71,
+    type: :string,
+    json_name: "accessibleBiddingStrategy",
+    deprecated: false
+
   field :start_date, 63, proto3_optional: true, type: :string, json_name: "startDate"
   field :end_date, 64, proto3_optional: true, type: :string, json_name: "endDate"
   field :final_url_suffix, 65, proto3_optional: true, type: :string, json_name: "finalUrlSuffix"

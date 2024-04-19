@@ -500,12 +500,29 @@ defmodule Google.Apps.Card.V1.Icon do
 
   field :known_icon, 1, type: :string, json_name: "knownIcon", oneof: 0
   field :icon_url, 2, type: :string, json_name: "iconUrl", oneof: 0
+
+  field :material_icon, 5,
+    type: Google.Apps.Card.V1.MaterialIcon,
+    json_name: "materialIcon",
+    oneof: 0
+
   field :alt_text, 3, type: :string, json_name: "altText"
 
   field :image_type, 4,
     type: Google.Apps.Card.V1.Widget.ImageType,
     json_name: "imageType",
     enum: true
+end
+
+defmodule Google.Apps.Card.V1.MaterialIcon do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :fill, 2, type: :bool
+  field :weight, 3, type: :int32
+  field :grade, 4, type: :int32
 end
 
 defmodule Google.Apps.Card.V1.ImageCropStyle do

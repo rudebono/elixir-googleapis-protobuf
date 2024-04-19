@@ -242,6 +242,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.CustomerAssetSet,
     json_name: "customerAssetSet"
 
+  field :accessible_bidding_strategy, 169,
+    type: Google.Ads.Searchads360.V0.Resources.AccessibleBiddingStrategy,
+    json_name: "accessibleBiddingStrategy"
+
   field :customer_manager_link, 61,
     type: Google.Ads.Searchads360.V0.Resources.CustomerManagerLink,
     json_name: "customerManagerLink"

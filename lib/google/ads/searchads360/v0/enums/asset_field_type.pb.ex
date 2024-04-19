@@ -32,6 +32,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AssetFieldTypeEnum.AssetFieldType do
   field :AD_IMAGE, 26
   field :BUSINESS_LOGO, 27
   field :HOTEL_PROPERTY, 28
+  field :DISCOVERY_CAROUSEL_CARD, 29
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AssetFieldTypeEnum do

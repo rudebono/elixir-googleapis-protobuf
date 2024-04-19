@@ -190,5 +190,6 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
     type: Google.Cloud.Securitycenter.V1.LoadBalancer,
     json_name: "loadBalancers"
 
+  field :cloud_armor, 59, type: Google.Cloud.Securitycenter.V1.CloudArmor, json_name: "cloudArmor"
   field :notebook, 63, type: Google.Cloud.Securitycenter.V1.Notebook
 end
