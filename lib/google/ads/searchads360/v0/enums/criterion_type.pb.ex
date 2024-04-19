@@ -42,6 +42,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.CriterionTypeEnum.CriterionType do
   field :LOCAL_SERVICE_ID, 37
   field :BRAND, 39
   field :BRAND_LIST, 40
+  field :LIFE_EVENT, 41
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.CriterionTypeEnum do
