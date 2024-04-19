@@ -61,6 +61,74 @@ defmodule Google.Monitoring.V3.Service.IstioCanonicalService do
   field :canonical_service, 4, type: :string, json_name: "canonicalService"
 end
 
+defmodule Google.Monitoring.V3.Service.CloudRun do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service_name, 1, type: :string, json_name: "serviceName"
+  field :location, 2, type: :string
+end
+
+defmodule Google.Monitoring.V3.Service.GkeNamespace do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :location, 2, type: :string
+  field :cluster_name, 3, type: :string, json_name: "clusterName"
+  field :namespace_name, 4, type: :string, json_name: "namespaceName"
+end
+
+defmodule Google.Monitoring.V3.Service.GkeWorkload do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :location, 2, type: :string
+  field :cluster_name, 3, type: :string, json_name: "clusterName"
+  field :namespace_name, 4, type: :string, json_name: "namespaceName"
+  field :top_level_controller_type, 5, type: :string, json_name: "topLevelControllerType"
+  field :top_level_controller_name, 6, type: :string, json_name: "topLevelControllerName"
+end
+
+defmodule Google.Monitoring.V3.Service.GkeService do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :location, 2, type: :string
+  field :cluster_name, 3, type: :string, json_name: "clusterName"
+  field :namespace_name, 4, type: :string, json_name: "namespaceName"
+  field :service_name, 5, type: :string, json_name: "serviceName"
+end
+
+defmodule Google.Monitoring.V3.Service.BasicService.ServiceLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Monitoring.V3.Service.BasicService do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service_type, 1, type: :string, json_name: "serviceType"
+
+  field :service_labels, 2,
+    repeated: true,
+    type: Google.Monitoring.V3.Service.BasicService.ServiceLabelsEntry,
+    json_name: "serviceLabels",
+    map: true
+end
+
 defmodule Google.Monitoring.V3.Service.Telemetry do
   @moduledoc false
 
@@ -85,7 +153,7 @@ defmodule Google.Monitoring.V3.Service do
 
   oneof :identifier, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :custom, 6, type: Google.Monitoring.V3.Service.Custom, oneof: 0
 
@@ -114,6 +182,30 @@ defmodule Google.Monitoring.V3.Service do
     json_name: "istioCanonicalService",
     oneof: 0
 
+  field :cloud_run, 12,
+    type: Google.Monitoring.V3.Service.CloudRun,
+    json_name: "cloudRun",
+    oneof: 0
+
+  field :gke_namespace, 15,
+    type: Google.Monitoring.V3.Service.GkeNamespace,
+    json_name: "gkeNamespace",
+    oneof: 0
+
+  field :gke_workload, 16,
+    type: Google.Monitoring.V3.Service.GkeWorkload,
+    json_name: "gkeWorkload",
+    oneof: 0
+
+  field :gke_service, 17,
+    type: Google.Monitoring.V3.Service.GkeService,
+    json_name: "gkeService",
+    oneof: 0
+
+  field :basic_service, 19,
+    type: Google.Monitoring.V3.Service.BasicService,
+    json_name: "basicService"
+
   field :telemetry, 13, type: Google.Monitoring.V3.Service.Telemetry
 
   field :user_labels, 14,
@@ -139,7 +231,7 @@ defmodule Google.Monitoring.V3.ServiceLevelObjective do
 
   oneof :period, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 11, type: :string, json_name: "displayName"
 
   field :service_level_indicator, 3,
