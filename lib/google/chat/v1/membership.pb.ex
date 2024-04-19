@@ -52,6 +52,19 @@ defmodule Google.Chat.V1.CreateMembershipRequest do
   field :membership, 2, type: Google.Chat.V1.Membership, deprecated: false
 end
 
+defmodule Google.Chat.V1.UpdateMembershipRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :membership, 1, type: Google.Chat.V1.Membership, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Chat.V1.ListMembershipsRequest do
   @moduledoc false
 
