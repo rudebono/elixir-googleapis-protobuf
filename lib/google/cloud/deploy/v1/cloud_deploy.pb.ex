@@ -1087,6 +1087,16 @@ defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource do
   field :path, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCBRepoSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :repository, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+  field :ref, 3, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Deploy.V1.SkaffoldModules do
   @moduledoc false
 
@@ -1100,6 +1110,11 @@ defmodule Google.Cloud.Deploy.V1.SkaffoldModules do
   field :google_cloud_storage, 3,
     type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource,
     json_name: "googleCloudStorage",
+    oneof: 0
+
+  field :google_cloud_build_repo, 4,
+    type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCBRepoSource,
+    json_name: "googleCloudBuildRepo",
     oneof: 0
 end
 
