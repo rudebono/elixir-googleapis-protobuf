@@ -54,6 +54,16 @@ defmodule Google.Chat.V1.ChatService.Service do
   rpc :ListReactions, Google.Chat.V1.ListReactionsRequest, Google.Chat.V1.ListReactionsResponse
 
   rpc :DeleteReaction, Google.Chat.V1.DeleteReactionRequest, Google.Protobuf.Empty
+
+  rpc :GetSpaceReadState, Google.Chat.V1.GetSpaceReadStateRequest, Google.Chat.V1.SpaceReadState
+
+  rpc :UpdateSpaceReadState,
+      Google.Chat.V1.UpdateSpaceReadStateRequest,
+      Google.Chat.V1.SpaceReadState
+
+  rpc :GetThreadReadState,
+      Google.Chat.V1.GetThreadReadStateRequest,
+      Google.Chat.V1.ThreadReadState
 end
 
 defmodule Google.Chat.V1.ChatService.Stub do
