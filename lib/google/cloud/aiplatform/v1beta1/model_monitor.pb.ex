@@ -99,6 +99,4 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringSchema do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringSchema.FieldSchema,
     json_name: "groundTruthFields"
-
-  field :instance_type, 4, type: :string, json_name: "instanceType"
 end

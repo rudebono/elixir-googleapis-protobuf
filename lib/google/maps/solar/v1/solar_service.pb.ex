@@ -37,12 +37,18 @@ defmodule Google.Maps.Solar.V1.FindClosestBuildingInsightsRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :location, 1, type: Google.Type.LatLng
+  field :location, 1, type: Google.Type.LatLng, deprecated: false
 
   field :required_quality, 3,
     type: Google.Maps.Solar.V1.ImageryQuality,
     json_name: "requiredQuality",
-    enum: true
+    enum: true,
+    deprecated: false
+
+  field :exact_quality_required, 4,
+    type: :bool,
+    json_name: "exactQualityRequired",
+    deprecated: false
 end
 
 defmodule Google.Maps.Solar.V1.LatLngBox do
@@ -302,16 +308,22 @@ defmodule Google.Maps.Solar.V1.GetDataLayersRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :location, 1, type: Google.Type.LatLng
-  field :radius_meters, 2, type: :float, json_name: "radiusMeters"
-  field :view, 3, type: Google.Maps.Solar.V1.DataLayerView, enum: true
+  field :location, 1, type: Google.Type.LatLng, deprecated: false
+  field :radius_meters, 2, type: :float, json_name: "radiusMeters", deprecated: false
+  field :view, 3, type: Google.Maps.Solar.V1.DataLayerView, enum: true, deprecated: false
 
   field :required_quality, 5,
     type: Google.Maps.Solar.V1.ImageryQuality,
     json_name: "requiredQuality",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :pixel_size_meters, 6, type: :float, json_name: "pixelSizeMeters"
+  field :pixel_size_meters, 6, type: :float, json_name: "pixelSizeMeters", deprecated: false
+
+  field :exact_quality_required, 7,
+    type: :bool,
+    json_name: "exactQualityRequired",
+    deprecated: false
 end
 
 defmodule Google.Maps.Solar.V1.DataLayers do
@@ -339,7 +351,7 @@ defmodule Google.Maps.Solar.V1.GetGeoTiffRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Maps.Solar.V1.Solar.Service do
