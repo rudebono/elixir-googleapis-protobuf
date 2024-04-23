@@ -80,6 +80,16 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
     type: Google.Cloud.Secretmanager.V1.Secret.AnnotationsEntry,
     map: true,
     deprecated: false
+
+  field :version_destroy_ttl, 14,
+    type: Google.Protobuf.Duration,
+    json_name: "versionDestroyTtl",
+    deprecated: false
+
+  field :customer_managed_encryption, 15,
+    type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryption,
+    json_name: "customerManagedEncryption",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
@@ -113,6 +123,16 @@ defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
   field :client_specified_payload_checksum, 7,
     type: :bool,
     json_name: "clientSpecifiedPayloadChecksum",
+    deprecated: false
+
+  field :scheduled_destroy_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduledDestroyTime",
+    deprecated: false
+
+  field :customer_managed_encryption, 9,
+    type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus,
+    json_name: "customerManagedEncryption",
     deprecated: false
 end
 
