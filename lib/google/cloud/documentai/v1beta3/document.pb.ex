@@ -804,6 +804,30 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPa
   field :page_end, 2, type: :int32, json_name: "pageEnd"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :page_span, 2,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageSpan,
+    json_name: "pageSpan"
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageFooter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :page_span, 2,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageSpan,
+    json_name: "pageSpan"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk do
   @moduledoc false
 
@@ -816,6 +840,16 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk do
   field :page_span, 4,
     type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageSpan,
     json_name: "pageSpan"
+
+  field :page_headers, 5,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageHeader,
+    json_name: "pageHeaders"
+
+  field :page_footers, 6,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageFooter,
+    json_name: "pageFooters"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument do
