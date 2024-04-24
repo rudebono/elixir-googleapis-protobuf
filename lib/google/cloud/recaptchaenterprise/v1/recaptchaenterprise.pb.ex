@@ -75,6 +75,16 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AccountVerificationInfo.Result do
   field :ERROR_VERDICT_MISMATCH, 9
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.Event.FraudPrevention do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FRAUD_PREVENTION_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :DISABLED, 2
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason do
   @moduledoc false
 
@@ -381,6 +391,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   field :user_info, 15,
     type: Google.Cloud.Recaptchaenterprise.V1.UserInfo,
     json_name: "userInfo",
+    deprecated: false
+
+  field :fraud_prevention, 17,
+    type: Google.Cloud.Recaptchaenterprise.V1.Event.FraudPrevention,
+    json_name: "fraudPrevention",
+    enum: true,
     deprecated: false
 end
 
