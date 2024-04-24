@@ -73,6 +73,16 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Assessment.ClassificationReas
   field :SUSPECTED_CHARGEBACK, 7
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event.FraudPrevention do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FRAUD_PREVENTION_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :DISABLED, 2
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.TokenProperties.InvalidReason do
   @moduledoc false
 
@@ -226,6 +236,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.Event do
   field :transaction_data, 13,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.TransactionData,
     json_name: "transactionData",
+    deprecated: false
+
+  field :fraud_prevention, 17,
+    type: Google.Cloud.Recaptchaenterprise.V1beta1.Event.FraudPrevention,
+    json_name: "fraudPrevention",
+    enum: true,
     deprecated: false
 end
 

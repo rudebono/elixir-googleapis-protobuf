@@ -217,6 +217,15 @@ defmodule Google.Cloud.Config.V1.Deployment.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Config.V1.Deployment.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Config.V1.Deployment do
   @moduledoc false
 
@@ -309,6 +318,12 @@ defmodule Google.Cloud.Config.V1.Deployment do
     type: Google.Cloud.Config.V1.QuotaValidation,
     json_name: "quotaValidation",
     enum: true,
+    deprecated: false
+
+  field :annotations, 24,
+    repeated: true,
+    type: Google.Cloud.Config.V1.Deployment.AnnotationsEntry,
+    map: true,
     deprecated: false
 end
 
@@ -877,6 +892,13 @@ defmodule Google.Cloud.Config.V1.Preview do
     deprecated: false
 
   field :logs, 17, type: :string, deprecated: false
+  field :tf_version, 18, type: :string, json_name: "tfVersion", deprecated: false
+
+  field :tf_version_constraint, 19,
+    proto3_optional: true,
+    type: :string,
+    json_name: "tfVersionConstraint",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.PreviewOperationMetadata do
