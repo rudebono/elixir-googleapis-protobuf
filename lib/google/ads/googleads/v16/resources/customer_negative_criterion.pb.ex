@@ -53,4 +53,10 @@ defmodule Google.Ads.Googleads.V16.Resources.CustomerNegativeCriterion do
     json_name: "negativeKeywordList",
     oneof: 0,
     deprecated: false
+
+  field :ip_block, 12,
+    type: Google.Ads.Googleads.V16.Common.IpBlockInfo,
+    json_name: "ipBlock",
+    oneof: 0,
+    deprecated: false
 end

@@ -15,6 +15,69 @@ defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueS
     deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.PostbackMapping do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :lock_window_trigger, 0
+
+  field :postback_sequence_index, 1,
+    type: :int32,
+    json_name: "postbackSequenceIndex",
+    deprecated: false
+
+  field :coarse_grained_conversion_value_mappings, 2,
+    type:
+      Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.CoarseGrainedConversionValueMappings,
+    json_name: "coarseGrainedConversionValueMappings",
+    deprecated: false
+
+  field :lock_window_coarse_conversion_value, 3,
+    type:
+      Google.Ads.Googleads.V16.Enums.SkAdNetworkCoarseConversionValueEnum.SkAdNetworkCoarseConversionValue,
+    json_name: "lockWindowCoarseConversionValue",
+    enum: true,
+    oneof: 0,
+    deprecated: false
+
+  field :lock_window_fine_conversion_value, 4,
+    type: :int32,
+    json_name: "lockWindowFineConversionValue",
+    oneof: 0,
+    deprecated: false
+
+  field :lock_window_event, 5,
+    type: :string,
+    json_name: "lockWindowEvent",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.CoarseGrainedConversionValueMappings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :low_conversion_value_mapping, 1,
+    type:
+      Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.ConversionValueMapping,
+    json_name: "lowConversionValueMapping",
+    deprecated: false
+
+  field :medium_conversion_value_mapping, 2,
+    type:
+      Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.ConversionValueMapping,
+    json_name: "mediumConversionValueMapping",
+    deprecated: false
+
+  field :high_conversion_value_mapping, 3,
+    type:
+      Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.ConversionValueMapping,
+    json_name: "highConversionValueMapping",
+    deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.ConversionValueMapping do
   @moduledoc false
 
@@ -108,6 +171,13 @@ defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueS
     type:
       Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.FineGrainedConversionValueMappings,
     json_name: "fineGrainedConversionValueMappings",
+    deprecated: false
+
+  field :postback_mappings, 4,
+    repeated: true,
+    type:
+      Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.PostbackMapping,
+    json_name: "postbackMappings",
     deprecated: false
 end
 

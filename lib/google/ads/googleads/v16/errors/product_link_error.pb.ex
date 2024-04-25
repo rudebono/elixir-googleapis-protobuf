@@ -8,6 +8,7 @@ defmodule Google.Ads.Googleads.V16.Errors.ProductLinkErrorEnum.ProductLinkError 
   field :INVALID_OPERATION, 2
   field :CREATION_NOT_PERMITTED, 3
   field :INVITATION_EXISTS, 4
+  field :LINK_EXISTS, 5
 end
 
 defmodule Google.Ads.Googleads.V16.Errors.ProductLinkErrorEnum do
