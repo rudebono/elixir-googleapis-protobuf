@@ -34,6 +34,12 @@ defmodule Google.Ads.Googleads.V16.Resources.LocalServicesLead do
     deprecated: false
 
   field :lead_charged, 11, type: :bool, json_name: "leadCharged", deprecated: false
+
+  field :credit_details, 12,
+    proto3_optional: true,
+    type: Google.Ads.Googleads.V16.Resources.CreditDetails,
+    json_name: "creditDetails",
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V16.Resources.ContactDetails do
@@ -53,4 +59,21 @@ defmodule Google.Ads.Googleads.V16.Resources.Note do
 
   field :edit_date_time, 1, type: :string, json_name: "editDateTime", deprecated: false
   field :description, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V16.Resources.CreditDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :credit_state, 1,
+    type: Google.Ads.Googleads.V16.Enums.LocalServicesCreditStateEnum.CreditState,
+    json_name: "creditState",
+    enum: true,
+    deprecated: false
+
+  field :credit_state_last_update_date_time, 2,
+    type: :string,
+    json_name: "creditStateLastUpdateDateTime",
+    deprecated: false
 end

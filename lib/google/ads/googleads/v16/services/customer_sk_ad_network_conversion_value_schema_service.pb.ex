@@ -18,6 +18,7 @@ defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionV
     type: Google.Ads.Googleads.V16.Services.CustomerSkAdNetworkConversionValueSchemaOperation
 
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
+  field :enable_warnings, 4, type: :bool, json_name: "enableWarnings", deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaResult do
@@ -36,6 +37,8 @@ defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionV
 
   field :result, 1,
     type: Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaResult
+
+  field :warning, 2, type: Google.Rpc.Status
 end
 
 defmodule Google.Ads.Googleads.V16.Services.CustomerSkAdNetworkConversionValueSchemaService.Service do

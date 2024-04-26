@@ -116,6 +116,12 @@ defmodule Google.Ads.Googleads.V16.Resources.Customer do
     type: Google.Ads.Googleads.V16.Resources.LocalServicesSettings,
     json_name: "localServicesSettings",
     deprecated: false
+
+  field :video_brand_safety_suitability, 46,
+    type: Google.Ads.Googleads.V16.Enums.BrandSafetySuitabilityEnum.BrandSafetySuitability,
+    json_name: "videoBrandSafetySuitability",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V16.Resources.CallReportingSetting do
