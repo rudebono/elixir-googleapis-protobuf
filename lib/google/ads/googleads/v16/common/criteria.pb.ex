@@ -858,7 +858,33 @@ defmodule Google.Ads.Googleads.V16.Common.BrandInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :display_name, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "displayName",
+    deprecated: false
+
   field :entity_id, 1, proto3_optional: true, type: :string, json_name: "entityId"
+
+  field :primary_url, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "primaryUrl",
+    deprecated: false
+
+  field :rejection_reason, 4,
+    proto3_optional: true,
+    type:
+      Google.Ads.Googleads.V16.Enums.BrandRequestRejectionReasonEnum.BrandRequestRejectionReason,
+    json_name: "rejectionReason",
+    enum: true,
+    deprecated: false
+
+  field :status, 5,
+    proto3_optional: true,
+    type: Google.Ads.Googleads.V16.Enums.BrandStateEnum.BrandState,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V16.Common.BrandListInfo do

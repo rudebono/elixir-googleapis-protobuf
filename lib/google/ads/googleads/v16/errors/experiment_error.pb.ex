@@ -33,6 +33,7 @@ defmodule Google.Ads.Googleads.V16.Errors.ExperimentErrorEnum.ExperimentError do
   field :CANNOT_REMOVE_IN_CREATION_EXPERIMENT, 27
   field :CANNOT_ADD_CAMPAIGN_WITH_DEPRECATED_AD_TYPES, 28
   field :CANNOT_ENABLE_SYNC_FOR_UNSUPPORTED_EXPERIMENT_TYPE, 29
+  field :INVALID_DURATION_FOR_AN_EXPERIMENT, 30
 end
 
 defmodule Google.Ads.Googleads.V16.Errors.ExperimentErrorEnum do

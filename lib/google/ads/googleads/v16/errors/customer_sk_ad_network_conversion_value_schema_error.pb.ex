@@ -9,6 +9,8 @@ defmodule Google.Ads.Googleads.V16.Errors.CustomerSkAdNetworkConversionValueSche
   field :INVALID_APP_ID, 3
   field :INVALID_SCHEMA, 4
   field :LINK_CODE_NOT_FOUND, 5
+  field :INVALID_EVENT_COUNTER, 7
+  field :INVALID_EVENT_NAME, 8
 end
 
 defmodule Google.Ads.Googleads.V16.Errors.CustomerSkAdNetworkConversionValueSchemaErrorEnum do

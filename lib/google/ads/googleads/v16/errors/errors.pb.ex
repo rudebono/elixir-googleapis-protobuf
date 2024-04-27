@@ -121,6 +121,12 @@ defmodule Google.Ads.Googleads.V16.Errors.ErrorCode do
     enum: true,
     oneof: 0
 
+  field :video_campaign_error, 182,
+    type: Google.Ads.Googleads.V16.Errors.VideoCampaignErrorEnum.VideoCampaignError,
+    json_name: "videoCampaignError",
+    enum: true,
+    oneof: 0
+
   field :authentication_error, 17,
     type: Google.Ads.Googleads.V16.Errors.AuthenticationErrorEnum.AuthenticationError,
     json_name: "authenticationError",
