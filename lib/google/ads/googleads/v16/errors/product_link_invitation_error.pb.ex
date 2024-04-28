@@ -8,6 +8,7 @@ defmodule Google.Ads.Googleads.V16.Errors.ProductLinkInvitationErrorEnum.Product
   field :INVALID_STATUS, 2
   field :PERMISSION_DENIED, 3
   field :NO_INVITATION_REQUIRED, 4
+  field :CUSTOMER_NOT_PERMITTED_TO_CREATE_INVITATION, 5
 end
 
 defmodule Google.Ads.Googleads.V16.Errors.ProductLinkInvitationErrorEnum do

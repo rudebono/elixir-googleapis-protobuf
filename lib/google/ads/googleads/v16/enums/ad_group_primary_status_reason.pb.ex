@@ -20,6 +20,7 @@ defmodule Google.Ads.Googleads.V16.Enums.AdGroupPrimaryStatusReasonEnum.AdGroupP
   field :HAS_ADS_LIMITED_BY_POLICY, 14
   field :MOST_ADS_UNDER_REVIEW, 15
   field :CAMPAIGN_DRAFT, 16
+  field :AD_GROUP_PAUSED_DUE_TO_LOW_ACTIVITY, 19
 end
 
 defmodule Google.Ads.Googleads.V16.Enums.AdGroupPrimaryStatusReasonEnum do
