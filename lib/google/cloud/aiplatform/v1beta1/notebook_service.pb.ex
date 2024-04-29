@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJobView do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED, 0
+  field :NOTEBOOK_EXECUTION_JOB_VIEW_BASIC, 1
+  field :NOTEBOOK_EXECUTION_JOB_VIEW_FULL, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateNotebookRuntimeTemplateRequest do
   @moduledoc false
 
@@ -194,6 +204,57 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StartNotebookRuntimeResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GetNotebookExecutionJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :view, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJobView,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ListNotebookExecutionJobsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+
+  field :view, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJobView,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ListNotebookExecutionJobsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :notebook_execution_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob,
+    json_name: "notebookExecutionJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.DeleteNotebookExecutionJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookService.Service do
   @moduledoc false
 
@@ -239,6 +300,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookService.Service do
 
   rpc :StartNotebookRuntime,
       Google.Cloud.Aiplatform.V1beta1.StartNotebookRuntimeRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetNotebookExecutionJob,
+      Google.Cloud.Aiplatform.V1beta1.GetNotebookExecutionJobRequest,
+      Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob
+
+  rpc :ListNotebookExecutionJobs,
+      Google.Cloud.Aiplatform.V1beta1.ListNotebookExecutionJobsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListNotebookExecutionJobsResponse
+
+  rpc :DeleteNotebookExecutionJob,
+      Google.Cloud.Aiplatform.V1beta1.DeleteNotebookExecutionJobRequest,
       Google.Longrunning.Operation
 end
 
