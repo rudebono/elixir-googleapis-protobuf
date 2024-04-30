@@ -608,6 +608,7 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :GENERAL_PURPOSE_E2, 301_911_877
   field :GENERAL_PURPOSE_N2, 301_912_156
   field :GENERAL_PURPOSE_N2D, 232_471_400
+  field :GENERAL_PURPOSE_N4, 301_912_158
   field :GENERAL_PURPOSE_T2D, 232_477_166
   field :GRAPHICS_OPTIMIZED, 68_500_563
   field :MEMORY_OPTIMIZED, 281_753_417
@@ -691,6 +692,7 @@ defmodule Google.Cloud.Compute.V1.Disk.Status do
   field :FAILED, 455_706_685
   field :READY, 77_848_963
   field :RESTORING, 404_263_851
+  field :UNAVAILABLE, 413_756_464
 end
 
 defmodule Google.Cloud.Compute.V1.DiskInstantiationConfig.InstantiateFrom do
@@ -1141,6 +1143,20 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy.Fo
   field :YES, 87751
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_STATE, 0
+  field :ACCEPTED, 246_714_279
+  field :CANCELLED, 41_957_681
+  field :CREATING, 455_564_985
+  field :FAILED, 455_706_685
+  field :STATE_UNSPECIFIED, 470_755_401
+  field :SUCCEEDED, 511_103_553
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
   @moduledoc false
 
@@ -1304,6 +1320,7 @@ defmodule Google.Cloud.Compute.V1.InstantSnapshot.Status do
   field :DELETING, 528_602_024
   field :FAILED, 455_706_685
   field :READY, 77_848_963
+  field :UNAVAILABLE, 413_756_464
 end
 
 defmodule Google.Cloud.Compute.V1.Interconnect.AvailableFeatures do
@@ -2359,6 +2376,9 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES, 256_608_303
   field :GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES, 323_514_196
   field :GPUS_ALL_REGIONS, 39_387_177
+  field :HDB_TOTAL_GB, 319_316_271
+  field :HDB_TOTAL_IOPS, 309_720_317
+  field :HDB_TOTAL_THROUGHPUT, 20_981_374
   field :HEALTH_CHECKS, 289_347_502
   field :IMAGES, 15_562_360
   field :INSTANCES, 131_337_822
@@ -2432,6 +2452,7 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :REGIONAL_INSTANCE_GROUP_MANAGERS, 37_543_696
   field :REGIONAL_INTERNAL_LB_BACKEND_SERVICES, 137_983_760
   field :REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES, 96_282_539
+  field :REGIONAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES, 483_162_968
   field :RESERVATIONS, 32_644_647
   field :RESOURCE_POLICIES, 83_955_297
   field :ROUTERS, 493_018_666
@@ -2476,6 +2497,42 @@ defmodule Google.Cloud.Compute.V1.QuotaExceededInfo.RolloutStatus do
   field :UNDEFINED_ROLLOUT_STATUS, 0
   field :IN_PROGRESS, 469_193_735
   field :ROLLOUT_STATUS_UNSPECIFIED, 26_864_568
+end
+
+defmodule Google.Cloud.Compute.V1.QuotaStatusWarning.Code do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_CODE, 0
+  field :CLEANUP_FAILED, 150_308_440
+  field :DEPRECATED_RESOURCE_USED, 391_835_586
+  field :DEPRECATED_TYPE_USED, 346_526_230
+  field :DISK_SIZE_LARGER_THAN_IMAGE_SIZE, 369_442_967
+  field :EXPERIMENTAL_TYPE_USED, 451_954_443
+  field :EXTERNAL_API_WARNING, 175_546_307
+  field :FIELD_VALUE_OVERRIDEN, 329_669_423
+  field :INJECTED_KERNELS_DEPRECATED, 417_377_419
+  field :INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB, 401_542_606
+  field :LARGE_DEPLOYMENT_WARNING, 481_440_678
+  field :LIST_OVERHEAD_QUOTA_EXCEED, 47_618_117
+  field :MISSING_TYPE_DEPENDENCY, 344_505_463
+  field :NEXT_HOP_ADDRESS_NOT_ASSIGNED, 324_964_999
+  field :NEXT_HOP_CANNOT_IP_FORWARD, 383_382_887
+  field :NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE, 146_748_434
+  field :NEXT_HOP_INSTANCE_NOT_FOUND, 464_250_446
+  field :NEXT_HOP_INSTANCE_NOT_ON_NETWORK, 243_758_146
+  field :NEXT_HOP_NOT_RUNNING, 417_081_265
+  field :NOT_CRITICAL_ERROR, 105_763_924
+  field :NO_RESULTS_ON_PAGE, 30_036_744
+  field :PARTIAL_SUCCESS, 39_966_469
+  field :REQUIRED_TOS_AGREEMENT, 3_745_539
+  field :RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, 496_728_641
+  field :RESOURCE_NOT_DELETED, 168_598_460
+  field :SCHEMA_VALIDATION_IGNORED, 275_245_642
+  field :SINGLE_INSTANCE_PROPERTY_TEMPLATE, 268_305_617
+  field :UNDECLARED_PROPERTIES, 390_513_439
+  field :UNREACHABLE, 13_328_052
 end
 
 defmodule Google.Cloud.Compute.V1.RawDisk.ContainerType do
@@ -3312,6 +3369,48 @@ defmodule Google.Cloud.Compute.V1.StatefulPolicyPreservedStateNetworkIp.AutoDele
   field :UNDEFINED_AUTO_DELETE, 0
   field :NEVER, 74_175_084
   field :ON_PERMANENT_INSTANCE_DELETION, 95_727_719
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePool.CapacityProvisioningType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_CAPACITY_PROVISIONING_TYPE, 0
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePool.PerformanceProvisioningType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_PERFORMANCE_PROVISIONING_TYPE, 0
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePool.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_STATE, 0
+  field :CREATING, 455_564_985
+  field :DELETING, 528_602_024
+  field :FAILED, 455_706_685
+  field :READY, 77_848_963
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolDisk.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_STATUS, 0
+  field :CREATING, 455_564_985
+  field :DELETING, 528_602_024
+  field :FAILED, 455_706_685
+  field :READY, 77_848_963
+  field :RESTORING, 404_263_851
+  field :UNAVAILABLE, 413_756_464
 end
 
 defmodule Google.Cloud.Compute.V1.Subnetwork.Ipv6AccessType do
@@ -5416,6 +5515,62 @@ defmodule Google.Cloud.Compute.V1.AggregatedListSslPoliciesRequest do
     json_name: "serviceProjectNumber"
 end
 
+defmodule Google.Cloud.Compute.V1.AggregatedListStoragePoolTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :service_project_number, 316_757_497,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "serviceProjectNumber"
+end
+
+defmodule Google.Cloud.Compute.V1.AggregatedListStoragePoolsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :service_project_number, 316_757_497,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "serviceProjectNumber"
+end
+
 defmodule Google.Cloud.Compute.V1.AggregatedListSubnetworksRequest do
   @moduledoc false
 
@@ -6127,6 +6282,8 @@ defmodule Google.Cloud.Compute.V1.AttachedDiskInitializeParams do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.CustomerEncryptionKey,
     json_name: "sourceSnapshotEncryptionKey"
+
+  field :storage_pool, 360_473_440, proto3_optional: true, type: :string, json_name: "storagePool"
 end
 
 defmodule Google.Cloud.Compute.V1.AuditConfig do
@@ -7448,6 +7605,22 @@ defmodule Google.Cloud.Compute.V1.CacheKeyPolicy do
     json_name: "queryStringWhitelist"
 end
 
+defmodule Google.Cloud.Compute.V1.CancelInstanceGroupManagerResizeRequestRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resize_request, 216_941_060, type: :string, json_name: "resizeRequest", deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.CircuitBreakers do
   @moduledoc false
 
@@ -8105,6 +8278,22 @@ defmodule Google.Cloud.Compute.V1.DeleteInstanceGroupManagerRequest do
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteInstanceGroupManagerResizeRequestRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resize_request, 216_941_060, type: :string, json_name: "resizeRequest", deprecated: false
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
@@ -8839,6 +9028,17 @@ defmodule Google.Cloud.Compute.V1.DeleteSslPolicyRequest do
   field :ssl_policy, 295_190_213, type: :string, json_name: "sslPolicy", deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.DeleteStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :storage_pool, 360_473_440, type: :string, json_name: "storagePool", deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.DeleteSubnetworkRequest do
   @moduledoc false
 
@@ -9328,6 +9528,7 @@ defmodule Google.Cloud.Compute.V1.Disk do
     json_name: "sourceStorageObject"
 
   field :status, 181_260_274, proto3_optional: true, type: :string
+  field :storage_pool, 360_473_440, proto3_optional: true, type: :string, json_name: "storagePool"
   field :type, 3_575_610, proto3_optional: true, type: :string
   field :users, 111_578_632, repeated: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
@@ -11135,6 +11336,21 @@ defmodule Google.Cloud.Compute.V1.GetIamPolicySnapshotRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetIamPolicyStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :options_requested_policy_version, 499_220_029,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "optionsRequestedPolicyVersion"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetIamPolicySubnetworkRequest do
   @moduledoc false
 
@@ -11183,6 +11399,21 @@ defmodule Google.Cloud.Compute.V1.GetInstanceGroupManagerRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetInstanceGroupManagerResizeRequestRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resize_request, 216_941_060, type: :string, json_name: "resizeRequest", deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetInstanceGroupRequest do
   @moduledoc false
 
@@ -11199,6 +11430,15 @@ defmodule Google.Cloud.Compute.V1.GetInstanceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetInstanceSettingRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
   field :project, 227_560_217, type: :string, deprecated: false
   field :zone, 3_744_684, type: :string, deprecated: false
 end
@@ -12012,6 +12252,31 @@ defmodule Google.Cloud.Compute.V1.GetStatusVpnGatewayRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
   field :vpn_gateway, 406_684_153, type: :string, json_name: "vpnGateway", deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :storage_pool, 360_473_440, type: :string, json_name: "storagePool", deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetStoragePoolTypeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :storage_pool_type, 285_999_289,
+    type: :string,
+    json_name: "storagePoolType",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetSubnetworkRequest do
@@ -13355,6 +13620,26 @@ defmodule Google.Cloud.Compute.V1.InsertInstanceGroupManagerRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.InsertInstanceGroupManagerResizeRequestRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :instance_group_manager_resize_request_resource, 468_541_293,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest,
+    json_name: "instanceGroupManagerResizeRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.InsertInstanceGroupRequest do
   @moduledoc false
 
@@ -14064,6 +14349,22 @@ defmodule Google.Cloud.Compute.V1.InsertSslPolicyRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.InsertStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :storage_pool_resource, 157_179_405,
+    type: Google.Cloud.Compute.V1.StoragePool,
+    json_name: "storagePoolResource",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.InsertSubnetworkRequest do
   @moduledoc false
 
@@ -14771,6 +15072,86 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :requested_run_duration, 232_146_425,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Duration,
+    json_name: "requestedRunDuration"
+
+  field :resize_by, 533_735_362, proto3_optional: true, type: :int32, json_name: "resizeBy"
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :state, 109_757_585, proto3_optional: true, type: :string
+
+  field :status, 181_260_274,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestStatus
+
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1.Error
+
+  field :last_attempt, 434_771_492,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestStatusLastAttempt,
+    json_name: "lastAttempt"
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestStatusLastAttempt do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1.Error
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestsListResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerStatus do
   @moduledoc false
 
@@ -15393,6 +15774,43 @@ defmodule Google.Cloud.Compute.V1.InstanceReference do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :instance, 18_257_045, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :metadata, 86_866_735,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceSettingsMetadata
+
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceSettingsMetadata.ItemsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceSettingsMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstanceSettingsMetadata.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceTemplate do
@@ -16991,6 +17409,26 @@ defmodule Google.Cloud.Compute.V1.ListDisksRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ListDisksStoragePoolsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :storage_pool, 360_473_440, type: :string, json_name: "storagePool", deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.ListErrorsInstanceGroupManagersRequest do
   @moduledoc false
 
@@ -17243,6 +17681,31 @@ defmodule Google.Cloud.Compute.V1.ListImagesRequest do
     proto3_optional: true,
     type: :bool,
     json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListInstanceGroupManagerResizeRequestsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :zone, 3_744_684, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.ListInstanceGroupManagersRequest do
@@ -18530,6 +18993,44 @@ defmodule Google.Cloud.Compute.V1.ListSslPoliciesRequest do
     proto3_optional: true,
     type: :bool,
     json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListStoragePoolTypesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.ListStoragePoolsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :zone, 3_744_684, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.ListSubnetworksRequest do
@@ -21288,6 +21789,22 @@ defmodule Google.Cloud.Compute.V1.PatchInstanceGroupManagerRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.PatchInstanceSettingRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance_settings_resource, 290_689_920,
+    type: Google.Cloud.Compute.V1.InstanceSettings,
+    json_name: "instanceSettingsResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.PatchInterconnectAttachmentRequest do
   @moduledoc false
 
@@ -22605,6 +23122,16 @@ defmodule Google.Cloud.Compute.V1.QuotaExceededInfo do
     json_name: "rolloutStatus"
 end
 
+defmodule Google.Cloud.Compute.V1.QuotaStatusWarning do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :code, 3_059_181, proto3_optional: true, type: :string
+  field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1.Data
+  field :message, 418_054_151, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.RawDisk do
   @moduledoc false
 
@@ -22698,6 +23225,12 @@ defmodule Google.Cloud.Compute.V1.Region do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :quota_status_warning, 302_941_430,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.QuotaStatusWarning,
+    json_name: "quotaStatusWarning"
+
   field :quotas, 125_341_947, repeated: true, type: Google.Cloud.Compute.V1.Quota
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :status, 181_260_274, proto3_optional: true, type: :string
@@ -26297,6 +26830,21 @@ defmodule Google.Cloud.Compute.V1.SetIamPolicySnapshotRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetIamPolicyStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+
+  field :zone_set_policy_request_resource, 382_082_107,
+    type: Google.Cloud.Compute.V1.ZoneSetPolicyRequest,
+    json_name: "zoneSetPolicyRequestResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetIamPolicySubnetworkRequest do
   @moduledoc false
 
@@ -28167,6 +28715,399 @@ defmodule Google.Cloud.Compute.V1.StopInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.StoragePool.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePool do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :capacity_provisioning_type, 251_610_375,
+    proto3_optional: true,
+    type: :string,
+    json_name: "capacityProvisioningType"
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :label_fingerprint, 178_124_825,
+    proto3_optional: true,
+    type: :string,
+    json_name: "labelFingerprint"
+
+  field :labels, 500_195_327,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.StoragePool.LabelsEntry,
+    map: true
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :performance_provisioning_type, 468_553_469,
+    proto3_optional: true,
+    type: :string,
+    json_name: "performanceProvisioningType"
+
+  field :pool_provisioned_capacity_gb, 478_537_682,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolProvisionedCapacityGb"
+
+  field :pool_provisioned_iops, 112_092_311,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolProvisionedIops"
+
+  field :pool_provisioned_throughput, 169_215_640,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolProvisionedThroughput"
+
+  field :resource_status, 249_429_315,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.StoragePoolResourceStatus,
+    json_name: "resourceStatus"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :state, 109_757_585, proto3_optional: true, type: :string
+
+  field :status, 181_260_274,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.StoragePoolResourceStatus
+
+  field :storage_pool_type, 285_999_289,
+    proto3_optional: true,
+    type: :string,
+    json_name: "storagePoolType"
+
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolAggregatedList.ItemsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.StoragePoolsScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolAggregatedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.StoragePoolAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolDisk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attached_instances, 65_255_843,
+    repeated: true,
+    type: :string,
+    json_name: "attachedInstances"
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :disk, 3_083_677, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :provisioned_iops, 186_769_108,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "provisionedIops"
+
+  field :provisioned_throughput, 526_524_181,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "provisionedThroughput"
+
+  field :resource_policies, 22_220_385,
+    repeated: true,
+    type: :string,
+    json_name: "resourcePolicies"
+
+  field :size_gb, 494_929_369, proto3_optional: true, type: :int64, json_name: "sizeGb"
+  field :status, 181_260_274, proto3_optional: true, type: :string
+  field :type, 3_575_610, proto3_optional: true, type: :string
+  field :used_bytes, 231_640_425, proto3_optional: true, type: :int64, json_name: "usedBytes"
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.StoragePool
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolListDisks do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.StoragePoolDisk
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolResourceStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :disk_count, 182_933_485, proto3_optional: true, type: :int64, json_name: "diskCount"
+
+  field :last_resize_timestamp, 500_825_556,
+    proto3_optional: true,
+    type: :string,
+    json_name: "lastResizeTimestamp"
+
+  field :max_total_provisioned_disk_capacity_gb, 165_818_207,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxTotalProvisionedDiskCapacityGb"
+
+  field :pool_used_capacity_bytes, 510_407_877,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolUsedCapacityBytes"
+
+  field :pool_used_iops, 99_558_536,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolUsedIops"
+
+  field :pool_used_throughput, 206_130_633,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolUsedThroughput"
+
+  field :pool_user_written_bytes, 228_964_050,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "poolUserWrittenBytes"
+
+  field :total_provisioned_disk_capacity_gb, 520_930_980,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalProvisionedDiskCapacityGb"
+
+  field :total_provisioned_disk_iops, 32_812_549,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalProvisionedDiskIops"
+
+  field :total_provisioned_disk_throughput, 447_677_830,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalProvisionedDiskThroughput"
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :deprecated, 515_138_995,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.DeprecationStatus
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :max_pool_provisioned_capacity_gb, 182_139_085,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxPoolProvisionedCapacityGb"
+
+  field :max_pool_provisioned_iops, 515_270_652,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxPoolProvisionedIops"
+
+  field :max_pool_provisioned_throughput, 228_928_061,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxPoolProvisionedThroughput"
+
+  field :min_pool_provisioned_capacity_gb, 191_022_751,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "minPoolProvisionedCapacityGb"
+
+  field :min_pool_provisioned_iops, 416_473_706,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "minPoolProvisionedIops"
+
+  field :min_pool_provisioned_throughput, 367_761_963,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "minPoolProvisionedThroughput"
+
+  field :min_size_gb, 385_278_188, proto3_optional: true, type: :int64, json_name: "minSizeGb"
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :supported_disk_types, 150_587_272,
+    repeated: true,
+    type: :string,
+    json_name: "supportedDiskTypes"
+
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypeAggregatedList.ItemsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.StoragePoolTypesScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypeAggregatedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.StoragePoolTypeAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypeList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.StoragePoolType
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypesScopedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_pool_types, 276_043_482,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.StoragePoolType,
+    json_name: "storagePoolTypes"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolsScopedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :storage_pools, 437_258_515,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.StoragePool,
+    json_name: "storagePools"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.Subnetwork do
   @moduledoc false
 
@@ -29697,6 +30638,22 @@ defmodule Google.Cloud.Compute.V1.TestIamPermissionsSnapshotRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.TestIamPermissionsStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :resource, 195_806_222, type: :string, deprecated: false
+
+  field :test_permissions_request_resource, 439_214_758,
+    type: Google.Cloud.Compute.V1.TestPermissionsRequest,
+    json_name: "testPermissionsRequestResource",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.TestIamPermissionsSubnetworkRequest do
   @moduledoc false
 
@@ -30189,6 +31146,24 @@ defmodule Google.Cloud.Compute.V1.UpdateShieldedInstanceConfigInstanceRequest do
     json_name: "shieldedInstanceConfigResource",
     deprecated: false
 
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.UpdateStoragePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :storage_pool, 360_473_440, type: :string, json_name: "storagePool", deprecated: false
+
+  field :storage_pool_resource, 157_179_405,
+    type: Google.Cloud.Compute.V1.StoragePool,
+    json_name: "storagePoolResource",
+    deprecated: false
+
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
@@ -32037,6 +33012,40 @@ defmodule Google.Cloud.Compute.V1.Images.Stub do
   use GRPC.Stub, service: Google.Cloud.Compute.V1.Images.Service
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequests.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.InstanceGroupManagerResizeRequests",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :Cancel,
+      Google.Cloud.Compute.V1.CancelInstanceGroupManagerResizeRequestRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteInstanceGroupManagerResizeRequestRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetInstanceGroupManagerResizeRequestRequest,
+      Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertInstanceGroupManagerResizeRequestRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListInstanceGroupManagerResizeRequestsRequest,
+      Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestsListResponse
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequests.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequests.Service
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagers.Service do
   @moduledoc false
 
@@ -32177,6 +33186,28 @@ defmodule Google.Cloud.Compute.V1.InstanceGroups.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Compute.V1.InstanceGroups.Service
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceSettingsService.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.InstanceSettingsService",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetInstanceSettingRequest,
+      Google.Cloud.Compute.V1.InstanceSettings
+
+  rpc :Patch,
+      Google.Cloud.Compute.V1.PatchInstanceSettingRequest,
+      Google.Cloud.Compute.V1.Operation
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceSettingsService.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.InstanceSettingsService.Service
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceTemplates.Service do
@@ -34647,6 +35678,78 @@ defmodule Google.Cloud.Compute.V1.SslPolicies.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Compute.V1.SslPolicies.Service
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypes.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.StoragePoolTypes",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListStoragePoolTypesRequest,
+      Google.Cloud.Compute.V1.StoragePoolTypeAggregatedList
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetStoragePoolTypeRequest,
+      Google.Cloud.Compute.V1.StoragePoolType
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListStoragePoolTypesRequest,
+      Google.Cloud.Compute.V1.StoragePoolTypeList
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePoolTypes.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.StoragePoolTypes.Service
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePools.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.StoragePools",
+    protoc_gen_elixir_version: "0.12.0"
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListStoragePoolsRequest,
+      Google.Cloud.Compute.V1.StoragePoolAggregatedList
+
+  rpc :Delete, Google.Cloud.Compute.V1.DeleteStoragePoolRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :Get, Google.Cloud.Compute.V1.GetStoragePoolRequest, Google.Cloud.Compute.V1.StoragePool
+
+  rpc :GetIamPolicy,
+      Google.Cloud.Compute.V1.GetIamPolicyStoragePoolRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :Insert, Google.Cloud.Compute.V1.InsertStoragePoolRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListStoragePoolsRequest,
+      Google.Cloud.Compute.V1.StoragePoolList
+
+  rpc :ListDisks,
+      Google.Cloud.Compute.V1.ListDisksStoragePoolsRequest,
+      Google.Cloud.Compute.V1.StoragePoolListDisks
+
+  rpc :SetIamPolicy,
+      Google.Cloud.Compute.V1.SetIamPolicyStoragePoolRequest,
+      Google.Cloud.Compute.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Cloud.Compute.V1.TestIamPermissionsStoragePoolRequest,
+      Google.Cloud.Compute.V1.TestPermissionsResponse
+
+  rpc :Update, Google.Cloud.Compute.V1.UpdateStoragePoolRequest, Google.Cloud.Compute.V1.Operation
+end
+
+defmodule Google.Cloud.Compute.V1.StoragePools.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.StoragePools.Service
 end
 
 defmodule Google.Cloud.Compute.V1.Subnetworks.Service do

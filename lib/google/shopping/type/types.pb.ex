@@ -1,3 +1,13 @@
+defmodule Google.Shopping.Type.Weight.WeightUnit do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :WEIGHT_UNIT_UNSPECIFIED, 0
+  field :POUND, 1
+  field :KILOGRAM, 2
+end
+
 defmodule Google.Shopping.Type.Destination.DestinationEnum do
   @moduledoc false
 
@@ -42,6 +52,15 @@ defmodule Google.Shopping.Type.Channel.ChannelEnum do
   field :CHANNEL_ENUM_UNSPECIFIED, 0
   field :ONLINE, 1
   field :LOCAL, 2
+end
+
+defmodule Google.Shopping.Type.Weight do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :amount_micros, 1, proto3_optional: true, type: :int64, json_name: "amountMicros"
+  field :unit, 2, type: Google.Shopping.Type.Weight.WeightUnit, enum: true
 end
 
 defmodule Google.Shopping.Type.Price do
