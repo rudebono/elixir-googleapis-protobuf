@@ -146,6 +146,7 @@ defmodule Google.Ads.Googleads.V16.Enums.ResourceLimitTypeEnum.ResourceLimitType
   field :BRANDS_PER_SHARED_SET, 183
   field :ENABLED_BRAND_LIST_CRITERIA_PER_CAMPAIGN, 184
   field :SHARED_SETS_PER_ACCOUNT_FOR_BRAND, 185
+  field :LOOKALIKE_USER_LISTS_PER_CUSTOMER, 186
 end
 
 defmodule Google.Ads.Googleads.V16.Enums.ResourceLimitTypeEnum do

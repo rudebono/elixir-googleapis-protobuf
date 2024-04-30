@@ -49,4 +49,10 @@ defmodule Google.Ads.Googleads.V16.Resources.MessageDetails do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
+
+  field :attachment_urls, 2,
+    repeated: true,
+    type: :string,
+    json_name: "attachmentUrls",
+    deprecated: false
 end
