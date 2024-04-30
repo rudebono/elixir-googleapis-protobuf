@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Parallelstore.V1beta.TransferType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRANSFER_TYPE_UNSPECIFIED, 0
+  field :IMPORT, 1
+  field :EXPORT, 2
+end
+
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.State do
   @moduledoc false
 
@@ -59,6 +69,11 @@ defmodule Google.Cloud.Parallelstore.V1beta.Instance do
 
   field :network, 11, type: :string, deprecated: false
   field :reserved_ip_range, 12, type: :string, json_name: "reservedIpRange", deprecated: false
+
+  field :effective_reserved_ip_range, 14,
+    type: :string,
+    json_name: "effectiveReservedIpRange",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.ListInstancesRequest do
@@ -148,6 +163,108 @@ defmodule Google.Cloud.Parallelstore.V1beta.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Parallelstore.V1beta.ImportDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :destination, 1
+
+  field :source_gcs_uri, 2, type: :string, json_name: "sourceGcsUri", oneof: 0
+
+  field :destination_path, 3,
+    type: :string,
+    json_name: "destinationPath",
+    oneof: 1,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.ExportDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :destination, 1
+
+  field :source_path, 2, type: :string, json_name: "sourcePath", oneof: 0, deprecated: false
+  field :destination_gcs_uri, 3, type: :string, json_name: "destinationGcsUri", oneof: 1
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.ImportDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.ImportDataMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_metadata, 1,
+    type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
+    json_name: "operationMetadata"
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.ExportDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.ExportDataMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_metadata, 1,
+    type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
+    json_name: "operationMetadata"
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :counters, 3, type: Google.Cloud.Parallelstore.V1beta.TransferCounters
+  field :source, 4, type: :string, deprecated: false
+  field :destination, 5, type: :string, deprecated: false
+
+  field :transfer_type, 6,
+    type: Google.Cloud.Parallelstore.V1beta.TransferType,
+    json_name: "transferType",
+    enum: true
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.TransferCounters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :objects_found, 1, type: :int64, json_name: "objectsFound"
+  field :bytes_found, 2, type: :int64, json_name: "bytesFound"
+  field :objects_skipped, 3, type: :int64, json_name: "objectsSkipped"
+  field :bytes_skipped, 4, type: :int64, json_name: "bytesSkipped"
+  field :objects_copied, 5, type: :int64, json_name: "objectsCopied"
+  field :bytes_copied, 6, type: :int64, json_name: "bytesCopied"
+end
+
 defmodule Google.Cloud.Parallelstore.V1beta.Parallelstore.Service do
   @moduledoc false
 
@@ -173,6 +290,14 @@ defmodule Google.Cloud.Parallelstore.V1beta.Parallelstore.Service do
 
   rpc :DeleteInstance,
       Google.Cloud.Parallelstore.V1beta.DeleteInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportData,
+      Google.Cloud.Parallelstore.V1beta.ImportDataRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportData,
+      Google.Cloud.Parallelstore.V1beta.ExportDataRequest,
       Google.Longrunning.Operation
 end
 
