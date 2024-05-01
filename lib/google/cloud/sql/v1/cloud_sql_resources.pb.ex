@@ -77,6 +77,10 @@ defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   field :MYSQL_8_0_34, 239
   field :MYSQL_8_0_35, 240
   field :MYSQL_8_0_36, 241
+  field :MYSQL_8_0_37, 355
+  field :MYSQL_8_0_38, 356
+  field :MYSQL_8_0_39, 357
+  field :MYSQL_8_0_40, 358
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28
@@ -160,6 +164,18 @@ defmodule Google.Cloud.Sql.V1.BackupRetentionSettings.RetentionUnit do
   field :COUNT, 1
 end
 
+defmodule Google.Cloud.Sql.V1.BackupConfiguration.TransactionalLogStorageState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED, 0
+  field :DISK, 1
+  field :SWITCHING_TO_CLOUD_STORAGE, 2
+  field :SWITCHED_TO_CLOUD_STORAGE, 3
+  field :CLOUD_STORAGE, 4
+end
+
 defmodule Google.Cloud.Sql.V1.IpConfiguration.SslMode do
   @moduledoc false
 
@@ -215,6 +231,9 @@ defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   field :AUTO_RESTART, 37
   field :REENCRYPT, 38
   field :SWITCHOVER, 39
+  field :ACQUIRE_SSRS_LEASE, 42
+  field :RELEASE_SSRS_LEASE, 43
+  field :RECONFIGURE_OLD_PRIMARY, 44
 end
 
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationStatus do
@@ -329,6 +348,13 @@ defmodule Google.Cloud.Sql.V1.BackupConfiguration do
   field :transaction_log_retention_days, 9,
     type: Google.Protobuf.Int32Value,
     json_name: "transactionLogRetentionDays"
+
+  field :transactional_log_storage_state, 10,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.BackupConfiguration.TransactionalLogStorageState,
+    json_name: "transactionalLogStorageState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.PerformDiskShrinkContext do
@@ -516,6 +542,15 @@ defmodule Google.Cloud.Sql.V1.ExportContext do
     json_name: "bakExportOptions"
 end
 
+defmodule Google.Cloud.Sql.V1.ImportContext.SqlImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :threads, 1, type: Google.Protobuf.Int32Value, deprecated: false
+  field :parallel, 2, type: Google.Protobuf.BoolValue, deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions do
   @moduledoc false
 
@@ -575,6 +610,11 @@ defmodule Google.Cloud.Sql.V1.ImportContext do
   field :bak_import_options, 7,
     type: Google.Cloud.Sql.V1.ImportContext.SqlBakImportOptions,
     json_name: "bakImportOptions"
+
+  field :sql_import_options, 8,
+    type: Google.Cloud.Sql.V1.ImportContext.SqlImportOptions,
+    json_name: "sqlImportOptions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.IpConfiguration do
@@ -762,6 +802,10 @@ defmodule Google.Cloud.Sql.V1.Operation do
   field :target_id, 13, type: :string, json_name: "targetId"
   field :self_link, 14, type: :string, json_name: "selfLink"
   field :target_project, 15, type: :string, json_name: "targetProject"
+
+  field :acquire_ssrs_lease_context, 20,
+    type: Google.Cloud.Sql.V1.AcquireSsrsLeaseContext,
+    json_name: "acquireSsrsLeaseContext"
 end
 
 defmodule Google.Cloud.Sql.V1.OperationError do
@@ -956,6 +1000,11 @@ defmodule Google.Cloud.Sql.V1.Settings do
   field :data_cache_config, 37,
     type: Google.Cloud.Sql.V1.DataCacheConfig,
     json_name: "dataCacheConfig"
+
+  field :enable_google_ml_integration, 40,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableGoogleMlIntegration",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.AdvancedMachineFeatures do
@@ -1009,4 +1058,15 @@ defmodule Google.Cloud.Sql.V1.SqlServerAuditConfig do
   field :bucket, 2, type: :string
   field :retention_interval, 3, type: Google.Protobuf.Duration, json_name: "retentionInterval"
   field :upload_interval, 4, type: Google.Protobuf.Duration, json_name: "uploadInterval"
+end
+
+defmodule Google.Cloud.Sql.V1.AcquireSsrsLeaseContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :setup_login, 1, proto3_optional: true, type: :string, json_name: "setupLogin"
+  field :service_login, 2, proto3_optional: true, type: :string, json_name: "serviceLogin"
+  field :report_database, 3, proto3_optional: true, type: :string, json_name: "reportDatabase"
+  field :duration, 4, proto3_optional: true, type: Google.Protobuf.Duration
 end

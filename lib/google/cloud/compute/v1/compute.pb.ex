@@ -1996,6 +1996,16 @@ defmodule Google.Cloud.Compute.V1.NetworksGetEffectiveFirewallsResponseEffective
   field :UNSPECIFIED, 526_786_327
 end
 
+defmodule Google.Cloud.Compute.V1.NodeGroup.MaintenanceInterval do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_MAINTENANCE_INTERVAL, 0
+  field :AS_NEEDED, 500_724_834
+  field :RECURRENT, 194_244_550
+end
+
 defmodule Google.Cloud.Compute.V1.NodeGroup.MaintenancePolicy do
   @moduledoc false
 
@@ -2295,6 +2305,16 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.ByoipApiVersion do
   field :V2, 2716
 end
 
+defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_MODE, 0
+  field :DELEGATION, 264_149_288
+  field :EXTERNAL_IPV6_FORWARDING_RULE_CREATION, 398_684_356
+end
+
 defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.Status do
   @moduledoc false
 
@@ -2307,6 +2327,16 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.Status do
   field :DELETING, 528_602_024
   field :INITIALIZING, 306_588_749
   field :READY_TO_ANNOUNCE, 64_641_265
+end
+
+defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_MODE, 0
+  field :DELEGATION, 264_149_288
+  field :EXTERNAL_IPV6_FORWARDING_RULE_CREATION, 398_684_356
 end
 
 defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix.Status do
@@ -2467,6 +2497,7 @@ defmodule Google.Cloud.Compute.V1.Quota.Metric do
   field :SNAPSHOTS, 343_405_327
   field :SSD_TOTAL_GB, 161_732_561
   field :SSL_CERTIFICATES, 378_372_399
+  field :SSL_POLICIES, 523_254_339
   field :STATIC_ADDRESSES, 93_624_049
   field :STATIC_BYOIP_ADDRESSES, 275_809_649
   field :STATIC_EXTERNAL_IPV6_ADDRESS_RANGES, 472_346_774
@@ -2785,6 +2816,16 @@ defmodule Google.Cloud.Compute.V1.RouterBgpPeerBfd.SessionInitializationMode do
   field :PASSIVE, 462_813_959
 end
 
+defmodule Google.Cloud.Compute.V1.RouterInterface.IpVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNDEFINED_IP_VERSION, 0
+  field :IPV4, 2_254_341
+  field :IPV6, 2_254_343
+end
+
 defmodule Google.Cloud.Compute.V1.RouterInterface.ManagementType do
   @moduledoc false
 
@@ -2888,6 +2929,8 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus.StatusReason do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :UNDEFINED_STATUS_REASON, 0
+  field :IPV4_PEER_ON_IPV6_ONLY_CONNECTION, 435_936_662
+  field :IPV6_PEER_ON_IPV4_ONLY_CONNECTION, 436_304_082
   field :MD5_AUTH_INTERNAL_PROBLEM, 140_462_259
   field :STATUS_REASON_UNSPECIFIED, 394_331_913
 end
@@ -10481,6 +10524,12 @@ defmodule Google.Cloud.Compute.V1.ForwardingRule do
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :uint64
+
+  field :ip_collection, 176_818_358,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipCollection"
+
   field :ip_version, 294_959_552, proto3_optional: true, type: :string, json_name: "ipVersion"
 
   field :is_mirroring_collector, 119_255_164,
@@ -20685,6 +20734,11 @@ defmodule Google.Cloud.Compute.V1.NodeGroup do
     type: :string,
     json_name: "locationHint"
 
+  field :maintenance_interval, 403_368_049,
+    proto3_optional: true,
+    type: :string,
+    json_name: "maintenanceInterval"
+
   field :maintenance_policy, 528_327_646,
     proto3_optional: true,
     type: :string,
@@ -20831,6 +20885,11 @@ defmodule Google.Cloud.Compute.V1.NodeGroupNode do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.InstanceConsumptionInfo,
     json_name: "totalResources"
+
+  field :upcoming_maintenance, 227_348_592,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.UpcomingMaintenance,
+    json_name: "upcomingMaintenance"
 end
 
 defmodule Google.Cloud.Compute.V1.NodeGroupsAddNodesRequest do
@@ -20868,6 +20927,15 @@ defmodule Google.Cloud.Compute.V1.NodeGroupsListNodes do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.NodeGroupsPerformMaintenanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :nodes, 104_993_457, repeated: true, type: :string
+  field :start_time, 37_467_274, proto3_optional: true, type: :string, json_name: "startTime"
 end
 
 defmodule Google.Cloud.Compute.V1.NodeGroupsScopedList do
@@ -22620,6 +22688,23 @@ defmodule Google.Cloud.Compute.V1.PerformMaintenanceInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.PerformMaintenanceNodeGroupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
+
+  field :node_groups_perform_maintenance_request_resource, 185_310_294,
+    type: Google.Cloud.Compute.V1.NodeGroupsPerformMaintenanceRequest,
+    json_name: "nodeGroupsPerformMaintenanceRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.Policy do
   @moduledoc false
 
@@ -22961,6 +23046,11 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :allocatable_prefix_length, 38_427_446,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "allocatablePrefixLength"
+
   field :byoip_api_version, 162_683_283,
     proto3_optional: true,
     type: :string,
@@ -22982,6 +23072,7 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix do
     json_name: "isLiveMigration"
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
+  field :mode, 3_357_091, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
 
   field :parent_prefix, 15_233_991,
@@ -23055,6 +23146,11 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix 
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :allocatable_prefix_length, 38_427_446,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "allocatablePrefixLength"
+
   field :delegatee_project, 414_860_634,
     proto3_optional: true,
     type: :string,
@@ -23063,6 +23159,7 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
   field :is_address, 352_617_951, proto3_optional: true, type: :bool, json_name: "isAddress"
+  field :mode, 3_357_091, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :status, 181_260_274, proto3_optional: true, type: :string
@@ -24737,6 +24834,11 @@ defmodule Google.Cloud.Compute.V1.RouterBgp do
 
   field :asn, 96892, proto3_optional: true, type: :uint32
 
+  field :identifier_range, 501_573_159,
+    proto3_optional: true,
+    type: :string,
+    json_name: "identifierRange"
+
   field :keepalive_interval, 276_771_516,
     proto3_optional: true,
     type: :uint32,
@@ -24781,7 +24883,10 @@ defmodule Google.Cloud.Compute.V1.RouterBgpPeer do
     json_name: "customLearnedRoutePriority"
 
   field :enable, 311_764_355, proto3_optional: true, type: :string
+  field :enable_ipv4, 181_467_937, proto3_optional: true, type: :bool, json_name: "enableIpv4"
   field :enable_ipv6, 181_467_939, proto3_optional: true, type: :bool, json_name: "enableIpv6"
+  field :export_policies, 134_084_987, repeated: true, type: :string, json_name: "exportPolicies"
+  field :import_policies, 451_147_946, repeated: true, type: :string, json_name: "importPolicies"
 
   field :interface_name, 437_854_673,
     proto3_optional: true,
@@ -24789,6 +24894,11 @@ defmodule Google.Cloud.Compute.V1.RouterBgpPeer do
     json_name: "interfaceName"
 
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+
+  field :ipv4_nexthop_address, 5_703_377,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv4NexthopAddress"
 
   field :ipv6_nexthop_address, 27_968_211,
     proto3_optional: true,
@@ -24812,6 +24922,11 @@ defmodule Google.Cloud.Compute.V1.RouterBgpPeer do
     proto3_optional: true,
     type: :string,
     json_name: "peerIpAddress"
+
+  field :peer_ipv4_nexthop_address, 469_221_774,
+    proto3_optional: true,
+    type: :string,
+    json_name: "peerIpv4NexthopAddress"
 
   field :peer_ipv6_nexthop_address, 491_486_608,
     proto3_optional: true,
@@ -24861,6 +24976,7 @@ defmodule Google.Cloud.Compute.V1.RouterInterface do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :ip_range, 145_092_645, proto3_optional: true, type: :string, json_name: "ipRange"
+  field :ip_version, 294_959_552, proto3_optional: true, type: :string, json_name: "ipVersion"
 
   field :linked_interconnect_attachment, 501_085_518,
     proto3_optional: true,
@@ -25115,8 +25231,14 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus do
     type: Google.Cloud.Compute.V1.BfdStatus,
     json_name: "bfdStatus"
 
+  field :enable_ipv4, 181_467_937, proto3_optional: true, type: :bool, json_name: "enableIpv4"
   field :enable_ipv6, 181_467_939, proto3_optional: true, type: :bool, json_name: "enableIpv6"
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+
+  field :ipv4_nexthop_address, 5_703_377,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv4NexthopAddress"
 
   field :ipv6_nexthop_address, 27_968_211,
     proto3_optional: true,
@@ -25144,6 +25266,11 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus do
     proto3_optional: true,
     type: :string,
     json_name: "peerIpAddress"
+
+  field :peer_ipv4_nexthop_address, 469_221_774,
+    proto3_optional: true,
+    type: :string,
+    json_name: "peerIpv4NexthopAddress"
 
   field :peer_ipv6_nexthop_address, 491_486_608,
     proto3_optional: true,
@@ -34026,6 +34153,10 @@ defmodule Google.Cloud.Compute.V1.NodeGroups.Service do
       Google.Cloud.Compute.V1.NodeGroupsListNodes
 
   rpc :Patch, Google.Cloud.Compute.V1.PatchNodeGroupRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :PerformMaintenance,
+      Google.Cloud.Compute.V1.PerformMaintenanceNodeGroupRequest,
+      Google.Cloud.Compute.V1.Operation
 
   rpc :SetIamPolicy,
       Google.Cloud.Compute.V1.SetIamPolicyNodeGroupRequest,
