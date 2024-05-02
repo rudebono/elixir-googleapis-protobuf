@@ -176,6 +176,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy do
     deprecated: false
 
   field :artifact_uri, 4, type: :string, json_name: "artifactUri", deprecated: false
+
+  field :deploy_task_name, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "deployTaskName",
+    deprecated: false
+
   field :title, 8, type: :string, deprecated: false
   field :public_artifact_uri, 9, type: :string, json_name: "publicArtifactUri", deprecated: false
 end

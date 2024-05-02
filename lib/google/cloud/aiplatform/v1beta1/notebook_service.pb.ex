@@ -204,6 +204,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.StartNotebookRuntimeResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CreateNotebookExecutionJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :notebook_execution_job, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob,
+    json_name: "notebookExecutionJob",
+    deprecated: false
+
+  field :notebook_execution_job_id, 3,
+    type: :string,
+    json_name: "notebookExecutionJobId",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetNotebookExecutionJobRequest do
   @moduledoc false
 

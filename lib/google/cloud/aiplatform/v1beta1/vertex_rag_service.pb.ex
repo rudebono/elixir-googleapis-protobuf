@@ -9,12 +9,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery do
   field :similarity_top_k, 2, type: :int32, json_name: "similarityTopK", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore.RagResource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rag_corpus, 1, type: :string, json_name: "ragCorpus", deprecated: false
+
+  field :rag_file_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "ragFileIds",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :rag_corpora, 1, repeated: true, type: :string, json_name: "ragCorpora", deprecated: false
+  field :rag_corpora, 1, repeated: true, type: :string, json_name: "ragCorpora", deprecated: true
+
+  field :rag_resources, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore.RagResource,
+    json_name: "ragResources",
+    deprecated: false
+
+  field :vector_distance_threshold, 2,
+    proto3_optional: true,
+    type: :double,
+    json_name: "vectorDistanceThreshold",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest do

@@ -374,6 +374,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingMetadata do
     json_name: "webSearchQueries",
     deprecated: false
 
+  field :search_entry_point, 4,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SearchEntryPoint,
+    json_name: "searchEntryPoint",
+    deprecated: false
+
   field :retrieval_queries, 3,
     repeated: true,
     type: :string,
@@ -385,4 +391,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingMetadata do
     type: Google.Cloud.Aiplatform.V1beta1.GroundingAttribution,
     json_name: "groundingAttributions",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SearchEntryPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rendered_content, 1, type: :string, json_name: "renderedContent", deprecated: false
+  field :sdk_blob, 2, type: :bytes, json_name: "sdkBlob", deprecated: false
 end

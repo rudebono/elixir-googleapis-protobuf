@@ -338,15 +338,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse do
     json_name: "usageMetadata"
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :endpoint, 1, type: :string, deprecated: false
-  field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody", deprecated: false
-end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   @moduledoc false
 
@@ -403,10 +394,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :StreamGenerateContent,
       Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest,
       stream(Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse)
-
-  rpc :ChatCompletions,
-      Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest,
-      stream(Google.Api.HttpBody)
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do
