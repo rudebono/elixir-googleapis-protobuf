@@ -322,6 +322,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest do
   field :sentiment_analysis_result, 9,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.WebhookRequest.SentimentAnalysisResult,
     json_name: "sentimentAnalysisResult"
+
+  field :language_info, 18,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LanguageInfo,
+    json_name: "languageInfo"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.WebhookResponse.FulfillmentResponse do
@@ -419,6 +423,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SessionInfo.ParametersEntry,
     map: true
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LanguageInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :input_language_code, 1, type: :string, json_name: "inputLanguageCode"
+  field :resolved_language_code, 2, type: :string, json_name: "resolvedLanguageCode"
+  field :confidence_score, 3, type: :float, json_name: "confidenceScore"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhooks.Service do
