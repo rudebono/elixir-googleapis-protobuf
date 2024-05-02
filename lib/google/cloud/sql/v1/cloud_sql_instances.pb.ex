@@ -52,6 +52,16 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.Exte
   field :OFFLINE, 2
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MIGRATION_TYPE_UNSPECIFIED, 0
+  field :LOGICAL, 1
+  field :PHYSICAL, 2
+end
+
 defmodule Google.Cloud.Sql.V1.DatabaseInstance.SqlInstanceState do
   @moduledoc false
 
@@ -144,6 +154,10 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :SOURCE_MAX_SUBSCRIPTIONS, 38
   field :UNABLE_TO_VERIFY_DEFINERS, 39
   field :SUBSCRIPTION_CALCULATION_STATUS, 40
+  field :PG_SUBSCRIPTION_COUNT, 41
+  field :PG_SYNC_PARALLEL_LEVEL, 42
+  field :INSUFFICIENT_DISK_SIZE, 43
+  field :INSUFFICIENT_MACHINE_TIER, 44
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
@@ -458,6 +472,18 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest do
     json_name: "mysqlSyncConfig",
     oneof: 0,
     deprecated: false
+
+  field :migration_type, 7,
+    type: Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType,
+    json_name: "migrationType",
+    enum: true,
+    deprecated: false
+
+  field :sync_parallel_level, 8,
+    type: Google.Cloud.Sql.V1.ExternalSyncParallelLevel,
+    json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest do
@@ -485,6 +511,12 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesStartExternalSyncRequest do
   field :sync_parallel_level, 7,
     type: Google.Cloud.Sql.V1.ExternalSyncParallelLevel,
     json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
+
+  field :migration_type, 8,
+    type: Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType,
+    json_name: "migrationType",
     enum: true,
     deprecated: false
 end
@@ -621,6 +653,16 @@ defmodule Google.Cloud.Sql.V1.InstancesTruncateLogRequest do
   field :truncate_log_context, 1,
     type: Google.Cloud.Sql.V1.TruncateLogContext,
     json_name: "truncateLogContext"
+end
+
+defmodule Google.Cloud.Sql.V1.InstancesAcquireSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :acquire_ssrs_lease_context, 1,
+    type: Google.Cloud.Sql.V1.AcquireSsrsLeaseContext,
+    json_name: "acquireSsrsLeaseContext"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesVerifyExternalSyncSettingsResponse do
@@ -880,6 +922,67 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     type: :string,
     json_name: "writeEndpoint",
     deprecated: false
+
+  field :replication_cluster, 54,
+    type: Google.Cloud.Sql.V1.ReplicationCluster,
+    json_name: "replicationCluster",
+    deprecated: false
+
+  field :gemini_config, 55,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.GeminiInstanceConfig,
+    json_name: "geminiConfig"
+end
+
+defmodule Google.Cloud.Sql.V1.GeminiInstanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entitled, 1, proto3_optional: true, type: :bool, deprecated: false
+
+  field :google_vacuum_mgmt_enabled, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "googleVacuumMgmtEnabled",
+    deprecated: false
+
+  field :oom_session_cancel_enabled, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "oomSessionCancelEnabled",
+    deprecated: false
+
+  field :active_query_enabled, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "activeQueryEnabled",
+    deprecated: false
+
+  field :index_advisor_enabled, 5,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "indexAdvisorEnabled",
+    deprecated: false
+
+  field :flag_recommender_enabled, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "flagRecommenderEnabled",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1.ReplicationCluster do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :failover_dr_replica_name, 2,
+    type: :string,
+    json_name: "failoverDrReplicaName",
+    deprecated: false
+
+  field :dr_replica, 4, type: :bool, json_name: "drReplica", deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesRescheduleMaintenanceRequestBody.Reschedule do
@@ -1030,6 +1133,41 @@ defmodule Google.Cloud.Sql.V1.ReplicaConfiguration do
     deprecated: false
 end
 
+defmodule Google.Cloud.Sql.V1.SqlInstancesAcquireSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+  field :body, 100, type: Google.Cloud.Sql.V1.InstancesAcquireSsrsLeaseRequest, deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesAcquireSsrsLeaseResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_id, 1, type: :string, json_name: "operationId"
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesReleaseSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1.SqlInstancesReleaseSsrsLeaseResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_id, 1, type: :string, json_name: "operationId"
+end
+
 defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
   @moduledoc false
 
@@ -1140,6 +1278,14 @@ defmodule Google.Cloud.Sql.V1.SqlInstancesService.Service do
   rpc :GetLatestRecoveryTime,
       Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeRequest,
       Google.Cloud.Sql.V1.SqlInstancesGetLatestRecoveryTimeResponse
+
+  rpc :AcquireSsrsLease,
+      Google.Cloud.Sql.V1.SqlInstancesAcquireSsrsLeaseRequest,
+      Google.Cloud.Sql.V1.SqlInstancesAcquireSsrsLeaseResponse
+
+  rpc :ReleaseSsrsLease,
+      Google.Cloud.Sql.V1.SqlInstancesReleaseSsrsLeaseRequest,
+      Google.Cloud.Sql.V1.SqlInstancesReleaseSsrsLeaseResponse
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesService.Stub do

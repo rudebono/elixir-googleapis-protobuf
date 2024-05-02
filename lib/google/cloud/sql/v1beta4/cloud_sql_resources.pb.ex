@@ -125,6 +125,10 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   field :MYSQL_8_0_34, 239
   field :MYSQL_8_0_35, 240
   field :MYSQL_8_0_36, 241
+  field :MYSQL_8_0_37, 355
+  field :MYSQL_8_0_38, 356
+  field :MYSQL_8_0_39, 357
+  field :MYSQL_8_0_40, 358
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28
@@ -233,6 +237,18 @@ defmodule Google.Cloud.Sql.V1beta4.BackupRetentionSettings.RetentionUnit do
 
   field :RETENTION_UNIT_UNSPECIFIED, 0
   field :COUNT, 1
+end
+
+defmodule Google.Cloud.Sql.V1beta4.BackupConfiguration.TransactionalLogStorageState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TRANSACTIONAL_LOG_STORAGE_STATE_UNSPECIFIED, 0
+  field :DISK, 1
+  field :SWITCHING_TO_CLOUD_STORAGE, 2
+  field :SWITCHED_TO_CLOUD_STORAGE, 3
+  field :CLOUD_STORAGE, 4
 end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlInstanceState do
@@ -377,6 +393,9 @@ defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
   field :AUTO_RESTART, 37
   field :REENCRYPT, 38
   field :SWITCHOVER, 39
+  field :ACQUIRE_SSRS_LEASE, 42
+  field :RELEASE_SSRS_LEASE, 43
+  field :RECONFIGURE_OLD_PRIMARY, 44
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationStatus do
@@ -502,6 +521,13 @@ defmodule Google.Cloud.Sql.V1beta4.BackupConfiguration do
   field :backup_retention_settings, 10,
     type: Google.Cloud.Sql.V1beta4.BackupRetentionSettings,
     json_name: "backupRetentionSettings"
+
+  field :transactional_log_storage_state, 11,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.BackupConfiguration.TransactionalLogStorageState,
+    json_name: "transactionalLogStorageState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.BackupRun do
@@ -836,6 +862,72 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
     type: :string,
     json_name: "writeEndpoint",
     deprecated: false
+
+  field :replication_cluster, 54,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.ReplicationCluster,
+    json_name: "replicationCluster"
+
+  field :gemini_config, 55,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1beta4.GeminiInstanceConfig,
+    json_name: "geminiConfig"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.GeminiInstanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :entitled, 1, proto3_optional: true, type: :bool, deprecated: false
+
+  field :google_vacuum_mgmt_enabled, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "googleVacuumMgmtEnabled",
+    deprecated: false
+
+  field :oom_session_cancel_enabled, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "oomSessionCancelEnabled",
+    deprecated: false
+
+  field :active_query_enabled, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "activeQueryEnabled",
+    deprecated: false
+
+  field :index_advisor_enabled, 5,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "indexAdvisorEnabled",
+    deprecated: false
+
+  field :flag_recommender_enabled, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "flagRecommenderEnabled",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1beta4.ReplicationCluster do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :failover_dr_replica_name, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "failoverDrReplicaName",
+    deprecated: false
+
+  field :dr_replica, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "drReplica",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabasesListResponse do
@@ -1023,6 +1115,15 @@ defmodule Google.Cloud.Sql.V1beta4.FlagsListResponse do
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1beta4.Flag
 end
 
+defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :threads, 1, type: Google.Protobuf.Int32Value, deprecated: false
+  field :parallel, 2, type: Google.Protobuf.BoolValue, deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1beta4.ImportContext.SqlCsvImportOptions do
   @moduledoc false
 
@@ -1086,6 +1187,11 @@ defmodule Google.Cloud.Sql.V1beta4.ImportContext do
   field :bak_import_options, 7,
     type: Google.Cloud.Sql.V1beta4.ImportContext.SqlBakImportOptions,
     json_name: "bakImportOptions"
+
+  field :sql_import_options, 8,
+    type: Google.Cloud.Sql.V1beta4.ImportContext.SqlImportOptions,
+    json_name: "sqlImportOptions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.InstancesCloneRequest do
@@ -1207,6 +1313,16 @@ defmodule Google.Cloud.Sql.V1beta4.InstancesTruncateLogRequest do
   field :truncate_log_context, 1,
     type: Google.Cloud.Sql.V1beta4.TruncateLogContext,
     json_name: "truncateLogContext"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.InstancesAcquireSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :acquire_ssrs_lease_context, 1,
+    type: Google.Cloud.Sql.V1beta4.AcquireSsrsLeaseContext,
+    json_name: "acquireSsrsLeaseContext"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.PerformDiskShrinkContext do
@@ -1464,6 +1580,10 @@ defmodule Google.Cloud.Sql.V1beta4.Operation do
   field :target_id, 13, type: :string, json_name: "targetId"
   field :self_link, 14, type: :string, json_name: "selfLink"
   field :target_project, 15, type: :string, json_name: "targetProject"
+
+  field :acquire_ssrs_lease_context, 20,
+    type: Google.Cloud.Sql.V1beta4.AcquireSsrsLeaseContext,
+    json_name: "acquireSsrsLeaseContext"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.OperationError do
@@ -1714,6 +1834,11 @@ defmodule Google.Cloud.Sql.V1beta4.Settings do
   field :data_cache_config, 37,
     type: Google.Cloud.Sql.V1beta4.DataCacheConfig,
     json_name: "dataCacheConfig"
+
+  field :enable_google_ml_integration, 40,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableGoogleMlIntegration",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.AdvancedMachineFeatures do
@@ -1838,4 +1963,15 @@ defmodule Google.Cloud.Sql.V1beta4.SqlServerAuditConfig do
   field :bucket, 2, type: :string
   field :retention_interval, 3, type: Google.Protobuf.Duration, json_name: "retentionInterval"
   field :upload_interval, 4, type: Google.Protobuf.Duration, json_name: "uploadInterval"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.AcquireSsrsLeaseContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :setup_login, 1, proto3_optional: true, type: :string, json_name: "setupLogin"
+  field :service_login, 2, proto3_optional: true, type: :string, json_name: "serviceLogin"
+  field :report_database, 3, proto3_optional: true, type: :string, json_name: "reportDatabase"
+  field :duration, 4, proto3_optional: true, type: Google.Protobuf.Duration
 end

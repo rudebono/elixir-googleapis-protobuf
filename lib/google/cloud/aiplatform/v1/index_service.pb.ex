@@ -17,6 +17,7 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Reco
   field :MULTIPLE_VALUES, 11
   field :INVALID_NUMERIC_VALUE, 12
   field :INVALID_ENCODING, 13
+  field :INVALID_TOKEN_VALUE, 15
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateIndexRequest do

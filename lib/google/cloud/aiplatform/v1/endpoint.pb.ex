@@ -65,6 +65,11 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
     json_name: "enablePrivateServiceConnect",
     deprecated: true
 
+  field :private_service_connect_config, 21,
+    type: Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig,
+    json_name: "privateServiceConnectConfig",
+    deprecated: false
+
   field :model_deployment_monitoring_job, 14,
     type: :string,
     json_name: "modelDeploymentMonitoringJob",

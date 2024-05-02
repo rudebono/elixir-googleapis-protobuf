@@ -16,4 +16,5 @@ defmodule Google.Cloud.Aiplatform.V1.AcceleratorType do
   field :TPU_V2, 6
   field :TPU_V3, 7
   field :TPU_V4_POD, 10
+  field :TPU_V5_LITEPOD, 12
 end

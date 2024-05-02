@@ -103,6 +103,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :imported_rag_files_count, 1, type: :int64, json_name: "importedRagFilesCount"
+  field :failed_rag_files_count, 2, type: :int64, json_name: "failedRagFilesCount"
+  field :skipped_rag_files_count, 3, type: :int64, json_name: "skippedRagFilesCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GetRagFileRequest do
@@ -164,6 +166,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesOperationMetadata do
     json_name: "genericMetadata"
 
   field :rag_corpus_id, 2, type: :int64, json_name: "ragCorpusId"
+
+  field :import_rag_files_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig,
+    json_name: "importRagFilesConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Service do

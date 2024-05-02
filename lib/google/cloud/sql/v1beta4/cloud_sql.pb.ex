@@ -29,6 +29,16 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
   field :OFFLINE, 2
 end
 
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MIGRATION_TYPE_UNSPECIFIED, 0
+  field :LOGICAL, 1
+  field :PHYSICAL, 2
+end
+
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
   @moduledoc false
 
@@ -431,6 +441,18 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest
     json_name: "mysqlSyncConfig",
     oneof: 0,
     deprecated: false
+
+  field :migration_type, 7,
+    type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType,
+    json_name: "migrationType",
+    enum: true,
+    deprecated: false
+
+  field :sync_parallel_level, 8,
+    type: Google.Cloud.Sql.V1beta4.ExternalSyncParallelLevel,
+    json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
@@ -458,6 +480,12 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
   field :sync_parallel_level, 7,
     type: Google.Cloud.Sql.V1beta4.ExternalSyncParallelLevel,
     json_name: "syncParallelLevel",
+    enum: true,
+    deprecated: false
+
+  field :migration_type, 8,
+    type: Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType,
+    json_name: "migrationType",
     enum: true,
     deprecated: false
 end
@@ -574,6 +602,41 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeResponse do
 
   field :kind, 1, type: :string
   field :latest_recovery_time, 2, type: Google.Protobuf.Timestamp, json_name: "latestRecoveryTime"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_id, 1, type: :string, json_name: "operationId"
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :instance, 1, type: :string, deprecated: false
+  field :project, 2, type: :string, deprecated: false
+  field :body, 100, type: Google.Cloud.Sql.V1beta4.InstancesAcquireSsrsLeaseRequest
+end
+
+defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :operation_id, 1, proto3_optional: true, type: :string, json_name: "operationId"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service do
@@ -792,6 +855,14 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
   rpc :GetLatestRecoveryTime,
       Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeRequest,
       Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeResponse
+
+  rpc :AcquireSsrsLease,
+      Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseRequest,
+      Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseResponse
+
+  rpc :ReleaseSsrsLease,
+      Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseRequest,
+      Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseResponse
 end
 
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Stub do

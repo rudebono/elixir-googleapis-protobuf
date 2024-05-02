@@ -225,7 +225,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RuntimeConfig.VertexAISearchRuntimeCon
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :serving_config_name, 1, type: :string, json_name: "servingConfigName", deprecated: false
+  field :serving_config_name, 1, type: :string, json_name: "servingConfigName", deprecated: true
+  field :app_id, 2, type: :string, json_name: "appId"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RuntimeConfig do
