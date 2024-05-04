@@ -125,6 +125,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
   field :top_p, 6, proto3_optional: true, type: :float, json_name: "topP", deprecated: false
   field :top_k, 7, proto3_optional: true, type: :int32, json_name: "topK", deprecated: false
   field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
+
+  field :response_schema, 14,
+    type: Google.Ai.Generativelanguage.V1beta.Schema,
+    json_name: "responseSchema",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.SemanticRetrieverConfig do
@@ -171,6 +176,16 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.PromptFeed
     json_name: "safetyRatings"
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.UsageMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
+  field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
+  field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse do
   @moduledoc false
 
@@ -181,6 +196,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse do
   field :prompt_feedback, 2,
     type: Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.PromptFeedback,
     json_name: "promptFeedback"
+
+  field :usage_metadata, 3,
+    type: Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.UsageMetadata,
+    json_name: "usageMetadata",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Candidate do
@@ -418,6 +438,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.CountTokensRequest do
   field :contents, 2,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.Content,
+    deprecated: false
+
+  field :generate_content_request, 3,
+    type: Google.Ai.Generativelanguage.V1beta.GenerateContentRequest,
+    json_name: "generateContentRequest",
     deprecated: false
 end
 

@@ -301,6 +301,12 @@ defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig do
     deprecated: false
 
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :kms_key_names, 3,
+    repeated: true,
+    type: :string,
+    json_name: "kmsKeyNames",
+    deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseMetadata do

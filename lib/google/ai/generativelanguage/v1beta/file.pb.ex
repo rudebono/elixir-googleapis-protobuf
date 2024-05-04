@@ -1,3 +1,14 @@
+defmodule Google.Ai.Generativelanguage.V1beta.File.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PROCESSING, 1
+  field :ACTIVE, 2
+  field :FAILED, 10
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.File do
   @moduledoc false
 
@@ -25,4 +36,9 @@ defmodule Google.Ai.Generativelanguage.V1beta.File do
 
   field :sha256_hash, 8, type: :bytes, json_name: "sha256Hash", deprecated: false
   field :uri, 9, type: :string, deprecated: false
+
+  field :state, 10,
+    type: Google.Ai.Generativelanguage.V1beta.File.State,
+    enum: true,
+    deprecated: false
 end
