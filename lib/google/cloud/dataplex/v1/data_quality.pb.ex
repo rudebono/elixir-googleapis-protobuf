@@ -177,6 +177,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRuleResult do
   field :null_count, 5, type: :int64, json_name: "nullCount"
   field :pass_ratio, 6, type: :double, json_name: "passRatio"
   field :failing_rows_query, 10, type: :string, json_name: "failingRowsQuery"
+  field :assertion_row_count, 11, type: :int64, json_name: "assertionRowCount", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityDimensionResult do
@@ -268,6 +269,14 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule.TableConditionExpectation do
   field :sql_expression, 1, type: :string, json_name: "sqlExpression", deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataQualityRule.SqlAssertion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sql_statement, 1, type: :string, json_name: "sqlStatement", deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   @moduledoc false
 
@@ -313,6 +322,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   field :table_condition_expectation, 201,
     type: Google.Cloud.Dataplex.V1.DataQualityRule.TableConditionExpectation,
     json_name: "tableConditionExpectation",
+    oneof: 0
+
+  field :sql_assertion, 202,
+    type: Google.Cloud.Dataplex.V1.DataQualityRule.SqlAssertion,
+    json_name: "sqlAssertion",
     oneof: 0
 
   field :column, 500, type: :string, deprecated: false
