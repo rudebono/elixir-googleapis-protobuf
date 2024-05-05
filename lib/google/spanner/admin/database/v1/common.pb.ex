@@ -34,6 +34,12 @@ defmodule Google.Spanner.Admin.Database.V1.EncryptionConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :kms_key_names, 3,
+    repeated: true,
+    type: :string,
+    json_name: "kmsKeyNames",
+    deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.EncryptionInfo do

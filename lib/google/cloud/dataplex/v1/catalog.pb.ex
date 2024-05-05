@@ -773,18 +773,6 @@ defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :entry, 1, type: :string, deprecated: true
-  field :display_name, 2, type: :string, json_name: "displayName", deprecated: true
-  field :entry_type, 3, type: :string, json_name: "entryType", deprecated: true
-
-  field :modify_time, 4,
-    type: Google.Protobuf.Timestamp,
-    json_name: "modifyTime",
-    deprecated: true
-
-  field :fully_qualified_name, 5, type: :string, json_name: "fullyQualifiedName", deprecated: true
-  field :description, 6, type: :string, deprecated: true
-  field :relative_resource, 7, type: :string, json_name: "relativeResource", deprecated: true
   field :linked_resource, 8, type: :string, json_name: "linkedResource"
   field :dataplex_entry, 9, type: Google.Cloud.Dataplex.V1.Entry, json_name: "dataplexEntry"
   field :snippets, 12, type: Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets

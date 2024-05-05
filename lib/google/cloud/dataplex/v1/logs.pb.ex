@@ -188,6 +188,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.RuleType do
   field :STATISTIC_RANGE_EXPECTATION, 6
   field :TABLE_CONDITION_EXPECTATION, 7
   field :UNIQUENESS_EXPECTATION, 8
+  field :SQL_ASSERTION, 9
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.EvaluationType do
@@ -537,4 +538,5 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult do
   field :evaluated_row_count, 10, type: :int64, json_name: "evaluatedRowCount"
   field :passed_row_count, 11, type: :int64, json_name: "passedRowCount"
   field :null_row_count, 12, type: :int64, json_name: "nullRowCount"
+  field :assertion_row_count, 13, type: :int64, json_name: "assertionRowCount"
 end
