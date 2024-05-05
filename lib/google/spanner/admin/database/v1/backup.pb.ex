@@ -63,6 +63,12 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
     json_name: "encryptionInfo",
     deprecated: false
 
+  field :encryption_information, 13,
+    repeated: true,
+    type: Google.Spanner.Admin.Database.V1.EncryptionInfo,
+    json_name: "encryptionInformation",
+    deprecated: false
+
   field :database_dialect, 10,
     type: Google.Spanner.Admin.Database.V1.DatabaseDialect,
     json_name: "databaseDialect",
@@ -230,6 +236,12 @@ defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
     deprecated: false
 
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :kms_key_names, 3,
+    repeated: true,
+    type: :string,
+    json_name: "kmsKeyNames",
+    deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig do
@@ -244,4 +256,10 @@ defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig do
     deprecated: false
 
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :kms_key_names, 3,
+    repeated: true,
+    type: :string,
+    json_name: "kmsKeyNames",
+    deprecated: false
 end
