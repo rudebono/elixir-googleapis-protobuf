@@ -177,6 +177,7 @@ defmodule Google.Privacy.Dlp.V2.ResourceVisibility do
 
   field :RESOURCE_VISIBILITY_UNSPECIFIED, 0
   field :RESOURCE_VISIBILITY_PUBLIC, 10
+  field :RESOURCE_VISIBILITY_INCONCLUSIVE, 15
   field :RESOURCE_VISIBILITY_RESTRICTED, 20
 end
 
@@ -211,6 +212,17 @@ defmodule Google.Privacy.Dlp.V2.UniquenessScoreLevel do
   field :UNIQUENESS_SCORE_LOW, 1
   field :UNIQUENESS_SCORE_MEDIUM, 2
   field :UNIQUENESS_SCORE_HIGH, 3
+end
+
+defmodule Google.Privacy.Dlp.V2.ConnectionState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONNECTION_STATE_UNSPECIFIED, 0
+  field :MISSING_CREDENTIALS, 1
+  field :AVAILABLE, 2
+  field :ERROR, 3
 end
 
 defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
@@ -274,6 +286,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :ISRAEL, 18
   field :ITALY, 19
   field :JAPAN, 20
+  field :KAZAKHSTAN, 47
   field :KOREA, 21
   field :MEXICO, 22
   field :THE_NETHERLANDS, 23
@@ -283,6 +296,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :PERU, 26
   field :POLAND, 27
   field :PORTUGAL, 28
+  field :RUSSIA, 44
   field :SINGAPORE, 29
   field :SOUTH_AFRICA, 30
   field :SPAIN, 31
@@ -291,9 +305,11 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :TAIWAN, 33
   field :THAILAND, 34
   field :TURKEY, 35
+  field :UKRAINE, 45
   field :UNITED_KINGDOM, 36
   field :UNITED_STATES, 37
   field :URUGUAY, 38
+  field :UZBEKISTAN, 46
   field :VENEZUELA, 39
   field :INTERNAL, 40
 end
@@ -425,6 +441,37 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryConfig.Status do
   field :PAUSED, 2
 end
 
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions.DatabaseEngine do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATABASE_ENGINE_UNSPECIFIED, 0
+  field :ALL_SUPPORTED_DATABASE_ENGINES, 1
+  field :MYSQL, 2
+  field :POSTGRES, 3
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions.DatabaseResourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATABASE_RESOURCE_TYPE_UNSPECIFIED, 0
+  field :DATABASE_RESOURCE_TYPE_ALL_SUPPORTED_TYPES, 1
+  field :DATABASE_RESOURCE_TYPE_TABLE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence.SchemaModifiedCadence.CloudSqlSchemaModification do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SQL_SCHEMA_MODIFICATION_UNSPECIFIED, 0
+  field :NEW_COLUMNS, 1
+  field :REMOVED_COLUMNS, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
 
@@ -490,6 +537,10 @@ defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnDataType do
   field :TYPE_RECORD, 12
   field :TYPE_BIGNUMERIC, 13
   field :TYPE_JSON, 14
+  field :TYPE_INTERVAL, 15
+  field :TYPE_RANGE_DATE, 16
+  field :TYPE_RANGE_DATETIME, 17
+  field :TYPE_RANGE_TIMESTAMP, 18
 end
 
 defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnPolicyState do
@@ -519,6 +570,16 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.PubSubExpressions.Pub
   field :LOGICAL_OPERATOR_UNSPECIFIED, 0
   field :OR, 1
   field :AND, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudSqlProperties.DatabaseEngine do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DATABASE_ENGINE_UNKNOWN, 0
+  field :DATABASE_ENGINE_MYSQL, 1
+  field :DATABASE_ENGINE_POSTGRES, 2
 end
 
 defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
@@ -1073,6 +1134,8 @@ defmodule Google.Privacy.Dlp.V2.InspectDataSourceDetails.Result do
     repeated: true,
     type: Google.Privacy.Dlp.V2.InfoTypeStats,
     json_name: "infoTypeStats"
+
+  field :num_rows_processed, 5, type: :int64, json_name: "numRowsProcessed"
 
   field :hybrid_stats, 7,
     type: Google.Privacy.Dlp.V2.HybridInspectStatistics,
@@ -3130,6 +3193,11 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryTarget do
     type: Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget,
     json_name: "bigQueryTarget",
     oneof: 0
+
+  field :cloud_sql_target, 2,
+    type: Google.Privacy.Dlp.V2.CloudSqlDiscoveryTarget,
+    json_name: "cloudSqlTarget",
+    oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget do
@@ -3247,6 +3315,134 @@ defmodule Google.Privacy.Dlp.V2.DiscoverySchemaModifiedCadence do
     enum: true
 
   field :frequency, 2, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudSqlDiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :cadence, 0
+
+  field :filter, 1, type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlFilter, deprecated: false
+  field :conditions, 2, type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions
+
+  field :generation_cadence, 3,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence,
+    json_name: "generationCadence",
+    oneof: 0
+
+  field :disabled, 4, type: Google.Privacy.Dlp.V2.Disabled, oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :filter, 0
+
+  field :collection, 1, type: Google.Privacy.Dlp.V2.DatabaseResourceCollection, oneof: 0
+  field :others, 2, type: Google.Privacy.Dlp.V2.AllOtherDatabaseResources, oneof: 0
+
+  field :database_resource_reference, 3,
+    type: Google.Privacy.Dlp.V2.DatabaseResourceReference,
+    json_name: "databaseResourceReference",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DatabaseResourceCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :pattern, 0
+
+  field :include_regexes, 1,
+    type: Google.Privacy.Dlp.V2.DatabaseResourceRegexes,
+    json_name: "includeRegexes",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DatabaseResourceRegexes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :patterns, 1, repeated: true, type: Google.Privacy.Dlp.V2.DatabaseResourceRegex
+end
+
+defmodule Google.Privacy.Dlp.V2.DatabaseResourceRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id_regex, 1, type: :string, json_name: "projectIdRegex"
+  field :instance_regex, 2, type: :string, json_name: "instanceRegex"
+  field :database_regex, 3, type: :string, json_name: "databaseRegex"
+  field :database_resource_name_regex, 4, type: :string, json_name: "databaseResourceNameRegex"
+end
+
+defmodule Google.Privacy.Dlp.V2.AllOtherDatabaseResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.DatabaseResourceReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :instance, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :database_engines, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions.DatabaseEngine,
+    json_name: "databaseEngines",
+    enum: true,
+    deprecated: false
+
+  field :types, 3,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions.DatabaseResourceType,
+    enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence.SchemaModifiedCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :types, 1,
+    repeated: true,
+    type:
+      Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence.SchemaModifiedCadence.CloudSqlSchemaModification,
+    enum: true
+
+  field :frequency, 2, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :schema_modified_cadence, 1,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence.SchemaModifiedCadence,
+    json_name: "schemaModifiedCadence"
+
+  field :refresh_frequency, 2,
+    type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency,
+    json_name: "refreshFrequency",
+    enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
@@ -4004,6 +4200,157 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubMessage do
   field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
 end
 
+defmodule Google.Privacy.Dlp.V2.CreateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :connection, 2, type: Google.Privacy.Dlp.V2.Connection, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.GetConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ListConnectionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.SearchConnectionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ListConnectionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :connections, 1, repeated: true, type: Google.Privacy.Dlp.V2.Connection
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.SearchConnectionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :connections, 1, repeated: true, type: Google.Privacy.Dlp.V2.Connection
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.UpdateConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :connection, 2, type: Google.Privacy.Dlp.V2.Connection, deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DeleteConnectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.Connection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :properties, 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :state, 2, type: Google.Privacy.Dlp.V2.ConnectionState, enum: true, deprecated: false
+  field :errors, 3, repeated: true, type: Google.Privacy.Dlp.V2.Error, deprecated: false
+
+  field :cloud_sql, 4,
+    type: Google.Privacy.Dlp.V2.CloudSqlProperties,
+    json_name: "cloudSql",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.SecretManagerCredential do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :username, 1, type: :string, deprecated: false
+
+  field :password_secret_version_name, 2,
+    type: :string,
+    json_name: "passwordSecretVersionName",
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudSqlIamCredential do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudSqlProperties do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :credential, 0
+
+  field :connection_name, 1, type: :string, json_name: "connectionName", deprecated: false
+
+  field :username_password, 2,
+    type: Google.Privacy.Dlp.V2.SecretManagerCredential,
+    json_name: "usernamePassword",
+    oneof: 0
+
+  field :cloud_sql_iam, 3,
+    type: Google.Privacy.Dlp.V2.CloudSqlIamCredential,
+    json_name: "cloudSqlIam",
+    oneof: 0
+
+  field :max_connections, 4, type: :int32, json_name: "maxConnections", deprecated: false
+
+  field :database_engine, 7,
+    type: Google.Privacy.Dlp.V2.CloudSqlProperties.DatabaseEngine,
+    json_name: "databaseEngine",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DeleteTableDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Privacy.Dlp.V2.DataSourceType do
   @moduledoc false
 
@@ -4177,11 +4524,35 @@ defmodule Google.Privacy.Dlp.V2.DlpService.Service do
       Google.Privacy.Dlp.V2.GetColumnDataProfileRequest,
       Google.Privacy.Dlp.V2.ColumnDataProfile
 
+  rpc :DeleteTableDataProfile,
+      Google.Privacy.Dlp.V2.DeleteTableDataProfileRequest,
+      Google.Protobuf.Empty
+
   rpc :HybridInspectDlpJob,
       Google.Privacy.Dlp.V2.HybridInspectDlpJobRequest,
       Google.Privacy.Dlp.V2.HybridInspectResponse
 
   rpc :FinishDlpJob, Google.Privacy.Dlp.V2.FinishDlpJobRequest, Google.Protobuf.Empty
+
+  rpc :CreateConnection,
+      Google.Privacy.Dlp.V2.CreateConnectionRequest,
+      Google.Privacy.Dlp.V2.Connection
+
+  rpc :GetConnection, Google.Privacy.Dlp.V2.GetConnectionRequest, Google.Privacy.Dlp.V2.Connection
+
+  rpc :ListConnections,
+      Google.Privacy.Dlp.V2.ListConnectionsRequest,
+      Google.Privacy.Dlp.V2.ListConnectionsResponse
+
+  rpc :SearchConnections,
+      Google.Privacy.Dlp.V2.SearchConnectionsRequest,
+      Google.Privacy.Dlp.V2.SearchConnectionsResponse
+
+  rpc :DeleteConnection, Google.Privacy.Dlp.V2.DeleteConnectionRequest, Google.Protobuf.Empty
+
+  rpc :UpdateConnection,
+      Google.Privacy.Dlp.V2.UpdateConnectionRequest,
+      Google.Privacy.Dlp.V2.Connection
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpService.Stub do
