@@ -57,6 +57,18 @@ defmodule Google.Analytics.Data.V1alpha.EventExclusionDuration do
   field :EVENT_EXCLUSION_PERMANENT, 1
 end
 
+defmodule Google.Analytics.Data.V1alpha.MetricAggregation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :METRIC_AGGREGATION_UNSPECIFIED, 0
+  field :TOTAL, 1
+  field :MINIMUM, 5
+  field :MAXIMUM, 6
+  field :COUNT, 4
+end
+
 defmodule Google.Analytics.Data.V1alpha.MetricType do
   @moduledoc false
 
@@ -75,6 +87,16 @@ defmodule Google.Analytics.Data.V1alpha.MetricType do
   field :TYPE_MILES, 11
   field :TYPE_METERS, 12
   field :TYPE_KILOMETERS, 13
+end
+
+defmodule Google.Analytics.Data.V1alpha.RestrictedMetricType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
+  field :COST_DATA, 1
+  field :REVENUE_DATA, 2
 end
 
 defmodule Google.Analytics.Data.V1alpha.StringFilter.MatchType do
@@ -102,6 +124,28 @@ defmodule Google.Analytics.Data.V1alpha.NumericFilter.Operation do
   field :LESS_THAN_OR_EQUAL, 3
   field :GREATER_THAN, 4
   field :GREATER_THAN_OR_EQUAL, 5
+end
+
+defmodule Google.Analytics.Data.V1alpha.OrderBy.DimensionOrderBy.OrderType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ORDER_TYPE_UNSPECIFIED, 0
+  field :ALPHANUMERIC, 1
+  field :CASE_INSENSITIVE_ALPHANUMERIC, 2
+  field :NUMERIC, 3
+end
+
+defmodule Google.Analytics.Data.V1alpha.CohortsRange.Granularity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :GRANULARITY_UNSPECIFIED, 0
+  field :DAILY, 1
+  field :WEEKLY, 2
+  field :MONTHLY, 3
 end
 
 defmodule Google.Analytics.Data.V1alpha.DateRange do
@@ -163,6 +207,16 @@ defmodule Google.Analytics.Data.V1alpha.DimensionExpression do
   field :concatenate, 6,
     type: Google.Analytics.Data.V1alpha.DimensionExpression.ConcatenateExpression,
     oneof: 0
+end
+
+defmodule Google.Analytics.Data.V1alpha.Metric do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :expression, 2, type: :string
+  field :invisible, 3, type: :bool
 end
 
 defmodule Google.Analytics.Data.V1alpha.FilterExpression do
@@ -260,6 +314,39 @@ defmodule Google.Analytics.Data.V1alpha.NumericFilter do
   field :value, 2, type: Google.Analytics.Data.V1alpha.NumericValue
 end
 
+defmodule Google.Analytics.Data.V1alpha.OrderBy.MetricOrderBy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :metric_name, 1, type: :string, json_name: "metricName"
+end
+
+defmodule Google.Analytics.Data.V1alpha.OrderBy.DimensionOrderBy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimension_name, 1, type: :string, json_name: "dimensionName"
+
+  field :order_type, 2,
+    type: Google.Analytics.Data.V1alpha.OrderBy.DimensionOrderBy.OrderType,
+    json_name: "orderType",
+    enum: true
+end
+
+defmodule Google.Analytics.Data.V1alpha.OrderBy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :one_order_by, 0
+
+  field :metric, 1, type: Google.Analytics.Data.V1alpha.OrderBy.MetricOrderBy, oneof: 0
+  field :dimension, 2, type: Google.Analytics.Data.V1alpha.OrderBy.DimensionOrderBy, oneof: 0
+  field :desc, 4, type: :bool
+end
+
 defmodule Google.Analytics.Data.V1alpha.BetweenFilter do
   @moduledoc false
 
@@ -278,6 +365,98 @@ defmodule Google.Analytics.Data.V1alpha.NumericValue do
 
   field :int64_value, 1, type: :int64, json_name: "int64Value", oneof: 0
   field :double_value, 2, type: :double, json_name: "doubleValue", oneof: 0
+end
+
+defmodule Google.Analytics.Data.V1alpha.CohortSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cohorts, 1, repeated: true, type: Google.Analytics.Data.V1alpha.Cohort
+
+  field :cohorts_range, 2,
+    type: Google.Analytics.Data.V1alpha.CohortsRange,
+    json_name: "cohortsRange"
+
+  field :cohort_report_settings, 3,
+    type: Google.Analytics.Data.V1alpha.CohortReportSettings,
+    json_name: "cohortReportSettings"
+end
+
+defmodule Google.Analytics.Data.V1alpha.Cohort do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :dimension, 2, type: :string
+  field :date_range, 3, type: Google.Analytics.Data.V1alpha.DateRange, json_name: "dateRange"
+end
+
+defmodule Google.Analytics.Data.V1alpha.CohortsRange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :granularity, 1, type: Google.Analytics.Data.V1alpha.CohortsRange.Granularity, enum: true
+  field :start_offset, 2, type: :int32, json_name: "startOffset"
+  field :end_offset, 3, type: :int32, json_name: "endOffset"
+end
+
+defmodule Google.Analytics.Data.V1alpha.CohortReportSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :accumulate, 1, type: :bool
+end
+
+defmodule Google.Analytics.Data.V1alpha.ResponseMetaData.SchemaRestrictionResponse.ActiveMetricRestriction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :metric_name, 1, proto3_optional: true, type: :string, json_name: "metricName"
+
+  field :restricted_metric_types, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.RestrictedMetricType,
+    json_name: "restrictedMetricTypes",
+    enum: true
+end
+
+defmodule Google.Analytics.Data.V1alpha.ResponseMetaData.SchemaRestrictionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :active_metric_restrictions, 1,
+    repeated: true,
+    type:
+      Google.Analytics.Data.V1alpha.ResponseMetaData.SchemaRestrictionResponse.ActiveMetricRestriction,
+    json_name: "activeMetricRestrictions"
+end
+
+defmodule Google.Analytics.Data.V1alpha.ResponseMetaData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_loss_from_other_row, 3, type: :bool, json_name: "dataLossFromOtherRow"
+
+  field :schema_restriction_response, 4,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.ResponseMetaData.SchemaRestrictionResponse,
+    json_name: "schemaRestrictionResponse"
+
+  field :currency_code, 5, proto3_optional: true, type: :string, json_name: "currencyCode"
+  field :time_zone, 6, proto3_optional: true, type: :string, json_name: "timeZone"
+  field :empty_reason, 7, proto3_optional: true, type: :string, json_name: "emptyReason"
+
+  field :subject_to_thresholding, 8,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "subjectToThresholding"
 end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionHeader do

@@ -133,3 +133,34 @@ defmodule Google.Cloud.Backupdr.Logging.V1.ProtectedResource do
   field :remote_appliance_id, 20, type: :string, json_name: "remoteApplianceId"
   field :recovery_point, 21, type: :string, json_name: "recoveryPoint"
 end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.MountedImage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :source_resource_name, 1, type: :string, json_name: "sourceResourceName"
+  field :source_resource_id, 2, type: :string, json_name: "sourceResourceId"
+  field :appliance_name, 3, type: :string, json_name: "applianceName"
+  field :appliance_id, 4, type: :string, json_name: "applianceId"
+  field :mounted_image_name, 5, type: :string, json_name: "mountedImageName"
+  field :source_image_name, 6, type: :string, json_name: "sourceImageName"
+  field :job_type, 7, type: :string, json_name: "jobType"
+  field :recovery_point_date, 8, type: :string, json_name: "recoveryPointDate"
+  field :last_mount_date, 9, type: :string, json_name: "lastMountDate"
+  field :resource_type, 10, type: :string, json_name: "resourceType"
+  field :source_host_name, 11, type: :string, json_name: "sourceHostName"
+  field :source_host_id, 12, type: :string, json_name: "sourceHostId"
+  field :mounted_host_name, 13, type: :string, json_name: "mountedHostName"
+  field :mounted_host_id, 14, type: :string, json_name: "mountedHostId"
+  field :mounted_resource_name, 15, type: :string, json_name: "mountedResourceName"
+  field :resource_virtual_size, 16, type: :string, json_name: "resourceVirtualSize"
+  field :storage_consumed, 17, type: :string, json_name: "storageConsumed"
+  field :mounted_resource_label, 18, type: :string, json_name: "mountedResourceLabel"
+  field :restorable_object, 19, type: :string, json_name: "restorableObject"
+  field :mount_duration, 20, type: :string, json_name: "mountDuration"
+  field :user_name, 21, type: :string, json_name: "userName"
+  field :read_mode, 22, type: :string, json_name: "readMode"
+  field :resource_size, 23, type: :string, json_name: "resourceSize"
+  field :image_expiration_date, 24, type: :string, json_name: "imageExpirationDate"
+end

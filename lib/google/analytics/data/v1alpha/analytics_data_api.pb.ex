@@ -19,6 +19,17 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizati
   field :TRENDED_FUNNEL, 2
 end
 
+defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :FAILED, 3
+end
+
 defmodule Google.Analytics.Data.V1alpha.CreateRecurringAudienceListRequest do
   @moduledoc false
 
@@ -381,6 +392,202 @@ defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
   field :kind, 4, type: :string
 end
 
+defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimensions, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.Dimension,
+    deprecated: false
+
+  field :metrics, 3, repeated: true, type: Google.Analytics.Data.V1alpha.Metric, deprecated: false
+
+  field :date_ranges, 4,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.DateRange,
+    json_name: "dateRanges",
+    deprecated: false
+
+  field :dimension_filter, 5,
+    type: Google.Analytics.Data.V1alpha.FilterExpression,
+    json_name: "dimensionFilter",
+    deprecated: false
+
+  field :metric_filter, 6,
+    type: Google.Analytics.Data.V1alpha.FilterExpression,
+    json_name: "metricFilter",
+    deprecated: false
+
+  field :offset, 7, type: :int64, deprecated: false
+  field :limit, 8, type: :int64, deprecated: false
+
+  field :metric_aggregations, 9,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.MetricAggregation,
+    json_name: "metricAggregations",
+    enum: true,
+    deprecated: false
+
+  field :order_bys, 10,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.OrderBy,
+    json_name: "orderBys",
+    deprecated: false
+
+  field :currency_code, 11, type: :string, json_name: "currencyCode", deprecated: false
+
+  field :cohort_spec, 12,
+    type: Google.Analytics.Data.V1alpha.CohortSpec,
+    json_name: "cohortSpec",
+    deprecated: false
+
+  field :keep_empty_rows, 13, type: :bool, json_name: "keepEmptyRows", deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata.State,
+    enum: true,
+    deprecated: false
+
+  field :begin_creating_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "beginCreatingTime",
+    deprecated: false
+
+  field :creation_quota_tokens_charged, 3,
+    type: :int32,
+    json_name: "creationQuotaTokensCharged",
+    deprecated: false
+
+  field :task_row_count, 4,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "taskRowCount",
+    deprecated: false
+
+  field :error_message, 5,
+    proto3_optional: true,
+    type: :string,
+    json_name: "errorMessage",
+    deprecated: false
+
+  field :total_row_count, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "totalRowCount",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ReportTask do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :report_definition, 2,
+    type: Google.Analytics.Data.V1alpha.ReportTask.ReportDefinition,
+    json_name: "reportDefinition",
+    deprecated: false
+
+  field :report_metadata, 3,
+    type: Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata,
+    json_name: "reportMetadata",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.CreateReportTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :report_task, 2,
+    type: Google.Analytics.Data.V1alpha.ReportTask,
+    json_name: "reportTask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ReportTaskMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Analytics.Data.V1alpha.QueryReportTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :offset, 2, type: :int64, deprecated: false
+  field :limit, 3, type: :int64, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.QueryReportTaskResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimension_headers, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.DimensionHeader,
+    json_name: "dimensionHeaders"
+
+  field :metric_headers, 2,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.MetricHeader,
+    json_name: "metricHeaders"
+
+  field :rows, 3, repeated: true, type: Google.Analytics.Data.V1alpha.Row
+  field :totals, 4, repeated: true, type: Google.Analytics.Data.V1alpha.Row
+  field :maximums, 5, repeated: true, type: Google.Analytics.Data.V1alpha.Row
+  field :minimums, 6, repeated: true, type: Google.Analytics.Data.V1alpha.Row
+  field :row_count, 7, type: :int32, json_name: "rowCount"
+  field :metadata, 8, type: Google.Analytics.Data.V1alpha.ResponseMetaData
+end
+
+defmodule Google.Analytics.Data.V1alpha.GetReportTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ListReportTasksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.ListReportTasksResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :report_tasks, 1,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.ReportTask,
+    json_name: "reportTasks"
+
+  field :next_page_token, 2, proto3_optional: true, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   @moduledoc false
 
@@ -423,6 +630,22 @@ defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   rpc :ListRecurringAudienceLists,
       Google.Analytics.Data.V1alpha.ListRecurringAudienceListsRequest,
       Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse
+
+  rpc :CreateReportTask,
+      Google.Analytics.Data.V1alpha.CreateReportTaskRequest,
+      Google.Longrunning.Operation
+
+  rpc :QueryReportTask,
+      Google.Analytics.Data.V1alpha.QueryReportTaskRequest,
+      Google.Analytics.Data.V1alpha.QueryReportTaskResponse
+
+  rpc :GetReportTask,
+      Google.Analytics.Data.V1alpha.GetReportTaskRequest,
+      Google.Analytics.Data.V1alpha.ReportTask
+
+  rpc :ListReportTasks,
+      Google.Analytics.Data.V1alpha.ListReportTasksRequest,
+      Google.Analytics.Data.V1alpha.ListReportTasksResponse
 end
 
 defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Stub do
