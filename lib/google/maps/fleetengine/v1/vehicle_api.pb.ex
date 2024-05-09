@@ -74,25 +74,6 @@ defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
     deprecated: false
 end
 
-defmodule Maps.Fleetengine.V1.UpdateVehicleLocationRequest do
-  @moduledoc false
-
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
-  field :name, 3, type: :string, deprecated: false
-
-  field :current_location, 4,
-    type: Maps.Fleetengine.V1.VehicleLocation,
-    json_name: "currentLocation",
-    deprecated: false
-
-  field :current_state, 5,
-    type: Maps.Fleetengine.V1.VehicleState,
-    json_name: "currentState",
-    enum: true
-end
-
 defmodule Maps.Fleetengine.V1.UpdateVehicleAttributesRequest do
   @moduledoc false
 
@@ -329,10 +310,6 @@ defmodule Maps.Fleetengine.V1.VehicleService.Service do
 
   rpc :UpdateVehicle, Maps.Fleetengine.V1.UpdateVehicleRequest, Maps.Fleetengine.V1.Vehicle
 
-  rpc :UpdateVehicleLocation,
-      Maps.Fleetengine.V1.UpdateVehicleLocationRequest,
-      Maps.Fleetengine.V1.VehicleLocation
-
   rpc :UpdateVehicleAttributes,
       Maps.Fleetengine.V1.UpdateVehicleAttributesRequest,
       Maps.Fleetengine.V1.UpdateVehicleAttributesResponse
@@ -342,10 +319,6 @@ defmodule Maps.Fleetengine.V1.VehicleService.Service do
       Maps.Fleetengine.V1.ListVehiclesResponse
 
   rpc :SearchVehicles,
-      Maps.Fleetengine.V1.SearchVehiclesRequest,
-      Maps.Fleetengine.V1.SearchVehiclesResponse
-
-  rpc :SearchFuzzedVehicles,
       Maps.Fleetengine.V1.SearchVehiclesRequest,
       Maps.Fleetengine.V1.SearchVehiclesResponse
 end

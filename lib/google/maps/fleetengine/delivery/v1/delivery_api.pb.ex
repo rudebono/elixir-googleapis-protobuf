@@ -109,27 +109,6 @@ defmodule Maps.Fleetengine.Delivery.V1.GetTaskRequest do
   field :name, 3, type: :string, deprecated: false
 end
 
-defmodule Maps.Fleetengine.Delivery.V1.SearchTasksRequest do
-  @moduledoc false
-
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
-  field :parent, 3, type: :string, deprecated: false
-  field :tracking_id, 4, type: :string, json_name: "trackingId", deprecated: false
-  field :page_size, 5, type: :int32, json_name: "pageSize", deprecated: false
-  field :page_token, 6, type: :string, json_name: "pageToken", deprecated: false
-end
-
-defmodule Maps.Fleetengine.Delivery.V1.SearchTasksResponse do
-  @moduledoc false
-
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :tasks, 1, repeated: true, type: Maps.Fleetengine.Delivery.V1.Task
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
 defmodule Maps.Fleetengine.Delivery.V1.UpdateTaskRequest do
   @moduledoc false
 
@@ -203,10 +182,6 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
       Maps.Fleetengine.Delivery.V1.Task
 
   rpc :GetTask, Maps.Fleetengine.Delivery.V1.GetTaskRequest, Maps.Fleetengine.Delivery.V1.Task
-
-  rpc :SearchTasks,
-      Maps.Fleetengine.Delivery.V1.SearchTasksRequest,
-      Maps.Fleetengine.Delivery.V1.SearchTasksResponse
 
   rpc :UpdateTask,
       Maps.Fleetengine.Delivery.V1.UpdateTaskRequest,
