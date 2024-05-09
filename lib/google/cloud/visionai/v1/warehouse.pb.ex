@@ -919,15 +919,30 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig do
     map: true
 end
 
+defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.ConfidenceScoreIndexConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_path, 1, type: :string, json_name: "fieldPath", deprecated: false
+  field :threshold, 2, type: :float, deprecated: false
+end
+
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :search_strategy_type, 1,
+    proto3_optional: true,
     type: Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.SearchStrategyType,
     json_name: "searchStrategyType",
     enum: true
+
+  field :confidence_score_index_config, 2,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.ConfidenceScoreIndexConfig,
+    json_name: "confidenceScoreIndexConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
@@ -935,7 +950,10 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :type, 1, type: Google.Cloud.Visionai.V1.DataSchemaDetails.DataType, enum: true
+  field :type, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.DataType,
+    enum: true
 
   field :proto_any_config, 6,
     type: Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig,
@@ -949,7 +967,10 @@ defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
     type: Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig,
     json_name: "customizedStructConfig"
 
-  field :granularity, 5, type: Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity, enum: true
+  field :granularity, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity,
+    enum: true
 
   field :search_strategy, 7,
     type: Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy,
@@ -1551,8 +1572,8 @@ defmodule Google.Cloud.Visionai.V1.SearchHypernym do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
-  field :hypernym, 2, type: :string
-  field :hyponyms, 3, repeated: true, type: :string
+  field :hypernym, 2, type: :string, deprecated: false
+  field :hyponyms, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.CreateSearchHypernymRequest do
