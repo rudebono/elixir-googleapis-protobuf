@@ -163,6 +163,38 @@ defmodule Google.Cloud.Parallelstore.V1beta.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Parallelstore.V1beta.SourceGcsBucket do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.DestinationGcsBucket do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.SourceParallelstore do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.DestinationParallelstore do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Parallelstore.V1beta.ImportDataRequest do
   @moduledoc false
 
@@ -172,13 +204,15 @@ defmodule Google.Cloud.Parallelstore.V1beta.ImportDataRequest do
 
   oneof :destination, 1
 
-  field :source_gcs_uri, 2, type: :string, json_name: "sourceGcsUri", oneof: 0
+  field :source_gcs_bucket, 2,
+    type: Google.Cloud.Parallelstore.V1beta.SourceGcsBucket,
+    json_name: "sourceGcsBucket",
+    oneof: 0
 
-  field :destination_path, 3,
-    type: :string,
-    json_name: "destinationPath",
-    oneof: 1,
-    deprecated: false
+  field :destination_parallelstore, 3,
+    type: Google.Cloud.Parallelstore.V1beta.DestinationParallelstore,
+    json_name: "destinationParallelstore",
+    oneof: 1
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
@@ -193,8 +227,16 @@ defmodule Google.Cloud.Parallelstore.V1beta.ExportDataRequest do
 
   oneof :destination, 1
 
-  field :source_path, 2, type: :string, json_name: "sourcePath", oneof: 0, deprecated: false
-  field :destination_gcs_uri, 3, type: :string, json_name: "destinationGcsUri", oneof: 1
+  field :source_parallelstore, 2,
+    type: Google.Cloud.Parallelstore.V1beta.SourceParallelstore,
+    json_name: "sourceParallelstore",
+    oneof: 0
+
+  field :destination_gcs_bucket, 3,
+    type: Google.Cloud.Parallelstore.V1beta.DestinationGcsBucket,
+    json_name: "destinationGcsBucket",
+    oneof: 1
+
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
