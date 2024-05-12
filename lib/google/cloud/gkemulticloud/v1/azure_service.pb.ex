@@ -72,6 +72,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureClusterRequest do
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
   field :etag, 4, type: :string
+  field :ignore_errors, 5, type: :bool, json_name: "ignoreErrors", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.CreateAzureNodePoolRequest do
@@ -148,6 +149,7 @@ defmodule Google.Cloud.Gkemulticloud.V1.DeleteAzureNodePoolRequest do
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
   field :allow_missing, 3, type: :bool, json_name: "allowMissing"
   field :etag, 4, type: :string
+  field :ignore_errors, 5, type: :bool, json_name: "ignoreErrors", deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.GetAzureOpenIdConfigRequest do
