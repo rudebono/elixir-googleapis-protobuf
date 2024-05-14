@@ -29,7 +29,7 @@ defmodule Google.Chat.V1.CustomEmoji do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :uid, 1, type: :string
+  field :uid, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Chat.V1.EmojiReactionSummary do
