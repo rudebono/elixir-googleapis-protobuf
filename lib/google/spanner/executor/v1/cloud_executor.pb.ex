@@ -101,6 +101,11 @@ defmodule Google.Spanner.Executor.V1.SpannerAction do
     type: Google.Spanner.Executor.V1.ExecuteChangeStreamQuery,
     json_name: "executeChangeStreamQuery",
     oneof: 0
+
+  field :query_cancellation, 51,
+    type: Google.Spanner.Executor.V1.QueryCancellationAction,
+    json_name: "queryCancellation",
+    oneof: 0
 end
 
 defmodule Google.Spanner.Executor.V1.ReadAction do
@@ -894,6 +899,15 @@ defmodule Google.Spanner.Executor.V1.GetOperationAction do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :operation, 1, type: :string
+end
+
+defmodule Google.Spanner.Executor.V1.QueryCancellationAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :long_running_sql, 1, type: :string, json_name: "longRunningSql"
+  field :cancel_query, 2, type: :string, json_name: "cancelQuery"
 end
 
 defmodule Google.Spanner.Executor.V1.CancelOperationAction do

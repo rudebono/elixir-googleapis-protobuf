@@ -60,13 +60,13 @@ end
 defmodule Maps.Fleetengine.V1.TerminalPointId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :Id, 0
 
   field :place_id, 2, type: :string, json_name: "placeId", oneof: 0, deprecated: true
   field :generated_id, 3, type: :string, json_name: "generatedId", oneof: 0, deprecated: true
-  field :value, 4, type: :string
+  field :value, 4, type: :string, deprecated: true
 end
 
 defmodule Maps.Fleetengine.V1.TerminalLocation do
@@ -78,7 +78,8 @@ defmodule Maps.Fleetengine.V1.TerminalLocation do
 
   field :terminal_point_id, 2,
     type: Maps.Fleetengine.V1.TerminalPointId,
-    json_name: "terminalPointId"
+    json_name: "terminalPointId",
+    deprecated: true
 
   field :access_point_id, 3, type: :string, json_name: "accessPointId", deprecated: true
   field :trip_id, 4, type: :string, json_name: "tripId", deprecated: true
