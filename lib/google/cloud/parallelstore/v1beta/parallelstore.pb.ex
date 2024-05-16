@@ -255,6 +255,23 @@ defmodule Google.Cloud.Parallelstore.V1beta.ImportDataMetadata do
   field :operation_metadata, 1,
     type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
     json_name: "operationMetadata"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 4, type: :string, deprecated: false
+  field :verb, 5, type: :string, deprecated: false
+  field :status_message, 6, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 7,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 8, type: :string, json_name: "apiVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.ExportDataResponse do
@@ -271,6 +288,23 @@ defmodule Google.Cloud.Parallelstore.V1beta.ExportDataMetadata do
   field :operation_metadata, 1,
     type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
     json_name: "operationMetadata"
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+  field :target, 4, type: :string, deprecated: false
+  field :verb, 5, type: :string, deprecated: false
+  field :status_message, 6, type: :string, json_name: "statusMessage", deprecated: false
+
+  field :requested_cancellation, 7,
+    type: :bool,
+    json_name: "requestedCancellation",
+    deprecated: false
+
+  field :api_version, 8, type: :string, json_name: "apiVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata do
@@ -278,20 +312,41 @@ defmodule Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :create_time, 1,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
+  oneof :source, 0
+
+  oneof :destination, 1
+
+  field :source_parallelstore, 7,
+    type: Google.Cloud.Parallelstore.V1beta.SourceParallelstore,
+    json_name: "sourceParallelstore",
+    oneof: 0,
     deprecated: false
 
-  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
-  field :counters, 3, type: Google.Cloud.Parallelstore.V1beta.TransferCounters
-  field :source, 4, type: :string, deprecated: false
-  field :destination, 5, type: :string, deprecated: false
+  field :source_gcs_bucket, 8,
+    type: Google.Cloud.Parallelstore.V1beta.SourceGcsBucket,
+    json_name: "sourceGcsBucket",
+    oneof: 0,
+    deprecated: false
+
+  field :destination_gcs_bucket, 9,
+    type: Google.Cloud.Parallelstore.V1beta.DestinationGcsBucket,
+    json_name: "destinationGcsBucket",
+    oneof: 1,
+    deprecated: false
+
+  field :destination_parallelstore, 10,
+    type: Google.Cloud.Parallelstore.V1beta.DestinationParallelstore,
+    json_name: "destinationParallelstore",
+    oneof: 1,
+    deprecated: false
+
+  field :counters, 3, type: Google.Cloud.Parallelstore.V1beta.TransferCounters, deprecated: false
 
   field :transfer_type, 6,
     type: Google.Cloud.Parallelstore.V1beta.TransferType,
     json_name: "transferType",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.TransferCounters do

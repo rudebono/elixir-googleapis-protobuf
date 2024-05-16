@@ -57,14 +57,18 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
 
   field :document_schema, 12,
     type: Google.Cloud.Documentai.V1.DocumentSchema,
     json_name: "documentSchema"
 
-  field :state, 6, type: Google.Cloud.Documentai.V1.ProcessorVersion.State, enum: true
+  field :state, 6,
+    type: Google.Cloud.Documentai.V1.ProcessorVersion.State,
+    enum: true,
+    deprecated: false
+
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
   field :latest_evaluation, 8,

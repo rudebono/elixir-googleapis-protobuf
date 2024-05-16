@@ -856,6 +856,8 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
     type: Google.Protobuf.Duration,
     json_name: "executionTimeout",
     deprecated: false
+
+  field :verbose, 8, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.DefaultPool do

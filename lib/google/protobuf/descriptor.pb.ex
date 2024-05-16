@@ -632,14 +632,7 @@ defmodule Google.Protobuf.FeatureSet do
     enum: true,
     deprecated: false
 
-  extensions [
-    {1000, 1001},
-    {1001, 1002},
-    {1002, 1003},
-    {9990, 9991},
-    {9995, 10000},
-    {10000, 10001}
-  ]
+  extensions [{1000, 9995}, {9995, 10000}, {10000, 10001}]
 end
 
 defmodule Google.Protobuf.FeatureSetDefaults.FeatureSetEditionDefault do
