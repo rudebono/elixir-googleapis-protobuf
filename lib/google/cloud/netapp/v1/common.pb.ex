@@ -7,6 +7,7 @@ defmodule Google.Cloud.Netapp.V1.ServiceLevel do
   field :PREMIUM, 1
   field :EXTREME, 2
   field :STANDARD, 3
+  field :FLEX, 4
 end
 
 defmodule Google.Cloud.Netapp.V1.EncryptionType do
@@ -17,4 +18,17 @@ defmodule Google.Cloud.Netapp.V1.EncryptionType do
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :SERVICE_MANAGED, 1
   field :CLOUD_KMS, 2
+end
+
+defmodule Google.Cloud.Netapp.V1.LocationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :supported_service_levels, 1,
+    repeated: true,
+    type: Google.Cloud.Netapp.V1.ServiceLevel,
+    json_name: "supportedServiceLevels",
+    enum: true,
+    deprecated: false
 end

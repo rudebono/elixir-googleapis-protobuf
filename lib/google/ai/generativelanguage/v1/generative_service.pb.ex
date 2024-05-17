@@ -106,6 +106,16 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback
     json_name: "safetyRatings"
 end
 
+defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.UsageMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
+  field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
+  field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
+end
+
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse do
   @moduledoc false
 
@@ -116,6 +126,11 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse do
   field :prompt_feedback, 2,
     type: Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback,
     json_name: "promptFeedback"
+
+  field :usage_metadata, 3,
+    type: Google.Ai.Generativelanguage.V1.GenerateContentResponse.UsageMetadata,
+    json_name: "usageMetadata",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.Candidate do
@@ -219,6 +234,11 @@ defmodule Google.Ai.Generativelanguage.V1.CountTokensRequest do
   field :contents, 2,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1.Content,
+    deprecated: false
+
+  field :generate_content_request, 3,
+    type: Google.Ai.Generativelanguage.V1.GenerateContentRequest,
+    json_name: "generateContentRequest",
     deprecated: false
 end
 

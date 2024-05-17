@@ -71,6 +71,16 @@ defmodule Google.Cloud.Netapp.V1.Volume.State do
   field :ERROR, 7
 end
 
+defmodule Google.Cloud.Netapp.V1.TieringPolicy.TierAction do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TIER_ACTION_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :PAUSED, 2
+end
+
 defmodule Google.Cloud.Netapp.V1.ListVolumesRequest do
   @moduledoc false
 
@@ -257,6 +267,11 @@ defmodule Google.Cloud.Netapp.V1.Volume do
     json_name: "restrictedActions",
     enum: true,
     deprecated: false
+
+  field :tiering_policy, 34,
+    proto3_optional: true,
+    type: Google.Cloud.Netapp.V1.TieringPolicy,
+    json_name: "tieringPolicy"
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
@@ -426,5 +441,30 @@ defmodule Google.Cloud.Netapp.V1.BackupConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "scheduledBackupEnabled",
+    deprecated: false
+
+  field :backup_chain_bytes, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "backupChainBytes",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.TieringPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tier_action, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Netapp.V1.TieringPolicy.TierAction,
+    json_name: "tierAction",
+    enum: true,
+    deprecated: false
+
+  field :cooling_threshold_days, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "coolingThresholdDays",
     deprecated: false
 end
