@@ -155,6 +155,11 @@ defmodule Google.Maps.Places.V1.SearchTextResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :places, 1, repeated: true, type: Google.Maps.Places.V1.Place
+
+  field :contextual_contents, 3,
+    repeated: true,
+    type: Google.Maps.Places.V1.ContextualContent,
+    json_name: "contextualContents"
 end
 
 defmodule Google.Maps.Places.V1.GetPhotoMediaRequest do

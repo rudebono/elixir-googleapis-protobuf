@@ -206,6 +206,27 @@ defmodule Google.Maps.Places.V1.Place.AccessibilityOptions do
     json_name: "wheelchairAccessibleSeating"
 end
 
+defmodule Google.Maps.Places.V1.Place.GenerativeSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :overview, 1, type: Google.Type.LocalizedText
+  field :description, 2, type: Google.Type.LocalizedText
+  field :references, 3, type: Google.Maps.Places.V1.References
+end
+
+defmodule Google.Maps.Places.V1.Place.AreaSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :content_blocks, 4,
+    repeated: true,
+    type: Google.Maps.Places.V1.ContentBlock,
+    json_name: "contentBlocks"
+end
+
 defmodule Google.Maps.Places.V1.Place do
   @moduledoc false
 
@@ -336,4 +357,10 @@ defmodule Google.Maps.Places.V1.Place do
   field :ev_charge_options, 79,
     type: Google.Maps.Places.V1.EVChargeOptions,
     json_name: "evChargeOptions"
+
+  field :generative_summary, 80,
+    type: Google.Maps.Places.V1.Place.GenerativeSummary,
+    json_name: "generativeSummary"
+
+  field :area_summary, 81, type: Google.Maps.Places.V1.Place.AreaSummary, json_name: "areaSummary"
 end
