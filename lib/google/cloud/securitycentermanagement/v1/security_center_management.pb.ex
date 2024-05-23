@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENABLEMENT_STATE_UNSPECIFIED, 0
+  field :INHERITED, 1
+  field :ENABLED, 2
+  field :DISABLED, 3
+end
+
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveSecurityHealthAnalyticsCustomModule.EnablementState do
   @moduledoc false
 
@@ -86,6 +97,71 @@ defmodule Google.Cloud.Securitycentermanagement.V1.EventThreatDetectionCustomMod
   field :ENABLED, 1
   field :DISABLED, 2
   field :INHERITED, 3
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModuleSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :intended_enablement_state, 1,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState,
+    json_name: "intendedEnablementState",
+    enum: true,
+    deprecated: false
+
+  field :effective_enablement_state, 2,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState,
+    json_name: "effectiveEnablementState",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModulesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :value, 2,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModuleSettings
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :intended_enablement_state, 2,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState,
+    json_name: "intendedEnablementState",
+    enum: true,
+    deprecated: false
+
+  field :effective_enablement_state, 3,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState,
+    json_name: "effectiveEnablementState",
+    enum: true,
+    deprecated: false
+
+  field :modules, 4,
+    repeated: true,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModulesEntry,
+    map: true,
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :service_config, 6,
+    type: Google.Protobuf.Struct,
+    json_name: "serviceConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveSecurityHealthAnalyticsCustomModule do
@@ -652,6 +728,55 @@ defmodule Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionC
       Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleResponse.CustomModuleValidationError
 end
 
+defmodule Google.Cloud.Securitycentermanagement.V1.GetSecurityCenterServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :security_center_services, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService,
+    json_name: "securityCenterServices"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycentermanagement.V1.UpdateSecurityCenterServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :security_center_service, 1,
+    type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService,
+    json_name: "securityCenterService",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterManagement.Service do
   @moduledoc false
 
@@ -730,6 +855,18 @@ defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterManagement.Serv
   rpc :ValidateEventThreatDetectionCustomModule,
       Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleRequest,
       Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleResponse
+
+  rpc :GetSecurityCenterService,
+      Google.Cloud.Securitycentermanagement.V1.GetSecurityCenterServiceRequest,
+      Google.Cloud.Securitycentermanagement.V1.SecurityCenterService
+
+  rpc :ListSecurityCenterServices,
+      Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesRequest,
+      Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesResponse
+
+  rpc :UpdateSecurityCenterService,
+      Google.Cloud.Securitycentermanagement.V1.UpdateSecurityCenterServiceRequest,
+      Google.Cloud.Securitycentermanagement.V1.SecurityCenterService
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterManagement.Stub do

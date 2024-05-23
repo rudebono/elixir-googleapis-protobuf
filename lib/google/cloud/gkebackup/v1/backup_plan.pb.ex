@@ -71,6 +71,8 @@ defmodule Google.Cloud.Gkebackup.V1.BackupPlan.BackupConfig do
     type: Google.Cloud.Gkebackup.V1.EncryptionKey,
     json_name: "encryptionKey",
     deprecated: false
+
+  field :permissive_mode, 7, type: :bool, json_name: "permissiveMode", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.BackupPlan.LabelsEntry do
