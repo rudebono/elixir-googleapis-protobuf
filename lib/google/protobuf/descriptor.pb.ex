@@ -532,6 +532,7 @@ defmodule Google.Protobuf.EnumValueOptions do
   field :deprecated, 1, optional: true, type: :bool, default: false
   field :features, 2, optional: true, type: Google.Protobuf.FeatureSet
   field :debug_redact, 3, optional: true, type: :bool, default: false
+  field :feature_support, 4, optional: true, type: Google.Protobuf.FieldOptions.FeatureSupport
   field :uninterpreted_option, 999, repeated: true, type: Google.Protobuf.UninterpretedOption
 
   extensions [{1000, Protobuf.Extension.max()}]

@@ -194,6 +194,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     deprecated: false
 
   field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
+
+  field :response_schema, 16,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema,
+    json_name: "responseSchema",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting do

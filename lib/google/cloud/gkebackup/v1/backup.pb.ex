@@ -138,4 +138,6 @@ defmodule Google.Cloud.Gkebackup.V1.Backup do
     type: :int64,
     json_name: "configBackupSizeBytes",
     deprecated: false
+
+  field :permissive_mode, 28, type: :bool, json_name: "permissiveMode", deprecated: false
 end

@@ -268,6 +268,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :GLOBAL, 1
   field :ARGENTINA, 2
   field :AUSTRALIA, 3
+  field :AZERBAIJAN, 48
   field :BELGIUM, 4
   field :BRAZIL, 5
   field :CANADA, 6
@@ -3198,6 +3199,11 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryTarget do
     type: Google.Privacy.Dlp.V2.CloudSqlDiscoveryTarget,
     json_name: "cloudSqlTarget",
     oneof: 0
+
+  field :secrets_target, 3,
+    type: Google.Privacy.Dlp.V2.SecretsDiscoveryTarget,
+    json_name: "secretsTarget",
+    oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget do
@@ -3231,6 +3237,11 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter do
   field :other_tables, 2,
     type: Google.Privacy.Dlp.V2.DiscoveryBigQueryFilter.AllOtherBigQueryTables,
     json_name: "otherTables",
+    oneof: 0
+
+  field :table_reference, 3,
+    type: Google.Privacy.Dlp.V2.TableReference,
+    json_name: "tableReference",
     oneof: 0
 end
 
@@ -3396,6 +3407,8 @@ defmodule Google.Privacy.Dlp.V2.DatabaseResourceReference do
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :instance, 2, type: :string, deprecated: false
+  field :database, 3, type: :string, deprecated: false
+  field :database_resource, 4, type: :string, json_name: "databaseResource", deprecated: false
 end
 
 defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlConditions do
@@ -3443,6 +3456,12 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence do
     type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency,
     json_name: "refreshFrequency",
     enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.SecretsDiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do

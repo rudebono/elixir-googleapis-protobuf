@@ -34,8 +34,8 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
   field :name, 1, type: :string, deprecated: false
   field :interstitials, 2, type: Google.Cloud.Video.Stitcher.V1.Interstitials, deprecated: false
   field :play_uri, 4, type: :string, json_name: "playUri", deprecated: false
-  field :source_uri, 5, type: :string, json_name: "sourceUri", deprecated: false
-  field :ad_tag_uri, 6, type: :string, json_name: "adTagUri", deprecated: false
+  field :source_uri, 5, type: :string, json_name: "sourceUri"
+  field :ad_tag_uri, 6, type: :string, json_name: "adTagUri"
 
   field :ad_tag_macro_map, 7,
     repeated: true,
@@ -58,6 +58,8 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSession do
   field :gam_settings, 13,
     type: Google.Cloud.Video.Stitcher.V1.VodSession.GamSettings,
     json_name: "gamSettings"
+
+  field :vod_config, 14, type: :string, json_name: "vodConfig", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.Interstitials do
@@ -115,12 +117,27 @@ defmodule Google.Cloud.Video.Stitcher.V1.VodSessionAdBreak do
   field :start_time_offset, 4, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
 end
 
+defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.TargetingParametersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId", deprecated: false
+
+  field :targeting_parameters, 4,
+    repeated: true,
+    type: Google.Cloud.Video.Stitcher.V1.LiveSession.GamSettings.TargetingParametersEntry,
+    json_name: "targetingParameters",
+    map: true
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.LiveSession.AdTagMacrosEntry do
@@ -155,6 +172,11 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveSession do
     json_name: "gamSettings"
 
   field :live_config, 16, type: :string, json_name: "liveConfig", deprecated: false
+
+  field :ad_tracking, 17,
+    type: Google.Cloud.Video.Stitcher.V1.AdTracking,
+    json_name: "adTracking",
+    enum: true
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.ManifestOptions do

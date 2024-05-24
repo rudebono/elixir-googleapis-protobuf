@@ -27,6 +27,7 @@ defmodule Google.Datastore.V1.LookupRequest do
   field :database_id, 9, type: :string, json_name: "databaseId"
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
   field :keys, 3, repeated: true, type: Google.Datastore.V1.Key, deprecated: false
+  field :property_mask, 5, type: Google.Datastore.V1.PropertyMask, json_name: "propertyMask"
 end
 
 defmodule Google.Datastore.V1.LookupResponse do
@@ -54,6 +55,7 @@ defmodule Google.Datastore.V1.RunQueryRequest do
   field :read_options, 1, type: Google.Datastore.V1.ReadOptions, json_name: "readOptions"
   field :query, 3, type: Google.Datastore.V1.Query, oneof: 0
   field :gql_query, 7, type: Google.Datastore.V1.GqlQuery, json_name: "gqlQuery", oneof: 0
+  field :property_mask, 10, type: Google.Datastore.V1.PropertyMask, json_name: "propertyMask"
 
   field :explain_options, 12,
     type: Google.Datastore.V1.ExplainOptions,
@@ -228,6 +230,7 @@ defmodule Google.Datastore.V1.Mutation do
   field :delete, 7, type: Google.Datastore.V1.Key, oneof: 0
   field :base_version, 8, type: :int64, json_name: "baseVersion", oneof: 1
   field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime", oneof: 1
+  field :property_mask, 9, type: Google.Datastore.V1.PropertyMask, json_name: "propertyMask"
 end
 
 defmodule Google.Datastore.V1.MutationResult do
@@ -240,6 +243,14 @@ defmodule Google.Datastore.V1.MutationResult do
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :conflict_detected, 5, type: :bool, json_name: "conflictDetected"
+end
+
+defmodule Google.Datastore.V1.PropertyMask do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :paths, 1, repeated: true, type: :string
 end
 
 defmodule Google.Datastore.V1.ReadOptions do

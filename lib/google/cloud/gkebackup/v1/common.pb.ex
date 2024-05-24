@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Gkebackup.V1.VolumeTypeEnum.VolumeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :VOLUME_TYPE_UNSPECIFIED, 0
+  field :GCE_PERSISTENT_DISK, 1
+end
+
 defmodule Google.Cloud.Gkebackup.V1.Namespaces do
   @moduledoc false
 
@@ -36,4 +45,10 @@ defmodule Google.Cloud.Gkebackup.V1.EncryptionKey do
     type: :string,
     json_name: "gcpKmsEncryptionKey",
     deprecated: false
+end
+
+defmodule Google.Cloud.Gkebackup.V1.VolumeTypeEnum do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end

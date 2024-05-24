@@ -326,6 +326,96 @@ defmodule Google.Cloud.Video.Stitcher.V1.DeleteLiveConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Video.Stitcher.V1.UpdateLiveConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :live_config, 1,
+    type: Google.Cloud.Video.Stitcher.V1.LiveConfig,
+    json_name: "liveConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.CreateVodConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :vod_config_id, 2, type: :string, json_name: "vodConfigId", deprecated: false
+
+  field :vod_config, 3,
+    type: Google.Cloud.Video.Stitcher.V1.VodConfig,
+    json_name: "vodConfig",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.ListVodConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.ListVodConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :vod_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Stitcher.V1.VodConfig,
+    json_name: "vodConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.GetVodConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.DeleteVodConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Stitcher.V1.UpdateVodConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :vod_config, 1,
+    type: Google.Cloud.Video.Stitcher.V1.VodConfig,
+    json_name: "vodConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Video.Stitcher.V1.OperationMetadata do
   @moduledoc false
 
@@ -438,6 +528,30 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
 
   rpc :DeleteLiveConfig,
       Google.Cloud.Video.Stitcher.V1.DeleteLiveConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateLiveConfig,
+      Google.Cloud.Video.Stitcher.V1.UpdateLiveConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateVodConfig,
+      Google.Cloud.Video.Stitcher.V1.CreateVodConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListVodConfigs,
+      Google.Cloud.Video.Stitcher.V1.ListVodConfigsRequest,
+      Google.Cloud.Video.Stitcher.V1.ListVodConfigsResponse
+
+  rpc :GetVodConfig,
+      Google.Cloud.Video.Stitcher.V1.GetVodConfigRequest,
+      Google.Cloud.Video.Stitcher.V1.VodConfig
+
+  rpc :DeleteVodConfig,
+      Google.Cloud.Video.Stitcher.V1.DeleteVodConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateVodConfig,
+      Google.Cloud.Video.Stitcher.V1.UpdateVodConfigRequest,
       Google.Longrunning.Operation
 end
 
