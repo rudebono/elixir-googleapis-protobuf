@@ -63,6 +63,10 @@ defmodule Google.Cloud.Video.Stitcher.V1.LiveConfig do
   field :prefetch_config, 10,
     type: Google.Cloud.Video.Stitcher.V1.PrefetchConfig,
     json_name: "prefetchConfig"
+
+  field :source_fetch_options, 16,
+    type: Google.Cloud.Video.Stitcher.V1.FetchOptions,
+    json_name: "sourceFetchOptions"
 end
 
 defmodule Google.Cloud.Video.Stitcher.V1.PrefetchConfig do

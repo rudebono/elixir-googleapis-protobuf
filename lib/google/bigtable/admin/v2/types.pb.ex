@@ -22,6 +22,33 @@ defmodule Google.Bigtable.Admin.V2.Type.Bytes do
   field :encoding, 1, type: Google.Bigtable.Admin.V2.Type.Bytes.Encoding
 end
 
+defmodule Google.Bigtable.Admin.V2.Type.String.Encoding.Utf8Raw do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.String.Encoding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :encoding, 0
+
+  field :utf8_raw, 1,
+    type: Google.Bigtable.Admin.V2.Type.String.Encoding.Utf8Raw,
+    json_name: "utf8Raw",
+    oneof: 0
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.String do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :encoding, 1, type: Google.Bigtable.Admin.V2.Type.String.Encoding
+end
+
 defmodule Google.Bigtable.Admin.V2.Type.Int64.Encoding.BigEndianBytes do
   @moduledoc false
 
@@ -84,6 +111,11 @@ defmodule Google.Bigtable.Admin.V2.Type do
   field :bytes_type, 1,
     type: Google.Bigtable.Admin.V2.Type.Bytes,
     json_name: "bytesType",
+    oneof: 0
+
+  field :string_type, 2,
+    type: Google.Bigtable.Admin.V2.Type.String,
+    json_name: "stringType",
     oneof: 0
 
   field :int64_type, 5,

@@ -29,6 +29,26 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryMode do
   field :PROFILE, 2
 end
 
+defmodule Google.Spanner.V1.ReadRequest.OrderBy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ORDER_BY_UNSPECIFIED, 0
+  field :ORDER_BY_PRIMARY_KEY, 1
+  field :ORDER_BY_NO_ORDER, 2
+end
+
+defmodule Google.Spanner.V1.ReadRequest.LockHint do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LOCK_HINT_UNSPECIFIED, 0
+  field :LOCK_HINT_SHARED, 1
+  field :LOCK_HINT_EXCLUSIVE, 2
+end
+
 defmodule Google.Spanner.V1.CreateSessionRequest do
   @moduledoc false
 
@@ -389,6 +409,18 @@ defmodule Google.Spanner.V1.ReadRequest do
     json_name: "directedReadOptions"
 
   field :data_boost_enabled, 15, type: :bool, json_name: "dataBoostEnabled"
+
+  field :order_by, 16,
+    type: Google.Spanner.V1.ReadRequest.OrderBy,
+    json_name: "orderBy",
+    enum: true,
+    deprecated: false
+
+  field :lock_hint, 17,
+    type: Google.Spanner.V1.ReadRequest.LockHint,
+    json_name: "lockHint",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.BeginTransactionRequest do

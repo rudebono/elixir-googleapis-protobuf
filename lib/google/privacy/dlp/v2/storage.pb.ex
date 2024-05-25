@@ -505,6 +505,15 @@ defmodule Google.Privacy.Dlp.V2.BigQueryTable do
   field :table_id, 3, type: :string, json_name: "tableId"
 end
 
+defmodule Google.Privacy.Dlp.V2.TableReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset_id, 1, type: :string, json_name: "datasetId"
+  field :table_id, 2, type: :string, json_name: "tableId"
+end
+
 defmodule Google.Privacy.Dlp.V2.BigQueryField do
   @moduledoc false
 
