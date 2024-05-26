@@ -148,6 +148,8 @@ defmodule Google.Cloud.Gkehub.V1beta.MembershipFeatureSpec do
   field :configmanagement, 106,
     type: Google.Cloud.Gkehub.Configmanagement.V1beta.MembershipSpec,
     oneof: 0
+
+  field :mesh, 116, type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipSpec, oneof: 0
 end
 
 defmodule Google.Cloud.Gkehub.V1beta.MembershipFeatureState do
@@ -157,6 +159,7 @@ defmodule Google.Cloud.Gkehub.V1beta.MembershipFeatureState do
 
   oneof :feature_state, 0
 
+  field :servicemesh, 100, type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState, oneof: 0
   field :metering, 104, type: Google.Cloud.Gkehub.Metering.V1beta.MembershipState, oneof: 0
 
   field :configmanagement, 106,

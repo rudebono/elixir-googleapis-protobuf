@@ -21,6 +21,16 @@ defmodule Google.Cloud.Discoveryengine.V1.SolutionType do
   field :SOLUTION_TYPE_GENERATIVE_CHAT, 4
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchUseCase do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_USE_CASE_UNSPECIFIED, 0
+  field :SEARCH_USE_CASE_SEARCH, 1
+  field :SEARCH_USE_CASE_BROWSE, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchTier do
   @moduledoc false
 

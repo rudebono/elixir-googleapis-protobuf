@@ -42,6 +42,17 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ProductView.ItemIssue.ItemIssu
   field :PENDING, 3
 end
 
+defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView.Effectiveness do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EFFECTIVENESS_UNSPECIFIED, 0
+  field :LOW, 1
+  field :MEDIUM, 2
+  field :HIGH, 3
+end
+
 defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView.InventoryStatus do
   @moduledoc false
 
@@ -136,6 +147,10 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.ReportRow do
   field :product_performance_view, 1,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductPerformanceView,
     json_name: "productPerformanceView"
+
+  field :non_product_performance_view, 7,
+    type: Google.Shopping.Merchant.Reports.V1beta.NonProductPerformanceView,
+    json_name: "nonProductPerformanceView"
 
   field :product_view, 2,
     type: Google.Shopping.Merchant.Reports.V1beta.ProductView,
@@ -411,6 +426,10 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView do
     proto3_optional: true,
     type: :double,
     json_name: "predictedConversionsChangeFraction"
+
+  field :effectiveness, 22,
+    type: Google.Shopping.Merchant.Reports.V1beta.PriceInsightsProductView.Effectiveness,
+    enum: true
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersProductClusterView do
@@ -517,6 +536,22 @@ defmodule Google.Shopping.Merchant.Reports.V1beta.BestSellersBrandView do
       Google.Shopping.Merchant.Reports.V1beta.RelativeDemandChangeType.RelativeDemandChangeTypeEnum,
     json_name: "relativeDemandChange",
     enum: true
+end
+
+defmodule Google.Shopping.Merchant.Reports.V1beta.NonProductPerformanceView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :date, 1, type: Google.Type.Date
+  field :week, 2, type: Google.Type.Date
+  field :clicks, 3, proto3_optional: true, type: :int64
+  field :impressions, 4, proto3_optional: true, type: :int64
+
+  field :click_through_rate, 5,
+    proto3_optional: true,
+    type: :double,
+    json_name: "clickThroughRate"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1beta.CompetitiveVisibilityCompetitorView do

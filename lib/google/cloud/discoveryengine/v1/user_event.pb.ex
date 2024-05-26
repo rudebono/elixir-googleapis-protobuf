@@ -14,6 +14,8 @@ defmodule Google.Cloud.Discoveryengine.V1.UserEvent do
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
   field :user_pseudo_id, 2, type: :string, json_name: "userPseudoId", deprecated: false
+  field :engine, 19, type: :string, deprecated: false
+  field :data_store, 20, type: :string, json_name: "dataStore", deprecated: false
   field :event_time, 3, type: Google.Protobuf.Timestamp, json_name: "eventTime"
   field :user_info, 4, type: Google.Cloud.Discoveryengine.V1.UserInfo, json_name: "userInfo"
   field :direct_user_request, 5, type: :bool, json_name: "directUserRequest"

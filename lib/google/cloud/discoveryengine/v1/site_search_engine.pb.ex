@@ -80,6 +80,8 @@ defmodule Google.Cloud.Discoveryengine.V1.TargetSite do
     json_name: "generatedUriPattern",
     deprecated: false
 
+  field :root_domain_uri, 10, type: :string, json_name: "rootDomainUri", deprecated: false
+
   field :site_verification_info, 7,
     type: Google.Cloud.Discoveryengine.V1.SiteVerificationInfo,
     json_name: "siteVerificationInfo",

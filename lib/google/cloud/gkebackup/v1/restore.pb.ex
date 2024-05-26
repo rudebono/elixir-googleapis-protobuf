@@ -40,6 +40,9 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.NamespacedResourceRestoreMode 
   field :NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED, 0
   field :DELETE_AND_RESTORE, 1
   field :FAIL_ON_CONFLICT, 2
+  field :MERGE_SKIP_ON_CONFLICT, 3
+  field :MERGE_REPLACE_VOLUME_ON_CONFLICT, 4
+  field :MERGE_REPLACE_ON_CONFLICT, 5
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction.Op do
@@ -54,6 +57,24 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction.Op do
   field :ADD, 4
   field :TEST, 5
   field :REPLACE, 6
+end
+
+defmodule Google.Cloud.Gkebackup.V1.Restore.Filter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :inclusion_filters, 1,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.ResourceSelector,
+    json_name: "inclusionFilters",
+    deprecated: false
+
+  field :exclusion_filters, 2,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.ResourceSelector,
+    json_name: "exclusionFilters",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.Restore.LabelsEntry do
@@ -122,6 +143,13 @@ defmodule Google.Cloud.Gkebackup.V1.Restore do
     deprecated: false
 
   field :etag, 17, type: :string, deprecated: false
+  field :filter, 18, type: Google.Cloud.Gkebackup.V1.Restore.Filter, deprecated: false
+
+  field :volume_data_restore_policy_overrides, 19,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.VolumeDataRestorePolicyOverride,
+    json_name: "volumeDataRestorePolicyOverrides",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind do
@@ -231,6 +259,46 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule do
   field :description, 3, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicyBinding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :scope, 0
+
+  field :policy, 1,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicy,
+    enum: true,
+    deprecated: false
+
+  field :volume_type, 2,
+    type: Google.Cloud.Gkebackup.V1.VolumeTypeEnum.VolumeType,
+    json_name: "volumeType",
+    enum: true,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder.GroupKindDependency do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :satisfying, 1, type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind, deprecated: false
+  field :requiring, 2, type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind, deprecated: false
+end
+
+defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group_kind_dependencies, 1,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder.GroupKindDependency,
+    json_name: "groupKindDependencies",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
   @moduledoc false
 
@@ -291,4 +359,62 @@ defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule,
     json_name: "transformationRules",
     deprecated: false
+
+  field :volume_data_restore_policy_bindings, 12,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicyBinding,
+    json_name: "volumeDataRestorePolicyBindings",
+    deprecated: false
+
+  field :restore_order, 13,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder,
+    json_name: "restoreOrder",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gkebackup.V1.ResourceSelector.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Gkebackup.V1.ResourceSelector do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :group_kind, 1,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
+    json_name: "groupKind",
+    deprecated: false
+
+  field :name, 2, type: :string, deprecated: false
+  field :namespace, 3, type: :string, deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Gkebackup.V1.ResourceSelector.LabelsEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gkebackup.V1.VolumeDataRestorePolicyOverride do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :scope, 0
+
+  field :policy, 1,
+    type: Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicy,
+    enum: true,
+    deprecated: false
+
+  field :selected_pvcs, 2,
+    type: Google.Cloud.Gkebackup.V1.NamespacedNames,
+    json_name: "selectedPvcs",
+    oneof: 0
 end
