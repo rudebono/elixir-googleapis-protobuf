@@ -10,6 +10,8 @@ defmodule Google.Cloud.Discoveryengine.V1.WriteUserEventRequest do
     type: Google.Cloud.Discoveryengine.V1.UserEvent,
     json_name: "userEvent",
     deprecated: false
+
+  field :write_async, 3, type: :bool, json_name: "writeAsync"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.CollectUserEventRequest do
