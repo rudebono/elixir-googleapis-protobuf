@@ -43,7 +43,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Engine.CommonConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :company_name, 1, type: :string, json_name: "companyName", deprecated: false
+  field :company_name, 1, type: :string, json_name: "companyName"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.Engine.ChatEngineMetadata do

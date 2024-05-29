@@ -170,6 +170,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.AnswerGenerati
   field :answer_language_code, 4, type: :string, json_name: "answerLanguageCode"
   field :ignore_adversarial_query, 5, type: :bool, json_name: "ignoreAdversarialQuery"
   field :ignore_non_answer_seeking_query, 6, type: :bool, json_name: "ignoreNonAnswerSeekingQuery"
+
+  field :ignore_low_relevant_content, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "ignoreLowRelevantContent"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchParams do
@@ -194,6 +199,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.Sea
   field :custom_fine_tuning_spec, 6,
     type: Google.Cloud.Discoveryengine.V1alpha.CustomFineTuningSpec,
     json_name: "customFineTuningSpec"
+
+  field :data_store_specs, 7,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.DataStoreSpec,
+    json_name: "dataStoreSpecs"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.DocumentContext do
@@ -387,6 +397,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryResponse do
 
   field :answer, 1, type: Google.Cloud.Discoveryengine.V1alpha.Answer
   field :session, 2, type: Google.Cloud.Discoveryengine.V1alpha.Session
+  field :answer_query_token, 3, type: :string, json_name: "answerQueryToken"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetAnswerRequest do

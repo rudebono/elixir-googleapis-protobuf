@@ -9,6 +9,15 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.RankingRecord do
   field :score, 4, type: :float
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.RankRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankRequest do
   @moduledoc false
 
@@ -27,6 +36,12 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.RankRequest do
   field :ignore_record_details_in_response, 6,
     type: :bool,
     json_name: "ignoreRecordDetailsInResponse"
+
+  field :user_labels, 7,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.RankRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankResponse do

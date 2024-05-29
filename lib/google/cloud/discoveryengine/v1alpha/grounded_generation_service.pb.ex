@@ -9,6 +9,15 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingSpec do
     json_name: "citationThreshold"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest do
   @moduledoc false
 
@@ -21,6 +30,12 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest do
   field :grounding_spec, 4,
     type: Google.Cloud.Discoveryengine.V1alpha.CheckGroundingSpec,
     json_name: "groundingSpec"
+
+  field :user_labels, 5,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingResponse.Claim do
@@ -32,6 +47,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingResponse.Claim do
   field :end_pos, 2, proto3_optional: true, type: :int32, json_name: "endPos"
   field :claim_text, 3, type: :string, json_name: "claimText"
   field :citation_indices, 4, repeated: true, type: :int32, json_name: "citationIndices"
+
+  field :grounding_check_required, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "groundingCheckRequired"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingResponse do

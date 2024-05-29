@@ -86,6 +86,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.Reference.UnstructuredDocu
     type:
       Google.Cloud.Discoveryengine.V1alpha.Answer.Reference.UnstructuredDocumentInfo.ChunkContent,
     json_name: "chunkContents"
+
+  field :struct_data, 5, type: Google.Protobuf.Struct, json_name: "structData"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.Reference.ChunkInfo.DocumentMetadata do
@@ -97,6 +99,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.Reference.ChunkInfo.Docume
   field :uri, 2, type: :string
   field :title, 3, type: :string
   field :page_identifier, 4, type: :string, json_name: "pageIdentifier"
+  field :struct_data, 5, type: Google.Protobuf.Struct, json_name: "structData"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.Reference.ChunkInfo do

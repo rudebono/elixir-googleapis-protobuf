@@ -88,6 +88,9 @@ defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
     json_name: "modelType",
     enum: true,
     deprecated: false
+
+  field :satisfies_pzs, 16, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 17, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.ProcessorVersionAlias do
@@ -123,4 +126,6 @@ defmodule Google.Cloud.Documentai.V1.Processor do
   field :process_endpoint, 6, type: :string, json_name: "processEndpoint", deprecated: false
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
+  field :satisfies_pzs, 12, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 13, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

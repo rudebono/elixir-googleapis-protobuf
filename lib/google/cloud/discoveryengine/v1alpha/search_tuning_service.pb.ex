@@ -1,3 +1,19 @@
+defmodule Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :models, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest.GcsTrainingInput do
   @moduledoc false
 
@@ -27,6 +43,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest do
   field :error_config, 4,
     type: Google.Cloud.Discoveryengine.V1alpha.ImportErrorConfig,
     json_name: "errorConfig"
+
+  field :model_id, 5, type: :string, json_name: "modelId"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse.MetricsEntry do
@@ -55,6 +73,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse do
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse.MetricsEntry,
     map: true
+
+  field :model_name, 5, type: :string, json_name: "modelName"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelMetadata do
@@ -76,6 +96,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTuningService.Service do
   rpc :TrainCustomModel,
       Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest,
       Google.Longrunning.Operation
+
+  rpc :ListCustomModels,
+      Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsRequest,
+      Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsResponse
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTuningService.Stub do

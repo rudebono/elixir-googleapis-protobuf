@@ -36,6 +36,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.FactChunk do
 
   field :chunk_text, 1, type: :string, json_name: "chunkText"
   field :source, 2, type: :string
+  field :index, 4, type: :int32
 
   field :source_metadata, 3,
     repeated: true,
