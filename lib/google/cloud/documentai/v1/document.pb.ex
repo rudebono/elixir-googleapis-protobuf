@@ -620,6 +620,198 @@ defmodule Google.Cloud.Documentai.V1.Document.TextChange do
     deprecated: true
 end
 
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutPageSpan do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :page_start, 1, type: :int32, json_name: "pageStart"
+  field :page_end, 2, type: :int32, json_name: "pageEnd"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTextBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+  field :type, 2, type: :string
+
+  field :blocks, 3,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :header_rows, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableRow,
+    json_name: "headerRows"
+
+  field :body_rows, 2,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableRow,
+    json_name: "bodyRows"
+
+  field :caption, 3, type: :string
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableRow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :cells, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableCell
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableCell do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :blocks, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock
+
+  field :row_span, 2, type: :int32, json_name: "rowSpan"
+  field :col_span, 3, type: :int32, json_name: "colSpan"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutListBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :list_entries, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutListEntry,
+    json_name: "listEntries"
+
+  field :type, 2, type: :string
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutListEntry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :blocks, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :block, 0
+
+  field :text_block, 2,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTextBlock,
+    json_name: "textBlock",
+    oneof: 0
+
+  field :table_block, 3,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableBlock,
+    json_name: "tableBlock",
+    oneof: 0
+
+  field :list_block, 4,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutListBlock,
+    json_name: "listBlock",
+    oneof: 0
+
+  field :block_id, 1, type: :string, json_name: "blockId"
+
+  field :page_span, 5,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutPageSpan,
+    json_name: "pageSpan"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :blocks, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageSpan do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :page_start, 1, type: :int32, json_name: "pageStart"
+  field :page_end, 2, type: :int32, json_name: "pageEnd"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :page_span, 2,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageSpan,
+    json_name: "pageSpan"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageFooter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :page_span, 2,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageSpan,
+    json_name: "pageSpan"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :chunk_id, 1, type: :string, json_name: "chunkId"
+  field :source_block_ids, 2, repeated: true, type: :string, json_name: "sourceBlockIds"
+  field :content, 3, type: :string
+
+  field :page_span, 4,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageSpan,
+    json_name: "pageSpan"
+
+  field :page_headers, 5,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageHeader,
+    json_name: "pageHeaders"
+
+  field :page_footers, 6,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk.ChunkPageFooter,
+    json_name: "pageFooters"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :chunks, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk
+end
+
 defmodule Google.Cloud.Documentai.V1.Document do
   @moduledoc false
 
@@ -657,4 +849,12 @@ defmodule Google.Cloud.Documentai.V1.Document do
 
   field :error, 10, type: Google.Rpc.Status
   field :revisions, 13, repeated: true, type: Google.Cloud.Documentai.V1.Document.Revision
+
+  field :document_layout, 17,
+    type: Google.Cloud.Documentai.V1.Document.DocumentLayout,
+    json_name: "documentLayout"
+
+  field :chunked_document, 18,
+    type: Google.Cloud.Documentai.V1.Document.ChunkedDocument,
+    json_name: "chunkedDocument"
 end

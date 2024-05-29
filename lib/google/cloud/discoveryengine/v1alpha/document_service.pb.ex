@@ -6,6 +6,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.Proce
   field :PROCESSED_DOCUMENT_TYPE_UNSPECIFIED, 0
   field :PARSED_DOCUMENT, 1
   field :CHUNKED_DOCUMENT, 2
+  field :PNG_CONVERTED_DOCUMENT, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.ProcessedDocumentFormat do

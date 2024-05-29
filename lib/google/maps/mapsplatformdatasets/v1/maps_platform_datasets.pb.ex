@@ -32,6 +32,7 @@ defmodule Google.Maps.Mapsplatformdatasets.V1.ListDatasetsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :tag, 4, type: :string
 end
 
 defmodule Google.Maps.Mapsplatformdatasets.V1.ListDatasetsResponse do

@@ -42,6 +42,12 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Chunk do
   field :id, 2, type: :string
   field :content, 3, type: :string
 
+  field :relevance_score, 8,
+    proto3_optional: true,
+    type: :double,
+    json_name: "relevanceScore",
+    deprecated: false
+
   field :document_metadata, 5,
     type: Google.Cloud.Discoveryengine.V1alpha.Chunk.DocumentMetadata,
     json_name: "documentMetadata"

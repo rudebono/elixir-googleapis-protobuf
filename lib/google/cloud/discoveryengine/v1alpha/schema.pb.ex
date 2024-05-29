@@ -81,6 +81,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDat
   field :ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED, 0
   field :METATAGS, 1
   field :PAGEMAP, 2
+  field :SCHEMA_ORG, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Schema do
@@ -151,4 +152,6 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig do
     type: Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDataSource,
     json_name: "advancedSiteSearchDataSources",
     enum: true
+
+  field :schema_org_paths, 11, repeated: true, type: :string, json_name: "schemaOrgPaths"
 end
