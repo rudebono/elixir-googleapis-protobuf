@@ -97,4 +97,9 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore do
     type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.DedicatedServingEndpoint,
     json_name: "dedicatedServingEndpoint",
     deprecated: false
+
+  field :encryption_spec, 13,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end

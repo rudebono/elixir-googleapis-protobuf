@@ -19,6 +19,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.GcsNotebookSource
   field :generation, 2, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.DirectNotebookSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :content, 1, type: :bytes
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
   @moduledoc false
 
@@ -40,6 +57,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
   field :gcs_notebook_source, 4,
     type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.GcsNotebookSource,
     json_name: "gcsNotebookSource",
+    oneof: 0
+
+  field :direct_notebook_source, 17,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.DirectNotebookSource,
+    json_name: "directNotebookSource",
     oneof: 0
 
   field :notebook_runtime_template_resource_name, 14,
@@ -77,4 +99,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :labels, 19,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.LabelsEntry,
+    map: true
 end
