@@ -24,4 +24,5 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DatasetVersion do
 
   field :display_name, 7, type: :string, json_name: "displayName"
   field :metadata, 8, type: Google.Protobuf.Value, deprecated: false
+  field :model_reference, 9, type: :string, json_name: "modelReference", deprecated: false
 end

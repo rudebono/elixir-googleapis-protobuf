@@ -6,6 +6,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore.MetadataStoreState do
   field :disk_utilization_bytes, 1, type: :int64, json_name: "diskUtilizationBytes"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore.DataplexConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled_pipelines_lineage, 1,
+    type: :bool,
+    json_name: "enabledPipelinesLineage",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore do
   @moduledoc false
 
@@ -31,5 +42,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetadataStore do
 
   field :state, 7,
     type: Google.Cloud.Aiplatform.V1beta1.MetadataStore.MetadataStoreState,
+    deprecated: false
+
+  field :dataplex_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.MetadataStore.DataplexConfig,
+    json_name: "dataplexConfig",
     deprecated: false
 end

@@ -82,6 +82,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Index do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.SparseEmbedding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :float, deprecated: false
+  field :dimensions, 2, repeated: true, type: :int64, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.Restriction do
   @moduledoc false
 
@@ -130,6 +139,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexDatapoint do
     json_name: "featureVector",
     deprecated: false
 
+  field :sparse_embedding, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.SparseEmbedding,
+    json_name: "sparseEmbedding",
+    deprecated: false
+
   field :restricts, 4,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.Restriction,
@@ -153,5 +167,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexStats do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :vectors_count, 1, type: :int64, json_name: "vectorsCount", deprecated: false
+  field :sparse_vectors_count, 3, type: :int64, json_name: "sparseVectorsCount", deprecated: false
   field :shards_count, 2, type: :int32, json_name: "shardsCount", deprecated: false
 end

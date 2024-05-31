@@ -1,7 +1,22 @@
+defmodule Google.Cloud.Aiplatform.V1.FindNeighborsRequest.Query.RRF do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :alpha, 1, type: :float, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FindNeighborsRequest.Query do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :ranking, 0
+
+  field :rrf, 6,
+    type: Google.Cloud.Aiplatform.V1.FindNeighborsRequest.Query.RRF,
+    oneof: 0,
+    deprecated: false
 
   field :datapoint, 1, type: Google.Cloud.Aiplatform.V1.IndexDatapoint, deprecated: false
   field :neighbor_count, 2, type: :int32, json_name: "neighborCount"
@@ -35,6 +50,7 @@ defmodule Google.Cloud.Aiplatform.V1.FindNeighborsResponse.Neighbor do
 
   field :datapoint, 1, type: Google.Cloud.Aiplatform.V1.IndexDatapoint
   field :distance, 2, type: :double
+  field :sparse_distance, 3, type: :double, json_name: "sparseDistance"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FindNeighborsResponse.NearestNeighbors do

@@ -1,0 +1,39 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :expiration, 0
+
+  field :expire_time, 9, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
+  field :ttl, 10, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
+  field :name, 1, type: :string, deprecated: false
+  field :model, 2, type: :string, deprecated: false
+
+  field :system_instruction, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
+  field :contents, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
+
+  field :tools, 5, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
+
+  field :tool_config, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.ToolConfig,
+    json_name: "toolConfig",
+    deprecated: false
+
+  field :create_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end

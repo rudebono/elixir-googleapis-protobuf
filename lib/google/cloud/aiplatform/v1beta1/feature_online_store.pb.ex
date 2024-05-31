@@ -121,4 +121,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore do
     type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.EmbeddingManagement,
     json_name: "embeddingManagement",
     deprecated: true
+
+  field :encryption_spec, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end

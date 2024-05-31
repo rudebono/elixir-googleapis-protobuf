@@ -13,6 +13,7 @@ defmodule Google.Cloud.Aiplatform.V1.Feature.ValueType do
   field :STRING, 11
   field :STRING_ARRAY, 12
   field :BYTES, 13
+  field :STRUCT, 14
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Feature.MonitoringStatsAnomaly.Objective do
