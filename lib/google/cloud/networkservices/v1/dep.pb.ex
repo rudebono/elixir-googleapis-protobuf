@@ -125,6 +125,8 @@ defmodule Google.Cloud.Networkservices.V1.LbTrafficExtension do
     json_name: "loadBalancingScheme",
     enum: true,
     deprecated: false
+
+  field :metadata, 10, type: Google.Protobuf.Struct, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListLbTrafficExtensionsRequest do
@@ -259,6 +261,8 @@ defmodule Google.Cloud.Networkservices.V1.LbRouteExtension do
     json_name: "loadBalancingScheme",
     enum: true,
     deprecated: false
+
+  field :metadata, 10, type: Google.Protobuf.Struct, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListLbRouteExtensionsRequest do

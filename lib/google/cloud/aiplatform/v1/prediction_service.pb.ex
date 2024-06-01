@@ -224,6 +224,11 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentRequest do
 
   field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1.Tool, deprecated: false
 
+  field :tool_config, 7,
+    type: Google.Cloud.Aiplatform.V1.ToolConfig,
+    json_name: "toolConfig",
+    deprecated: false
+
   field :safety_settings, 3,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.SafetySetting,

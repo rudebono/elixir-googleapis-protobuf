@@ -109,6 +109,10 @@ defmodule Google.Cloud.Aiplatform.V1.NotebookRuntimeTemplate do
     type: :string,
     json_name: "networkTags",
     deprecated: false
+
+  field :encryption_spec, 23,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NotebookRuntime.LabelsEntry do
@@ -181,9 +185,22 @@ defmodule Google.Cloud.Aiplatform.V1.NotebookRuntime do
     enum: true,
     deprecated: false
 
+  field :idle_shutdown_config, 23,
+    type: Google.Cloud.Aiplatform.V1.NotebookIdleShutdownConfig,
+    json_name: "idleShutdownConfig",
+    deprecated: false
+
   field :network_tags, 25,
     repeated: true,
     type: :string,
     json_name: "networkTags",
     deprecated: false
+
+  field :encryption_spec, 28,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
+
+  field :satisfies_pzs, 29, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 30, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

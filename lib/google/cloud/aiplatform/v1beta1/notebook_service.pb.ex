@@ -78,6 +78,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteNotebookRuntimeTemplateRequest d
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateNotebookRuntimeTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :notebook_runtime_template, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate,
+    json_name: "notebookRuntimeTemplate",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.AssignNotebookRuntimeRequest do
   @moduledoc false
 
@@ -222,6 +238,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateNotebookExecutionJobRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CreateNotebookExecutionJobOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+
+  field :progress_message, 2, type: :string, json_name: "progressMessage"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GetNotebookExecutionJobRequest do
   @moduledoc false
 
@@ -296,6 +324,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookService.Service do
       Google.Cloud.Aiplatform.V1beta1.DeleteNotebookRuntimeTemplateRequest,
       Google.Longrunning.Operation
 
+  rpc :UpdateNotebookRuntimeTemplate,
+      Google.Cloud.Aiplatform.V1beta1.UpdateNotebookRuntimeTemplateRequest,
+      Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate
+
   rpc :AssignNotebookRuntime,
       Google.Cloud.Aiplatform.V1beta1.AssignNotebookRuntimeRequest,
       Google.Longrunning.Operation
@@ -318,6 +350,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookService.Service do
 
   rpc :StartNotebookRuntime,
       Google.Cloud.Aiplatform.V1beta1.StartNotebookRuntimeRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateNotebookExecutionJob,
+      Google.Cloud.Aiplatform.V1beta1.CreateNotebookExecutionJobRequest,
       Google.Longrunning.Operation
 
   rpc :GetNotebookExecutionJob,

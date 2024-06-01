@@ -171,6 +171,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesOperationMetadata do
     type: Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig,
     json_name: "importRagFilesConfig",
     deprecated: false
+
+  field :progress_percentage, 4, type: :int32, json_name: "progressPercentage"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Service do
