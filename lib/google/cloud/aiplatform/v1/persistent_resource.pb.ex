@@ -149,16 +149,60 @@ defmodule Google.Cloud.Aiplatform.V1.ResourceRuntimeSpec do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.RaySpec.ResourcePoolImagesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1.RaySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
+
+  field :resource_pool_images, 6,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.RaySpec.ResourcePoolImagesEntry,
+    json_name: "resourcePoolImages",
+    map: true,
+    deprecated: false
+
+  field :head_node_resource_pool_id, 7,
+    type: :string,
+    json_name: "headNodeResourcePoolId",
+    deprecated: false
+
+  field :ray_metric_spec, 8,
+    type: Google.Cloud.Aiplatform.V1.RayMetricSpec,
+    json_name: "rayMetricSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ResourceRuntime.AccessUrisEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ResourceRuntime do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :access_uris, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ResourceRuntime.AccessUrisEntry,
+    json_name: "accessUris",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ServiceAccountSpec do
@@ -172,4 +216,12 @@ defmodule Google.Cloud.Aiplatform.V1.ServiceAccountSpec do
     deprecated: false
 
   field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RayMetricSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :disabled, 1, type: :bool, deprecated: false
 end

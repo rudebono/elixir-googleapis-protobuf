@@ -511,6 +511,11 @@ defmodule Google.Pubsub.V1.BigQueryConfig do
   field :drop_unknown_fields, 4, type: :bool, json_name: "dropUnknownFields", deprecated: false
   field :state, 5, type: Google.Pubsub.V1.BigQueryConfig.State, enum: true, deprecated: false
   field :use_table_schema, 6, type: :bool, json_name: "useTableSchema", deprecated: false
+
+  field :service_account_email, 7,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig.TextConfig do
@@ -562,6 +567,11 @@ defmodule Google.Pubsub.V1.CloudStorageConfig do
 
   field :max_bytes, 7, type: :int64, json_name: "maxBytes", deprecated: false
   field :state, 9, type: Google.Pubsub.V1.CloudStorageConfig.State, enum: true, deprecated: false
+
+  field :service_account_email, 11,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.ReceivedMessage do

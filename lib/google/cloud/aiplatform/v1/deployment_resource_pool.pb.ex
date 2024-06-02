@@ -10,6 +10,13 @@ defmodule Google.Cloud.Aiplatform.V1.DeploymentResourcePool do
     json_name: "dedicatedResources",
     deprecated: false
 
+  field :encryption_spec, 5,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
+  field :service_account, 6, type: :string, json_name: "serviceAccount"
+  field :disable_container_logging, 7, type: :bool, json_name: "disableContainerLogging"
+
   field :create_time, 4,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",

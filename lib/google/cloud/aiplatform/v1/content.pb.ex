@@ -194,6 +194,12 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
     deprecated: false
 
   field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
+
+  field :response_schema, 16,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.Schema,
+    json_name: "responseSchema",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting do
@@ -302,46 +308,6 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1.Segment do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
-  field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
-  field :end_index, 3, type: :int32, json_name: "endIndex", deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1.GroundingAttribution.Web do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :uri, 1, type: :string, deprecated: false
-  field :title, 2, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Aiplatform.V1.GroundingAttribution do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :reference, 0
-
-  field :web, 3,
-    type: Google.Cloud.Aiplatform.V1.GroundingAttribution.Web,
-    oneof: 0,
-    deprecated: false
-
-  field :segment, 1, type: Google.Cloud.Aiplatform.V1.Segment, deprecated: false
-
-  field :confidence_score, 2,
-    proto3_optional: true,
-    type: :float,
-    json_name: "confidenceScore",
-    deprecated: false
-end
-
 defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
   @moduledoc false
 
@@ -351,12 +317,6 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
     repeated: true,
     type: :string,
     json_name: "webSearchQueries",
-    deprecated: false
-
-  field :grounding_attributions, 2,
-    repeated: true,
-    type: Google.Cloud.Aiplatform.V1.GroundingAttribution,
-    json_name: "groundingAttributions",
     deprecated: false
 
   field :search_entry_point, 4,

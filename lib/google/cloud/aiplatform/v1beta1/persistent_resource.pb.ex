@@ -207,7 +207,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime do
   field :notebook_runtime_template, 2,
     type: :string,
     json_name: "notebookRuntimeTemplate",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec do

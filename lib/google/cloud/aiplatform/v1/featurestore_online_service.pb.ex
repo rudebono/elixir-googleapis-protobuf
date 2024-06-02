@@ -166,7 +166,30 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureValue do
     oneof: 0
 
   field :bytes_value, 13, type: :bytes, json_name: "bytesValue", oneof: 0
+
+  field :struct_value, 15,
+    type: Google.Cloud.Aiplatform.V1.StructValue,
+    json_name: "structValue",
+    oneof: 0
+
   field :metadata, 14, type: Google.Cloud.Aiplatform.V1.FeatureValue.Metadata
+end
+
+defmodule Google.Cloud.Aiplatform.V1.StructValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.StructFieldValue
+end
+
+defmodule Google.Cloud.Aiplatform.V1.StructFieldValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1.FeatureValue
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureValueList do

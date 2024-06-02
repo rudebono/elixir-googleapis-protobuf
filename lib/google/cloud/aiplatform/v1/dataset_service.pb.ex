@@ -39,6 +39,22 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.UpdateDatasetVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset_version, 1,
+    type: Google.Cloud.Aiplatform.V1.DatasetVersion,
+    json_name: "datasetVersion",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ListDatasetsRequest do
   @moduledoc false
 
@@ -401,6 +417,10 @@ defmodule Google.Cloud.Aiplatform.V1.DatasetService.Service do
   rpc :CreateDatasetVersion,
       Google.Cloud.Aiplatform.V1.CreateDatasetVersionRequest,
       Google.Longrunning.Operation
+
+  rpc :UpdateDatasetVersion,
+      Google.Cloud.Aiplatform.V1.UpdateDatasetVersionRequest,
+      Google.Cloud.Aiplatform.V1.DatasetVersion
 
   rpc :DeleteDatasetVersion,
       Google.Cloud.Aiplatform.V1.DeleteDatasetVersionRequest,
