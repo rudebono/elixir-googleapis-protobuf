@@ -17,7 +17,10 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Reco
   field :MULTIPLE_VALUES, 11
   field :INVALID_NUMERIC_VALUE, 12
   field :INVALID_ENCODING, 13
+  field :INVALID_SPARSE_DIMENSIONS, 14
   field :INVALID_TOKEN_VALUE, 15
+  field :INVALID_SPARSE_EMBEDDING, 16
+  field :INVALID_EMBEDDING, 17
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateIndexRequest do
@@ -168,6 +171,9 @@ defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.Cont
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata.RecordError,
     json_name: "partialErrors"
+
+  field :valid_sparse_record_count, 5, type: :int64, json_name: "validSparseRecordCount"
+  field :invalid_sparse_record_count, 6, type: :int64, json_name: "invalidSparseRecordCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NearestNeighborSearchOperationMetadata do

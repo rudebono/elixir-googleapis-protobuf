@@ -55,6 +55,7 @@ defmodule Google.Cloud.Aiplatform.V1.Dataset do
     json_name: "encryptionSpec"
 
   field :metadata_artifact, 17, type: :string, json_name: "metadataArtifact", deprecated: false
+  field :model_reference, 18, type: :string, json_name: "modelReference", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ImportDataConfig.DataItemLabelsEntry do

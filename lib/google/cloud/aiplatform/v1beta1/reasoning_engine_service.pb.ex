@@ -29,6 +29,32 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetReasoningEngineRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateReasoningEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reasoning_engine, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngine,
+    json_name: "reasoningEngine",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateReasoningEngineOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ListReasoningEnginesRequest do
   @moduledoc false
 
@@ -79,6 +105,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineService.Service do
   rpc :ListReasoningEngines,
       Google.Cloud.Aiplatform.V1beta1.ListReasoningEnginesRequest,
       Google.Cloud.Aiplatform.V1beta1.ListReasoningEnginesResponse
+
+  rpc :UpdateReasoningEngine,
+      Google.Cloud.Aiplatform.V1beta1.UpdateReasoningEngineRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteReasoningEngine,
       Google.Cloud.Aiplatform.V1beta1.DeleteReasoningEngineRequest,
