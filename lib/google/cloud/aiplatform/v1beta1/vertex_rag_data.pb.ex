@@ -8,6 +8,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile.RagFileType do
   field :RAG_FILE_TYPE_PDF, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.VertexPredictionEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :model, 2, type: :string, deprecated: false
+  field :model_version_id, 3, type: :string, json_name: "modelVersionId", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :model_config, 0
+
+  field :vertex_prediction_endpoint, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.VertexPredictionEndpoint,
+    json_name: "vertexPredictionEndpoint",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   @moduledoc false
 
@@ -16,6 +39,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
+
+  field :rag_embedding_model_config, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig,
+    json_name: "ragEmbeddingModelConfig",
+    deprecated: false
 
   field :create_time, 4,
     type: Google.Protobuf.Timestamp,
@@ -114,4 +142,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
   field :rag_file_chunking_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
     json_name: "ragFileChunkingConfig"
+
+  field :max_embedding_requests_per_min, 5,
+    type: :int32,
+    json_name: "maxEmbeddingRequestsPerMin",
+    deprecated: false
 end
