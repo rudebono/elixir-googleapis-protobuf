@@ -40,6 +40,16 @@ defmodule Google.Cloud.Retail.V2alpha.Model.DataState do
   field :DATA_ERROR, 2
 end
 
+defmodule Google.Cloud.Retail.V2alpha.Model.ContextProductsType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONTEXT_PRODUCTS_TYPE_UNSPECIFIED, 0
+  field :SINGLE_CONTEXT_PRODUCT, 1
+  field :MULTIPLE_CONTEXT_PRODUCTS, 2
+end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Restriction do
   @moduledoc false
 
@@ -111,6 +121,31 @@ defmodule Google.Cloud.Retail.V2alpha.Model.ServingConfigList do
     type: :string,
     json_name: "servingConfigIds",
     deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2alpha.Model.FrequentlyBoughtTogetherFeaturesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :context_products_type, 2,
+    type: Google.Cloud.Retail.V2alpha.Model.ContextProductsType,
+    json_name: "contextProductsType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :type_dedicated_config, 0
+
+  field :frequently_bought_together_config, 1,
+    type: Google.Cloud.Retail.V2alpha.Model.FrequentlyBoughtTogetherFeaturesConfig,
+    json_name: "frequentlyBoughtTogetherConfig",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Retail.V2alpha.Model do
@@ -187,5 +222,10 @@ defmodule Google.Cloud.Retail.V2alpha.Model do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.Model.ServingConfigList,
     json_name: "servingConfigLists",
+    deprecated: false
+
+  field :model_features_config, 22,
+    type: Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig,
+    json_name: "modelFeaturesConfig",
     deprecated: false
 end

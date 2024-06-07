@@ -70,6 +70,71 @@ defmodule Google.Cloud.Retail.V2.ProductLevelConfig do
     json_name: "merchantCenterProductIdField"
 end
 
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.IgnoredFacetValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.MergedFacetValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :string
+  field :merged_value, 2, type: :string, json_name: "mergedValue"
+end
+
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.MergedFacet do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :merged_facet_key, 1, type: :string, json_name: "mergedFacetKey"
+end
+
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.RerankConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rerank_facet, 1, type: :bool, json_name: "rerankFacet"
+  field :facet_values, 2, repeated: true, type: :string, json_name: "facetValues"
+end
+
+defmodule Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :facet_intervals, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2.Interval,
+    json_name: "facetIntervals"
+
+  field :ignored_facet_values, 2,
+    repeated: true,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.IgnoredFacetValues,
+    json_name: "ignoredFacetValues"
+
+  field :merged_facet_values, 3,
+    repeated: true,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.MergedFacetValue,
+    json_name: "mergedFacetValues"
+
+  field :merged_facet, 4,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.MergedFacet,
+    json_name: "mergedFacet"
+
+  field :rerank_config, 5,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig.RerankConfig,
+    json_name: "rerankConfig"
+end
+
 defmodule Google.Cloud.Retail.V2.CatalogAttribute do
   @moduledoc false
 
@@ -107,6 +172,10 @@ defmodule Google.Cloud.Retail.V2.CatalogAttribute do
     type: Google.Cloud.Retail.V2.CatalogAttribute.RetrievableOption,
     json_name: "retrievableOption",
     enum: true
+
+  field :facet_config, 13,
+    type: Google.Cloud.Retail.V2.CatalogAttribute.FacetConfig,
+    json_name: "facetConfig"
 end
 
 defmodule Google.Cloud.Retail.V2.AttributesConfig.CatalogAttributesEntry do

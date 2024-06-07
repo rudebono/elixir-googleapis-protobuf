@@ -204,6 +204,10 @@ defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
 
   rpc :DeleteProduct, Google.Cloud.Retail.V2beta.DeleteProductRequest, Google.Protobuf.Empty
 
+  rpc :PurgeProducts,
+      Google.Cloud.Retail.V2beta.PurgeProductsRequest,
+      Google.Longrunning.Operation
+
   rpc :ImportProducts,
       Google.Cloud.Retail.V2beta.ImportProductsRequest,
       Google.Longrunning.Operation
