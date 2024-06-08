@@ -198,6 +198,8 @@ defmodule Google.Cloud.Retail.V2.ProductService.Service do
 
   rpc :DeleteProduct, Google.Cloud.Retail.V2.DeleteProductRequest, Google.Protobuf.Empty
 
+  rpc :PurgeProducts, Google.Cloud.Retail.V2.PurgeProductsRequest, Google.Longrunning.Operation
+
   rpc :ImportProducts, Google.Cloud.Retail.V2.ImportProductsRequest, Google.Longrunning.Operation
 
   rpc :SetInventory, Google.Cloud.Retail.V2.SetInventoryRequest, Google.Longrunning.Operation

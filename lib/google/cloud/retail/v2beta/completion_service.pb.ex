@@ -10,6 +10,7 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryRequest do
   field :device_type, 4, type: :string, json_name: "deviceType"
   field :dataset, 6, type: :string
   field :max_suggestions, 5, type: :int32, json_name: "maxSuggestions"
+  field :enable_attribute_suggestions, 9, type: :bool, json_name: "enableAttributeSuggestions"
   field :entity, 10, type: :string
 end
 
@@ -38,7 +39,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recent_search, 1, type: :string, json_name: "recentSearch"
 end
@@ -58,7 +59,8 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
   field :recent_search_results, 3,
     repeated: true,
     type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult,
-    json_name: "recentSearchResults"
+    json_name: "recentSearchResults",
+    deprecated: true
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompletionService.Service do
