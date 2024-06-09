@@ -1,3 +1,17 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolCall do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tool, 1, type: :string, deprecated: false
+  field :action, 2, type: :string, deprecated: false
+
+  field :input_parameters, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "inputParameters",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolCallResult.Error do
   @moduledoc false
 
