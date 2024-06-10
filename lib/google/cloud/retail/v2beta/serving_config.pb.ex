@@ -56,6 +56,7 @@ defmodule Google.Cloud.Retail.V2beta.ServingConfig do
     enum: true
 
   field :enable_category_filter_level, 16, type: :string, json_name: "enableCategoryFilterLevel"
+  field :ignore_recs_denylist, 24, type: :bool, json_name: "ignoreRecsDenylist"
 
   field :personalization_spec, 21,
     type: Google.Cloud.Retail.V2beta.SearchRequest.PersonalizationSpec,

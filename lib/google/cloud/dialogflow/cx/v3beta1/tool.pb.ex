@@ -287,8 +287,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool do
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
-  field :actions, 6, repeated: true, type: :string, deprecated: true
-  field :schemas, 7, repeated: true, type: :string, deprecated: true
 
   field :open_api_spec, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.OpenApiTool,

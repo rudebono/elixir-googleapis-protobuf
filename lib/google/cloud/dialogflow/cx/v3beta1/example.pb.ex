@@ -124,9 +124,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInput do
     json_name: "precedingConversationSummary",
     deprecated: false
 
-  field :parameters, 2,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
+  field :action_parameters, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "actionParameters",
     deprecated: false
 end
 
@@ -137,9 +137,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookOutput do
 
   field :execution_summary, 1, type: :string, json_name: "executionSummary", deprecated: false
 
-  field :parameters, 3,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
+  field :action_parameters, 4,
+    type: Google.Protobuf.Struct,
+    json_name: "actionParameters",
     deprecated: false
 end
 
@@ -205,24 +205,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolUse do
   field :tool, 1, type: :string, deprecated: false
   field :action, 2, type: :string, deprecated: false
 
-  field :input_parameters, 3,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
-    json_name: "inputParameters"
+  field :input_action_parameters, 5,
+    type: Google.Protobuf.Struct,
+    json_name: "inputActionParameters",
+    deprecated: false
 
-  field :output_parameters, 4,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
-    json_name: "outputParameters"
-end
-
-defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :value, 2, type: Google.Protobuf.Value, deprecated: false
+  field :output_action_parameters, 6,
+    type: Google.Protobuf.Struct,
+    json_name: "outputActionParameters",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInvocation do
@@ -256,15 +247,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowInvocation do
 
   field :flow, 1, type: :string, deprecated: false
 
-  field :input_parameters, 2,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
-    json_name: "inputParameters"
+  field :input_action_parameters, 5,
+    type: Google.Protobuf.Struct,
+    json_name: "inputActionParameters",
+    deprecated: false
 
-  field :output_parameters, 3,
-    repeated: true,
-    type: Google.Cloud.Dialogflow.Cx.V3beta1.ActionParameter,
-    json_name: "outputParameters"
+  field :output_action_parameters, 6,
+    type: Google.Protobuf.Struct,
+    json_name: "outputActionParameters",
+    deprecated: false
 
   field :flow_state, 4,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.OutputState,
