@@ -86,6 +86,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :session_entry_resource, 0
+
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
@@ -107,8 +109,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SpeechToTextSettings,
     json_name: "speechToTextSettings"
 
-  field :start_flow, 16, type: :string, json_name: "startFlow", deprecated: false
-  field :start_playbook, 39, type: :string, json_name: "startPlaybook", deprecated: false
+  field :start_flow, 16, type: :string, json_name: "startFlow", oneof: 0, deprecated: false
+
+  field :start_playbook, 39,
+    type: :string,
+    json_name: "startPlaybook",
+    oneof: 0,
+    deprecated: false
+
   field :security_settings, 17, type: :string, json_name: "securitySettings", deprecated: false
 
   field :enable_stackdriver_logging, 18,
