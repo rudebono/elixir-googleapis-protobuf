@@ -96,6 +96,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentRequest do
     type: Google.Ai.Generativelanguage.V1beta.GenerationConfig,
     json_name: "generationConfig",
     deprecated: false
+
+  field :cached_content, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "cachedContent",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
@@ -182,6 +188,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.UsageMetad
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
+  field :cached_content_token_count, 4, type: :int32, json_name: "cachedContentTokenCount"
   field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
   field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
 end
@@ -452,6 +459,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.CountTokensResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
+  field :cached_content_token_count, 5, type: :int32, json_name: "cachedContentTokenCount"
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.GenerativeService.Service do

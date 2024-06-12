@@ -70,6 +70,8 @@ defmodule Google.Cloud.Retail.V2beta.Condition do
     repeated: true,
     type: Google.Cloud.Retail.V2beta.Condition.TimeRange,
     json_name: "activeTimeRange"
+
+  field :page_categories, 4, repeated: true, type: :string, json_name: "pageCategories"
 end
 
 defmodule Google.Cloud.Retail.V2beta.Rule.BoostAction do
@@ -148,6 +150,34 @@ defmodule Google.Cloud.Retail.V2beta.Rule.IgnoreAction do
   field :ignore_terms, 1, repeated: true, type: :string, json_name: "ignoreTerms"
 end
 
+defmodule Google.Cloud.Retail.V2beta.Rule.ForceReturnFacetAction.FacetPositionAdjustment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attribute_name, 1, type: :string, json_name: "attributeName"
+  field :position, 2, type: :int32
+end
+
+defmodule Google.Cloud.Retail.V2beta.Rule.ForceReturnFacetAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :facet_position_adjustments, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.Rule.ForceReturnFacetAction.FacetPositionAdjustment,
+    json_name: "facetPositionAdjustments"
+end
+
+defmodule Google.Cloud.Retail.V2beta.Rule.RemoveFacetAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attribute_names, 1, repeated: true, type: :string, json_name: "attributeNames"
+end
+
 defmodule Google.Cloud.Retail.V2beta.Rule do
   @moduledoc false
 
@@ -193,6 +223,16 @@ defmodule Google.Cloud.Retail.V2beta.Rule do
   field :twoway_synonyms_action, 11,
     type: Google.Cloud.Retail.V2beta.Rule.TwowaySynonymsAction,
     json_name: "twowaySynonymsAction",
+    oneof: 0
+
+  field :force_return_facet_action, 12,
+    type: Google.Cloud.Retail.V2beta.Rule.ForceReturnFacetAction,
+    json_name: "forceReturnFacetAction",
+    oneof: 0
+
+  field :remove_facet_action, 13,
+    type: Google.Cloud.Retail.V2beta.Rule.RemoveFacetAction,
+    json_name: "removeFacetAction",
     oneof: 0
 
   field :condition, 1, type: Google.Cloud.Retail.V2beta.Condition, deprecated: false

@@ -4,6 +4,7 @@ defmodule Google.Firestore.Admin.V1.ListDatabasesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :show_deleted, 4, type: :bool, json_name: "showDeleted"
 end
 
 defmodule Google.Firestore.Admin.V1.CreateDatabaseRequest do
@@ -235,6 +236,32 @@ defmodule Google.Firestore.Admin.V1.ImportDocumentsRequest do
   field :namespace_ids, 4, repeated: true, type: :string, json_name: "namespaceIds"
 end
 
+defmodule Google.Firestore.Admin.V1.BulkDeleteDocumentsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :collection_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "collectionIds",
+    deprecated: false
+
+  field :namespace_ids, 3,
+    repeated: true,
+    type: :string,
+    json_name: "namespaceIds",
+    deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.BulkDeleteDocumentsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Firestore.Admin.V1.GetBackupRequest do
   @moduledoc false
 
@@ -309,6 +336,10 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
 
   rpc :ImportDocuments,
       Google.Firestore.Admin.V1.ImportDocumentsRequest,
+      Google.Longrunning.Operation
+
+  rpc :BulkDeleteDocuments,
+      Google.Firestore.Admin.V1.BulkDeleteDocumentsRequest,
       Google.Longrunning.Operation
 
   rpc :CreateDatabase,

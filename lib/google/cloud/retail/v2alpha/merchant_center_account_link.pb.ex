@@ -46,6 +46,7 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterAccountLink do
     deprecated: false
 
   field :project_id, 9, type: :string, json_name: "projectId", deprecated: false
+  field :source, 10, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.CreateMerchantCenterAccountLinkMetadata do

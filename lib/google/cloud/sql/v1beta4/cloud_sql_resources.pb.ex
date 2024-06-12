@@ -129,6 +129,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   field :MYSQL_8_0_38, 356
   field :MYSQL_8_0_39, 357
   field :MYSQL_8_0_40, 358
+  field :MYSQL_8_4, 398
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28
@@ -396,6 +397,8 @@ defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
   field :ACQUIRE_SSRS_LEASE, 42
   field :RELEASE_SSRS_LEASE, 43
   field :RECONFIGURE_OLD_PRIMARY, 44
+  field :CLUSTER_MAINTENANCE, 45
+  field :SELF_SERVICE_MAINTENANCE, 46
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationStatus do

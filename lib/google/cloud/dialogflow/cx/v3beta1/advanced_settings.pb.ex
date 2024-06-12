@@ -30,6 +30,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.DtmfSettings do
   field :enabled, 1, type: :bool
   field :max_digits, 2, type: :int32, json_name: "maxDigits"
   field :finish_digit, 3, type: :string, json_name: "finishDigit"
+
+  field :interdigit_timeout_duration, 6,
+    type: Google.Protobuf.Duration,
+    json_name: "interdigitTimeoutDuration"
+
+  field :endpointing_timeout_duration, 7,
+    type: Google.Protobuf.Duration,
+    json_name: "endpointingTimeoutDuration"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.LoggingSettings do

@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse.RecentSearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :recent_search, 1, type: :string, json_name: "recentSearch"
 end
@@ -79,7 +79,8 @@ defmodule Google.Cloud.Retail.V2alpha.CompleteQueryResponse do
   field :recent_search_results, 3,
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.CompleteQueryResponse.RecentSearchResult,
-    json_name: "recentSearchResults"
+    json_name: "recentSearchResults",
+    deprecated: true
 
   field :attribute_results, 4,
     repeated: true,
