@@ -190,6 +190,7 @@ defmodule Google.Container.V1.SecurityPostureConfig.Mode do
   field :MODE_UNSPECIFIED, 0
   field :DISABLED, 1
   field :BASIC, 2
+  field :ENTERPRISE, 3
 end
 
 defmodule Google.Container.V1.SecurityPostureConfig.VulnerabilityMode do
@@ -327,6 +328,7 @@ defmodule Google.Container.V1.GPUSharingConfig.GPUSharingStrategy do
 
   field :GPU_SHARING_STRATEGY_UNSPECIFIED, 0
   field :TIME_SHARING, 1
+  field :MPS, 2
 end
 
 defmodule Google.Container.V1.GPUDriverInstallationConfig.GPUDriverVersion do
@@ -524,6 +526,8 @@ defmodule Google.Container.V1.MonitoringComponentConfig.Component do
   field :DAEMONSET, 10
   field :DEPLOYMENT, 11
   field :STATEFULSET, 12
+  field :CADVISOR, 13
+  field :KUBELET, 14
 end
 
 defmodule Google.Container.V1.EnterpriseConfig.ClusterTier do
@@ -543,6 +547,24 @@ defmodule Google.Container.V1.SecondaryBootDisk.Mode do
 
   field :MODE_UNSPECIFIED, 0
   field :CONTAINER_IMAGE_CACHE, 1
+end
+
+defmodule Google.Container.V1.LinuxNodeConfig.HugepagesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :hugepage_size2m, 1,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "hugepageSize2m",
+    deprecated: false
+
+  field :hugepage_size1g, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "hugepageSize1g",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.LinuxNodeConfig.SysctlsEntry do
@@ -568,6 +590,11 @@ defmodule Google.Container.V1.LinuxNodeConfig do
     type: Google.Container.V1.LinuxNodeConfig.CgroupMode,
     json_name: "cgroupMode",
     enum: true
+
+  field :hugepages, 3,
+    proto3_optional: true,
+    type: Google.Container.V1.LinuxNodeConfig.HugepagesConfig,
+    deprecated: false
 end
 
 defmodule Google.Container.V1.WindowsNodeConfig do
@@ -717,6 +744,10 @@ defmodule Google.Container.V1.NodeConfig do
     type: Google.Container.V1.SoleTenantConfig,
     json_name: "soleTenantConfig"
 
+  field :containerd_config, 43,
+    type: Google.Container.V1.ContainerdConfig,
+    json_name: "containerdConfig"
+
   field :resource_manager_tags, 45,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "resourceManagerTags"
@@ -743,6 +774,11 @@ defmodule Google.Container.V1.AdvancedMachineFeatures do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :threads_per_core, 1, proto3_optional: true, type: :int64, json_name: "threadsPerCore"
+
+  field :enable_nested_virtualization, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableNestedVirtualization"
 end
 
 defmodule Google.Container.V1.NodeNetworkConfig.NetworkPerformanceConfig do
@@ -877,6 +913,54 @@ defmodule Google.Container.V1.SoleTenantConfig do
     repeated: true,
     type: Google.Container.V1.SoleTenantConfig.NodeAffinity,
     json_name: "nodeAffinities"
+end
+
+defmodule Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig.CertificateAuthorityDomainConfig.GCPSecretManagerCertificateConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :secret_uri, 1, type: :string, json_name: "secretUri"
+end
+
+defmodule Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig.CertificateAuthorityDomainConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :certificate_config, 0
+
+  field :fqdns, 1, repeated: true, type: :string
+
+  field :gcp_secret_manager_certificate_config, 2,
+    type:
+      Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig.CertificateAuthorityDomainConfig.GCPSecretManagerCertificateConfig,
+    json_name: "gcpSecretManagerCertificateConfig",
+    oneof: 0
+end
+
+defmodule Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+
+  field :certificate_authority_domain_config, 2,
+    repeated: true,
+    type:
+      Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig.CertificateAuthorityDomainConfig,
+    json_name: "certificateAuthorityDomainConfig"
+end
+
+defmodule Google.Container.V1.ContainerdConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :private_registry_access_config, 1,
+    type: Google.Container.V1.ContainerdConfig.PrivateRegistryAccessConfig,
+    json_name: "privateRegistryAccessConfig"
 end
 
 defmodule Google.Container.V1.NodeTaint do
@@ -1458,6 +1542,18 @@ defmodule Google.Container.V1.Cluster do
   field :enterprise_config, 149,
     type: Google.Container.V1.EnterpriseConfig,
     json_name: "enterpriseConfig"
+
+  field :satisfies_pzs, 152,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 153,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.K8sBetaAPIConfig do
@@ -1495,6 +1591,10 @@ defmodule Google.Container.V1.NodePoolAutoConfig do
   field :resource_manager_tags, 2,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "resourceManagerTags"
+
+  field :node_kubelet_config, 3,
+    type: Google.Container.V1.NodeKubeletConfig,
+    json_name: "nodeKubeletConfig"
 end
 
 defmodule Google.Container.V1.NodePoolDefaults do
@@ -1517,6 +1617,14 @@ defmodule Google.Container.V1.NodeConfigDefaults do
   field :logging_config, 3,
     type: Google.Container.V1.NodePoolLoggingConfig,
     json_name: "loggingConfig"
+
+  field :containerd_config, 4,
+    type: Google.Container.V1.ContainerdConfig,
+    json_name: "containerdConfig"
+
+  field :node_kubelet_config, 6,
+    type: Google.Container.V1.NodeKubeletConfig,
+    json_name: "nodeKubeletConfig"
 end
 
 defmodule Google.Container.V1.ClusterUpdate do
@@ -1705,6 +1813,10 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: Google.Container.V1.K8sBetaAPIConfig,
     json_name: "desiredK8sBetaApis"
 
+  field :desired_containerd_config, 134,
+    type: Google.Container.V1.ContainerdConfig,
+    json_name: "desiredContainerdConfig"
+
   field :desired_enable_multi_networking, 135,
     proto3_optional: true,
     type: :bool,
@@ -1724,6 +1836,14 @@ defmodule Google.Container.V1.ClusterUpdate do
     proto3_optional: true,
     type: :bool,
     json_name: "desiredEnableCiliumClusterwideNetworkPolicy"
+
+  field :desired_node_kubelet_config, 141,
+    type: Google.Container.V1.NodeKubeletConfig,
+    json_name: "desiredNodeKubeletConfig"
+
+  field :desired_node_pool_auto_config_kubelet_config, 142,
+    type: Google.Container.V1.NodeKubeletConfig,
+    json_name: "desiredNodePoolAutoConfigKubeletConfig"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -1905,6 +2025,7 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
     type: Google.Container.V1.WindowsNodeConfig,
     json_name: "windowsNodeConfig"
 
+  field :accelerators, 35, repeated: true, type: Google.Container.V1.AcceleratorConfig
   field :machine_type, 36, type: :string, json_name: "machineType", deprecated: false
   field :disk_type, 37, type: :string, json_name: "diskType", deprecated: false
   field :disk_size_gb, 38, type: :int64, json_name: "diskSizeGb", deprecated: false
@@ -1912,6 +2033,10 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :resource_manager_tags, 39,
     type: Google.Container.V1.ResourceManagerTags,
     json_name: "resourceManagerTags"
+
+  field :containerd_config, 40,
+    type: Google.Container.V1.ContainerdConfig,
+    json_name: "containerdConfig"
 
   field :queued_provisioning, 42,
     type: Google.Container.V1.NodePool.QueuedProvisioning,
@@ -2979,6 +3104,11 @@ defmodule Google.Container.V1.DNSConfig do
     enum: true
 
   field :cluster_dns_domain, 3, type: :string, json_name: "clusterDnsDomain"
+
+  field :additive_vpc_scope_dns_domain, 5,
+    type: :string,
+    json_name: "additiveVpcScopeDnsDomain",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.MaxPodsConstraint do
