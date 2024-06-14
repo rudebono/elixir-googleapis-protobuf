@@ -62,6 +62,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step do
   field :steps, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Instruction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :steps, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
   @moduledoc false
 
@@ -83,7 +91,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
     json_name: "outputParameterDefinitions",
     deprecated: false
 
-  field :steps, 4, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step
+  field :instruction, 17, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Instruction
   field :token_count, 8, type: :int64, json_name: "tokenCount", deprecated: false
 
   field :create_time, 9,

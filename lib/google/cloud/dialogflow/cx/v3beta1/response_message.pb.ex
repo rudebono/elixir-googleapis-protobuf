@@ -156,5 +156,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage do
     json_name: "knowledgeInfoCard",
     oneof: 0
 
+  field :tool_call, 22,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ToolCall,
+    json_name: "toolCall",
+    oneof: 0
+
   field :channel, 19, type: :string
 end
