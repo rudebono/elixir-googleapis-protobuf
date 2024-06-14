@@ -148,6 +148,29 @@ defmodule Google.Firestore.Admin.V1.ImportDocumentsMetadata do
   field :namespace_ids, 8, repeated: true, type: :string, json_name: "namespaceIds"
 end
 
+defmodule Google.Firestore.Admin.V1.BulkDeleteDocumentsMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :operation_state, 3,
+    type: Google.Firestore.Admin.V1.OperationState,
+    json_name: "operationState",
+    enum: true
+
+  field :progress_documents, 4,
+    type: Google.Firestore.Admin.V1.Progress,
+    json_name: "progressDocuments"
+
+  field :progress_bytes, 5, type: Google.Firestore.Admin.V1.Progress, json_name: "progressBytes"
+  field :collection_ids, 6, repeated: true, type: :string, json_name: "collectionIds"
+  field :namespace_ids, 7, repeated: true, type: :string, json_name: "namespaceIds"
+  field :snapshot_time, 8, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
+end
+
 defmodule Google.Firestore.Admin.V1.ExportDocumentsResponse do
   @moduledoc false
 
