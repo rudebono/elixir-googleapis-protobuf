@@ -42,6 +42,17 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolTarget.Role do
   field :SPARK_EXECUTOR, 4
 end
 
+defmodule Google.Cloud.Dataproc.V1.AutotuningConfig.Scenario do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SCENARIO_UNSPECIFIED, 0
+  field :SCALING, 2
+  field :BROADCAST_HASH_JOIN, 3
+  field :MEMORY, 4
+end
+
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do
   @moduledoc false
 
@@ -69,6 +80,13 @@ defmodule Google.Cloud.Dataproc.V1.RuntimeConfig do
     type: Google.Cloud.Dataproc.V1.RepositoryConfig,
     json_name: "repositoryConfig",
     deprecated: false
+
+  field :autotuning_config, 6,
+    type: Google.Cloud.Dataproc.V1.AutotuningConfig,
+    json_name: "autotuningConfig",
+    deprecated: false
+
+  field :cohort, 7, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.EnvironmentConfig do
@@ -355,6 +373,18 @@ defmodule Google.Cloud.Dataproc.V1.GkeNodePoolConfig do
 
   field :autoscaling, 4,
     type: Google.Cloud.Dataproc.V1.GkeNodePoolConfig.GkeNodePoolAutoscalingConfig,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.AutotuningConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :scenarios, 2,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.AutotuningConfig.Scenario,
+    enum: true,
     deprecated: false
 end
 

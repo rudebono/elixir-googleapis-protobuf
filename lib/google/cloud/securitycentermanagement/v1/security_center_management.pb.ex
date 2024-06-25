@@ -7,6 +7,7 @@ defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.Enablem
   field :INHERITED, 1
   field :ENABLED, 2
   field :DISABLED, 3
+  field :INGEST_ONLY, 4
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveSecurityHealthAnalyticsCustomModule.EnablementState do
@@ -76,6 +77,7 @@ defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding.FindingClass
   field :OBSERVATION, 4
   field :SCC_ERROR, 5
   field :POSTURE_VIOLATION, 6
+  field :TOXIC_COMBINATION, 7
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveEventThreatDetectionCustomModule.EnablementState do
@@ -734,6 +736,7 @@ defmodule Google.Cloud.Securitycentermanagement.V1.GetSecurityCenterServiceReque
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :show_eligible_modules_only, 2, type: :bool, json_name: "showEligibleModulesOnly"
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesRequest do
@@ -744,6 +747,7 @@ defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesReq
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :show_eligible_modules_only, 4, type: :bool, json_name: "showEligibleModulesOnly"
 end
 
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesResponse do

@@ -70,6 +70,7 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate.FinishReason do
   field :BLOCKLIST, 6
   field :PROHIBITED_CONTENT, 7
   field :SPII, 8
+  field :MALFORMED_FUNCTION_CALL, 9
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Content do

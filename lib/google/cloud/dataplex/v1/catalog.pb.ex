@@ -407,6 +407,7 @@ defmodule Google.Cloud.Dataplex.V1.EntrySource do
 
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :location, 12, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.CreateEntryGroupRequest do
@@ -763,9 +764,12 @@ end
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :dataplex_entry, 1, type: Google.Cloud.Dataplex.V1.Entry, json_name: "dataplexEntry"
+  field :dataplex_entry, 1,
+    type: Google.Cloud.Dataplex.V1.Entry,
+    json_name: "dataplexEntry",
+    deprecated: true
 end
 
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult do
@@ -773,9 +777,12 @@ defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :linked_resource, 8, type: :string, json_name: "linkedResource"
+  field :linked_resource, 8, type: :string, json_name: "linkedResource", deprecated: true
   field :dataplex_entry, 9, type: Google.Cloud.Dataplex.V1.Entry, json_name: "dataplexEntry"
-  field :snippets, 12, type: Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets
+
+  field :snippets, 12,
+    type: Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets,
+    deprecated: true
 end
 
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResponse do
