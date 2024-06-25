@@ -77,6 +77,10 @@ defmodule Google.Cloud.Aiplatform.V1.TuningJob do
     type: Google.Cloud.Aiplatform.V1.TuningDataStats,
     json_name: "tuningDataStats",
     deprecated: false
+
+  field :encryption_spec, 16,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.TunedModel do

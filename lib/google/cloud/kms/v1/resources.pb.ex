@@ -10,6 +10,25 @@ defmodule Google.Cloud.Kms.V1.ProtectionLevel do
   field :EXTERNAL_VPC, 4
 end
 
+defmodule Google.Cloud.Kms.V1.AccessReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :REASON_UNSPECIFIED, 0
+  field :CUSTOMER_INITIATED_SUPPORT, 1
+  field :GOOGLE_INITIATED_SERVICE, 2
+  field :THIRD_PARTY_DATA_REQUEST, 3
+  field :GOOGLE_INITIATED_REVIEW, 4
+  field :CUSTOMER_INITIATED_ACCESS, 5
+  field :GOOGLE_INITIATED_SYSTEM_OPERATION, 6
+  field :REASON_NOT_EXPECTED, 7
+  field :MODIFIED_CUSTOMER_INITIATED_ACCESS, 8
+  field :MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION, 9
+  field :GOOGLE_RESPONSE_TO_PRODUCTION_ALERT, 10
+  field :CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING, 11
+end
+
 defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   @moduledoc false
 
@@ -186,6 +205,11 @@ defmodule Google.Cloud.Kms.V1.CryptoKey do
     deprecated: false
 
   field :crypto_key_backend, 15, type: :string, json_name: "cryptoKeyBackend", deprecated: false
+
+  field :key_access_justifications_policy, 17,
+    type: Google.Cloud.Kms.V1.KeyAccessJustificationsPolicy,
+    json_name: "keyAccessJustificationsPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersionTemplate do
@@ -393,4 +417,16 @@ defmodule Google.Cloud.Kms.V1.ExternalProtectionLevelOptions do
 
   field :external_key_uri, 1, type: :string, json_name: "externalKeyUri"
   field :ekm_connection_key_path, 2, type: :string, json_name: "ekmConnectionKeyPath"
+end
+
+defmodule Google.Cloud.Kms.V1.KeyAccessJustificationsPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :allowed_access_reasons, 1,
+    repeated: true,
+    type: Google.Cloud.Kms.V1.AccessReason,
+    json_name: "allowedAccessReasons",
+    enum: true
 end

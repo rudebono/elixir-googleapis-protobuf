@@ -43,6 +43,7 @@ defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   field :OBSERVATION, 4
   field :SCC_ERROR, 5
   field :POSTURE_VIOLATION, 6
+  field :TOXIC_COMBINATION, 7
 end
 
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
@@ -192,4 +193,13 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
 
   field :cloud_armor, 59, type: Google.Cloud.Securitycenter.V1.CloudArmor, json_name: "cloudArmor"
   field :notebook, 63, type: Google.Cloud.Securitycenter.V1.Notebook
+
+  field :toxic_combination, 64,
+    type: Google.Cloud.Securitycenter.V1.ToxicCombination,
+    json_name: "toxicCombination"
+
+  field :group_memberships, 65,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.GroupMembership,
+    json_name: "groupMemberships"
 end

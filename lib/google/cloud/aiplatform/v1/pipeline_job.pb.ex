@@ -150,6 +150,11 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineJob do
     deprecated: false
 
   field :schedule_name, 22, type: :string, json_name: "scheduleName", deprecated: false
+
+  field :preflight_validations, 26,
+    type: :bool,
+    json_name: "preflightValidations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTemplateMetadata do

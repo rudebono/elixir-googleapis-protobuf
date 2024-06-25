@@ -31,6 +31,15 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData do
   field :EVALUATION_MISSING_DATA_NO_OP, 3
 end
 
+defmodule Google.Monitoring.V3.AlertPolicy.Documentation.Link do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :url, 2, type: :string
+end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   @moduledoc false
 
@@ -39,6 +48,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.Documentation do
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
   field :subject, 3, type: :string, deprecated: false
+
+  field :links, 4,
+    repeated: true,
+    type: Google.Monitoring.V3.AlertPolicy.Documentation.Link,
+    deprecated: false
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.Condition.Trigger do

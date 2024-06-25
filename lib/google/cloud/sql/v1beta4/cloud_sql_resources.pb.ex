@@ -112,6 +112,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   field :POSTGRES_13, 23
   field :POSTGRES_14, 110
   field :POSTGRES_15, 172
+  field :POSTGRES_16, 272
   field :MYSQL_8_0, 20
   field :MYSQL_8_0_18, 41
   field :MYSQL_8_0_26, 85
@@ -130,6 +131,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabaseVersion do
   field :MYSQL_8_0_39, 357
   field :MYSQL_8_0_40, 358
   field :MYSQL_8_4, 398
+  field :MYSQL_8_4_0, 399
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28
@@ -399,6 +401,7 @@ defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationType do
   field :RECONFIGURE_OLD_PRIMARY, 44
   field :CLUSTER_MAINTENANCE, 45
   field :SELF_SERVICE_MAINTENANCE, 46
+  field :SWITCHOVER_TO_REPLICA, 47
 end
 
 defmodule Google.Cloud.Sql.V1beta4.Operation.SqlOperationStatus do
@@ -618,6 +621,12 @@ defmodule Google.Cloud.Sql.V1beta4.CloneContext do
     proto3_optional: true,
     type: :string,
     json_name: "preferredZone",
+    deprecated: false
+
+  field :preferred_secondary_zone, 11,
+    proto3_optional: true,
+    type: :string,
+    json_name: "preferredSecondaryZone",
     deprecated: false
 end
 
@@ -919,6 +928,12 @@ defmodule Google.Cloud.Sql.V1beta4.ReplicationCluster do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :psa_write_endpoint, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "psaWriteEndpoint",
+    deprecated: false
 
   field :failover_dr_replica_name, 2,
     proto3_optional: true,

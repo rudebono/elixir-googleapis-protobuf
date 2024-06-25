@@ -7,6 +7,41 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.DeploymentState do
   field :NOT_INSTALLED, 1
   field :INSTALLED, 2
   field :ERROR, 3
+  field :PENDING, 4
+end
+
+defmodule Google.Cloud.Gkehub.Configmanagement.V1.MembershipSpec.Management do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MANAGEMENT_UNSPECIFIED, 0
+  field :MANAGEMENT_AUTOMATIC, 1
+  field :MANAGEMENT_MANUAL, 2
+end
+
+defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState.CRDState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CRD_STATE_UNSPECIFIED, 0
+  field :NOT_INSTALLED, 1
+  field :INSTALLED, 2
+  field :TERMINATING, 3
+  field :INSTALLING, 4
+end
+
+defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CONFIG_SYNC_NOT_INSTALLED, 1
+  field :CONFIG_SYNC_INSTALLED, 2
+  field :CONFIG_SYNC_ERROR, 3
+  field :CONFIG_SYNC_PENDING, 4
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.SyncState.SyncCode do
@@ -70,6 +105,11 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.MembershipSpec do
     json_name: "hierarchyController"
 
   field :version, 10, type: :string
+  field :cluster, 11, type: :string
+
+  field :management, 12,
+    type: Google.Cloud.Gkehub.Configmanagement.V1.MembershipSpec.Management,
+    enum: true
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSync do
@@ -79,6 +119,13 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSync do
 
   field :git, 7, type: Google.Cloud.Gkehub.Configmanagement.V1.GitConfig
   field :source_format, 8, type: :string, json_name: "sourceFormat"
+  field :enabled, 10, proto3_optional: true, type: :bool
+  field :prevent_drift, 11, type: :bool, json_name: "preventDrift"
+  field :oci, 12, type: Google.Cloud.Gkehub.Configmanagement.V1.OciConfig
+
+  field :metrics_gcp_service_account_email, 15,
+    type: :string,
+    json_name: "metricsGcpServiceAccountEmail"
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.GitConfig do
@@ -94,6 +141,18 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.GitConfig do
   field :secret_type, 6, type: :string, json_name: "secretType"
   field :https_proxy, 7, type: :string, json_name: "httpsProxy"
   field :gcp_service_account_email, 8, type: :string, json_name: "gcpServiceAccountEmail"
+end
+
+defmodule Google.Cloud.Gkehub.Configmanagement.V1.OciConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sync_repo, 1, type: :string, json_name: "syncRepo"
+  field :policy_dir, 2, type: :string, json_name: "policyDir"
+  field :sync_wait_secs, 3, type: :int64, json_name: "syncWaitSecs"
+  field :secret_type, 4, type: :string, json_name: "secretType"
+  field :gcp_service_account_email, 5, type: :string, json_name: "gcpServiceAccountEmail"
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.PolicyController do
@@ -201,6 +260,28 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState do
   field :sync_state, 3,
     type: Google.Cloud.Gkehub.Configmanagement.V1.SyncState,
     json_name: "syncState"
+
+  field :errors, 4, repeated: true, type: Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncError
+
+  field :rootsync_crd, 5,
+    type: Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState.CRDState,
+    json_name: "rootsyncCrd",
+    enum: true
+
+  field :reposync_crd, 6,
+    type: Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState.CRDState,
+    json_name: "reposyncCrd",
+    enum: true
+
+  field :state, 7, type: Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncState.State, enum: true
+end
+
+defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error_message, 1, type: :string, json_name: "errorMessage"
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncVersion do
@@ -214,6 +295,7 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncVersion do
   field :monitor, 4, type: :string
   field :reconciler_manager, 5, type: :string, json_name: "reconcilerManager"
   field :root_reconciler, 6, type: :string, json_name: "rootReconciler"
+  field :admission_webhook, 7, type: :string, json_name: "admissionWebhook"
 end
 
 defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncDeploymentState do
@@ -239,6 +321,11 @@ defmodule Google.Cloud.Gkehub.Configmanagement.V1.ConfigSyncDeploymentState do
   field :root_reconciler, 6,
     type: Google.Cloud.Gkehub.Configmanagement.V1.DeploymentState,
     json_name: "rootReconciler",
+    enum: true
+
+  field :admission_webhook, 7,
+    type: Google.Cloud.Gkehub.Configmanagement.V1.DeploymentState,
+    json_name: "admissionWebhook",
     enum: true
 end
 

@@ -54,6 +54,7 @@ defmodule Google.Pubsub.V1.CloudStorageConfig.State do
   field :PERMISSION_DENIED, 2
   field :NOT_FOUND, 3
   field :IN_TRANSIT_LOCATION_RESTRICTION, 4
+  field :SCHEMA_MISMATCH, 5
 end
 
 defmodule Google.Pubsub.V1.MessageStoragePolicy do
@@ -530,6 +531,7 @@ defmodule Google.Pubsub.V1.CloudStorageConfig.AvroConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
+  field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig do

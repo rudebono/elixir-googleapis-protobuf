@@ -977,6 +977,8 @@ defmodule Google.Cloud.Sql.V1.ReplicationCluster do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :psa_write_endpoint, 1, type: :string, json_name: "psaWriteEndpoint", deprecated: false
+
   field :failover_dr_replica_name, 2,
     type: :string,
     json_name: "failoverDrReplicaName",

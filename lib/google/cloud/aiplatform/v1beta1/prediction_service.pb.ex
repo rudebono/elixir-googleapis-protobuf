@@ -42,6 +42,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamRawPredictRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :endpoint, 1, type: :string, deprecated: false
+  field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DirectPredictRequest do
   @moduledoc false
 
@@ -360,6 +369,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
       Google.Cloud.Aiplatform.V1beta1.PredictResponse
 
   rpc :RawPredict, Google.Cloud.Aiplatform.V1beta1.RawPredictRequest, Google.Api.HttpBody
+
+  rpc :StreamRawPredict,
+      Google.Cloud.Aiplatform.V1beta1.StreamRawPredictRequest,
+      stream(Google.Api.HttpBody)
 
   rpc :DirectPredict,
       Google.Cloud.Aiplatform.V1beta1.DirectPredictRequest,

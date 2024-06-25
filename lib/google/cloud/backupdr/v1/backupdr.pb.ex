@@ -157,6 +157,13 @@ defmodule Google.Cloud.Backupdr.V1.ManagementServer do
     type: :string,
     json_name: "baProxyUri",
     deprecated: false
+
+  field :satisfies_pzs, 19,
+    type: Google.Protobuf.BoolValue,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.ListManagementServersRequest do

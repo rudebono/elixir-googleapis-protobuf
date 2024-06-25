@@ -237,6 +237,7 @@ defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   field :RECONFIGURE_OLD_PRIMARY, 44
   field :CLUSTER_MAINTENANCE, 45
   field :SELF_SERVICE_MAINTENANCE, 46
+  field :SWITCHOVER_TO_REPLICA, 47
 end
 
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationStatus do
