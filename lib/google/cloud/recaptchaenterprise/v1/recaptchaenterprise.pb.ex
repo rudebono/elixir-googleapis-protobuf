@@ -125,6 +125,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals.CardLabel
   field :UNEXPECTED_LOCATION, 3
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.SmsTollFraudVerdict.SmsTollFraudReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SMS_TOLL_FRAUD_REASON_UNSPECIFIED, 0
+  field :INVALID_PHONE_NUMBER, 1
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.AccountDefenderAssessment.AccountDefenderLabel do
   @moduledoc false
 
@@ -358,6 +367,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
   field :fraud_signals, 13,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals,
     json_name: "fraudSignals",
+    deprecated: false
+
+  field :phone_fraud_assessment, 12,
+    type: Google.Cloud.Recaptchaenterprise.V1.PhoneFraudAssessment,
+    json_name: "phoneFraudAssessment",
     deprecated: false
 end
 
@@ -662,6 +676,31 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.FraudSignals do
   field :card_signals, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.FraudSignals.CardSignals,
     json_name: "cardSignals",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.SmsTollFraudVerdict do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :risk, 1, type: :float, deprecated: false
+
+  field :reasons, 2,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.SmsTollFraudVerdict.SmsTollFraudReason,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.PhoneFraudAssessment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sms_toll_fraud_verdict, 1,
+    type: Google.Cloud.Recaptchaenterprise.V1.SmsTollFraudVerdict,
+    json_name: "smsTollFraudVerdict",
     deprecated: false
 end
 

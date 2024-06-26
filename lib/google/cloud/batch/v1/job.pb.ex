@@ -296,6 +296,7 @@ defmodule Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicyOrTemplate do
   field :policy, 1, type: Google.Cloud.Batch.V1.AllocationPolicy.InstancePolicy, oneof: 0
   field :instance_template, 2, type: :string, json_name: "instanceTemplate", oneof: 0
   field :install_gpu_drivers, 3, type: :bool, json_name: "installGpuDrivers"
+  field :install_ops_agent, 4, type: :bool, json_name: "installOpsAgent", deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1.AllocationPolicy.NetworkInterface do

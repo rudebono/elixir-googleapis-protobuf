@@ -339,6 +339,9 @@ defmodule Google.Cloud.Sql.V1beta4.SqlExternalSyncSettingError.SqlExternalSyncSe
   field :PG_SYNC_PARALLEL_LEVEL, 42
   field :INSUFFICIENT_DISK_SIZE, 43
   field :INSUFFICIENT_MACHINE_TIER, 44
+  field :UNSUPPORTED_EXTENSIONS_NOT_MIGRATED, 45
+  field :EXTENSIONS_NOT_MIGRATED, 46
+  field :PG_CRON_FLAG_ENABLED_IN_REPLICA, 47
 end
 
 defmodule Google.Cloud.Sql.V1beta4.IpConfiguration.SslMode do
@@ -845,6 +848,12 @@ defmodule Google.Cloud.Sql.V1beta4.DatabaseInstance do
 
   field :maintenance_version, 42, type: :string, json_name: "maintenanceVersion"
 
+  field :upgradable_database_versions, 45,
+    repeated: true,
+    type: Google.Cloud.Sql.V1beta4.AvailableDatabaseVersion,
+    json_name: "upgradableDatabaseVersions",
+    deprecated: false
+
   field :sql_network_architecture, 47,
     proto3_optional: true,
     type: Google.Cloud.Sql.V1beta4.DatabaseInstance.SqlNetworkArchitecture,
@@ -946,6 +955,16 @@ defmodule Google.Cloud.Sql.V1beta4.ReplicationCluster do
     type: :bool,
     json_name: "drReplica",
     deprecated: false
+end
+
+defmodule Google.Cloud.Sql.V1beta4.AvailableDatabaseVersion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :major_version, 3, proto3_optional: true, type: :string, json_name: "majorVersion"
+  field :name, 8, proto3_optional: true, type: :string
+  field :display_name, 9, proto3_optional: true, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Sql.V1beta4.DatabasesListResponse do
