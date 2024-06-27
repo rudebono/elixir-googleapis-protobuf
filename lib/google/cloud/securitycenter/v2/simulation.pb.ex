@@ -14,4 +14,9 @@ defmodule Google.Cloud.Securitycenter.V2.Simulation do
     repeated: true,
     type: Google.Cloud.Securitycenter.V2.ResourceValueConfigMetadata,
     json_name: "resourceValueConfigsMetadata"
+
+  field :cloud_provider, 4,
+    type: Google.Cloud.Securitycenter.V2.CloudProvider,
+    json_name: "cloudProvider",
+    enum: true
 end

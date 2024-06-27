@@ -12,6 +12,26 @@ defmodule Google.Ai.Generativelanguage.V1beta.Type do
   field :OBJECT, 6
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.ExecutableCode.Language do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :LANGUAGE_UNSPECIFIED, 0
+  field :PYTHON, 1
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.CodeExecutionResult.Outcome do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OUTCOME_UNSPECIFIED, 0
+  field :OUTCOME_OK, 1
+  field :OUTCOME_FAILED, 2
+  field :OUTCOME_DEADLINE_EXCEEDED, 3
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig.Mode do
   @moduledoc false
 
@@ -60,6 +80,16 @@ defmodule Google.Ai.Generativelanguage.V1beta.Part do
     type: Google.Ai.Generativelanguage.V1beta.FileData,
     json_name: "fileData",
     oneof: 0
+
+  field :executable_code, 9,
+    type: Google.Ai.Generativelanguage.V1beta.ExecutableCode,
+    json_name: "executableCode",
+    oneof: 0
+
+  field :code_execution_result, 10,
+    type: Google.Ai.Generativelanguage.V1beta.CodeExecutionResult,
+    json_name: "codeExecutionResult",
+    oneof: 0
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Blob do
@@ -80,6 +110,32 @@ defmodule Google.Ai.Generativelanguage.V1beta.FileData do
   field :file_uri, 2, type: :string, json_name: "fileUri", deprecated: false
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.ExecutableCode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :language, 1,
+    type: Google.Ai.Generativelanguage.V1beta.ExecutableCode.Language,
+    enum: true,
+    deprecated: false
+
+  field :code, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.CodeExecutionResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :outcome, 1,
+    type: Google.Ai.Generativelanguage.V1beta.CodeExecutionResult.Outcome,
+    enum: true,
+    deprecated: false
+
+  field :output, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.Tool do
   @moduledoc false
 
@@ -90,6 +146,17 @@ defmodule Google.Ai.Generativelanguage.V1beta.Tool do
     type: Google.Ai.Generativelanguage.V1beta.FunctionDeclaration,
     json_name: "functionDeclarations",
     deprecated: false
+
+  field :code_execution, 3,
+    type: Google.Ai.Generativelanguage.V1beta.CodeExecution,
+    json_name: "codeExecution",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.CodeExecution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.ToolConfig do
