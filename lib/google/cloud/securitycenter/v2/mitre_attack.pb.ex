@@ -34,6 +34,7 @@ defmodule Google.Cloud.Securitycenter.V2.MitreAttack.Technique do
   field :PROCESS_DISCOVERY, 56
   field :COMMAND_AND_SCRIPTING_INTERPRETER, 6
   field :UNIX_SHELL, 7
+  field :PYTHON, 59
   field :PERMISSION_GROUPS_DISCOVERY, 18
   field :CLOUD_GROUPS, 19
   field :APPLICATION_LAYER_PROTOCOL, 45
@@ -83,7 +84,10 @@ defmodule Google.Cloud.Securitycenter.V2.MitreAttack.Technique do
   field :OBTAIN_CAPABILITIES, 43
   field :ACTIVE_SCANNING, 1
   field :SCANNING_IP_BLOCKS, 2
+  field :CONTAINER_ADMINISTRATION_COMMAND, 60
+  field :ESCAPE_TO_HOST, 61
   field :CONTAINER_AND_RESOURCE_DISCOVERY, 57
+  field :STEAL_OR_FORGE_AUTHENTICATION_CERTIFICATES, 62
 end
 
 defmodule Google.Cloud.Securitycenter.V2.MitreAttack do

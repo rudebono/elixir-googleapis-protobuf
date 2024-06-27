@@ -206,6 +206,9 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
     type: Google.Cloud.Securitycenter.V2.LoadBalancer,
     json_name: "loadBalancers"
 
+  field :cloud_armor, 51, type: Google.Cloud.Securitycenter.V2.CloudArmor, json_name: "cloudArmor"
+  field :notebook, 55, type: Google.Cloud.Securitycenter.V2.Notebook
+
   field :toxic_combination, 56,
     type: Google.Cloud.Securitycenter.V2.ToxicCombination,
     json_name: "toxicCombination"

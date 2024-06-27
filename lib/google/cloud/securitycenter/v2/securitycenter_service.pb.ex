@@ -314,9 +314,40 @@ defmodule Google.Cloud.Securitycenter.V2.ListFindingsResponse.ListFindingsResult
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :cloud_provider_metadata, 0
+
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
   field :type, 3, type: :string
+
+  field :cloud_provider, 4,
+    type: Google.Cloud.Securitycenter.V2.CloudProvider,
+    json_name: "cloudProvider",
+    enum: true
+
+  field :service, 5, type: :string
+  field :location, 6, type: :string
+
+  field :gcp_metadata, 7,
+    type: Google.Cloud.Securitycenter.V2.GcpMetadata,
+    json_name: "gcpMetadata",
+    oneof: 0
+
+  field :aws_metadata, 8,
+    type: Google.Cloud.Securitycenter.V2.AwsMetadata,
+    json_name: "awsMetadata",
+    oneof: 0
+
+  field :azure_metadata, 9,
+    type: Google.Cloud.Securitycenter.V2.AzureMetadata,
+    json_name: "azureMetadata",
+    oneof: 0
+
+  field :resource_path, 10,
+    type: Google.Cloud.Securitycenter.V2.ResourcePath,
+    json_name: "resourcePath"
+
+  field :resource_path_string, 11, type: :string, json_name: "resourcePathString"
 end
 
 defmodule Google.Cloud.Securitycenter.V2.ListFindingsResponse.ListFindingsResult do

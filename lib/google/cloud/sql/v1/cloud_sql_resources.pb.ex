@@ -64,6 +64,7 @@ defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   field :POSTGRES_13, 23
   field :POSTGRES_14, 110
   field :POSTGRES_15, 172
+  field :POSTGRES_16, 272
   field :MYSQL_8_0, 20
   field :MYSQL_8_0_18, 41
   field :MYSQL_8_0_26, 85
@@ -82,6 +83,7 @@ defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   field :MYSQL_8_0_39, 357
   field :MYSQL_8_0_40, 358
   field :MYSQL_8_4, 398
+  field :MYSQL_8_4_0, 399
   field :SQLSERVER_2019_STANDARD, 26
   field :SQLSERVER_2019_ENTERPRISE, 27
   field :SQLSERVER_2019_EXPRESS, 28

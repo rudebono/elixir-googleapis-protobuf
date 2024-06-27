@@ -69,6 +69,11 @@ defmodule Google.Cloud.Securitycenter.V2.ResourceValueConfig do
     json_name: "updateTime",
     deprecated: false
 
+  field :cloud_provider, 10,
+    type: Google.Cloud.Securitycenter.V2.CloudProvider,
+    json_name: "cloudProvider",
+    enum: true
+
   field :sensitive_data_protection_mapping, 11,
     type: Google.Cloud.Securitycenter.V2.ResourceValueConfig.SensitiveDataProtectionMapping,
     json_name: "sensitiveDataProtectionMapping"

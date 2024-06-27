@@ -1054,6 +1054,7 @@ defmodule Google.Cloud.Bigquery.V2.TableMetadataCacheUsage do
     enum: true
 
   field :explanation, 3, proto3_optional: true, type: :string
+  field :staleness, 5, type: Google.Protobuf.Duration
   field :table_type, 6, type: :string, json_name: "tableType"
 end
 

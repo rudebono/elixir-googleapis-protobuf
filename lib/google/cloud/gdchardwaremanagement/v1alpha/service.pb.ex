@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.StateSignal do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_SIGNAL_UNSPECIFIED, 0
+  field :READY_FOR_SITE_TURNUP, 1
+  field :FACTORY_TURNUP_CHECKS_FAILED, 2
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListOrdersRequest do
   @moduledoc false
 
@@ -436,6 +446,21 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteZoneRequest do
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :state_signal, 3,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.StateSignal,
+    json_name: "stateSignal",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OperationMetadata do
   @moduledoc false
 
@@ -592,6 +617,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
 
   rpc :DeleteZone,
       Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteZoneRequest,
+      Google.Longrunning.Operation
+
+  rpc :SignalZoneState,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest,
       Google.Longrunning.Operation
 end
 

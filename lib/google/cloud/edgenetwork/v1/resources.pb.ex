@@ -11,6 +11,16 @@ defmodule Google.Cloud.Edgenetwork.V1.ResourceState do
   field :STATE_DELETING, 5
 end
 
+defmodule Google.Cloud.Edgenetwork.V1.Subnet.BondingType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BONDING_TYPE_UNSPECIFIED, 0
+  field :BONDED, 1
+  field :NON_BONDED, 2
+end
+
 defmodule Google.Cloud.Edgenetwork.V1.Interconnect.InterconnectType do
   @moduledoc false
 
@@ -146,6 +156,13 @@ defmodule Google.Cloud.Edgenetwork.V1.Subnet do
   field :ipv4_cidr, 7, repeated: true, type: :string, json_name: "ipv4Cidr"
   field :ipv6_cidr, 8, repeated: true, type: :string, json_name: "ipv6Cidr"
   field :vlan_id, 9, type: :int32, json_name: "vlanId", deprecated: false
+
+  field :bonding_type, 11,
+    type: Google.Cloud.Edgenetwork.V1.Subnet.BondingType,
+    json_name: "bondingType",
+    enum: true,
+    deprecated: false
+
   field :state, 10, type: Google.Cloud.Edgenetwork.V1.ResourceState, enum: true, deprecated: false
 end
 
