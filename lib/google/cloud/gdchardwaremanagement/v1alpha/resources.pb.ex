@@ -84,6 +84,9 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.State do
   field :STATE_UNSPECIFIED, 0
   field :ADDITIONAL_INFO_NEEDED, 1
   field :PREPARING, 2
+  field :READY_FOR_CUSTOMER_FACTORY_TURNUP_CHECKS, 5
+  field :READY_FOR_SITE_TURNUP, 6
+  field :CUSTOMER_FACTORY_TURNUP_CHECKS_FAILED, 7
   field :ACTIVE, 3
   field :CANCELLED, 4
 end
@@ -542,6 +545,8 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone do
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.ZoneNetworkConfig,
     json_name: "networkConfig",
     deprecated: false
+
+  field :globally_unique_id, 12, type: :string, json_name: "globallyUniqueId", deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OrganizationContact do
