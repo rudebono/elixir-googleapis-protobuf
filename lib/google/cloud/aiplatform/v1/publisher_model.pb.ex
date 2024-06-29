@@ -133,6 +133,28 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.OpenFineTuningP
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy.DeployMetadata.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy.DeployMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :labels, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy.DeployMetadata.LabelsEntry,
+    map: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy do
   @moduledoc false
 
@@ -169,6 +191,12 @@ defmodule Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy do
     proto3_optional: true,
     type: :string,
     json_name: "deployTaskName",
+    deprecated: false
+
+  field :deploy_metadata, 11,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.PublisherModel.CallToAction.Deploy.DeployMetadata,
+    json_name: "deployMetadata",
     deprecated: false
 
   field :title, 8, type: :string, deprecated: false

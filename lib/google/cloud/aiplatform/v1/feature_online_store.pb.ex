@@ -48,6 +48,13 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.DedicatedServingEndpoint
     type: :string,
     json_name: "publicEndpointDomainName",
     deprecated: false
+
+  field :private_service_connect_config, 3,
+    type: Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig,
+    json_name: "privateServiceConnectConfig",
+    deprecated: false
+
+  field :service_attachment, 4, type: :string, json_name: "serviceAttachment", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.LabelsEntry do

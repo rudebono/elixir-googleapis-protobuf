@@ -57,6 +57,22 @@ defmodule Google.Cloud.Aiplatform.V1.ListDeploymentResourcePoolsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.UpdateDeploymentResourcePoolRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :deployment_resource_pool, 1,
+    type: Google.Cloud.Aiplatform.V1.DeploymentResourcePool,
+    json_name: "deploymentResourcePool",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.UpdateDeploymentResourcePoolOperationMetadata do
   @moduledoc false
 
@@ -129,6 +145,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeploymentResourcePoolService.Service do
   rpc :ListDeploymentResourcePools,
       Google.Cloud.Aiplatform.V1.ListDeploymentResourcePoolsRequest,
       Google.Cloud.Aiplatform.V1.ListDeploymentResourcePoolsResponse
+
+  rpc :UpdateDeploymentResourcePool,
+      Google.Cloud.Aiplatform.V1.UpdateDeploymentResourcePoolRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteDeploymentResourcePool,
       Google.Cloud.Aiplatform.V1.DeleteDeploymentResourcePoolRequest,
