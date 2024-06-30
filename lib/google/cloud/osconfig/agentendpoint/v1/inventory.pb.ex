@@ -66,6 +66,15 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.SoftwarePackage do
     oneof: 0
 end
 
+defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.Source do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :version, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   @moduledoc false
 
@@ -74,6 +83,10 @@ defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage do
   field :package_name, 1, type: :string, json_name: "packageName"
   field :architecture, 2, type: :string
   field :version, 3, type: :string
+
+  field :source, 4,
+    type: Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.VersionedPackage.Source,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.Inventory.ZypperPatch do
