@@ -213,6 +213,11 @@ defmodule Google.Cloud.Dataplex.V1.DataScan.ExecutionStatus do
     json_name: "latestJobStartTime"
 
   field :latest_job_end_time, 5, type: Google.Protobuf.Timestamp, json_name: "latestJobEndTime"
+
+  field :latest_job_create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "latestJobCreateTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataScan.LabelsEntry do
