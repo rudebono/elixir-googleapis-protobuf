@@ -317,6 +317,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BleuSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_effective_order, 1, type: :bool, json_name: "useEffectiveOrder", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.BleuResults do
