@@ -195,6 +195,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Model do
     type: Google.Cloud.Aiplatform.V1beta1.Model.BaseModelSource,
     json_name: "baseModelSource",
     deprecated: false
+
+  field :satisfies_pzs, 51, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 52, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.LargeModelReference do

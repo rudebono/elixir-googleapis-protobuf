@@ -44,4 +44,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tensorboard do
 
   field :etag, 9, type: :string
   field :is_default, 12, type: :bool, json_name: "isDefault"
+  field :satisfies_pzs, 13, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 14, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
