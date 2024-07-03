@@ -29,6 +29,7 @@ defmodule Google.Apps.Drive.Labels.V2beta.PreconditionFailure.Violation.Reason d
   field :CANNOT_CREATE_MORE_LABELS, 8
   field :CANNOT_CHANGE_PUBLISHED_FIELD_TYPE, 9
   field :CANNOT_MODIFY_LOCKED_COMPONENT, 10
+  field :UNSUPPORT_ENABLED_APP_SETTINGS, 11
 end
 
 defmodule Google.Apps.Drive.Labels.V2beta.InvalidArgument.FieldViolation do

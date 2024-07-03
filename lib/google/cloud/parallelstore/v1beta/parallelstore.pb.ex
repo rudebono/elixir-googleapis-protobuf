@@ -216,6 +216,7 @@ defmodule Google.Cloud.Parallelstore.V1beta.ImportDataRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.ExportDataRequest do
@@ -239,6 +240,7 @@ defmodule Google.Cloud.Parallelstore.V1beta.ExportDataRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+  field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.ImportDataResponse do
