@@ -184,6 +184,11 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchPa
 
   field :order_by, 4, type: :string, json_name: "orderBy"
 
+  field :search_result_mode, 5,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SearchResultMode,
+    json_name: "searchResultMode",
+    enum: true
+
   field :data_store_specs, 7,
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec,
@@ -322,6 +327,7 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :disable, 1, type: :bool
+  field :max_rephrase_steps, 2, type: :int32, json_name: "maxRephraseSteps"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec do
@@ -338,6 +344,15 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
     type:
       Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec,
     json_name: "queryRephraserSpec"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest do
@@ -371,6 +386,12 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest do
 
   field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode"
   field :user_pseudo_id, 12, type: :string, json_name: "userPseudoId"
+
+  field :user_labels, 13,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryResponse do

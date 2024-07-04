@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DISCOVERY_TYPE_UNSPECIFIED, 0
+  field :DISCOVERY_TYPE_PRIVATE, 1
+  field :DISCOVERY_TYPE_PUBLIC, 2
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.State do
   @moduledoc false
 
@@ -61,6 +71,13 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
   field :sharing_environment_config, 8,
     type: Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig,
     json_name: "sharingEnvironmentConfig",
+    deprecated: false
+
+  field :discovery_type, 9,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType,
+    json_name: "discoveryType",
+    enum: true,
     deprecated: false
 end
 
@@ -178,6 +195,24 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Se
   field :table, 1, type: :string, oneof: 0, deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.RestrictedExportPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: Google.Protobuf.BoolValue, deprecated: false
+
+  field :restrict_direct_table_access, 2,
+    type: Google.Protobuf.BoolValue,
+    json_name: "restrictDirectTableAccess",
+    deprecated: false
+
+  field :restrict_query_result, 3,
+    type: Google.Protobuf.BoolValue,
+    json_name: "restrictQueryResult",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
   @moduledoc false
 
@@ -189,6 +224,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
     repeated: true,
     type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.SelectedResource,
     json_name: "selectedResources",
+    deprecated: false
+
+  field :restricted_export_policy, 3,
+    type:
+      Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.RestrictedExportPolicy,
+    json_name: "restrictedExportPolicy",
     deprecated: false
 end
 
@@ -253,6 +294,13 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
   field :restricted_export_config, 13,
     type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig,
     json_name: "restrictedExportConfig",
+    deprecated: false
+
+  field :discovery_type, 14,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType,
+    json_name: "discoveryType",
+    enum: true,
     deprecated: false
 end
 
@@ -478,7 +526,8 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingRequest do
   field :destination_dataset, 3,
     type: Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset,
     json_name: "destinationDataset",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :name, 1, type: :string, deprecated: false
 end
