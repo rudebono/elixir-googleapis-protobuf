@@ -59,3 +59,29 @@ defmodule Google.Cloud.Discoveryengine.V1.PurgeSuggestionDenyListEntriesMetadata
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
 end
+
+defmodule Google.Cloud.Discoveryengine.V1.PurgeCompletionSuggestionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.PurgeCompletionSuggestionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :purge_succeeded, 1, type: :bool, json_name: "purgeSucceeded"
+  field :error_samples, 2, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.PurgeCompletionSuggestionsMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end

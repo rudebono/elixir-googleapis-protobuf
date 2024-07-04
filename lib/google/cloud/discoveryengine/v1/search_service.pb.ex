@@ -18,6 +18,26 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SpellCorrectionSpec.Mode
   field :AUTO, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SearchResultMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_RESULT_MODE_UNSPECIFIED, 0
+  field :DOCUMENTS, 1
+  field :CHUNKS, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec.Condition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONDITION_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummarySkippedReason do
   @moduledoc false
 
@@ -189,6 +209,15 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.Extrac
   field :num_next_segments, 5, type: :int32, json_name: "numNextSegments"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.ChunkSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :num_previous_chunks, 1, type: :int32, json_name: "numPreviousChunks"
+  field :num_next_chunks, 2, type: :int32, json_name: "numNextChunks"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
   @moduledoc false
 
@@ -205,6 +234,38 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec do
   field :extractive_content_spec, 3,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
     json_name: "extractiveContentSpec"
+
+  field :search_result_mode, 4,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.SearchResultMode,
+    json_name: "searchResultMode",
+    enum: true
+
+  field :chunk_spec, 5,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.ChunkSpec,
+    json_name: "chunkSpec"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :condition, 1,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec.Condition,
+    enum: true
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SessionSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :query_id, 1, type: :string, json_name: "queryId"
+
+  field :search_result_persistence_count, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "searchResultPersistenceCount"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ParamsEntry do
@@ -251,6 +312,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest do
   field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"
   field :user_info, 21, type: Google.Cloud.Discoveryengine.V1.UserInfo, json_name: "userInfo"
+  field :language_code, 35, type: :string, json_name: "languageCode"
 
   field :facet_specs, 9,
     repeated: true,
@@ -287,6 +349,16 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest do
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.UserLabelsEntry,
     json_name: "userLabels",
     map: true
+
+  field :search_as_you_type_spec, 31,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec,
+    json_name: "searchAsYouTypeSpec"
+
+  field :session, 41, type: :string, deprecated: false
+
+  field :session_spec, 42,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.SessionSpec,
+    json_name: "sessionSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult do
@@ -296,6 +368,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult do
 
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1.Document
+  field :chunk, 18, type: Google.Cloud.Discoveryengine.V1.Chunk
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Facet.FacetValue do
@@ -435,6 +508,15 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.QueryExpansionInfo do
   field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SessionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :query_id, 2, type: :string, json_name: "queryId"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse do
   @moduledoc false
 
@@ -455,6 +537,10 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse do
   field :query_expansion_info, 14,
     type: Google.Cloud.Discoveryengine.V1.SearchResponse.QueryExpansionInfo,
     json_name: "queryExpansionInfo"
+
+  field :session_info, 19,
+    type: Google.Cloud.Discoveryengine.V1.SearchResponse.SessionInfo,
+    json_name: "sessionInfo"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchService.Service do

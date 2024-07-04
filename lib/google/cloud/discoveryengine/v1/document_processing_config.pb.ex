@@ -1,3 +1,26 @@
+defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig.LayoutBasedChunkingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :chunk_size, 1, type: :int32, json_name: "chunkSize"
+  field :include_ancestor_headings, 2, type: :bool, json_name: "includeAncestorHeadings"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :chunk_mode, 0
+
+  field :layout_based_chunking_config, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig.LayoutBasedChunkingConfig,
+    json_name: "layoutBasedChunkingConfig",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.DigitalParsingConfig do
   @moduledoc false
 
@@ -18,6 +41,12 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig
   field :use_native_text, 2, type: :bool, json_name: "useNativeText"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.LayoutParsingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig do
   @moduledoc false
 
@@ -34,6 +63,12 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig
   field :ocr_parsing_config, 2,
     type: Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.OcrParsingConfig,
     json_name: "ocrParsingConfig",
+    oneof: 0
+
+  field :layout_parsing_config, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.LayoutParsingConfig,
+    json_name: "layoutParsingConfig",
     oneof: 0
 end
 
@@ -52,6 +87,10 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
+
+  field :chunking_config, 3,
+    type: Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig,
+    json_name: "chunkingConfig"
 
   field :default_parsing_config, 4,
     type: Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig,

@@ -5,6 +5,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ComputeTokensRequest do
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
+  field :model, 3, type: :string, deprecated: false
+
+  field :contents, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TokensInfo do
@@ -14,6 +20,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TokensInfo do
 
   field :tokens, 1, repeated: true, type: :bytes
   field :token_ids, 2, repeated: true, type: :int64, json_name: "tokenIds"
+  field :role, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ComputeTokensResponse do

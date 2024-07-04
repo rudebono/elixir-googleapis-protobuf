@@ -30,6 +30,16 @@ defmodule Google.Chat.V1.Space.SpaceThreadingState do
   field :UNTHREADED_MESSAGES, 4
 end
 
+defmodule Google.Chat.V1.Space.AccessSettings.AccessState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ACCESS_STATE_UNSPECIFIED, 0
+  field :PRIVATE, 1
+  field :DISCOVERABLE, 2
+end
+
 defmodule Google.Chat.V1.Space.SpaceDetails do
   @moduledoc false
 
@@ -37,6 +47,20 @@ defmodule Google.Chat.V1.Space.SpaceDetails do
 
   field :description, 1, type: :string
   field :guidelines, 2, type: :string
+end
+
+defmodule Google.Chat.V1.Space.AccessSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :access_state, 1,
+    type: Google.Chat.V1.Space.AccessSettings.AccessState,
+    json_name: "accessState",
+    enum: true,
+    deprecated: false
+
+  field :audience, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Chat.V1.Space do
@@ -77,6 +101,13 @@ defmodule Google.Chat.V1.Space do
     deprecated: false
 
   field :admin_installed, 19, type: :bool, json_name: "adminInstalled", deprecated: false
+
+  field :access_settings, 23,
+    type: Google.Chat.V1.Space.AccessSettings,
+    json_name: "accessSettings",
+    deprecated: false
+
+  field :space_uri, 25, type: :string, json_name: "spaceUri", deprecated: false
 end
 
 defmodule Google.Chat.V1.CreateSpaceRequest do

@@ -1876,6 +1876,11 @@ defmodule Google.Cloud.Sql.V1beta4.Settings do
     type: Google.Protobuf.BoolValue,
     json_name: "enableGoogleMlIntegration",
     deprecated: false
+
+  field :enable_dataplex_integration, 41,
+    type: Google.Protobuf.BoolValue,
+    json_name: "enableDataplexIntegration",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1beta4.AdvancedMachineFeatures do

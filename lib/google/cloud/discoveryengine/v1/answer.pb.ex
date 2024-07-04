@@ -19,6 +19,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.AnswerSkippedReason do
   field :NON_ANSWER_SEEKING_QUERY_IGNORED, 2
   field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
   field :POTENTIAL_POLICY_VIOLATION, 4
+  field :NO_RELEVANT_CONTENT, 5
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.State do
@@ -175,6 +176,8 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.Action.Observation.SearchR
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.Answer.Step.Action.Observation.SearchResult.ChunkInfo,
     json_name: "chunkInfo"
+
+  field :struct_data, 6, type: Google.Protobuf.Struct, json_name: "structData"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.Action.Observation do

@@ -21,3 +21,19 @@ defmodule Google.Cloud.Discoveryengine.V1.SuggestionDenyListEntry do
     enum: true,
     deprecated: false
 end
+
+defmodule Google.Cloud.Discoveryengine.V1.CompletionSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :ranking_info, 0
+
+  field :global_score, 2, type: :double, json_name: "globalScore", oneof: 0
+  field :frequency, 3, type: :int64, oneof: 0
+  field :suggestion, 1, type: :string, deprecated: false
+  field :language_code, 4, type: :string, json_name: "languageCode"
+  field :group_id, 5, type: :string, json_name: "groupId"
+  field :group_score, 6, type: :double, json_name: "groupScore"
+  field :alternative_phrases, 7, repeated: true, type: :string, json_name: "alternativePhrases"
+end
