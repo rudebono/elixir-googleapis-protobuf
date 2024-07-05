@@ -454,6 +454,26 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   rpc :ListDatabaseRoles,
       Google.Spanner.Admin.Database.V1.ListDatabaseRolesRequest,
       Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse
+
+  rpc :CreateBackupSchedule,
+      Google.Spanner.Admin.Database.V1.CreateBackupScheduleRequest,
+      Google.Spanner.Admin.Database.V1.BackupSchedule
+
+  rpc :GetBackupSchedule,
+      Google.Spanner.Admin.Database.V1.GetBackupScheduleRequest,
+      Google.Spanner.Admin.Database.V1.BackupSchedule
+
+  rpc :UpdateBackupSchedule,
+      Google.Spanner.Admin.Database.V1.UpdateBackupScheduleRequest,
+      Google.Spanner.Admin.Database.V1.BackupSchedule
+
+  rpc :DeleteBackupSchedule,
+      Google.Spanner.Admin.Database.V1.DeleteBackupScheduleRequest,
+      Google.Protobuf.Empty
+
+  rpc :ListBackupSchedules,
+      Google.Spanner.Admin.Database.V1.ListBackupSchedulesRequest,
+      Google.Spanner.Admin.Database.V1.ListBackupSchedulesResponse
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Stub do
