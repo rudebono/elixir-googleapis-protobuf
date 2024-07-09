@@ -152,6 +152,11 @@ defmodule Google.Cloud.Securitycenter.V1.Finding do
   field :containers, 42, repeated: true, type: Google.Cloud.Securitycenter.V1.Container
   field :kubernetes, 43, type: Google.Cloud.Securitycenter.V1.Kubernetes
   field :database, 44, type: Google.Cloud.Securitycenter.V1.Database
+
+  field :attack_exposure, 45,
+    type: Google.Cloud.Securitycenter.V1.AttackExposure,
+    json_name: "attackExposure"
+
   field :files, 46, repeated: true, type: Google.Cloud.Securitycenter.V1.File
 
   field :cloud_dlp_inspection, 48,
