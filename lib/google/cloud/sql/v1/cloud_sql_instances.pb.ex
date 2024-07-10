@@ -161,6 +161,7 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :UNSUPPORTED_EXTENSIONS_NOT_MIGRATED, 45
   field :EXTENSIONS_NOT_MIGRATED, 46
   field :PG_CRON_FLAG_ENABLED_IN_REPLICA, 47
+  field :EXTENSIONS_NOT_ENABLED_IN_REPLICA, 48
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do

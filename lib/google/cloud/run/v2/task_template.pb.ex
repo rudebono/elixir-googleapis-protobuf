@@ -6,16 +6,21 @@ defmodule Google.Cloud.Run.V2.TaskTemplate do
   oneof :retries, 0
 
   field :containers, 1, repeated: true, type: Google.Cloud.Run.V2.Container
-  field :volumes, 2, repeated: true, type: Google.Cloud.Run.V2.Volume
+  field :volumes, 2, repeated: true, type: Google.Cloud.Run.V2.Volume, deprecated: false
   field :max_retries, 3, type: :int32, json_name: "maxRetries", oneof: 0
-  field :timeout, 4, type: Google.Protobuf.Duration
-  field :service_account, 5, type: :string, json_name: "serviceAccount"
+  field :timeout, 4, type: Google.Protobuf.Duration, deprecated: false
+  field :service_account, 5, type: :string, json_name: "serviceAccount", deprecated: false
 
   field :execution_environment, 6,
     type: Google.Cloud.Run.V2.ExecutionEnvironment,
     json_name: "executionEnvironment",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :encryption_key, 7, type: :string, json_name: "encryptionKey", deprecated: false
-  field :vpc_access, 8, type: Google.Cloud.Run.V2.VpcAccess, json_name: "vpcAccess"
+
+  field :vpc_access, 8,
+    type: Google.Cloud.Run.V2.VpcAccess,
+    json_name: "vpcAccess",
+    deprecated: false
 end

@@ -8,6 +8,7 @@ defmodule Google.Cloud.Securesourcemanager.V1.Instance.State do
   field :ACTIVE, 2
   field :DELETING, 3
   field :PAUSED, 4
+  field :UNKNOWN, 6
 end
 
 defmodule Google.Cloud.Securesourcemanager.V1.Instance.StateNote do
@@ -29,6 +30,25 @@ defmodule Google.Cloud.Securesourcemanager.V1.Instance.HostConfig do
   field :api, 2, type: :string, deprecated: false
   field :git_http, 3, type: :string, json_name: "gitHttp", deprecated: false
   field :git_ssh, 4, type: :string, json_name: "gitSsh", deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.Instance.PrivateConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :is_private, 1, type: :bool, json_name: "isPrivate", deprecated: false
+  field :ca_pool, 2, type: :string, json_name: "caPool", deprecated: false
+
+  field :http_service_attachment, 3,
+    type: :string,
+    json_name: "httpServiceAttachment",
+    deprecated: false
+
+  field :ssh_service_attachment, 4,
+    type: :string,
+    json_name: "sshServiceAttachment",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Securesourcemanager.V1.Instance.LabelsEntry do
@@ -61,6 +81,11 @@ defmodule Google.Cloud.Securesourcemanager.V1.Instance do
     repeated: true,
     type: Google.Cloud.Securesourcemanager.V1.Instance.LabelsEntry,
     map: true,
+    deprecated: false
+
+  field :private_config, 13,
+    type: Google.Cloud.Securesourcemanager.V1.Instance.PrivateConfig,
+    json_name: "privateConfig",
     deprecated: false
 
   field :state, 5,

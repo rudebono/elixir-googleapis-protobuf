@@ -42,9 +42,30 @@ defmodule Google.Bigtable.V2.Value do
 
   oneof :kind, 0
 
+  field :type, 7, type: Google.Bigtable.V2.Type
   field :raw_value, 8, type: :bytes, json_name: "rawValue", oneof: 0
   field :raw_timestamp_micros, 9, type: :int64, json_name: "rawTimestampMicros", oneof: 0
+  field :bytes_value, 2, type: :bytes, json_name: "bytesValue", oneof: 0
+  field :string_value, 3, type: :string, json_name: "stringValue", oneof: 0
   field :int_value, 6, type: :int64, json_name: "intValue", oneof: 0
+  field :bool_value, 10, type: :bool, json_name: "boolValue", oneof: 0
+  field :float_value, 11, type: :double, json_name: "floatValue", oneof: 0
+
+  field :timestamp_value, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "timestampValue",
+    oneof: 0
+
+  field :date_value, 13, type: Google.Type.Date, json_name: "dateValue", oneof: 0
+  field :array_value, 4, type: Google.Bigtable.V2.ArrayValue, json_name: "arrayValue", oneof: 0
+end
+
+defmodule Google.Bigtable.V2.ArrayValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: Google.Bigtable.V2.Value
 end
 
 defmodule Google.Bigtable.V2.RowRange do
@@ -307,4 +328,61 @@ defmodule Google.Bigtable.V2.StreamContinuationToken do
 
   field :partition, 1, type: Google.Bigtable.V2.StreamPartition
   field :token, 2, type: :string
+end
+
+defmodule Google.Bigtable.V2.ProtoFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Bigtable.V2.ColumnMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :type, 2, type: Google.Bigtable.V2.Type
+end
+
+defmodule Google.Bigtable.V2.ProtoSchema do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :columns, 1, repeated: true, type: Google.Bigtable.V2.ColumnMetadata
+end
+
+defmodule Google.Bigtable.V2.ResultSetMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :schema, 0
+
+  field :proto_schema, 1, type: Google.Bigtable.V2.ProtoSchema, json_name: "protoSchema", oneof: 0
+end
+
+defmodule Google.Bigtable.V2.ProtoRowsBatch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :batch_data, 1, type: :bytes, json_name: "batchData"
+end
+
+defmodule Google.Bigtable.V2.PartialResultSet do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :partial_rows, 0
+
+  field :proto_rows_batch, 3,
+    type: Google.Bigtable.V2.ProtoRowsBatch,
+    json_name: "protoRowsBatch",
+    oneof: 0
+
+  field :resume_token, 5, type: :bytes, json_name: "resumeToken"
+  field :estimated_batch_size, 4, type: :int32, json_name: "estimatedBatchSize"
 end

@@ -1,3 +1,16 @@
+defmodule Google.Cloud.Run.V2.ExecutionReference.CompletionStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPLETION_STATUS_UNSPECIFIED, 0
+  field :EXECUTION_SUCCEEDED, 1
+  field :EXECUTION_FAILED, 2
+  field :EXECUTION_RUNNING, 3
+  field :EXECUTION_PENDING, 4
+  field :EXECUTION_CANCELLED, 5
+end
+
 defmodule Google.Cloud.Run.V2.CreateJobRequest do
   @moduledoc false
 
@@ -24,7 +37,7 @@ defmodule Google.Cloud.Run.V2.UpdateJobRequest do
 
   field :job, 1, type: Google.Cloud.Run.V2.Job, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.ListJobsRequest do
@@ -116,6 +129,8 @@ defmodule Google.Cloud.Run.V2.Job do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :create_execution, 0
+
   field :name, 1, type: :string
   field :uid, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
@@ -170,6 +185,8 @@ defmodule Google.Cloud.Run.V2.Job do
 
   field :reconciling, 23, type: :bool, deprecated: false
   field :satisfies_pzs, 25, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :start_execution_token, 26, type: :string, json_name: "startExecutionToken", oneof: 0
+  field :run_execution_token, 27, type: :string, json_name: "runExecutionToken", oneof: 0
   field :etag, 99, type: :string, deprecated: false
 end
 
@@ -181,6 +198,12 @@ defmodule Google.Cloud.Run.V2.ExecutionReference do
   field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :completion_time, 3, type: Google.Protobuf.Timestamp, json_name: "completionTime"
+  field :delete_time, 5, type: Google.Protobuf.Timestamp, json_name: "deleteTime"
+
+  field :completion_status, 4,
+    type: Google.Cloud.Run.V2.ExecutionReference.CompletionStatus,
+    json_name: "completionStatus",
+    enum: true
 end
 
 defmodule Google.Cloud.Run.V2.Jobs.Service do

@@ -26,30 +26,39 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
   field :labels, 2,
     repeated: true,
     type: Google.Cloud.Run.V2.RevisionTemplate.LabelsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :annotations, 3,
     repeated: true,
     type: Google.Cloud.Run.V2.RevisionTemplate.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
-  field :scaling, 4, type: Google.Cloud.Run.V2.RevisionScaling
-  field :vpc_access, 6, type: Google.Cloud.Run.V2.VpcAccess, json_name: "vpcAccess"
-  field :timeout, 8, type: Google.Protobuf.Duration
-  field :service_account, 9, type: :string, json_name: "serviceAccount"
+  field :scaling, 4, type: Google.Cloud.Run.V2.RevisionScaling, deprecated: false
+
+  field :vpc_access, 6,
+    type: Google.Cloud.Run.V2.VpcAccess,
+    json_name: "vpcAccess",
+    deprecated: false
+
+  field :timeout, 8, type: Google.Protobuf.Duration, deprecated: false
+  field :service_account, 9, type: :string, json_name: "serviceAccount", deprecated: false
   field :containers, 10, repeated: true, type: Google.Cloud.Run.V2.Container
-  field :volumes, 11, repeated: true, type: Google.Cloud.Run.V2.Volume
+  field :volumes, 11, repeated: true, type: Google.Cloud.Run.V2.Volume, deprecated: false
 
   field :execution_environment, 13,
     type: Google.Cloud.Run.V2.ExecutionEnvironment,
     json_name: "executionEnvironment",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :encryption_key, 14, type: :string, json_name: "encryptionKey", deprecated: false
 
   field :max_instance_request_concurrency, 15,
     type: :int32,
-    json_name: "maxInstanceRequestConcurrency"
+    json_name: "maxInstanceRequestConcurrency",
+    deprecated: false
 
   field :session_affinity, 19, type: :bool, json_name: "sessionAffinity", deprecated: false
 

@@ -14,9 +14,14 @@ defmodule Google.Cloud.Run.V2.UpdateServiceRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :service, 1, type: Google.Cloud.Run.V2.Service, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing"
+  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.ListServicesRequest do
@@ -121,15 +126,21 @@ defmodule Google.Cloud.Run.V2.Service do
   field :last_modifier, 12, type: :string, json_name: "lastModifier", deprecated: false
   field :client, 13, type: :string
   field :client_version, 14, type: :string, json_name: "clientVersion"
-  field :ingress, 15, type: Google.Cloud.Run.V2.IngressTraffic, enum: true
-  field :launch_stage, 16, type: Google.Api.LaunchStage, json_name: "launchStage", enum: true
+  field :ingress, 15, type: Google.Cloud.Run.V2.IngressTraffic, enum: true, deprecated: false
+
+  field :launch_stage, 16,
+    type: Google.Api.LaunchStage,
+    json_name: "launchStage",
+    enum: true,
+    deprecated: false
 
   field :binary_authorization, 17,
     type: Google.Cloud.Run.V2.BinaryAuthorization,
-    json_name: "binaryAuthorization"
+    json_name: "binaryAuthorization",
+    deprecated: false
 
   field :template, 18, type: Google.Cloud.Run.V2.RevisionTemplate, deprecated: false
-  field :traffic, 19, repeated: true, type: Google.Cloud.Run.V2.TrafficTarget
+  field :traffic, 19, repeated: true, type: Google.Cloud.Run.V2.TrafficTarget, deprecated: false
   field :scaling, 20, type: Google.Cloud.Run.V2.ServiceScaling, deprecated: false
   field :default_uri_disabled, 22, type: :bool, json_name: "defaultUriDisabled", deprecated: false
   field :observed_generation, 30, type: :int64, json_name: "observedGeneration", deprecated: false
