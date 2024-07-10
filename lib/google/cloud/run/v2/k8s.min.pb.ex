@@ -192,18 +192,28 @@ defmodule Google.Cloud.Run.V2.Probe do
 
   oneof :probe_type, 0
 
-  field :initial_delay_seconds, 1, type: :int32, json_name: "initialDelaySeconds"
-  field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds"
-  field :period_seconds, 3, type: :int32, json_name: "periodSeconds"
-  field :failure_threshold, 4, type: :int32, json_name: "failureThreshold"
-  field :http_get, 5, type: Google.Cloud.Run.V2.HTTPGetAction, json_name: "httpGet", oneof: 0
+  field :initial_delay_seconds, 1,
+    type: :int32,
+    json_name: "initialDelaySeconds",
+    deprecated: false
+
+  field :timeout_seconds, 2, type: :int32, json_name: "timeoutSeconds", deprecated: false
+  field :period_seconds, 3, type: :int32, json_name: "periodSeconds", deprecated: false
+  field :failure_threshold, 4, type: :int32, json_name: "failureThreshold", deprecated: false
+
+  field :http_get, 5,
+    type: Google.Cloud.Run.V2.HTTPGetAction,
+    json_name: "httpGet",
+    oneof: 0,
+    deprecated: false
 
   field :tcp_socket, 6,
     type: Google.Cloud.Run.V2.TCPSocketAction,
     json_name: "tcpSocket",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
-  field :grpc, 7, type: Google.Cloud.Run.V2.GRPCAction, oneof: 0
+  field :grpc, 7, type: Google.Cloud.Run.V2.GRPCAction, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.HTTPGetAction do
@@ -211,14 +221,15 @@ defmodule Google.Cloud.Run.V2.HTTPGetAction do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :path, 1, type: :string
+  field :path, 1, type: :string, deprecated: false
 
   field :http_headers, 4,
     repeated: true,
     type: Google.Cloud.Run.V2.HTTPHeader,
-    json_name: "httpHeaders"
+    json_name: "httpHeaders",
+    deprecated: false
 
-  field :port, 5, type: :int32
+  field :port, 5, type: :int32, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.HTTPHeader do
@@ -227,7 +238,7 @@ defmodule Google.Cloud.Run.V2.HTTPHeader do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :value, 2, type: :string
+  field :value, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.TCPSocketAction do
@@ -235,7 +246,7 @@ defmodule Google.Cloud.Run.V2.TCPSocketAction do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :port, 1, type: :int32
+  field :port, 1, type: :int32, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.GRPCAction do
@@ -243,6 +254,6 @@ defmodule Google.Cloud.Run.V2.GRPCAction do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :port, 1, type: :int32
-  field :service, 2, type: :string
+  field :port, 1, type: :int32, deprecated: false
+  field :service, 2, type: :string, deprecated: false
 end

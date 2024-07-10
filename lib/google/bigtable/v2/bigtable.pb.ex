@@ -389,6 +389,46 @@ defmodule Google.Bigtable.V2.ReadChangeStreamResponse do
     oneof: 0
 end
 
+defmodule Google.Bigtable.V2.ExecuteQueryRequest.ParamsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Bigtable.V2.Value
+end
+
+defmodule Google.Bigtable.V2.ExecuteQueryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :data_format, 0
+
+  field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId", deprecated: false
+  field :query, 3, type: :string, deprecated: false
+  field :proto_format, 4, type: Google.Bigtable.V2.ProtoFormat, json_name: "protoFormat", oneof: 0
+  field :resume_token, 8, type: :bytes, json_name: "resumeToken", deprecated: false
+
+  field :params, 7,
+    repeated: true,
+    type: Google.Bigtable.V2.ExecuteQueryRequest.ParamsEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Bigtable.V2.ExecuteQueryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :response, 0
+
+  field :metadata, 1, type: Google.Bigtable.V2.ResultSetMetadata, oneof: 0
+  field :results, 2, type: Google.Bigtable.V2.PartialResultSet, oneof: 0
+end
+
 defmodule Google.Bigtable.V2.Bigtable.Service do
   @moduledoc false
 
@@ -423,6 +463,10 @@ defmodule Google.Bigtable.V2.Bigtable.Service do
   rpc :ReadChangeStream,
       Google.Bigtable.V2.ReadChangeStreamRequest,
       stream(Google.Bigtable.V2.ReadChangeStreamResponse)
+
+  rpc :ExecuteQuery,
+      Google.Bigtable.V2.ExecuteQueryRequest,
+      stream(Google.Bigtable.V2.ExecuteQueryResponse)
 end
 
 defmodule Google.Bigtable.V2.Bigtable.Stub do

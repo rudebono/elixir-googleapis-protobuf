@@ -88,17 +88,24 @@ defmodule Google.Cloud.Run.V2.Condition do
   field :message, 3, type: :string
   field :last_transition_time, 4, type: Google.Protobuf.Timestamp, json_name: "lastTransitionTime"
   field :severity, 5, type: Google.Cloud.Run.V2.Condition.Severity, enum: true
-  field :reason, 6, type: Google.Cloud.Run.V2.Condition.CommonReason, enum: true, oneof: 0
+
+  field :reason, 6,
+    type: Google.Cloud.Run.V2.Condition.CommonReason,
+    enum: true,
+    oneof: 0,
+    deprecated: false
 
   field :revision_reason, 9,
     type: Google.Cloud.Run.V2.Condition.RevisionReason,
     json_name: "revisionReason",
     enum: true,
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :execution_reason, 11,
     type: Google.Cloud.Run.V2.Condition.ExecutionReason,
     json_name: "executionReason",
     enum: true,
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end

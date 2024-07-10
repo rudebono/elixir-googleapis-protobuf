@@ -62,6 +62,95 @@ defmodule Google.Cloud.Securitycenter.V1.CreateMuteConfigRequest do
   field :mute_config_id, 3, type: :string, json_name: "muteConfigId", deprecated: false
 end
 
+defmodule Google.Cloud.Securitycenter.V1.CreateResourceValueConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :resource_value_config, 2,
+    type: Google.Cloud.Securitycenter.V1.ResourceValueConfig,
+    json_name: "resourceValueConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.BatchCreateResourceValueConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.CreateResourceValueConfigRequest,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.BatchCreateResourceValueConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_value_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.ResourceValueConfig,
+    json_name: "resourceValueConfigs"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.DeleteResourceValueConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetResourceValueConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListResourceValueConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListResourceValueConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_value_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.ResourceValueConfig,
+    json_name: "resourceValueConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.UpdateResourceValueConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :resource_value_config, 1,
+    type: Google.Cloud.Securitycenter.V1.ResourceValueConfig,
+    json_name: "resourceValueConfig",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
 defmodule Google.Cloud.Securitycenter.V1.CreateNotificationConfigRequest do
   @moduledoc false
 
@@ -281,6 +370,72 @@ defmodule Google.Cloud.Securitycenter.V1.ListDescendantSecurityHealthAnalyticsCu
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Securitycenter.V1.ListValuedResourcesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListValuedResourcesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :valued_resources, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.ValuedResource,
+    json_name: "valuedResources"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListAttackPathsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :page_size, 4, type: :int32, json_name: "pageSize"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListAttackPathsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attack_paths, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.AttackPath,
+    json_name: "attackPaths"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetSimulationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetValuedResourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Securitycenter.V1.ListMuteConfigsRequest do
   @moduledoc false
 
@@ -455,6 +610,8 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :cloud_provider_metadata, 0
+
   field :name, 1, type: :string
   field :display_name, 8, type: :string, json_name: "displayName"
   field :type, 6, type: :string
@@ -463,6 +620,31 @@ defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult
   field :parent_name, 4, type: :string, json_name: "parentName"
   field :parent_display_name, 5, type: :string, json_name: "parentDisplayName"
   field :folders, 7, repeated: true, type: Google.Cloud.Securitycenter.V1.Folder
+
+  field :cloud_provider, 9,
+    type: Google.Cloud.Securitycenter.V1.CloudProvider,
+    json_name: "cloudProvider",
+    enum: true
+
+  field :organization, 10, type: :string
+  field :service, 11, type: :string
+  field :location, 12, type: :string
+
+  field :aws_metadata, 16,
+    type: Google.Cloud.Securitycenter.V1.AwsMetadata,
+    json_name: "awsMetadata",
+    oneof: 0
+
+  field :azure_metadata, 17,
+    type: Google.Cloud.Securitycenter.V1.AzureMetadata,
+    json_name: "azureMetadata",
+    oneof: 0
+
+  field :resource_path, 18,
+    type: Google.Cloud.Securitycenter.V1.ResourcePath,
+    json_name: "resourcePath"
+
+  field :resource_path_string, 19, type: :string, json_name: "resourcePathString"
 end
 
 defmodule Google.Cloud.Securitycenter.V1.ListFindingsResponse.ListFindingsResult do
@@ -743,6 +925,143 @@ defmodule Google.Cloud.Securitycenter.V1.DeleteBigQueryExportRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Securitycenter.V1.CreateEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :event_threat_detection_custom_module, 2,
+    type: Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule,
+    json_name: "eventThreatDetectionCustomModule",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ValidateEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :raw_text, 2, type: :string, json_name: "rawText", deprecated: false
+  field :type, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ValidateEventThreatDetectionCustomModuleResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :errors, 2, type: Google.Cloud.Securitycenter.V1.CustomModuleValidationErrors
+end
+
+defmodule Google.Cloud.Securitycenter.V1.DeleteEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListDescendantEventThreatDetectionCustomModulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListDescendantEventThreatDetectionCustomModulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_threat_detection_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule,
+    json_name: "eventThreatDetectionCustomModules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEventThreatDetectionCustomModulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEventThreatDetectionCustomModulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_threat_detection_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule,
+    json_name: "eventThreatDetectionCustomModules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.UpdateEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_threat_detection_custom_module, 1,
+    type: Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule,
+    json_name: "eventThreatDetectionCustomModule",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.GetEffectiveEventThreatDetectionCustomModuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEffectiveEventThreatDetectionCustomModulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken"
+  field :page_size, 3, type: :int32, json_name: "pageSize"
+end
+
+defmodule Google.Cloud.Securitycenter.V1.ListEffectiveEventThreatDetectionCustomModulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :effective_event_threat_detection_custom_modules, 1,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V1.EffectiveEventThreatDetectionCustomModule,
+    json_name: "effectiveEventThreatDetectionCustomModules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   @moduledoc false
 
@@ -785,6 +1104,14 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :DeleteSecurityHealthAnalyticsCustomModule,
       Google.Cloud.Securitycenter.V1.DeleteSecurityHealthAnalyticsCustomModuleRequest,
       Google.Protobuf.Empty
+
+  rpc :GetSimulation,
+      Google.Cloud.Securitycenter.V1.GetSimulationRequest,
+      Google.Cloud.Securitycenter.V1.Simulation
+
+  rpc :GetValuedResource,
+      Google.Cloud.Securitycenter.V1.GetValuedResourceRequest,
+      Google.Cloud.Securitycenter.V1.ValuedResource
 
   rpc :GetBigQueryExport,
       Google.Cloud.Securitycenter.V1.GetBigQueryExportRequest,
@@ -925,6 +1252,70 @@ defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Service do
   rpc :ListBigQueryExports,
       Google.Cloud.Securitycenter.V1.ListBigQueryExportsRequest,
       Google.Cloud.Securitycenter.V1.ListBigQueryExportsResponse
+
+  rpc :CreateEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.CreateEventThreatDetectionCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule
+
+  rpc :DeleteEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.DeleteEventThreatDetectionCustomModuleRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.GetEventThreatDetectionCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule
+
+  rpc :ListDescendantEventThreatDetectionCustomModules,
+      Google.Cloud.Securitycenter.V1.ListDescendantEventThreatDetectionCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListDescendantEventThreatDetectionCustomModulesResponse
+
+  rpc :ListEventThreatDetectionCustomModules,
+      Google.Cloud.Securitycenter.V1.ListEventThreatDetectionCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListEventThreatDetectionCustomModulesResponse
+
+  rpc :UpdateEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.UpdateEventThreatDetectionCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule
+
+  rpc :ValidateEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.ValidateEventThreatDetectionCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.ValidateEventThreatDetectionCustomModuleResponse
+
+  rpc :GetEffectiveEventThreatDetectionCustomModule,
+      Google.Cloud.Securitycenter.V1.GetEffectiveEventThreatDetectionCustomModuleRequest,
+      Google.Cloud.Securitycenter.V1.EffectiveEventThreatDetectionCustomModule
+
+  rpc :ListEffectiveEventThreatDetectionCustomModules,
+      Google.Cloud.Securitycenter.V1.ListEffectiveEventThreatDetectionCustomModulesRequest,
+      Google.Cloud.Securitycenter.V1.ListEffectiveEventThreatDetectionCustomModulesResponse
+
+  rpc :BatchCreateResourceValueConfigs,
+      Google.Cloud.Securitycenter.V1.BatchCreateResourceValueConfigsRequest,
+      Google.Cloud.Securitycenter.V1.BatchCreateResourceValueConfigsResponse
+
+  rpc :DeleteResourceValueConfig,
+      Google.Cloud.Securitycenter.V1.DeleteResourceValueConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetResourceValueConfig,
+      Google.Cloud.Securitycenter.V1.GetResourceValueConfigRequest,
+      Google.Cloud.Securitycenter.V1.ResourceValueConfig
+
+  rpc :ListResourceValueConfigs,
+      Google.Cloud.Securitycenter.V1.ListResourceValueConfigsRequest,
+      Google.Cloud.Securitycenter.V1.ListResourceValueConfigsResponse
+
+  rpc :UpdateResourceValueConfig,
+      Google.Cloud.Securitycenter.V1.UpdateResourceValueConfigRequest,
+      Google.Cloud.Securitycenter.V1.ResourceValueConfig
+
+  rpc :ListValuedResources,
+      Google.Cloud.Securitycenter.V1.ListValuedResourcesRequest,
+      Google.Cloud.Securitycenter.V1.ListValuedResourcesResponse
+
+  rpc :ListAttackPaths,
+      Google.Cloud.Securitycenter.V1.ListAttackPathsRequest,
+      Google.Cloud.Securitycenter.V1.ListAttackPathsResponse
 end
 
 defmodule Google.Cloud.Securitycenter.V1.SecurityCenter.Stub do

@@ -44,9 +44,9 @@ defmodule Google.Cloud.Run.V2.VpcAccess.NetworkInterface do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :network, 1, type: :string
-  field :subnetwork, 2, type: :string
-  field :tags, 3, repeated: true, type: :string
+  field :network, 1, type: :string, deprecated: false
+  field :subnetwork, 2, type: :string, deprecated: false
+  field :tags, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.VpcAccess do
@@ -55,12 +55,13 @@ defmodule Google.Cloud.Run.V2.VpcAccess do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :connector, 1, type: :string, deprecated: false
-  field :egress, 2, type: Google.Cloud.Run.V2.VpcAccess.VpcEgress, enum: true
+  field :egress, 2, type: Google.Cloud.Run.V2.VpcAccess.VpcEgress, enum: true, deprecated: false
 
   field :network_interfaces, 3,
     repeated: true,
     type: Google.Cloud.Run.V2.VpcAccess.NetworkInterface,
-    json_name: "networkInterfaces"
+    json_name: "networkInterfaces",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.BinaryAuthorization do
@@ -70,8 +71,13 @@ defmodule Google.Cloud.Run.V2.BinaryAuthorization do
 
   oneof :binauthz_method, 0
 
-  field :use_default, 1, type: :bool, json_name: "useDefault", oneof: 0
-  field :breakglass_justification, 2, type: :string, json_name: "breakglassJustification"
+  field :use_default, 1, type: :bool, json_name: "useDefault", oneof: 0, deprecated: false
+  field :policy, 3, type: :string, oneof: 0, deprecated: false
+
+  field :breakglass_justification, 2,
+    type: :string,
+    json_name: "breakglassJustification",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.RevisionScaling do
@@ -79,8 +85,8 @@ defmodule Google.Cloud.Run.V2.RevisionScaling do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :min_instance_count, 1, type: :int32, json_name: "minInstanceCount"
-  field :max_instance_count, 2, type: :int32, json_name: "maxInstanceCount"
+  field :min_instance_count, 1, type: :int32, json_name: "minInstanceCount", deprecated: false
+  field :max_instance_count, 2, type: :int32, json_name: "maxInstanceCount", deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.ServiceScaling do
@@ -88,5 +94,5 @@ defmodule Google.Cloud.Run.V2.ServiceScaling do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :min_instance_count, 1, type: :int32, json_name: "minInstanceCount"
+  field :min_instance_count, 1, type: :int32, json_name: "minInstanceCount", deprecated: false
 end
