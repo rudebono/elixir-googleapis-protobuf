@@ -55,6 +55,20 @@ defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :tee_attestation, 0
+
+  field :td_ccel, 6,
+    type: Google.Cloud.Confidentialcomputing.V1.TdxCcelAttestation,
+    json_name: "tdCcel",
+    oneof: 0,
+    deprecated: false
+
+  field :sev_snp_attestation, 7,
+    type: Google.Cloud.Confidentialcomputing.V1.SevSnpAttestation,
+    json_name: "sevSnpAttestation",
+    oneof: 0,
+    deprecated: false
+
   field :challenge, 1, type: :string, deprecated: false
 
   field :gcp_credentials, 2,
@@ -76,6 +90,26 @@ defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest do
     type: Google.Cloud.Confidentialcomputing.V1.TokenOptions,
     json_name: "tokenOptions",
     deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.TdxCcelAttestation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ccel_acpi_table, 1, type: :bytes, json_name: "ccelAcpiTable", deprecated: false
+  field :ccel_data, 2, type: :bytes, json_name: "ccelData", deprecated: false
+  field :canonical_event_log, 3, type: :bytes, json_name: "canonicalEventLog", deprecated: false
+  field :td_quote, 4, type: :bytes, json_name: "tdQuote", deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.SevSnpAttestation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :report, 1, type: :bytes, deprecated: false
+  field :aux_blob, 2, type: :bytes, json_name: "auxBlob", deprecated: false
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse do

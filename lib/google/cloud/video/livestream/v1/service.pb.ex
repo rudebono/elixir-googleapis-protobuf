@@ -243,6 +243,56 @@ defmodule Google.Cloud.Video.Livestream.V1.ChannelOperationResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.ListClipsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string
+  field :order_by, 5, type: :string, json_name: "orderBy"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.ListClipsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :clips, 1, repeated: true, type: Google.Cloud.Video.Livestream.V1.Clip
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.GetClipRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.CreateClipRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :clip_id, 2, type: :string, json_name: "clipId", deprecated: false
+  field :clip, 3, type: Google.Cloud.Video.Livestream.V1.Clip, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DeleteClipRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   @moduledoc false
 
@@ -351,6 +401,22 @@ defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
       Google.Cloud.Video.Livestream.V1.Event
 
   rpc :DeleteEvent, Google.Cloud.Video.Livestream.V1.DeleteEventRequest, Google.Protobuf.Empty
+
+  rpc :ListClips,
+      Google.Cloud.Video.Livestream.V1.ListClipsRequest,
+      Google.Cloud.Video.Livestream.V1.ListClipsResponse
+
+  rpc :GetClip,
+      Google.Cloud.Video.Livestream.V1.GetClipRequest,
+      Google.Cloud.Video.Livestream.V1.Clip
+
+  rpc :CreateClip,
+      Google.Cloud.Video.Livestream.V1.CreateClipRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteClip,
+      Google.Cloud.Video.Livestream.V1.DeleteClipRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateAsset,
       Google.Cloud.Video.Livestream.V1.CreateAssetRequest,
