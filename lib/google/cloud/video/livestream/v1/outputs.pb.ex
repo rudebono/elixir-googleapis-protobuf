@@ -79,6 +79,7 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest do
     json_name: "segmentKeepDuration"
 
   field :use_timecode_as_timeline, 6, type: :bool, json_name: "useTimecodeAsTimeline"
+  field :key, 7, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do

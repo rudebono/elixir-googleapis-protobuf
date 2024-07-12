@@ -78,6 +78,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionCo
   field :CLOUD_LOGGING_ONLY, 2
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.AirflowMetadataRetentionPolicyConfig.RetentionMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RETENTION_MODE_UNSPECIFIED, 0
+  field :RETENTION_MODE_ENABLED, 1
+  field :RETENTION_MODE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment.State do
   @moduledoc false
 
@@ -1024,9 +1034,19 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.DataRetentionConfig
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :airflow_database_retention_days, 1,
+    type: :int32,
+    json_name: "airflowDatabaseRetentionDays",
+    deprecated: true
+
   field :task_logs_retention_config, 4,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionConfig,
     json_name: "taskLogsRetentionConfig",
+    deprecated: false
+
+  field :airflow_metadata_retention_config, 5,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.AirflowMetadataRetentionPolicyConfig,
+    json_name: "airflowMetadataRetentionConfig",
     deprecated: false
 end
 
@@ -1041,6 +1061,21 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.TaskLogsRetentionCo
     json_name: "storageMode",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.AirflowMetadataRetentionPolicyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_mode, 1,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1beta1.AirflowMetadataRetentionPolicyConfig.RetentionMode,
+    json_name: "retentionMode",
+    enum: true,
+    deprecated: false
+
+  field :retention_days, 2, type: :int32, json_name: "retentionDays", deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.StorageConfig do

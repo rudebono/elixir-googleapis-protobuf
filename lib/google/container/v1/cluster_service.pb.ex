@@ -528,6 +528,7 @@ defmodule Google.Container.V1.MonitoringComponentConfig.Component do
   field :STATEFULSET, 12
   field :CADVISOR, 13
   field :KUBELET, 14
+  field :DCGM, 15
 end
 
 defmodule Google.Container.V1.EnterpriseConfig.ClusterTier do
