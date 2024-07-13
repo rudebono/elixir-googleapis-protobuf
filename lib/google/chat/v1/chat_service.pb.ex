@@ -64,6 +64,12 @@ defmodule Google.Chat.V1.ChatService.Service do
   rpc :GetThreadReadState,
       Google.Chat.V1.GetThreadReadStateRequest,
       Google.Chat.V1.ThreadReadState
+
+  rpc :GetSpaceEvent, Google.Chat.V1.GetSpaceEventRequest, Google.Chat.V1.SpaceEvent
+
+  rpc :ListSpaceEvents,
+      Google.Chat.V1.ListSpaceEventsRequest,
+      Google.Chat.V1.ListSpaceEventsResponse
 end
 
 defmodule Google.Chat.V1.ChatService.Stub do

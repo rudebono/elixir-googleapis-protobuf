@@ -44,6 +44,25 @@ defmodule Google.Maps.Mapsplatformdatasets.V1.ListDatasetsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Maps.Mapsplatformdatasets.V1.FetchDatasetErrorsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dataset, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Maps.Mapsplatformdatasets.V1.FetchDatasetErrorsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :errors, 3, repeated: true, type: Google.Rpc.Status
+end
+
 defmodule Google.Maps.Mapsplatformdatasets.V1.DeleteDatasetRequest do
   @moduledoc false
 
