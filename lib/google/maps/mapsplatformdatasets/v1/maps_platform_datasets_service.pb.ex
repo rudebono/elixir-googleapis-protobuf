@@ -17,6 +17,10 @@ defmodule Google.Maps.Mapsplatformdatasets.V1.MapsPlatformDatasets.Service do
       Google.Maps.Mapsplatformdatasets.V1.GetDatasetRequest,
       Google.Maps.Mapsplatformdatasets.V1.Dataset
 
+  rpc :FetchDatasetErrors,
+      Google.Maps.Mapsplatformdatasets.V1.FetchDatasetErrorsRequest,
+      Google.Maps.Mapsplatformdatasets.V1.FetchDatasetErrorsResponse
+
   rpc :ListDatasets,
       Google.Maps.Mapsplatformdatasets.V1.ListDatasetsRequest,
       Google.Maps.Mapsplatformdatasets.V1.ListDatasetsResponse

@@ -71,6 +71,18 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.State do
   field :STOPPED, 6
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Clip.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :CREATING, 2
+  field :SUCCEEDED, 3
+  field :FAILED, 4
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Asset.State do
   @moduledoc false
 
@@ -226,6 +238,53 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
   field :input_config, 25,
     type: Google.Cloud.Video.Livestream.V1.InputConfig,
     json_name: "inputConfig"
+
+  field :retention_config, 26,
+    type: Google.Cloud.Video.Livestream.V1.RetentionConfig,
+    json_name: "retentionConfig",
+    deprecated: false
+
+  field :static_overlays, 27,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.StaticOverlay,
+    json_name: "staticOverlays",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.NormalizedCoordinate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :x, 1, type: :double, deprecated: false
+  field :y, 2, type: :double, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.NormalizedResolution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :w, 1, type: :double, deprecated: false
+  field :h, 2, type: :double, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.StaticOverlay do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :asset, 1, type: :string, deprecated: false
+
+  field :resolution, 2,
+    type: Google.Cloud.Video.Livestream.V1.NormalizedResolution,
+    deprecated: false
+
+  field :position, 3,
+    type: Google.Cloud.Video.Livestream.V1.NormalizedCoordinate,
+    deprecated: false
+
+  field :opacity, 4, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.InputConfig do
@@ -248,6 +307,16 @@ defmodule Google.Cloud.Video.Livestream.V1.LogConfig do
     type: Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity,
     json_name: "logSeverity",
     enum: true
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.RetentionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_window_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "retentionWindowDuration"
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.InputStreamProperty do
@@ -439,6 +508,86 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
     deprecated: false
 
   field :error, 12, type: Google.Rpc.Status, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Clip.TimeSlice do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :markin_time, 1, type: Google.Protobuf.Timestamp, json_name: "markinTime"
+  field :markout_time, 2, type: Google.Protobuf.Timestamp, json_name: "markoutTime"
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Clip.Slice do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :time_slice, 1,
+    type: Google.Cloud.Video.Livestream.V1.Clip.TimeSlice,
+    json_name: "timeSlice",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Clip.ClipManifest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :manifest_key, 1, type: :string, json_name: "manifestKey", deprecated: false
+  field :output_uri, 2, type: :string, json_name: "outputUri", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Clip.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Clip do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Clip.LabelsEntry,
+    map: true
+
+  field :state, 6,
+    type: Google.Cloud.Video.Livestream.V1.Clip.State,
+    enum: true,
+    deprecated: false
+
+  field :output_uri, 7, type: :string, json_name: "outputUri"
+  field :error, 9, type: Google.Rpc.Status, deprecated: false
+  field :slices, 10, repeated: true, type: Google.Cloud.Video.Livestream.V1.Clip.Slice
+
+  field :clip_manifests, 12,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Clip.ClipManifest,
+    json_name: "clipManifests",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Asset.VideoAsset do

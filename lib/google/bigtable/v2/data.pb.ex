@@ -363,6 +363,14 @@ defmodule Google.Bigtable.V2.ResultSetMetadata do
   field :proto_schema, 1, type: Google.Bigtable.V2.ProtoSchema, json_name: "protoSchema", oneof: 0
 end
 
+defmodule Google.Bigtable.V2.ProtoRows do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :values, 2, repeated: true, type: Google.Bigtable.V2.Value
+end
+
 defmodule Google.Bigtable.V2.ProtoRowsBatch do
   @moduledoc false
 

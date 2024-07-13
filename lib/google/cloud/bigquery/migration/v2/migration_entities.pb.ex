@@ -81,6 +81,11 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask do
     json_name: "translationConfigDetails",
     oneof: 0
 
+  field :translation_details, 16,
+    type: Google.Cloud.Bigquery.Migration.V2.TranslationDetails,
+    json_name: "translationDetails",
+    oneof: 0
+
   field :id, 1, type: :string, deprecated: false
   field :type, 2, type: :string
 
@@ -96,6 +101,23 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTask do
 
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :last_update_time, 7, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
+
+  field :resource_error_details, 17,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Migration.V2.ResourceErrorDetail,
+    json_name: "resourceErrorDetails",
+    deprecated: false
+
+  field :resource_error_count, 18, type: :int32, json_name: "resourceErrorCount"
+  field :metrics, 19, repeated: true, type: Google.Cloud.Bigquery.Migration.V2.TimeSeries
+
+  field :task_result, 20,
+    type: Google.Cloud.Bigquery.Migration.V2.MigrationTaskResult,
+    json_name: "taskResult",
+    deprecated: false
+
+  field :total_processing_error_count, 21, type: :int32, json_name: "totalProcessingErrorCount"
+  field :total_resource_error_count, 22, type: :int32, json_name: "totalResourceErrorCount"
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask do
@@ -127,4 +149,33 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationSubtask do
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :last_update_time, 8, type: Google.Protobuf.Timestamp, json_name: "lastUpdateTime"
   field :metrics, 11, repeated: true, type: Google.Cloud.Bigquery.Migration.V2.TimeSeries
+end
+
+defmodule Google.Cloud.Bigquery.Migration.V2.MigrationTaskResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :details, 0
+
+  field :translation_task_result, 2,
+    type: Google.Cloud.Bigquery.Migration.V2.TranslationTaskResult,
+    json_name: "translationTaskResult",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Bigquery.Migration.V2.TranslationTaskResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :translated_literals, 1,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Migration.V2.Literal,
+    json_name: "translatedLiterals"
+
+  field :report_log_messages, 2,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Migration.V2.GcsReportLogMessage,
+    json_name: "reportLogMessages"
 end

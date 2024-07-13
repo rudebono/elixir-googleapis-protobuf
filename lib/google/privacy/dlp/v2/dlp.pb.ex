@@ -244,6 +244,9 @@ defmodule Google.Privacy.Dlp.V2.ByteContentItem.BytesType do
   field :AVRO, 11
   field :CSV, 12
   field :TSV, 13
+  field :AUDIO, 15
+  field :VIDEO, 16
+  field :EXECUTABLE, 17
 end
 
 defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
@@ -267,8 +270,10 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :LOCATION_UNSPECIFIED, 0
   field :GLOBAL, 1
   field :ARGENTINA, 2
+  field :ARMENIA, 51
   field :AUSTRALIA, 3
   field :AZERBAIJAN, 48
+  field :BELARUS, 50
   field :BELGIUM, 4
   field :BRAZIL, 5
   field :CANADA, 6
@@ -399,6 +404,16 @@ defmodule Google.Privacy.Dlp.V2.TransformationSummary.TransformationResultCode d
   field :ERROR, 2
 end
 
+defmodule Google.Privacy.Dlp.V2.Error.ErrorExtraInfo do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ERROR_INFO_UNSPECIFIED, 0
+  field :IMAGE_SCAN_UNAVAILABLE_IN_REGION, 1
+  field :FILE_STORE_CLUSTER_UNSUPPORTED, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.JobTrigger.Status do
   @moduledoc false
 
@@ -430,6 +445,7 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification.DetailLevel
   field :DETAIL_LEVEL_UNSPECIFIED, 0
   field :TABLE_PROFILE, 1
   field :RESOURCE_NAME, 2
+  field :FILE_STORE_PROFILE, 3
 end
 
 defmodule Google.Privacy.Dlp.V2.DiscoveryConfig.Status do
@@ -473,6 +489,33 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence.SchemaModifie
   field :REMOVED_COLUMNS, 2
 end
 
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions.CloudStorageObjectAttribute do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLOUD_STORAGE_OBJECT_ATTRIBUTE_UNSPECIFIED, 0
+  field :ALL_SUPPORTED_OBJECTS, 1
+  field :STANDARD, 2
+  field :NEARLINE, 3
+  field :COLDLINE, 4
+  field :ARCHIVE, 5
+  field :REGIONAL, 6
+  field :MULTI_REGIONAL, 7
+  field :DURABLE_REDUCED_AVAILABILITY, 8
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions.CloudStorageBucketAttribute do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLOUD_STORAGE_BUCKET_ATTRIBUTE_UNSPECIFIED, 0
+  field :ALL_SUPPORTED_BUCKETS, 1
+  field :AUTOCLASS_DISABLED, 2
+  field :AUTOCLASS_ENABLED, 3
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
 
@@ -494,6 +537,7 @@ defmodule Google.Privacy.Dlp.V2.DataRiskLevel.DataRiskLevelScore do
 
   field :RISK_SCORE_UNSPECIFIED, 0
   field :RISK_LOW, 10
+  field :RISK_UNKNOWN, 12
   field :RISK_MODERATE, 20
   field :RISK_HIGH, 30
 end
@@ -553,6 +597,16 @@ defmodule Google.Privacy.Dlp.V2.ColumnDataProfile.ColumnPolicyState do
   field :COLUMN_POLICY_TAGGED, 1
 end
 
+defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :DONE, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfilePubSubCondition.ProfileScoreBucket do
   @moduledoc false
 
@@ -581,6 +635,23 @@ defmodule Google.Privacy.Dlp.V2.CloudSqlProperties.DatabaseEngine do
   field :DATABASE_ENGINE_UNKNOWN, 0
   field :DATABASE_ENGINE_MYSQL, 1
   field :DATABASE_ENGINE_POSTGRES, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.FileClusterType.Cluster do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CLUSTER_UNSPECIFIED, 0
+  field :CLUSTER_UNKNOWN, 1
+  field :CLUSTER_TEXT, 2
+  field :CLUSTER_STRUCTURED_DATA, 3
+  field :CLUSTER_SOURCE_CODE, 4
+  field :CLUSTER_RICH_DOCUMENT, 5
+  field :CLUSTER_IMAGE, 6
+  field :CLUSTER_ARCHIVE, 7
+  field :CLUSTER_MULTIMEDIA, 8
+  field :CLUSTER_EXECUTABLE, 9
 end
 
 defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
@@ -1170,6 +1241,11 @@ defmodule Google.Privacy.Dlp.V2.DataProfileBigQueryRowSchema do
   field :column_profile, 2,
     type: Google.Privacy.Dlp.V2.ColumnDataProfile,
     json_name: "columnProfile",
+    oneof: 0
+
+  field :file_store_profile, 3,
+    type: Google.Privacy.Dlp.V2.FileStoreDataProfile,
+    json_name: "fileStoreProfile",
     oneof: 0
 end
 
@@ -2608,6 +2684,11 @@ defmodule Google.Privacy.Dlp.V2.Error do
 
   field :details, 1, type: Google.Rpc.Status
   field :timestamps, 2, repeated: true, type: Google.Protobuf.Timestamp
+
+  field :extra_info, 4,
+    type: Google.Privacy.Dlp.V2.Error.ErrorExtraInfo,
+    json_name: "extraInfo",
+    enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.JobTrigger.Trigger do
@@ -3204,6 +3285,11 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryTarget do
     type: Google.Privacy.Dlp.V2.SecretsDiscoveryTarget,
     json_name: "secretsTarget",
     oneof: 0
+
+  field :cloud_storage_target, 4,
+    type: Google.Privacy.Dlp.V2.CloudStorageDiscoveryTarget,
+    json_name: "cloudStorageTarget",
+    oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.BigQueryDiscoveryTarget do
@@ -3300,6 +3386,10 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryGenerationCadence do
   field :table_modified_cadence, 2,
     type: Google.Privacy.Dlp.V2.DiscoveryTableModifiedCadence,
     json_name: "tableModifiedCadence"
+
+  field :inspect_template_modified_cadence, 3,
+    type: Google.Privacy.Dlp.V2.DiscoveryInspectTemplateModifiedCadence,
+    json_name: "inspectTemplateModifiedCadence"
 end
 
 defmodule Google.Privacy.Dlp.V2.DiscoveryTableModifiedCadence do
@@ -3326,6 +3416,14 @@ defmodule Google.Privacy.Dlp.V2.DiscoverySchemaModifiedCadence do
     enum: true
 
   field :frequency, 2, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryInspectTemplateModifiedCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :frequency, 1, type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency, enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.CloudSqlDiscoveryTarget do
@@ -3464,6 +3562,164 @@ defmodule Google.Privacy.Dlp.V2.SecretsDiscoveryTarget do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Privacy.Dlp.V2.CloudStorageDiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :cadence, 0
+
+  field :filter, 1, type: Google.Privacy.Dlp.V2.DiscoveryCloudStorageFilter, deprecated: false
+
+  field :conditions, 4,
+    type: Google.Privacy.Dlp.V2.DiscoveryFileStoreConditions,
+    deprecated: false
+
+  field :generation_cadence, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudStorageGenerationCadence,
+    json_name: "generationCadence",
+    oneof: 0,
+    deprecated: false
+
+  field :disabled, 3, type: Google.Privacy.Dlp.V2.Disabled, oneof: 0, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :filter, 0
+
+  field :collection, 1,
+    type: Google.Privacy.Dlp.V2.FileStoreCollection,
+    oneof: 0,
+    deprecated: false
+
+  field :cloud_storage_resource_reference, 2,
+    type: Google.Privacy.Dlp.V2.CloudStorageResourceReference,
+    json_name: "cloudStorageResourceReference",
+    oneof: 0,
+    deprecated: false
+
+  field :others, 100, type: Google.Privacy.Dlp.V2.AllOtherResources, oneof: 0, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :pattern, 0
+
+  field :include_regexes, 1,
+    type: Google.Privacy.Dlp.V2.FileStoreRegexes,
+    json_name: "includeRegexes",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreRegexes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :patterns, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreRegex,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource_regex, 0
+
+  field :cloud_storage_regex, 1,
+    type: Google.Privacy.Dlp.V2.CloudStorageRegex,
+    json_name: "cloudStorageRegex",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudStorageRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id_regex, 1, type: :string, json_name: "projectIdRegex", deprecated: false
+  field :bucket_name_regex, 2, type: :string, json_name: "bucketNameRegex", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.CloudStorageResourceReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
+  field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageGenerationCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :refresh_frequency, 1,
+    type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency,
+    json_name: "refreshFrequency",
+    enum: true,
+    deprecated: false
+
+  field :inspect_template_modified_cadence, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryInspectTemplateModifiedCadence,
+    json_name: "inspectTemplateModifiedCadence",
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :included_object_attributes, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions.CloudStorageObjectAttribute,
+    json_name: "includedObjectAttributes",
+    enum: true,
+    deprecated: false
+
+  field :included_bucket_attributes, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions.CloudStorageBucketAttribute,
+    json_name: "includedBucketAttributes",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryFileStoreConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :conditions, 0
+
+  field :created_after, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createdAfter",
+    deprecated: false
+
+  field :min_age, 2, type: Google.Protobuf.Duration, json_name: "minAge", deprecated: false
+
+  field :cloud_storage_conditions, 3,
+    type: Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions,
+    json_name: "cloudStorageConditions",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
   @moduledoc false
 
@@ -3473,6 +3729,12 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
 
   field :organization_id, 1, type: :int64, json_name: "organizationId", oneof: 0
   field :folder_id, 2, type: :int64, json_name: "folderId", oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.AllOtherResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpJob do
@@ -3951,6 +4213,8 @@ defmodule Google.Privacy.Dlp.V2.ProjectDataProfile do
 
   field :data_risk_level, 5, type: Google.Privacy.Dlp.V2.DataRiskLevel, json_name: "dataRiskLevel"
   field :profile_status, 7, type: Google.Privacy.Dlp.V2.ProfileStatus, json_name: "profileStatus"
+  field :table_data_profile_count, 9, type: :int64, json_name: "tableDataProfileCount"
+  field :file_store_data_profile_count, 10, type: :int64, json_name: "fileStoreDataProfileCount"
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileConfigSnapshot do
@@ -4142,7 +4406,192 @@ defmodule Google.Privacy.Dlp.V2.ColumnDataProfile do
     enum: true
 end
 
+defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile.ResourceAttributesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Privacy.Dlp.V2.Value
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile.ResourceLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :data_source_type, 2,
+    type: Google.Privacy.Dlp.V2.DataSourceType,
+    json_name: "dataSourceType"
+
+  field :project_data_profile, 3, type: :string, json_name: "projectDataProfile"
+  field :project_id, 4, type: :string, json_name: "projectId"
+  field :file_store_location, 5, type: :string, json_name: "fileStoreLocation"
+
+  field :data_storage_locations, 19,
+    repeated: true,
+    type: :string,
+    json_name: "dataStorageLocations"
+
+  field :location_type, 20, type: :string, json_name: "locationType"
+  field :file_store_path, 6, type: :string, json_name: "fileStorePath"
+  field :full_resource, 24, type: :string, json_name: "fullResource"
+
+  field :config_snapshot, 7,
+    type: Google.Privacy.Dlp.V2.DataProfileConfigSnapshot,
+    json_name: "configSnapshot"
+
+  field :profile_status, 8, type: Google.Privacy.Dlp.V2.ProfileStatus, json_name: "profileStatus"
+  field :state, 9, type: Google.Privacy.Dlp.V2.FileStoreDataProfile.State, enum: true
+
+  field :profile_last_generated, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "profileLastGenerated"
+
+  field :resource_visibility, 11,
+    type: Google.Privacy.Dlp.V2.ResourceVisibility,
+    json_name: "resourceVisibility",
+    enum: true
+
+  field :sensitivity_score, 12,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
+
+  field :data_risk_level, 13,
+    type: Google.Privacy.Dlp.V2.DataRiskLevel,
+    json_name: "dataRiskLevel"
+
+  field :create_time, 14, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :last_modified_time, 15, type: Google.Protobuf.Timestamp, json_name: "lastModifiedTime"
+
+  field :file_cluster_summaries, 16,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileClusterSummary,
+    json_name: "fileClusterSummaries"
+
+  field :resource_attributes, 17,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreDataProfile.ResourceAttributesEntry,
+    json_name: "resourceAttributes",
+    map: true
+
+  field :resource_labels, 18,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreDataProfile.ResourceLabelsEntry,
+    json_name: "resourceLabels",
+    map: true
+
+  field :file_store_info_type_summaries, 21,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreInfoTypeSummary,
+    json_name: "fileStoreInfoTypeSummaries"
+
+  field :file_store_is_empty, 23, type: :bool, json_name: "fileStoreIsEmpty"
+end
+
+defmodule Google.Privacy.Dlp.V2.FileStoreInfoTypeSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :info_type, 1, type: Google.Privacy.Dlp.V2.InfoType, json_name: "infoType"
+end
+
+defmodule Google.Privacy.Dlp.V2.FileExtensionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :file_extension, 1, type: :string, json_name: "fileExtension"
+end
+
+defmodule Google.Privacy.Dlp.V2.FileClusterSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :file_cluster_type, 1,
+    type: Google.Privacy.Dlp.V2.FileClusterType,
+    json_name: "fileClusterType"
+
+  field :file_store_info_type_summaries, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreInfoTypeSummary,
+    json_name: "fileStoreInfoTypeSummaries"
+
+  field :sensitivity_score, 3,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore"
+
+  field :data_risk_level, 4, type: Google.Privacy.Dlp.V2.DataRiskLevel, json_name: "dataRiskLevel"
+  field :errors, 6, repeated: true, type: Google.Privacy.Dlp.V2.Error
+
+  field :file_extensions_scanned, 7,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileExtensionInfo,
+    json_name: "fileExtensionsScanned"
+
+  field :file_extensions_seen, 8,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileExtensionInfo,
+    json_name: "fileExtensionsSeen"
+
+  field :no_files_exist, 9, type: :bool, json_name: "noFilesExist"
+end
+
 defmodule Google.Privacy.Dlp.V2.GetProjectDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.GetFileStoreDataProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ListFileStoreDataProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.ListFileStoreDataProfilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :file_store_data_profiles, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.FileStoreDataProfile,
+    json_name: "fileStoreDataProfiles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Privacy.Dlp.V2.DeleteFileStoreDataProfileRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -4216,6 +4665,11 @@ defmodule Google.Privacy.Dlp.V2.DataProfilePubSubMessage do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :profile, 1, type: Google.Privacy.Dlp.V2.TableDataProfile
+
+  field :file_store_profile, 3,
+    type: Google.Privacy.Dlp.V2.FileStoreDataProfile,
+    json_name: "fileStoreProfile"
+
   field :event, 2, type: Google.Privacy.Dlp.V2.DataProfileAction.EventType, enum: true
 end
 
@@ -4378,6 +4832,16 @@ defmodule Google.Privacy.Dlp.V2.DataSourceType do
   field :data_source, 1, type: :string, json_name: "dataSource", deprecated: false
 end
 
+defmodule Google.Privacy.Dlp.V2.FileClusterType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :file_cluster_type, 0
+
+  field :cluster, 1, type: Google.Privacy.Dlp.V2.FileClusterType.Cluster, enum: true, oneof: 0
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   @moduledoc false
 
@@ -4534,6 +4998,18 @@ defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   rpc :GetProjectDataProfile,
       Google.Privacy.Dlp.V2.GetProjectDataProfileRequest,
       Google.Privacy.Dlp.V2.ProjectDataProfile
+
+  rpc :ListFileStoreDataProfiles,
+      Google.Privacy.Dlp.V2.ListFileStoreDataProfilesRequest,
+      Google.Privacy.Dlp.V2.ListFileStoreDataProfilesResponse
+
+  rpc :GetFileStoreDataProfile,
+      Google.Privacy.Dlp.V2.GetFileStoreDataProfileRequest,
+      Google.Privacy.Dlp.V2.FileStoreDataProfile
+
+  rpc :DeleteFileStoreDataProfile,
+      Google.Privacy.Dlp.V2.DeleteFileStoreDataProfileRequest,
+      Google.Protobuf.Empty
 
   rpc :GetTableDataProfile,
       Google.Privacy.Dlp.V2.GetTableDataProfileRequest,

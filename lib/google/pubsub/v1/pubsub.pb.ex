@@ -568,6 +568,7 @@ defmodule Google.Pubsub.V1.CloudStorageConfig do
     deprecated: false
 
   field :max_bytes, 7, type: :int64, json_name: "maxBytes", deprecated: false
+  field :max_messages, 8, type: :int64, json_name: "maxMessages", deprecated: false
   field :state, 9, type: Google.Pubsub.V1.CloudStorageConfig.State, enum: true, deprecated: false
 
   field :service_account_email, 11,

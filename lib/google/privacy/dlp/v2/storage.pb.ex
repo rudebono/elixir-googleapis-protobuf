@@ -36,6 +36,7 @@ defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
 
   field :SENSITIVITY_SCORE_UNSPECIFIED, 0
   field :SENSITIVITY_LOW, 10
+  field :SENSITIVITY_UNKNOWN, 12
   field :SENSITIVITY_MODERATE, 20
   field :SENSITIVITY_HIGH, 30
 end

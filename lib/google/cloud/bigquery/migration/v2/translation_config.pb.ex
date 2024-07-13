@@ -52,6 +52,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.TranslationConfigDetails do
 
   field :source_env, 6, type: Google.Cloud.Bigquery.Migration.V2.SourceEnv, json_name: "sourceEnv"
   field :request_source, 8, type: :string, json_name: "requestSource"
+  field :target_types, 9, repeated: true, type: :string, json_name: "targetTypes"
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
@@ -129,6 +130,21 @@ defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
   field :mysql_dialect, 14,
     type: Google.Cloud.Bigquery.Migration.V2.MySQLDialect,
     json_name: "mysqlDialect",
+    oneof: 0
+
+  field :db2_dialect, 15,
+    type: Google.Cloud.Bigquery.Migration.V2.DB2Dialect,
+    json_name: "db2Dialect",
+    oneof: 0
+
+  field :sqlite_dialect, 16,
+    type: Google.Cloud.Bigquery.Migration.V2.SQLiteDialect,
+    json_name: "sqliteDialect",
+    oneof: 0
+
+  field :greenplum_dialect, 17,
+    type: Google.Cloud.Bigquery.Migration.V2.GreenplumDialect,
+    json_name: "greenplumDialect",
     oneof: 0
 end
 
@@ -218,6 +234,24 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MySQLDialect do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Bigquery.Migration.V2.DB2Dialect do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Migration.V2.SQLiteDialect do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Migration.V2.GreenplumDialect do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Bigquery.Migration.V2.ObjectNameMappingList do
   @moduledoc false
 
@@ -268,4 +302,9 @@ defmodule Google.Cloud.Bigquery.Migration.V2.SourceEnv do
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase"
   field :schema_search_path, 2, repeated: true, type: :string, json_name: "schemaSearchPath"
+
+  field :metadata_store_dataset, 3,
+    type: :string,
+    json_name: "metadataStoreDataset",
+    deprecated: false
 end
