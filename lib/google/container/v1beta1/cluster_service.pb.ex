@@ -1315,6 +1315,11 @@ defmodule Google.Container.V1beta1.AddonsConfig do
     type: Google.Container.V1beta1.StatefulHAConfig,
     json_name: "statefulHaConfig",
     deprecated: false
+
+  field :ray_operator_config, 21,
+    type: Google.Container.V1beta1.RayOperatorConfig,
+    json_name: "rayOperatorConfig",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.HttpLoadBalancing do
@@ -1411,6 +1416,24 @@ defmodule Google.Container.V1beta1.GcsFuseCsiDriverConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1beta1.RayOperatorConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+
+  field :ray_cluster_logging_config, 2,
+    type: Google.Container.V1beta1.RayClusterLoggingConfig,
+    json_name: "rayClusterLoggingConfig",
+    deprecated: false
+
+  field :ray_cluster_monitoring_config, 3,
+    type: Google.Container.V1beta1.RayClusterMonitoringConfig,
+    json_name: "rayClusterMonitoringConfig",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.PrivateClusterMasterGlobalAccessConfig do
@@ -4033,6 +4056,14 @@ defmodule Google.Container.V1beta1.LoggingComponentConfig do
     enum: true
 end
 
+defmodule Google.Container.V1beta1.RayClusterLoggingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
 defmodule Google.Container.V1beta1.MonitoringConfig do
   @moduledoc false
 
@@ -4064,6 +4095,14 @@ defmodule Google.Container.V1beta1.AdvancedDatapathObservabilityConfig do
     enum: true
 
   field :enable_relay, 3, proto3_optional: true, type: :bool, json_name: "enableRelay"
+end
+
+defmodule Google.Container.V1beta1.RayClusterMonitoringConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
 end
 
 defmodule Google.Container.V1beta1.NodePoolLoggingConfig do

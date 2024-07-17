@@ -191,6 +191,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.Sear
 
   field :order_by, 4, type: :string, json_name: "orderBy"
 
+  field :search_result_mode, 5,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SearchResultMode,
+    json_name: "searchResultMode",
+    enum: true
+
   field :data_store_specs, 7,
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.DataStoreSpec,
