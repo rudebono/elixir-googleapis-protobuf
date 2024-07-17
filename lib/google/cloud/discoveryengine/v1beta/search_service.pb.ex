@@ -37,6 +37,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SpellCorrectionSpec.
   field :AUTO, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SearchResultMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SEARCH_RESULT_MODE_UNSPECIFIED, 0
+  field :DOCUMENTS, 1
+  field :CHUNKS, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkippedReason do
   @moduledoc false
 
@@ -249,6 +259,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Ex
   field :num_next_segments, 5, type: :int32, json_name: "numNextSegments"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ChunkSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :num_previous_chunks, 1, type: :int32, json_name: "numPreviousChunks"
+  field :num_next_chunks, 2, type: :int32, json_name: "numNextChunks"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
   @moduledoc false
 
@@ -266,6 +285,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec do
     type:
       Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ExtractiveContentSpec,
     json_name: "extractiveContentSpec"
+
+  field :search_result_mode, 4,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SearchResultMode,
+    json_name: "searchResultMode",
+    enum: true
+
+  field :chunk_spec, 5,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.ChunkSpec,
+    json_name: "chunkSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.EmbeddingSpec.EmbeddingVector do
@@ -391,6 +419,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
 
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1beta.Document
+  field :chunk, 18, type: Google.Cloud.Discoveryengine.V1beta.Chunk
 
   field :model_scores, 4,
     repeated: true,

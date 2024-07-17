@@ -16,4 +16,17 @@ defmodule Google.Api.FieldInfo do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :format, 1, type: Google.Api.FieldInfo.Format, enum: true
+
+  field :referenced_types, 2,
+    repeated: true,
+    type: Google.Api.TypeReference,
+    json_name: "referencedTypes"
+end
+
+defmodule Google.Api.TypeReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type_name, 1, type: :string, json_name: "typeName"
 end
