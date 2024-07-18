@@ -30,6 +30,8 @@ defmodule Google.Analytics.Admin.V1beta.RunAccessReportRequest do
     json_name: "orderBys"
 
   field :return_entity_quota, 11, type: :bool, json_name: "returnEntityQuota"
+  field :include_all_users, 12, type: :bool, json_name: "includeAllUsers", deprecated: false
+  field :expand_groups, 13, type: :bool, json_name: "expandGroups", deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1beta.RunAccessReportResponse do
@@ -508,6 +510,74 @@ defmodule Google.Analytics.Admin.V1beta.ListConversionEventsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1beta.CreateKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_event, 1,
+    type: Google.Analytics.Admin.V1beta.KeyEvent,
+    json_name: "keyEvent",
+    deprecated: false
+
+  field :parent, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.UpdateKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_event, 1,
+    type: Google.Analytics.Admin.V1beta.KeyEvent,
+    json_name: "keyEvent",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.GetKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.DeleteKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.ListKeyEventsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1beta.ListKeyEventsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_events, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1beta.KeyEvent,
+    json_name: "keyEvents"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1beta.CreateCustomDimensionRequest do
   @moduledoc false
 
@@ -859,6 +929,24 @@ defmodule Google.Analytics.Admin.V1beta.AnalyticsAdminService.Service do
   rpc :ListConversionEvents,
       Google.Analytics.Admin.V1beta.ListConversionEventsRequest,
       Google.Analytics.Admin.V1beta.ListConversionEventsResponse
+
+  rpc :CreateKeyEvent,
+      Google.Analytics.Admin.V1beta.CreateKeyEventRequest,
+      Google.Analytics.Admin.V1beta.KeyEvent
+
+  rpc :UpdateKeyEvent,
+      Google.Analytics.Admin.V1beta.UpdateKeyEventRequest,
+      Google.Analytics.Admin.V1beta.KeyEvent
+
+  rpc :GetKeyEvent,
+      Google.Analytics.Admin.V1beta.GetKeyEventRequest,
+      Google.Analytics.Admin.V1beta.KeyEvent
+
+  rpc :DeleteKeyEvent, Google.Analytics.Admin.V1beta.DeleteKeyEventRequest, Google.Protobuf.Empty
+
+  rpc :ListKeyEvents,
+      Google.Analytics.Admin.V1beta.ListKeyEventsRequest,
+      Google.Analytics.Admin.V1beta.ListKeyEventsResponse
 
   rpc :CreateCustomDimension,
       Google.Analytics.Admin.V1beta.CreateCustomDimensionRequest,

@@ -116,6 +116,16 @@ defmodule Google.Analytics.Admin.V1beta.ConversionEvent.ConversionCountingMethod
   field :ONCE_PER_SESSION, 2
 end
 
+defmodule Google.Analytics.Admin.V1beta.KeyEvent.CountingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COUNTING_METHOD_UNSPECIFIED, 0
+  field :ONCE_PER_EVENT, 1
+  field :ONCE_PER_SESSION, 2
+end
+
 defmodule Google.Analytics.Admin.V1beta.CustomDimension.DimensionScope do
   @moduledoc false
 
@@ -197,6 +207,7 @@ defmodule Google.Analytics.Admin.V1beta.Account do
   field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
   field :region_code, 5, type: :string, json_name: "regionCode"
   field :deleted, 6, type: :bool, deprecated: false
+  field :gmp_organization, 7, type: :string, json_name: "gmpOrganization", deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1beta.Property do
@@ -508,6 +519,15 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryChange do
     json_name: "resourceAfterChange"
 end
 
+defmodule Google.Analytics.Admin.V1beta.ConversionEvent.DefaultConversionValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :value, 1, proto3_optional: true, type: :double
+  field :currency_code, 2, proto3_optional: true, type: :string, json_name: "currencyCode"
+end
+
 defmodule Google.Analytics.Admin.V1beta.ConversionEvent do
   @moduledoc false
 
@@ -528,6 +548,49 @@ defmodule Google.Analytics.Admin.V1beta.ConversionEvent do
     type: Google.Analytics.Admin.V1beta.ConversionEvent.ConversionCountingMethod,
     json_name: "countingMethod",
     enum: true,
+    deprecated: false
+
+  field :default_conversion_value, 7,
+    proto3_optional: true,
+    type: Google.Analytics.Admin.V1beta.ConversionEvent.DefaultConversionValue,
+    json_name: "defaultConversionValue",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.KeyEvent.DefaultValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :numeric_value, 1, type: :double, json_name: "numericValue", deprecated: false
+  field :currency_code, 2, type: :string, json_name: "currencyCode", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1beta.KeyEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :event_name, 2, type: :string, json_name: "eventName", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :deletable, 4, type: :bool, deprecated: false
+  field :custom, 5, type: :bool, deprecated: false
+
+  field :counting_method, 6,
+    type: Google.Analytics.Admin.V1beta.KeyEvent.CountingMethod,
+    json_name: "countingMethod",
+    enum: true,
+    deprecated: false
+
+  field :default_value, 7,
+    type: Google.Analytics.Admin.V1beta.KeyEvent.DefaultValue,
+    json_name: "defaultValue",
     deprecated: false
 end
 
