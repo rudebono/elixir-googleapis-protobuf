@@ -103,6 +103,9 @@ defmodule Google.Cloud.Vmwareengine.V1.LoggingServer.Protocol do
   field :PROTOCOL_UNSPECIFIED, 0
   field :UDP, 1
   field :TCP, 2
+  field :TLS, 3
+  field :SSL, 4
+  field :RELP, 5
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.LoggingServer.SourceType do
@@ -153,6 +156,7 @@ defmodule Google.Cloud.Vmwareengine.V1.Hcx.State do
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
   field :CREATING, 2
+  field :ACTIVATING, 3
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.Nsx.State do
@@ -199,6 +203,7 @@ defmodule Google.Cloud.Vmwareengine.V1.NetworkPeering.PeerNetworkType do
   field :NETAPP_CLOUD_VOLUMES, 4
   field :THIRD_PARTY_SERVICE, 5
   field :DELL_POWERSCALE, 6
+  field :GOOGLE_CLOUD_NETAPP_VOLUMES, 7
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.PeeringRoute.Type do
@@ -488,6 +493,12 @@ defmodule Google.Cloud.Vmwareengine.V1.Cluster do
 
   field :state, 6, type: Google.Cloud.Vmwareengine.V1.Cluster.State, enum: true, deprecated: false
   field :management, 7, type: :bool, deprecated: false
+
+  field :autoscaling_settings, 18,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings,
+    json_name: "autoscalingSettings",
+    deprecated: false
+
   field :uid, 14, type: :string, deprecated: false
 
   field :node_type_configs, 16,
@@ -744,6 +755,81 @@ defmodule Google.Cloud.Vmwareengine.V1.Vcenter do
   field :version, 4, type: :string
   field :state, 5, type: Google.Cloud.Vmwareengine.V1.Vcenter.State, enum: true, deprecated: false
   field :fqdn, 6, type: :string
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.AutoscalingSettings.Thresholds do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :scale_out, 1, type: :int32, json_name: "scaleOut", deprecated: false
+  field :scale_in, 2, type: :int32, json_name: "scaleIn", deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.AutoscalingSettings.AutoscalingPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :node_type_id, 1, type: :string, json_name: "nodeTypeId", deprecated: false
+  field :scale_out_size, 2, type: :int32, json_name: "scaleOutSize", deprecated: false
+
+  field :cpu_thresholds, 11,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.Thresholds,
+    json_name: "cpuThresholds",
+    deprecated: false
+
+  field :granted_memory_thresholds, 12,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.Thresholds,
+    json_name: "grantedMemoryThresholds",
+    deprecated: false
+
+  field :consumed_memory_thresholds, 13,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.Thresholds,
+    json_name: "consumedMemoryThresholds",
+    deprecated: false
+
+  field :storage_thresholds, 14,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.Thresholds,
+    json_name: "storageThresholds",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.AutoscalingSettings.AutoscalingPoliciesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.AutoscalingPolicy
+end
+
+defmodule Google.Cloud.Vmwareengine.V1.AutoscalingSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :autoscaling_policies, 1,
+    repeated: true,
+    type: Google.Cloud.Vmwareengine.V1.AutoscalingSettings.AutoscalingPoliciesEntry,
+    json_name: "autoscalingPolicies",
+    map: true,
+    deprecated: false
+
+  field :min_cluster_node_count, 2,
+    type: :int32,
+    json_name: "minClusterNodeCount",
+    deprecated: false
+
+  field :max_cluster_node_count, 3,
+    type: :int32,
+    json_name: "maxClusterNodeCount",
+    deprecated: false
+
+  field :cool_down_period, 4,
+    type: Google.Protobuf.Duration,
+    json_name: "coolDownPeriod",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Vmwareengine.V1.DnsForwarding.ForwardingRule do

@@ -260,6 +260,7 @@ defmodule Google.Cloud.Deploy.V1.AutomationRun.State do
   field :FAILED, 3
   field :IN_PROGRESS, 4
   field :PENDING, 5
+  field :ABORTED, 6
 end
 
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
