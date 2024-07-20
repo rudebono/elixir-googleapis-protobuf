@@ -467,6 +467,8 @@ defmodule Google.Cloud.Speech.V2.RecognitionResponseMetadata do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :request_id, 9, type: :string, json_name: "requestId", deprecated: false
+
   field :total_billed_duration, 6,
     type: Google.Protobuf.Duration,
     json_name: "totalBilledDuration"

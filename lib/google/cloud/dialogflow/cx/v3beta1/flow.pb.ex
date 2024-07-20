@@ -105,6 +105,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flow do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow.MultiLanguageSettings,
     json_name: "multiLanguageSettings",
     deprecated: false
+
+  field :locked, 30, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateFlowRequest do

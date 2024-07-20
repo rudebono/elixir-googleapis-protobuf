@@ -238,6 +238,17 @@ defmodule Google.Bigtable.V2.Mutation.AddToCell do
   field :input, 4, type: Google.Bigtable.V2.Value
 end
 
+defmodule Google.Bigtable.V2.Mutation.MergeToCell do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :family_name, 1, type: :string, json_name: "familyName"
+  field :column_qualifier, 2, type: Google.Bigtable.V2.Value, json_name: "columnQualifier"
+  field :timestamp, 3, type: Google.Bigtable.V2.Value
+  field :input, 4, type: Google.Bigtable.V2.Value
+end
+
 defmodule Google.Bigtable.V2.Mutation.DeleteFromColumn do
   @moduledoc false
 
@@ -274,6 +285,11 @@ defmodule Google.Bigtable.V2.Mutation do
   field :add_to_cell, 5,
     type: Google.Bigtable.V2.Mutation.AddToCell,
     json_name: "addToCell",
+    oneof: 0
+
+  field :merge_to_cell, 6,
+    type: Google.Bigtable.V2.Mutation.MergeToCell,
+    json_name: "mergeToCell",
     oneof: 0
 
   field :delete_from_column, 2,

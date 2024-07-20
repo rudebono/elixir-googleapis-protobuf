@@ -47,6 +47,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.LoggingSettings do
 
   field :enable_stackdriver_logging, 2, type: :bool, json_name: "enableStackdriverLogging"
   field :enable_interaction_logging, 3, type: :bool, json_name: "enableInteractionLogging"
+  field :enable_consent_based_redaction, 4, type: :bool, json_name: "enableConsentBasedRedaction"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings do
