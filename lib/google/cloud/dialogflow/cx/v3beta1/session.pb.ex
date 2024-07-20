@@ -40,6 +40,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Match.MatchType do
   field :NO_MATCH, 4
   field :NO_INPUT, 5
   field :EVENT, 6
+  field :KNOWLEDGE_CONNECTOR, 8
   field :PLAYBOOK, 9
 end
 

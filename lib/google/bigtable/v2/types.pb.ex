@@ -22,6 +22,12 @@ defmodule Google.Bigtable.V2.Type.Bytes do
   field :encoding, 1, type: Google.Bigtable.V2.Type.Bytes.Encoding
 end
 
+defmodule Google.Bigtable.V2.Type.String.Encoding.Utf8Raw do
+  @moduledoc false
+
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Bigtable.V2.Type.String.Encoding.Utf8Bytes do
   @moduledoc false
 
@@ -34,6 +40,12 @@ defmodule Google.Bigtable.V2.Type.String.Encoding do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   oneof :encoding, 0
+
+  field :utf8_raw, 1,
+    type: Google.Bigtable.V2.Type.String.Encoding.Utf8Raw,
+    json_name: "utf8Raw",
+    oneof: 0,
+    deprecated: true
 
   field :utf8_bytes, 2,
     type: Google.Bigtable.V2.Type.String.Encoding.Utf8Bytes,

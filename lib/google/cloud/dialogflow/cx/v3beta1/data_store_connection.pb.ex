@@ -73,6 +73,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.Rewriter
 
   field :rendered_prompt, 1, type: :string, json_name: "renderedPrompt"
   field :model_output, 2, type: :string, json_name: "modelOutput"
+  field :model, 3, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SearchSnippet do
@@ -92,6 +93,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.AnswerGe
 
   field :rendered_prompt, 1, type: :string, json_name: "renderedPrompt"
   field :model_output, 2, type: :string, json_name: "modelOutput"
+  field :model, 3, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.AnswerPart do

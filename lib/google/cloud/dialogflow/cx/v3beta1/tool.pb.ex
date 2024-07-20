@@ -147,6 +147,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.OpenApiTool do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.TLSConfig,
     json_name: "tlsConfig",
     deprecated: false
+
+  field :service_directory_config, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ServiceDirectoryConfig,
+    json_name: "serviceDirectoryConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.DataStoreTool.FallbackPrompt do
@@ -275,6 +280,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.TLSConfig do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.TLSConfig.CACert,
     json_name: "caCerts",
     deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ServiceDirectoryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool do

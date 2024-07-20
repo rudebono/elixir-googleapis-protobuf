@@ -102,6 +102,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
 
   field :target_page, 2, type: :string, json_name: "targetPage", oneof: 0, deprecated: false
   field :target_flow, 3, type: :string, json_name: "targetFlow", oneof: 0, deprecated: false
+
+  field :target_playbook, 7,
+    type: :string,
+    json_name: "targetPlaybook",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
