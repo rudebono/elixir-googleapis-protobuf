@@ -126,6 +126,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings do
     type: Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.AudioExportSettings.AudioFormat,
     json_name: "audioFormat",
     enum: true
+
+  field :store_tts_audio, 6, type: :bool, json_name: "storeTtsAudio"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SecuritySettings.InsightsExportSettings do

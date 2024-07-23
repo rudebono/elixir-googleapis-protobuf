@@ -40,6 +40,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Match.MatchType do
   field :NO_MATCH, 4
   field :NO_INPUT, 5
   field :EVENT, 6
+  field :KNOWLEDGE_CONNECTOR, 8
+  field :PLAYBOOK, 9
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.AnswerFeedback.RatingReason do
@@ -325,6 +327,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryParameters do
     type: Google.Cloud.Dialogflow.Cx.V3.SearchConfig,
     json_name: "searchConfig",
     deprecated: false
+
+  field :populate_data_store_connection_signals, 25,
+    type: :bool,
+    json_name: "populateDataStoreConnectionSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SearchConfig do
@@ -470,6 +477,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.QueryResult do
     json_name: "advancedSettings"
 
   field :allow_answer_feedback, 32, type: :bool, json_name: "allowAnswerFeedback"
+
+  field :data_store_connection_signals, 35,
+    type: Google.Cloud.Dialogflow.Cx.V3.DataStoreConnectionSignals,
+    json_name: "dataStoreConnectionSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.TextInput do
