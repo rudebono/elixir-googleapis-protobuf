@@ -46,6 +46,23 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.NluSettings do
     enum: true
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Flow.MultiLanguageSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :enable_multi_language_detection, 1,
+    type: :bool,
+    json_name: "enableMultiLanguageDetection",
+    deprecated: false
+
+  field :supported_response_language_codes, 2,
+    repeated: true,
+    type: :string,
+    json_name: "supportedResponseLanguageCodes",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Flow do
   @moduledoc false
 
@@ -83,6 +100,13 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Flow do
     type: Google.Cloud.Dialogflow.Cx.V3.KnowledgeConnectorSettings,
     json_name: "knowledgeConnectorSettings",
     deprecated: false
+
+  field :multi_language_settings, 28,
+    type: Google.Cloud.Dialogflow.Cx.V3.Flow.MultiLanguageSettings,
+    json_name: "multiLanguageSettings",
+    deprecated: false
+
+  field :locked, 30, type: :bool
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateFlowRequest do

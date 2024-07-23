@@ -70,6 +70,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.AnswerFeedbackSettings do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Agent.PersonalizationSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :default_end_user_metadata, 1,
+    type: Google.Protobuf.Struct,
+    json_name: "defaultEndUserMetadata",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   @moduledoc false
 
@@ -105,6 +116,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
     deprecated: true
 
   field :enable_spell_correction, 20, type: :bool, json_name: "enableSpellCorrection"
+
+  field :enable_multi_language_training, 40,
+    type: :bool,
+    json_name: "enableMultiLanguageTraining",
+    deprecated: false
+
   field :locked, 27, type: :bool
 
   field :advanced_settings, 22,
@@ -127,6 +144,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Agent do
   field :answer_feedback_settings, 38,
     type: Google.Cloud.Dialogflow.Cx.V3.Agent.AnswerFeedbackSettings,
     json_name: "answerFeedbackSettings",
+    deprecated: false
+
+  field :personalization_settings, 42,
+    type: Google.Cloud.Dialogflow.Cx.V3.Agent.PersonalizationSettings,
+    json_name: "personalizationSettings",
     deprecated: false
 end
 
