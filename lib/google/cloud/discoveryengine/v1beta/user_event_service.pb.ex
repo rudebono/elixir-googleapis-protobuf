@@ -40,6 +40,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.UserEventService.Service do
       Google.Cloud.Discoveryengine.V1beta.CollectUserEventRequest,
       Google.Api.HttpBody
 
+  rpc :PurgeUserEvents,
+      Google.Cloud.Discoveryengine.V1beta.PurgeUserEventsRequest,
+      Google.Longrunning.Operation
+
   rpc :ImportUserEvents,
       Google.Cloud.Discoveryengine.V1beta.ImportUserEventsRequest,
       Google.Longrunning.Operation

@@ -9,6 +9,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel.ModelState do
   field :TRAINING_COMPLETE, 3
   field :READY_FOR_SERVING, 4
   field :TRAINING_FAILED, 5
+  field :NO_IMPROVEMENT, 6
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel.MetricsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :double
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel do
@@ -25,6 +35,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel do
     json_name: "modelState",
     enum: true
 
-  field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: true
+
   field :training_start_time, 6, type: Google.Protobuf.Timestamp, json_name: "trainingStartTime"
+
+  field :metrics, 7,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.CustomTuningModel.MetricsEntry,
+    map: true
 end

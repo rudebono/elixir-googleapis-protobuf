@@ -495,6 +495,15 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.MysqlExportOptions 
   field :master_data, 1, type: Google.Protobuf.Int32Value, json_name: "masterData"
 end
 
+defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.PostgresExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :clean, 1, type: Google.Protobuf.BoolValue, deprecated: false
+  field :if_exists, 2, type: Google.Protobuf.BoolValue, json_name: "ifExists", deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
   @moduledoc false
 
@@ -509,6 +518,11 @@ defmodule Google.Cloud.Sql.V1.ExportContext.SqlExportOptions do
 
   field :threads, 4, type: Google.Protobuf.Int32Value, deprecated: false
   field :parallel, 5, type: Google.Protobuf.BoolValue, deprecated: false
+
+  field :postgres_export_options, 6,
+    type: Google.Cloud.Sql.V1.ExportContext.SqlExportOptions.PostgresExportOptions,
+    json_name: "postgresExportOptions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.ExportContext.SqlBakExportOptions do
@@ -548,6 +562,15 @@ defmodule Google.Cloud.Sql.V1.ExportContext do
     json_name: "bakExportOptions"
 end
 
+defmodule Google.Cloud.Sql.V1.ImportContext.SqlImportOptions.PostgresImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :clean, 1, type: Google.Protobuf.BoolValue, deprecated: false
+  field :if_exists, 2, type: Google.Protobuf.BoolValue, json_name: "ifExists", deprecated: false
+end
+
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlImportOptions do
   @moduledoc false
 
@@ -555,6 +578,11 @@ defmodule Google.Cloud.Sql.V1.ImportContext.SqlImportOptions do
 
   field :threads, 1, type: Google.Protobuf.Int32Value, deprecated: false
   field :parallel, 2, type: Google.Protobuf.BoolValue, deprecated: false
+
+  field :postgres_import_options, 3,
+    type: Google.Cloud.Sql.V1.ImportContext.SqlImportOptions.PostgresImportOptions,
+    json_name: "postgresImportOptions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.ImportContext.SqlCsvImportOptions do
