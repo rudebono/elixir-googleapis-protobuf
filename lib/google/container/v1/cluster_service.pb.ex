@@ -1039,9 +1039,13 @@ defmodule Google.Container.V1.MasterAuth do
     type: Google.Container.V1.ClientCertificateConfig,
     json_name: "clientCertificateConfig"
 
-  field :cluster_ca_certificate, 100, type: :string, json_name: "clusterCaCertificate"
-  field :client_certificate, 101, type: :string, json_name: "clientCertificate"
-  field :client_key, 102, type: :string, json_name: "clientKey"
+  field :cluster_ca_certificate, 100,
+    type: :string,
+    json_name: "clusterCaCertificate",
+    deprecated: false
+
+  field :client_certificate, 101, type: :string, json_name: "clientCertificate", deprecated: false
+  field :client_key, 102, type: :string, json_name: "clientKey", deprecated: false
 end
 
 defmodule Google.Container.V1.ClientCertificateConfig do
@@ -1169,9 +1173,9 @@ defmodule Google.Container.V1.PrivateClusterConfig do
   field :enable_private_nodes, 1, type: :bool, json_name: "enablePrivateNodes"
   field :enable_private_endpoint, 2, type: :bool, json_name: "enablePrivateEndpoint"
   field :master_ipv4_cidr_block, 3, type: :string, json_name: "masterIpv4CidrBlock"
-  field :private_endpoint, 4, type: :string, json_name: "privateEndpoint"
-  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint"
-  field :peering_name, 7, type: :string, json_name: "peeringName"
+  field :private_endpoint, 4, type: :string, json_name: "privateEndpoint", deprecated: false
+  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint", deprecated: false
+  field :peering_name, 7, type: :string, json_name: "peeringName", deprecated: false
 
   field :master_global_access_config, 8,
     type: Google.Container.V1.PrivateClusterMasterGlobalAccessConfig,
@@ -1505,22 +1509,26 @@ defmodule Google.Container.V1.Cluster do
     type: Google.Container.V1.IdentityServiceConfig,
     json_name: "identityServiceConfig"
 
-  field :self_link, 100, type: :string, json_name: "selfLink"
+  field :self_link, 100, type: :string, json_name: "selfLink", deprecated: false
   field :zone, 101, type: :string, deprecated: true
-  field :endpoint, 102, type: :string
+  field :endpoint, 102, type: :string, deprecated: false
   field :initial_cluster_version, 103, type: :string, json_name: "initialClusterVersion"
-  field :current_master_version, 104, type: :string, json_name: "currentMasterVersion"
+
+  field :current_master_version, 104,
+    type: :string,
+    json_name: "currentMasterVersion",
+    deprecated: false
 
   field :current_node_version, 105,
     type: :string,
     json_name: "currentNodeVersion",
     deprecated: true
 
-  field :create_time, 106, type: :string, json_name: "createTime"
-  field :status, 107, type: Google.Container.V1.Cluster.Status, enum: true
+  field :create_time, 106, type: :string, json_name: "createTime", deprecated: false
+  field :status, 107, type: Google.Container.V1.Cluster.Status, enum: true, deprecated: false
   field :status_message, 108, type: :string, json_name: "statusMessage", deprecated: true
-  field :node_ipv4_cidr_size, 109, type: :int32, json_name: "nodeIpv4CidrSize"
-  field :services_ipv4_cidr, 110, type: :string, json_name: "servicesIpv4Cidr"
+  field :node_ipv4_cidr_size, 109, type: :int32, json_name: "nodeIpv4CidrSize", deprecated: false
+  field :services_ipv4_cidr, 110, type: :string, json_name: "servicesIpv4Cidr", deprecated: false
 
   field :instance_group_urls, 111,
     repeated: true,
@@ -1529,10 +1537,10 @@ defmodule Google.Container.V1.Cluster do
     deprecated: true
 
   field :current_node_count, 112, type: :int32, json_name: "currentNodeCount", deprecated: true
-  field :expire_time, 113, type: :string, json_name: "expireTime"
-  field :location, 114, type: :string
+  field :expire_time, 113, type: :string, json_name: "expireTime", deprecated: false
+  field :location, 114, type: :string, deprecated: false
   field :enable_tpu, 115, type: :bool, json_name: "enableTpu"
-  field :tpu_ipv4_cidr_block, 116, type: :string, json_name: "tpuIpv4CidrBlock"
+  field :tpu_ipv4_cidr_block, 116, type: :string, json_name: "tpuIpv4CidrBlock", deprecated: false
   field :conditions, 118, repeated: true, type: Google.Container.V1.StatusCondition
   field :autopilot, 128, type: Google.Container.V1.Autopilot
   field :id, 129, type: :string, deprecated: false
@@ -1898,22 +1906,23 @@ defmodule Google.Container.V1.Operation do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :zone, 2, type: :string, deprecated: true
 
   field :operation_type, 3,
     type: Google.Container.V1.Operation.Type,
     json_name: "operationType",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :status, 4, type: Google.Container.V1.Operation.Status, enum: true
-  field :detail, 8, type: :string
+  field :status, 4, type: Google.Container.V1.Operation.Status, enum: true, deprecated: false
+  field :detail, 8, type: :string, deprecated: false
   field :status_message, 5, type: :string, json_name: "statusMessage", deprecated: true
-  field :self_link, 6, type: :string, json_name: "selfLink"
-  field :target_link, 7, type: :string, json_name: "targetLink"
-  field :location, 9, type: :string
-  field :start_time, 10, type: :string, json_name: "startTime"
-  field :end_time, 11, type: :string, json_name: "endTime"
+  field :self_link, 6, type: :string, json_name: "selfLink", deprecated: false
+  field :target_link, 7, type: :string, json_name: "targetLink", deprecated: false
+  field :location, 9, type: :string, deprecated: false
+  field :start_time, 10, type: :string, json_name: "startTime", deprecated: false
+  field :end_time, 11, type: :string, json_name: "endTime", deprecated: false
   field :progress, 12, type: Google.Container.V1.OperationProgress, deprecated: false
 
   field :cluster_conditions, 13,
@@ -2435,10 +2444,16 @@ defmodule Google.Container.V1.NodePool do
     type: Google.Container.V1.NodeNetworkConfig,
     json_name: "networkConfig"
 
-  field :self_link, 100, type: :string, json_name: "selfLink"
+  field :self_link, 100, type: :string, json_name: "selfLink", deprecated: false
   field :version, 101, type: :string
-  field :instance_group_urls, 102, repeated: true, type: :string, json_name: "instanceGroupUrls"
-  field :status, 103, type: Google.Container.V1.NodePool.Status, enum: true
+
+  field :instance_group_urls, 102,
+    repeated: true,
+    type: :string,
+    json_name: "instanceGroupUrls",
+    deprecated: false
+
+  field :status, 103, type: Google.Container.V1.NodePool.Status, enum: true, deprecated: false
   field :status_message, 104, type: :string, json_name: "statusMessage", deprecated: true
   field :autoscaling, 4, type: Google.Container.V1.NodePoolAutoscaling
   field :management, 5, type: Google.Container.V1.NodeManagement
@@ -2448,7 +2463,7 @@ defmodule Google.Container.V1.NodePool do
     json_name: "maxPodsConstraint"
 
   field :conditions, 105, repeated: true, type: Google.Container.V1.StatusCondition
-  field :pod_ipv4_cidr_size, 7, type: :int32, json_name: "podIpv4CidrSize"
+  field :pod_ipv4_cidr_size, 7, type: :int32, json_name: "podIpv4CidrSize", deprecated: false
 
   field :upgrade_settings, 107,
     type: Google.Container.V1.NodePool.UpgradeSettings,
@@ -2501,8 +2516,12 @@ defmodule Google.Container.V1.AutoUpgradeOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :auto_upgrade_start_time, 1, type: :string, json_name: "autoUpgradeStartTime"
-  field :description, 2, type: :string
+  field :auto_upgrade_start_time, 1,
+    type: :string,
+    json_name: "autoUpgradeStartTime",
+    deprecated: false
+
+  field :description, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Container.V1.MaintenancePolicy do
@@ -2586,7 +2605,7 @@ defmodule Google.Container.V1.DailyMaintenanceWindow do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :start_time, 2, type: :string, json_name: "startTime"
-  field :duration, 3, type: :string
+  field :duration, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Container.V1.SetNodePoolManagementRequest do
@@ -2909,8 +2928,8 @@ defmodule Google.Container.V1.NetworkConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :network, 1, type: :string
-  field :subnetwork, 2, type: :string
+  field :network, 1, type: :string, deprecated: false
+  field :subnetwork, 2, type: :string, deprecated: false
   field :enable_intra_node_visibility, 5, type: :bool, json_name: "enableIntraNodeVisibility"
 
   field :default_snat_status, 7,
@@ -3552,8 +3571,8 @@ defmodule Google.Container.V1.Fleet do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :project, 1, type: :string
-  field :membership, 2, type: :string
-  field :pre_registered, 3, type: :bool, json_name: "preRegistered"
+  field :membership, 2, type: :string, deprecated: false
+  field :pre_registered, 3, type: :bool, json_name: "preRegistered", deprecated: false
 end
 
 defmodule Google.Container.V1.LocalNvmeSsdBlockConfig do

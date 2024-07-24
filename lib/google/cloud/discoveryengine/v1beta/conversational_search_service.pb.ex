@@ -353,6 +353,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.QueryUnderstand
     json_name: "queryRephraserSpec"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest do
   @moduledoc false
 
@@ -384,6 +393,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest do
 
   field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode"
   field :user_pseudo_id, 12, type: :string, json_name: "userPseudoId"
+
+  field :user_labels, 13,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryResponse do

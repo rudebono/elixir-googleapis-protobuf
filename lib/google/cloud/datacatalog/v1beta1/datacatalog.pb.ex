@@ -225,7 +225,7 @@ defmodule Google.Cloud.Datacatalog.V1beta1.EntryGroup do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 
