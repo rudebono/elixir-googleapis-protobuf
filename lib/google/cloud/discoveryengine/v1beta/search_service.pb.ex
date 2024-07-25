@@ -385,6 +385,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SessionSpec do
   field :query_id, 1, type: :string, json_name: "queryId"
 
   field :search_result_persistence_count, 2,
+    proto3_optional: true,
     type: :int32,
     json_name: "searchResultPersistenceCount"
 end

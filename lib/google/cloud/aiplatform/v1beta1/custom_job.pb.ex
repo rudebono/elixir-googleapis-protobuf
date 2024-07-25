@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling.Strategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STRATEGY_UNSPECIFIED, 0
+  field :ON_DEMAND, 1
+  field :LOW_COST, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CustomJob.LabelsEntry do
   @moduledoc false
 
@@ -179,5 +189,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Scheduling do
 
   field :timeout, 1, type: Google.Protobuf.Duration
   field :restart_job_on_worker_restart, 3, type: :bool, json_name: "restartJobOnWorkerRestart"
+
+  field :strategy, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.Scheduling.Strategy,
+    enum: true,
+    deprecated: false
+
   field :disable_retries, 5, type: :bool, json_name: "disableRetries", deprecated: false
 end

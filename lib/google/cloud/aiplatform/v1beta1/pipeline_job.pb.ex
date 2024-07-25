@@ -159,6 +159,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
     type: :bool,
     json_name: "preflightValidations",
     deprecated: false
+
+  field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do

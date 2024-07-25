@@ -246,6 +246,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensRequest do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.Content,
     deprecated: false
+
+  field :system_instruction, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
+  field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
@@ -355,6 +363,43 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest do
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PredictLongRunningResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :response, 0
+
+  field :generate_video_response, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateVideoResponse,
+    json_name: "generateVideoResponse",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PredictLongRunningMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateVideoResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generated_samples, 1, repeated: true, type: :string, json_name: "generatedSamples"
+
+  field :rai_media_filtered_count, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "raiMediaFilteredCount"
+
+  field :rai_media_filtered_reasons, 3,
+    repeated: true,
+    type: :string,
+    json_name: "raiMediaFilteredReasons"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do

@@ -195,4 +195,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchPredictionJob do
     deprecated: false
 
   field :disable_container_logging, 34, type: :bool, json_name: "disableContainerLogging"
+  field :satisfies_pzs, 36, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 37, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

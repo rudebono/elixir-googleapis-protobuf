@@ -21,4 +21,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeploymentResourcePool do
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
     deprecated: false
+
+  field :satisfies_pzs, 8, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 9, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
