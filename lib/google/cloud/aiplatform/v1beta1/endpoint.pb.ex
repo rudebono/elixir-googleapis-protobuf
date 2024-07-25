@@ -78,6 +78,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   field :predict_request_response_logging_config, 18,
     type: Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig,
     json_name: "predictRequestResponseLoggingConfig"
+
+  field :dedicated_endpoint_enabled, 24, type: :bool, json_name: "dedicatedEndpointEnabled"
+
+  field :dedicated_endpoint_dns, 25,
+    type: :string,
+    json_name: "dedicatedEndpointDns",
+    deprecated: false
+
+  field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do

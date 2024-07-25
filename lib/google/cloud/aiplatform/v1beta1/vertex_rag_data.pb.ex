@@ -81,6 +81,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
     oneof: 0,
     deprecated: false
 
+  field :slack_source, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.SlackSource,
+    json_name: "slackSource",
+    oneof: 0
+
+  field :jira_source, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.JiraSource,
+    json_name: "jiraSource",
+    oneof: 0
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
@@ -137,6 +147,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
   field :google_drive_source, 3,
     type: Google.Cloud.Aiplatform.V1beta1.GoogleDriveSource,
     json_name: "googleDriveSource",
+    oneof: 0
+
+  field :slack_source, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.SlackSource,
+    json_name: "slackSource",
+    oneof: 0
+
+  field :jira_source, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.JiraSource,
+    json_name: "jiraSource",
     oneof: 0
 
   field :rag_file_chunking_config, 4,

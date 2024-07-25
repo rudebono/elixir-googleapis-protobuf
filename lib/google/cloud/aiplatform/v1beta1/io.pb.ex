@@ -123,3 +123,68 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DirectUploadSource do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SlackSource.SlackChannels.SlackChannel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :channel_id, 1, type: :string, json_name: "channelId", deprecated: false
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SlackSource.SlackChannels do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :channels, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SlackSource.SlackChannels.SlackChannel,
+    deprecated: false
+
+  field :api_key_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.ApiAuth.ApiKeyConfig,
+    json_name: "apiKeyConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SlackSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :channels, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SlackSource.SlackChannels,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.JiraSource.JiraQueries do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :projects, 3, repeated: true, type: :string
+  field :custom_queries, 4, repeated: true, type: :string, json_name: "customQueries"
+  field :email, 5, type: :string, deprecated: false
+  field :server_uri, 6, type: :string, json_name: "serverUri", deprecated: false
+
+  field :api_key_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.ApiAuth.ApiKeyConfig,
+    json_name: "apiKeyConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.JiraSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :jira_queries, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.JiraSource.JiraQueries,
+    json_name: "jiraQueries",
+    deprecated: false
+end

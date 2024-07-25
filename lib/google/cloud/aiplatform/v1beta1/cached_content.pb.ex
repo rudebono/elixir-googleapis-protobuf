@@ -8,6 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent do
   field :expire_time, 9, type: Google.Protobuf.Timestamp, json_name: "expireTime", oneof: 0
   field :ttl, 10, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
   field :name, 1, type: :string, deprecated: false
+  field :display_name, 11, type: :string, json_name: "displayName", deprecated: false
   field :model, 2, type: :string, deprecated: false
 
   field :system_instruction, 3,

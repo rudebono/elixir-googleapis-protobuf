@@ -18,6 +18,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format do
   field :PROTO_STRUCT, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter.Operator do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OPERATOR_UNSPECIFIED, 0
+  field :LESS, 1
+  field :LESS_EQUAL, 2
+  field :EQUAL, 3
+  field :GREATER_EQUAL, 4
+  field :GREATER, 5
+  field :NOT_EQUAL, 6
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey.CompositeKey do
   @moduledoc false
 
@@ -165,6 +179,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.StringFilter do
   field :deny_tokens, 3, repeated: true, type: :string, json_name: "denyTokens", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :Value, 0
+
+  field :value_int, 2, type: :int64, json_name: "valueInt", oneof: 0
+  field :value_float, 3, type: :float, json_name: "valueFloat", oneof: 0
+  field :value_double, 4, type: :double, json_name: "valueDouble", oneof: 0
+  field :name, 1, type: :string, deprecated: false
+
+  field :op, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter.Operator,
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.Parameters do
   @moduledoc false
 
@@ -201,6 +234,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.StringFilter,
     json_name: "stringFilters",
+    deprecated: false
+
+  field :numeric_filters, 8,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter,
+    json_name: "numericFilters",
     deprecated: false
 
   field :per_crowding_attribute_neighbor_count, 5,

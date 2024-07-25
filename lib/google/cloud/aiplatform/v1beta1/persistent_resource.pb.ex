@@ -62,6 +62,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource do
 
   field :network, 11, type: :string, deprecated: false
 
+  field :psc_interface_config, 17,
+    type: Google.Cloud.Aiplatform.V1beta1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
   field :encryption_spec, 12,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec",
@@ -181,6 +186,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RaySpec do
     type: Google.Cloud.Aiplatform.V1beta1.RayMetricSpec,
     json_name: "rayMetricSpec",
     deprecated: false
+
+  field :ray_logs_spec, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.RayLogsSpec,
+    json_name: "rayLogsSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ResourceRuntime.AccessUrisEntry do
@@ -224,6 +234,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ServiceAccountSpec do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RayMetricSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :disabled, 1, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RayLogsSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
