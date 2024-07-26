@@ -49,6 +49,16 @@ defmodule Google.Cloud.Language.V2.EntityMention.Type do
   field :COMMON, 2
 end
 
+defmodule Google.Cloud.Language.V2.ModerateTextRequest.ModelVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MODEL_VERSION_UNSPECIFIED, 0
+  field :MODEL_VERSION_1, 1
+  field :MODEL_VERSION_2, 2
+end
+
 defmodule Google.Cloud.Language.V2.Document do
   @moduledoc false
 
@@ -133,6 +143,7 @@ defmodule Google.Cloud.Language.V2.ClassificationCategory do
 
   field :name, 1, type: :string
   field :confidence, 2, type: :float
+  field :severity, 3, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Language.V2.AnalyzeSentimentRequest do
@@ -209,6 +220,12 @@ defmodule Google.Cloud.Language.V2.ModerateTextRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
+
+  field :model_version, 2,
+    type: Google.Cloud.Language.V2.ModerateTextRequest.ModelVersion,
+    json_name: "modelVersion",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Language.V2.ModerateTextResponse do

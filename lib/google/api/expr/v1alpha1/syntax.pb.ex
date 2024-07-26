@@ -84,6 +84,7 @@ defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
+  field :iter_var2, 8, type: :string, json_name: "iterVar2"
   field :iter_range, 2, type: Google.Api.Expr.V1alpha1.Expr, json_name: "iterRange"
   field :accu_var, 3, type: :string, json_name: "accuVar"
   field :accu_init, 4, type: Google.Api.Expr.V1alpha1.Expr, json_name: "accuInit"
