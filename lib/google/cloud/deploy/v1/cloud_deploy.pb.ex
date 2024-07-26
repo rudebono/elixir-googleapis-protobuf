@@ -30,7 +30,7 @@ defmodule Google.Cloud.Deploy.V1.RepairState do
   field :REPAIR_STATE_FAILED, 3
   field :REPAIR_STATE_IN_PROGRESS, 4
   field :REPAIR_STATE_PENDING, 5
-  field :REPAIR_STATE_SKIPPED, 6
+  field :REPAIR_STATE_ABORTED, 7
 end
 
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
@@ -497,6 +497,8 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
     type: Google.Protobuf.Duration,
     json_name: "stableCutbackDuration",
     deprecated: false
+
+  field :pod_selector_label, 6, type: :string, json_name: "podSelectorLabel", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
@@ -511,6 +513,8 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
     type: :bool,
     json_name: "disablePodOverprovisioning",
     deprecated: false
+
+  field :pod_selector_label, 4, type: :string, json_name: "podSelectorLabel", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig do
@@ -2772,56 +2776,8 @@ defmodule Google.Cloud.Deploy.V1.RepairRolloutRule do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
-
-  field :source_phases, 2,
-    repeated: true,
-    type: :string,
-    json_name: "sourcePhases",
-    deprecated: false
-
   field :jobs, 3, repeated: true, type: :string, deprecated: false
-
-  field :repair_modes, 4,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.RepairMode,
-    json_name: "repairModes",
-    deprecated: false
-
   field :condition, 6, type: Google.Cloud.Deploy.V1.AutomationRuleCondition, deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.RepairMode do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :mode, 0
-
-  field :retry, 1, type: Google.Cloud.Deploy.V1.Retry, oneof: 0, deprecated: false
-  field :rollback, 2, type: Google.Cloud.Deploy.V1.Rollback, oneof: 0, deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.Retry do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :attempts, 1, type: :int64, deprecated: false
-  field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
-
-  field :backoff_mode, 3,
-    type: Google.Cloud.Deploy.V1.BackoffMode,
-    json_name: "backoffMode",
-    enum: true,
-    deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.Rollback do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :destination_phase, 1, type: :string, json_name: "destinationPhase", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AutomationRuleCondition do
@@ -3002,16 +2958,14 @@ defmodule Google.Cloud.Deploy.V1.RepairRolloutOperation do
 
   field :rollout, 1, type: :string, deprecated: false
 
-  field :current_repair_mode_index, 2,
-    type: :int64,
-    json_name: "currentRepairModeIndex",
-    deprecated: false
-
   field :repair_phases, 3,
     repeated: true,
     type: Google.Cloud.Deploy.V1.RepairPhase,
     json_name: "repairPhases",
     deprecated: false
+
+  field :phase_id, 4, type: :string, json_name: "phaseId", deprecated: false
+  field :job_id, 5, type: :string, json_name: "jobId", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RepairPhase do
@@ -3038,8 +2992,6 @@ defmodule Google.Cloud.Deploy.V1.RetryPhase do
     enum: true,
     deprecated: false
 
-  field :phase_id, 3, type: :string, json_name: "phaseId", deprecated: false
-  field :job_id, 4, type: :string, json_name: "jobId", deprecated: false
   field :attempts, 5, repeated: true, type: Google.Cloud.Deploy.V1.RetryAttempt, deprecated: false
 end
 
