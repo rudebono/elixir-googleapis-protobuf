@@ -279,6 +279,7 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
 
   field :index, 1, type: :int32, deprecated: false
   field :content, 2, type: Google.Cloud.Aiplatform.V1.Content, deprecated: false
+  field :score, 8, type: :double, deprecated: false
 
   field :finish_reason, 3,
     type: Google.Cloud.Aiplatform.V1.Candidate.FinishReason,
@@ -309,6 +310,65 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Segment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
+  field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
+  field :end_index, 3, type: :int32, json_name: "endIndex", deprecated: false
+  field :text, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Web do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, proto3_optional: true, type: :string
+  field :title, 2, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, proto3_optional: true, type: :string
+  field :title, 2, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :chunk_type, 0
+
+  field :web, 1, type: Google.Cloud.Aiplatform.V1.GroundingChunk.Web, oneof: 0
+
+  field :retrieved_context, 2,
+    type: Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext,
+    json_name: "retrievedContext",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingSupport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :segment, 1, proto3_optional: true, type: Google.Cloud.Aiplatform.V1.Segment
+
+  field :grounding_chunk_indices, 2,
+    repeated: true,
+    type: :int32,
+    json_name: "groundingChunkIndices"
+
+  field :confidence_scores, 3, repeated: true, type: :float, json_name: "confidenceScores"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
   @moduledoc false
 
@@ -324,6 +384,17 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1.SearchEntryPoint,
     json_name: "searchEntryPoint",
+    deprecated: false
+
+  field :grounding_chunks, 5,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.GroundingChunk,
+    json_name: "groundingChunks"
+
+  field :grounding_supports, 6,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.GroundingSupport,
+    json_name: "groundingSupports",
     deprecated: false
 end
 
