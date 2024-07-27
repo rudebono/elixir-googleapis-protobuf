@@ -197,6 +197,14 @@ defmodule Google.Cloud.Aiplatform.V1.CountTokensRequest do
   field :model, 3, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
   field :contents, 4, repeated: true, type: Google.Cloud.Aiplatform.V1.Content, deprecated: false
+
+  field :system_instruction, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
+  field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1.Tool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CountTokensResponse do

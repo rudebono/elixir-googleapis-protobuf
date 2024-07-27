@@ -108,6 +108,7 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDatasetDistribution do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :sum, 1, type: :int64, deprecated: false
+  field :billable_sum, 9, type: :int64, json_name: "billableSum", deprecated: false
   field :min, 2, type: :double, deprecated: false
   field :max, 3, type: :double, deprecated: false
   field :mean, 4, type: :double, deprecated: false
@@ -139,6 +140,11 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDataStats do
   field :total_billable_character_count, 3,
     type: :int64,
     json_name: "totalBillableCharacterCount",
+    deprecated: true
+
+  field :total_billable_token_count, 9,
+    type: :int64,
+    json_name: "totalBillableTokenCount",
     deprecated: false
 
   field :tuning_step_count, 4, type: :int64, json_name: "tuningStepCount", deprecated: false

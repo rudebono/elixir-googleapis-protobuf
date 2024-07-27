@@ -21,6 +21,8 @@ defmodule Google.Cloud.Aiplatform.V1.GetPublisherModelRequest do
     type: Google.Cloud.Aiplatform.V1.PublisherModelView,
     enum: true,
     deprecated: false
+
+  field :is_hugging_face_model, 5, type: :bool, json_name: "isHuggingFaceModel", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ModelGardenService.Service do

@@ -68,7 +68,7 @@ defmodule Google.Cloud.Aiplatform.V1.Retrieval do
     json_name: "vertexAiSearch",
     oneof: 0
 
-  field :disable_attribution, 3, type: :bool, json_name: "disableAttribution", deprecated: false
+  field :disable_attribution, 3, type: :bool, json_name: "disableAttribution", deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.VertexAISearch do
