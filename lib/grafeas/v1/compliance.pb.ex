@@ -52,6 +52,7 @@ defmodule Grafeas.V1.ComplianceOccurrence do
     json_name: "nonCompliantFiles"
 
   field :non_compliance_reason, 3, type: :string, json_name: "nonComplianceReason"
+  field :version, 4, type: Grafeas.V1.ComplianceVersion
 end
 
 defmodule Grafeas.V1.NonCompliantFile do

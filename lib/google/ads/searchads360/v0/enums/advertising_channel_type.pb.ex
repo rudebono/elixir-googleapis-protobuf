@@ -17,6 +17,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelTypeEnum.Advertisin
   field :LOCAL_SERVICES, 11
   field :DISCOVERY, 12
   field :TRAVEL, 13
+  field :SOCIAL, 15
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelTypeEnum do

@@ -32,6 +32,16 @@ defmodule Grafeas.V1.DiscoveryOccurrence.SBOMStatus.SBOMState do
   field :COMPLETE, 2
 end
 
+defmodule Grafeas.V1.DiscoveryOccurrence.VulnerabilityAttestation.VulnerabilityAttestationState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :VULNERABILITY_ATTESTATION_STATE_UNSPECIFIED, 0
+  field :SUCCESS, 1
+  field :FAILURE, 2
+end
+
 defmodule Grafeas.V1.DiscoveryNote do
   @moduledoc false
 
@@ -59,6 +69,20 @@ defmodule Grafeas.V1.DiscoveryOccurrence.SBOMStatus do
     enum: true
 
   field :error, 2, type: :string
+end
+
+defmodule Grafeas.V1.DiscoveryOccurrence.VulnerabilityAttestation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :last_attempt_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastAttemptTime"
+
+  field :state, 2,
+    type: Grafeas.V1.DiscoveryOccurrence.VulnerabilityAttestation.VulnerabilityAttestationState,
+    enum: true
+
+  field :error, 3, type: :string
 end
 
 defmodule Grafeas.V1.DiscoveryOccurrence do
@@ -91,4 +115,8 @@ defmodule Grafeas.V1.DiscoveryOccurrence do
     deprecated: false
 
   field :sbom_status, 9, type: Grafeas.V1.DiscoveryOccurrence.SBOMStatus, json_name: "sbomStatus"
+
+  field :vulnerability_attestation, 10,
+    type: Grafeas.V1.DiscoveryOccurrence.VulnerabilityAttestation,
+    json_name: "vulnerabilityAttestation"
 end

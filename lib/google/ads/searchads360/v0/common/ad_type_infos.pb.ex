@@ -55,4 +55,6 @@ defmodule Google.Ads.Searchads360.V0.Common.SearchAds360ResponsiveSearchAdInfo d
   field :path1, 1, proto3_optional: true, type: :string
   field :path2, 2, proto3_optional: true, type: :string
   field :ad_tracking_id, 3, proto3_optional: true, type: :int64, json_name: "adTrackingId"
+  field :headlines, 4, repeated: true, type: Google.Ads.Searchads360.V0.Common.AdTextAsset
+  field :descriptions, 5, repeated: true, type: Google.Ads.Searchads360.V0.Common.AdTextAsset
 end

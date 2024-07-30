@@ -20,4 +20,10 @@ defmodule Google.Ads.Searchads360.V0.Resources.CustomerManagerLink do
   field :status, 5,
     type: Google.Ads.Searchads360.V0.Enums.ManagerLinkStatusEnum.ManagerLinkStatus,
     enum: true
+
+  field :start_time, 8,
+    proto3_optional: true,
+    type: :string,
+    json_name: "startTime",
+    deprecated: false
 end
