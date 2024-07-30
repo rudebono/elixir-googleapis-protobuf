@@ -173,6 +173,11 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     json_name: "historicalCreativeQualityScore",
     enum: true
 
+  field :average_quality_score, 364,
+    proto3_optional: true,
+    type: :double,
+    json_name: "averageQualityScore"
+
   field :historical_landing_page_quality_score, 81,
     type: Google.Ads.Searchads360.V0.Enums.QualityScoreBucketEnum.QualityScoreBucket,
     json_name: "historicalLandingPageQualityScore",

@@ -37,6 +37,21 @@ defmodule Google.Ads.Searchads360.V0.Common.Segments do
     enum: true
 
   field :device, 1, type: Google.Ads.Searchads360.V0.Enums.DeviceEnum.Device, enum: true
+  field :geo_target_city, 118, proto3_optional: true, type: :string, json_name: "geoTargetCity"
+
+  field :geo_target_country, 119,
+    proto3_optional: true,
+    type: :string,
+    json_name: "geoTargetCountry"
+
+  field :geo_target_metro, 122, proto3_optional: true, type: :string, json_name: "geoTargetMetro"
+
+  field :geo_target_region, 126,
+    proto3_optional: true,
+    type: :string,
+    json_name: "geoTargetRegion"
+
+  field :hour, 88, proto3_optional: true, type: :int32
   field :keyword, 61, type: Google.Ads.Searchads360.V0.Common.Keyword
   field :month, 90, proto3_optional: true, type: :string
 

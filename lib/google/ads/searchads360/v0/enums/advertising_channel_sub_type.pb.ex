@@ -24,6 +24,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelSubTypeEnum.Adverti
   field :APP_CAMPAIGN_FOR_PRE_REGISTRATION, 18
   field :VIDEO_REACH_TARGET_FREQUENCY, 19
   field :TRAVEL_ACTIVITIES, 20
+  field :SOCIAL_FACEBOOK_TRACKING_ONLY, 21
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.AdvertisingChannelSubTypeEnum do

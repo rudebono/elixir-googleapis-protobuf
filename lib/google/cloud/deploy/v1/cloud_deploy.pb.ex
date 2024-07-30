@@ -46,32 +46,6 @@ defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   field :POSTDEPLOY, 5
 end
 
-defmodule Google.Cloud.Deploy.V1.DeployPolicy.Invoker do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :INVOKER_UNSPECIFIED, 0
-  field :USER, 1
-  field :DEPLOY_AUTOMATION, 2
-end
-
-defmodule Google.Cloud.Deploy.V1.RestrictRollout.Actions do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :ACTIONS_UNSPECIFIED, 0
-  field :ADVANCE, 1
-  field :APPROVE, 2
-  field :CANCEL, 3
-  field :CREATE, 4
-  field :IGNORE_JOB, 5
-  field :RETRY_JOB, 6
-  field :ROLLBACK, 7
-  field :TERMINATE_JOBRUN, 8
-end
-
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   @moduledoc false
 
@@ -742,12 +716,6 @@ defmodule Google.Cloud.Deploy.V1.RollbackTargetRequest do
     deprecated: false
 
   field :validate_only, 7, type: :bool, json_name: "validateOnly", deprecated: false
-
-  field :override_deploy_policy, 9,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RollbackTargetResponse do
@@ -1245,99 +1213,6 @@ defmodule Google.Cloud.Deploy.V1.DeleteCustomTargetTypeRequest do
   field :etag, 5, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Deploy.V1.DeployPolicy.AnnotationsEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
-defmodule Google.Cloud.Deploy.V1.DeployPolicy.LabelsEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
-defmodule Google.Cloud.Deploy.V1.DeployPolicy do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :uid, 2, type: :string, deprecated: false
-  field :description, 3, type: :string
-
-  field :annotations, 4,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeployPolicy.AnnotationsEntry,
-    map: true
-
-  field :labels, 5,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeployPolicy.LabelsEntry,
-    map: true
-
-  field :create_time, 6,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 7,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :suspended, 8, type: :bool
-
-  field :selectors, 12,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeployPolicyResourceSelector,
-    deprecated: false
-
-  field :rules, 10, repeated: true, type: Google.Cloud.Deploy.V1.PolicyRule, deprecated: false
-  field :etag, 11, type: :string
-end
-
-defmodule Google.Cloud.Deploy.V1.DeployPolicyResourceSelector do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :delivery_pipeline, 1,
-    type: Google.Cloud.Deploy.V1.DeliveryPipelineAttribute,
-    json_name: "deliveryPipeline",
-    deprecated: false
-
-  field :target, 2, type: Google.Cloud.Deploy.V1.TargetAttribute, deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.DeliveryPipelineAttribute.LabelsEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
-defmodule Google.Cloud.Deploy.V1.DeliveryPipelineAttribute do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :id, 1, type: :string
-
-  field :labels, 2,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeliveryPipelineAttribute.LabelsEntry,
-    map: true
-end
-
 defmodule Google.Cloud.Deploy.V1.TargetAttribute.LabelsEntry do
   @moduledoc false
 
@@ -1358,90 +1233,6 @@ defmodule Google.Cloud.Deploy.V1.TargetAttribute do
     repeated: true,
     type: Google.Cloud.Deploy.V1.TargetAttribute.LabelsEntry,
     map: true
-end
-
-defmodule Google.Cloud.Deploy.V1.PolicyRule do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  oneof :rule, 0
-
-  field :restrict_rollouts, 1,
-    type: Google.Cloud.Deploy.V1.RestrictRollout,
-    json_name: "restrictRollouts",
-    oneof: 0
-end
-
-defmodule Google.Cloud.Deploy.V1.RestrictRollout do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :id, 5, type: :string, deprecated: false
-
-  field :invokers, 6,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeployPolicy.Invoker,
-    enum: true,
-    deprecated: false
-
-  field :actions, 3,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.RestrictRollout.Actions,
-    enum: true
-
-  field :time_window, 4,
-    type: Google.Cloud.Deploy.V1.TimeWindow,
-    json_name: "timeWindow",
-    deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.TimeWindow do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :time_zone, 1, type: :string, json_name: "timeZone", deprecated: false
-  field :ranges, 2, repeated: true, type: Google.Cloud.Deploy.V1.Range, deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.Range do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
-  field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
-  field :start_time_of_day, 3, type: Google.Type.TimeOfDay, json_name: "startTimeOfDay"
-  field :end_time_of_day, 4, type: Google.Type.TimeOfDay, json_name: "endTimeOfDay"
-
-  field :day_of_week, 5,
-    repeated: true,
-    type: Google.Type.DayOfWeek,
-    json_name: "dayOfWeek",
-    enum: true
-end
-
-defmodule Google.Cloud.Deploy.V1.PolicyViolation do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :policy_violation_details, 1,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.PolicyViolationDetails,
-    json_name: "policyViolationDetails"
-end
-
-defmodule Google.Cloud.Deploy.V1.PolicyViolationDetails do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :policy, 1, type: :string
-  field :rule_id, 2, type: :string, json_name: "ruleId"
-  field :failure_message, 3, type: :string, json_name: "failureMessage"
 end
 
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
@@ -1646,89 +1437,6 @@ defmodule Google.Cloud.Deploy.V1.Release do
     deprecated: false
 end
 
-defmodule Google.Cloud.Deploy.V1.CreateDeployPolicyRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :deploy_policy_id, 2, type: :string, json_name: "deployPolicyId", deprecated: false
-
-  field :deploy_policy, 3,
-    type: Google.Cloud.Deploy.V1.DeployPolicy,
-    json_name: "deployPolicy",
-    deprecated: false
-
-  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
-  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.UpdateDeployPolicyRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :update_mask, 1,
-    type: Google.Protobuf.FieldMask,
-    json_name: "updateMask",
-    deprecated: false
-
-  field :deploy_policy, 2,
-    type: Google.Cloud.Deploy.V1.DeployPolicy,
-    json_name: "deployPolicy",
-    deprecated: false
-
-  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
-  field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
-  field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.DeleteDeployPolicyRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
-  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
-  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
-  field :etag, 5, type: :string, deprecated: false
-end
-
-defmodule Google.Cloud.Deploy.V1.ListDeployPoliciesRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-end
-
-defmodule Google.Cloud.Deploy.V1.ListDeployPoliciesResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :deploy_policies, 1,
-    repeated: true,
-    type: Google.Cloud.Deploy.V1.DeployPolicy,
-    json_name: "deployPolicies"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
-end
-
-defmodule Google.Cloud.Deploy.V1.GetDeployPolicyRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
   @moduledoc false
 
@@ -1860,12 +1568,6 @@ defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
   field :release, 3, type: Google.Cloud.Deploy.V1.Release, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
-
-  field :override_deploy_policy, 6,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
@@ -2256,13 +1958,6 @@ defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
   field :rollout, 3, type: Google.Cloud.Deploy.V1.Rollout, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
-
-  field :override_deploy_policy, 6,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
-
   field :starting_phase_id, 7, type: :string, json_name: "startingPhaseId", deprecated: false
 end
 
@@ -2296,12 +1991,6 @@ defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :approved, 2, type: :bool, deprecated: false
-
-  field :override_deploy_policy, 3,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
@@ -2317,12 +2006,6 @@ defmodule Google.Cloud.Deploy.V1.AdvanceRolloutRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
-
-  field :override_deploy_policy, 3,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AdvanceRolloutResponse do
@@ -2337,12 +2020,6 @@ defmodule Google.Cloud.Deploy.V1.CancelRolloutRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-
-  field :override_deploy_policy, 2,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CancelRolloutResponse do
@@ -2359,12 +2036,6 @@ defmodule Google.Cloud.Deploy.V1.IgnoreJobRequest do
   field :rollout, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
   field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
-
-  field :override_deploy_policy, 4,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.IgnoreJobResponse do
@@ -2381,12 +2052,6 @@ defmodule Google.Cloud.Deploy.V1.RetryJobRequest do
   field :rollout, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
   field :job_id, 3, type: :string, json_name: "jobId", deprecated: false
-
-  field :override_deploy_policy, 4,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RetryJobResponse do
@@ -2591,12 +2256,6 @@ defmodule Google.Cloud.Deploy.V1.TerminateJobRunRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-
-  field :override_deploy_policy, 2,
-    repeated: true,
-    type: :string,
-    json_name: "overrideDeployPolicy",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.TerminateJobRunResponse do
@@ -2892,11 +2551,6 @@ defmodule Google.Cloud.Deploy.V1.AutomationRun do
   field :state, 8, type: Google.Cloud.Deploy.V1.AutomationRun.State, enum: true, deprecated: false
   field :state_description, 9, type: :string, json_name: "stateDescription", deprecated: false
 
-  field :policy_violation, 10,
-    type: Google.Cloud.Deploy.V1.PolicyViolation,
-    json_name: "policyViolation",
-    deprecated: false
-
   field :expire_time, 11,
     type: Google.Protobuf.Timestamp,
     json_name: "expireTime",
@@ -3139,26 +2793,6 @@ defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
   rpc :AbandonRelease,
       Google.Cloud.Deploy.V1.AbandonReleaseRequest,
       Google.Cloud.Deploy.V1.AbandonReleaseResponse
-
-  rpc :CreateDeployPolicy,
-      Google.Cloud.Deploy.V1.CreateDeployPolicyRequest,
-      Google.Longrunning.Operation
-
-  rpc :UpdateDeployPolicy,
-      Google.Cloud.Deploy.V1.UpdateDeployPolicyRequest,
-      Google.Longrunning.Operation
-
-  rpc :DeleteDeployPolicy,
-      Google.Cloud.Deploy.V1.DeleteDeployPolicyRequest,
-      Google.Longrunning.Operation
-
-  rpc :ListDeployPolicies,
-      Google.Cloud.Deploy.V1.ListDeployPoliciesRequest,
-      Google.Cloud.Deploy.V1.ListDeployPoliciesResponse
-
-  rpc :GetDeployPolicy,
-      Google.Cloud.Deploy.V1.GetDeployPolicyRequest,
-      Google.Cloud.Deploy.V1.DeployPolicy
 
   rpc :ApproveRollout,
       Google.Cloud.Deploy.V1.ApproveRolloutRequest,
