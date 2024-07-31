@@ -143,4 +143,7 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
     type: :bool,
     json_name: "globalAccessAllowed",
     deprecated: true
+
+  field :replica_zone, 20, type: :string, json_name: "replicaZone", deprecated: false
+  field :zone, 21, type: :string, deprecated: false
 end

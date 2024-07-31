@@ -36,6 +36,11 @@ defmodule Google.Spanner.Admin.Database.V1.BackupSchedule do
     json_name: "fullBackupSpec",
     oneof: 0
 
+  field :incremental_backup_spec, 8,
+    type: Google.Spanner.Admin.Database.V1.IncrementalBackupSpec,
+    json_name: "incrementalBackupSpec",
+    oneof: 0
+
   field :update_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",

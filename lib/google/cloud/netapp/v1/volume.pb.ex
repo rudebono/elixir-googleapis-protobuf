@@ -268,10 +268,16 @@ defmodule Google.Cloud.Netapp.V1.Volume do
     enum: true,
     deprecated: false
 
+  field :large_capacity, 32, type: :bool, json_name: "largeCapacity", deprecated: false
+  field :multiple_endpoints, 33, type: :bool, json_name: "multipleEndpoints", deprecated: false
+
   field :tiering_policy, 34,
     proto3_optional: true,
     type: Google.Cloud.Netapp.V1.TieringPolicy,
     json_name: "tieringPolicy"
+
+  field :replica_zone, 36, type: :string, json_name: "replicaZone", deprecated: false
+  field :zone, 37, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
