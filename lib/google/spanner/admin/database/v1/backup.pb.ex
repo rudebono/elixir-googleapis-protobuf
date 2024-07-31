@@ -46,6 +46,12 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
     deprecated: false
 
   field :size_bytes, 5, type: :int64, json_name: "sizeBytes", deprecated: false
+  field :freeable_size_bytes, 15, type: :int64, json_name: "freeableSizeBytes", deprecated: false
+
+  field :exclusive_size_bytes, 16,
+    type: :int64,
+    json_name: "exclusiveSizeBytes",
+    deprecated: false
 
   field :state, 6,
     type: Google.Spanner.Admin.Database.V1.Backup.State,
@@ -90,6 +96,16 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
     repeated: true,
     type: :string,
     json_name: "backupSchedules",
+    deprecated: false
+
+  field :incremental_backup_chain_id, 17,
+    type: :string,
+    json_name: "incrementalBackupChainId",
+    deprecated: false
+
+  field :oldest_version_time, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "oldestVersionTime",
     deprecated: false
 end
 
@@ -271,6 +287,12 @@ defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig do
 end
 
 defmodule Google.Spanner.Admin.Database.V1.FullBackupSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Spanner.Admin.Database.V1.IncrementalBackupSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3

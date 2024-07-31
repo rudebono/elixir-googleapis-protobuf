@@ -126,6 +126,8 @@ defmodule Google.Cloud.Netapp.V1.ActiveDirectory do
     json_name: "backupOperators",
     deprecated: false
 
+  field :administrators, 22, repeated: true, type: :string, deprecated: false
+
   field :security_operators, 13,
     repeated: true,
     type: :string,
