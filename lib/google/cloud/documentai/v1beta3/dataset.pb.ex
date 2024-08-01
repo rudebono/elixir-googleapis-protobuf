@@ -80,6 +80,9 @@ defmodule Google.Cloud.Documentai.V1beta3.Dataset do
     type: Google.Cloud.Documentai.V1beta3.Dataset.State,
     enum: true,
     deprecated: false
+
+  field :satisfies_pzs, 8, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 9, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.DocumentId.GCSManagedDocumentId do

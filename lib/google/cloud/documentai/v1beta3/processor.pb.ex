@@ -24,6 +24,16 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.ModelType do
   field :MODEL_TYPE_CUSTOM, 2
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo.CustomModelType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CUSTOM_MODEL_TYPE_UNSPECIFIED, 0
+  field :VERSIONED_FOUNDATION, 1
+  field :FINE_TUNED, 2
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Processor.State do
   @moduledoc false
 
@@ -50,6 +60,48 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.DeprecationInfo do
     type: :string,
     json_name: "replacementProcessorVersion",
     deprecated: false
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.FoundationGenAiModelInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :finetuning_allowed, 1, type: :bool, json_name: "finetuningAllowed"
+  field :min_train_labeled_documents, 2, type: :int32, json_name: "minTrainLabeledDocuments"
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :custom_model_type, 1,
+    type:
+      Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo.CustomModelType,
+    json_name: "customModelType",
+    enum: true
+
+  field :base_processor_version_id, 2, type: :string, json_name: "baseProcessorVersionId"
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :model_info, 0
+
+  field :foundation_gen_ai_model_info, 1,
+    type:
+      Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.FoundationGenAiModelInfo,
+    json_name: "foundationGenAiModelInfo",
+    oneof: 0
+
+  field :custom_gen_ai_model_info, 2,
+    type: Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo,
+    json_name: "customGenAiModelInfo",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion do
@@ -87,6 +139,14 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessorVersion do
     type: Google.Cloud.Documentai.V1beta3.ProcessorVersion.ModelType,
     json_name: "modelType",
     enum: true,
+    deprecated: false
+
+  field :satisfies_pzs, 16, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 17, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :gen_ai_model_info, 18,
+    type: Google.Cloud.Documentai.V1beta3.ProcessorVersion.GenAiModelInfo,
+    json_name: "genAiModelInfo",
     deprecated: false
 end
 
@@ -127,4 +187,6 @@ defmodule Google.Cloud.Documentai.V1beta3.Processor do
   field :process_endpoint, 6, type: :string, json_name: "processEndpoint", deprecated: false
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :kms_key_name, 8, type: :string, json_name: "kmsKeyName"
+  field :satisfies_pzs, 12, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 13, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
