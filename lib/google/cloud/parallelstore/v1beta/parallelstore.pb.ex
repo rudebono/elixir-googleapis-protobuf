@@ -8,6 +8,28 @@ defmodule Google.Cloud.Parallelstore.V1beta.TransferType do
   field :EXPORT, 2
 end
 
+defmodule Google.Cloud.Parallelstore.V1beta.FileStripeLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :FILE_STRIPE_LEVEL_UNSPECIFIED, 0
+  field :FILE_STRIPE_LEVEL_MIN, 1
+  field :FILE_STRIPE_LEVEL_BALANCED, 2
+  field :FILE_STRIPE_LEVEL_MAX, 3
+end
+
+defmodule Google.Cloud.Parallelstore.V1beta.DirectoryStripeLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :DIRECTORY_STRIPE_LEVEL_UNSPECIFIED, 0
+  field :DIRECTORY_STRIPE_LEVEL_MIN, 1
+  field :DIRECTORY_STRIPE_LEVEL_BALANCED, 2
+  field :DIRECTORY_STRIPE_LEVEL_MAX, 3
+end
+
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.State do
   @moduledoc false
 
@@ -73,6 +95,18 @@ defmodule Google.Cloud.Parallelstore.V1beta.Instance do
   field :effective_reserved_ip_range, 14,
     type: :string,
     json_name: "effectiveReservedIpRange",
+    deprecated: false
+
+  field :file_stripe_level, 15,
+    type: Google.Cloud.Parallelstore.V1beta.FileStripeLevel,
+    json_name: "fileStripeLevel",
+    enum: true,
+    deprecated: false
+
+  field :directory_stripe_level, 16,
+    type: Google.Cloud.Parallelstore.V1beta.DirectoryStripeLevel,
+    json_name: "directoryStripeLevel",
+    enum: true,
     deprecated: false
 end
 

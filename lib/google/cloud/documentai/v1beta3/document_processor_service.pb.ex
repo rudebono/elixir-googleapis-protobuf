@@ -180,6 +180,8 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessRequest do
     type: Google.Cloud.Documentai.V1beta3.ProcessRequest.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :imageless_mode, 11, type: :bool, json_name: "imagelessMode", deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.HumanReviewStatus do
