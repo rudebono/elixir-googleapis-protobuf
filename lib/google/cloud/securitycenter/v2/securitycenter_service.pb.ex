@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsRequest.MuteState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MUTE_STATE_UNSPECIFIED, 0
+  field :MUTED, 1
+  field :UNDEFINED, 2
+end
+
 defmodule Google.Cloud.Securitycenter.V2.BatchCreateResourceValueConfigsRequest do
   @moduledoc false
 
@@ -29,6 +39,12 @@ defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
+
+  field :mute_state, 3,
+    type: Google.Cloud.Securitycenter.V2.BulkMuteFindingsRequest.MuteState,
+    json_name: "muteState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsResponse do

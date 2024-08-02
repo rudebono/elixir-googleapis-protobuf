@@ -42,6 +42,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
     json_name: "createTime",
     deprecated: false
 
+  field :language_info, 14,
+    type: Google.Cloud.Discoveryengine.V1alpha.LanguageInfo,
+    json_name: "languageInfo"
+
   field :idp_config, 21,
     type: Google.Cloud.Discoveryengine.V1alpha.IdpConfig,
     json_name: "idpConfig",
@@ -56,4 +60,20 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
   field :starting_schema, 28,
     type: Google.Cloud.Discoveryengine.V1alpha.Schema,
     json_name: "startingSchema"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.LanguageInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :language_code, 1, type: :string, json_name: "languageCode"
+
+  field :normalized_language_code, 2,
+    type: :string,
+    json_name: "normalizedLanguageCode",
+    deprecated: false
+
+  field :language, 3, type: :string, deprecated: false
+  field :region, 4, type: :string, deprecated: false
 end

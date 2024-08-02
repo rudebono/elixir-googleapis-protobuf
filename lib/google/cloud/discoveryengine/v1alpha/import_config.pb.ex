@@ -146,6 +146,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FhirStoreSource do
 
   field :fhir_store, 1, type: :string, json_name: "fhirStore", deprecated: false
   field :gcs_staging_dir, 2, type: :string, json_name: "gcsStagingDir"
+  field :resource_types, 3, repeated: true, type: :string, json_name: "resourceTypes"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.CloudSqlSource do
@@ -159,6 +160,19 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CloudSqlSource do
   field :table_id, 4, type: :string, json_name: "tableId", deprecated: false
   field :gcs_staging_dir, 5, type: :string, json_name: "gcsStagingDir"
   field :offload, 6, type: :bool
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.AlloyDbSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId"
+  field :location_id, 2, type: :string, json_name: "locationId", deprecated: false
+  field :cluster_id, 3, type: :string, json_name: "clusterId", deprecated: false
+  field :database_id, 4, type: :string, json_name: "databaseId", deprecated: false
+  field :table_id, 5, type: :string, json_name: "tableId", deprecated: false
+  field :gcs_staging_dir, 6, type: :string, json_name: "gcsStagingDir"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.FirestoreSource do
@@ -314,6 +328,11 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsRequest do
     json_name: "firestoreSource",
     oneof: 0
 
+  field :alloy_db_source, 14,
+    type: Google.Cloud.Discoveryengine.V1alpha.AlloyDbSource,
+    json_name: "alloyDbSource",
+    oneof: 0
+
   field :bigtable_source, 15,
     type: Google.Cloud.Discoveryengine.V1alpha.BigtableSource,
     json_name: "bigtableSource",
@@ -396,6 +415,69 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesMe
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest.InlineSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :suggestions, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.CompletionSuggestion,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :inline_source, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest.InlineSource,
+    json_name: "inlineSource",
+    oneof: 0
+
+  field :gcs_source, 3,
+    type: Google.Cloud.Discoveryengine.V1alpha.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :bigquery_source, 4,
+    type: Google.Cloud.Discoveryengine.V1alpha.BigQuerySource,
+    json_name: "bigquerySource",
+    oneof: 0
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :error_config, 5,
+    type: Google.Cloud.Discoveryengine.V1alpha.ImportErrorConfig,
+    json_name: "errorConfig"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+
+  field :error_config, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.ImportErrorConfig,
+    json_name: "errorConfig"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :success_count, 3, type: :int64, json_name: "successCount"
+  field :failure_count, 4, type: :int64, json_name: "failureCount"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSampleQueriesRequest.InlineSource do

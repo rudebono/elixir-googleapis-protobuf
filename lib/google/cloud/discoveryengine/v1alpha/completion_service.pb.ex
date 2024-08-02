@@ -54,6 +54,14 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CompletionService.Service do
   rpc :PurgeSuggestionDenyListEntries,
       Google.Cloud.Discoveryengine.V1alpha.PurgeSuggestionDenyListEntriesRequest,
       Google.Longrunning.Operation
+
+  rpc :ImportCompletionSuggestions,
+      Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest,
+      Google.Longrunning.Operation
+
+  rpc :PurgeCompletionSuggestions,
+      Google.Cloud.Discoveryengine.V1alpha.PurgeCompletionSuggestionsRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.CompletionService.Stub do

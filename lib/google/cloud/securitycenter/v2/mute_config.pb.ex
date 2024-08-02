@@ -5,6 +5,7 @@ defmodule Google.Cloud.Securitycenter.V2.MuteConfig.MuteConfigType do
 
   field :MUTE_CONFIG_TYPE_UNSPECIFIED, 0
   field :STATIC, 1
+  field :DYNAMIC, 2
 end
 
 defmodule Google.Cloud.Securitycenter.V2.MuteConfig do
@@ -12,7 +13,7 @@ defmodule Google.Cloud.Securitycenter.V2.MuteConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
   field :filter, 3, type: :string, deprecated: false
 
@@ -31,5 +32,10 @@ defmodule Google.Cloud.Securitycenter.V2.MuteConfig do
   field :type, 8,
     type: Google.Cloud.Securitycenter.V2.MuteConfig.MuteConfigType,
     enum: true,
+    deprecated: false
+
+  field :expiry_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expiryTime",
     deprecated: false
 end

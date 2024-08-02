@@ -118,4 +118,5 @@ defmodule Google.Analytics.Admin.V1alpha.ChannelGroup do
     deprecated: false
 
   field :system_defined, 5, type: :bool, json_name: "systemDefined", deprecated: false
+  field :primary, 6, type: :bool, deprecated: false
 end

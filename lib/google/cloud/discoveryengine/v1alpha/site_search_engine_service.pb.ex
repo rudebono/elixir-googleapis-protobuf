@@ -296,6 +296,78 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusResp
   field :total_size, 3, type: :int32, json_name: "totalSize"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataRequest.DocumentDataMapEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Protobuf.Struct
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
+
+  field :document_data_map, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataRequest.DocumentDataMapEntry,
+    json_name: "documentDataMap",
+    map: true
+
+  field :empty_document_data_map, 4, type: :bool, json_name: "emptyDocumentDataMap"
+  field :schema, 3, type: Google.Protobuf.Struct
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataResponse.DocumentDataMapEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Protobuf.Struct
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document_data_map, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataResponse.DocumentDataMapEntry,
+    json_name: "documentDataMap",
+    map: true
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Service do
   @moduledoc false
 
@@ -350,6 +422,14 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Service d
   rpc :FetchDomainVerificationStatus,
       Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusRequest,
       Google.Cloud.Discoveryengine.V1alpha.FetchDomainVerificationStatusResponse
+
+  rpc :SetUriPatternDocumentData,
+      Google.Cloud.Discoveryengine.V1alpha.SetUriPatternDocumentDataRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetUriPatternDocumentData,
+      Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataRequest,
+      Google.Cloud.Discoveryengine.V1alpha.GetUriPatternDocumentDataResponse
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SiteSearchEngineService.Stub do

@@ -6,6 +6,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstan
   field :TYPE_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
+  field :JAIL_BREAKING_QUERY, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConverseConversationRequest.UserLabelsEntry do
@@ -357,6 +358,15 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstan
     json_name: "queryRephraserSpec"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest do
   @moduledoc false
 
@@ -388,6 +398,12 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest do
 
   field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode"
   field :user_pseudo_id, 12, type: :string, json_name: "userPseudoId"
+
+  field :user_labels, 13,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryResponse do

@@ -3,7 +3,7 @@ defmodule Google.Cloud.Securitycenter.V2.BigQueryExport do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
   field :filter, 3, type: :string
   field :dataset, 4, type: :string

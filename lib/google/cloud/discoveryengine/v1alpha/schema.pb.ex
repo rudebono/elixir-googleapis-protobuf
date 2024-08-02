@@ -81,6 +81,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDat
   field :ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED, 0
   field :METATAGS, 1
   field :PAGEMAP, 2
+  field :URI_PATTERN_MAPPING, 3
   field :SCHEMA_ORG, 4
 end
 

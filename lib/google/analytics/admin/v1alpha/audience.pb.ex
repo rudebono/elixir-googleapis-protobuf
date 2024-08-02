@@ -352,4 +352,9 @@ defmodule Google.Analytics.Admin.V1alpha.Audience do
     type: Google.Analytics.Admin.V1alpha.AudienceFilterClause,
     json_name: "filterClauses",
     deprecated: false
+
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end

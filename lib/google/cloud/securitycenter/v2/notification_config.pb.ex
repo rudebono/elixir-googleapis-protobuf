@@ -13,7 +13,7 @@ defmodule Google.Cloud.Securitycenter.V2.NotificationConfig do
 
   oneof :notify_config, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
   field :pubsub_topic, 3, type: :string, json_name: "pubsubTopic", deprecated: false
   field :service_account, 4, type: :string, json_name: "serviceAccount", deprecated: false
