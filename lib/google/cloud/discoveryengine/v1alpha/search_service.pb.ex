@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.RelevanceThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
+  field :LOWEST, 1
+  field :LOW, 2
+  field :MEDIUM, 3
+  field :HIGH, 4
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
   @moduledoc false
 
@@ -47,6 +59,26 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.S
   field :CHUNKS, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONDITION_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SearchAsYouTypeSpec.Condition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CONDITION_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummarySkippedReason do
   @moduledoc false
 
@@ -58,6 +90,32 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummarySki
   field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
   field :POTENTIAL_POLICY_VIOLATION, 4
   field :LLM_ADDON_NOT_ENABLED, 5
+  field :NO_RELEVANT_CONTENT, 6
+  field :JAIL_BREAKING_QUERY_IGNORED, 7
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint.Comparison do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COMPARISON_UNSPECIFIED, 0
+  field :EQUALS, 1
+  field :LESS_THAN_EQUALS, 2
+  field :LESS_THAN, 3
+  field :GREATER_THAN_EQUALS, 4
+  field :GREATER_THAN, 5
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.OneBoxResult.OneBoxType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ONE_BOX_TYPE_UNSPECIFIED, 0
+  field :PEOPLE, 1
+  field :ORGANIZATION, 2
+  field :SLACK, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ImageQuery do
@@ -228,6 +286,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.S
     type: :bool,
     json_name: "ignoreNonSummarySeekingQuery"
 
+  field :ignore_low_relevant_content, 9, type: :bool, json_name: "ignoreLowRelevantContent"
+
   field :model_prompt_spec, 5,
     type:
       Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec.SummarySpec.ModelPromptSpec,
@@ -316,6 +376,46 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.EmbeddingSpec do
     json_name: "embeddingVectors"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.NaturalLanguageQueryUnderstandingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :filter_extraction_condition, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchRequest.NaturalLanguageQueryUnderstandingSpec.FilterExtractionCondition,
+    json_name: "filterExtractionCondition",
+    enum: true
+
+  field :geo_search_query_detection_field_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "geoSearchQueryDetectionFieldNames"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SearchAsYouTypeSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :condition, 1,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SearchAsYouTypeSpec.Condition,
+    enum: true
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SessionSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :query_id, 1, type: :string, json_name: "queryId"
+
+  field :search_result_persistence_count, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "searchResultPersistenceCount"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ParamsEntry do
   @moduledoc false
 
@@ -360,6 +460,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest do
   field :canonical_filter, 29, type: :string, json_name: "canonicalFilter"
   field :order_by, 8, type: :string, json_name: "orderBy"
   field :user_info, 21, type: Google.Cloud.Discoveryengine.V1alpha.UserInfo, json_name: "userInfo"
+  field :language_code, 35, type: :string, json_name: "languageCode"
+  field :region_code, 36, type: :string, json_name: "regionCode"
 
   field :facet_specs, 9,
     repeated: true,
@@ -402,9 +504,29 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchRequest do
     json_name: "userLabels",
     map: true
 
+  field :natural_language_query_understanding_spec, 28,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchRequest.NaturalLanguageQueryUnderstandingSpec,
+    json_name: "naturalLanguageQueryUnderstandingSpec"
+
+  field :search_as_you_type_spec, 31,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SearchAsYouTypeSpec,
+    json_name: "searchAsYouTypeSpec"
+
   field :custom_fine_tuning_spec, 34,
     type: Google.Cloud.Discoveryengine.V1alpha.CustomFineTuningSpec,
     json_name: "customFineTuningSpec"
+
+  field :session, 41, type: :string, deprecated: false
+
+  field :session_spec, 42,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.SessionSpec,
+    json_name: "sessionSpec"
+
+  field :relevance_threshold, 44,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.RelevanceThreshold,
+    json_name: "relevanceThreshold",
+    enum: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SearchResult.ModelScoresEntry do
@@ -601,6 +723,151 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.QueryExpansionInfo
   field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.StringConstraint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName"
+  field :values, 2, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName"
+
+  field :comparison, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint.Comparison,
+    enum: true
+
+  field :value, 3, type: :double
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.GeolocationConstraint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName"
+  field :address, 2, type: :string
+  field :latitude, 4, type: :double
+  field :longitude, 5, type: :double
+  field :radius_in_meters, 3, type: :float, json_name: "radiusInMeters"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.AndExpression do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :expressions, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.Expression
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.OrExpression do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :expressions, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.Expression
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.Expression do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :expr, 0
+
+  field :string_constraint, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.StringConstraint,
+    json_name: "stringConstraint",
+    oneof: 0
+
+  field :number_constraint, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint,
+    json_name: "numberConstraint",
+    oneof: 0
+
+  field :geolocation_constraint, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.GeolocationConstraint,
+    json_name: "geolocationConstraint",
+    oneof: 0
+
+  field :and_expr, 4,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.AndExpression,
+    json_name: "andExpr",
+    oneof: 0
+
+  field :or_expr, 5,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.OrExpression,
+    json_name: "orExpr",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :expression, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.Expression
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :extracted_filters, 1, type: :string, json_name: "extractedFilters"
+  field :rewritten_query, 2, type: :string, json_name: "rewrittenQuery"
+
+  field :structured_extracted_filter, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter,
+    json_name: "structuredExtractedFilter"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SessionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :query_id, 2, type: :string, json_name: "queryId"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.OneBoxResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :one_box_type, 1,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.OneBoxResult.OneBoxType,
+    json_name: "oneBoxType",
+    enum: true
+
+  field :search_results, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SearchResult,
+    json_name: "searchResults"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse do
   @moduledoc false
 
@@ -634,6 +901,20 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse do
   field :query_expansion_info, 14,
     type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.QueryExpansionInfo,
     json_name: "queryExpansionInfo"
+
+  field :natural_language_query_understanding_info, 15,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo,
+    json_name: "naturalLanguageQueryUnderstandingInfo"
+
+  field :session_info, 19,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.SessionInfo,
+    json_name: "sessionInfo"
+
+  field :one_box_results, 20,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.SearchResponse.OneBoxResult,
+    json_name: "oneBoxResults"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchService.Service do

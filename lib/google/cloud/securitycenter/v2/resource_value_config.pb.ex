@@ -40,14 +40,14 @@ defmodule Google.Cloud.Securitycenter.V2.ResourceValueConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :resource_value, 2,
     type: Google.Cloud.Securitycenter.V2.ResourceValue,
     json_name: "resourceValue",
     enum: true
 
-  field :tag_values, 3, repeated: true, type: :string, json_name: "tagValues", deprecated: false
+  field :tag_values, 3, repeated: true, type: :string, json_name: "tagValues"
   field :resource_type, 4, type: :string, json_name: "resourceType"
   field :scope, 5, type: :string
 

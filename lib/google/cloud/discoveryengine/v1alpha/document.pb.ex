@@ -16,6 +16,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Document.AclInfo.AccessRestrictio
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :principals, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.Principal
+  field :idp_wide, 2, type: :bool, json_name: "idpWide"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Document.AclInfo do

@@ -87,6 +87,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :ATTRIBUTION_SETTINGS, 20
   field :EXPANDED_DATA_SET, 21
   field :CHANNEL_GROUP, 22
+  field :BIGQUERY_LINK, 23
   field :ENHANCED_MEASUREMENT_SETTINGS, 24
   field :DATA_REDACTION_SETTINGS, 25
   field :SKADNETWORK_CONVERSION_VALUE_SCHEMA, 26
@@ -179,6 +180,16 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent.ConversionCountingMetho
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :CONVERSION_COUNTING_METHOD_UNSPECIFIED, 0
+  field :ONCE_PER_EVENT, 1
+  field :ONCE_PER_SESSION, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.KeyEvent.CountingMethod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :COUNTING_METHOD_UNSPECIFIED, 0
   field :ONCE_PER_EVENT, 1
   field :ONCE_PER_SESSION, 2
 end
@@ -335,6 +346,7 @@ defmodule Google.Analytics.Admin.V1alpha.Account do
   field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
   field :region_code, 5, type: :string, json_name: "regionCode"
   field :deleted, 6, type: :bool, deprecated: false
+  field :gmp_organization, 7, type: :string, json_name: "gmpOrganization", deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.Property do
@@ -963,6 +975,43 @@ defmodule Google.Analytics.Admin.V1alpha.ConversionEvent do
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.KeyEvent.DefaultValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :numeric_value, 1, type: :double, json_name: "numericValue", deprecated: false
+  field :currency_code, 2, type: :string, json_name: "currencyCode", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.KeyEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :event_name, 2, type: :string, json_name: "eventName", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :deletable, 4, type: :bool, deprecated: false
+  field :custom, 5, type: :bool, deprecated: false
+
+  field :counting_method, 6,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent.CountingMethod,
+    json_name: "countingMethod",
+    enum: true,
+    deprecated: false
+
+  field :default_value, 7,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent.DefaultValue,
+    json_name: "defaultValue",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsSettings do
   @moduledoc false
 
@@ -1141,6 +1190,7 @@ defmodule Google.Analytics.Admin.V1alpha.BigQueryLink do
   field :include_advertising_id, 6, type: :bool, json_name: "includeAdvertisingId"
   field :export_streams, 7, repeated: true, type: :string, json_name: "exportStreams"
   field :excluded_events, 8, repeated: true, type: :string, json_name: "excludedEvents"
+  field :dataset_location, 10, type: :string, json_name: "datasetLocation", deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do

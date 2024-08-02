@@ -610,6 +610,74 @@ defmodule Google.Analytics.Admin.V1alpha.ListConversionEventsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_event, 1,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent,
+    json_name: "keyEvent",
+    deprecated: false
+
+  field :parent, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_event, 1,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent,
+    json_name: "keyEvent",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteKeyEventRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListKeyEventsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListKeyEventsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key_events, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent,
+    json_name: "keyEvents"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest do
   @moduledoc false
 
@@ -1510,6 +1578,19 @@ defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRes
   field :opt_out, 1, type: :bool, json_name: "optOut"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateBigQueryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :bigquery_link, 2,
+    type: Google.Analytics.Admin.V1alpha.BigQueryLink,
+    json_name: "bigqueryLink",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.GetBigQueryLinkRequest do
   @moduledoc false
 
@@ -1539,6 +1620,30 @@ defmodule Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse do
     json_name: "bigqueryLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateBigQueryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bigquery_link, 1,
+    type: Google.Analytics.Admin.V1alpha.BigQueryLink,
+    json_name: "bigqueryLink",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteBigQueryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest do
@@ -1772,6 +1877,88 @@ defmodule Google.Analytics.Admin.V1alpha.ListEventCreateRulesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateEventEditRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :event_edit_rule, 2,
+    type: Google.Analytics.Admin.V1alpha.EventEditRule,
+    json_name: "eventEditRule",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateEventEditRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_edit_rule, 1,
+    type: Google.Analytics.Admin.V1alpha.EventEditRule,
+    json_name: "eventEditRule",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteEventEditRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetEventEditRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListEventEditRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListEventEditRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :event_edit_rules, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.EventEditRule,
+    json_name: "eventEditRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ReorderEventEditRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :event_edit_rules, 2,
+    repeated: true,
+    type: :string,
+    json_name: "eventEditRules",
+    deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.CreateRollupPropertyRequest do
   @moduledoc false
 
@@ -1856,12 +2043,11 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteRollupPropertySourceLinkRequest d
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest do
+defmodule Google.Analytics.Admin.V1alpha.ProvisionSubpropertyRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :parent, 1, type: :string, deprecated: false
   field :subproperty, 2, type: Google.Analytics.Admin.V1alpha.Property, deprecated: false
 
   field :subproperty_event_filter, 3,
@@ -1870,7 +2056,7 @@ defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest do
     deprecated: false
 end
 
-defmodule Google.Analytics.Admin.V1alpha.CreateSubpropertyResponse do
+defmodule Google.Analytics.Admin.V1alpha.ProvisionSubpropertyResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -2110,6 +2296,24 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :ListConversionEvents,
       Google.Analytics.Admin.V1alpha.ListConversionEventsRequest,
       Google.Analytics.Admin.V1alpha.ListConversionEventsResponse
+
+  rpc :CreateKeyEvent,
+      Google.Analytics.Admin.V1alpha.CreateKeyEventRequest,
+      Google.Analytics.Admin.V1alpha.KeyEvent
+
+  rpc :UpdateKeyEvent,
+      Google.Analytics.Admin.V1alpha.UpdateKeyEventRequest,
+      Google.Analytics.Admin.V1alpha.KeyEvent
+
+  rpc :GetKeyEvent,
+      Google.Analytics.Admin.V1alpha.GetKeyEventRequest,
+      Google.Analytics.Admin.V1alpha.KeyEvent
+
+  rpc :DeleteKeyEvent, Google.Analytics.Admin.V1alpha.DeleteKeyEventRequest, Google.Protobuf.Empty
+
+  rpc :ListKeyEvents,
+      Google.Analytics.Admin.V1alpha.ListKeyEventsRequest,
+      Google.Analytics.Admin.V1alpha.ListKeyEventsResponse
 
   rpc :GetDisplayVideo360AdvertiserLink,
       Google.Analytics.Admin.V1alpha.GetDisplayVideo360AdvertiserLinkRequest,
@@ -2359,6 +2563,10 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest,
       Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse
 
+  rpc :CreateBigQueryLink,
+      Google.Analytics.Admin.V1alpha.CreateBigQueryLinkRequest,
+      Google.Analytics.Admin.V1alpha.BigQueryLink
+
   rpc :GetBigQueryLink,
       Google.Analytics.Admin.V1alpha.GetBigQueryLinkRequest,
       Google.Analytics.Admin.V1alpha.BigQueryLink
@@ -2366,6 +2574,14 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :ListBigQueryLinks,
       Google.Analytics.Admin.V1alpha.ListBigQueryLinksRequest,
       Google.Analytics.Admin.V1alpha.ListBigQueryLinksResponse
+
+  rpc :DeleteBigQueryLink,
+      Google.Analytics.Admin.V1alpha.DeleteBigQueryLinkRequest,
+      Google.Protobuf.Empty
+
+  rpc :UpdateBigQueryLink,
+      Google.Analytics.Admin.V1alpha.UpdateBigQueryLinkRequest,
+      Google.Analytics.Admin.V1alpha.BigQueryLink
 
   rpc :GetEnhancedMeasurementSettings,
       Google.Analytics.Admin.V1alpha.GetEnhancedMeasurementSettingsRequest,
@@ -2427,6 +2643,30 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.DeleteEventCreateRuleRequest,
       Google.Protobuf.Empty
 
+  rpc :GetEventEditRule,
+      Google.Analytics.Admin.V1alpha.GetEventEditRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventEditRule
+
+  rpc :ListEventEditRules,
+      Google.Analytics.Admin.V1alpha.ListEventEditRulesRequest,
+      Google.Analytics.Admin.V1alpha.ListEventEditRulesResponse
+
+  rpc :CreateEventEditRule,
+      Google.Analytics.Admin.V1alpha.CreateEventEditRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventEditRule
+
+  rpc :UpdateEventEditRule,
+      Google.Analytics.Admin.V1alpha.UpdateEventEditRuleRequest,
+      Google.Analytics.Admin.V1alpha.EventEditRule
+
+  rpc :DeleteEventEditRule,
+      Google.Analytics.Admin.V1alpha.DeleteEventEditRuleRequest,
+      Google.Protobuf.Empty
+
+  rpc :ReorderEventEditRules,
+      Google.Analytics.Admin.V1alpha.ReorderEventEditRulesRequest,
+      Google.Protobuf.Empty
+
   rpc :UpdateDataRedactionSettings,
       Google.Analytics.Admin.V1alpha.UpdateDataRedactionSettingsRequest,
       Google.Analytics.Admin.V1alpha.DataRedactionSettings
@@ -2475,9 +2715,9 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.DeleteRollupPropertySourceLinkRequest,
       Google.Protobuf.Empty
 
-  rpc :CreateSubproperty,
-      Google.Analytics.Admin.V1alpha.CreateSubpropertyRequest,
-      Google.Analytics.Admin.V1alpha.CreateSubpropertyResponse
+  rpc :ProvisionSubproperty,
+      Google.Analytics.Admin.V1alpha.ProvisionSubpropertyRequest,
+      Google.Analytics.Admin.V1alpha.ProvisionSubpropertyResponse
 
   rpc :CreateSubpropertyEventFilter,
       Google.Analytics.Admin.V1alpha.CreateSubpropertyEventFilterRequest,

@@ -51,6 +51,29 @@ defmodule Google.Analytics.Admin.V1alpha.EventCreateRule do
     json_name: "parameterMutations"
 end
 
+defmodule Google.Analytics.Admin.V1alpha.EventEditRule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+
+  field :event_conditions, 3,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.MatchingCondition,
+    json_name: "eventConditions",
+    deprecated: false
+
+  field :parameter_mutations, 4,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ParameterMutation,
+    json_name: "parameterMutations",
+    deprecated: false
+
+  field :processing_order, 5, type: :int64, json_name: "processingOrder", deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.MatchingCondition do
   @moduledoc false
 

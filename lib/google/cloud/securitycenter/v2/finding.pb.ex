@@ -46,6 +46,39 @@ defmodule Google.Cloud.Securitycenter.V2.Finding.FindingClass do
   field :TOXIC_COMBINATION, 7
 end
 
+defmodule Google.Cloud.Securitycenter.V2.Finding.MuteInfo.StaticMute do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1, type: Google.Cloud.Securitycenter.V2.Finding.Mute, enum: true
+  field :apply_time, 2, type: Google.Protobuf.Timestamp, json_name: "applyTime"
+end
+
+defmodule Google.Cloud.Securitycenter.V2.Finding.MuteInfo.DynamicMuteRecord do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :mute_config, 1, type: :string, json_name: "muteConfig"
+  field :match_time, 2, type: Google.Protobuf.Timestamp, json_name: "matchTime"
+end
+
+defmodule Google.Cloud.Securitycenter.V2.Finding.MuteInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :static_mute, 1,
+    type: Google.Cloud.Securitycenter.V2.Finding.MuteInfo.StaticMute,
+    json_name: "staticMute"
+
+  field :dynamic_mute_records, 2,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V2.Finding.MuteInfo.DynamicMuteRecord,
+    json_name: "dynamicMuteRecords"
+end
+
 defmodule Google.Cloud.Securitycenter.V2.Finding.SourcePropertiesEntry do
   @moduledoc false
 
@@ -111,6 +144,11 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
 
   field :severity, 14, type: Google.Cloud.Securitycenter.V2.Finding.Severity, enum: true
   field :mute, 15, type: Google.Cloud.Securitycenter.V2.Finding.Mute, enum: true
+
+  field :mute_info, 53,
+    type: Google.Cloud.Securitycenter.V2.Finding.MuteInfo,
+    json_name: "muteInfo",
+    deprecated: false
 
   field :finding_class, 16,
     type: Google.Cloud.Securitycenter.V2.Finding.FindingClass,
