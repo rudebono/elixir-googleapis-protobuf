@@ -211,5 +211,14 @@ defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
     enum: true
 
   field :model, 2, type: :string
+
+  field :audio_encoding, 6,
+    type: Google.Cloud.Dialogflow.V2.AudioEncoding,
+    json_name: "audioEncoding",
+    enum: true
+
+  field :sample_rate_hertz, 7, type: :int32, json_name: "sampleRateHertz"
+  field :language_code, 8, type: :string, json_name: "languageCode"
+  field :enable_word_info, 9, type: :bool, json_name: "enableWordInfo"
   field :use_timeout_based_endpointing, 11, type: :bool, json_name: "useTimeoutBasedEndpointing"
 end

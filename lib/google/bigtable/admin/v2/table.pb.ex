@@ -83,6 +83,16 @@ defmodule Google.Bigtable.Admin.V2.Backup.State do
   field :READY, 2
 end
 
+defmodule Google.Bigtable.Admin.V2.Backup.BackupType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :BACKUP_TYPE_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :HOT, 2
+end
+
 defmodule Google.Bigtable.Admin.V2.RestoreInfo do
   @moduledoc false
 
@@ -356,6 +366,13 @@ defmodule Google.Bigtable.Admin.V2.Backup do
     type: Google.Bigtable.Admin.V2.EncryptionInfo,
     json_name: "encryptionInfo",
     deprecated: false
+
+  field :backup_type, 11,
+    type: Google.Bigtable.Admin.V2.Backup.BackupType,
+    json_name: "backupType",
+    enum: true
+
+  field :hot_to_standard_time, 12, type: Google.Protobuf.Timestamp, json_name: "hotToStandardTime"
 end
 
 defmodule Google.Bigtable.Admin.V2.BackupInfo do

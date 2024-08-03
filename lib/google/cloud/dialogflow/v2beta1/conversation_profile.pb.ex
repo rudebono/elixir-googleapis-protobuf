@@ -115,9 +115,19 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
     json_name: "disableAgentQueryLogging",
     deprecated: false
 
+  field :enable_query_suggestion_when_no_answer, 15,
+    type: :bool,
+    json_name: "enableQuerySuggestionWhenNoAnswer",
+    deprecated: false
+
   field :enable_conversation_augmented_query, 16,
     type: :bool,
     json_name: "enableConversationAugmentedQuery",
+    deprecated: false
+
+  field :enable_query_suggestion_only, 17,
+    type: :bool,
+    json_name: "enableQuerySuggestionOnly",
     deprecated: false
 
   field :suggestion_trigger_settings, 10,
@@ -148,6 +158,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionCo
     json_name: "featureConfigs"
 
   field :group_suggestion_responses, 3, type: :bool, json_name: "groupSuggestionResponses"
+  field :generators, 4, repeated: true, type: :string, deprecated: false
+
+  field :disable_high_latency_features_sync_delivery, 5,
+    type: :bool,
+    json_name: "disableHighLatencyFeaturesSyncDelivery",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionQueryConfig.KnowledgeBaseQuerySource do

@@ -55,7 +55,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation do
   field :conversation_stage, 7,
     type: Google.Cloud.Dialogflow.V2beta1.Conversation.ConversationStage,
     json_name: "conversationStage",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -85,9 +86,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListConversationsResponse do
@@ -151,9 +152,9 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :filter, 4, type: :string
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesResponse do
@@ -172,11 +173,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryRequest do
 
   field :conversation, 1, type: :string, deprecated: false
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
-  field :context_size, 4, type: :int32, json_name: "contextSize"
+  field :context_size, 4, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 5,
     type: Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters,
-    json_name: "assistQueryParams"
+    json_name: "assistQueryParams",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryResponse.Summary.TextSectionsEntry do
@@ -247,7 +249,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest do
     deprecated: false
 
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
-  field :max_context_size, 4, type: :int32, json_name: "maxContextSize"
+  field :max_context_size, 4, type: :int32, json_name: "maxContextSize", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse.Summary.TextSectionsEntry do
@@ -288,12 +290,47 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :generator_resource, 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :generator, 2, type: Google.Cloud.Dialogflow.V2beta1.Generator, oneof: 0
+  field :generator_name, 3, type: :string, json_name: "generatorName", oneof: 0
+
+  field :conversation_context, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.ConversationContext,
+    json_name: "conversationContext",
+    deprecated: false
+
+  field :trigger_events, 6,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.TriggerEvent,
+    json_name: "triggerEvents",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generator_suggestion, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.GeneratorSuggestion,
+    json_name: "generatorSuggestion",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :parent, 6, type: :string
+  field :parent, 6, type: :string, deprecated: false
   field :query, 1, type: Google.Cloud.Dialogflow.V2beta1.TextInput, deprecated: false
 
   field :conversation_profile, 2,
@@ -301,7 +338,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest do
     json_name: "conversationProfile",
     deprecated: false
 
-  field :session_id, 3, type: :string, json_name: "sessionId"
+  field :session_id, 3, type: :string, json_name: "sessionId", deprecated: false
   field :conversation, 4, type: :string, deprecated: false
   field :latest_message, 5, type: :string, json_name: "latestMessage", deprecated: false
 end
@@ -383,6 +420,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   rpc :GenerateStatelessSummary,
       Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryRequest,
       Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse
+
+  rpc :GenerateStatelessSuggestion,
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest,
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionResponse
 
   rpc :SearchKnowledge,
       Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest,

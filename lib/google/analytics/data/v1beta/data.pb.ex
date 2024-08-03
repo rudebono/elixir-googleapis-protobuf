@@ -190,6 +190,23 @@ defmodule Google.Analytics.Data.V1beta.Metric do
   field :invisible, 3, type: :bool
 end
 
+defmodule Google.Analytics.Data.V1beta.Comparison do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :one_comparison, 0
+
+  field :name, 1, proto3_optional: true, type: :string
+
+  field :dimension_filter, 2,
+    type: Google.Analytics.Data.V1beta.FilterExpression,
+    json_name: "dimensionFilter",
+    oneof: 0
+
+  field :comparison, 3, type: :string, oneof: 0
+end
+
 defmodule Google.Analytics.Data.V1beta.FilterExpression do
   @moduledoc false
 
@@ -641,6 +658,16 @@ defmodule Google.Analytics.Data.V1beta.MetricMetadata do
     enum: true
 
   field :category, 10, type: :string
+end
+
+defmodule Google.Analytics.Data.V1beta.ComparisonMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :api_name, 1, type: :string, json_name: "apiName"
+  field :ui_name, 2, type: :string, json_name: "uiName"
+  field :description, 3, type: :string
 end
 
 defmodule Google.Analytics.Data.V1beta.DimensionCompatibility do

@@ -529,6 +529,11 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
     json_name: "suggestArticlesResponse",
     oneof: 0
 
+  field :suggest_knowledge_assist_response, 8,
+    type: Google.Cloud.Dialogflow.V2.SuggestKnowledgeAssistResponse,
+    json_name: "suggestKnowledgeAssistResponse",
+    oneof: 0
+
   field :suggest_faq_answers_response, 3,
     type: Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse,
     json_name: "suggestFaqAnswersResponse",
@@ -596,6 +601,108 @@ defmodule Google.Cloud.Dialogflow.V2.AssistQueryParameters do
     map: true
 end
 
+defmodule Google.Cloud.Dialogflow.V2.SuggestKnowledgeAssistRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+  field :context_size, 3, type: :int32, json_name: "contextSize", deprecated: false
+
+  field :previous_suggested_query, 4,
+    type: :string,
+    json_name: "previousSuggestedQuery",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.SuggestKnowledgeAssistResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :knowledge_assist_answer, 1,
+    type: Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer,
+    json_name: "knowledgeAssistAnswer",
+    deprecated: false
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage"
+  field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.SuggestedQuery do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :query_text, 1, type: :string, json_name: "queryText"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.FaqSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :question, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource.Snippet do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 2, type: :string
+  field :text, 3, type: :string
+  field :title, 4, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :snippets, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource.Snippet
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :answer_text, 1, type: :string, json_name: "answerText"
+
+  field :faq_source, 3,
+    type: Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.FaqSource,
+    json_name: "faqSource",
+    oneof: 0
+
+  field :generative_source, 4,
+    type: Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource,
+    json_name: "generativeSource",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :suggested_query, 1,
+    type: Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.SuggestedQuery,
+    json_name: "suggestedQuery"
+
+  field :suggested_query_answer, 2,
+    type: Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer,
+    json_name: "suggestedQueryAnswer"
+
+  field :answer_record, 3, type: :string, json_name: "answerRecord"
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Participants.Service do
   @moduledoc false
 
@@ -638,6 +745,10 @@ defmodule Google.Cloud.Dialogflow.V2.Participants.Service do
   rpc :SuggestSmartReplies,
       Google.Cloud.Dialogflow.V2.SuggestSmartRepliesRequest,
       Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse
+
+  rpc :SuggestKnowledgeAssist,
+      Google.Cloud.Dialogflow.V2.SuggestKnowledgeAssistRequest,
+      Google.Cloud.Dialogflow.V2.SuggestKnowledgeAssistResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Participants.Stub do
