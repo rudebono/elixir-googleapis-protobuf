@@ -58,7 +58,8 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation do
   field :conversation_stage, 7,
     type: Google.Cloud.Dialogflow.V2.Conversation.ConversationStage,
     json_name: "conversationStage",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationRequest do
@@ -79,7 +80,7 @@ defmodule Google.Cloud.Dialogflow.V2.ListConversationsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
-  field :filter, 4, type: :string
+  field :filter, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.ListConversationsResponse do
@@ -142,11 +143,12 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryRequest do
 
   field :conversation, 1, type: :string, deprecated: false
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
-  field :context_size, 4, type: :int32, json_name: "contextSize"
+  field :context_size, 4, type: :int32, json_name: "contextSize", deprecated: false
 
   field :assist_query_params, 5,
     type: Google.Cloud.Dialogflow.V2.AssistQueryParameters,
-    json_name: "assistQueryParams"
+    json_name: "assistQueryParams",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestConversationSummaryResponse.Summary.TextSectionsEntry do
@@ -210,7 +212,7 @@ defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryRequest do
     deprecated: false
 
   field :latest_message, 3, type: :string, json_name: "latestMessage", deprecated: false
-  field :max_context_size, 4, type: :int32, json_name: "maxContextSize"
+  field :max_context_size, 4, type: :int32, json_name: "maxContextSize", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse.Summary.TextSectionsEntry do
@@ -248,12 +250,47 @@ defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSuggestionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :generator_resource, 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :generator, 2, type: Google.Cloud.Dialogflow.V2.Generator, oneof: 0
+  field :generator_name, 3, type: :string, json_name: "generatorName", oneof: 0
+
+  field :conversation_context, 5,
+    type: Google.Cloud.Dialogflow.V2.ConversationContext,
+    json_name: "conversationContext",
+    deprecated: false
+
+  field :trigger_events, 6,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.TriggerEvent,
+    json_name: "triggerEvents",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.GenerateStatelessSuggestionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generator_suggestion, 1,
+    type: Google.Cloud.Dialogflow.V2.GeneratorSuggestion,
+    json_name: "generatorSuggestion",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :parent, 6, type: :string
+  field :parent, 6, type: :string, deprecated: false
   field :query, 1, type: Google.Cloud.Dialogflow.V2.TextInput, deprecated: false
 
   field :conversation_profile, 2,
@@ -261,7 +298,7 @@ defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest do
     json_name: "conversationProfile",
     deprecated: false
 
-  field :session_id, 3, type: :string, json_name: "sessionId"
+  field :session_id, 3, type: :string, json_name: "sessionId", deprecated: false
   field :conversation, 4, type: :string, deprecated: false
   field :latest_message, 5, type: :string, json_name: "latestMessage", deprecated: false
 end
@@ -339,6 +376,10 @@ defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
   rpc :GenerateStatelessSummary,
       Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryRequest,
       Google.Cloud.Dialogflow.V2.GenerateStatelessSummaryResponse
+
+  rpc :GenerateStatelessSuggestion,
+      Google.Cloud.Dialogflow.V2.GenerateStatelessSuggestionRequest,
+      Google.Cloud.Dialogflow.V2.GenerateStatelessSuggestionResponse
 
   rpc :SearchKnowledge,
       Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest,

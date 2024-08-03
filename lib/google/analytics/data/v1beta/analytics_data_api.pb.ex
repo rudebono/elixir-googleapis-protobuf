@@ -56,6 +56,7 @@ defmodule Google.Analytics.Data.V1beta.Metadata do
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
   field :metrics, 2, repeated: true, type: Google.Analytics.Data.V1beta.MetricMetadata
+  field :comparisons, 4, repeated: true, type: Google.Analytics.Data.V1beta.ComparisonMetadata
 end
 
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
@@ -98,6 +99,11 @@ defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   field :cohort_spec, 12, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
   field :keep_empty_rows, 13, type: :bool, json_name: "keepEmptyRows"
   field :return_property_quota, 14, type: :bool, json_name: "returnPropertyQuota"
+
+  field :comparisons, 15,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.Comparison,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
@@ -157,6 +163,11 @@ defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   field :cohort_spec, 9, type: Google.Analytics.Data.V1beta.CohortSpec, json_name: "cohortSpec"
   field :keep_empty_rows, 10, type: :bool, json_name: "keepEmptyRows"
   field :return_property_quota, 11, type: :bool, json_name: "returnPropertyQuota"
+
+  field :comparisons, 12,
+    repeated: true,
+    type: Google.Analytics.Data.V1beta.Comparison,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do

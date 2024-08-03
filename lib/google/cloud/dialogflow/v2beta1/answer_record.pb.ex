@@ -143,6 +143,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.KnowledgeSearch
   field :clicked_uris, 2, repeated: true, type: :string, json_name: "clickedUris"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.KnowledgeAssistFeedback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :answer_copied, 1, type: :bool, json_name: "answerCopied"
+  field :clicked_uris, 2, repeated: true, type: :string, json_name: "clickedUris"
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
   @moduledoc false
 
@@ -170,6 +179,11 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback do
   field :knowledge_search_feedback, 5,
     type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.KnowledgeSearchFeedback,
     json_name: "knowledgeSearchFeedback",
+    deprecated: false
+
+  field :knowledge_assist_feedback, 6,
+    type: Google.Cloud.Dialogflow.V2beta1.AgentAssistantFeedback.KnowledgeAssistFeedback,
+    json_name: "knowledgeAssistFeedback",
     deprecated: false
 end
 
