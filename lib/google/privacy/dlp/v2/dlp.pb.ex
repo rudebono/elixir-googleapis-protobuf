@@ -43,6 +43,16 @@ defmodule Google.Privacy.Dlp.V2.TransformationType do
   field :REDACT_IMAGE, 14
 end
 
+defmodule Google.Privacy.Dlp.V2.ProfileGeneration do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :PROFILE_GENERATION_UNSPECIFIED, 0
+  field :PROFILE_GENERATION_NEW, 1
+  field :PROFILE_GENERATION_UPDATE, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.BigQueryTableTypeCollection do
   @moduledoc false
 
@@ -3141,6 +3151,50 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
     enum: true
 end
 
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagCondition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :tag, 1, type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagValue
+
+  field :sensitivity_score, 2,
+    type: Google.Privacy.Dlp.V2.SensitivityScore,
+    json_name: "sensitivityScore",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :format, 0
+
+  field :namespaced_value, 1, type: :string, json_name: "namespacedValue", oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.TagResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :tag_conditions, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagCondition,
+    json_name: "tagConditions"
+
+  field :profile_generations_to_tag, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.ProfileGeneration,
+    json_name: "profileGenerationsToTag",
+    enum: true
+
+  field :lower_data_risk_to_low, 3, type: :bool, json_name: "lowerDataRiskToLow"
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction do
   @moduledoc false
 
@@ -3156,6 +3210,11 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction do
   field :pub_sub_notification, 2,
     type: Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification,
     json_name: "pubSubNotification",
+    oneof: 0
+
+  field :tag_resources, 8,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources,
+    json_name: "tagResources",
     oneof: 0
 end
 

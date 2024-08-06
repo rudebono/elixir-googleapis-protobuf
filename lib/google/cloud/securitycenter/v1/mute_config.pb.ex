@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Securitycenter.V1.MuteConfig.MuteConfigType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :MUTE_CONFIG_TYPE_UNSPECIFIED, 0
+  field :STATIC, 1
+  field :DYNAMIC, 2
+end
+
 defmodule Google.Cloud.Securitycenter.V1.MuteConfig do
   @moduledoc false
 
@@ -19,4 +29,14 @@ defmodule Google.Cloud.Securitycenter.V1.MuteConfig do
     deprecated: false
 
   field :most_recent_editor, 7, type: :string, json_name: "mostRecentEditor", deprecated: false
+
+  field :type, 8,
+    type: Google.Cloud.Securitycenter.V1.MuteConfig.MuteConfigType,
+    enum: true,
+    deprecated: false
+
+  field :expiry_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expiryTime",
+    deprecated: false
 end

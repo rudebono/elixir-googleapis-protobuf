@@ -24,6 +24,19 @@ defmodule Google.Cloud.Translation.V3.CreateGlossaryMetadata.State do
   field :CANCELLED, 5
 end
 
+defmodule Google.Cloud.Translation.V3.UpdateGlossaryMetadata.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :SUCCEEDED, 2
+  field :FAILED, 3
+  field :CANCELLING, 4
+  field :CANCELLED, 5
+end
+
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryMetadata.State do
   @moduledoc false
 
@@ -50,13 +63,12 @@ defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State do
   field :CANCELLED, 5
 end
 
-defmodule Google.Cloud.Translation.V3.TranslateTextGlossaryConfig do
+defmodule Google.Cloud.Translation.V3.TransliterationConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :glossary, 1, type: :string, deprecated: false
-  field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
+  field :enable_transliteration, 1, type: :bool, json_name: "enableTransliteration"
 end
 
 defmodule Google.Cloud.Translation.V3.TranslateTextRequest.LabelsEntry do
@@ -94,6 +106,11 @@ defmodule Google.Cloud.Translation.V3.TranslateTextRequest do
     json_name: "glossaryConfig",
     deprecated: false
 
+  field :transliteration_config, 13,
+    type: Google.Cloud.Translation.V3.TransliterationConfig,
+    json_name: "transliterationConfig",
+    deprecated: false
+
   field :labels, 10,
     repeated: true,
     type: Google.Cloud.Translation.V3.TranslateTextRequest.LabelsEntry,
@@ -126,6 +143,37 @@ defmodule Google.Cloud.Translation.V3.Translation do
   field :glossary_config, 3,
     type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig,
     json_name: "glossaryConfig"
+end
+
+defmodule Google.Cloud.Translation.V3.RomanizeTextRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 4, type: :string, deprecated: false
+  field :contents, 1, repeated: true, type: :string, deprecated: false
+
+  field :source_language_code, 2,
+    type: :string,
+    json_name: "sourceLanguageCode",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.Romanization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :romanized_text, 1, type: :string, json_name: "romanizedText"
+  field :detected_language_code, 2, type: :string, json_name: "detectedLanguageCode"
+end
+
+defmodule Google.Cloud.Translation.V3.RomanizeTextResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :romanizations, 1, repeated: true, type: Google.Cloud.Translation.V3.Romanization
 end
 
 defmodule Google.Cloud.Translation.V3.DetectLanguageRequest.LabelsEntry do
@@ -556,6 +604,15 @@ defmodule Google.Cloud.Translation.V3.CreateGlossaryRequest do
   field :glossary, 2, type: Google.Cloud.Translation.V3.Glossary, deprecated: false
 end
 
+defmodule Google.Cloud.Translation.V3.UpdateGlossaryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary, 1, type: Google.Cloud.Translation.V3.Glossary, deprecated: false
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
 defmodule Google.Cloud.Translation.V3.GetGlossaryRequest do
   @moduledoc false
 
@@ -592,6 +649,70 @@ defmodule Google.Cloud.Translation.V3.ListGlossariesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Translation.V3.GetGlossaryEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.DeleteGlossaryEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.ListGlossaryEntriesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.ListGlossaryEntriesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary_entries, 1,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.GlossaryEntry,
+    json_name: "glossaryEntries",
+    deprecated: false
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.CreateGlossaryEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :glossary_entry, 2,
+    type: Google.Cloud.Translation.V3.GlossaryEntry,
+    json_name: "glossaryEntry",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Translation.V3.UpdateGlossaryEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary_entry, 1,
+    type: Google.Cloud.Translation.V3.GlossaryEntry,
+    json_name: "glossaryEntry",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Translation.V3.CreateGlossaryMetadata do
   @moduledoc false
 
@@ -599,6 +720,16 @@ defmodule Google.Cloud.Translation.V3.CreateGlossaryMetadata do
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3.CreateGlossaryMetadata.State, enum: true
+  field :submit_time, 3, type: Google.Protobuf.Timestamp, json_name: "submitTime"
+end
+
+defmodule Google.Cloud.Translation.V3.UpdateGlossaryMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary, 1, type: Google.Cloud.Translation.V3.Glossary
+  field :state, 2, type: Google.Cloud.Translation.V3.UpdateGlossaryMetadata.State, enum: true
   field :submit_time, 3, type: Google.Protobuf.Timestamp, json_name: "submitTime"
 end
 
@@ -776,6 +907,15 @@ defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata do
   field :submit_time, 10, type: Google.Protobuf.Timestamp, json_name: "submitTime"
 end
 
+defmodule Google.Cloud.Translation.V3.TranslateTextGlossaryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary, 1, type: :string, deprecated: false
+  field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
+end
+
 defmodule Google.Cloud.Translation.V3.TranslationService.Service do
   @moduledoc false
 
@@ -786,6 +926,10 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
   rpc :TranslateText,
       Google.Cloud.Translation.V3.TranslateTextRequest,
       Google.Cloud.Translation.V3.TranslateTextResponse
+
+  rpc :RomanizeText,
+      Google.Cloud.Translation.V3.RomanizeTextRequest,
+      Google.Cloud.Translation.V3.RomanizeTextResponse
 
   rpc :DetectLanguage,
       Google.Cloud.Translation.V3.DetectLanguageRequest,
@@ -811,6 +955,10 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
       Google.Cloud.Translation.V3.CreateGlossaryRequest,
       Google.Longrunning.Operation
 
+  rpc :UpdateGlossary,
+      Google.Cloud.Translation.V3.UpdateGlossaryRequest,
+      Google.Longrunning.Operation
+
   rpc :ListGlossaries,
       Google.Cloud.Translation.V3.ListGlossariesRequest,
       Google.Cloud.Translation.V3.ListGlossariesResponse
@@ -821,6 +969,42 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
 
   rpc :DeleteGlossary,
       Google.Cloud.Translation.V3.DeleteGlossaryRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetGlossaryEntry,
+      Google.Cloud.Translation.V3.GetGlossaryEntryRequest,
+      Google.Cloud.Translation.V3.GlossaryEntry
+
+  rpc :ListGlossaryEntries,
+      Google.Cloud.Translation.V3.ListGlossaryEntriesRequest,
+      Google.Cloud.Translation.V3.ListGlossaryEntriesResponse
+
+  rpc :CreateGlossaryEntry,
+      Google.Cloud.Translation.V3.CreateGlossaryEntryRequest,
+      Google.Cloud.Translation.V3.GlossaryEntry
+
+  rpc :UpdateGlossaryEntry,
+      Google.Cloud.Translation.V3.UpdateGlossaryEntryRequest,
+      Google.Cloud.Translation.V3.GlossaryEntry
+
+  rpc :DeleteGlossaryEntry,
+      Google.Cloud.Translation.V3.DeleteGlossaryEntryRequest,
+      Google.Protobuf.Empty
+
+  rpc :CreateDataset,
+      Google.Cloud.Translation.V3.CreateDatasetRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetDataset,
+      Google.Cloud.Translation.V3.GetDatasetRequest,
+      Google.Cloud.Translation.V3.Dataset
+
+  rpc :ListDatasets,
+      Google.Cloud.Translation.V3.ListDatasetsRequest,
+      Google.Cloud.Translation.V3.ListDatasetsResponse
+
+  rpc :DeleteDataset,
+      Google.Cloud.Translation.V3.DeleteDatasetRequest,
       Google.Longrunning.Operation
 
   rpc :CreateAdaptiveMtDataset,
@@ -862,6 +1046,24 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
   rpc :ListAdaptiveMtSentences,
       Google.Cloud.Translation.V3.ListAdaptiveMtSentencesRequest,
       Google.Cloud.Translation.V3.ListAdaptiveMtSentencesResponse
+
+  rpc :ImportData, Google.Cloud.Translation.V3.ImportDataRequest, Google.Longrunning.Operation
+
+  rpc :ExportData, Google.Cloud.Translation.V3.ExportDataRequest, Google.Longrunning.Operation
+
+  rpc :ListExamples,
+      Google.Cloud.Translation.V3.ListExamplesRequest,
+      Google.Cloud.Translation.V3.ListExamplesResponse
+
+  rpc :CreateModel, Google.Cloud.Translation.V3.CreateModelRequest, Google.Longrunning.Operation
+
+  rpc :ListModels,
+      Google.Cloud.Translation.V3.ListModelsRequest,
+      Google.Cloud.Translation.V3.ListModelsResponse
+
+  rpc :GetModel, Google.Cloud.Translation.V3.GetModelRequest, Google.Cloud.Translation.V3.Model
+
+  rpc :DeleteModel, Google.Cloud.Translation.V3.DeleteModelRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Translation.V3.TranslationService.Stub do
