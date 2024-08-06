@@ -74,6 +74,49 @@ defmodule Google.Cloud.Translation.V3.ListAdaptiveMtDatasetsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
 end
 
+defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePair do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :source_sentence, 1, type: :string, json_name: "sourceSentence"
+  field :target_sentence, 2, type: :string, json_name: "targetSentence"
+end
+
+defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePairList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reference_sentence_pairs, 1,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePair,
+    json_name: "referenceSentencePairs"
+end
+
+defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentenceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :reference_sentence_pair_lists, 1,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePairList,
+    json_name: "referenceSentencePairLists"
+
+  field :source_language_code, 2, type: :string, json_name: "sourceLanguageCode"
+  field :target_language_code, 3, type: :string, json_name: "targetLanguageCode"
+end
+
+defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.GlossaryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :glossary, 1, type: :string, deprecated: false
+  field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
+end
+
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest do
   @moduledoc false
 
@@ -82,6 +125,17 @@ defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest do
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: :string, deprecated: false
   field :content, 3, repeated: true, type: :string, deprecated: false
+
+  field :reference_sentence_config, 6,
+    proto3_optional: true,
+    type: Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentenceConfig,
+    json_name: "referenceSentenceConfig"
+
+  field :glossary_config, 7,
+    proto3_optional: true,
+    type: Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.GlossaryConfig,
+    json_name: "glossaryConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslation do
@@ -103,6 +157,11 @@ defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateResponse do
     deprecated: false
 
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
+
+  field :glossary_translations, 4,
+    repeated: true,
+    type: Google.Cloud.Translation.V3.AdaptiveMtTranslation,
+    json_name: "glossaryTranslations"
 end
 
 defmodule Google.Cloud.Translation.V3.AdaptiveMtFile do

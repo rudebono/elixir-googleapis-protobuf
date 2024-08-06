@@ -13,6 +13,11 @@ defmodule Google.Cloud.Aiplatform.V1.MachineSpec do
 
   field :accelerator_count, 3, type: :int32, json_name: "acceleratorCount"
   field :tpu_topology, 4, type: :string, json_name: "tpuTopology", deprecated: false
+
+  field :reservation_affinity, 5,
+    type: Google.Cloud.Aiplatform.V1.ReservationAffinity,
+    json_name: "reservationAffinity",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DedicatedResources do
@@ -33,6 +38,8 @@ defmodule Google.Cloud.Aiplatform.V1.DedicatedResources do
     type: Google.Cloud.Aiplatform.V1.AutoscalingMetricSpec,
     json_name: "autoscalingMetricSpecs",
     deprecated: false
+
+  field :spot, 5, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.AutomaticResources do
