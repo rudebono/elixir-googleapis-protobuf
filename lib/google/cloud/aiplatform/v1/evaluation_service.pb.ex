@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseChoice do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseChoice do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -9,7 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseChoice do
   field :TIE, 3
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
+defmodule Google.Cloud.Aiplatform.V1.EvaluateInstancesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -17,124 +17,124 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
   oneof :metric_inputs, 0
 
   field :exact_match_input, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchInput,
+    type: Google.Cloud.Aiplatform.V1.ExactMatchInput,
     json_name: "exactMatchInput",
     oneof: 0
 
   field :bleu_input, 3,
-    type: Google.Cloud.Aiplatform.V1beta1.BleuInput,
+    type: Google.Cloud.Aiplatform.V1.BleuInput,
     json_name: "bleuInput",
     oneof: 0
 
   field :rouge_input, 4,
-    type: Google.Cloud.Aiplatform.V1beta1.RougeInput,
+    type: Google.Cloud.Aiplatform.V1.RougeInput,
     json_name: "rougeInput",
     oneof: 0
 
   field :fluency_input, 5,
-    type: Google.Cloud.Aiplatform.V1beta1.FluencyInput,
+    type: Google.Cloud.Aiplatform.V1.FluencyInput,
     json_name: "fluencyInput",
     oneof: 0
 
   field :coherence_input, 6,
-    type: Google.Cloud.Aiplatform.V1beta1.CoherenceInput,
+    type: Google.Cloud.Aiplatform.V1.CoherenceInput,
     json_name: "coherenceInput",
     oneof: 0
 
   field :safety_input, 8,
-    type: Google.Cloud.Aiplatform.V1beta1.SafetyInput,
+    type: Google.Cloud.Aiplatform.V1.SafetyInput,
     json_name: "safetyInput",
     oneof: 0
 
   field :groundedness_input, 9,
-    type: Google.Cloud.Aiplatform.V1beta1.GroundednessInput,
+    type: Google.Cloud.Aiplatform.V1.GroundednessInput,
     json_name: "groundednessInput",
     oneof: 0
 
   field :fulfillment_input, 12,
-    type: Google.Cloud.Aiplatform.V1beta1.FulfillmentInput,
+    type: Google.Cloud.Aiplatform.V1.FulfillmentInput,
     json_name: "fulfillmentInput",
     oneof: 0
 
   field :summarization_quality_input, 7,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInput,
+    type: Google.Cloud.Aiplatform.V1.SummarizationQualityInput,
     json_name: "summarizationQualityInput",
     oneof: 0
 
   field :pairwise_summarization_quality_input, 23,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityInput,
+    type: Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityInput,
     json_name: "pairwiseSummarizationQualityInput",
     oneof: 0
 
   field :summarization_helpfulness_input, 14,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessInput,
+    type: Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessInput,
     json_name: "summarizationHelpfulnessInput",
     oneof: 0
 
   field :summarization_verbosity_input, 15,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityInput,
+    type: Google.Cloud.Aiplatform.V1.SummarizationVerbosityInput,
     json_name: "summarizationVerbosityInput",
     oneof: 0
 
   field :question_answering_quality_input, 10,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityInput,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityInput,
     json_name: "questionAnsweringQualityInput",
     oneof: 0
 
   field :pairwise_question_answering_quality_input, 24,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityInput,
+    type: Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityInput,
     json_name: "pairwiseQuestionAnsweringQualityInput",
     oneof: 0
 
   field :question_answering_relevance_input, 16,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceInput,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceInput,
     json_name: "questionAnsweringRelevanceInput",
     oneof: 0
 
   field :question_answering_helpfulness_input, 17,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessInput,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessInput,
     json_name: "questionAnsweringHelpfulnessInput",
     oneof: 0
 
   field :question_answering_correctness_input, 18,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInput,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessInput,
     json_name: "questionAnsweringCorrectnessInput",
     oneof: 0
 
   field :pointwise_metric_input, 28,
-    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInput,
+    type: Google.Cloud.Aiplatform.V1.PointwiseMetricInput,
     json_name: "pointwiseMetricInput",
     oneof: 0
 
   field :pairwise_metric_input, 29,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInput,
+    type: Google.Cloud.Aiplatform.V1.PairwiseMetricInput,
     json_name: "pairwiseMetricInput",
     oneof: 0
 
   field :tool_call_valid_input, 19,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolCallValidInput,
+    type: Google.Cloud.Aiplatform.V1.ToolCallValidInput,
     json_name: "toolCallValidInput",
     oneof: 0
 
   field :tool_name_match_input, 20,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolNameMatchInput,
+    type: Google.Cloud.Aiplatform.V1.ToolNameMatchInput,
     json_name: "toolNameMatchInput",
     oneof: 0
 
   field :tool_parameter_key_match_input, 21,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchInput,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchInput,
     json_name: "toolParameterKeyMatchInput",
     oneof: 0
 
   field :tool_parameter_kv_match_input, 22,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchInput,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKVMatchInput,
     json_name: "toolParameterKvMatchInput",
     oneof: 0
 
   field :location, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
+defmodule Google.Cloud.Aiplatform.V1.EvaluateInstancesResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -142,138 +142,138 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
   oneof :evaluation_results, 0
 
   field :exact_match_results, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchResults,
+    type: Google.Cloud.Aiplatform.V1.ExactMatchResults,
     json_name: "exactMatchResults",
     oneof: 0
 
   field :bleu_results, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.BleuResults,
+    type: Google.Cloud.Aiplatform.V1.BleuResults,
     json_name: "bleuResults",
     oneof: 0
 
   field :rouge_results, 3,
-    type: Google.Cloud.Aiplatform.V1beta1.RougeResults,
+    type: Google.Cloud.Aiplatform.V1.RougeResults,
     json_name: "rougeResults",
     oneof: 0
 
   field :fluency_result, 4,
-    type: Google.Cloud.Aiplatform.V1beta1.FluencyResult,
+    type: Google.Cloud.Aiplatform.V1.FluencyResult,
     json_name: "fluencyResult",
     oneof: 0
 
   field :coherence_result, 5,
-    type: Google.Cloud.Aiplatform.V1beta1.CoherenceResult,
+    type: Google.Cloud.Aiplatform.V1.CoherenceResult,
     json_name: "coherenceResult",
     oneof: 0
 
   field :safety_result, 7,
-    type: Google.Cloud.Aiplatform.V1beta1.SafetyResult,
+    type: Google.Cloud.Aiplatform.V1.SafetyResult,
     json_name: "safetyResult",
     oneof: 0
 
   field :groundedness_result, 8,
-    type: Google.Cloud.Aiplatform.V1beta1.GroundednessResult,
+    type: Google.Cloud.Aiplatform.V1.GroundednessResult,
     json_name: "groundednessResult",
     oneof: 0
 
   field :fulfillment_result, 11,
-    type: Google.Cloud.Aiplatform.V1beta1.FulfillmentResult,
+    type: Google.Cloud.Aiplatform.V1.FulfillmentResult,
     json_name: "fulfillmentResult",
     oneof: 0
 
   field :summarization_quality_result, 6,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualityResult,
+    type: Google.Cloud.Aiplatform.V1.SummarizationQualityResult,
     json_name: "summarizationQualityResult",
     oneof: 0
 
   field :pairwise_summarization_quality_result, 22,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityResult,
+    type: Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityResult,
     json_name: "pairwiseSummarizationQualityResult",
     oneof: 0
 
   field :summarization_helpfulness_result, 13,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessResult,
+    type: Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessResult,
     json_name: "summarizationHelpfulnessResult",
     oneof: 0
 
   field :summarization_verbosity_result, 14,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityResult,
+    type: Google.Cloud.Aiplatform.V1.SummarizationVerbosityResult,
     json_name: "summarizationVerbosityResult",
     oneof: 0
 
   field :question_answering_quality_result, 9,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityResult,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityResult,
     json_name: "questionAnsweringQualityResult",
     oneof: 0
 
   field :pairwise_question_answering_quality_result, 23,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityResult,
+    type: Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityResult,
     json_name: "pairwiseQuestionAnsweringQualityResult",
     oneof: 0
 
   field :question_answering_relevance_result, 15,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceResult,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceResult,
     json_name: "questionAnsweringRelevanceResult",
     oneof: 0
 
   field :question_answering_helpfulness_result, 16,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessResult,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessResult,
     json_name: "questionAnsweringHelpfulnessResult",
     oneof: 0
 
   field :question_answering_correctness_result, 17,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessResult,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessResult,
     json_name: "questionAnsweringCorrectnessResult",
     oneof: 0
 
   field :pointwise_metric_result, 27,
-    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult,
+    type: Google.Cloud.Aiplatform.V1.PointwiseMetricResult,
     json_name: "pointwiseMetricResult",
     oneof: 0
 
   field :pairwise_metric_result, 28,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult,
+    type: Google.Cloud.Aiplatform.V1.PairwiseMetricResult,
     json_name: "pairwiseMetricResult",
     oneof: 0
 
   field :tool_call_valid_results, 18,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolCallValidResults,
+    type: Google.Cloud.Aiplatform.V1.ToolCallValidResults,
     json_name: "toolCallValidResults",
     oneof: 0
 
   field :tool_name_match_results, 19,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolNameMatchResults,
+    type: Google.Cloud.Aiplatform.V1.ToolNameMatchResults,
     json_name: "toolNameMatchResults",
     oneof: 0
 
   field :tool_parameter_key_match_results, 20,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchResults,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchResults,
     json_name: "toolParameterKeyMatchResults",
     oneof: 0
 
   field :tool_parameter_kv_match_results, 21,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchResults,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKVMatchResults,
     json_name: "toolParameterKvMatchResults",
     oneof: 0
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchInput do
+defmodule Google.Cloud.Aiplatform.V1.ExactMatchInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchSpec,
+    type: Google.Cloud.Aiplatform.V1.ExactMatchSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchInstance,
+    type: Google.Cloud.Aiplatform.V1.ExactMatchInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchInstance do
+defmodule Google.Cloud.Aiplatform.V1.ExactMatchInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -282,25 +282,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchSpec do
+defmodule Google.Cloud.Aiplatform.V1.ExactMatchSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchResults do
+defmodule Google.Cloud.Aiplatform.V1.ExactMatchResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :exact_match_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchMetricValue,
+    type: Google.Cloud.Aiplatform.V1.ExactMatchMetricValue,
     json_name: "exactMatchMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.ExactMatchMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -308,23 +308,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExactMatchMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.BleuInput do
+defmodule Google.Cloud.Aiplatform.V1.BleuInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.BleuSpec,
+    type: Google.Cloud.Aiplatform.V1.BleuSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.BleuInstance,
+    type: Google.Cloud.Aiplatform.V1.BleuInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.BleuInstance do
+defmodule Google.Cloud.Aiplatform.V1.BleuInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -333,7 +333,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BleuInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.BleuSpec do
+defmodule Google.Cloud.Aiplatform.V1.BleuSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -341,19 +341,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BleuSpec do
   field :use_effective_order, 1, type: :bool, json_name: "useEffectiveOrder", deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.BleuResults do
+defmodule Google.Cloud.Aiplatform.V1.BleuResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :bleu_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.BleuMetricValue,
+    type: Google.Cloud.Aiplatform.V1.BleuMetricValue,
     json_name: "bleuMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.BleuMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.BleuMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -361,23 +361,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BleuMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RougeInput do
+defmodule Google.Cloud.Aiplatform.V1.RougeInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.RougeSpec,
+    type: Google.Cloud.Aiplatform.V1.RougeSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.RougeInstance,
+    type: Google.Cloud.Aiplatform.V1.RougeInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RougeInstance do
+defmodule Google.Cloud.Aiplatform.V1.RougeInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -386,7 +386,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RougeInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RougeSpec do
+defmodule Google.Cloud.Aiplatform.V1.RougeSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -396,19 +396,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RougeSpec do
   field :split_summaries, 3, type: :bool, json_name: "splitSummaries", deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RougeResults do
+defmodule Google.Cloud.Aiplatform.V1.RougeResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :rouge_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.RougeMetricValue,
+    type: Google.Cloud.Aiplatform.V1.RougeMetricValue,
     json_name: "rougeMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RougeMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.RougeMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -416,20 +416,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RougeMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceInput do
+defmodule Google.Cloud.Aiplatform.V1.CoherenceInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.CoherenceSpec,
+    type: Google.Cloud.Aiplatform.V1.CoherenceSpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.CoherenceInstance, deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.CoherenceInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceInstance do
+defmodule Google.Cloud.Aiplatform.V1.CoherenceInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -437,7 +437,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceInstance do
   field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceSpec do
+defmodule Google.Cloud.Aiplatform.V1.CoherenceSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -445,7 +445,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceSpec do
   field :version, 1, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceResult do
+defmodule Google.Cloud.Aiplatform.V1.CoherenceResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -455,20 +455,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CoherenceResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FluencyInput do
+defmodule Google.Cloud.Aiplatform.V1.FluencyInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.FluencySpec,
+    type: Google.Cloud.Aiplatform.V1.FluencySpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.FluencyInstance, deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.FluencyInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FluencyInstance do
+defmodule Google.Cloud.Aiplatform.V1.FluencyInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -476,7 +476,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FluencyInstance do
   field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FluencySpec do
+defmodule Google.Cloud.Aiplatform.V1.FluencySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -484,7 +484,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FluencySpec do
   field :version, 1, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FluencyResult do
+defmodule Google.Cloud.Aiplatform.V1.FluencyResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -494,20 +494,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FluencyResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SafetyInput do
+defmodule Google.Cloud.Aiplatform.V1.SafetyInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.SafetySpec,
+    type: Google.Cloud.Aiplatform.V1.SafetySpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.SafetyInstance, deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.SafetyInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SafetyInstance do
+defmodule Google.Cloud.Aiplatform.V1.SafetyInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -515,7 +515,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetyInstance do
   field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SafetySpec do
+defmodule Google.Cloud.Aiplatform.V1.SafetySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -523,7 +523,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetySpec do
   field :version, 1, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SafetyResult do
+defmodule Google.Cloud.Aiplatform.V1.SafetyResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -533,22 +533,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetyResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessInput do
+defmodule Google.Cloud.Aiplatform.V1.GroundednessInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.GroundednessSpec,
+    type: Google.Cloud.Aiplatform.V1.GroundednessSpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.GroundednessInstance,
-    deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.GroundednessInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessInstance do
+defmodule Google.Cloud.Aiplatform.V1.GroundednessInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -557,7 +555,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessInstance do
   field :context, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessSpec do
+defmodule Google.Cloud.Aiplatform.V1.GroundednessSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -565,7 +563,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessSpec do
   field :version, 1, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessResult do
+defmodule Google.Cloud.Aiplatform.V1.GroundednessResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -575,20 +573,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundednessResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentInput do
+defmodule Google.Cloud.Aiplatform.V1.FulfillmentInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.FulfillmentSpec,
+    type: Google.Cloud.Aiplatform.V1.FulfillmentSpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.FulfillmentInstance, deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.FulfillmentInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentInstance do
+defmodule Google.Cloud.Aiplatform.V1.FulfillmentInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -597,7 +595,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentInstance do
   field :instruction, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentSpec do
+defmodule Google.Cloud.Aiplatform.V1.FulfillmentSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -605,7 +603,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentSpec do
   field :version, 1, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentResult do
+defmodule Google.Cloud.Aiplatform.V1.FulfillmentResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -615,22 +613,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FulfillmentResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInput do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationQualityInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualitySpec,
+    type: Google.Cloud.Aiplatform.V1.SummarizationQualitySpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInstance,
+    type: Google.Cloud.Aiplatform.V1.SummarizationQualityInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInstance do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationQualityInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -641,7 +639,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualityInstance do
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualitySpec do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationQualitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -650,7 +648,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualitySpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualityResult do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationQualityResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -660,22 +658,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationQualityResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityInput do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualitySpec,
+    type: Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualitySpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityInstance,
+    type: Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityInstance do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -693,7 +691,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityInstance d
   field :instruction, 5, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualitySpec do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -702,13 +700,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualitySpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityResult do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseSummarizationQualityResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pairwise_choice, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseChoice,
+    type: Google.Cloud.Aiplatform.V1.PairwiseChoice,
     json_name: "pairwiseChoice",
     enum: true,
     deprecated: false
@@ -717,22 +715,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseSummarizationQualityResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessInput do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessSpec,
+    type: Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessInstance,
+    type: Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessInstance do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -743,7 +741,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessInstance do
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessSpec do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -752,7 +750,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessSpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessResult do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationHelpfulnessResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -762,22 +760,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationHelpfulnessResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityInput do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationVerbosityInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationVerbositySpec,
+    type: Google.Cloud.Aiplatform.V1.SummarizationVerbositySpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityInstance,
+    type: Google.Cloud.Aiplatform.V1.SummarizationVerbosityInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityInstance do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationVerbosityInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -788,7 +786,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityInstance do
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbositySpec do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationVerbositySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -797,7 +795,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbositySpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityResult do
+defmodule Google.Cloud.Aiplatform.V1.SummarizationVerbosityResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -807,22 +805,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SummarizationVerbosityResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityInput do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualitySpec,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringQualitySpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityInstance,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityInstance do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -833,7 +831,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityInstance do
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualitySpec do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringQualitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -842,7 +840,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualitySpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityResult do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringQualityResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -852,22 +850,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringQualityResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityInput do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualitySpec,
+    type: Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualitySpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityInstance,
+    type: Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityInstance do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -885,7 +883,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityInstan
   field :instruction, 5, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualitySpec do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualitySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -894,13 +892,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualitySpec d
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityResult do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseQuestionAnsweringQualityResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pairwise_choice, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseChoice,
+    type: Google.Cloud.Aiplatform.V1.PairwiseChoice,
     json_name: "pairwiseChoice",
     enum: true,
     deprecated: false
@@ -909,22 +907,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseQuestionAnsweringQualityResult
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceInput do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceSpec,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceInstance,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceInstance do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -935,7 +933,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceInstance do
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceSpec do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -944,7 +942,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceSpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceResult do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringRelevanceResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -954,22 +952,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringRelevanceResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessInput do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessSpec,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessInstance,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessInstance do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -980,7 +978,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessInstance d
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessSpec do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -989,7 +987,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessSpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessResult do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringHelpfulnessResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -999,22 +997,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringHelpfulnessResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInput do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessSpec,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInstance,
+    type: Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInstance do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1025,7 +1023,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessInstance d
   field :instruction, 4, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessSpec do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1034,7 +1032,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessSpec do
   field :version, 2, type: :int32, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessResult do
+defmodule Google.Cloud.Aiplatform.V1.QuestionAnsweringCorrectnessResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1044,22 +1042,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QuestionAnsweringCorrectnessResult do
   field :confidence, 3, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInput do
+defmodule Google.Cloud.Aiplatform.V1.PointwiseMetricInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec,
+    type: Google.Cloud.Aiplatform.V1.PointwiseMetricSpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInstance,
-    deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.PointwiseMetricInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInstance do
+defmodule Google.Cloud.Aiplatform.V1.PointwiseMetricInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1069,7 +1065,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInstance do
   field :json_instance, 1, type: :string, json_name: "jsonInstance", oneof: 0
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec do
+defmodule Google.Cloud.Aiplatform.V1.PointwiseMetricSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1081,7 +1077,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult do
+defmodule Google.Cloud.Aiplatform.V1.PointwiseMetricResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1090,22 +1086,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult do
   field :explanation, 2, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInput do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseMetricInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec,
+    type: Google.Cloud.Aiplatform.V1.PairwiseMetricSpec,
     json_name: "metricSpec",
     deprecated: false
 
-  field :instance, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInstance,
-    deprecated: false
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1.PairwiseMetricInstance, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInstance do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseMetricInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1115,7 +1109,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInstance do
   field :json_instance, 1, type: :string, json_name: "jsonInstance", oneof: 0
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseMetricSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1127,13 +1121,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult do
+defmodule Google.Cloud.Aiplatform.V1.PairwiseMetricResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :pairwise_choice, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.PairwiseChoice,
+    type: Google.Cloud.Aiplatform.V1.PairwiseChoice,
     json_name: "pairwiseChoice",
     enum: true,
     deprecated: false
@@ -1141,29 +1135,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult do
   field :explanation, 2, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidInput do
+defmodule Google.Cloud.Aiplatform.V1.ToolCallValidInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolCallValidSpec,
+    type: Google.Cloud.Aiplatform.V1.ToolCallValidSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolCallValidInstance,
+    type: Google.Cloud.Aiplatform.V1.ToolCallValidInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidSpec do
+defmodule Google.Cloud.Aiplatform.V1.ToolCallValidSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidInstance do
+defmodule Google.Cloud.Aiplatform.V1.ToolCallValidInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1172,19 +1166,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidResults do
+defmodule Google.Cloud.Aiplatform.V1.ToolCallValidResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tool_call_valid_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolCallValidMetricValue,
+    type: Google.Cloud.Aiplatform.V1.ToolCallValidMetricValue,
     json_name: "toolCallValidMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.ToolCallValidMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1192,29 +1186,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchInput do
+defmodule Google.Cloud.Aiplatform.V1.ToolNameMatchInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolNameMatchSpec,
+    type: Google.Cloud.Aiplatform.V1.ToolNameMatchSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolNameMatchInstance,
+    type: Google.Cloud.Aiplatform.V1.ToolNameMatchInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchSpec do
+defmodule Google.Cloud.Aiplatform.V1.ToolNameMatchSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchInstance do
+defmodule Google.Cloud.Aiplatform.V1.ToolNameMatchInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1223,19 +1217,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchResults do
+defmodule Google.Cloud.Aiplatform.V1.ToolNameMatchResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tool_name_match_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolNameMatchMetricValue,
+    type: Google.Cloud.Aiplatform.V1.ToolNameMatchMetricValue,
     json_name: "toolNameMatchMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.ToolNameMatchMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1243,29 +1237,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolNameMatchMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchInput do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchSpec,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchInstance,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchSpec do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchInstance do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1274,19 +1268,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchResults do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tool_parameter_key_match_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchMetricValue,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchMetricValue,
     json_name: "toolParameterKeyMatchMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKeyMatchMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1294,23 +1288,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKeyMatchMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchInput do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKVMatchInput do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metric_spec, 1,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchSpec,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKVMatchSpec,
     json_name: "metricSpec",
     deprecated: false
 
   field :instances, 2,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchInstance,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKVMatchInstance,
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchSpec do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKVMatchSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1321,7 +1315,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchSpec do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchInstance do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKVMatchInstance do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1330,19 +1324,19 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchInstance do
   field :reference, 2, proto3_optional: true, type: :string, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchResults do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKVMatchResults do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :tool_parameter_kv_match_metric_values, 1,
     repeated: true,
-    type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchMetricValue,
+    type: Google.Cloud.Aiplatform.V1.ToolParameterKVMatchMetricValue,
     json_name: "toolParameterKvMatchMetricValues",
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchMetricValue do
+defmodule Google.Cloud.Aiplatform.V1.ToolParameterKVMatchMetricValue do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -1350,20 +1344,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchMetricValue do
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationService.Service do
+defmodule Google.Cloud.Aiplatform.V1.EvaluationService.Service do
   @moduledoc false
 
   use GRPC.Service,
-    name: "google.cloud.aiplatform.v1beta1.EvaluationService",
+    name: "google.cloud.aiplatform.v1.EvaluationService",
     protoc_gen_elixir_version: "0.12.0"
 
   rpc :EvaluateInstances,
-      Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest,
-      Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse
+      Google.Cloud.Aiplatform.V1.EvaluateInstancesRequest,
+      Google.Cloud.Aiplatform.V1.EvaluateInstancesResponse
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationService.Stub do
+defmodule Google.Cloud.Aiplatform.V1.EvaluationService.Stub do
   @moduledoc false
 
-  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1beta1.EvaluationService.Service
+  use GRPC.Stub, service: Google.Cloud.Aiplatform.V1.EvaluationService.Service
 end
