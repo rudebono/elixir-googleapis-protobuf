@@ -373,6 +373,11 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.InstancePolicyOrTemplate d
   field :instance_template, 2, type: :string, json_name: "instanceTemplate", oneof: 0
   field :install_gpu_drivers, 3, type: :bool, json_name: "installGpuDrivers"
   field :install_ops_agent, 4, type: :bool, json_name: "installOpsAgent", deprecated: false
+
+  field :block_project_ssh_keys, 5,
+    type: :bool,
+    json_name: "blockProjectSshKeys",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.NetworkInterface do

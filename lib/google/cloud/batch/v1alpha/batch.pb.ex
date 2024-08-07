@@ -27,6 +27,21 @@ defmodule Google.Cloud.Batch.V1alpha.DeleteJobRequest do
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Batch.V1alpha.CancelJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Batch.V1alpha.CancelJobResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Batch.V1alpha.UpdateJobRequest do
   @moduledoc false
 
@@ -205,6 +220,8 @@ defmodule Google.Cloud.Batch.V1alpha.BatchService.Service do
   rpc :GetJob, Google.Cloud.Batch.V1alpha.GetJobRequest, Google.Cloud.Batch.V1alpha.Job
 
   rpc :DeleteJob, Google.Cloud.Batch.V1alpha.DeleteJobRequest, Google.Longrunning.Operation
+
+  rpc :CancelJob, Google.Cloud.Batch.V1alpha.CancelJobRequest, Google.Longrunning.Operation
 
   rpc :UpdateJob, Google.Cloud.Batch.V1alpha.UpdateJobRequest, Google.Cloud.Batch.V1alpha.Job
 
