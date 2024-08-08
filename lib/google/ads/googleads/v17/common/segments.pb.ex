@@ -23,6 +23,11 @@ defmodule Google.Ads.Googleads.V17.Common.Segments do
     json_name: "adDestinationType",
     enum: true
 
+  field :ad_format_type, 191,
+    type: Google.Ads.Googleads.V17.Enums.AdFormatTypeEnum.AdFormatType,
+    json_name: "adFormatType",
+    enum: true
+
   field :ad_network_type, 3,
     type: Google.Ads.Googleads.V17.Enums.AdNetworkTypeEnum.AdNetworkType,
     json_name: "adNetworkType",
@@ -401,6 +406,11 @@ defmodule Google.Ads.Googleads.V17.Common.Segments do
     proto3_optional: true,
     type: :int64,
     json_name: "skAdNetworkPostbackSequenceIndex"
+
+  field :sk_ad_network_version, 192,
+    proto3_optional: true,
+    type: :string,
+    json_name: "skAdNetworkVersion"
 
   field :asset_interaction_target, 139,
     proto3_optional: true,

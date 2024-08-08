@@ -168,6 +168,16 @@ defmodule Google.Firestore.V1.StructuredQuery.FindNearest do
     deprecated: false
 
   field :limit, 4, type: Google.Protobuf.Int32Value, deprecated: false
+
+  field :distance_result_field, 5,
+    type: :string,
+    json_name: "distanceResultField",
+    deprecated: false
+
+  field :distance_threshold, 6,
+    type: Google.Protobuf.DoubleValue,
+    json_name: "distanceThreshold",
+    deprecated: false
 end
 
 defmodule Google.Firestore.V1.StructuredQuery do

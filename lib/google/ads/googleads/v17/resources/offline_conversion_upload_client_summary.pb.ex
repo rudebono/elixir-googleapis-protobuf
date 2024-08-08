@@ -24,6 +24,8 @@ defmodule Google.Ads.Googleads.V17.Resources.OfflineConversionUploadClientSummar
     deprecated: false
 
   field :success_rate, 6, type: :double, json_name: "successRate", deprecated: false
+  field :pending_event_count, 11, type: :int64, json_name: "pendingEventCount", deprecated: false
+  field :pending_rate, 12, type: :double, json_name: "pendingRate", deprecated: false
 
   field :last_upload_date_time, 7,
     type: :string,
@@ -57,6 +59,7 @@ defmodule Google.Ads.Googleads.V17.Resources.OfflineConversionSummary do
 
   field :successful_count, 3, type: :int64, json_name: "successfulCount", deprecated: false
   field :failed_count, 4, type: :int64, json_name: "failedCount", deprecated: false
+  field :pending_count, 5, type: :int64, json_name: "pendingCount", deprecated: false
   field :job_id, 1, type: :int64, json_name: "jobId", oneof: 0, deprecated: false
   field :upload_date, 2, type: :string, json_name: "uploadDate", oneof: 0, deprecated: false
 end

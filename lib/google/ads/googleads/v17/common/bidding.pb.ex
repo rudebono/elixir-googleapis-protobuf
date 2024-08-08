@@ -179,3 +179,38 @@ defmodule Google.Ads.Googleads.V17.Common.PercentCpc do
     type: :bool,
     json_name: "enhancedCpcEnabled"
 end
+
+defmodule Google.Ads.Googleads.V17.Common.FixedCpm do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :goal_info, 0
+
+  field :goal, 1, type: Google.Ads.Googleads.V17.Enums.FixedCpmGoalEnum.FixedCpmGoal, enum: true
+
+  field :target_frequency_info, 2,
+    type: Google.Ads.Googleads.V17.Common.FixedCpmTargetFrequencyGoalInfo,
+    json_name: "targetFrequencyInfo",
+    oneof: 0
+end
+
+defmodule Google.Ads.Googleads.V17.Common.FixedCpmTargetFrequencyGoalInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_count, 1, type: :int64, json_name: "targetCount"
+
+  field :time_unit, 2,
+    type:
+      Google.Ads.Googleads.V17.Enums.FixedCpmTargetFrequencyTimeUnitEnum.FixedCpmTargetFrequencyTimeUnit,
+    json_name: "timeUnit",
+    enum: true
+end
+
+defmodule Google.Ads.Googleads.V17.Common.TargetCpv do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end

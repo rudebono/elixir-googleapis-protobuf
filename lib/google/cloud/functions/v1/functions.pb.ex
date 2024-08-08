@@ -207,6 +207,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
     type: Google.Cloud.Functions.V1.CloudFunction.OnDeployUpdatePolicy,
     json_name: "onDeployUpdatePolicy",
     oneof: 2
+
+  field :build_service_account, 43, type: :string, json_name: "buildServiceAccount"
 end
 
 defmodule Google.Cloud.Functions.V1.SourceRepository do

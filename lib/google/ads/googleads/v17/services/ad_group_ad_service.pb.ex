@@ -58,6 +58,34 @@ defmodule Google.Ads.Googleads.V17.Services.MutateAdGroupAdResult do
     json_name: "adGroupAd"
 end
 
+defmodule Google.Ads.Googleads.V17.Services.RemoveAutomaticallyCreatedAssetsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ad_group_ad, 1, type: :string, json_name: "adGroupAd", deprecated: false
+
+  field :assets_with_field_type, 2,
+    repeated: true,
+    type: Google.Ads.Googleads.V17.Services.AssetsWithFieldType,
+    json_name: "assetsWithFieldType",
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V17.Services.AssetsWithFieldType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :asset, 1, type: :string, deprecated: false
+
+  field :asset_field_type, 2,
+    type: Google.Ads.Googleads.V17.Enums.AssetFieldTypeEnum.AssetFieldType,
+    json_name: "assetFieldType",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Ads.Googleads.V17.Services.AdGroupAdService.Service do
   @moduledoc false
 
@@ -68,6 +96,10 @@ defmodule Google.Ads.Googleads.V17.Services.AdGroupAdService.Service do
   rpc :MutateAdGroupAds,
       Google.Ads.Googleads.V17.Services.MutateAdGroupAdsRequest,
       Google.Ads.Googleads.V17.Services.MutateAdGroupAdsResponse
+
+  rpc :RemoveAutomaticallyCreatedAssets,
+      Google.Ads.Googleads.V17.Services.RemoveAutomaticallyCreatedAssetsRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Ads.Googleads.V17.Services.AdGroupAdService.Stub do

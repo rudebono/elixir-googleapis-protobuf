@@ -14,6 +14,13 @@ defmodule Google.Ads.Googleads.V17.Enums.UserListCustomerTypeCategoryEnum.UserLi
   field :PAID_SUBSCRIBERS, 8
   field :LOYALTY_SIGN_UPS, 9
   field :CART_ABANDONERS, 10
+  field :LOYALTY_TIER_1_MEMBERS, 11
+  field :LOYALTY_TIER_2_MEMBERS, 12
+  field :LOYALTY_TIER_3_MEMBERS, 13
+  field :LOYALTY_TIER_4_MEMBERS, 14
+  field :LOYALTY_TIER_5_MEMBERS, 15
+  field :LOYALTY_TIER_6_MEMBERS, 16
+  field :LOYALTY_TIER_7_MEMBERS, 17
 end
 
 defmodule Google.Ads.Googleads.V17.Enums.UserListCustomerTypeCategoryEnum do
