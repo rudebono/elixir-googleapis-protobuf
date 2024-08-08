@@ -65,6 +65,8 @@ defmodule Google.Ads.Googleads.V17.Resources.AdGroup do
     type: :int64,
     json_name: "percentCpcBidMicros"
 
+  field :fixed_cpm_micros, 64, proto3_optional: true, type: :int64, json_name: "fixedCpmMicros"
+  field :target_cpv_micros, 65, proto3_optional: true, type: :int64, json_name: "targetCpvMicros"
   field :optimized_targeting_enabled, 59, type: :bool, json_name: "optimizedTargetingEnabled"
 
   field :display_custom_bid_dimension, 23,

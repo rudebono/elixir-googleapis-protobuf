@@ -268,6 +268,27 @@ defmodule Google.Ads.Googleads.V17.Resources.Campaign.DemandGenCampaignSettings 
     deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings.VideoAdInventoryControl do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :allow_in_stream, 1, proto3_optional: true, type: :bool, json_name: "allowInStream"
+  field :allow_in_feed, 2, proto3_optional: true, type: :bool, json_name: "allowInFeed"
+  field :allow_shorts, 3, proto3_optional: true, type: :bool, json_name: "allowShorts"
+end
+
+defmodule Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :video_ad_inventory_control, 1,
+    type:
+      Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings.VideoAdInventoryControl,
+    json_name: "videoAdInventoryControl"
+end
+
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.AssetAutomationSetting do
   @moduledoc false
 
@@ -367,6 +388,10 @@ defmodule Google.Ads.Googleads.V17.Resources.Campaign do
   field :demand_gen_campaign_settings, 91,
     type: Google.Ads.Googleads.V17.Resources.Campaign.DemandGenCampaignSettings,
     json_name: "demandGenCampaignSettings"
+
+  field :video_campaign_settings, 94,
+    type: Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings,
+    json_name: "videoCampaignSettings"
 
   field :real_time_bidding_setting, 39,
     type: Google.Ads.Googleads.V17.Common.RealTimeBiddingSetting,
@@ -602,5 +627,15 @@ defmodule Google.Ads.Googleads.V17.Resources.Campaign do
   field :target_cpm, 41,
     type: Google.Ads.Googleads.V17.Common.TargetCpm,
     json_name: "targetCpm",
+    oneof: 0
+
+  field :fixed_cpm, 92,
+    type: Google.Ads.Googleads.V17.Common.FixedCpm,
+    json_name: "fixedCpm",
+    oneof: 0
+
+  field :target_cpv, 93,
+    type: Google.Ads.Googleads.V17.Common.TargetCpv,
+    json_name: "targetCpv",
     oneof: 0
 end

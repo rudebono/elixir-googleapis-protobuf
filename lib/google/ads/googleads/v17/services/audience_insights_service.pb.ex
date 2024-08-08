@@ -136,6 +136,10 @@ defmodule Google.Ads.Googleads.V17.Services.ListAudienceInsightsAttributesReques
     repeated: true,
     type: Google.Ads.Googleads.V17.Common.LocationInfo,
     json_name: "locationCountryFilters"
+
+  field :youtube_reach_location, 6,
+    type: Google.Ads.Googleads.V17.Common.LocationInfo,
+    json_name: "youtubeReachLocation"
 end
 
 defmodule Google.Ads.Googleads.V17.Services.ListAudienceInsightsAttributesResponse do
@@ -164,6 +168,73 @@ defmodule Google.Ads.Googleads.V17.Services.ListInsightsEligibleDatesResponse do
   field :last_thirty_days, 2,
     type: Google.Ads.Googleads.V17.Common.DateRange,
     json_name: "lastThirtyDays"
+end
+
+defmodule Google.Ads.Googleads.V17.Services.GenerateAudienceOverlapInsightsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+
+  field :country_location, 2,
+    type: Google.Ads.Googleads.V17.Common.LocationInfo,
+    json_name: "countryLocation",
+    deprecated: false
+
+  field :primary_attribute, 3,
+    type: Google.Ads.Googleads.V17.Services.AudienceInsightsAttribute,
+    json_name: "primaryAttribute",
+    deprecated: false
+
+  field :dimensions, 4,
+    repeated: true,
+    type: Google.Ads.Googleads.V17.Enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension,
+    enum: true,
+    deprecated: false
+
+  field :customer_insights_group, 5, type: :string, json_name: "customerInsightsGroup"
+end
+
+defmodule Google.Ads.Googleads.V17.Services.GenerateAudienceOverlapInsightsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :primary_attribute_metadata, 1,
+    type: Google.Ads.Googleads.V17.Services.AudienceInsightsAttributeMetadata,
+    json_name: "primaryAttributeMetadata"
+
+  field :dimension_results, 2,
+    repeated: true,
+    type: Google.Ads.Googleads.V17.Services.DimensionOverlapResult,
+    json_name: "dimensionResults"
+end
+
+defmodule Google.Ads.Googleads.V17.Services.DimensionOverlapResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :dimension, 1,
+    type: Google.Ads.Googleads.V17.Enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension,
+    enum: true
+
+  field :items, 2, repeated: true, type: Google.Ads.Googleads.V17.Services.AudienceOverlapItem
+end
+
+defmodule Google.Ads.Googleads.V17.Services.AudienceOverlapItem do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :attribute_metadata, 1,
+    type: Google.Ads.Googleads.V17.Services.AudienceInsightsAttributeMetadata,
+    json_name: "attributeMetadata"
+
+  field :potential_youtube_reach_intersection, 2,
+    type: :int64,
+    json_name: "potentialYoutubeReachIntersection"
 end
 
 defmodule Google.Ads.Googleads.V17.Services.AudienceInsightsAttribute do
@@ -293,6 +364,7 @@ defmodule Google.Ads.Googleads.V17.Services.AudienceInsightsAttributeMetadata do
   field :attribute, 2, type: Google.Ads.Googleads.V17.Services.AudienceInsightsAttribute
   field :display_name, 3, type: :string, json_name: "displayName"
   field :display_info, 5, type: :string, json_name: "displayInfo"
+  field :potential_youtube_reach, 9, type: :int64, json_name: "potentialYoutubeReach"
 
   field :youtube_channel_metadata, 6,
     type: Google.Ads.Googleads.V17.Services.YouTubeChannelAttributeMetadata,
@@ -513,6 +585,10 @@ defmodule Google.Ads.Googleads.V17.Services.AudienceInsightsService.Service do
   rpc :GenerateSuggestedTargetingInsights,
       Google.Ads.Googleads.V17.Services.GenerateSuggestedTargetingInsightsRequest,
       Google.Ads.Googleads.V17.Services.GenerateSuggestedTargetingInsightsResponse
+
+  rpc :GenerateAudienceOverlapInsights,
+      Google.Ads.Googleads.V17.Services.GenerateAudienceOverlapInsightsRequest,
+      Google.Ads.Googleads.V17.Services.GenerateAudienceOverlapInsightsResponse
 end
 
 defmodule Google.Ads.Googleads.V17.Services.AudienceInsightsService.Stub do

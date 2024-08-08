@@ -590,6 +590,10 @@ defmodule Google.Ads.Googleads.V17.Services.GoogleAdsRow do
     type: Google.Ads.Googleads.V17.Resources.OfflineConversionUploadClientSummary,
     json_name: "offlineConversionUploadClientSummary"
 
+  field :offline_conversion_upload_conversion_action_summary, 228,
+    type: Google.Ads.Googleads.V17.Resources.OfflineConversionUploadConversionActionSummary,
+    json_name: "offlineConversionUploadConversionActionSummary"
+
   field :offline_user_data_job, 137,
     type: Google.Ads.Googleads.V17.Resources.OfflineUserDataJob,
     json_name: "offlineUserDataJob"

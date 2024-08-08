@@ -22,6 +22,7 @@ defmodule Google.Ads.Googleads.V17.Enums.ChangeStatusResourceTypeEnum.ChangeStat
   field :CAMPAIGN_ASSET, 18
   field :AD_GROUP_ASSET, 19
   field :COMBINED_AUDIENCE, 20
+  field :ASSET_GROUP, 21
 end
 
 defmodule Google.Ads.Googleads.V17.Enums.ChangeStatusResourceTypeEnum do

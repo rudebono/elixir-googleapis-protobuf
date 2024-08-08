@@ -982,6 +982,19 @@ defmodule Google.Ads.Googleads.V17.Errors.ErrorCode do
     json_name: "shoppingProductError",
     enum: true,
     oneof: 0
+
+  field :automatically_created_asset_removal_error, 185,
+    type:
+      Google.Ads.Googleads.V17.Errors.AutomaticallyCreatedAssetRemovalErrorEnum.AutomaticallyCreatedAssetRemovalError,
+    json_name: "automaticallyCreatedAssetRemovalError",
+    enum: true,
+    oneof: 0
+
+  field :shareable_preview_error, 186,
+    type: Google.Ads.Googleads.V17.Errors.ShareablePreviewErrorEnum.ShareablePreviewError,
+    json_name: "shareablePreviewError",
+    enum: true,
+    oneof: 0
 end
 
 defmodule Google.Ads.Googleads.V17.Errors.ErrorLocation.FieldPathElement do

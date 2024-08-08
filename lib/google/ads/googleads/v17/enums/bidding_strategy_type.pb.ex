@@ -7,6 +7,7 @@ defmodule Google.Ads.Googleads.V17.Enums.BiddingStrategyTypeEnum.BiddingStrategy
   field :UNKNOWN, 1
   field :COMMISSION, 16
   field :ENHANCED_CPC, 2
+  field :FIXED_CPM, 19
   field :INVALID, 17
   field :MANUAL_CPA, 18
   field :MANUAL_CPC, 3
@@ -18,6 +19,7 @@ defmodule Google.Ads.Googleads.V17.Enums.BiddingStrategyTypeEnum.BiddingStrategy
   field :PERCENT_CPC, 12
   field :TARGET_CPA, 6
   field :TARGET_CPM, 14
+  field :TARGET_CPV, 20
   field :TARGET_IMPRESSION_SHARE, 15
   field :TARGET_OUTRANK_SHARE, 7
   field :TARGET_ROAS, 8
