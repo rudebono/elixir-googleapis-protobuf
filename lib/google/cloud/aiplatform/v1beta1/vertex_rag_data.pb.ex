@@ -122,6 +122,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig do
   field :chunk_overlap, 2, type: :int32, json_name: "chunkOverlap"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_advanced_pdf_parsing, 2, type: :bool, json_name: "useAdvancedPdfParsing"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadRagFileConfig do
   @moduledoc false
 
@@ -162,6 +170,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
   field :rag_file_chunking_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
     json_name: "ragFileChunkingConfig"
+
+  field :rag_file_parsing_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig,
+    json_name: "ragFileParsingConfig"
 
   field :max_embedding_requests_per_min, 5,
     type: :int32,
