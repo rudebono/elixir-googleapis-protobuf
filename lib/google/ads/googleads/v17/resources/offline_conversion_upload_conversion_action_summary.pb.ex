@@ -11,7 +11,11 @@ defmodule Google.Ads.Googleads.V17.Resources.OfflineConversionUploadConversionAc
     deprecated: false
 
   field :conversion_action_id, 3, type: :int64, json_name: "conversionActionId", deprecated: false
-  field :conversion_action, 4, type: :string, json_name: "conversionAction", deprecated: false
+
+  field :conversion_action_name, 4,
+    type: :string,
+    json_name: "conversionActionName",
+    deprecated: false
 
   field :status, 5,
     type:
