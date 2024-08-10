@@ -42,4 +42,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EntityType do
     type: :int32,
     json_name: "offlineStorageTtlDays",
     deprecated: false
+
+  field :satisfies_pzs, 11, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 12, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

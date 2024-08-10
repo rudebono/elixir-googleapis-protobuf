@@ -88,6 +88,9 @@ defmodule Google.Cloud.Aiplatform.V1.NasJob do
     type: :bool,
     json_name: "enableRestrictedImageTraining",
     deprecated: true
+
+  field :satisfies_pzs, 15, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 16, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NasTrialDetail do

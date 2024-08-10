@@ -73,6 +73,9 @@ defmodule Google.Cloud.Aiplatform.V1.CustomJob do
     json_name: "webAccessUris",
     map: true,
     deprecated: false
+
+  field :satisfies_pzs, 18, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 19, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJobSpec do

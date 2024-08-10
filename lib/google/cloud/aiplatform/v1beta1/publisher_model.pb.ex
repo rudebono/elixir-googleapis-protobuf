@@ -165,6 +165,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy.Dep
       Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy.DeployMetadata.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :sample_request, 2, type: :string, json_name: "sampleRequest", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy do

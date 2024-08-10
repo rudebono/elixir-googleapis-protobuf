@@ -32,4 +32,6 @@ defmodule Google.Cloud.Aiplatform.V1.DataItem do
 
   field :payload, 4, type: Google.Protobuf.Value, deprecated: false
   field :etag, 7, type: :string, deprecated: false
+  field :satisfies_pzs, 10, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 11, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

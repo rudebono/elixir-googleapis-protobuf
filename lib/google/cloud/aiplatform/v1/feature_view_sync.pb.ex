@@ -26,4 +26,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureViewSync do
     type: Google.Cloud.Aiplatform.V1.FeatureViewSync.SyncSummary,
     json_name: "syncSummary",
     deprecated: false
+
+  field :satisfies_pzs, 7, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 8, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

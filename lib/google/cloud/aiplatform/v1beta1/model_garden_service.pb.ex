@@ -23,6 +23,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest do
     deprecated: false
 
   field :is_hugging_face_model, 5, type: :bool, json_name: "isHuggingFaceModel", deprecated: false
+  field :hugging_face_token, 6, type: :string, json_name: "huggingFaceToken", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest do

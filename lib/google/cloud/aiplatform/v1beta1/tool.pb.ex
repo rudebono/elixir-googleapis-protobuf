@@ -158,8 +158,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :disable_attribution, 1, type: :bool, json_name: "disableAttribution", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolConfig do
