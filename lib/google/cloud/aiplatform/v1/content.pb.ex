@@ -10,6 +10,17 @@ defmodule Google.Cloud.Aiplatform.V1.HarmCategory do
   field :HARM_CATEGORY_SEXUALLY_EXPLICIT, 4
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNKNOWN, 0
+  field :PRIORITIZE_QUALITY, 1
+  field :BALANCED, 2
+  field :PRIORITIZE_COST, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockThreshold do
   @moduledoc false
 
@@ -155,6 +166,45 @@ defmodule Google.Cloud.Aiplatform.V1.VideoMetadata do
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :model_routing_preference, 1,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference,
+    json_name: "modelRoutingPreference",
+    enum: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.ManualRoutingMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :model_name, 1, proto3_optional: true, type: :string, json_name: "modelName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :routing_config, 0
+
+  field :auto_mode, 1,
+    type: Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode,
+    json_name: "autoMode",
+    oneof: 0
+
+  field :manual_mode, 2,
+    type: Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.ManualRoutingMode,
+    json_name: "manualMode",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
   @moduledoc false
 
@@ -194,12 +244,19 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
     json_name: "frequencyPenalty",
     deprecated: false
 
+  field :seed, 12, proto3_optional: true, type: :int32, deprecated: false
   field :response_mime_type, 13, type: :string, json_name: "responseMimeType", deprecated: false
 
   field :response_schema, 16,
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1.Schema,
     json_name: "responseSchema",
+    deprecated: false
+
+  field :routing_config, 17,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig,
+    json_name: "routingConfig",
     deprecated: false
 end
 
@@ -280,6 +337,7 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
   field :index, 1, type: :int32, deprecated: false
   field :content, 2, type: Google.Cloud.Aiplatform.V1.Content, deprecated: false
   field :score, 8, type: :double, deprecated: false
+  field :avg_logprobs, 9, type: :double, json_name: "avgLogprobs", deprecated: false
 
   field :finish_reason, 3,
     type: Google.Cloud.Aiplatform.V1.Candidate.FinishReason,

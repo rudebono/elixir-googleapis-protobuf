@@ -109,4 +109,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore do
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec",
     deprecated: false
+
+  field :satisfies_pzs, 15, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 16, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

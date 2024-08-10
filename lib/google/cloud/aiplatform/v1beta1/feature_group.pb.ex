@@ -1,3 +1,11 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery.TimeSeries do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :timestamp_column, 1, type: :string, json_name: "timestampColumn", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery do
   @moduledoc false
 
@@ -12,6 +20,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery do
     repeated: true,
     type: :string,
     json_name: "entityIdColumns",
+    deprecated: false
+
+  field :time_series, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery.TimeSeries,
+    json_name: "timeSeries",
     deprecated: false
 end
 

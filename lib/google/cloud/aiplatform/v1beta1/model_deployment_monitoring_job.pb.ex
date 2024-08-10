@@ -150,6 +150,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringJob do
     json_name: "enableMonitoringPipelineLogs"
 
   field :error, 23, type: Google.Rpc.Status, deprecated: false
+  field :satisfies_pzs, 26, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 27, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelDeploymentMonitoringBigQueryTable do

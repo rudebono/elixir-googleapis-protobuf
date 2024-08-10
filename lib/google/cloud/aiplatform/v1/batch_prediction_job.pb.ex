@@ -181,4 +181,6 @@ defmodule Google.Cloud.Aiplatform.V1.BatchPredictionJob do
     json_name: "encryptionSpec"
 
   field :disable_container_logging, 34, type: :bool, json_name: "disableContainerLogging"
+  field :satisfies_pzs, 36, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 37, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

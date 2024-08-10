@@ -104,4 +104,8 @@ defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.NotebookExecutionJob.LabelsEntry,
     map: true
+
+  field :encryption_spec, 22,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
 end

@@ -59,4 +59,7 @@ defmodule Google.Cloud.Aiplatform.V1.HyperparameterTuningJob do
   field :encryption_spec, 17,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

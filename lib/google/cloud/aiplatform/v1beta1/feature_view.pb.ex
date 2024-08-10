@@ -271,4 +271,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
     type: :string,
     json_name: "serviceAccountEmail",
     deprecated: false
+
+  field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end

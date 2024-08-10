@@ -65,6 +65,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec",
     deprecated: false
+
+  field :satisfies_pzs, 17, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 18, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do

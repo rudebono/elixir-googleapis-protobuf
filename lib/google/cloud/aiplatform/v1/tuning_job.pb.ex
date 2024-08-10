@@ -169,6 +169,13 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDataStats do
     type: Google.Cloud.Aiplatform.V1.Content,
     json_name: "userDatasetExamples",
     deprecated: false
+
+  field :total_truncated_example_count, 10, type: :int64, json_name: "totalTruncatedExampleCount"
+
+  field :truncated_example_indices, 11,
+    repeated: true,
+    type: :int64,
+    json_name: "truncatedExampleIndices"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.TuningDataStats do
