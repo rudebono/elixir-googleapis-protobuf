@@ -39,6 +39,17 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   field :READY, 2
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.Instance.Edition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :EDITION_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :ENTERPRISE, 2
+  field :ENTERPRISE_PLUS, 3
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstancePartition.State do
   @moduledoc false
 
@@ -199,6 +210,11 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
   field :update_time, 12,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :edition, 20,
+    type: Google.Spanner.Admin.Instance.V1.Instance.Edition,
+    enum: true,
     deprecated: false
 end
 
@@ -591,6 +607,31 @@ defmodule Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsRespon
     json_name: "unreachableInstancePartitions"
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.MoveInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :target_config, 2, type: :string, json_name: "targetConfig", deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.MoveInstanceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.MoveInstanceMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :target_config, 1, type: :string, json_name: "targetConfig"
+  field :progress, 2, type: Google.Spanner.Admin.Instance.V1.OperationProgress
+  field :cancel_time, 3, type: Google.Protobuf.Timestamp, json_name: "cancelTime"
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   @moduledoc false
 
@@ -673,6 +714,10 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Service do
   rpc :ListInstancePartitionOperations,
       Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsRequest,
       Google.Spanner.Admin.Instance.V1.ListInstancePartitionOperationsResponse
+
+  rpc :MoveInstance,
+      Google.Spanner.Admin.Instance.V1.MoveInstanceRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstanceAdmin.Stub do
