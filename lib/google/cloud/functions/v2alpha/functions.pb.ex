@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Functions.V2alpha.OperationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OPERATIONTYPE_UNSPECIFIED, 0
+  field :CREATE_FUNCTION, 1
+  field :UPDATE_FUNCTION, 2
+  field :DELETE_FUNCTION, 3
+end
+
 defmodule Google.Cloud.Functions.V2alpha.Environment do
   @moduledoc false
 
@@ -175,6 +186,12 @@ defmodule Google.Cloud.Functions.V2alpha.Function do
   field :environment, 10, type: Google.Cloud.Functions.V2alpha.Environment, enum: true
   field :url, 14, type: :string, deprecated: false
   field :kms_key_name, 25, type: :string, json_name: "kmsKeyName", deprecated: false
+  field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :create_time, 28,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.StateMessage do
@@ -195,6 +212,7 @@ defmodule Google.Cloud.Functions.V2alpha.StorageSource do
   field :bucket, 1, type: :string
   field :object, 2, type: :string
   field :generation, 3, type: :int64
+  field :source_upload_url, 4, type: :string, json_name: "sourceUploadUrl"
 end
 
 defmodule Google.Cloud.Functions.V2alpha.RepoSource do
@@ -229,6 +247,8 @@ defmodule Google.Cloud.Functions.V2alpha.Source do
     type: Google.Cloud.Functions.V2alpha.RepoSource,
     json_name: "repoSource",
     oneof: 0
+
+  field :git_uri, 3, type: :string, json_name: "gitUri", oneof: 0
 end
 
 defmodule Google.Cloud.Functions.V2alpha.SourceProvenance do
@@ -243,6 +263,8 @@ defmodule Google.Cloud.Functions.V2alpha.SourceProvenance do
   field :resolved_repo_source, 2,
     type: Google.Cloud.Functions.V2alpha.RepoSource,
     json_name: "resolvedRepoSource"
+
+  field :git_uri, 3, type: :string, json_name: "gitUri"
 end
 
 defmodule Google.Cloud.Functions.V2alpha.BuildConfig.EnvironmentVariablesEntry do
@@ -258,6 +280,18 @@ defmodule Google.Cloud.Functions.V2alpha.BuildConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :runtime_update_policy, 0
+
+  field :automatic_update_policy, 40,
+    type: Google.Cloud.Functions.V2alpha.AutomaticUpdatePolicy,
+    json_name: "automaticUpdatePolicy",
+    oneof: 0
+
+  field :on_deploy_update_policy, 41,
+    type: Google.Cloud.Functions.V2alpha.OnDeployUpdatePolicy,
+    json_name: "onDeployUpdatePolicy",
+    oneof: 0
 
   field :build, 1, type: :string, deprecated: false
   field :runtime, 2, type: :string
@@ -283,6 +317,7 @@ defmodule Google.Cloud.Functions.V2alpha.BuildConfig do
     enum: true
 
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
+  field :service_account, 27, type: :string, json_name: "serviceAccount"
 end
 
 defmodule Google.Cloud.Functions.V2alpha.ServiceConfig.EnvironmentVariablesEntry do
@@ -348,6 +383,11 @@ defmodule Google.Cloud.Functions.V2alpha.ServiceConfig do
     type: Google.Cloud.Functions.V2alpha.ServiceConfig.SecurityLevel,
     json_name: "securityLevel",
     enum: true
+
+  field :binary_authorization_policy, 23,
+    type: :string,
+    json_name: "binaryAuthorizationPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.SecretEnvVar do
@@ -412,6 +452,7 @@ defmodule Google.Cloud.Functions.V2alpha.EventTrigger do
     deprecated: false
 
   field :channel, 8, type: :string, deprecated: false
+  field :service, 9, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.EventFilter do
@@ -430,6 +471,7 @@ defmodule Google.Cloud.Functions.V2alpha.GetFunctionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :revision, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.ListFunctionsRequest do
@@ -488,6 +530,7 @@ defmodule Google.Cloud.Functions.V2alpha.GenerateUploadUrlRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
+  field :environment, 3, type: Google.Cloud.Functions.V2alpha.Environment, enum: true
 end
 
 defmodule Google.Cloud.Functions.V2alpha.GenerateUploadUrlResponse do
@@ -541,6 +584,8 @@ defmodule Google.Cloud.Functions.V2alpha.ListRuntimesResponse.Runtime do
 
   field :warnings, 3, repeated: true, type: :string
   field :environment, 4, type: Google.Cloud.Functions.V2alpha.Environment, enum: true
+  field :deprecation_date, 6, type: Google.Type.Date, json_name: "deprecationDate"
+  field :decommission_date, 7, type: Google.Type.Date, json_name: "decommissionDate"
 end
 
 defmodule Google.Cloud.Functions.V2alpha.ListRuntimesResponse do
@@ -551,6 +596,20 @@ defmodule Google.Cloud.Functions.V2alpha.ListRuntimesResponse do
   field :runtimes, 1,
     repeated: true,
     type: Google.Cloud.Functions.V2alpha.ListRuntimesResponse.Runtime
+end
+
+defmodule Google.Cloud.Functions.V2alpha.AutomaticUpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Functions.V2alpha.OnDeployUpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :runtime_version, 1, type: :string, json_name: "runtimeVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Functions.V2alpha.OperationMetadata do
@@ -567,6 +626,12 @@ defmodule Google.Cloud.Functions.V2alpha.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion"
   field :request_resource, 8, type: Google.Protobuf.Any, json_name: "requestResource"
   field :stages, 9, repeated: true, type: Google.Cloud.Functions.V2alpha.Stage
+  field :build_name, 13, type: :string, json_name: "buildName"
+
+  field :operation_type, 11,
+    type: Google.Cloud.Functions.V2alpha.OperationType,
+    json_name: "operationType",
+    enum: true
 end
 
 defmodule Google.Cloud.Functions.V2alpha.LocationMetadata do
