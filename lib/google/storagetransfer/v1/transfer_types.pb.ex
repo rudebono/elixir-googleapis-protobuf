@@ -274,12 +274,18 @@ defmodule Google.Storagetransfer.V1.GcsData do
 
   field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
   field :path, 3, type: :string
+
+  field :managed_folder_transfer_enabled, 4,
+    type: :bool,
+    json_name: "managedFolderTransferEnabled"
 end
 
 defmodule Google.Storagetransfer.V1.AwsS3Data do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :private_network, 0
 
   field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
 
@@ -290,7 +296,9 @@ defmodule Google.Storagetransfer.V1.AwsS3Data do
 
   field :path, 3, type: :string
   field :role_arn, 4, type: :string, json_name: "roleArn"
+  field :cloudfront_domain, 6, type: :string, json_name: "cloudfrontDomain", deprecated: false
   field :credentials_secret, 7, type: :string, json_name: "credentialsSecret", deprecated: false
+  field :managed_private_network, 8, type: :bool, json_name: "managedPrivateNetwork", oneof: 0
 end
 
 defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
@@ -324,6 +332,14 @@ defmodule Google.Storagetransfer.V1.PosixFilesystem do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :root_directory, 1, type: :string, json_name: "rootDirectory"
+end
+
+defmodule Google.Storagetransfer.V1.HdfsData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :path, 1, type: :string
 end
 
 defmodule Google.Storagetransfer.V1.AwsS3CompatibleData do
@@ -465,6 +481,11 @@ defmodule Google.Storagetransfer.V1.TransferSpec do
   field :aws_s3_compatible_data_source, 19,
     type: Google.Storagetransfer.V1.AwsS3CompatibleData,
     json_name: "awsS3CompatibleDataSource",
+    oneof: 1
+
+  field :hdfs_data_source, 20,
+    type: Google.Storagetransfer.V1.HdfsData,
+    json_name: "hdfsDataSource",
     oneof: 1
 
   field :gcs_intermediate_data_location, 16,

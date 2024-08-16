@@ -182,6 +182,47 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
   field :time_seconds, 3, type: :double, json_name: "timeSeconds"
 end
 
+defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :voice, 1, type: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams, deprecated: false
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesisInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :input_source, 0
+
+  field :text, 1, type: :string, oneof: 0
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :streaming_request, 0
+
+  field :streaming_config, 1,
+    type: Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeConfig,
+    json_name: "streamingConfig",
+    oneof: 0
+
+  field :input, 2, type: Google.Cloud.Texttospeech.V1beta1.StreamingSynthesisInput, oneof: 0
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :audio_content, 1, type: :bytes, json_name: "audioContent"
+end
+
 defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do
   @moduledoc false
 
@@ -196,6 +237,10 @@ defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do
   rpc :SynthesizeSpeech,
       Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest,
       Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse
+
+  rpc :StreamingSynthesize,
+      stream(Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeRequest),
+      stream(Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeResponse)
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Stub do
