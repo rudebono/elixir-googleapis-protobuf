@@ -3618,6 +3618,10 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryCloudSqlGenerationCadence do
     type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency,
     json_name: "refreshFrequency",
     enum: true
+
+  field :inspect_template_modified_cadence, 3,
+    type: Google.Privacy.Dlp.V2.DiscoveryInspectTemplateModifiedCadence,
+    json_name: "inspectTemplateModifiedCadence"
 end
 
 defmodule Google.Privacy.Dlp.V2.SecretsDiscoveryTarget do
