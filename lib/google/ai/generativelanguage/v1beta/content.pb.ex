@@ -244,6 +244,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.Schema do
     type: Google.Ai.Generativelanguage.V1beta.Schema,
     deprecated: false
 
+  field :max_items, 21, type: :int64, json_name: "maxItems", deprecated: false
+
   field :properties, 7,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.Schema.PropertiesEntry,
