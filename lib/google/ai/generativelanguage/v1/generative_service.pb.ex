@@ -21,6 +21,8 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback
   field :BLOCK_REASON_UNSPECIFIED, 0
   field :SAFETY, 1
   field :OTHER, 2
+  field :BLOCKLIST, 3
+  field :PROHIBITED_CONTENT, 4
 end
 
 defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
@@ -33,7 +35,12 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
   field :MAX_TOKENS, 2
   field :SAFETY, 3
   field :RECITATION, 4
+  field :LANGUAGE, 6
   field :OTHER, 5
+  field :BLOCKLIST, 7
+  field :PROHIBITED_CONTENT, 8
+  field :SPII, 9
+  field :MALFORMED_FUNCTION_CALL, 10
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentRequest do
