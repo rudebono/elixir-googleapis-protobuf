@@ -167,7 +167,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.CreateTransferConfigRequest do
     json_name: "transferConfig",
     deprecated: false
 
-  field :authorization_code, 3, type: :string, json_name: "authorizationCode"
+  field :authorization_code, 3, type: :string, json_name: "authorizationCode", deprecated: true
   field :version_info, 5, type: :string, json_name: "versionInfo"
   field :service_account_name, 6, type: :string, json_name: "serviceAccountName"
 end
@@ -182,7 +182,7 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.UpdateTransferConfigRequest do
     json_name: "transferConfig",
     deprecated: false
 
-  field :authorization_code, 3, type: :string, json_name: "authorizationCode"
+  field :authorization_code, 3, type: :string, json_name: "authorizationCode", deprecated: true
 
   field :update_mask, 4,
     type: Google.Protobuf.FieldMask,
