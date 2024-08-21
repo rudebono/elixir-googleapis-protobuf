@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Bigquery.V2.ReservationEdition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RESERVATION_EDITION_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :ENTERPRISE, 2
+  field :ENTERPRISE_PLUS, 3
+end
+
 defmodule Google.Cloud.Bigquery.V2.ExplainQueryStage.ComputeMode do
   @moduledoc false
 
@@ -801,6 +812,11 @@ defmodule Google.Cloud.Bigquery.V2.JobStatistics do
   field :final_execution_duration_ms, 22,
     type: :int64,
     json_name: "finalExecutionDurationMs",
+    deprecated: false
+
+  field :edition, 24,
+    type: Google.Cloud.Bigquery.V2.ReservationEdition,
+    enum: true,
     deprecated: false
 end
 

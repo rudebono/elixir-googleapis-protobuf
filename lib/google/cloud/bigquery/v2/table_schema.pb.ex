@@ -42,6 +42,14 @@ defmodule Google.Cloud.Bigquery.V2.ForeignTypeInfo do
     deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.V2.DataPolicyOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Bigquery.V2.TableFieldSchema.PolicyTagList do
   @moduledoc false
 
@@ -77,6 +85,12 @@ defmodule Google.Cloud.Bigquery.V2.TableFieldSchema do
   field :policy_tags, 9,
     type: Google.Cloud.Bigquery.V2.TableFieldSchema.PolicyTagList,
     json_name: "policyTags",
+    deprecated: false
+
+  field :data_policies, 21,
+    repeated: true,
+    type: Google.Cloud.Bigquery.V2.DataPolicyOption,
+    json_name: "dataPolicies",
     deprecated: false
 
   field :max_length, 10, type: :int64, json_name: "maxLength", deprecated: false

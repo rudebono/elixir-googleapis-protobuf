@@ -181,7 +181,7 @@ defmodule Google.Cloud.Bigquery.V2.Dataset do
     json_name: "maxTimeTravelHours",
     deprecated: false
 
-  field :tags, 24, repeated: true, type: Google.Cloud.Bigquery.V2.GcpTag, deprecated: false
+  field :tags, 24, repeated: true, type: Google.Cloud.Bigquery.V2.GcpTag, deprecated: true
 
   field :storage_billing_model, 25,
     type: Google.Cloud.Bigquery.V2.Dataset.StorageBillingModel,

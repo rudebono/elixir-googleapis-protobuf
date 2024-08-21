@@ -109,6 +109,12 @@ defmodule Google.Cloud.Sql.V1.BackupRun do
     enum: true
 
   field :time_zone, 23, type: :string, json_name: "timeZone"
+
+  field :max_chargeable_bytes, 24,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxChargeableBytes",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.BackupRunsListResponse do

@@ -162,6 +162,7 @@ defmodule Google.Cloud.Sql.V1.SqlExternalSyncSettingError.SqlExternalSyncSetting
   field :EXTENSIONS_NOT_MIGRATED, 46
   field :PG_CRON_FLAG_ENABLED_IN_REPLICA, 47
   field :EXTENSIONS_NOT_ENABLED_IN_REPLICA, 48
+  field :UNSUPPORTED_COLUMNS, 49
 end
 
 defmodule Google.Cloud.Sql.V1.SqlInstancesAddServerCaRequest do
@@ -942,6 +943,17 @@ defmodule Google.Cloud.Sql.V1.DatabaseInstance do
     proto3_optional: true,
     type: Google.Cloud.Sql.V1.GeminiInstanceConfig,
     json_name: "geminiConfig"
+
+  field :satisfies_pzi, 56,
+    type: Google.Protobuf.BoolValue,
+    json_name: "satisfiesPzi",
+    deprecated: false
+
+  field :switch_transaction_logs_to_cloud_storage_enabled, 57,
+    proto3_optional: true,
+    type: Google.Protobuf.BoolValue,
+    json_name: "switchTransactionLogsToCloudStorageEnabled",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Sql.V1.GeminiInstanceConfig do

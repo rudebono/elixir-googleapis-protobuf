@@ -190,6 +190,16 @@ defmodule Google.Cloud.Sql.V1.IpConfiguration.SslMode do
   field :TRUSTED_CLIENT_CERTIFICATE_REQUIRED, 3
 end
 
+defmodule Google.Cloud.Sql.V1.IpConfiguration.CaMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CA_MODE_UNSPECIFIED, 0
+  field :GOOGLE_MANAGED_INTERNAL_CA, 1
+  field :GOOGLE_MANAGED_CAS_CA, 2
+end
+
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   @moduledoc false
 
@@ -240,6 +250,7 @@ defmodule Google.Cloud.Sql.V1.Operation.SqlOperationType do
   field :CLUSTER_MAINTENANCE, 45
   field :SELF_SERVICE_MAINTENANCE, 46
   field :SWITCHOVER_TO_REPLICA, 47
+  field :MAJOR_VERSION_UPGRADE, 48
 end
 
 defmodule Google.Cloud.Sql.V1.Operation.SqlOperationStatus do
@@ -680,6 +691,12 @@ defmodule Google.Cloud.Sql.V1.IpConfiguration do
     proto3_optional: true,
     type: Google.Cloud.Sql.V1.PscConfig,
     json_name: "pscConfig"
+
+  field :server_ca_mode, 10,
+    proto3_optional: true,
+    type: Google.Cloud.Sql.V1.IpConfiguration.CaMode,
+    json_name: "serverCaMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Sql.V1.PscConfig do
