@@ -148,6 +148,15 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.StreamMetastorePartitionsRespons
     json_name: "totalPartitionsInsertedCount"
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchSizeTooLargeError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :max_batch_size, 1, type: :int64, json_name: "maxBatchSize"
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartitionService.Service do
   @moduledoc false
 

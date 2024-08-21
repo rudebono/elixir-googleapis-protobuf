@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Sql.V1.ConnectSettings.CaMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :CA_MODE_UNSPECIFIED, 0
+  field :GOOGLE_MANAGED_INTERNAL_CA, 1
+  field :GOOGLE_MANAGED_CAS_CA, 2
+end
+
 defmodule Google.Cloud.Sql.V1.GetConnectSettingsRequest do
   @moduledoc false
 
@@ -35,6 +45,11 @@ defmodule Google.Cloud.Sql.V1.ConnectSettings do
 
   field :psc_enabled, 33, type: :bool, json_name: "pscEnabled"
   field :dns_name, 34, type: :string, json_name: "dnsName"
+
+  field :server_ca_mode, 35,
+    type: Google.Cloud.Sql.V1.ConnectSettings.CaMode,
+    json_name: "serverCaMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do

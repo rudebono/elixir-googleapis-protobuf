@@ -201,6 +201,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
   field :CLOUDFLARE, 4
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.IpOverrideData.OverrideType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :OVERRIDE_TYPE_UNSPECIFIED, 0
+  field :ALLOW, 1
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.CreateAssessmentRequest do
   @moduledoc false
 
@@ -942,6 +951,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Key do
     json_name: "iosSettings",
     oneof: 0
 
+  field :express_settings, 11,
+    type: Google.Cloud.Recaptchaenterprise.V1.ExpressKeySettings,
+    json_name: "expressSettings",
+    oneof: 0
+
   field :labels, 6,
     repeated: true,
     type: Google.Cloud.Recaptchaenterprise.V1.Key.LabelsEntry,
@@ -1045,6 +1059,12 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.IOSKeySettings do
     type: Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId,
     json_name: "appleDeveloperId",
     deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ExpressKeySettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.AppleDeveloperId do
@@ -1284,6 +1304,25 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.SearchRelatedAccountGroupMembershi
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :ip_override_data, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.IpOverrideData,
+    json_name: "ipOverrideData",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
   @moduledoc false
 
@@ -1316,6 +1355,20 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings do
   field :waf_feature, 2,
     type: Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafFeature,
     json_name: "wafFeature",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.IpOverrideData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ip, 1, type: :string, deprecated: false
+
+  field :override_type, 3,
+    type: Google.Cloud.Recaptchaenterprise.V1.IpOverrideData.OverrideType,
+    json_name: "overrideType",
     enum: true,
     deprecated: false
 end
@@ -1360,6 +1413,10 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :MigrateKey,
       Google.Cloud.Recaptchaenterprise.V1.MigrateKeyRequest,
       Google.Cloud.Recaptchaenterprise.V1.Key
+
+  rpc :AddIpOverride,
+      Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideRequest,
+      Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideResponse
 
   rpc :GetMetrics,
       Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest,
