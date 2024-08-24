@@ -9,6 +9,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.CustomColumnValueTypeEnum.CustomColum
   field :INT64, 3
   field :DOUBLE, 4
   field :BOOLEAN, 5
+  field :DATE, 6
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.CustomColumnValueTypeEnum do
