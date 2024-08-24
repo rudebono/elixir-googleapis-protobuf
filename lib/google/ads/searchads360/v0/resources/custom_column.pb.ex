@@ -27,4 +27,10 @@ defmodule Google.Ads.Searchads360.V0.Resources.CustomColumn do
     type: :string,
     json_name: "referencedSystemColumns",
     deprecated: false
+
+  field :render_type, 10,
+    type: Google.Ads.Searchads360.V0.Enums.CustomColumnRenderTypeEnum.CustomColumnRenderType,
+    json_name: "renderType",
+    enum: true,
+    deprecated: false
 end

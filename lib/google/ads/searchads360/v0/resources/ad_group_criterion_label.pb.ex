@@ -12,4 +12,10 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterionLabel do
     deprecated: false
 
   field :label, 5, proto3_optional: true, type: :string, deprecated: false
+
+  field :owner_customer_id, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ownerCustomerId",
+    deprecated: false
 end
