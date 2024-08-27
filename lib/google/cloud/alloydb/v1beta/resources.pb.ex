@@ -394,6 +394,34 @@ defmodule Google.Cloud.Alloydb.V1beta.ContinuousBackupSource do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.MaintenanceUpdatePolicy.MaintenanceWindow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :day, 1, type: Google.Type.DayOfWeek, enum: true
+  field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime"
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.MaintenanceUpdatePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :maintenance_windows, 1,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.MaintenanceUpdatePolicy.MaintenanceWindow,
+    json_name: "maintenanceWindows"
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.MaintenanceSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.Cluster.NetworkConfig do
   @moduledoc false
 
@@ -557,6 +585,16 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster do
     deprecated: false
 
   field :satisfies_pzs, 30, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :maintenance_update_policy, 32,
+    type: Google.Cloud.Alloydb.V1beta.MaintenanceUpdatePolicy,
+    json_name: "maintenanceUpdatePolicy",
+    deprecated: false
+
+  field :maintenance_schedule, 37,
+    type: Google.Cloud.Alloydb.V1beta.MaintenanceSchedule,
+    json_name: "maintenanceSchedule",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.MachineConfig do
@@ -696,6 +734,11 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig do
     deprecated: false
 
   field :enable_public_ip, 2, type: :bool, json_name: "enablePublicIp", deprecated: false
+
+  field :enable_outbound_public_ip, 3,
+    type: :bool,
+    json_name: "enableOutboundPublicIp",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.LabelsEntry do
@@ -826,6 +869,12 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
   field :network_config, 29,
     type: Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig,
     json_name: "networkConfig",
+    deprecated: false
+
+  field :outbound_public_ip_addresses, 34,
+    repeated: true,
+    type: :string,
+    json_name: "outboundPublicIpAddresses",
     deprecated: false
 end
 

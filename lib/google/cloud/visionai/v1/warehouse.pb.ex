@@ -756,6 +756,18 @@ defmodule Google.Cloud.Visionai.V1.Index do
     type: Google.Cloud.Visionai.V1.DeployedIndexReference,
     json_name: "deployedIndexes",
     deprecated: false
+
+  field :satisfies_pzs, 11,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 12,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.DeployedIndexReference do
@@ -785,6 +797,18 @@ defmodule Google.Cloud.Visionai.V1.Corpus do
   field :search_capability_setting, 8,
     type: Google.Cloud.Visionai.V1.SearchCapabilitySetting,
     json_name: "searchCapabilitySetting"
+
+  field :satisfies_pzs, 11,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 12,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Visionai.V1.GetCorpusRequest do
@@ -1201,6 +1225,16 @@ defmodule Google.Cloud.Visionai.V1.ImportAssetsMetadata do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Cloud.Visionai.V1.OperationMetadata
+  field :status, 2, type: Google.Cloud.Visionai.V1.BatchOperationStatus
+end
+
+defmodule Google.Cloud.Visionai.V1.BatchOperationStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :success_count, 1, type: :int32, json_name: "successCount"
+  field :failure_count, 2, type: :int32, json_name: "failureCount"
 end
 
 defmodule Google.Cloud.Visionai.V1.ImportAssetsResponse do
@@ -1334,6 +1368,18 @@ defmodule Google.Cloud.Visionai.V1.IndexEndpoint do
   field :update_time, 8,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :satisfies_pzs, 10,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 11,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
     deprecated: false
 end
 

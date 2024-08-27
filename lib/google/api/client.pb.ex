@@ -128,12 +128,24 @@ defmodule Google.Api.PhpSettings do
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
+defmodule Google.Api.PythonSettings.ExperimentalFeatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rest_async_io_enabled, 1, type: :bool, json_name: "restAsyncIoEnabled"
+end
+
 defmodule Google.Api.PythonSettings do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
+
+  field :experimental_features, 2,
+    type: Google.Api.PythonSettings.ExperimentalFeatures,
+    json_name: "experimentalFeatures"
 end
 
 defmodule Google.Api.NodeSettings do
