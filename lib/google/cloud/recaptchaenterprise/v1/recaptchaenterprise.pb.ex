@@ -382,6 +382,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Assessment do
     type: Google.Cloud.Recaptchaenterprise.V1.PhoneFraudAssessment,
     json_name: "phoneFraudAssessment",
     deprecated: false
+
+  field :assessment_environment, 14,
+    type: Google.Cloud.Recaptchaenterprise.V1.AssessmentEnvironment,
+    json_name: "assessmentEnvironment",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
@@ -1357,6 +1362,15 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings do
     json_name: "wafFeature",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.AssessmentEnvironment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :client, 1, type: :string, deprecated: false
+  field :version, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.IpOverrideData do
