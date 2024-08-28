@@ -406,6 +406,7 @@ defmodule Google.Container.V1.ReleaseChannel.Channel do
   field :RAPID, 1
   field :REGULAR, 2
   field :STABLE, 3
+  field :EXTENDED, 4
 end
 
 defmodule Google.Container.V1.DNSConfig.Provider do
