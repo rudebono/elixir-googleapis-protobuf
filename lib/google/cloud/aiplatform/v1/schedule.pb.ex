@@ -34,6 +34,11 @@ defmodule Google.Cloud.Aiplatform.V1.Schedule do
     json_name: "createPipelineJobRequest",
     oneof: 1
 
+  field :create_notebook_execution_job_request, 20,
+    type: Google.Cloud.Aiplatform.V1.CreateNotebookExecutionJobRequest,
+    json_name: "createNotebookExecutionJobRequest",
+    oneof: 1
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
