@@ -1,3 +1,11 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery.Ranking do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :alpha, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery do
   @moduledoc false
 
@@ -7,6 +15,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery do
 
   field :text, 1, type: :string, oneof: 0, deprecated: false
   field :similarity_top_k, 2, type: :int32, json_name: "similarityTopK", deprecated: false
+  field :ranking, 4, type: Google.Cloud.Aiplatform.V1beta1.RagQuery.Ranking, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore.RagResource do
@@ -67,6 +76,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts.Context do
   field :source_uri, 1, type: :string, json_name: "sourceUri"
   field :text, 2, type: :string
   field :distance, 3, type: :double
+  field :sparse_distance, 4, type: :double, json_name: "sparseDistance"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts do

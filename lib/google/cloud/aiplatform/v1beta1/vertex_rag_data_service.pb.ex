@@ -156,6 +156,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateRagCorpusOperationMetadata do
     json_name: "genericMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateRagCorpusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :rag_corpus, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagCorpus,
+    json_name: "ragCorpus",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateRagCorpusOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesOperationMetadata do
   @moduledoc false
 
@@ -184,6 +205,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Service do
 
   rpc :CreateRagCorpus,
       Google.Cloud.Aiplatform.V1beta1.CreateRagCorpusRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateRagCorpus,
+      Google.Cloud.Aiplatform.V1beta1.UpdateRagCorpusRequest,
       Google.Longrunning.Operation
 
   rpc :GetRagCorpus,
