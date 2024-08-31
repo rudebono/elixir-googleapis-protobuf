@@ -72,6 +72,16 @@ defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource do
   field :HIVEMETASTORE, 7
 end
 
+defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest.TarballAccess do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TARBALL_ACCESS_UNSPECIFIED, 0
+  field :GOOGLE_CLOUD_SUPPORT, 1
+  field :GOOGLE_DATAPROC_DIAGNOSE, 2
+end
+
 defmodule Google.Cloud.Dataproc.V1.ReservationAffinity.Type do
   @moduledoc false
 
@@ -989,6 +999,12 @@ defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest do
   field :region, 3, type: :string, deprecated: false
   field :cluster_name, 2, type: :string, json_name: "clusterName", deprecated: false
   field :tarball_gcs_dir, 4, type: :string, json_name: "tarballGcsDir", deprecated: false
+
+  field :tarball_access, 5,
+    type: Google.Cloud.Dataproc.V1.DiagnoseClusterRequest.TarballAccess,
+    json_name: "tarballAccess",
+    enum: true,
+    deprecated: false
 
   field :diagnosis_interval, 6,
     type: Google.Type.Interval,

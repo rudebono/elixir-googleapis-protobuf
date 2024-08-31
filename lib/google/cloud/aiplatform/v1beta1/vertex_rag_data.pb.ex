@@ -1,3 +1,24 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FileStatus.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :ERROR, 2
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CorpusStatus.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNKNOWN, 0
+  field :INITIALIZED, 1
+  field :ACTIVE, 2
+  field :ERROR, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagFile.RagFileType do
   @moduledoc false
 
@@ -18,6 +39,44 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.VertexPredicti
   field :model_version_id, 3, type: :string, json_name: "modelVersionId", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.SparseEmbeddingConfig.Bm25 do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :multilingual, 1, type: :bool, deprecated: false
+  field :k1, 2, proto3_optional: true, type: :float, deprecated: false
+  field :b, 3, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.SparseEmbeddingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :model, 0
+
+  field :bm25, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.SparseEmbeddingConfig.Bm25,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.HybridSearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :sparse_embedding_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.SparseEmbeddingConfig,
+    json_name: "sparseEmbeddingConfig",
+    deprecated: false
+
+  field :dense_embedding_model_prediction_endpoint, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.VertexPredictionEndpoint,
+    json_name: "denseEmbeddingModelPredictionEndpoint",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig do
   @moduledoc false
 
@@ -29,6 +88,82 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig do
     type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.VertexPredictionEndpoint,
     json_name: "vertexPredictionEndpoint",
     oneof: 0
+
+  field :hybrid_search_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig.HybridSearchConfig,
+    json_name: "hybridSearchConfig",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Weaviate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :http_endpoint, 1, type: :string, json_name: "httpEndpoint"
+  field :collection_name, 2, type: :string, json_name: "collectionName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexFeatureStore do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :feature_view_resource_name, 1, type: :string, json_name: "featureViewResourceName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :vector_db, 0
+
+  field :rag_managed_db, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb,
+    json_name: "ragManagedDb",
+    oneof: 0
+
+  field :weaviate, 2, type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Weaviate, oneof: 0
+
+  field :vertex_feature_store, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexFeatureStore,
+    json_name: "vertexFeatureStore",
+    oneof: 0
+
+  field :api_auth, 5, type: Google.Cloud.Aiplatform.V1beta1.ApiAuth, json_name: "apiAuth"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FileStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FileStatus.State,
+    enum: true,
+    deprecated: false
+
+  field :error_status, 2, type: :string, json_name: "errorStatus", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CorpusStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.CorpusStatus.State,
+    enum: true,
+    deprecated: false
+
+  field :error_status, 2, type: :string, json_name: "errorStatus", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
@@ -45,6 +180,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
     json_name: "ragEmbeddingModelConfig",
     deprecated: false
 
+  field :rag_vector_db_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig,
+    json_name: "ragVectorDbConfig",
+    deprecated: false
+
   field :create_time, 4,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
@@ -53,6 +193,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   field :update_time, 5,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :corpus_status, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.CorpusStatus,
+    json_name: "corpusStatus",
     deprecated: false
 end
 
@@ -110,6 +255,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
   field :update_time, 7,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :file_status, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.FileStatus,
+    json_name: "fileStatus",
     deprecated: false
 end
 
