@@ -138,6 +138,7 @@ defmodule Google.Cloud.Discoveryengine.V1.FhirStoreSource do
 
   field :fhir_store, 1, type: :string, json_name: "fhirStore", deprecated: false
   field :gcs_staging_dir, 2, type: :string, json_name: "gcsStagingDir"
+  field :resource_types, 3, repeated: true, type: :string, json_name: "resourceTypes"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.CloudSqlSource do

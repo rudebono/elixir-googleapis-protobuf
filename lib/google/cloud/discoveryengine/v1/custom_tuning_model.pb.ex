@@ -1,4 +1,4 @@
-defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.ModelState do
+defmodule Google.Cloud.Discoveryengine.V1.CustomTuningModel.ModelState do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -13,7 +13,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.ModelState do
   field :INPUT_VALIDATION_FAILED, 7
 end
 
-defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.MetricsEntry do
+defmodule Google.Cloud.Discoveryengine.V1.CustomTuningModel.MetricsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -22,7 +22,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.MetricsEntry do
   field :value, 2, type: :double
 end
 
-defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel do
+defmodule Google.Cloud.Discoveryengine.V1.CustomTuningModel do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
@@ -32,7 +32,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel do
   field :model_version, 3, type: :int64, json_name: "modelVersion"
 
   field :model_state, 4,
-    type: Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.ModelState,
+    type: Google.Cloud.Discoveryengine.V1.CustomTuningModel.ModelState,
     json_name: "modelState",
     enum: true
 
@@ -45,6 +45,6 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel do
 
   field :metrics, 7,
     repeated: true,
-    type: Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel.MetricsEntry,
+    type: Google.Cloud.Discoveryengine.V1.CustomTuningModel.MetricsEntry,
     map: true
 end

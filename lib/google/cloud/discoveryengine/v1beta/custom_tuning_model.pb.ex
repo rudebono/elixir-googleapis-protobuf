@@ -10,6 +10,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel.ModelState do
   field :READY_FOR_SERVING, 4
   field :TRAINING_FAILED, 5
   field :NO_IMPROVEMENT, 6
+  field :INPUT_VALIDATION_FAILED, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.CustomTuningModel.MetricsEntry do

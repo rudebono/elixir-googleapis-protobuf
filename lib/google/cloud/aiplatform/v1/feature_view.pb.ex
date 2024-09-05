@@ -118,6 +118,15 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.FeatureView.VertexRagSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :rag_corpus_id, 2, type: :int64, json_name: "ragCorpusId", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.LabelsEntry do
   @moduledoc false
 
@@ -143,6 +152,12 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureView do
   field :feature_registry_source, 9,
     type: Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource,
     json_name: "featureRegistrySource",
+    oneof: 0,
+    deprecated: false
+
+  field :vertex_rag_source, 18,
+    type: Google.Cloud.Aiplatform.V1.FeatureView.VertexRagSource,
+    json_name: "vertexRagSource",
     oneof: 0,
     deprecated: false
 

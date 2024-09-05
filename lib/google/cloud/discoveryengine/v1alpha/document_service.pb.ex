@@ -18,6 +18,17 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest.Proce
   field :JSON, 1
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :INDEXED, 1
+  field :NOT_IN_TARGET_SITE, 2
+  field :NOT_IN_INDEX, 3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetDocumentRequest do
   @moduledoc false
 
@@ -93,6 +104,77 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest do
     enum: true
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest.UrisMatcher do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :uris, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest.Matcher do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :matcher, 0
+
+  field :uris_matcher, 1,
+    type: Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest.UrisMatcher,
+    json_name: "urisMatcher",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :matcher, 2,
+    type: Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest.Matcher,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.DocumentMetadata.MatcherValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :matcher_value, 0
+
+  field :uri, 1, type: :string, oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.DocumentMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :matcher_value, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.DocumentMetadata.MatcherValue,
+    json_name: "matcherValue"
+
+  field :state, 3,
+    type: Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.State,
+    enum: true
+
+  field :last_refreshed_time, 4, type: Google.Protobuf.Timestamp, json_name: "lastRefreshedTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :documents_metadata, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse.DocumentMetadata,
+    json_name: "documentsMetadata"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Service do
   @moduledoc false
 
@@ -131,6 +213,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Service do
   rpc :GetProcessedDocument,
       Google.Cloud.Discoveryengine.V1alpha.GetProcessedDocumentRequest,
       Google.Cloud.Discoveryengine.V1alpha.ProcessedDocument
+
+  rpc :BatchGetDocumentsMetadata,
+      Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataRequest,
+      Google.Cloud.Discoveryengine.V1alpha.BatchGetDocumentsMetadataResponse
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.DocumentService.Stub do
