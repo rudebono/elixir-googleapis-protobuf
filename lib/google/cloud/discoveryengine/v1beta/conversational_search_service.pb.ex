@@ -6,6 +6,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.QueryUnderstand
   field :TYPE_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
+  field :JAIL_BREAKING_QUERY, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest.UserLabelsEntry do

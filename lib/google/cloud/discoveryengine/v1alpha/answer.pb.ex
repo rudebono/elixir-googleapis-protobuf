@@ -21,6 +21,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.AnswerSkippedReason do
   field :POTENTIAL_POLICY_VIOLATION, 4
   field :NO_RELEVANT_CONTENT, 5
   field :JAIL_BREAKING_QUERY_IGNORED, 6
+  field :CUSTOMER_POLICY_VIOLATION, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Answer.Step.State do

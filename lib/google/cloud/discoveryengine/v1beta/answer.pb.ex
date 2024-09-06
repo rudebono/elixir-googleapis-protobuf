@@ -20,6 +20,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Answer.AnswerSkippedReason do
   field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
   field :POTENTIAL_POLICY_VIOLATION, 4
   field :NO_RELEVANT_CONTENT, 5
+  field :JAIL_BREAKING_QUERY_IGNORED, 6
+  field :CUSTOMER_POLICY_VIOLATION, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.State do
@@ -41,6 +43,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Answer.QueryUnderstandingInfo.Quer
   field :TYPE_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
+  field :JAIL_BREAKING_QUERY, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Citation do
@@ -71,6 +74,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.UnstructuredDocum
 
   field :content, 1, type: :string
   field :page_identifier, 2, type: :string, json_name: "pageIdentifier"
+  field :relevance_score, 3, proto3_optional: true, type: :float, json_name: "relevanceScore"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.UnstructuredDocumentInfo do
@@ -117,6 +121,15 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.ChunkInfo do
     json_name: "documentMetadata"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.StructuredDocumentInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :document, 1, type: :string, deprecated: false
+  field :struct_data, 2, type: Google.Protobuf.Struct, json_name: "structData"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference do
   @moduledoc false
 
@@ -132,6 +145,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference do
   field :chunk_info, 2,
     type: Google.Cloud.Discoveryengine.V1beta.Answer.Reference.ChunkInfo,
     json_name: "chunkInfo",
+    oneof: 0
+
+  field :structured_document_info, 3,
+    type: Google.Cloud.Discoveryengine.V1beta.Answer.Reference.StructuredDocumentInfo,
+    json_name: "structuredDocumentInfo",
     oneof: 0
 end
 

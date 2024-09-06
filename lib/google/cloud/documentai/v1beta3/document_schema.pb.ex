@@ -84,6 +84,7 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string
+  field :description, 7, type: :string
   field :display_name, 6, type: :string, json_name: "displayName"
   field :value_type, 2, type: :string, json_name: "valueType"
 
@@ -111,6 +112,7 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType do
 
   field :display_name, 13, type: :string, json_name: "displayName"
   field :name, 1, type: :string
+  field :description, 15, type: :string
   field :base_types, 2, repeated: true, type: :string, json_name: "baseTypes"
 
   field :properties, 6,

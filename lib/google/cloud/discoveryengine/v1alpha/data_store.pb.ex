@@ -7,6 +7,22 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore.ContentConfig do
   field :NO_CONTENT, 1
   field :CONTENT_REQUIRED, 2
   field :PUBLIC_WEBSITE, 3
+  field :GOOGLE_WORKSPACE, 4
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :GOOGLE_DRIVE, 1
+  field :GOOGLE_MAIL, 2
+  field :GOOGLE_SITES, 3
+  field :GOOGLE_CALENDAR, 4
+  field :GOOGLE_CHAT, 5
+  field :GOOGLE_GROUPS, 6
+  field :GOOGLE_KEEP, 7
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
@@ -53,6 +69,10 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
 
   field :acl_enabled, 24, type: :bool, json_name: "aclEnabled", deprecated: false
 
+  field :workspace_config, 25,
+    type: Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig,
+    json_name: "workspaceConfig"
+
   field :document_processing_config, 27,
     type: Google.Cloud.Discoveryengine.V1alpha.DocumentProcessingConfig,
     json_name: "documentProcessingConfig"
@@ -76,4 +96,13 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.LanguageInfo do
 
   field :language, 3, type: :string, deprecated: false
   field :region, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :type, 1, type: Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig.Type, enum: true
+  field :dasher_customer_id, 2, type: :string, json_name: "dasherCustomerId"
 end

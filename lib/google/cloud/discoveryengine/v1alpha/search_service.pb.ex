@@ -92,6 +92,8 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.Summary.SummarySki
   field :LLM_ADDON_NOT_ENABLED, 5
   field :NO_RELEVANT_CONTENT, 6
   field :JAIL_BREAKING_QUERY_IGNORED, 7
+  field :CUSTOMER_POLICY_VIOLATION, 8
+  field :NON_SUMMARY_SEEKING_QUERY_IGNORED_V2, 9
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint.Comparison do
@@ -730,6 +732,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQue
 
   field :field_name, 1, type: :string, json_name: "fieldName"
   field :values, 2, repeated: true, type: :string
+  field :query_segment, 3, type: :string, json_name: "querySegment"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint do
@@ -745,6 +748,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQue
     enum: true
 
   field :value, 3, type: :double
+  field :query_segment, 4, type: :string, json_name: "querySegment"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.GeolocationConstraint do
