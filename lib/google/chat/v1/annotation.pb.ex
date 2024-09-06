@@ -36,6 +36,7 @@ defmodule Google.Chat.V1.RichLinkMetadata.RichLinkType do
 
   field :RICH_LINK_TYPE_UNSPECIFIED, 0
   field :DRIVE_FILE, 1
+  field :CHAT_SPACE, 2
 end
 
 defmodule Google.Chat.V1.Annotation do
@@ -104,6 +105,11 @@ defmodule Google.Chat.V1.RichLinkMetadata do
     type: Google.Chat.V1.DriveLinkData,
     json_name: "driveLinkData",
     oneof: 0
+
+  field :chat_space_link_data, 4,
+    type: Google.Chat.V1.ChatSpaceLinkData,
+    json_name: "chatSpaceLinkData",
+    oneof: 0
 end
 
 defmodule Google.Chat.V1.DriveLinkData do
@@ -113,4 +119,14 @@ defmodule Google.Chat.V1.DriveLinkData do
 
   field :drive_data_ref, 1, type: Google.Chat.V1.DriveDataRef, json_name: "driveDataRef"
   field :mime_type, 2, type: :string, json_name: "mimeType"
+end
+
+defmodule Google.Chat.V1.ChatSpaceLinkData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :space, 1, type: :string, deprecated: false
+  field :thread, 2, type: :string, deprecated: false
+  field :message, 3, type: :string, deprecated: false
 end
