@@ -12,6 +12,7 @@ defmodule Google.Cloud.Discoveryengine.V1.CreateDataStoreRequest do
 
   field :data_store_id, 3, type: :string, json_name: "dataStoreId", deprecated: false
   field :create_advanced_site_search, 4, type: :bool, json_name: "createAdvancedSiteSearch"
+  field :skip_default_schema_creation, 7, type: :bool, json_name: "skipDefaultSchemaCreation"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.GetDataStoreRequest do

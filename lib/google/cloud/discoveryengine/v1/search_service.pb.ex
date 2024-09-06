@@ -49,6 +49,9 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummarySkippedR
   field :OUT_OF_DOMAIN_QUERY_IGNORED, 3
   field :POTENTIAL_POLICY_VIOLATION, 4
   field :LLM_ADDON_NOT_ENABLED, 5
+  field :NO_RELEVANT_CONTENT, 6
+  field :JAIL_BREAKING_QUERY_IGNORED, 7
+  field :CUSTOMER_POLICY_VIOLATION, 8
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ImageQuery do
@@ -178,6 +181,8 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.Summar
   field :ignore_non_summary_seeking_query, 4,
     type: :bool,
     json_name: "ignoreNonSummarySeekingQuery"
+
+  field :ignore_low_relevant_content, 9, type: :bool, json_name: "ignoreLowRelevantContent"
 
   field :model_prompt_spec, 5,
     type:

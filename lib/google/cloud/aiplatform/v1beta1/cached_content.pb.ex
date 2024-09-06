@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent.UsageMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :total_token_count, 1, type: :int32, json_name: "totalTokenCount"
+  field :text_count, 2, type: :int32, json_name: "textCount"
+  field :image_count, 3, type: :int32, json_name: "imageCount"
+  field :video_duration_seconds, 4, type: :int32, json_name: "videoDurationSeconds"
+  field :audio_duration_seconds, 5, type: :int32, json_name: "audioDurationSeconds"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent do
   @moduledoc false
 
@@ -36,5 +48,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent do
   field :update_time, 8,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+
+  field :usage_metadata, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.CachedContent.UsageMetadata,
+    json_name: "usageMetadata",
     deprecated: false
 end

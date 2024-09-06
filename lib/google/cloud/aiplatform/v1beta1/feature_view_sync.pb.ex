@@ -5,6 +5,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewSync.SyncSummary do
 
   field :row_synced, 1, type: :int64, json_name: "rowSynced", deprecated: false
   field :total_slot, 2, type: :int64, json_name: "totalSlot", deprecated: false
+
+  field :system_watermark_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "systemWatermarkTime"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewSync do

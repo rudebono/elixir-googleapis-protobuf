@@ -8,6 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1.Scheduling.Strategy do
   field :LOW_COST, 2
   field :STANDARD, 3
   field :SPOT, 4
+  field :FLEX_START, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CustomJob.LabelsEntry do

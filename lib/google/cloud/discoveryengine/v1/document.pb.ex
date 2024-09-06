@@ -10,6 +10,15 @@ defmodule Google.Cloud.Discoveryengine.V1.Document.Content do
   field :mime_type, 1, type: :string, json_name: "mimeType"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.Document.IndexStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :index_time, 1, type: Google.Protobuf.Timestamp, json_name: "indexTime"
+  field :error_samples, 2, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.Document do
   @moduledoc false
 
@@ -33,5 +42,10 @@ defmodule Google.Cloud.Discoveryengine.V1.Document do
   field :index_time, 13,
     type: Google.Protobuf.Timestamp,
     json_name: "indexTime",
+    deprecated: false
+
+  field :index_status, 15,
+    type: Google.Cloud.Discoveryengine.V1.Document.IndexStatus,
+    json_name: "indexStatus",
     deprecated: false
 end

@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.RelevanceThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
+  field :LOWEST, 1
+  field :LOW, 2
+  field :MEDIUM, 3
+  field :HIGH, 4
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
   @moduledoc false
 
@@ -79,6 +91,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkip
   field :POTENTIAL_POLICY_VIOLATION, 4
   field :LLM_ADDON_NOT_ENABLED, 5
   field :NO_RELEVANT_CONTENT, 6
+  field :JAIL_BREAKING_QUERY_IGNORED, 7
+  field :CUSTOMER_POLICY_VIOLATION, 8
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint.Comparison do
@@ -92,6 +106,17 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQuer
   field :LESS_THAN, 3
   field :GREATER_THAN_EQUALS, 4
   field :GREATER_THAN, 5
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.OneBoxResult.OneBoxType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ONE_BOX_TYPE_UNSPECIFIED, 0
+  field :PEOPLE, 1
+  field :ORGANIZATION, 2
+  field :SLACK, 3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery do
@@ -261,6 +286,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
   field :ignore_non_summary_seeking_query, 4,
     type: :bool,
     json_name: "ignoreNonSummarySeekingQuery"
+
+  field :ignore_low_relevant_content, 9, type: :bool, json_name: "ignoreLowRelevantContent"
 
   field :model_prompt_spec, 5,
     type:
@@ -491,6 +518,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :session_spec, 42,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.SessionSpec,
     json_name: "sessionSpec"
+
+  field :relevance_threshold, 44,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.RelevanceThreshold,
+    json_name: "relevanceThreshold",
+    enum: true
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelScoresEntry do
@@ -694,6 +726,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQuer
 
   field :field_name, 1, type: :string, json_name: "fieldName"
   field :values, 2, repeated: true, type: :string
+  field :query_segment, 3, type: :string, json_name: "querySegment"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint do
@@ -709,6 +742,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQuer
     enum: true
 
   field :value, 3, type: :double
+  field :query_segment, 4, type: :string, json_name: "querySegment"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.GeolocationConstraint do
@@ -718,6 +752,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQuer
 
   field :field_name, 1, type: :string, json_name: "fieldName"
   field :address, 2, type: :string
+  field :latitude, 4, type: :double
+  field :longitude, 5, type: :double
   field :radius_in_meters, 3, type: :float, json_name: "radiusInMeters"
 end
 
@@ -814,6 +850,22 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SessionInfo do
   field :query_id, 2, type: :string, json_name: "queryId"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.OneBoxResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :one_box_type, 1,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.OneBoxResult.OneBoxType,
+    json_name: "oneBoxType",
+    enum: true
+
+  field :search_results, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult,
+    json_name: "searchResults"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
   @moduledoc false
 
@@ -854,6 +906,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse do
   field :session_info, 19,
     type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.SessionInfo,
     json_name: "sessionInfo"
+
+  field :one_box_results, 20,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.OneBoxResult,
+    json_name: "oneBoxResults"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchService.Service do

@@ -22,10 +22,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery do
     json_name: "entityIdColumns",
     deprecated: false
 
+  field :static_data_source, 3, type: :bool, json_name: "staticDataSource", deprecated: false
+
   field :time_series, 4,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery.TimeSeries,
     json_name: "timeSeries",
     deprecated: false
+
+  field :dense, 5, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.LabelsEntry do
