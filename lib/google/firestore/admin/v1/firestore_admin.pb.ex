@@ -303,6 +303,11 @@ defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest do
   field :parent, 1, type: :string, deprecated: false
   field :database_id, 2, type: :string, json_name: "databaseId", deprecated: false
   field :backup, 3, type: :string, deprecated: false
+
+  field :encryption_config, 9,
+    type: Google.Firestore.Admin.V1.Database.EncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
 end
 
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
