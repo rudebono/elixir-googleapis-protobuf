@@ -31,6 +31,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockThreshold do
   field :BLOCK_MEDIUM_AND_ABOVE, 2
   field :BLOCK_ONLY_HIGH, 3
   field :BLOCK_NONE, 4
+  field :OFF, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockMethod do
