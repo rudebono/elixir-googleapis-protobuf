@@ -498,6 +498,46 @@ defmodule Google.Cloud.Dataproc.V1.TrinoJob do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataproc.V1.FlinkJob.PropertiesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataproc.V1.FlinkJob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :driver, 0
+
+  field :main_jar_file_uri, 1, type: :string, json_name: "mainJarFileUri", oneof: 0
+  field :main_class, 2, type: :string, json_name: "mainClass", oneof: 0
+  field :args, 3, repeated: true, type: :string, deprecated: false
+
+  field :jar_file_uris, 4,
+    repeated: true,
+    type: :string,
+    json_name: "jarFileUris",
+    deprecated: false
+
+  field :savepoint_uri, 9, type: :string, json_name: "savepointUri", deprecated: false
+
+  field :properties, 7,
+    repeated: true,
+    type: Google.Cloud.Dataproc.V1.FlinkJob.PropertiesEntry,
+    map: true,
+    deprecated: false
+
+  field :logging_config, 8,
+    type: Google.Cloud.Dataproc.V1.LoggingConfig,
+    json_name: "loggingConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry do
   @moduledoc false
 
@@ -640,6 +680,12 @@ defmodule Google.Cloud.Dataproc.V1.Job do
     oneof: 0,
     deprecated: false
 
+  field :flink_job, 29,
+    type: Google.Cloud.Dataproc.V1.FlinkJob,
+    json_name: "flinkJob",
+    oneof: 0,
+    deprecated: false
+
   field :status, 8, type: Google.Cloud.Dataproc.V1.JobStatus, deprecated: false
 
   field :status_history, 13,
@@ -777,6 +823,7 @@ defmodule Google.Cloud.Dataproc.V1.ListJobsResponse do
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Job, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.CancelJobRequest do

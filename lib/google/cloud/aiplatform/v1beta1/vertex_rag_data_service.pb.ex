@@ -102,6 +102,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :partial_failure_sink, 0
+
+  field :partial_failures_gcs_path, 4,
+    type: :string,
+    json_name: "partialFailuresGcsPath",
+    oneof: 0
+
+  field :partial_failures_bigquery_table, 5,
+    type: :string,
+    json_name: "partialFailuresBigqueryTable",
+    oneof: 0
+
   field :imported_rag_files_count, 1, type: :int64, json_name: "importedRagFilesCount"
   field :failed_rag_files_count, 2, type: :int64, json_name: "failedRagFilesCount"
   field :skipped_rag_files_count, 3, type: :int64, json_name: "skippedRagFilesCount"

@@ -81,7 +81,8 @@ defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
-  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
+  field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: true
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 end
 
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer do

@@ -297,6 +297,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
 
   oneof :import_source, 0
 
+  oneof :partial_failure_sink, 1
+
   field :gcs_source, 2,
     type: Google.Cloud.Aiplatform.V1beta1.GcsSource,
     json_name: "gcsSource",
@@ -316,6 +318,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
     type: Google.Cloud.Aiplatform.V1beta1.JiraSource,
     json_name: "jiraSource",
     oneof: 0
+
+  field :share_point_sources, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.SharePointSources,
+    json_name: "sharePointSources",
+    oneof: 0
+
+  field :partial_failure_gcs_sink, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "partialFailureGcsSink",
+    oneof: 1
+
+  field :partial_failure_bigquery_sink, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination,
+    json_name: "partialFailureBigquerySink",
+    oneof: 1
 
   field :rag_file_chunking_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
