@@ -22,6 +22,8 @@ defmodule Google.Maps.Routes.V1.Maneuver do
   field :FERRY_TRAIN, 16
   field :ROUNDABOUT_LEFT, 17
   field :ROUNDABOUT_RIGHT, 18
+  field :DEPART, 19
+  field :NAME_CHANGE, 20
 end
 
 defmodule Google.Maps.Routes.V1.SpeedReadingInterval.Speed do
@@ -77,7 +79,8 @@ defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
 
   field :custom_layer_info, 4,
     type: Google.Maps.Routes.V1.CustomLayerInfo,
-    json_name: "customLayerInfo"
+    json_name: "customLayerInfo",
+    deprecated: true
 end
 
 defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
@@ -94,7 +97,8 @@ defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
 
   field :custom_layer_info, 3,
     type: Google.Maps.Routes.V1.CustomLayerInfo,
-    json_name: "customLayerInfo"
+    json_name: "customLayerInfo",
+    deprecated: true
 end
 
 defmodule Google.Maps.Routes.V1.RouteLegStepTravelAdvisory do
@@ -207,10 +211,16 @@ end
 defmodule Google.Maps.Routes.V1.CustomLayerInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :area_info, 1,
     repeated: true,
     type: Google.Maps.Routes.V1.CustomLayerInfo.AreaInfo,
     json_name: "areaInfo"
+
+  field :total_distance_in_areas_meters, 2, type: :float, json_name: "totalDistanceInAreasMeters"
+
+  field :total_duration_in_areas, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "totalDurationInAreas"
 end

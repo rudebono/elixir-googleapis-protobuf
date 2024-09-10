@@ -188,3 +188,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.JiraSource do
     json_name: "jiraQueries",
     deprecated: false
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SharePointSources.SharePointSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :folder_source, 0
+
+  oneof :drive_source, 1
+
+  field :sharepoint_folder_path, 5, type: :string, json_name: "sharepointFolderPath", oneof: 0
+  field :sharepoint_folder_id, 6, type: :string, json_name: "sharepointFolderId", oneof: 0
+  field :drive_name, 7, type: :string, json_name: "driveName", oneof: 1
+  field :drive_id, 8, type: :string, json_name: "driveId", oneof: 1
+  field :client_id, 1, type: :string, json_name: "clientId"
+
+  field :client_secret, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ApiAuth.ApiKeyConfig,
+    json_name: "clientSecret"
+
+  field :tenant_id, 3, type: :string, json_name: "tenantId"
+  field :sharepoint_site_name, 4, type: :string, json_name: "sharepointSiteName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SharePointSources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :share_point_sources, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SharePointSources.SharePointSource,
+    json_name: "sharePointSources"
+end
