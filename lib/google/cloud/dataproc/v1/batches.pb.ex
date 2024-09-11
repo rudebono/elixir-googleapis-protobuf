@@ -50,6 +50,7 @@ defmodule Google.Cloud.Dataproc.V1.ListBatchesResponse do
 
   field :batches, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Batch
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteBatchRequest do

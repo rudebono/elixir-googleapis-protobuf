@@ -110,12 +110,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Weaviate do
   field :collection_name, 2, type: :string, json_name: "collectionName"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Pinecone do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :index_name, 1, type: :string, json_name: "indexName"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexFeatureStore do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :feature_view_resource_name, 1, type: :string, json_name: "featureViewResourceName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexVectorSearch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
+  field :index, 2, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig do
@@ -131,10 +148,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig do
     oneof: 0
 
   field :weaviate, 2, type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Weaviate, oneof: 0
+  field :pinecone, 3, type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Pinecone, oneof: 0
 
   field :vertex_feature_store, 4,
     type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexFeatureStore,
     json_name: "vertexFeatureStore",
+    oneof: 0
+
+  field :vertex_vector_search, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.VertexVectorSearch,
+    json_name: "vertexVectorSearch",
     oneof: 0
 
   field :api_auth, 5, type: Google.Cloud.Aiplatform.V1beta1.ApiAuth, json_name: "apiAuth"

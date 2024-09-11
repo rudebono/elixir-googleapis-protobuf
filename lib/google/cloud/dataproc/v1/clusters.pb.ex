@@ -70,6 +70,7 @@ defmodule Google.Cloud.Dataproc.V1.DataprocMetricConfig.MetricSource do
   field :SPARK_HISTORY_SERVER, 5
   field :HIVESERVER2, 6
   field :HIVEMETASTORE, 7
+  field :FLINK, 8
 end
 
 defmodule Google.Cloud.Dataproc.V1.DiagnoseClusterRequest.TarballAccess do
@@ -293,6 +294,7 @@ defmodule Google.Cloud.Dataproc.V1.EncryptionConfig do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :gce_pd_kms_key_name, 1, type: :string, json_name: "gcePdKmsKeyName", deprecated: false
+  field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.MetadataEntry do

@@ -166,12 +166,25 @@ defmodule Google.Bigtable.Admin.V2.Cluster do
     deprecated: false
 end
 
+defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny.RowAffinity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  oneof :affinity, 0
+
   field :cluster_ids, 1, repeated: true, type: :string, json_name: "clusterIds"
+
+  field :row_affinity, 3,
+    type: Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny.RowAffinity,
+    json_name: "rowAffinity",
+    oneof: 0
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
