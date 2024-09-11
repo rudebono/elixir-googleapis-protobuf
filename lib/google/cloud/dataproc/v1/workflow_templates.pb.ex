@@ -22,6 +22,14 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowNode.NodeState do
   field :FAILED, 5
 end
 
+defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate.EncryptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :kms_key, 1, type: :string, json_name: "kmsKey", deprecated: false
+end
+
 defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate.LabelsEntry do
   @moduledoc false
 
@@ -67,6 +75,11 @@ defmodule Google.Cloud.Dataproc.V1.WorkflowTemplate do
   field :dag_timeout, 10,
     type: Google.Protobuf.Duration,
     json_name: "dagTimeout",
+    deprecated: false
+
+  field :encryption_config, 11,
+    type: Google.Cloud.Dataproc.V1.WorkflowTemplate.EncryptionConfig,
+    json_name: "encryptionConfig",
     deprecated: false
 end
 
@@ -199,6 +212,18 @@ defmodule Google.Cloud.Dataproc.V1.OrderedJob do
   field :presto_job, 12,
     type: Google.Cloud.Dataproc.V1.PrestoJob,
     json_name: "prestoJob",
+    oneof: 0,
+    deprecated: false
+
+  field :trino_job, 13,
+    type: Google.Cloud.Dataproc.V1.TrinoJob,
+    json_name: "trinoJob",
+    oneof: 0,
+    deprecated: false
+
+  field :flink_job, 14,
+    type: Google.Cloud.Dataproc.V1.FlinkJob,
+    json_name: "flinkJob",
     oneof: 0,
     deprecated: false
 
@@ -439,6 +464,7 @@ defmodule Google.Cloud.Dataproc.V1.ListWorkflowTemplatesResponse do
     deprecated: false
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.DeleteWorkflowTemplateRequest do
