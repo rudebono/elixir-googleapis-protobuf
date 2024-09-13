@@ -27,6 +27,8 @@ defmodule Google.Chat.V1.ChatService.Service do
 
   rpc :ListSpaces, Google.Chat.V1.ListSpacesRequest, Google.Chat.V1.ListSpacesResponse
 
+  rpc :SearchSpaces, Google.Chat.V1.SearchSpacesRequest, Google.Chat.V1.SearchSpacesResponse
+
   rpc :GetSpace, Google.Chat.V1.GetSpaceRequest, Google.Chat.V1.Space
 
   rpc :CreateSpace, Google.Chat.V1.CreateSpaceRequest, Google.Chat.V1.Space

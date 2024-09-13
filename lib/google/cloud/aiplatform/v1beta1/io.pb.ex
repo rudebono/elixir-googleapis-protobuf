@@ -210,6 +210,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SharePointSources.SharePointSource do
 
   field :tenant_id, 3, type: :string, json_name: "tenantId"
   field :sharepoint_site_name, 4, type: :string, json_name: "sharepointSiteName"
+  field :file_id, 9, type: :string, json_name: "fileId", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SharePointSources do

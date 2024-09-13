@@ -101,6 +101,16 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.TaskLogsRetentionConfig.
   field :CLOUD_LOGGING_ONLY, 2
 end
 
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.AirflowMetadataRetentionPolicyConfig.RetentionMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :RETENTION_MODE_UNSPECIFIED, 0
+  field :RETENTION_MODE_ENABLED, 1
+  field :RETENTION_MODE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CreateEnvironmentRequest do
   @moduledoc false
 
@@ -1100,11 +1110,21 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environment do
     map: true
 
   field :satisfies_pzs, 8, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 10, type: :bool, json_name: "satisfiesPzi", deprecated: false
 
   field :storage_config, 9,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.StorageConfig,
     json_name: "storageConfig",
     deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :environment, 1, type: :string, deprecated: false
+  field :image_version, 2, type: :string, json_name: "imageVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeResponse.PypiDependenciesEntry do
@@ -1149,6 +1169,11 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.DataRetentionConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
+  field :airflow_metadata_retention_config, 1,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1.AirflowMetadataRetentionPolicyConfig,
+    json_name: "airflowMetadataRetentionConfig",
+    deprecated: false
+
   field :task_logs_retention_config, 2,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.TaskLogsRetentionConfig,
     json_name: "taskLogsRetentionConfig",
@@ -1166,6 +1191,21 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.TaskLogsRetentionConfig 
     json_name: "storageMode",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Orchestration.Airflow.Service.V1.AirflowMetadataRetentionPolicyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :retention_mode, 1,
+    type:
+      Google.Cloud.Orchestration.Airflow.Service.V1.AirflowMetadataRetentionPolicyConfig.RetentionMode,
+    json_name: "retentionMode",
+    enum: true,
+    deprecated: false
+
+  field :retention_days, 2, type: :int32, json_name: "retentionDays", deprecated: false
 end
 
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do
@@ -1210,6 +1250,10 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1.Environments.Service do
   rpc :ListWorkloads,
       Google.Cloud.Orchestration.Airflow.Service.V1.ListWorkloadsRequest,
       Google.Cloud.Orchestration.Airflow.Service.V1.ListWorkloadsResponse
+
+  rpc :CheckUpgrade,
+      Google.Cloud.Orchestration.Airflow.Service.V1.CheckUpgradeRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateUserWorkloadsSecret,
       Google.Cloud.Orchestration.Airflow.Service.V1.CreateUserWorkloadsSecretRequest,

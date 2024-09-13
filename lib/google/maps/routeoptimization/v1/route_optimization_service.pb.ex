@@ -493,6 +493,17 @@ defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeRequirement do
     enum: true
 end
 
+defmodule Google.Maps.Routeoptimization.V1.RouteModifiers do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :avoid_tolls, 2, type: :bool, json_name: "avoidTolls"
+  field :avoid_highways, 3, type: :bool, json_name: "avoidHighways"
+  field :avoid_ferries, 4, type: :bool, json_name: "avoidFerries"
+  field :avoid_indoor, 5, type: :bool, json_name: "avoidIndoor", deprecated: false
+end
+
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.Interval do
   @moduledoc false
 
@@ -572,6 +583,10 @@ defmodule Google.Maps.Routeoptimization.V1.Vehicle do
     type: Google.Maps.Routeoptimization.V1.Vehicle.TravelMode,
     json_name: "travelMode",
     enum: true
+
+  field :route_modifiers, 2,
+    type: Google.Maps.Routeoptimization.V1.RouteModifiers,
+    json_name: "routeModifiers"
 
   field :start_location, 3, type: Google.Type.LatLng, json_name: "startLocation"
 
@@ -671,6 +686,11 @@ defmodule Google.Maps.Routeoptimization.V1.DistanceLimit do
 
   field :max_meters, 1, proto3_optional: true, type: :int64, json_name: "maxMeters"
   field :soft_max_meters, 2, proto3_optional: true, type: :int64, json_name: "softMaxMeters"
+
+  field :cost_per_kilometer_below_soft_max, 4,
+    proto3_optional: true,
+    type: :double,
+    json_name: "costPerKilometerBelowSoftMax"
 
   field :cost_per_kilometer_above_soft_max, 3,
     proto3_optional: true,

@@ -259,6 +259,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
     json_name: "jiraSource",
     oneof: 0
 
+  field :share_point_sources, 14,
+    type: Google.Cloud.Aiplatform.V1beta1.SharePointSources,
+    json_name: "sharePointSources",
+    oneof: 0
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
