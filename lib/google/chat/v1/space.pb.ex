@@ -49,6 +49,15 @@ defmodule Google.Chat.V1.Space.SpaceDetails do
   field :guidelines, 2, type: :string
 end
 
+defmodule Google.Chat.V1.Space.MembershipCount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :joined_direct_human_user_count, 4, type: :int32, json_name: "joinedDirectHumanUserCount"
+  field :joined_group_count, 5, type: :int32, json_name: "joinedGroupCount"
+end
+
 defmodule Google.Chat.V1.Space.AccessSettings do
   @moduledoc false
 
@@ -100,7 +109,17 @@ defmodule Google.Chat.V1.Space do
     json_name: "createTime",
     deprecated: false
 
+  field :last_active_time, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastActiveTime",
+    deprecated: false
+
   field :admin_installed, 19, type: :bool, json_name: "adminInstalled", deprecated: false
+
+  field :membership_count, 20,
+    type: Google.Chat.V1.Space.MembershipCount,
+    json_name: "membershipCount",
+    deprecated: false
 
   field :access_settings, 23,
     type: Google.Chat.V1.Space.AccessSettings,
@@ -144,6 +163,7 @@ defmodule Google.Chat.V1.GetSpaceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.FindDirectMessageRequest do
@@ -161,6 +181,29 @@ defmodule Google.Chat.V1.UpdateSpaceRequest do
 
   field :space, 1, type: Google.Chat.V1.Space, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess"
+end
+
+defmodule Google.Chat.V1.SearchSpacesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :use_admin_access, 1, type: :bool, json_name: "useAdminAccess"
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :query, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Chat.V1.SearchSpacesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :spaces, 1, repeated: true, type: Google.Chat.V1.Space
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :total_size, 3, type: :int32, json_name: "totalSize"
 end
 
 defmodule Google.Chat.V1.DeleteSpaceRequest do
@@ -169,6 +212,7 @@ defmodule Google.Chat.V1.DeleteSpaceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.CompleteImportSpaceRequest do

@@ -50,6 +50,7 @@ defmodule Google.Chat.V1.CreateMembershipRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :membership, 2, type: Google.Chat.V1.Membership, deprecated: false
+  field :use_admin_access, 5, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.UpdateMembershipRequest do
@@ -63,6 +64,8 @@ defmodule Google.Chat.V1.UpdateMembershipRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "updateMask",
     deprecated: false
+
+  field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.ListMembershipsRequest do
@@ -76,6 +79,7 @@ defmodule Google.Chat.V1.ListMembershipsRequest do
   field :filter, 5, type: :string, deprecated: false
   field :show_groups, 6, type: :bool, json_name: "showGroups", deprecated: false
   field :show_invited, 7, type: :bool, json_name: "showInvited", deprecated: false
+  field :use_admin_access, 8, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.ListMembershipsResponse do
@@ -93,6 +97,7 @@ defmodule Google.Chat.V1.GetMembershipRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess"
 end
 
 defmodule Google.Chat.V1.DeleteMembershipRequest do
@@ -101,4 +106,5 @@ defmodule Google.Chat.V1.DeleteMembershipRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
 end

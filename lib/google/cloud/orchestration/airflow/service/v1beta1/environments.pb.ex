@@ -1183,6 +1183,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment do
     deprecated: false
 
   field :satisfies_pzs, 8, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 10, type: :bool, json_name: "satisfiesPzi", deprecated: false
 
   field :storage_config, 9,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.StorageConfig,
