@@ -8,6 +8,7 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.PartnerPermissions.Permission do
   field :ASSURED_WORKLOADS_MONITORING, 2
   field :ACCESS_APPROVAL_REQUESTS, 3
   field :ASSURED_WORKLOADS_EKM_CONNECTION_STATUS, 4
+  field :ACCESS_TRANSPARENCY_LOGS_SUPPORT_CASE_VIEWER, 5
 end
 
 defmodule Google.Cloud.Cloudcontrolspartner.V1.PartnerPermissions do

@@ -29,6 +29,16 @@ defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode do
   field :PROJECT_SINGLETON_POLICY_ENFORCE, 2
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig.VulnerabilityMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :VULNERABILITY_MODE_UNSPECIFIED, 0
+  field :VULNERABILITY_DISABLED, 1
+  field :VULNERABILITY_ENTERPRISE, 2
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.Jwk do
   @moduledoc false
 
@@ -99,6 +109,41 @@ defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint do
     deprecated: false
 end
 
+defmodule Google.Cloud.Gkemulticloud.V1.NodeKubeletConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :insecure_kubelet_readonly_port_enabled, 1,
+    type: :bool,
+    json_name: "insecureKubeletReadonlyPortEnabled",
+    deprecated: false
+
+  field :cpu_manager_policy, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "cpuManagerPolicy",
+    deprecated: false
+
+  field :cpu_cfs_quota, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "cpuCfsQuota",
+    deprecated: false
+
+  field :cpu_cfs_quota_period, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "cpuCfsQuotaPeriod",
+    deprecated: false
+
+  field :pod_pids_limit, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "podPidsLimit",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Gkemulticloud.V1.Fleet do
   @moduledoc false
 
@@ -156,5 +201,16 @@ defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization do
   field :evaluation_mode, 1,
     type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode,
     json_name: "evaluationMode",
+    enum: true
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :vulnerability_mode, 1,
+    type: Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig.VulnerabilityMode,
+    json_name: "vulnerabilityMode",
     enum: true
 end

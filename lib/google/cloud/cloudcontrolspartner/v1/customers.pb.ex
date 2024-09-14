@@ -14,13 +14,14 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.Customer do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :display_name, 2, type: :string, json_name: "displayName"
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
 
   field :customer_onboarding_state, 3,
     type: Google.Cloud.Cloudcontrolspartner.V1.CustomerOnboardingState,
-    json_name: "customerOnboardingState"
+    json_name: "customerOnboardingState",
+    deprecated: false
 
-  field :is_onboarded, 4, type: :bool, json_name: "isOnboarded"
+  field :is_onboarded, 4, type: :bool, json_name: "isOnboarded", deprecated: false
 end
 
 defmodule Google.Cloud.Cloudcontrolspartner.V1.ListCustomersRequest do

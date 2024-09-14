@@ -278,6 +278,7 @@ defmodule Google.Cloud.Netapp.V1.Volume do
 
   field :replica_zone, 36, type: :string, json_name: "replicaZone", deprecated: false
   field :zone, 37, type: :string, deprecated: false
+  field :cold_tier_size_gib, 39, type: :int64, json_name: "coldTierSizeGib", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
