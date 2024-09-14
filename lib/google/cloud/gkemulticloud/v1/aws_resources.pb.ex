@@ -372,6 +372,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AwsNodePool do
 
   field :management, 30, type: Google.Cloud.Gkemulticloud.V1.AwsNodeManagement, deprecated: false
 
+  field :kubelet_config, 31,
+    type: Google.Cloud.Gkemulticloud.V1.NodeKubeletConfig,
+    json_name: "kubeletConfig",
+    deprecated: false
+
   field :update_settings, 32,
     type: Google.Cloud.Gkemulticloud.V1.UpdateSettings,
     json_name: "updateSettings",

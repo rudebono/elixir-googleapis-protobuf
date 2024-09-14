@@ -85,6 +85,14 @@ defmodule Google.Cloud.Netapp.V1.DeleteStoragePoolRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Netapp.V1.SwitchActiveReplicaZoneRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Netapp.V1.StoragePool.LabelsEntry do
   @moduledoc false
 
@@ -144,6 +152,7 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
     json_name: "globalAccessAllowed",
     deprecated: true
 
+  field :allow_auto_tiering, 18, type: :bool, json_name: "allowAutoTiering", deprecated: false
   field :replica_zone, 20, type: :string, json_name: "replicaZone", deprecated: false
   field :zone, 21, type: :string, deprecated: false
 end

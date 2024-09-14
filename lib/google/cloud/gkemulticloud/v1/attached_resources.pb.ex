@@ -99,6 +99,11 @@ defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster do
     type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization,
     json_name: "binaryAuthorization",
     deprecated: false
+
+  field :security_posture_config, 26,
+    type: Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig,
+    json_name: "securityPostureConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClustersAuthorization do

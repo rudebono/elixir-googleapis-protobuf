@@ -46,6 +46,10 @@ defmodule Google.Cloud.Netapp.V1.NetApp.Service do
       Google.Cloud.Netapp.V1.DeleteStoragePoolRequest,
       Google.Longrunning.Operation
 
+  rpc :SwitchActiveReplicaZone,
+      Google.Cloud.Netapp.V1.SwitchActiveReplicaZoneRequest,
+      Google.Longrunning.Operation
+
   rpc :ListVolumes,
       Google.Cloud.Netapp.V1.ListVolumesRequest,
       Google.Cloud.Netapp.V1.ListVolumesResponse
