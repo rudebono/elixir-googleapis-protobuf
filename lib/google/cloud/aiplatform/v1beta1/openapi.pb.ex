@@ -43,6 +43,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema do
     map: true,
     deprecated: false
 
+  field :property_ordering, 25,
+    repeated: true,
+    type: :string,
+    json_name: "propertyOrdering",
+    deprecated: false
+
   field :required, 5, repeated: true, type: :string, deprecated: false
   field :min_properties, 14, type: :int64, json_name: "minProperties", deprecated: false
   field :max_properties, 15, type: :int64, json_name: "maxProperties", deprecated: false
