@@ -8,6 +8,17 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.PowerSupply do
   field :POWER_SUPPLY_DC, 2
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Entity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ENTITY_UNSPECIFIED, 0
+  field :GOOGLE, 1
+  field :CUSTOMER, 2
+  field :VENDOR, 3
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.State do
   @moduledoc false
 
@@ -16,6 +27,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.State do
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
   field :SUBMITTED, 2
+  field :INFO_COMPLETE, 12
   field :ACCEPTED, 3
   field :ADDITIONAL_INFO_NEEDED, 4
   field :BUILDING, 5
@@ -138,6 +150,19 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareInstallationInfo.Ra
   field :RACK_TYPE_UNSPECIFIED, 0
   field :TWO_POST, 1
   field :FOUR_POST, 2
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig.SubscriptionState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :SUBSCRIPTION_STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :INACTIVE, 2
+  field :ERROR, 3
+  field :FAILED_TO_RETRIEVE, 4
+  field :COMPLETED, 5
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.LabelsEntry do
@@ -266,6 +291,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Site do
     deprecated: false
 
   field :notes, 27, type: :string, deprecated: false
+  field :customer_site_id, 28, type: :string, json_name: "customerSiteId", deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup.LabelsEntry do
@@ -426,6 +452,17 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Comment do
 
   field :author, 4, type: :string, deprecated: false
   field :text, 5, type: :string, deprecated: false
+
+  field :customer_viewed_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "customerViewedTime",
+    deprecated: false
+
+  field :author_entity, 7,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Entity,
+    json_name: "authorEntity",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ChangeLogEntry.LabelsEntry do
@@ -547,6 +584,12 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone do
     deprecated: false
 
   field :globally_unique_id, 12, type: :string, json_name: "globallyUniqueId", deprecated: false
+
+  field :subscription_configs, 13,
+    repeated: true,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig,
+    json_name: "subscriptionConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OrganizationContact do
@@ -776,5 +819,19 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareLocation do
     repeated: true,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.RackSpace,
     json_name: "rackSpace",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :subscription_id, 1, type: :string, json_name: "subscriptionId", deprecated: false
+  field :billing_id, 2, type: :string, json_name: "billingId", deprecated: false
+
+  field :state, 3,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig.SubscriptionState,
+    enum: true,
     deprecated: false
 end
