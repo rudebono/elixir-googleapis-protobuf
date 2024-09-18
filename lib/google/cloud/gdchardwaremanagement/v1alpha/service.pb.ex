@@ -1,9 +1,30 @@
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :INFO_PENDING, 1
+  field :INFO_COMPLETE, 2
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest.ActionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :ACTION_TYPE_UNSPECIFIED, 0
+  field :READ, 1
+  field :UNREAD, 2
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.StateSignal do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :STATE_SIGNAL_UNSPECIFIED, 0
+  field :FACTORY_TURNUP_CHECKS_PASSED, 1
   field :READY_FOR_SITE_TURNUP, 1
   field :FACTORY_TURNUP_CHECKS_FAILED, 2
 end
@@ -80,6 +101,11 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+
+  field :type, 3,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest.Type,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSitesRequest do
@@ -316,6 +342,20 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateCommentRequest do
   field :comment_id, 2, type: :string, json_name: "commentId", deprecated: false
   field :comment, 3, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Comment, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :action_type, 2,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest.ActionType,
+    json_name: "actionType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListChangeLogEntriesRequest do
@@ -582,6 +622,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
   rpc :CreateComment,
       Google.Cloud.Gdchardwaremanagement.V1alpha.CreateCommentRequest,
       Google.Longrunning.Operation
+
+  rpc :RecordActionOnComment,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.Comment
 
   rpc :ListChangeLogEntries,
       Google.Cloud.Gdchardwaremanagement.V1alpha.ListChangeLogEntriesRequest,

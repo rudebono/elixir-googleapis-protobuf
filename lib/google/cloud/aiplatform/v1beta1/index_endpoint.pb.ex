@@ -121,6 +121,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
     deprecated: false
 
   field :deployment_group, 11, type: :string, json_name: "deploymentGroup", deprecated: false
+
+  field :psc_automation_configs, 19,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PSCAutomationConfig,
+    json_name: "pscAutomationConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider do
