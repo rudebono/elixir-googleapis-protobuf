@@ -162,6 +162,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
 
   field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :original_pipeline_job_id, 29,
+    type: :int64,
+    json_name: "originalPipelineJobId",
+    deprecated: false
+
+  field :pipeline_task_rerun_configs, 30,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig,
+    json_name: "pipelineTaskRerunConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTemplateMetadata do
@@ -341,5 +352,73 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail do
     type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskExecutorDetail.CustomJobDetail,
     json_name: "customJobDetail",
     oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.ArtifactList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :artifacts, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.RuntimeArtifact,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs.ArtifactsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.ArtifactList
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs.ParameterValuesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Protobuf.Value
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :artifacts, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs.ArtifactsEntry,
+    map: true,
+    deprecated: false
+
+  field :parameter_values, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs.ParameterValuesEntry,
+    json_name: "parameterValues",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :task_id, 1, type: :int64, json_name: "taskId", deprecated: false
+  field :task_name, 2, type: :string, json_name: "taskName", deprecated: false
+
+  field :inputs, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineTaskRerunConfig.Inputs,
+    deprecated: false
+
+  field :skip_task, 4, type: :bool, json_name: "skipTask", deprecated: false
+
+  field :skip_downstream_tasks, 5,
+    type: :bool,
+    json_name: "skipDownstreamTasks",
     deprecated: false
 end

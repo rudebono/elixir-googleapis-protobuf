@@ -18,6 +18,31 @@ defmodule Google.Maps.Places.V1.SearchTextRequest.RankPreference do
   field :RELEVANCE, 2
 end
 
+defmodule Google.Maps.Places.V1.RoutingParameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :origin, 1, type: Google.Type.LatLng, deprecated: false
+
+  field :travel_mode, 2,
+    type: Google.Maps.Places.V1.TravelMode,
+    json_name: "travelMode",
+    enum: true,
+    deprecated: false
+
+  field :route_modifiers, 3,
+    type: Google.Maps.Places.V1.RouteModifiers,
+    json_name: "routeModifiers",
+    deprecated: false
+
+  field :routing_preference, 4,
+    type: Google.Maps.Places.V1.RoutingPreference,
+    json_name: "routingPreference",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Maps.Places.V1.SearchNearbyRequest.LocationRestriction do
   @moduledoc false
 
@@ -59,6 +84,11 @@ defmodule Google.Maps.Places.V1.SearchNearbyRequest do
     type: Google.Maps.Places.V1.SearchNearbyRequest.RankPreference,
     json_name: "rankPreference",
     enum: true
+
+  field :routing_parameters, 10,
+    type: Google.Maps.Places.V1.RoutingParameters,
+    json_name: "routingParameters",
+    deprecated: false
 end
 
 defmodule Google.Maps.Places.V1.SearchNearbyResponse do
@@ -67,6 +97,11 @@ defmodule Google.Maps.Places.V1.SearchNearbyResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :places, 1, repeated: true, type: Google.Maps.Places.V1.Place
+
+  field :routing_summaries, 2,
+    repeated: true,
+    type: Google.Maps.Places.V1.RoutingSummary,
+    json_name: "routingSummaries"
 end
 
 defmodule Google.Maps.Places.V1.SearchTextRequest.LocationBias do
@@ -108,6 +143,14 @@ defmodule Google.Maps.Places.V1.SearchTextRequest.EVOptions do
     deprecated: false
 end
 
+defmodule Google.Maps.Places.V1.SearchTextRequest.SearchAlongRouteParameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :polyline, 1, type: Google.Maps.Places.V1.Polyline, deprecated: false
+end
+
 defmodule Google.Maps.Places.V1.SearchTextRequest do
   @moduledoc false
 
@@ -147,6 +190,16 @@ defmodule Google.Maps.Places.V1.SearchTextRequest do
     type: Google.Maps.Places.V1.SearchTextRequest.EVOptions,
     json_name: "evOptions",
     deprecated: false
+
+  field :routing_parameters, 16,
+    type: Google.Maps.Places.V1.RoutingParameters,
+    json_name: "routingParameters",
+    deprecated: false
+
+  field :search_along_route_parameters, 17,
+    type: Google.Maps.Places.V1.SearchTextRequest.SearchAlongRouteParameters,
+    json_name: "searchAlongRouteParameters",
+    deprecated: false
 end
 
 defmodule Google.Maps.Places.V1.SearchTextResponse do
@@ -155,6 +208,11 @@ defmodule Google.Maps.Places.V1.SearchTextResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :places, 1, repeated: true, type: Google.Maps.Places.V1.Place
+
+  field :routing_summaries, 2,
+    repeated: true,
+    type: Google.Maps.Places.V1.RoutingSummary,
+    json_name: "routingSummaries"
 
   field :contextual_contents, 3,
     repeated: true,
