@@ -81,6 +81,8 @@ defmodule Google.Cloud.Abuseevent.Logging.V1.CryptoMiningEvent do
   field :detected_mining_end_time, 3,
     type: Google.Protobuf.Timestamp,
     json_name: "detectedMiningEndTime"
+
+  field :vm_ip, 4, repeated: true, type: :string, json_name: "vmIp", deprecated: false
 end
 
 defmodule Google.Cloud.Abuseevent.Logging.V1.LeakedCredentialEvent do

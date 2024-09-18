@@ -140,58 +140,6 @@ defmodule Google.Storage.V2.UpdateBucketRequest do
     deprecated: false
 end
 
-defmodule Google.Storage.V2.DeleteNotificationConfigRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Storage.V2.GetNotificationConfigRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Storage.V2.CreateNotificationConfigRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-
-  field :notification_config, 2,
-    type: Google.Storage.V2.NotificationConfig,
-    json_name: "notificationConfig",
-    deprecated: false
-end
-
-defmodule Google.Storage.V2.ListNotificationConfigsRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-end
-
-defmodule Google.Storage.V2.ListNotificationConfigsResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :notification_configs, 1,
-    repeated: true,
-    type: Google.Storage.V2.NotificationConfig,
-    json_name: "notificationConfigs"
-
-  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
 defmodule Google.Storage.V2.ComposeObjectRequest.SourceObject.ObjectPreconditions do
   @moduledoc false
 
@@ -777,6 +725,14 @@ defmodule Google.Storage.V2.GetServiceAccountRequest do
   field :project, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Storage.V2.ServiceAccount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :email_address, 1, type: :string, json_name: "emailAddress"
+end
+
 defmodule Google.Storage.V2.CreateHmacKeyRequest do
   @moduledoc false
 
@@ -853,6 +809,35 @@ defmodule Google.Storage.V2.UpdateHmacKeyRequest do
     deprecated: false
 
   field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Storage.V2.HmacKeyMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+  field :access_id, 2, type: :string, json_name: "accessId", deprecated: false
+  field :project, 3, type: :string, deprecated: false
+
+  field :service_account_email, 4,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
+
+  field :state, 5, type: :string, deprecated: false
+
+  field :create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :etag, 8, type: :string, deprecated: false
 end
 
 defmodule Google.Storage.V2.CommonObjectRequestParams do
@@ -1176,64 +1161,6 @@ defmodule Google.Storage.V2.ObjectChecksums do
   field :md5_hash, 2, type: :bytes, json_name: "md5Hash"
 end
 
-defmodule Google.Storage.V2.HmacKeyMetadata do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :id, 1, type: :string, deprecated: false
-  field :access_id, 2, type: :string, json_name: "accessId", deprecated: false
-  field :project, 3, type: :string, deprecated: false
-
-  field :service_account_email, 4,
-    type: :string,
-    json_name: "serviceAccountEmail",
-    deprecated: false
-
-  field :state, 5, type: :string
-
-  field :create_time, 6,
-    type: Google.Protobuf.Timestamp,
-    json_name: "createTime",
-    deprecated: false
-
-  field :update_time, 7,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
-  field :etag, 8, type: :string
-end
-
-defmodule Google.Storage.V2.NotificationConfig.CustomAttributesEntry do
-  @moduledoc false
-
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :key, 1, type: :string
-  field :value, 2, type: :string
-end
-
-defmodule Google.Storage.V2.NotificationConfig do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :topic, 2, type: :string, deprecated: false
-  field :etag, 7, type: :string
-  field :event_types, 3, repeated: true, type: :string, json_name: "eventTypes"
-
-  field :custom_attributes, 4,
-    repeated: true,
-    type: Google.Storage.V2.NotificationConfig.CustomAttributesEntry,
-    json_name: "customAttributes",
-    map: true
-
-  field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix"
-  field :payload_format, 6, type: :string, json_name: "payloadFormat", deprecated: false
-end
-
 defmodule Google.Storage.V2.CustomerEncryption do
   @moduledoc false
 
@@ -1361,14 +1288,6 @@ defmodule Google.Storage.V2.ProjectTeam do
   field :team, 2, type: :string
 end
 
-defmodule Google.Storage.V2.ServiceAccount do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
-
-  field :email_address, 1, type: :string, json_name: "emailAddress"
-end
-
 defmodule Google.Storage.V2.Owner do
   @moduledoc false
 
@@ -1386,6 +1305,88 @@ defmodule Google.Storage.V2.ContentRange do
   field :start, 1, type: :int64
   field :end, 2, type: :int64
   field :complete_length, 3, type: :int64, json_name: "completeLength"
+end
+
+defmodule Google.Storage.V2.DeleteNotificationConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Storage.V2.GetNotificationConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Storage.V2.CreateNotificationConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :notification_config, 2,
+    type: Google.Storage.V2.NotificationConfig,
+    json_name: "notificationConfig",
+    deprecated: false
+end
+
+defmodule Google.Storage.V2.ListNotificationConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Storage.V2.ListNotificationConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :notification_configs, 1,
+    repeated: true,
+    type: Google.Storage.V2.NotificationConfig,
+    json_name: "notificationConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Storage.V2.NotificationConfig.CustomAttributesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Storage.V2.NotificationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :topic, 2, type: :string, deprecated: false
+  field :etag, 7, type: :string, deprecated: false
+  field :event_types, 3, repeated: true, type: :string, json_name: "eventTypes", deprecated: false
+
+  field :custom_attributes, 4,
+    repeated: true,
+    type: Google.Storage.V2.NotificationConfig.CustomAttributesEntry,
+    json_name: "customAttributes",
+    map: true,
+    deprecated: false
+
+  field :object_name_prefix, 5, type: :string, json_name: "objectNamePrefix", deprecated: false
+  field :payload_format, 6, type: :string, json_name: "payloadFormat", deprecated: false
 end
 
 defmodule Google.Storage.V2.Storage.Service do
@@ -1414,22 +1415,6 @@ defmodule Google.Storage.V2.Storage.Service do
       Google.Iam.V1.TestIamPermissionsResponse
 
   rpc :UpdateBucket, Google.Storage.V2.UpdateBucketRequest, Google.Storage.V2.Bucket
-
-  rpc :DeleteNotificationConfig,
-      Google.Storage.V2.DeleteNotificationConfigRequest,
-      Google.Protobuf.Empty
-
-  rpc :GetNotificationConfig,
-      Google.Storage.V2.GetNotificationConfigRequest,
-      Google.Storage.V2.NotificationConfig
-
-  rpc :CreateNotificationConfig,
-      Google.Storage.V2.CreateNotificationConfigRequest,
-      Google.Storage.V2.NotificationConfig
-
-  rpc :ListNotificationConfigs,
-      Google.Storage.V2.ListNotificationConfigsRequest,
-      Google.Storage.V2.ListNotificationConfigsResponse
 
   rpc :ComposeObject, Google.Storage.V2.ComposeObjectRequest, Google.Storage.V2.Object
 
@@ -1484,6 +1469,22 @@ defmodule Google.Storage.V2.Storage.Service do
   rpc :ListHmacKeys, Google.Storage.V2.ListHmacKeysRequest, Google.Storage.V2.ListHmacKeysResponse
 
   rpc :UpdateHmacKey, Google.Storage.V2.UpdateHmacKeyRequest, Google.Storage.V2.HmacKeyMetadata
+
+  rpc :DeleteNotificationConfig,
+      Google.Storage.V2.DeleteNotificationConfigRequest,
+      Google.Protobuf.Empty
+
+  rpc :GetNotificationConfig,
+      Google.Storage.V2.GetNotificationConfigRequest,
+      Google.Storage.V2.NotificationConfig
+
+  rpc :CreateNotificationConfig,
+      Google.Storage.V2.CreateNotificationConfigRequest,
+      Google.Storage.V2.NotificationConfig
+
+  rpc :ListNotificationConfigs,
+      Google.Storage.V2.ListNotificationConfigsRequest,
+      Google.Storage.V2.ListNotificationConfigsResponse
 end
 
 defmodule Google.Storage.V2.Storage.Stub do

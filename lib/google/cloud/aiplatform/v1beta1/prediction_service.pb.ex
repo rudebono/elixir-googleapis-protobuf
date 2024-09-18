@@ -254,6 +254,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensRequest do
     deprecated: false
 
   field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
+
+  field :generation_config, 7,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig,
+    json_name: "generationConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
@@ -263,6 +269,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
   field :total_billable_characters, 2, type: :int32, json_name: "totalBillableCharacters"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
@@ -289,6 +304,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
   field :tool_config, 7,
     type: Google.Cloud.Aiplatform.V1beta1.ToolConfig,
     json_name: "toolConfig",
+    deprecated: false
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest.LabelsEntry,
+    map: true,
     deprecated: false
 
   field :safety_settings, 3,
