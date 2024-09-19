@@ -79,6 +79,7 @@ defmodule Google.Cloud.Bigquery.V2.IndexUnusedReason.Code do
   field :NOT_SUPPORTED_IN_STANDARD_EDITION, 17
   field :INDEX_SUPPRESSED_BY_FUNCTION_OPTION, 18
   field :QUERY_CACHE_HIT, 19
+  field :STALE_INDEX, 20
   field :INTERNAL_ERROR, 10
   field :OTHER_REASON, 16
 end

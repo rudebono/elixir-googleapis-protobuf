@@ -46,6 +46,8 @@ defmodule Google.Cloud.Kms.V1.ListKeyHandlesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 4, type: :string, deprecated: false
 end
 
@@ -58,6 +60,8 @@ defmodule Google.Cloud.Kms.V1.ListKeyHandlesResponse do
     repeated: true,
     type: Google.Cloud.Kms.V1.KeyHandle,
     json_name: "keyHandles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Cloud.Kms.V1.Autokey.Service do

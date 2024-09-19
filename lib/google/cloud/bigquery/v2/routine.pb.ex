@@ -235,7 +235,6 @@ defmodule Google.Cloud.Bigquery.V2.GetRoutineRequest do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :routine_id, 3, type: :string, json_name: "routineId", deprecated: false
-  field :read_mask, 4, type: Google.Protobuf.FieldMask, json_name: "readMask"
 end
 
 defmodule Google.Cloud.Bigquery.V2.InsertRoutineRequest do
@@ -290,7 +289,6 @@ defmodule Google.Cloud.Bigquery.V2.ListRoutinesRequest do
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :max_results, 3, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
   field :page_token, 4, type: :string, json_name: "pageToken"
-  field :read_mask, 5, type: Google.Protobuf.FieldMask, json_name: "readMask"
   field :filter, 6, type: :string
 end
 
