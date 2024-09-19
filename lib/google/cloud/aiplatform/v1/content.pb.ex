@@ -8,6 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1.HarmCategory do
   field :HARM_CATEGORY_DANGEROUS_CONTENT, 2
   field :HARM_CATEGORY_HARASSMENT, 3
   field :HARM_CATEGORY_SEXUALLY_EXPLICIT, 4
+  field :HARM_CATEGORY_CIVIC_INTEGRITY, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference do

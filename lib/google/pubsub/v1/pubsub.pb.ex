@@ -305,6 +305,15 @@ defmodule Google.Pubsub.V1.DetachSubscriptionResponse do
   use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
 end
 
+defmodule Google.Pubsub.V1.Subscription.AnalyticsHubSubscriptionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :listing, 1, type: :string, deprecated: false
+  field :subscription, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
   @moduledoc false
 
@@ -390,6 +399,11 @@ defmodule Google.Pubsub.V1.Subscription do
     deprecated: false
 
   field :state, 19, type: Google.Pubsub.V1.Subscription.State, enum: true, deprecated: false
+
+  field :analytics_hub_subscription_info, 23,
+    type: Google.Pubsub.V1.Subscription.AnalyticsHubSubscriptionInfo,
+    json_name: "analyticsHubSubscriptionInfo",
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.RetryPolicy do

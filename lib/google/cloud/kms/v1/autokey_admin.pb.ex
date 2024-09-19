@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Kms.V1.AutokeyConfig.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :KEY_PROJECT_DELETED, 2
+  field :UNINITIALIZED, 3
+end
+
 defmodule Google.Cloud.Kms.V1.UpdateAutokeyConfigRequest do
   @moduledoc false
 
@@ -29,6 +40,7 @@ defmodule Google.Cloud.Kms.V1.AutokeyConfig do
 
   field :name, 1, type: :string, deprecated: false
   field :key_project, 2, type: :string, json_name: "keyProject", deprecated: false
+  field :state, 4, type: Google.Cloud.Kms.V1.AutokeyConfig.State, enum: true, deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.ShowEffectiveAutokeyConfigRequest do

@@ -526,6 +526,29 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryCloudStorageConditions.CloudStorageBuck
   field :AUTOCLASS_ENABLED, 3
 end
 
+defmodule Google.Privacy.Dlp.V2.AmazonS3BucketConditions.BucketType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :TYPE_ALL_SUPPORTED, 1
+  field :TYPE_GENERAL_PURPOSE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.AmazonS3BucketConditions.ObjectStorageClass do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :ALL_SUPPORTED_CLASSES, 1
+  field :STANDARD, 2
+  field :STANDARD_INFREQUENT_ACCESS, 4
+  field :GLACIER_INSTANT_RETRIEVAL, 6
+  field :INTELLIGENT_TIERING, 7
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpJob.JobState do
   @moduledoc false
 
@@ -3151,6 +3174,18 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
     enum: true
 end
 
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.PublishToChronicle do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.PublishToSecurityCommandCenter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagCondition do
   @moduledoc false
 
@@ -3212,6 +3247,16 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction do
     json_name: "pubSubNotification",
     oneof: 0
 
+  field :publish_to_chronicle, 3,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.PublishToChronicle,
+    json_name: "publishToChronicle",
+    oneof: 0
+
+  field :publish_to_scc, 4,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.PublishToSecurityCommandCenter,
+    json_name: "publishToScc",
+    oneof: 0
+
   field :tag_resources, 8,
     type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources,
     json_name: "tagResources",
@@ -3225,6 +3270,11 @@ defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
 
   field :location, 1, type: Google.Privacy.Dlp.V2.DataProfileLocation
   field :project_id, 5, type: :string, json_name: "projectId"
+
+  field :other_cloud_starting_location, 8,
+    type: Google.Privacy.Dlp.V2.OtherCloudDiscoveryStartingLocation,
+    json_name: "otherCloudStartingLocation"
+
   field :inspect_templates, 7, repeated: true, type: :string, json_name: "inspectTemplates"
 
   field :data_profile_actions, 6,
@@ -3297,6 +3347,10 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryConfig do
     type: Google.Privacy.Dlp.V2.DiscoveryConfig.OrgConfig,
     json_name: "orgConfig"
 
+  field :other_cloud_starting_location, 12,
+    type: Google.Privacy.Dlp.V2.OtherCloudDiscoveryStartingLocation,
+    json_name: "otherCloudStartingLocation"
+
   field :inspect_templates, 3, repeated: true, type: :string, json_name: "inspectTemplates"
   field :actions, 4, repeated: true, type: Google.Privacy.Dlp.V2.DataProfileAction
   field :targets, 5, repeated: true, type: Google.Privacy.Dlp.V2.DiscoveryTarget
@@ -3348,6 +3402,11 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryTarget do
   field :cloud_storage_target, 4,
     type: Google.Privacy.Dlp.V2.CloudStorageDiscoveryTarget,
     json_name: "cloudStorageTarget",
+    oneof: 0
+
+  field :other_cloud_target, 5,
+    type: Google.Privacy.Dlp.V2.OtherCloudDiscoveryTarget,
+    json_name: "otherCloudTarget",
     oneof: 0
 end
 
@@ -3788,6 +3847,185 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryFileStoreConditions do
     deprecated: false
 end
 
+defmodule Google.Privacy.Dlp.V2.OtherCloudDiscoveryTarget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :cadence, 0
+
+  field :data_source_type, 1,
+    type: Google.Privacy.Dlp.V2.DataSourceType,
+    json_name: "dataSourceType",
+    deprecated: false
+
+  field :filter, 2, type: Google.Privacy.Dlp.V2.DiscoveryOtherCloudFilter, deprecated: false
+
+  field :conditions, 3,
+    type: Google.Privacy.Dlp.V2.DiscoveryOtherCloudConditions,
+    deprecated: false
+
+  field :generation_cadence, 4,
+    type: Google.Privacy.Dlp.V2.DiscoveryOtherCloudGenerationCadence,
+    json_name: "generationCadence",
+    oneof: 0
+
+  field :disabled, 5, type: Google.Privacy.Dlp.V2.Disabled, oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryOtherCloudFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :filter, 0
+
+  field :collection, 1, type: Google.Privacy.Dlp.V2.OtherCloudResourceCollection, oneof: 0
+
+  field :single_resource, 2,
+    type: Google.Privacy.Dlp.V2.OtherCloudSingleResourceReference,
+    json_name: "singleResource",
+    oneof: 0
+
+  field :others, 100, type: Google.Privacy.Dlp.V2.AllOtherResources, oneof: 0, deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudResourceCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :pattern, 0
+
+  field :include_regexes, 1,
+    type: Google.Privacy.Dlp.V2.OtherCloudResourceRegexes,
+    json_name: "includeRegexes",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudResourceRegexes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :patterns, 1, repeated: true, type: Google.Privacy.Dlp.V2.OtherCloudResourceRegex
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudResourceRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource_regex, 0
+
+  field :amazon_s3_bucket_regex, 1,
+    type: Google.Privacy.Dlp.V2.AmazonS3BucketRegex,
+    json_name: "amazonS3BucketRegex",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.AwsAccountRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :account_id_regex, 1, type: :string, json_name: "accountIdRegex", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.AmazonS3BucketRegex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :aws_account_regex, 1,
+    type: Google.Privacy.Dlp.V2.AwsAccountRegex,
+    json_name: "awsAccountRegex"
+
+  field :bucket_name_regex, 2, type: :string, json_name: "bucketNameRegex", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudSingleResourceReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :resource, 0
+
+  field :amazon_s3_bucket, 1,
+    type: Google.Privacy.Dlp.V2.AmazonS3Bucket,
+    json_name: "amazonS3Bucket",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.AwsAccount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :account_id, 1, type: :string, json_name: "accountId", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.AmazonS3Bucket do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :aws_account, 1, type: Google.Privacy.Dlp.V2.AwsAccount, json_name: "awsAccount"
+  field :bucket_name, 2, type: :string, json_name: "bucketName", deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryOtherCloudConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :conditions, 0
+
+  field :min_age, 1, type: Google.Protobuf.Duration, json_name: "minAge"
+
+  field :amazon_s3_bucket_conditions, 2,
+    type: Google.Privacy.Dlp.V2.AmazonS3BucketConditions,
+    json_name: "amazonS3BucketConditions",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.AmazonS3BucketConditions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :bucket_types, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.AmazonS3BucketConditions.BucketType,
+    json_name: "bucketTypes",
+    enum: true,
+    deprecated: false
+
+  field :object_storage_classes, 2,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.AmazonS3BucketConditions.ObjectStorageClass,
+    json_name: "objectStorageClasses",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.DiscoveryOtherCloudGenerationCadence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :refresh_frequency, 1,
+    type: Google.Privacy.Dlp.V2.DataProfileUpdateFrequency,
+    json_name: "refreshFrequency",
+    enum: true,
+    deprecated: false
+
+  field :inspect_template_modified_cadence, 2,
+    type: Google.Privacy.Dlp.V2.DiscoveryInspectTemplateModifiedCadence,
+    json_name: "inspectTemplateModifiedCadence",
+    deprecated: false
+end
+
 defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
   @moduledoc false
 
@@ -3797,6 +4035,34 @@ defmodule Google.Privacy.Dlp.V2.DiscoveryStartingLocation do
 
   field :organization_id, 1, type: :int64, json_name: "organizationId", oneof: 0
   field :folder_id, 2, type: :int64, json_name: "folderId", oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudDiscoveryStartingLocation.AwsDiscoveryStartingLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :scope, 0
+
+  field :account_id, 2, type: :string, json_name: "accountId", oneof: 0
+
+  field :all_asset_inventory_assets, 3,
+    type: :bool,
+    json_name: "allAssetInventoryAssets",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.OtherCloudDiscoveryStartingLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  oneof :location, 0
+
+  field :aws_location, 1,
+    type: Google.Privacy.Dlp.V2.OtherCloudDiscoveryStartingLocation.AwsDiscoveryStartingLocation,
+    json_name: "awsLocation",
+    oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.AllOtherResources do
