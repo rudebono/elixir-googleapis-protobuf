@@ -125,6 +125,34 @@ defmodule Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse do
   field :next_page_token, 2, proto3_optional: true, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Analytics.Data.V1alpha.GetPropertyQuotasSnapshotRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Data.V1alpha.PropertyQuotasSnapshot do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :name, 4, type: :string, deprecated: false
+
+  field :core_property_quota, 1,
+    type: Google.Analytics.Data.V1alpha.PropertyQuota,
+    json_name: "corePropertyQuota"
+
+  field :realtime_property_quota, 2,
+    type: Google.Analytics.Data.V1alpha.PropertyQuota,
+    json_name: "realtimePropertyQuota"
+
+  field :funnel_property_quota, 3,
+    type: Google.Analytics.Data.V1alpha.PropertyQuota,
+    json_name: "funnelPropertyQuota"
+end
+
 defmodule Google.Analytics.Data.V1alpha.GetAudienceListRequest do
   @moduledoc false
 
@@ -630,6 +658,10 @@ defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
   rpc :ListRecurringAudienceLists,
       Google.Analytics.Data.V1alpha.ListRecurringAudienceListsRequest,
       Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse
+
+  rpc :GetPropertyQuotasSnapshot,
+      Google.Analytics.Data.V1alpha.GetPropertyQuotasSnapshotRequest,
+      Google.Analytics.Data.V1alpha.PropertyQuotasSnapshot
 
   rpc :CreateReportTask,
       Google.Analytics.Data.V1alpha.CreateReportTaskRequest,

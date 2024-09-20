@@ -58,4 +58,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema do
   field :max_length, 19, type: :int64, json_name: "maxLength", deprecated: false
   field :pattern, 20, type: :string, deprecated: false
   field :example, 4, type: Google.Protobuf.Value, deprecated: false
+
+  field :any_of, 11,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Schema,
+    json_name: "anyOf",
+    deprecated: false
 end

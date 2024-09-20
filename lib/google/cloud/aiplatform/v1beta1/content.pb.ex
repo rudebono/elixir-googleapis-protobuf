@@ -234,6 +234,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     json_name: "stopSequences",
     deprecated: false
 
+  field :response_logprobs, 18,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "responseLogprobs",
+    deprecated: false
+
+  field :logprobs, 7, proto3_optional: true, type: :int32, deprecated: false
+
   field :presence_penalty, 8,
     proto3_optional: true,
     type: :float,
@@ -346,6 +354,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Candidate do
   field :content, 2, type: Google.Cloud.Aiplatform.V1beta1.Content, deprecated: false
   field :avg_logprobs, 9, type: :double, json_name: "avgLogprobs", deprecated: false
 
+  field :logprobs_result, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.LogprobsResult,
+    json_name: "logprobsResult",
+    deprecated: false
+
   field :finish_reason, 3,
     type: Google.Cloud.Aiplatform.V1beta1.Candidate.FinishReason,
     json_name: "finishReason",
@@ -373,6 +386,42 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Candidate do
     type: Google.Cloud.Aiplatform.V1beta1.GroundingMetadata,
     json_name: "groundingMetadata",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.LogprobsResult.Candidate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :token, 1, proto3_optional: true, type: :string
+  field :token_id, 3, proto3_optional: true, type: :int32, json_name: "tokenId"
+  field :log_probability, 2, proto3_optional: true, type: :float, json_name: "logProbability"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.LogprobsResult.TopCandidates do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :candidates, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.LogprobsResult.Candidate
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.LogprobsResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+
+  field :top_candidates, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.LogprobsResult.TopCandidates,
+    json_name: "topCandidates"
+
+  field :chosen_candidates, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.LogprobsResult.Candidate,
+    json_name: "chosenCandidates"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Segment do
