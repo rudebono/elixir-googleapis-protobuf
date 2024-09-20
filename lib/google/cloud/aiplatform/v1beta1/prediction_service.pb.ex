@@ -372,6 +372,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse do
     type: Google.Cloud.Aiplatform.V1beta1.Candidate,
     deprecated: false
 
+  field :model_version, 11, type: :string, json_name: "modelVersion", deprecated: false
+
   field :prompt_feedback, 3,
     type: Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback,
     json_name: "promptFeedback",
